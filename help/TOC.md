@@ -1,0 +1,157 @@
+---
+user-guide-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
+user-guide-description: "Deze handleiding bevat instructies voor het gebruik van [!DNL Marketo] API's."
+breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
+role: Admin
+feature-set: "Marketo Engage"
+hide: true
+source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+workflow-type: tm+mt
+source-wordcount: '249'
+ht-degree: 1%
+
+---
+
+
+# [!DNL Marketo] Ontwikkelaar {#marketo}
+
+- [Home](home.md)
+- [Aan de slag](getting-started.md)
+- Javascript-API {#javascriptapi}
+   - [Configuratie](javascript-api/configuration.md)
+   - [Aangepaste gegevensgebeurtenissen](javascript-api/custom-data-events.md)
+   - [Voorbeelden](javascript-api/examples.md)
+   - [Forms API-naslag](javascript-api/forms-api-reference.md)
+   - [Bezoekergegevens ophalen](javascript-api/get-visitor-data.md)
+   - [Javascript-API](javascript-api/javascript-api.md)
+   - [Regelafstand bijhouden](javascript-api/lead-tracking.md)
+   - [Patroonovereenkomst](javascript-api/pattern-match.md)
+   - [Voorspelende inhoud](javascript-api/predictive-content.md)
+   - [Omleiding](javascript-api/redirect.md)
+   - [Rijke media Recommendations](javascript-api/rich-media-recommendation.md)
+   - [Social](javascript-api/social.md)
+   - [Triggers](javascript-api/triggers.md)
+   - [Webpersonalisatie](javascript-api/web-personalization.md)
+- Mobiel {#mobile}
+   - [Installeren [!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension-installation.md)
+   - [[!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension.md)
+   - [Geavanceerde beveiligingsmodus](mobile/advanced-security-access-mode.md)
+   - [Aangepaste handelingen](mobile/custom-actions.md)
+   - [Diepe koppelingen](mobile/enabling-deep-links-in-your-app.md)
+   - [In-app berichten](mobile/in-app-messages.md)
+   - [Installatie](mobile/installation.md)
+   - [Ionic](mobile/ionic.md)
+   - [Mobiel](mobile/mobile.md)
+   - [PhoneGap](mobile/phonegap.md)
+   - [Pushmeldingen](mobile/push-notifications.md)
+   - [Native reactie](mobile/react-native.md)
+   - [Gebruikersprofielen](mobile/user-profiles.md)
+- REST{#rest}
+   - [REST API](rest-api/rest-api.md)
+   - Activa {#assets}
+      - [Activa](rest-api/assets.md)
+      - [Dynamische inhoud](rest-api/dynamic-content.md)
+      - [E-mails](rest-api/emails.md)
+      - [E-mailsjablonen](rest-api/email-templates.md)
+      - [Bestanden](rest-api/files.md)
+      - [Mappen](rest-api/folders.md)
+      - [Forms](rest-api/forms.md)
+      - [Landingspagina&#39;s](rest-api/landing-pages.md)
+      - [Landingspagina-sjablonen](rest-api/landing-page-templates.md)
+      - [Regels voor omleiding van bestemmingspagina](rest-api/landing-page-redirect-rules.md)
+      - [Lijst met standaardvelden](rest-api/list-of-standard-fields.md)
+      - [Programma&#39;s](rest-api/programs.md)
+      - [Slimme campagnes](rest-api/smart-campaigns.md)
+      - [Slimme lijsten](rest-api/smart-lists.md)
+      - [Fragmenten](rest-api/snippets.md)
+      - [Statische lijsten](rest-api/static-lists.md)
+      - [Tokens](rest-api/tokens.md)
+      - [Transactionele e-mail](rest-api/transactional-email.md)
+   - [Verificatie](rest-api/authentication.md)
+   - [Verificatiehandtekening](rest-api/authentication-signature.md)
+   - [Basis-URL](rest-api/base-url.md)
+   - [Aanbevolen procedures](rest-api/marketo-integration-best-practices.md)
+   - Bulk extraheren {#bulk-extract}
+      - [Bulkactiviteit](rest-api/bulk-activity-extract.md)
+      - [Aangepast object bulksgewijs](rest-api/bulk-custom-object-extract.md)
+      - [Bulk extraheren](rest-api/bulk-extract.md)
+      - [Bulklood](rest-api/bulk-lead-extract.md)
+      - [Lid van het Bulkprogramma](rest-api/bulk-program-member-extract.md)
+   - Bulkimport {#bulk-import}
+      - [Aangepast object bulksgewijs](rest-api/bulk-custom-object-import.md)
+      - [Bulkimport](rest-api/bulk-import.md)
+      - [Bulklood](rest-api/bulk-lead-import.md)
+      - [Lid van het Bulkprogramma](rest-api/bulk-program-member-import.md)
+   - [Kanalen](rest-api/channels.md)
+   - [Aangepaste services](rest-api/custom-services.md)
+   - [Eindpuntverwijzing](rest-api/endpoint-reference.md)
+   - [Foutcodes](rest-api/error-codes.md)
+   - Database lead {#lead-database}
+      - [Bedrijven](rest-api/companies.md)
+      - [Veldlijst](rest-api/fields.md)
+      - [Veldtypen](rest-api/field-types.md)
+      - [Database lead](rest-api/lead-database.md)
+      - [Benoemde accounts](rest-api/named-accounts.md)
+      - [Lijsten met benoemde accounts](rest-api/named-account-lists.md)
+      - [Kansen](rest-api/opportunities.md)
+      - [Opportuniteitsrollen](rest-api/opportunity-roles.md)
+      - [Programmaleden](rest-api/program-members.md)
+      - [Verkopers](rest-api/sales-persons.md)
+   - [Pagingtokens](rest-api/paging-tokens.md)
+   - [Prestaties](rest-api/performance.md)
+   - [Referentiearchitecturen](rest-api/reference-architectures.md)
+   - [Voorbeeldcode](https://github.com/Marketo/REST-Sample-Code)
+   - [Tags](rest-api/tags.md)
+   - [Gebruikerscontext](rest-api/user-context.md)
+   - [Gebruikersbeheer](rest-api/user-management.md)
+- SOAP {#soap}
+   - Activiteiten {#activities}
+      - [Activiteiten](soap-api/activities.md)
+      - [getLeadActivity](soap-api/getleadactivity.md)
+      - [getLeadChanges](soap-api/getleadchanges.md)
+   - [Filters voor activiteitstypen](soap-api/activity-type-filters.md)
+   - [Verificatiehandtekening](soap-api/authentication-signature.md)
+   - Campagnes {#campaigns}
+      - [getCampaignsForSource](soap-api/getcampaignsforsource.md)
+      - [requestCampaign](soap-api/requestcampaign.md)
+      - [planningCampaign](soap-api/schedulecampaign.md)
+   - Aangepaste objecten {#custom-objects}
+      - [Aangepaste objecten](soap-api/custom-objects.md)
+      - [deleteCustomObjects](soap-api/deletecustomobjects.md)
+      - [getCustomObjects](soap-api/getcustomobjects.md)
+      - [syncCustomObjects](soap-api/synccustomobjects.md)
+   - [Foutcodes](soap-api/error-codes.md)
+   - Leads {#leads}
+      - [getLead](soap-api/getlead.md)
+      - [getMultipleLeads](soap-api/getmultipleleads.md)
+      - [mergeLeads](soap-api/mergeleads.md)
+      - [Leads](soap-api/leads.md)
+      - [syncLead](soap-api/synclead.md)
+      - [syncMultipleLeads](soap-api/syncmultipleleads.md)
+   - Marketo-objecten {#marketo-objects}
+      - [deleteMObjects](soap-api/deletemobjects.md)
+      - [describeMObjects](soap-api/describemobject.md)
+      - [getMObjects](soap-api/getmobjects.md)
+      - [listMObjects](soap-api/listmobjects.md)
+      - [Marketo-objecten](soap-api/marketo-objects.md)
+      - [syncMObjects](soap-api/syncmobjects.md)
+   - Programma&#39;s {#programs}
+      - [getChannels](soap-api/getchannels.md)
+      - [getTags](soap-api/gettags.md)
+   - [SOAP API](soap-api/soap-api.md)
+   - [Veelgestelde vragen over SOAP](soap-api/soap-faq.md)
+   - Statische lijsten {#static-lists}
+      - [getImportToListStatus](soap-api/getimporttoliststatus.md)
+      - [importToList](soap-api/importtolist.md)
+      - [listOperation](soap-api/listoperation.md)
+   - [Stroompositie](soap-api/stream-position.md)
+- Webhaken {#webhooks}
+   - [Fouten](webhooks/errors.md)
+   - [Responstoewijzingen](webhooks/response-mappings.md)
+   - [Webhaken](webhooks/webhooks.md)
+- [Clientbibliotheken](https://github.com/Marketo/Community-Supported-Client-Libraries)
+- [Gegevensstromen](data-streams.md)
+- [E-mailscripting](email-scripting.md)
+- [Licentie](api-license.md)
+- [Partnersandbox](partner-sandbox.md)
+- [Zelfbedieningsstroomstappen](self-service-flow-steps.md)
