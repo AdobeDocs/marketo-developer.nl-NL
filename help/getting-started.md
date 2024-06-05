@@ -1,17 +1,17 @@
 ---
 title: Aan de slag
-description: "Aan de slag met Marketo API's"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Aan de slag met Marketo Engage-API's
+exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
+source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
 workflow-type: tm+mt
-source-wordcount: '1239'
+source-wordcount: '1243'
 ht-degree: 0%
 
 ---
 
-
 # Aan de slag
 
-Marketo is een platform voor marketingautomatisering dat marketers in staat stelt gepersonaliseerde meerkanaalprogramma&#39;s en -campagnes te beheren voor vooruitzichten en klanten. Het Marketo-platform kan worden uitgebreid met behulp van integratiepunten. Hieronder vind je de kernentiteiten en hun relaties.
+Marketo Engage is een platform voor marketingautomatisering dat marketers in staat stelt gepersonaliseerde meerkanaalprogramma&#39;s en -campagnes te beheren voor vooruitzichten en klanten. Het platform van de Marketo Engage kan worden uitgebreid gebruikend integratiepunten. Hieronder vind je de kernentiteiten en hun relaties.
 
 De volgende objecten zijn niet beschikbaar via REST API als native synchronisatie is ingeschakeld: Bedrijf, Opportunity, Opportunity Role, Sales Person
 
@@ -19,7 +19,7 @@ De volgende objecten zijn niet beschikbaar via REST API als native synchronisati
 
 ## Persoon (leads)
 
-Mensen vormen de basis van elk platform voor marketingautomatisering. In Marketo worden alle niet-verkooppersoonrecords vanuit verkoopperspectief als leads aangeduid, ongeacht of ze zijn aangewezen als leads, vooruitzichten, verdachten, contactpersonen, enzovoort. Het hoofdobject wordt geleverd met een set [standaardvelden](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET) zoals e-mail, voornaam en achternaam. U kunt extra velden toevoegen aan het type hoofdobject om de typen informatie die aan records in het systeem zijn gekoppeld, uit te breiden. Aangepaste kenmerken kunnen worden gelezen en geschreven als standaardvelden. Een volledige lijst met velden is te vinden in de Marketo **[!UICONTROL Admin]** > **[!UICONTROL Field Management]** -menu. Leads worden in Marketo op unieke wijze geïdentificeerd door het id-veld. Andere unieke toetsen moeten extern van het systeem worden afgedwongen.
+Mensen vormen de basis van elk platform voor marketingautomatisering. In Marketo worden alle niet-verkooppersoonrecords vanuit verkoopoogpunt als leidraad aangeduid, ongeacht of zij als leidraad, perspectief, verdachte persoon, contactpersoon enzovoort zijn aangewezen. Het hoofdobject wordt geleverd met een set [standaardvelden](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET) zoals e-mail, voornaam en achternaam. U kunt extra velden toevoegen aan het type hoofdobject om de typen informatie die aan records in het systeem zijn gekoppeld, uit te breiden. Aangepaste kenmerken kunnen worden gelezen en geschreven als standaardvelden. Een volledige lijst met velden is te vinden in de Marketo **[!UICONTROL Admin]** > **[!UICONTROL Field Management]** -menu. Leads worden in Marketo op unieke wijze geïdentificeerd door het id-veld. Andere unieke toetsen moeten extern van het systeem worden afgedwongen.
 
 Verwante API&#39;s: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [SOAP](soap-api/leads.md), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
 
