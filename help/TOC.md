@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
+source-git-commit: 15ac16ab4f8153ee069335951a84cf1691469c6d
 workflow-type: tm+mt
-source-wordcount: '254'
+source-wordcount: '255'
 ht-degree: 1%
 
 ---
@@ -92,6 +92,7 @@ ht-degree: 1%
       - [Veldlijst](rest-api/fields.md)
       - [Veldtypen](rest-api/field-types.md)
       - [Database lead](rest-api/lead-database.md)
+      - [Leads](rest-api/leads.md)
       - [Benoemde accounts](rest-api/named-accounts.md)
       - [Lijsten met benoemde accounts](rest-api/named-account-lists.md)
       - [Kansen](rest-api/opportunities.md)
