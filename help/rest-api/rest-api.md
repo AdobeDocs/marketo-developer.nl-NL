@@ -1,14 +1,14 @@
 ---
-title: "REST API"
+title: REST API
 feature: REST API
-description: "REST API-overzicht"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: REST API-overzicht
+exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '643'
+source-wordcount: '626'
 ht-degree: 0%
 
 ---
-
 
 # REST API
 
@@ -30,15 +30,15 @@ Voor uw eerste oproep aan Marketo haalt u een lead record op. Als u met Marketo 
 
 ![Gebruikers en rollen voor beheerders](assets/admin-users-and-roles.png)
 
-Klik op de knop [!UICONTROL Roles] en vervolgens Nieuwe rol. Wijs ten minste de machtiging Alleen-lezen regel (of Alleen-lezen persoon) toe aan de rol in de API-groep Toegang. Geef deze een beschrijvende naam en klik op [!UICONTROL Create].
+Klik op de knop **[!UICONTROL Roles]** en vervolgens Nieuwe rol. Wijs ten minste de machtiging Alleen-lezen regel (of Alleen-lezen persoon) toe aan de rol in de API-groep Toegang. Geef deze een beschrijvende naam en klik op **[!UICONTROL Create]**.
 
 ![Nieuwe rol](assets/new-role.png)
 
-Ga nu terug naar het tabblad Gebruikers en klik op Nieuwe gebruiker uitnodigen. Geef uw gebruiker een beschrijvende naam die aangeeft dat het een API-gebruiker is, en een e-mailadres en klik op **[!UICONTROL Next]**.
+Nu terug naar de [!UICONTROL Users] en klik op **[!UICONTROL Invite New User]**. Geef uw gebruiker een beschrijvende naam die aangeeft dat het een API-gebruiker is, en een e-mailadres en klik op **[!UICONTROL Next]**.
 
 ![Nieuwe gebruikersgegevens](assets/new-user-info.png)
 
-Schakel vervolgens de optie Alleen API in en geef uw gebruiker de door u gemaakte API-rol en klik op **[!UICONTROL Next]**.
+Controleer vervolgens de [!UICONTROL API Only] en geef uw gebruiker de API-rol die u hebt gemaakt en klik op **[!UICONTROL Next]**.
 
 ![Nieuwe gebruikersmachtigingen](assets/new-user-permissions.png)
 
@@ -46,23 +46,23 @@ Als u het maken van de gebruiker wilt voltooien, klikt u op **[!UICONTROL Send]*
 
 ![Nieuw gebruikersbericht](assets/new-user-message.png)
 
-Ga vervolgens naar het menu Beheer en klik op **[!UICONTROL LaunchPoint]**.
+Ga vervolgens naar de [!UICONTROL Admin] menu en klik op **[!UICONTROL LaunchPoint]**.
 
 ![Launchpoint](assets/admin-launchpoint.png)
 
-Klik op het menu Nieuw en selecteer [!UICONTROL New Service]. Geef uw service een beschrijvende naam en selecteer &quot;Aangepast&quot; in het vervolgkeuzemenu Service. Geef het een beschrijving, dan selecteer uw nieuwe gebruiker van het API slechts drop-down menu van de Gebruiker en klik [!UICONTROL Create].
+Klik op de knop **[!UICONTROL New]** en selecteert u **[!UICONTROL New Service]**. Geef uw service een beschrijvende naam en selecteer **[!UICONTROL Custom]** van de [!UICONTROL Service] vervolgkeuzelijst. Geef het een beschrijving, dan selecteer uw nieuwe gebruiker van [!UICONTROL API Only User] vervolgkeuzemenu en klik op **[!UICONTROL Create]**.
 
 ![Nieuwe opstartservice](assets/admin-launchpoint-new-service.png)
 
-Klik de Details van de Mening voor uw nieuwe dienst om tot identiteitskaart van de Cliënt en Geheim van de Cliënt toegang te hebben. U kunt nu op de knop [!UICONTROL Get Token] om een toegangstoken te produceren die één uur geldig is. Sla het token voorlopig op in een notitie.
+Klikken **[!UICONTROL View Details]** voor uw nieuwe dienst om tot identiteitskaart van de Cliënt en Geheim van de Cliënt toegang te hebben. U kunt nu op de knop **[!UICONTROL Get Token]** om een toegangstoken te produceren die één uur geldig is. Sla het token voorlopig op in een notitie.
 
 ![Token ophalen](assets/get-token.png)
 
-Ga vervolgens naar het menu Beheer en vervolgens naar **[!UICONTROL Web Services]**.
+Ga vervolgens naar de **[!UICONTROL Admin]** menu, dan naar **[!UICONTROL Web Services]**.
 
 ![Webservices](assets/admin-web-services.png)
 
-Zoek het eindpunt in het vak REST API en sla het op in een notitie voor nu.
+Zoek de [!UICONTROL Endpoint] in het vak REST API en in een notitie opslaan voor nu.
 
 ![REST Endpoint](assets/admin-web-services-rest-endpoint-1.png)
 

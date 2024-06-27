@@ -1,10 +1,10 @@
 ---
 title: "Gegevensinname"
 description: "Overzicht van API voor gegevensinsluiting"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '952'
-ht-degree: 2%
+source-wordcount: '945'
+ht-degree: 3%
 
 ---
 
@@ -132,7 +132,7 @@ Eindpunt dat wordt gebruikt om persoonrecords bij te voegen.
 
 | Pad |
 |---|
-| /abonnements/{munchkinId}/personen |
+| `/subscriptions/{munchkinId}/persons` |
 
 | HeadersKey | Waarde |
 |---|---|
@@ -201,7 +201,7 @@ Eindpunt dat wordt gebruikt om aangepaste objectreeks bij te voegen.
 
 | Pad |
 |---|
-| /abonnements/{munchkinId}/customobjects/{customObjectAPIName} |
+| `/subscriptions/{munchkinId}/customobjects/{customObjectAPIName}` |
 
 Kopteksten
 
@@ -210,7 +210,13 @@ Kopteksten
 | Inhoudstype | application/json |
 | X-MKTO-User-Token | {accessToken} |
 
-Aanvragingsinstantie | Sleutel | Gegevenstype | Vereist | Waarde | Standaardwaarde | |—|—|—|—|—| | prioriteit | String | Nee | Prioriteit van het verzoek:normaal hoog | normaal | | dedupeBy | String | Nee | Attributen die moeten worden gededupliceerd op:dedupeFieldsmarttoGUID | dedupeFields | | customObjects | Array van object | Ja | Lijst met kenmerknaam-waardeparen voor het object. | - |
+Aanvragingsinstantie
+
+| Sleutel | Gegevenstype | Vereist | Waarde | Standaardwaarde |
+|---|---|---|---|---|
+| prioriteit | String | Nee | Prioriteit van het verzoek:normaal hoog | normaal |
+| dedupeBy | String | Nee | Attributen die moeten worden gededupliceerd op:dedupeFieldsmarttoGUID | dedupeFields |
+| customObjects | Array van object | Ja | Lijst met kenmerknaam-waardeparen voor het object. | - |
 
 | Machtiging |
 |---|

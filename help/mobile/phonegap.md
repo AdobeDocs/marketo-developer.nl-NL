@@ -1,14 +1,14 @@
 ---
-title: "PhoneGap"
-feature: "Mobile Marketing"
-description: "PhoneGap gebruiken met Marketo op mobiele apparaten"
-source-git-commit: 2e4eb416846de3ad62ff0626f536630278e1c0cd
+title: PhoneGap
+feature: Mobile Marketing
+description: PhoneGap gebruiken met Marketo op mobiele apparaten
+exl-id: 99f14c76-9438-4942-9309-643bca434d07
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '797'
 ht-degree: 0%
 
 ---
-
 
 # PhoneGap
 
@@ -48,7 +48,7 @@ Voer de volgende opdracht uit om de plug-in opnieuw toe te voegen:
 
 **Cordova versie 8.0.0 (Cordova@Android7.0.0) en hoger**
 
-Nadat het Cordova Android-platform is gemaakt, opent u de app met Android Studio en werkt u de update uit op `dirs` waarde van de `Marketo.gradle` bestand gevonden in het dialoogvenster `com.marketo.plugin` map.
+Als het Android-platform van Cordova is gemaakt, opent u de app met Android Studio en werkt u de update `dirs` waarde van de `Marketo.gradle` bestand gevonden in het dialoogvenster `com.marketo.plugin` map.
 
 ```
 repositories{    
@@ -67,13 +67,13 @@ Lijst met toegevoegde platforms controleren `$cordova platform ls`
 
 1. Firebase-app configureren op Firebase-console.
    1. Een project maken/toevoegen op [](https://console.firebase.google.com/)Firebase Console.
-      1. In de [Firebase-console](https://console.firebase.google.com/), selecteert u [!UICONTROL Add Project].
-      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer [!UICONTROL Add Firebase].
+      1. In de [Firebase-console](https://console.firebase.google.com/), selecteert u **[!UICONTROL Add Project]**.
+      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]**.
       1. Selecteer Firebase toevoegen aan uw Android-toepassing in het welkomstscherm van Firebase.
-      1. Geef uw pakketnaam en SHA-1 op en selecteer [!UICONTROL Add App]. Een nieuwe `google-services.json` bestand voor uw Firebase-app wordt gedownload.
-   1. Navigeer naar &#39;Projectinstellingen&#39; in projectoverzicht
-      1. Klik op het tabblad Algemeen. Download het bestand &#39;google-services.json&#39;.
-      1. Klik op het tabblad Cloud Messaging. Kopieer &#39;Serversleutel&#39; en &#39;Afzender-id&#39;. Geef deze &#39;Server Key&#39; en &#39;Sender ID&#39; op aan Marketo.
+      1. Geef uw pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]**. Een nieuwe `google-services.json` bestand voor uw Firebase-app wordt gedownload.
+   1. Navigeren naar **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
+      1. Klikken op **[!UICONTROL General]** tab. Download het bestand &#39;google-services.json&#39;.
+      1. Klikken op **[!UICONTROL Cloud Messaging]** tab. Kopiëren [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Geef deze [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] naar Marketo.
    1. FCM-wijzigingen configureren in PhoneGap-app
       1. Verplaats het gedownloade bestand &#39;google-services.json&#39; naar de hoofdmap van de module Phonegap-app
       1. Verwijder het bestand &#39;&#39;MyFirebaseInstanceIDService&#39;&#39; van de locatie `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (Verouderd)
@@ -148,7 +148,7 @@ sharedInstance.trackPushNotification(launchOptions)
 
 ### 5. Marketo Framework initialiseren
 
-Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de `onDeviceReady` in het JavaScript-hoofdbestand.
+Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de `onDeviceReady` in uw JavaScript-hoofdbestand.
 
 We moeten doorgeven `phonegap` als frameworktype voor PhoneGap-apps.
 
@@ -296,7 +296,7 @@ marketo.reportaction(
 
 ## Sessierapportage
 
-Bind de gebeurtenistypen &quot;pause&quot; en &quot;resume&quot;, zoals hieronder wordt weergegeven, om gebeurtenissen Start en Stop te melden.  Dit wordt gebruikt om de tijd te volgen die in uw mobiele toepassing wordt doorgebracht. Opmerking: dit is vereist in Android.
+Bind de gebeurtenistypen &quot;pause&quot; en &quot;resume&quot;, zoals hieronder wordt weergegeven, om gebeurtenissen Start en Stop te melden.  Dit wordt gebruikt om de tijd te volgen die in uw mobiele toepassing wordt doorgebracht. Opmerking: dit is verplicht in Android.
 
 ```
 //Add the following code in your www/js/index.js

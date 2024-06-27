@@ -1,30 +1,30 @@
 ---
-title: "Ionic"
-feature: "Mobile Marketing"
-description: "Ionic gebruiken met Marketo voor mobiele apparaten"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: '[!DNL Ionic]'
+feature: Mobile Marketing
+description: Gebruiken [!DNL Ionic] met Marketo voor mobiele apparaten
+exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '613'
+source-wordcount: '606'
 ht-degree: 0%
 
 ---
 
-
 # Ionic
 
-In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integreert. Ionische condensator wordt momenteel niet ondersteund.
+In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integreert. [!DNL Ionic] condensator wordt momenteel niet ondersteund.
 
 ## Vereisten
 
 1. [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
 1. Pushmeldingen instellen ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
-1. Installeren [Ionic](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. Installeren [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installatie-instructies
 
-### Insteekmodule Marketo Ionic instellen
+### Marketo instellen [!DNL Ionic] Insteekmodule
 
-1. Ervan uitgaande dat Cordova CLI is geïnstalleerd, gaat u naar de Ionic-toepassingsmap en voert u de volgende opdracht uit om de Marketo-insteekmodule aan uw toepassing toe te voegen:
+1. Ervan uitgaande dat Cordova CLI is geïnstalleerd, ga naar uw [!DNL Ionic] toepassingsmap en voer de volgende opdracht uit om de Marketo-insteekmodule aan uw toepassing toe te voegen:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### Marketo Framework initialiseren
 
-Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de `onDeviceReady` in het JavaScript-hoofdbestand.
+Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de `onDeviceReady` in uw JavaScript-hoofdbestand.
 
-U moet `ionicCordova` als kadertype voor Ionic Cordova Apps.
+U moet `ionicCordova` als kadertype voor [!DNL Ionic] Cordova Apps.
 
 #### Syntaxis
 
@@ -218,7 +218,7 @@ marketo.reportaction(
 
 ## Sessierapportage
 
-Bind de gebeurtenistypen &quot;pause&quot; en &quot;resume&quot;, zoals hieronder wordt weergegeven, om gebeurtenissen Start en Stop te melden. Dit wordt gebruikt om de tijd te volgen die in uw mobiele toepassing wordt doorgebracht. Opmerking: dit is vereist in Android.
+Bind de gebeurtenistypen &quot;pause&quot; en &quot;resume&quot;, zoals hieronder wordt weergegeven, om gebeurtenissen Start en Stop te melden. Dit wordt gebruikt om de tijd te volgen die in uw mobiele toepassing wordt doorgebracht. Opmerking: dit is verplicht in Android.
 
 ```javascript
 //Add the following code in your www/js/index.js

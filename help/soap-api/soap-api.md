@@ -1,18 +1,18 @@
 ---
-title: "SOAP API"
+title: SOAP API
 feature: SOAP
-description: "Overzicht Marketo SOAP"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Overzicht van Marketo SOAP
+exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '242'
+source-wordcount: '230'
 ht-degree: 0%
 
 ---
 
-
 # SOAP API
 
-De SOAP API is niet langer actief ontwikkeld. De aanroepen functioneren nog, maar onze ontwikkeling is gericht op [REST](https://developer.adobe.com/marketo-apis/) verder.
+De SOAP API wordt niet meer actief ontwikkeld. De aanroepen functioneren nog, maar onze ontwikkeling is gericht op [REST](https://developer.adobe.com/marketo-apis/) verder.
 
 Met de Marketo SOAP API kunnen entiteiten en gegevens die in Marketo zijn opgeslagen, worden gemaakt, opgehaald en verwijderd. U kunt de [Marketo-SOAP-SDK](https://github.com/Marketo/SOAP-API-Java-Client) op GitHub. Er zijn ook [clientbibliotheken](https://github.com/Marketo/Community-Supported-Client-Libraries) om u wat tijd te besparen.
 
@@ -20,9 +20,9 @@ Laatste API-versie: 3_1
 
 ## SOAP WSDL
 
-Om het document van SOAP WSDL terug te winnen, verkrijg uw Eindpunt van de ZEEP API van uw **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** -menu.
+Als u het SOAP WSDL-document wilt ophalen, vraagt u uw SOAP API-eindpunt op bij uw **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** -menu.
 
-![Eindpunt van SOAP](assets/endpoint-soap.png)
+![SOAP Eindpunt](assets/endpoint-soap.png)
 
 Uw WSDL-URL is:
 
@@ -38,12 +38,12 @@ Gebruik niet het eindpunt dat in WSDL wordt gedefinieerd. Elke Marketo-instantie
 
 Onze aanbeveling is dat de batchgrootten niet groter zijn dan 300. Grotere grootten worden niet ondersteund en kunnen leiden tot time-outs en in extreme gevallen tot een trage afhandeling.
 
-## SOAP API-instellingen in Marketo
+## API-instellingen SOAP in Marketo
 
-1. Ga naar de Admin sectie en klik de Diensten van het Web.
+1. Ga naar de **[!UICONTROL Admin]** sectie en klik op **[!UICONTROL Web Services]**.
 
 ![admin-web-services2](assets/admin-web-services2.png)
 
-1. Stel een geschikte coderingssleutel in, klik op &quot;Wijzigingen opslaan&quot; en gebruik de waarden voor het eindpunt van de SOAP API, de gebruikers-id en de coderingssleutel om de juiste waarden te genereren [handtekening voor verificatie](authentication-signature.md) voor elke SOAP API-aanroep.
+1. Stel de juiste [!UICONTROL Encryption Key], klikt u op **[!UICONTROL Save Changes]** en gebruik de SOAP-API [!UICONTROL Endpoint], [!UICONTROL User ID], en [!UICONTROL Encryption Key] waarden om de juiste waarden te genereren [handtekening voor verificatie](authentication-signature.md) voor elke SOAP API-aanroep.
 
 ![admin-web-services3](assets/admin-web-services3.png)

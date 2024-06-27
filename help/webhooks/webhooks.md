@@ -1,14 +1,14 @@
 ---
-title: "Webhooks"
+title: Webhaken
 feature: Webhooks
-description: "Overzicht van webhooks"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Overzicht van webhooks
+exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '581'
+source-wordcount: '562'
 ht-degree: 0%
 
 ---
-
 
 # Webhaken
 
@@ -20,12 +20,12 @@ Marketo staat het gebruik van Webhooks toe om met derdeWebservices te communicer
 
 Elke afzonderlijke webhaak heeft de volgende eigenschappen:
 
-- URL - Voer de URL in die u gebruikt om uw verzoek bij de webservice in te dienen.
-- Aanvraagtype - De HTTP-methode.
-- Payloadsjabloon - Voer de sjabloon in als u informatie in de tekst van de POST wilt verzenden. Gebruik elke gegevensindeling die HTTP-POST ondersteunt, inclusief XML, JSON of SOAP. De rangschikkingsindeling moet dubbele aanhalingstekens om tekenreeksen toestaan. Als u een token wilt invoegen in uw sjabloon, klikt u op Token invoegen.  Tekenreekstype-tokens worden automatisch tussen dubbele aanhalingstekens geplaatst.
-- Token-codering aanvragen - Als de tokenwaarden speciale tekens bevatten (zoals een en-teken &#39;&amp;&#39;), geeft u de indeling van uw aanvraag op (JSON of Form/URL). De juiste codering moet voor de hoofdtekst worden geselecteerd om ervoor te zorgen dat de Webhaak correct communiceert met de webservice.
-- Type van reactie - selecteer het formaat van de reactie die u van de dienst (JSON of XML) ontvangt. Het juiste reactietype moet zijn geselecteerd om de eigenschappen van het antwoord weer toe te wijzen aan loodvelden in Marketo
-- Aangepaste kopteksten - Toegang via Webhooks-handelingen -> Aangepaste koptekst instellen. Met dit menu kunt u een willekeurig aantal aangepaste sleutel-waardeparen als HTTP-koppen toevoegen.
+- [!UICONTROL URL] - Voer de URL in die u gebruikt om uw verzoek bij de webservice in te dienen.
+- [!UICONTROL Request Type] - De HTTP-methode.
+- [!UICONTROL Payload Template] - Als u informatie in de tekst van de POST wilt verzenden, voert u de sjabloon in. Gebruik elke gegevensindeling die HTTP-POST ondersteunt, inclusief XML, JSON of SOAP. De rangschikkingsindeling moet dubbele aanhalingstekens om tekenreeksen toestaan. Als u een token wilt invoegen in uw sjabloon, klikt u op **[!UICONTROL Insert Token]**.  Tekenreekstype-tokens worden automatisch tussen dubbele aanhalingstekens geplaatst.
+- [!UICONTROL Request Token Encoding] - Als de tokenwaarden speciale tekens bevatten (zoals een en-teken, &#39;&amp;&#39;), geeft u de indeling van uw aanvraag op (JSON of Form/Url). De juiste codering moet voor de hoofdtekst worden geselecteerd om ervoor te zorgen dat de Webhaak correct communiceert met de webservice.
+- [!UICONTROL Response Type] - Selecteer de indeling van de reactie die u van de service ontvangt (JSON of XML). Het juiste reactietype moet zijn geselecteerd om de eigenschappen van het antwoord weer toe te wijzen aan loodvelden in Marketo
+- [!UICONTROL Custom Headers] - Toegang verkregen via [!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header], staat dit menu de toevoeging van om het even welk aantal douane zeer belangrijk-Waarde paren als Kopballen van HTTP toe.
 
 Gegevens kunnen via webservicereacties naar leads worden geschreven [Responstoewijzingen](response-mappings.md)
 

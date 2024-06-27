@@ -1,14 +1,14 @@
 ---
-title: "[!DNLAdobe Launch] Extension Installation"
-feature: "Mobile Marketing"
-description: "[!DNL Adobe Launch] installatieoverzicht van extensie"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: '''[!DNL Adobe Launch] Installatie van extensie'
+feature: Mobile Marketing
+description: '''[!DNL Adobe Launch] overzicht van extensieinstallatie'
+exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '703'
+source-wordcount: '665'
 ht-degree: 0%
 
 ---
-
 
 # [!DNL Adobe Launch] Installatie van extensie
 
@@ -25,11 +25,11 @@ Installatie-instructies voor [!DNL Adobe Launch] Marketo-extensie De onderstaand
 
 ### Snelle overbruggingsheader instellen
 
-1. Ga naar Bestand > Nieuw > Bestand en selecteer Koptekstbestand.
+1. Ga naar [!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File] en selecteer **[!UICONTROL Header File]**.
 
 1. Geef het bestand de naam &quot;&lt;_ProjectName_>-Bridging-header&quot;.
 
-1. Ga naar Project > Doel > Build Settings > Swift Compiler > Code Generation. Voeg het volgende pad toe aan de koptekst voor Objectief overbruggen:
+1. Ga naar [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Build Settings] > [!UICONTROL Swift Compiler] > [!UICONTROL Code Generation]. Voeg het volgende pad toe aan de koptekst voor Objectief overbruggen:
 
 `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
@@ -63,7 +63,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ## iOS-testapparaten
 
-1. Selecteren [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Info] > URL-typen.
+1. Selecteren **[!UICONTROL Project]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL Types]**.
 1. Id toevoegen: ${PRODUCT_NAME}
 1. URL-schema&#39;s instellen: mkto-&lt;s_ecret key_=&quot;&quot;>
 1. Inclusief `application:openURL:sourceApplication:annotation:` tot `AppDelegate.m file` (doelstelling C)
@@ -151,25 +151,25 @@ Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `progu
 
 ## Ondersteuning voor Firebase Cloud Messaging
 
-De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabieler en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw ontwikkelaar van Android-apps bevat.
+De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabiel en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw Android-app-ontwikkelaar bevat.
 
-Ontwikkelaars van Android-apps kunnen nu direct Google gebruiken [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK.
+Ontwikkelaars van Android-apps kunnen nu rechtstreeks Google gebruiken [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK.
 
 ### FCM toevoegen aan uw toepassing
 
-1. De nieuwste Marketo Android-SDK integreren in Android App.  Stappen zijn beschikbaar op [GitHub](https://github.com/Marketo/android-sdk).
+1. De nieuwste Marketo Android SDK integreren in Android App.  Stappen zijn beschikbaar op [GitHub](https://github.com/Marketo/android-sdk).
 1. Firebase-app configureren op Firebase-console.
    1. Een project maken/toevoegen op [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
-      1. In de [Firebase-console](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), selecteert u [!UICONTROL Add Project].
-      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer [!UICONTROL Add Firebase].
-      1. Selecteer Firebase toevoegen aan uw Android-toepassing in het welkomstscherm van Firebase.
-      1. Geef uw pakketnaam en SHA-1 op en selecteer [!UICONTROL Add App]. Een nieuwe `google-services.json` bestand voor uw Firebase-app wordt gedownload.
-      1. Selecteren [!UICONTROL Continue] en volg de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
+      1. In de [Firebase-console](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), selecteert u **[!UICONTROL Add Project]**.
+      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]**.
+      1. Selecteer in het welkomstscherm van Firebase de optie **[!UICONTROL Add Firebase to your Android App]**.
+      1. Geef uw pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]**. Een nieuwe `google-services.json` bestand voor uw Firebase-app wordt gedownload.
+      1. Selecteren **[!UICONTROL Continue]** en volgt u de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
 
-   1. Navigeer naar &#39;Projectinstellingen&#39; in projectoverzicht
-      1. Klik op het tabblad Algemeen. Download de `google-services.json` bestand.
-      1. Klik op het tabblad Cloud Messaging. Kopieer &#39;Serversleutel&#39; en &#39;Afzender-id&#39;. Geef deze &#39;Server Key&#39; en &#39;Sender ID&#39; op aan Marketo.
-   1. FCM-wijzigingen configureren in Android-app
+   1. Navigeren naar **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
+      1. Klikken **[!UICONTROL General]** tab. Download de `google-services.json` bestand.
+      1. Klikken op **[!UICONTROL Cloud Messaging]** tab. Kopiëren [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Geef deze [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] naar Marketo.
+   1. FCM-wijzigingen configureren in Android App
       1. Schakel naar de projectweergave in Android Studio om de hoofdmap van uw project te bekijken
          1. De gedownloade `google-services.json` bestand in de hoofdmap van de Android-toepassingsmodule
          1. Op projectniveau `build.gradle` het volgende toevoegen:
@@ -192,7 +192,7 @@ Ontwikkelaars van Android-apps kunnen nu direct Google gebruiken [Firebase Cloud
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. Klik ten slotte op &quot;[!UICONTROL Sync now]&quot; in de balk die wordt weergegeven in de id
+         1. Tot slot klikt u op **[!UICONTROL Sync now]** in de balk die wordt weergegeven in de id
    1. Bewerk manifest van uw app De FCM SDK voegt automatisch alle vereiste machtigingen en de vereiste ontvangerfunctionaliteit toe. Zorg ervoor dat u de volgende verouderde (en mogelijk schadelijke) elementen uit het manifest van uw app verwijdert:
 
       ```xml
@@ -220,15 +220,15 @@ Veelgestelde vragen over ondersteuning voor Firebase Cloud Messaging.
 
 **V: Waar kan ik instructies vinden om bij te werken naar de nieuwste versie van de MME SDK?** Instructies vindt u op de Marketo Developer Site [HIER](installation.md).
 
-**V: Zal ik voor het bijwerken naar de nieuwste versie van de SDK een bijgewerkte versie van mijn Android-toepassing publiceren naar mijn bestaande gebruikers?** Nee.
+**V: Zal ik voor het bijwerken van de nieuwste versie van de SDK een bijgewerkte versie van mijn Android-toepassing publiceren naar mijn bestaande gebruikers?** Nee.
 
-**V: Hoe beïnvloedt dit de bestaande MME-klanten die Android-apps hebben gepubliceerd die zijn geïntegreerd met de Marketo Android SDK?** Ze kunnen een bestaande GCM-client-app op Android als volgt migreren naar Firebase Cloud Messaging (FCM):
+**V: Hoe beïnvloedt dit de bestaande MME-klanten die Android Apps hebben gepubliceerd die zijn geïntegreerd met Marketo Android SDK?** Ze kunnen een bestaande GCM-client-app op Android als volgt migreren naar Firebase Cloud Messaging (FCM):
 
-1. In de [Firebase-console](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), selecteert u [!UICONTROL Add Project].
+1. In de [Firebase-console](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), selecteert u **[!UICONTROL Add Project]**.
 1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]**.
 1. Selecteer in het welkomstscherm van Firebase de optie **[!UICONTROL Add Firebase to your Android App]**.
 1. Geef uw pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]**. Een nieuw Google-services.json-bestand voor uw
 1. Firebase-app wordt gedownload.
-1. Selecteren **[!UICONTROL Continue]** en volg de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
+1. Selecteren **[!UICONTROL Continue]** en volgt u de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
 
 **V: Kunnen we ons richten op de leads die gemaakt zijn met de oude Marketo SDK die de GCM App gebruikte?** Ja. Alle leads die met de Marketo SDK zijn gemaakt, kunnen worden verzonden voor de pushberichten.

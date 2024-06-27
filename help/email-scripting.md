@@ -1,14 +1,14 @@
 ---
-title: "E-mailscripting"
+title: E-mailscripting
 feature: Email Programs
-description: "Overzicht van e-mailscripts"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Overzicht van e-mailscripts
+exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '961'
+source-wordcount: '947'
 ht-degree: 0%
 
 ---
-
 
 # E-mailscripting
 
@@ -98,7 +98,7 @@ Het snelheidsscript wordt opgenomen in e-mailberichten met behulp van e-mailscri
 
 ![Scripttoken](assets/script-token.png)
 
-Van hier, kunt u de naam van het teken uitgeven, en de redacteur openen via Klik om optie uit te geven:
+Van hier, kunt u de naam van het teken uitgeven, en de redacteur openen via [!UICONTROL Click to Edit] optie:
 
 ![Script bewerken](assets/script-edit.png)
 
@@ -112,11 +112,11 @@ Als u uw script hebt gedefinieerd in een Program My Token, kunt u ernaar verwijz
 
 ![E-mailscript](assets/email-script-marketo-email.png)
 
-U kunt uw script testen met de e-mailactie &quot;Voorbeeld-e-mail verzenden&quot; in de Marketo-e-mailontwerper. Het script kan alleen correct worden verwerkt als u een bestaande lead selecteert om zich voor te doen in het veld Lead. Als u wilt testen met `$TriggerObject`kunt u het activeringsobject selecteren via de parameter &#39;Trigger&#39;. Hierbij worden de gegevens van het laatst bijgewerkte object van dat type gebruikt als de `$TriggerObject` variabele.
+U kunt uw script testen met de [!UICONTROL Send Sample Email] Handeling via e-mail in de Marketo-ontwerper. Als u het script op de juiste wijze wilt laten verwerken, moet u een bestaande lead selecteren om na te bootsen in het dialoogvenster [!UICONTROL Lead] veld. Als u wilt testen met `$TriggerObject`, kunt u het activeringsobject selecteren via het dialoogvenster [!UICONTROL Trigger] param. Hierbij worden de gegevens van het laatst bijgewerkte object van dat type gebruikt als de `$TriggerObject` variabele.
 
 ![E-mailscript testen](assets/velocity-test.png)
 
-U kunt ook de e-mailvoorvertoning gebruiken om uw script te testen. U doet dit door Weergeven als: gegevens lead te selecteren en een lead te selecteren in een beschikbare statische lijst. Dit heeft het extra voordeel om het even welke uitzonderingen uit te voeren die tijdens manuscriptuitvoering kunnen zijn voorgekomen:
+U kunt ook de opdracht [!UICONTROL Email Preview] om het script te testen. Hiervoor moet u **[!UICONTROL View As: Lead Detail]** en selecteer een lead in een beschikbare statische lijst. Dit heeft het extra voordeel om het even welke uitzonderingen uit te voeren die tijdens manuscriptuitvoering kunnen zijn voorgekomen:
 
 ![E-mail weergeven als](assets/view-as.png)
 
@@ -126,7 +126,7 @@ De gecombineerde lengte van alle e-mailscripttokens in een bepaalde e-mail mag n
 
 - De variabelen waarnaar in het e-mailscript wordt verwezen, moeten in Marketo aanwezig zijn op een van de objecten die beschikbaar zijn voor het script.
 - U kunt naar eerste en tweede niveaudouanevoorwerpen van verwijzingen voorzien die uit uw binnen geïntegreerde CRM voortkomen die direct met de Lood, of Contact, maar niet derdevoorwerpen van de Douane worden verbonden. Custom Objects may not be parent of the Lead or Company
-- Voor aangepaste Marketo-objecten kunt u naar aangepaste objecten op het tweede niveau verwijzen met de relatie Bovenliggend-Onderliggend. Bijvoorbeeld `Lead <- Parent <- Child`. U kunt niet naar aangepaste objecten op het tweede niveau verwijzen met de Edge-Bridge-relatie. bijv.  `Lead <- Bridge -> Edge`
+- Voor aangepaste Marketo-objecten kunt u naar aangepaste objecten op het tweede niveau verwijzen met de relatie Bovenliggend-Onderliggend. Bijvoorbeeld `Lead <- Parent <- Child`. U kunt niet verwijzen naar aangepaste objecten op het tweede niveau met Edge-Bridge relatie. bijv.  `Lead <- Bridge -> Edge`
 - U kunt naar aangepaste objecten verwijzen die zijn verbonden met een lead, contactpersoon of account, maar niet meer dan een account.
 - Naar aangepaste objecten kan slechts worden verwezen via één verbinding, lead, contactpersoon of account
 - U moet het vakje in de manuscriptredacteur voor de gebieden controleren u gebruikt of zij zullen niet verwerken
