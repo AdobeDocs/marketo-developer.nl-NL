@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 85062243d57a3fc6d15251163e926495858edf2a
 workflow-type: tm+mt
-source-wordcount: '231'
+source-wordcount: '234'
 ht-degree: 1%
 
 ---
@@ -85,6 +85,7 @@ ht-degree: 1%
       - [Lid van het Bulkprogramma](rest-api/bulk-program-member-import.md)
    - [Kanalen](rest-api/channels.md)
    - [Aangepaste services](rest-api/custom-services.md)
+   - [Definities van Swagger downloaden](rest-api/swagger.md)
    - [Eindpuntverwijzing](rest-api/endpoint-reference.md)
    - [Foutcodes](rest-api/error-codes.md)
    - Database lead {#lead-database}
