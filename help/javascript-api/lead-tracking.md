@@ -1,14 +1,14 @@
 ---
-title: "Regelafstand bijhouden"
-description: "API voor het bijhouden van leads"
+title: Regelafstand bijhouden
+description: API voor bijhouden van leads
 feature: Munchkin Tracking Code, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '766'
 ht-degree: 0%
 
 ---
-
 
 # API voor bijhouden van leads
 

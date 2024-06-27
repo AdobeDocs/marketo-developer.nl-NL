@@ -67,9 +67,9 @@ Een organisatie, ook wel een account in Marketo genoemd, verwijst naar de organi
 
 Verwante API&#39;s: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies), [SOAP](soap-api/leads.md)
 
-## Activa
+## Assets
 
-Elementen verwijzen naar bestemmingspagina&#39;s, e-mails, formulieren en afbeeldingen die in een programma worden gebruikt. Elementen kunnen lokaal zijn voor een bepaald programma of wereldwijd. Globale middelen zijn beschikbaar in elk programma.
+Assets verwijst naar bestemmingspagina&#39;s, e-mails, formulieren en afbeeldingen die in een programma worden gebruikt. Assets kan lokaal zijn voor een bepaald programma of wereldwijd. Globale middelen zijn beschikbaar in elk programma.
 
 Verwante API&#39;s: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
@@ -87,7 +87,7 @@ Verwante API&#39;s: [REST](https://developer.adobe.com/marketo-apis/api/asset/#t
 
 ## Aangepaste objecten
 
-Met een aangepast Marketo-object kunt u een een-op-veel- of een veel-op-veel-relatie (Edge-Bridge-Edge) maken tussen uw Marketo-leads en de aangepaste objectrapporten. Nadat u een aangepast Marketo-object hebt gemaakt en gepubliceerd, kunt u CRUD-bewerkingen op het aangepaste object uitvoeren via de Marketo API. Meer informatie over het maken van aangepaste objecten vindt u [hier](https://experienceleague.adobe.com/en/docs/marketo/using/home). Wanneer nieuwe records aan het aangepaste object worden toegevoegd, kunt u een trigger voor een slimme lijst gebruiken om te reageren. U kunt aangepaste objectgegevens ook als filter gebruiken in slimme lijsten (segmentatie) of in e-mails met [E-mailscripting](email-scripting.md).
+Met een aangepast Marketo-object kunt u een een-op-veel- of een veel-op-veel-relatie (Edge-Bridge-Edge) tot stand brengen tussen uw Marketo-leads en de aangepaste objectrapporten. Nadat u een aangepast Marketo-object hebt gemaakt en gepubliceerd, kunt u CRUD-bewerkingen op het aangepaste object uitvoeren via de Marketo API. Meer informatie over het maken van aangepaste objecten vindt u [hier](https://experienceleague.adobe.com/en/docs/marketo/using/home). Wanneer nieuwe records aan het aangepaste object worden toegevoegd, kunt u een trigger voor een slimme lijst gebruiken om te reageren. U kunt aangepaste objectgegevens ook als filter gebruiken in slimme lijsten (segmentatie) of in e-mails met [E-mailscripting](email-scripting.md).
 
 Verwante API&#39;s: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects), [SOAP](soap-api/custom-objects.md)
 
