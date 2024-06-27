@@ -1,16 +1,16 @@
 ---
-title: "React Native"
-feature: "Mobile Marketing"
-description: "React Native installeren voor Marketo"
-source-git-commit: 416044a6cce4dac229640058a9cb0013070c9d9c
+title: React Native
+feature: Mobile Marketing
+description: React Native voor Marketo installeren
+exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '822'
 ht-degree: 0%
 
 ---
 
-
-# Native reactie
+# React Native
 
 In dit artikel vindt u informatie over het installeren en instellen van een eigen SDK voor Marketo om uw mobiele app te integreren met ons platform.
 
@@ -20,7 +20,7 @@ In dit artikel vindt u informatie over het installeren en instellen van een eige
 
 ## SDK-integratie
 
-### Integratie van Android SDK
+### Android SDK-integratie
 
 **Instellen met Gradle**
 
@@ -47,7 +47,7 @@ Synchroniseer vervolgens uw project met de bestanden in de grijze ruimte.
 
 #### iOS SDK-integratie
 
-Alvorens u een brug voor uw Native project van het Reageren creeert, is het belangrijk om opstelling onze SDK in uw project van Xcode.
+Voordat u een bridge voor uw React Native-project maakt, is het belangrijk dat u onze SDK instelt in uw Xcode-project.
 
 **SDK-integratie - CocoaPods gebruiken**
 
@@ -81,11 +81,11 @@ Als u het wilt downloaden en installeren, start u een opdrachtregelterminal op u
 
 ## Installatie-instructies voor de native module
 
-Soms moet een Native-app React toegang krijgen tot een native platform-API die niet standaard beschikbaar is in JavaScript, bijvoorbeeld de native API&#39;s voor toegang tot Apple of Google Pay. Misschien wilt u sommige bestaande Objectc-, Swift-, Java- of C++-bibliotheken opnieuw gebruiken zonder dat u deze opnieuw moet implementeren in JavaScript, of u wilt krachtige, multi-threaded code schrijven voor bijvoorbeeld het verwerken van afbeeldingen.
+Soms moet een React Native-toepassing toegang krijgen tot een API van een native platform die niet standaard beschikbaar is in JavaScript, bijvoorbeeld de native API&#39;s voor toegang tot Apple of Google Pay. Misschien wilt u sommige bestaande Objectc-, Swift-, Java- of C++-bibliotheken opnieuw gebruiken zonder dat u deze opnieuw moet implementeren in JavaScript, of u wilt krachtige, multi-threaded code schrijven voor bijvoorbeeld het verwerken van afbeeldingen.
 
 Het NativeModule-systeem stelt instanties van Java/Objectieve C/C++ (native) klassen als JS-objecten beschikbaar voor JavaScript, zodat u willekeurige native code vanuit JS kunt uitvoeren. Hoewel we niet verwachten dat deze functie deel uitmaakt van het gebruikelijke ontwikkelingsproces, is het van essentieel belang dat deze bestaat. Als React Native geen native API exporteert die uw JS-app nodig heeft, kunt u deze zelf exporteren!
 
-Native bridge Reageren wordt gebruikt voor communicatie tussen de JSX- en native toepassingslagen. In ons geval kan de host-app de JSX-code schrijven die de methoden van de Marketo SDK kan aanroepen.
+React Native-bridge wordt gebruikt voor communicatie tussen de JSX- en native toepassingslagen. In ons geval kan de host-app de JSX-code schrijven die de methoden van de Marketo SDK kan aanroepen.
 
 ### Android
 
@@ -226,7 +226,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 In de volgende handleiding maakt u een native module. _RNMarketoModule_, zodat u vanuit JavaScript toegang krijgt tot API&#39;s voor Marketo.
 
-Om aan de slag te gaan, opent u het iOS-project in uw oorspronkelijke toepassing Reageren in Xcode. U vindt uw iOS-project hier in een Native-app React. We raden u aan Xcode te gebruiken om uw eigen code te schrijven. Xcode is gemaakt voor iOS-ontwikkeling en als u deze code gebruikt, kunt u snel kleinere fouten oplossen, zoals de syntaxis van code.
+Open om aan de slag te gaan het iOS-project in uw React Native-toepassing in Xcode. U vindt uw iOS-project hier in een React Native-app. We raden u aan Xcode te gebruiken om uw eigen code te schrijven. Xcode is gemaakt voor iOS-ontwikkeling en als u deze code gebruikt, kunt u snel kleinere fouten oplossen, zoals de syntaxis van code.
 
 Maak onze hoofd- en implementatiebestanden van de aangepaste native module. Een nieuw bestand maken met de naam `MktoBridge.h` en voeg er het volgende aan toe:
 
