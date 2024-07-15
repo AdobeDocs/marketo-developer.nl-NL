@@ -2,7 +2,7 @@
 title: Home
 description: Homepage van Marketo Engage API
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: c8de36d73ca2dc4ead29e6e25946bf138723e4b1
+source-git-commit: bc6b8fc84ec8d54d04d9b197b593e88a8170d148
 workflow-type: tm+mt
 source-wordcount: '128'
 ht-degree: 0%
@@ -17,35 +17,35 @@ Gedetailleerde documenten die u helpen de Marketo Engage-API te beheren
 <tbody>
 <tr>
 <td><img src="assets/Smock_Book_18_N.svg" alt="Aan de slag"></td>
-<td><a href="getting-started.md"><strong>Aan de slag</strong></a>  Krijg vertrouwd met Marketo Engage APIs.</td>
+<td><a href="getting-started.md"><strong> Begonnen krijgen </strong></a> vertrouwd met Marketo Engage APIs.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_Code_18_N.svg" alt="Clientbibliotheken"></td>
-<td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><strong>Clientbibliotheken</strong></a> Gebruik open-broncode om de mogelijkheden van Marketo Engage uit te breiden.</td>
+<td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><strong> Bibliotheken van de Cliënt </strong></a> Gebruik open broncode om de mogelijkheden van Marketo Engage uit te breiden.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_EmailGear_18_N.svg" alt="E-mailscripting"></td>
-<td><a href="rest-api/emails.md"><strong>E-mailscripting</strong></a> Gebruik Marketo Engage-API's om e-mails en e-mailsjablonen te maken en te bewerken.</td>
+<td><a href="email-scripting.md"><strong> E-mailScripting </strong></a> Gebruik Marketo Engage APIs om e-mail en e-mailmalplaatjes tot stand te brengen en uit te geven.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_PeopleGroup_18_N.svg" alt="Regelafstand bijhouden"></td>
-<td><a href="javascript-api/lead-tracking.md"><strong>Regelafstand bijhouden</strong></a> Beheer de leads van uw klant.</td>
+<td><a href="javascript-api/lead-tracking.md"><strong> Lood het Volgen </strong></a> beheert uw klantenlood.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_MobileServices_18_N.svg" alt="Mobile Marketo"></td>
-<td><a href="mobile/mobile.md"><strong>Mobile Marketo</strong></a> Gebruik Marketo Mobile om te luisteren naar en te reageren op klanten op hun mobiele apparaten.</td>
+<td><a href="mobile/mobile.md"><strong> Mobiele Marketo </strong></a> Gebruik Marketo Mobile om aan klanten op hun mobiele apparaten te luisteren en te antwoorden.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_AppleFiles_18_N.svg" alt="REST API's"></td>
-<td><a href="https://developer.adobe.com/marketo-apis/"><strong>REST API</strong></a> Lees, schrijf en werk uw Marketo's Engage gegevens bij via REST API.</td>
+<td><a href="https://developer.adobe.com/marketo-apis/"><strong> REST API </strong></a> leest, schrijft en werkt uw Marketo Engage gegevens door REST API bij.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_SocialNetwork_18_N.svg" alt="Webhaken"></td>
-<td><a href="webhooks/webhooks.md"><strong>Webhaken</strong></a> Communiceer met externe webservices met Webhooks.</td>
+<td><a href="webhooks/webhooks.md"><strong> Webhooks </strong></a> communiceren met de diensten van het derdeWeb met Webhooks.</td>
 </tr>
 <tr>
-<td><img src="assets/Smock_PersonalizationField_18_N.svg" alt="Webpersonalisatie"></td>
-<td><a href="javascript-api/web-personalization.md"><strong>Webpersonalisatie</strong></a> Gebruik de javascript-API voor het bijhouden van gebeurtenissen en voor het dynamisch aanpassen van een webpagina.</td>
+<td><img src="assets/Smock_PersonalizationField_18_N.svg" alt="Web Personalization"></td>
+<td><a href="javascript-api/web-personalization.md"><strong> Personalization van het Web </strong></a> Gebruik javascript API voor gebeurtenis het volgen en dynamische aanpassing van een webpagina.</td>
 </tr>
 </tbody>
 </table>
