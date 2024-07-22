@@ -60,7 +60,10 @@ Voor OpportunityPersonRole MObject kunt u alle velden van de uitvoer van [descri
 1. IsPrimary (optioneel)
 1. Rol (optioneel)
 
-| | mObjAssociationList->mObjAssociation->mObjType | Optioneel | Wordt gebruikt om Opportunity/OpportunityPersonRole MObjects bij te werken met de id of externe sleutel van een gekoppeld object. Gekoppelde objecten kunnen een van de volgende zijn: Bedrijf (om Opportunity MObject bij te werken), Lead (om OpportunityPersonRole MObject bij te werken), Opportunity (om OpportunityPersonRole MObject bij te werken)| | mObjAssociationList->mObjAssociation->id | Optioneel | De id van het bijbehorende object (lead/bedrijf/opportunity) | | mObjAssociationList->mObjAssociation->externalKey | Optioneel | Een aangepast kenmerk van het gekoppelde object |
+ |
+| mObjAssociationList->mObjAssociation->mObjType | Optional | Used to update Opportunity/OpportunityPersonRole MObjects using the id or external key of an associated object. Associated objects can be one of: Company (to update Opportunity MObject), Lead (to update OpportunityPersonRole MObject), Opportunity (to update OpportunityPersonRole MObject)|
+| mObjAssociationList->mObjAssociation->id | Optional | The id of the associated object (Lead/Company/Opportunity) |
+| mObjAssociationList->mObjAssociation->externalKey | Optional | A custom attribute of the associated object |
 
 ## XML aanvragen
 
