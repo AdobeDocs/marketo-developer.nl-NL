@@ -1,18 +1,18 @@
 ---
-title: "syncMObjects"
+title: syncMObjects
 feature: SOAP
-description: "syncMObjects SOAP call"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncMObjects SOAP oproepen
+exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
+source-git-commit: 04e6b38a7ee602c38a851f9b99101186e72a8518
 workflow-type: tm+mt
-source-wordcount: '421'
-ht-degree: 0%
+source-wordcount: '426'
+ht-degree: 1%
 
 ---
 
-
 # syncMObjects
 
-Accepteert een array van [MObjects](marketo-objects.md) worden gemaakt of bijgewerkt, tot maximaal 100 per oproep, en retourneert het resultaat (status) van de bewerking (CREATED, UPDATED, FAILED, UNCHANGED, SKIPPED) en de Marketo-id&#39;s van het MObject(s). De API kan in één van drie verrichtingswijzen worden geroepen:
+Accepteert een serie van [ MObjects ](marketo-objects.md) om, tot een maximum aan 100 per vraag worden gecreeerd of worden bijgewerkt, en keert het resultaat (status) van de verrichting (CREATED, UPDATED, FAILED, UNCHANGED, SKIPPED) en Marketo IDs van MObject(s) terug. De API kan in één van drie verrichtingswijzen worden geroepen:
 
 1. INSERT - Alleen nieuwe objecten invoegen, bestaande objecten overslaan
 1. UPDATE - Alleen bestaande objecten bijwerken, nieuwe objecten overslaan.
@@ -25,10 +25,10 @@ De UPDATE- en UPSERT-bewerkingen gebruiken de id als sleutel. In één enkele AP
 
 | Veldnaam | Vereist/optioneel | Beschrijving |
 | --- | --- | --- |
-| mObjectList->mObject->type | Vereist | Kan een van de volgende zijn:`Program`, `Opportunity`, `OpportunityPersonRole` |
+| mObjectList->mObject->type | Vereist | Kan één van zijn:`Program`, `Opportunity`, `OpportunityPersonRole` |
 | mObjectList->mObject->id | Vereist | Id van het MObject. U kunt tot 100 MObjects per vraag specificeren. |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrType | Vereist | Kosten (alleen gebruikt tijdens het bijwerken van het MO-object van het programma) kunnen een van de volgende zijn: `Cost`, `Tag` |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Vereist | Voor Program MObject kunnen de volgende kenmerken worden doorgegeven als naam-waardeparen. Voor kosten:`Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. Voor label/kanaal: `Type (Required)`, `Value (Required)`. Voor Opportunity MObject, alle velden vanaf de uitvoer van de [describeMObject](describemobject.md) kan worden doorgegeven als naam-waardeparen. De onderstaande lijst bevat alle optionele velden en de standaardset kenmerken. U hebt mogelijk aanvullende velden op het Opportunity MObject die zijn gemaakt via een supportverzoek. |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrType | Vereist | Kosten (alleen gebruikt tijdens het bijwerken van het Program MObject) kunnen een van de volgende zijn: `Cost`, `Tag` |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Vereist | Voor Program MObject kunnen de volgende kenmerken worden doorgegeven als naam-waardeparen. Voor kosten: `Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. Voor tag/kanaal: `Type (Required)`, `Value (Required)` . Voor Opportunity MObject, kunnen alle gebieden van de output van [ describeMObject ](describemobject.md) als naam-waarde paren worden overgegaan. De onderstaande lijst bevat alle optionele velden en de standaardset kenmerken. U hebt mogelijk aanvullende velden op het Opportunity MObject die zijn gemaakt via een supportverzoek. |
 
 1. Hoeveelheid
 1. CloseDate
@@ -50,7 +50,7 @@ De UPDATE- en UPSERT-bewerkingen gebruiken de id als sleutel. In één enkele AP
 1. Werkgebied
 1. Type
 
-Voor OpportunityPersonRole MObject kunt u alle velden van de uitvoer van [describeMObject](./describemobject.md) als naam-waardeparen. De standaardset kenmerken van OpportunityPersonRole MObject wordt hier weergegeven:
+Voor OpportunityPersonRole MObject, kunt u alle gebieden van de output van [ leveren describeMObject ](./describemobject.md) als naam-waarde paren. De standaardset kenmerken van OpportunityPersonRole MObject wordt hier weergegeven:
 
 1. OpportunityId (vereist)
 1. PersonId (vereist)
@@ -60,10 +60,11 @@ Voor OpportunityPersonRole MObject kunt u alle velden van de uitvoer van [descri
 1. IsPrimary (optioneel)
 1. Rol (optioneel)
 
- |
-| mObjAssociationList->mObjAssociation->mObjType | Optional | Used to update Opportunity/OpportunityPersonRole MObjects using the id or external key of an associated object. Associated objects can be one of: Company (to update Opportunity MObject), Lead (to update OpportunityPersonRole MObject), Opportunity (to update OpportunityPersonRole MObject)|
-| mObjAssociationList->mObjAssociation->id | Optional | The id of the associated object (Lead/Company/Opportunity) |
-| mObjAssociationList->mObjAssociation->externalKey | Optional | A custom attribute of the associated object |
+| Veldnaam | Vereist/optioneel | Beschrijving |
+| --- | --- | --- |
+| mObjAssociationList->mObjAssociation->mObjType | Optioneel | Wordt gebruikt om Opportunity/OpportunityPersonRole MObjects bij te werken met de id of externe sleutel van een gekoppeld object. Gekoppelde objecten kunnen de volgende zijn: Bedrijf (om Opportunity MObject bij te werken), Lead (om OpportunityPersonRole MObject bij te werken), Opportunity (om OpportunityPersonRole MObject bij te werken) |
+| mObjAssociationList->mObjAssociation->id | Optioneel | De id van het bijbehorende object (lead/bedrijf/opportunity) |
+| mObjAssociationList->mObjAssociation->externalKey | Optioneel | Een aangepast kenmerk van het gekoppelde object |
 
 ## XML aanvragen
 
