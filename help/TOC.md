@@ -1,14 +1,14 @@
 ---
 user-guide-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
-user-guide-description: "Deze handleiding bevat instructies voor het gebruik van [!DNL Marketo] API's."
+user-guide-description: "Deze gids verstrekt instructies om  [!DNL Marketo]  APIs te gebruiken."
 breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 85062243d57a3fc6d15251163e926495858edf2a
+source-git-commit: 5d18a24f25e5bda39e10bce3b2a77370dd28c937
 workflow-type: tm+mt
-source-wordcount: '234'
-ht-degree: 1%
+source-wordcount: '237'
+ht-degree: 5%
 
 ---
 
@@ -29,11 +29,11 @@ ht-degree: 1%
    - [Voorspelende inhoud](javascript-api/predictive-content.md)
    - [Omleiding](javascript-api/redirect.md)
    - [Rijke media Recommendations](javascript-api/rich-media-recommendation.md)
-   - [Social](javascript-api/social.md)
+   - [Sociaal](javascript-api/social.md)
    - [Triggers](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobiel {#mobile}
-   - [Installeren [!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension-installation.md)
+   - [ [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension.md)
    - [Geavanceerde beveiligingsmodus](mobile/advanced-security-access-mode.md)
    - [Aangepaste handelingen](mobile/custom-actions.md)
@@ -48,7 +48,7 @@ ht-degree: 1%
    - [Gebruikersprofielen](mobile/user-profiles.md)
 - REST{#rest}
    - [REST API-overzicht](rest-api/rest-api.md)
-   - [REST API-referentie](https://developer.adobe.com/marketo-apis/)
+   - [ REST API verwijzing ](https://developer.adobe.com/marketo-apis/)
    - Assets {#assets}
       - [Assets](rest-api/assets.md)
       - [Dynamische inhoud](rest-api/dynamic-content.md)
@@ -85,10 +85,11 @@ ht-degree: 1%
       - [Lid van het Bulkprogramma](rest-api/bulk-program-member-import.md)
    - [Kanalen](rest-api/channels.md)
    - [Aangepaste services](rest-api/custom-services.md)
+   - [Data Ingestie-API](rest-api/data-ingestion.md)
    - [Definities van Swagger downloaden](rest-api/swagger.md)
    - [Eindpuntverwijzing](rest-api/endpoint-reference.md)
    - [Foutcodes](rest-api/error-codes.md)
-   - Database lead {#lead-database}
+   - Database openen {#lead-database}
       - [Bedrijven](rest-api/companies.md)
       - [Veldlijst](rest-api/fields.md)
       - [Veldtypen](rest-api/field-types.md)
@@ -103,7 +104,7 @@ ht-degree: 1%
    - [Pagingtokens](rest-api/paging-tokens.md)
    - [Prestaties](rest-api/performance.md)
    - [Referentiearchitecturen](rest-api/reference-architectures.md)
-   - [Voorbeeldcode](https://github.com/Marketo/REST-Sample-Code)
+   - [ Code van de Steekproef ](https://github.com/Marketo/REST-Sample-Code)
    - [Tags](rest-api/tags.md)
    - [Gebruikerscontext](rest-api/user-context.md)
    - [Gebruikersbeheer](rest-api/user-management.md)
@@ -152,7 +153,7 @@ ht-degree: 1%
    - [Fouten](webhooks/errors.md)
    - [Responstoewijzingen](webhooks/response-mappings.md)
    - [Webhaken](webhooks/webhooks.md)
-- [Clientbibliotheken](https://github.com/Marketo/Community-Supported-Client-Libraries)
+- [ Bibliotheken van de Cliënt ](https://github.com/Marketo/Community-Supported-Client-Libraries)
 - [Gegevensstromen](data-streams.md)
 - [E-mailscripting](email-scripting.md)
 - [Licentie](api-license.md)
