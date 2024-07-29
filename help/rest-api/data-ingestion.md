@@ -2,7 +2,7 @@
 title: Gegevensopname
 feature: REST API, Dynamic Content
 description: Gegevens gebruiken met Marketo API's.
-source-git-commit: 5d18a24f25e5bda39e10bce3b2a77370dd28c937
+source-git-commit: 1595aa6df0b0404c7cda2c246c9249018fe87e77
 workflow-type: tm+mt
 source-wordcount: '968'
 ht-degree: 3%
@@ -50,7 +50,7 @@ Gegevensinname maakt gebruik van de volgende aangepaste HTTP-headers.
 ### Antwoord
 
 | Sleutel | Waarde | Vereist |
-| - | - |
+| - | - | - |
 | X-aanvraag-id | Unieke aanvraag-id. | Ja |
 
 ## Verzoeken
