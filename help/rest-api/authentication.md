@@ -1,14 +1,14 @@
 ---
-title: "Verificatie"
+title: Verificatie
 feature: REST API
-description: "Marketo-gebruikers verifiëren voor API-gebruik."
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Marketo-gebruikers verifiëren voor API-gebruik.
+exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
+source-git-commit: e0fc654efe4501f734ab5158ce0bfd3ed08896ce
 workflow-type: tm+mt
-source-wordcount: '531'
+source-wordcount: '579'
 ht-degree: 0%
 
 ---
-
 
 # Verificatie
 
@@ -16,13 +16,13 @@ Marketo REST API&#39;s worden geverifieerd met OAuth 2.0 met twee poten. Client 
 
 ## Toegangstoken maken
 
-De `Client ID` en `Client Secret` vindt u in het dialoogvenster **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]** door de aangepaste service te selecteren en op **[!UICONTROL View Details]**.
+De knoppen `Client ID` en `Client Secret` vindt u in het menu **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]** door de aangepaste service te selecteren en op **[!UICONTROL View Details]** te klikken.
 
-![Details REST-service ophalen](assets/authentication-service-view-details.png)
+![ krijgt de Details van de Dienst van het HERSTEL ](assets/authentication-service-view-details.png)
 
-![Referenties startpunt](assets/admin-launchpoint-credentials.png)
+![ Geloofsbrieven van het Lanceerpunt ](assets/admin-launchpoint-credentials.png)
 
-De `Identity URL` is gevonden in het dialoogvenster **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** in de sectie REST API.
+De `Identity URL` vindt u in het menu **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** in de sectie REST API.
 
 Creeer een toegangstoken gebruikend een HTTP GET (of POST) verzoek als zo:
 
@@ -62,11 +62,15 @@ Er zijn twee methodes die u kunt gebruiken om een teken in uw vraag, als kopbal 
 
    `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
 
+   >[!IMPORTANT]
+   >
+   >De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd in een verdere versie. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+
 ## Tips en aanbevolen procedures
 
 Het beheren van de vervaldatum van toegangstoken is belangrijk om ervoor te zorgen dat uw integratie regelmatig werkt en onverwachte authentificatiefouten tijdens normale verrichting voorkomt. Wanneer het ontwerpen van authentificatie voor uw integratie, ben zeker om het teken en de vervalperiode op te slaan in de reactie van de Identiteit.
 
-Voordat u een REST-aanroep maakt, moet u de geldigheid van de token controleren op basis van de resterende levensduur. Als het token is verlopen, vernieuwt u het door het aanroepen [Identiteit](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)eindpunt. Dit helpt ervoor zorgen dat uw vraag REST nooit wegens een verlopen teken ontbreekt. Dit helpt u de latentie van uw vraag van REST op een voorspelbare manier beheren, die voor eindgebruiker-onder ogen ziet toepassingen van cruciaal belang is.
+Voordat u een REST-aanroep maakt, moet u de geldigheid van de token controleren op basis van de resterende levensduur. Als het teken is verlopen, dan vernieuwt het door [ Punt van de Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) te roepen. Dit helpt ervoor zorgen dat uw vraag REST nooit wegens een verlopen teken ontbreekt. Dit helpt u de latentie van uw vraag van REST op een voorspelbare manier beheren, die voor eindgebruiker-onder ogen ziet toepassingen van cruciaal belang is.
 
 Als een verlopen teken wordt gebruikt om een vraag van het SPEL voor authentiek te verklaren, zal de vraag REST ontbreken en een 602 foutencode terugkeren. Als een ongeldig token wordt gebruikt om een REST-aanroep te verifiëren, wordt een 601-foutcode geretourneerd. Als één van beide codes worden ontvangen, zou de cliënt het teken door het aanroepen van het eindpunt van de Identiteit moeten vernieuwen.
 
