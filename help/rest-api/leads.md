@@ -1,18 +1,18 @@
 ---
-title: "Leads"
+title: Leads
 feature: REST API
-description: "Details over de API-aanroepen voor leads"
-source-git-commit: aea2812730fa5f6054e69dfa9d8045329aa724c7
+description: Details over de API-aanroepen voor leads
+exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
-source-wordcount: '3308'
+source-wordcount: '3343'
 ht-degree: 0%
 
 ---
 
-
 # Leads
 
-[Referentie van eindpunt voor lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[ Verwijzing van het Eindpunt van lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
 
 De API van Marketo Lead biedt een groot aantal mogelijkheden voor eenvoudige CRUD-toepassingen tegen leadrecords, maar ook de mogelijkheid om het lidmaatschap van een lead in statische lijsten en programma&#39;s te wijzigen en de verwerking van Smart Campagne voor leads te starten.
 
@@ -58,13 +58,13 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Normaal, omvatten de reacties een veel grotere reeks gebieden in de resultaatserie, maar wij weglaten hen voor demonstratiedoeleinden. Elk item in de resultaatarray komt overeen met een veld dat beschikbaar is in de lead record en heeft minimaal een id, een displayName en een datatype. De rest en de zeep onderliggende voorwerpen kunnen voor een bepaald gebied aanwezig zijn, en zijn aanwezigheid zal erop wijzen of het gebied voor gebruik in of REST of SOAP APIs geldig is. De `readOnly` geeft aan of het veld alleen-lezen is via de corresponderende API (REST of SOAP). De eigenschap length geeft de maximale lengte van het veld aan, indien aanwezig. De eigenschap dataType geeft het gegevenstype van het veld aan.
+Normaal, omvatten de reacties een veel grotere reeks gebieden in de resultaatserie, maar wij weglaten hen voor demonstratiedoeleinden. Elk item in de resultaatarray komt overeen met een veld dat beschikbaar is in de lead record en heeft minimaal een id, een displayName en een datatype. De rest en de zeep onderliggende voorwerpen kunnen voor een bepaald gebied al dan niet aanwezig zijn, en zijn aanwezigheid zal erop wijzen of het gebied voor gebruik in of REST of SOAP APIs geldig is. De eigenschap `readOnly` geeft aan of het veld alleen-lezen is via de corresponderende API (REST of SOAP). De eigenschap length geeft de maximale lengte van het veld aan, indien aanwezig. De eigenschap dataType geeft het gegevenstype van het veld aan.
 
 ## Query
 
 Er zijn twee primaire methoden voor het ophalen van leads: de methoden Get Lead by Id en Get Leads by Filter Type. Krijg lood door identiteitskaart neemt één enkele lood identiteitskaart als wegparameter en keert één enkel lood verslag terug.
 
-U kunt desgewenst een veldparameter doorgeven die een door komma&#39;s gescheiden lijst met veldnamen bevat die moet worden geretourneerd. Als de parameter fields niet is opgenomen in deze aanvraag, worden de volgende standaardvelden geretourneerd: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, en `id`. Als u een lijst met velden aanvraagt en een bepaald veld wordt opgevraagd, maar niet wordt geretourneerd, wordt de waarde impliciet ingesteld op null.
+U kunt desgewenst een veldparameter doorgeven die een door komma&#39;s gescheiden lijst met veldnamen bevat die moet worden geretourneerd. Als de parameter fields niet is opgenomen in deze aanvraag, worden de volgende standaardvelden geretourneerd: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName` en `id` . Als u een lijst met velden aanvraagt en een bepaald veld wordt opgevraagd, maar niet wordt geretourneerd, wordt de waarde impliciet ingesteld op null.
 
 ### Verzoek
 
@@ -93,11 +93,11 @@ GET /rest/v1/lead/{id}.json
 
 Voor deze methode is er altijd één record in de eerste positie van de resultaatarray.
 
-Met de optie Leads ophalen op filtertype wordt hetzelfde type record geretourneerd, maar kan tot 300 per pagina worden geretourneerd. Het vereist `filterType` en `filterValues` queryparameters.
+Met de optie Leads ophalen op filtertype wordt hetzelfde type record geretourneerd, maar kan tot 300 per pagina worden geretourneerd. Hiervoor zijn de parameters `filterType` en `filterValues` query vereist.
 
-`filterType` Accepteert om het even welk Geheime Gebied van de Douane, of de meeste algemeen gebruikte gebieden. Roep de `Describe2` eindpunt voor een uitgebreide lijst van doorzoekbare velden die zijn toegestaan voor gebruik in `filterType`. Bij het zoeken op Aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer`. U kunt velddetails verkrijgen (beschrijving, type, enz.) met behulp van de bovengenoemde methode Describe.
+`filterType` accepteert elk aangepast veld of de meeste veelgebruikte velden. Roep het eindpunt `Describe2` aan voor een uitgebreide lijst met doorzoekbare velden die zijn toegestaan voor gebruik in `filterType` . Bij het zoeken op aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer` . U kunt velddetails verkrijgen (beschrijving, type, enz.) met behulp van de bovengenoemde methode Describe.
 
-`filterValues` Accepteert maximaal 300 waarden in komma-gescheiden formaat. De vraagonderzoeken naar verslagen waar het gebied van de lood één van inbegrepen aanpast `filterValues`. Als het aantal leads dat overeenkomt met het hoofdfilter groter is dan 1.000, wordt een fout geretourneerd: &quot;1003, Te veel resultaten komen overeen met het filter&quot;.
+`filterValues` accepteert maximaal 300 waarden in een komma-gescheiden indeling. De vraag zoekt naar verslagen waar het gebied van de lood één van inbegrepen `filterValues` aanpast. Als het aantal leads dat overeenkomt met het hoofdfilter groter is dan 1.000, wordt een fout geretourneerd: &quot;1003, Te veel resultaten komen overeen met het filter&quot;.
 
 Als de totale lengte van uw GET- verzoek 8KB overschrijdt, is een fout van HTTP teruggekeerd: &quot;414, URI te lang&quot;(per RFC 7231). Als tussenoplossing kunt u uw GET in POST veranderen, de parameter _method=GET toevoegen, en een vraagkoord in het verzoeklichaam plaatsen.
 
@@ -134,7 +134,7 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 }
 ```
 
-Deze oproep zoekt naar records die overeenkomen met de id&#39;s die zijn opgenomen in `filterValues`en retourneert alle overeenkomende records.
+Deze aanroep zoekt naar records die overeenkomen met de id&#39;s die in `filterValues` zijn opgenomen en retourneert alle overeenkomende records.
 
 Als er geen records worden gevonden, geeft de reactie aan dat de array is gelukt, maar is de array result leeg.
 
@@ -148,15 +148,23 @@ Als er geen records worden gevonden, geeft de reactie aan dat de array is gelukt
 }
 ```
 
-Zowel krijgen lood door Identiteitskaart als krijgt lood door het Type van Filter zal ook een parameter van de gebiedsvraag goedkeuren, die een komma gescheiden lijst van API gebieden goedkeurt. Als dit is opgenomen, worden bij elke record in het antwoord de weergegeven velden opgenomen.  Als deze wordt weggelaten, wordt een standaardset velden geretourneerd: `id`, `email`, `updatedAt`, `createdAt`, `firstName`, en `lastName`.
+Zowel krijgen lood door Identiteitskaart als krijgt lood door het Type van Filter zal ook een parameter van de gebiedsvraag goedkeuren, die een komma gescheiden lijst van API gebieden goedkeurt. Als dit is opgenomen, worden bij elke record in het antwoord de weergegeven velden opgenomen.  Als deze waarde wordt weggelaten, wordt een standaardset velden geretourneerd: `id`, `email`, `updatedAt`, `createdAt`, `firstName` en `lastName` .
 
 ## Adobe-ECID
 
-Als de functie voor delen van publiek via Adobe Experience Cloud is ingeschakeld, wordt een cookie gesynchroniseerd waarbij de Adobe Experience Cloud-id (ECID) aan Marketo-leads wordt gekoppeld.  De hierboven vermelde methoden voor het ophalen van leads kunnen worden gebruikt om bijbehorende ECID-waarden op te halen.  Dit doet u door &quot;ecids&quot; op te geven in de parameter fields. Bijvoorbeeld &quot;&amp;fields=email,firstName,lastName,ecids&quot;.
+Als de functie voor delen van publiek via Adobe Experience Cloud is ingeschakeld, wordt een cookie gesynchroniseerd waarbij de Adobe Experience Cloud-id (ECID) aan Marketo-leads wordt gekoppeld.  De hierboven vermelde methoden voor het ophalen van leads kunnen worden gebruikt om bijbehorende ECID-waarden op te halen.  Dit doet u door `ecids` op te geven in de parameter fields. Bijvoorbeeld `&fields=email,firstName,lastName,ecids` .
 
 ## Maken en bijwerken
 
 Naast het ophalen van gegevens voor leads kunt u ook een lead record maken, bijwerken en verwijderen via de API. Het creëren van en het bijwerken van lood delen het zelfde eindpunt met het verrichtingstype dat in het verzoek wordt bepaald, en tot 300 verslagen kunnen tezelfdertijd worden gecreeerd of worden bijgewerkt.
+
+>[!NOTE]
+>
+> Het bijwerken van de gebieden van het Bedrijf die [ gebruiken leidt de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) in plaats daarvan.[
+
+>[!NOTE]
+>
+> Wanneer u de e-mailwaarde maakt of bijwerkt op een Person-record, worden alleen ASCII-tekens ondersteund in het veld E-mailadres.
 
 ### Verzoek
 
@@ -213,15 +221,15 @@ POST /rest/v1/leads.json
 }
 ```
 
-In dit verzoek ziet u twee belangrijke gebieden: `action` en `lookupField`.  `action` geeft het type bewerking van de aanvraag aan en kan `createOrUpdate`, `createOnly`, `updateOnly`, of `createDuplicate`. Als deze wordt weggelaten, wordt de actie standaard ingesteld op `createOrUpdate`.  De `lookupField` parameter geeft de toets aan die moet worden gebruikt wanneer de handeling een van de `createOrUpdate` of `updateOnly`. Indien `lookupField` wordt weggelaten, is de standaardsleutel `email`.
+In deze aanvraag ziet u twee belangrijke velden, `action` en `lookupField` .  `action` geeft het type bewerking van de aanvraag op en kan `createOrUpdate` , `createOnly` , `updateOnly` of `createDuplicate` zijn. Als deze waarde wordt weggelaten, wordt de actie standaard ingesteld op `createOrUpdate` .  De parameter `lookupField` geeft de toets op die moet worden gebruikt wanneer een handeling `createOrUpdate` of `updateOnly` is. Als `lookupField` wordt weggelaten, is de standaardsleutel `email`.
 
-Standaard wordt de standaardpartitie gebruikt. U kunt desgewenst de optie `partitionName` parameter, die alleen werkt als de handeling `createOnly` of `createOrUpdate`. Voor `partitionName` om als extra deduplicatiecriteria te werken, moet het deel van brontype in douanededuplicatieregels uitmaken. Als tijdens een updatebewerking geen lead bestaat in de opgegeven partitie, wordt een fout geretourneerd. Als de gebruiker met alleen de API geen toestemming heeft om de opgegeven partitie te openen, wordt een fout geretourneerd.
+Standaard wordt de standaardpartitie gebruikt. U kunt ook de parameter `partitionName` opgeven, die alleen werkt wanneer de handeling `createOnly` of `createOrUpdate` is. `partitionName` werkt alleen als aanvullende criteria voor deduplicatie als het onderdeel is van het type bron in aangepaste deduplicatieregels. Als tijdens een updatebewerking geen lead bestaat in de opgegeven partitie, wordt een fout geretourneerd. Als de gebruiker met alleen de API geen toestemming heeft om de opgegeven partitie te openen, wordt een fout geretourneerd.
 
-De `id` veld kan alleen als parameter worden opgenomen wanneer het veld `updateOnly` handeling, als `id` is een door het systeem beheerde unieke sleutel.
+Het veld `id` kan alleen als parameter worden opgenomen wanneer de handeling `updateOnly` wordt uitgevoerd, omdat `id` een door het systeem beheerde unieke sleutel is.
 
-Het verzoek moet ook een `input` parameter, die een array van lead records is. Elke lead-record is een JSON-object met een willekeurig aantal lead-velden. De sleutels in een record moeten uniek zijn voor die record en alle JSON-tekenreeksen moeten met UTF-8 zijn gecodeerd. De `externalCompanyId` kan worden gebruikt om de loodrecord te koppelen aan een bedrijfsrecord. De `externalSalesPersonId` kan worden gebruikt om de loodrecord te koppelen aan een record van een verkooppersoon.
+De aanvraag moet ook een parameter `input` hebben. Dit is een array van hoofdrecords. Elke lead-record is een JSON-object met een willekeurig aantal lead-velden. De sleutels in een record moeten uniek zijn voor die record en alle JSON-tekenreeksen moeten met UTF-8 zijn gecodeerd. Het veld `externalCompanyId` kan worden gebruikt om de lead record te koppelen aan een bedrijfsrecord. Het veld `externalSalesPersonId` kan worden gebruikt om de lead record te koppelen aan een record van een verkooppersoon.
 
-Opmerking: wanneer u meerdere aanvragen voor het uploaden van leads tegelijkertijd of snel achter elkaar uitvoert, kunnen dubbele records ontstaan wanneer u meerdere aanvragen met dezelfde sleutelwaarde indient als een volgende aanroep met dezelfde waarde wordt uitgevoerd voordat de eerste retourneert. Dit kan worden vermeden door het `createOnly`, of `updateOnly` zoals aangewezen, of door vraag een rij te vormen en op uw vraag te wachten terug alvorens verdere upsert vraag met de zelfde sleutel te maken.
+Opmerking: wanneer u meerdere aanvragen voor het uploaden van leads tegelijkertijd of snel achter elkaar uitvoert, kunnen dubbele records ontstaan wanneer u meerdere aanvragen met dezelfde sleutelwaarde indient als een volgende aanroep met dezelfde waarde wordt uitgevoerd voordat de eerste retourneert. Dit kan worden vermeden door `createOnly`, of `updateOnly` te gebruiken zoals aangewezen, of door vraag een rij te vormen en op uw vraag te wachten om terug te keren alvorens verdere upsert vraag met de zelfde sleutel te maken.
 
 ## Velden
 
@@ -267,7 +275,7 @@ GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## Bladeren
 
-Met het eindpunt Ophalen worden metagegevens opgehaald voor alle velden in het hoofdobject, inclusief. Standaard worden maximaal 300 records geretourneerd. U kunt de `batchSize` query parameter om dit aantal te verminderen. Als de `moreResult` Het kenmerk is true, dit betekent dat er meer resultaten beschikbaar zijn. Ga door met het aanroepen van dit eindpunt tot de `moreResult` kenmerk retourneert false, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` is teruggekeerd van deze API zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
+Met het eindpunt Ophalen worden metagegevens opgehaald voor alle velden in het hoofdobject, inclusief. Standaard worden maximaal 300 records geretourneerd. U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen. Als het kenmerk `moreResult` true is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt totdat het kenmerk `moreResult` false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
 
 ### Verzoek
 
@@ -412,9 +420,9 @@ GET /rest/v1/leads/schema/fields.json
 Met het eindpunt Voorloopvelden maken maakt u een of meer aangepaste velden op het hoofdobject. Dit eindpunt verstrekt functionaliteit die aan wat in het Marketo Engage UI beschikbaar is vergelijkbaar is. Met dit eindpunt kunt u maximaal 100 aangepaste velden maken.
 Houd zorgvuldig rekening met elk veld dat u maakt in de productie-instantie van een Marketo Engage met behulp van de API.  Nadat een veld is gemaakt, kunt u het niet verwijderen (u kunt het alleen verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
 
-De vereiste invoerparameter is een array van hoofdobjecten. Elk object bevat een of meer kenmerken. De vereiste kenmerken zijn `displayName`, `name`, en `dataType` die overeenkomen met de weergavenaam van de gebruikersinterface van het veld, de API-naam van het veld en het veldtype.  U kunt desgewenst opgeven `description`, `isHidden`, `isHtmlEncodingInEmail`, en `isSensitive`.
+De vereiste invoerparameter is een array van hoofdobjecten. Elk object bevat een of meer kenmerken. Vereiste kenmerken zijn de `displayName` , `name` en `dataType` die overeenkomen met respectievelijk de weergavenaam van de gebruikersinterface van het veld, de API-naam van het veld en het veldtype.  U kunt optioneel `description` , `isHidden` , `isHtmlEncodingInEmail` en `isSensitive` opgeven.
 
-Er zijn een paar regels verbonden aan naam en `displayName` naamgeving. Het kenmerk name moet uniek zijn, beginnen met een letter en mag alleen letters, cijfers of onderstrepingsteken bevatten. De `displayName` moet uniek zijn en mag geen speciale tekens bevatten.  Een algemene naamgevingsconventie is het toepassen van camelcase op `displayName` om naam te produceren. Bijvoorbeeld een `displayName` van &quot;Mijn Douane Gebied&quot;zou een naam van &quot;myCustomField&quot;veroorzaken.
+Er zijn een paar regels verbonden aan naam en `displayName` noemend. Het kenmerk name moet uniek zijn, beginnen met een letter en mag alleen letters, cijfers of onderstrepingsteken bevatten. `displayName` moet uniek zijn en mag geen speciale tekens bevatten.  Een gebruikelijke naamgevingsconventie is het toepassen van kamelhoofdletters op `displayName` om een naam te maken. Een `displayName` van &quot;Mijn aangepaste veld&quot; zou bijvoorbeeld de naam &quot;myCustomField&quot; hebben.
 
 ### Verzoek
 
@@ -547,7 +555,7 @@ Het eindpunt van het Gebied van de Lood van de Update werkt één enkel douaneve
 </tbody>
 </table>
 
-De vereiste `fieldApiName` path parameter specifies the API name of the field to update. De vereiste invoerparameter is een array die één hoofdobject in het veld bevat.  Het veldobject bevat een of meer kenmerken.
+De vereiste `fieldApiName` padparameter geeft de API-naam op van het veld dat moet worden bijgewerkt. De vereiste invoerparameter is een array die één hoofdobject in het veld bevat.  Het veldobject bevat een of meer kenmerken.
 
 ### Verzoek
 
@@ -586,9 +594,9 @@ POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## Regelafstand naar Marketo
 
-Push Lead is een alternatief voor het synchroniseren van leads naar Marketo, vooral ontworpen om een grotere mate van triggercapaciteit mogelijk te maken dan de standaard Sync Leads (vergelijkbaar met een Marketo-formulier). Naast synchronisatie van loodgebieden, staat dit eindpunt voor loodvereniging toe die op koekjeswaarden wordt gebaseerd, die tot het eindpunt worden overgegaan. Dit doet u door het `mkt_tok` waarde door door Marketo e-mail wordt geproduceerd te klikken, of door een programmanaam in de vraag over te gaan die. Dit eindpunt leidt ook tot één enkele trekkerbare activiteit, die aan een programma en/of campagne in Marketo wordt geassocieerd. Hierdoor kunnen gebeurtenissen voor het vastleggen van leads worden geactiveerd die worden toegeschreven aan een specifieke campagne of een specifiek programma om de bijbehorende workflows uit Marketo op te starten.
+Push Lead is een alternatief voor het synchroniseren van leads naar Marketo, vooral ontworpen om een grotere mate van triggercapaciteit mogelijk te maken dan de standaard Sync Leads (vergelijkbaar met een Marketo-formulier). Naast synchronisatie van loodgebieden, staat dit eindpunt voor loodvereniging toe die op koekjeswaarden wordt gebaseerd, die tot het eindpunt worden overgegaan. Dit gebeurt door de `mkt_tok` -waarde door te geven die wordt gegenereerd door te klikken via een Marketo-e-mail of door een programmanaam door te geven in de aanroep. Dit eindpunt leidt ook tot één enkele trekkerbare activiteit, die aan een programma en/of campagne in Marketo wordt geassocieerd. Hierdoor kunnen gebeurtenissen voor het vastleggen van leads worden geactiveerd die worden toegeschreven aan een specifieke campagne of een specifiek programma om de bijbehorende workflows uit Marketo op te starten.
 
-De interface Push Lead lijkt sterk op Leads synchroniseren. Alle primaire sleutels zijn geldig, en de zelfde API namen worden gebruikt voor gebieden (er is geen actieparameter omdat dit altijd een opseringsverrichting is). De `programName` en de invoerparameters vereist zijn, en `lookupField`, `source`, en `reason` parameters zijn optioneel. De invoerparameter is een array van lead-objecten. De resulterende activiteit wordt toegeschreven aan het corresponderende benoemde programma. De `source` en `reason` parameters zijn willekeurige tekenreeksvelden die kunnen worden toegevoegd aan het verzoek om die waarden in te sluiten in de resulterende activiteiten. Deze kunnen worden gebruikt als restricties in de corresponderende triggers (Lood wordt naar Marketo geduwd) en filters (Lood werd naar Marketo geduwd).
+De interface Push Lead lijkt sterk op Leads synchroniseren. Alle primaire sleutels zijn geldig, en de zelfde API namen worden gebruikt voor gebieden (er is geen actieparameter omdat dit altijd een opseringsverrichting is). De parameters `programName` en input zijn vereist en de parameters `lookupField` , `source` en `reason` zijn optioneel. De invoerparameter is een array van lead-objecten. De resulterende activiteit wordt toegeschreven aan het corresponderende benoemde programma. De parameters `source` en `reason` zijn willekeurige tekenreeksvelden die kunnen worden toegevoegd aan de aanvraag om die waarden in te sluiten in de resulterende activiteiten. Deze kunnen worden gebruikt als restricties in de corresponderende triggers (Lood wordt naar Marketo geduwd) en filters (Lood werd naar Marketo geduwd).
 
 Opmerking over anonieme activiteiten. Als u eerdere anonieme activiteiten wilt koppelen aan de nieuwe lead, geeft u geen cookies-kenmerk op in het hoofdobject en roept u Lead koppelen na pushlead aan. Als u een nieuwe lood zonder activiteitengeschiedenis wilt tot stand brengen, dan specificeer eenvoudig de koekjesattributen in het lood voorwerp.
 
@@ -658,7 +666,7 @@ POST /rest/v1/leads/push.json
 }
 ```
 
-Als u de opdracht `mkt_tok` -parameter, wijst u als volgt de waarde toe aan het lid marketToken in een lead record in de invoerparameter.
+Als u de parameter `mkt_tok` wilt doorgeven, wijst u de waarde als volgt toe aan het lid marketToken in een lead-record in de invoerparameter.
 
 ### Lichaam
 
@@ -692,13 +700,13 @@ Het eindpunt van de Vorm van de Verzending steunt de volgende functionaliteit:
 * Hiermee wordt een koppeling naar een cookie toegestaan
 * Hiermee wordt formulierveldvalidatie uitgevoerd
 
-Bij het verzenden van een formulier wordt het standaarddatabasepatroon voor leads gevolgd. Er wordt één objectrecord doorgegeven in het vereiste invoerlid van de JSON-hoofdtekst van een POST-aanvraag. De vereiste `formId` lid bevat de doel-Marketo-formulier-id.
+Bij het verzenden van een formulier wordt het standaarddatabasepatroon voor leads gevolgd. Er wordt één objectrecord doorgegeven in het vereiste invoerlid van de JSON-hoofdtekst van een POST-aanvraag. Het vereiste `formId` -lid bevat de doel-Marketo-formulier-id.
 
-De optionele `programId` kan worden gebruikt om het programma op te geven waaraan de lead moet worden toegevoegd en/of om het programma op te geven waaraan aangepaste velden voor programmaleden moeten worden toegevoegd. Indien `programId` wordt verstrekt, wordt het lood toegevoegd aan het programma en om het even welke gebieden van de programmaleden die in vorm aanwezig zijn worden ook toegevoegd. Het opgegeven programma moet zich in dezelfde werkruimte bevinden als het formulier. Als het formulier geen aangepaste velden voor programmaleden bevat en `programId` niet wordt opgegeven, wordt de lead niet aan een programma toegevoegd. Indien het formulier zich in een programma bevindt en `programId` niet wordt verstrekt, wordt dat programma gebruikt wanneer één of meerdere gebieden van het programmalid in vorm aanwezig zijn.
+U kunt optioneel `programId` gebruiken om het programma op te geven waaraan de lead moet worden toegevoegd en/of om het programma op te geven waaraan aangepaste velden voor programmaleden moeten worden toegevoegd. Als `programId` is opgegeven, wordt de lead toegevoegd aan het programma en worden alle velden voor programmaleden die zich in het formulier bevinden, ook toegevoegd. Het opgegeven programma moet zich in dezelfde werkruimte bevinden als het formulier. Als het formulier geen aangepaste velden voor programmaleden bevat en `programId` niet wordt opgegeven, wordt de lead niet aan een programma toegevoegd. Als het formulier zich in een programma bevindt en `programId` niet wordt opgegeven, wordt dat programma gebruikt wanneer een of meer aangepaste velden voor programmaleden aanwezig zijn in het formulier.
 
-In de invoerrecord worden de `leadFormFields` -object is vereist. Dit object bevat een of meer naam-/waardeparen die overeenkomen met de formuliervelden die moeten worden ingevuld.  Alle opgegeven velden moeten binnen het opgegeven formulier worden gedefinieerd. De naam is de REST API-naam voor het veld. Let erop dat de `email` is vereist.
+Binnen de invoerrecord is het object `leadFormFields` vereist. Dit object bevat een of meer naam-/waardeparen die overeenkomen met de formuliervelden die moeten worden ingevuld.  Alle opgegeven velden moeten binnen het opgegeven formulier worden gedefinieerd. De naam is de REST API-naam voor het veld. Het veld `email` is vereist.
 
-De `visitorData` Het lidvoorwerp is facultatief en bevat naam/waardeparen die aan pagina-bezoek gegevens met inbegrip van beantwoorden `pageURL`, `queryString`, `leadClientIpAddress`, en `userAgentString`. Kan worden gebruikt om aanvullende activiteitsvelden te vullen voor filteren en activeren.
+Het `visitorData` -lidobject is optioneel en bevat naam-/waardeparen die overeenkomen met gegevens tijdens het bezoek aan een pagina, zoals `pageURL` , `queryString` , `leadClientIpAddress` en `userAgentString` . Kan worden gebruikt om aanvullende activiteitsvelden te vullen voor filteren en activeren.
 
 De lidtekenreeks van het cookie is optioneel en kunt u een Munchkin-cookie koppelen aan een persoonrecord in Marketo. Wanneer een nieuwe lood wordt gecreeerd, worden om het even welke vroegere anonieme activiteiten geassocieerd met die lood, tenzij de koekjeswaarde eerder met een ander gekend verslag was geassocieerd. Als de waarde van het cookie eerder gekoppeld was, worden nieuwe activiteiten bijgehouden op basis van de record, maar worden oude activiteiten niet van de bestaande bekende record verwijderd. Als u een nieuwe lead zonder activiteitengeschiedenis wilt maken, laat u gewoon het cookielid weg.
 
@@ -758,11 +766,11 @@ Content-Type: application/json
 
 Hier kunnen de overeenkomstige activiteitendetails van het formulier invullen worden weergegeven vanuit de gebruikersinterface van het Marketo Engage:
 
-![Gebruikersinterface Formulier invullen](assets/fill_out_form_activity_details.png)
+![ Vul Vorm UI ](assets/fill_out_form_activity_details.png) uit
 
 ## Samenvoegen
 
-Soms is het nodig dubbele records samen te voegen en Marketo vereenvoudigt dit via de Merge Leads-API. Bij het samenvoegen van leads worden hun activiteitenlogbestanden, programma&#39;s, campagnes en lijstlidmaatschappen en CRM-informatie gecombineerd, en worden alle veldwaarden samengevoegd tot één record. De Leads van de fusie neemt loodidentiteitskaart als wegparameter, en of één van beiden `leadId` als een queryparameter, of een lijst met door komma&#39;s gescheiden id&#39;s in het dialoogvenster `leadIds` parameter.
+Soms is het nodig dubbele records samen te voegen en Marketo vereenvoudigt dit via de Merge Leads-API. Bij het samenvoegen van leads worden hun activiteitenlogbestanden, programma&#39;s, campagnes en lijstlidmaatschappen en CRM-informatie gecombineerd, en worden alle veldwaarden samengevoegd tot één record. De Leads van de fusie neemt loodidentiteitskaart als wegparameter, en of één enkele `leadId` als vraagparameter, of een lijst van komma-gescheiden ids in de `leadIds` parameter.
 
 ### Verzoek
 
@@ -779,9 +787,9 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 }
 ```
 
-De lead die is opgegeven in de padparameter, is de winnende lead. Als er dus velden zijn die conflicteren tussen de records die worden samengevoegd, wordt de waarde van de winnaar gebruikt, behalve als het veld in de winnende record leeg is en het corresponderende veld in de laatste record niet. De leads die worden opgegeven in `leadId` of `leadIds` parameter zijn de verliezende leads .
+De lead die is opgegeven in de padparameter, is de winnende lead. Als er dus velden zijn die conflicteren tussen de records die worden samengevoegd, wordt de waarde van de winnaar gebruikt, behalve als het veld in de winnende record leeg is en het corresponderende veld in de laatste record niet. De leads die in de parameter `leadId` of `leadIds` worden opgegeven, zijn de verliezende leads.
 
-Als u een SFDC-sync-toegelaten abonnement hebt, dan kunt u ook gebruiken `mergeInCRM` in uw verzoek. Indien ingesteld op true, wordt de corresponderende samenvoeging in uw CRM ook uitgevoerd. Als beide leads zich in SFDC bevinden en de ene een CRM-lead is en de andere een CRM-contactpersoon, is de winnaar de CRM-contactpersoon (ongeacht welke lead als winnaar is opgegeven). Als een van de leads zich in SFDC bevindt en de andere alleen Marketo is, dan is de winnaar de SFDC-lead (ongeacht welke lead als winnaar is opgegeven).
+Als u een SFDC-sync-toegelaten abonnement hebt, dan kunt u de `mergeInCRM` parameter in uw verzoek ook gebruiken. Indien ingesteld op true, wordt de corresponderende samenvoeging in uw CRM ook uitgevoerd. Als beide leads zich in SFDC bevinden en de ene een CRM-lead is en de andere een CRM-contactpersoon, is de winnaar de CRM-contactpersoon (ongeacht welke lead als winnaar is opgegeven). Als een van de leads zich in SFDC bevindt en de andere alleen Marketo is, dan is de winnaar de SFDC-lead (ongeacht welke lead als winnaar is opgegeven).
 
 ## Webactiviteit koppelen
 
@@ -808,7 +816,7 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads door Filtertype, hoewel filterType en filterValues niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` bevindt zich in de URL van de statische lijst; `https://app-****.marketo.com/#ST1001A1`. In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ### Verzoek
 
@@ -847,7 +855,7 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 }
 ```
 
-De Get Lijsten door het eindpunt van identiteitskaart van de Lood neemt een loodverslag `id` de wegparameter en keert alle statische lijstverslagen terug die de lood een lid van is.
+Het Get Lijsten door het eindpunt van identiteitskaart van de Lood neemt een weg van het loodverslag `id` parameter en keert alle statische lijstverslagen terug die de lood een lid van is.
 
 ### Verzoek
 
@@ -885,11 +893,11 @@ GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 
 ## Programma&#39;s
 
-Het lidmaatschap van het programma kan op een gelijkaardige manier zoals lijsten worden teruggewonnen. De zelfde facultatieve verzoekparameters zijn beschikbaar wanneer het roepen van krijgen leidt door het eindpunt van Id van het Programma en gaat over `programId` padparameter.
+Het lidmaatschap van het programma kan op een gelijkaardige manier zoals lijsten worden teruggewonnen. De zelfde facultatieve verzoekparameters zijn beschikbaar wanneer het roepen van krijgen leidt door het eindpunt van Id van het Programma en gaat de `programId` wegparameter over.
 
-U kunt desgewenst een veldparameter doorgeven die een door komma&#39;s gescheiden lijst met veldnamen bevat die moet worden geretourneerd. Als de parameter fields niet is opgenomen in deze aanvraag, worden de volgende standaardvelden geretourneerd: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, `membership`, en `id`. Als u een lijst met velden aanvraagt en een bepaald veld wordt opgevraagd, maar niet wordt geretourneerd, wordt de waarde impliciet ingesteld op null.
+U kunt desgewenst een veldparameter doorgeven die een door komma&#39;s gescheiden lijst met veldnamen bevat die moet worden geretourneerd. Als de parameter fields niet is opgenomen in deze aanvraag, worden de volgende standaardvelden geretourneerd: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, `membership` en `id` . Als u een lijst met velden aanvraagt en een bepaald veld wordt opgevraagd, maar niet wordt geretourneerd, wordt de waarde impliciet ingesteld op null.
 
-De responsstructuur lijkt sterk op elkaar, aangezien elk item in de resultaatarray een lead is, behalve dat elke record ook een onderliggend object heeft met de naam &quot;membership&quot;. Dit lidmaatschapsobject bevat gegevens over de relatie van de lead met het programma dat in de oproep wordt aangegeven, waarbij altijd de relatie van de lead wordt getoond `progressionStatus`, `acquiredBy`, `reachedSuccess`, en `membershipDate`. Als het bovenliggende programma ook een betrokkenheidsprogramma is, hebben leden `stream`, `nurtureCadence`, en `isExhausted` haar positie en activiteit in het betrokkenheidsprogramma aan te geven.
+De responsstructuur lijkt sterk op elkaar, aangezien elk item in de resultaatarray een lead is, behalve dat elke record ook een onderliggend object heeft met de naam &quot;membership&quot;. Dit lidmaatschapsobject bevat gegevens over de relatie van de lead met het programma dat in de aanroep wordt aangegeven, waarbij altijd de `progressionStatus`, `acquiredBy`, `reachedSuccess` en `membershipDate` worden getoond. Als het bovenliggende programma ook een betrokkenheidsprogramma is, hebben leden `stream`, `nurtureCadence` en `isExhausted` de tijd om hun positie en activiteit in het betrokkenheidsprogramma aan te geven.
 
 ### Verzoek
 
@@ -963,7 +971,7 @@ GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 }
 ```
 
-Het Get Programma&#39;s door het eindpunt van identiteitskaart van het Loodverslag neemt een de wegparameter van loodverslag id en keert alle programmaverslagen terug die de lood een lid van is. De optionele `filterType` en `filterValues` met parameters kunt u filteren op programma-id.
+Het Get Programma&#39;s door het eindpunt van identiteitskaart van het Loodverslag neemt een de wegparameter van loodverslag id en keert alle programmaverslagen terug die de lood een lid van is. Met de optionele parameters `filterType` en `filterValues` kunt u filteren op programma-id.
 
 ### Verzoek
 

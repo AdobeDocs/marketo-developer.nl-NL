@@ -3,7 +3,7 @@ title: React Native
 feature: Mobile Marketing
 description: React Native voor Marketo installeren
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
 source-wordcount: '822'
 ht-degree: 0%
@@ -16,23 +16,23 @@ In dit artikel vindt u informatie over het installeren en instellen van een eige
 
 ## Vereisten
 
-[Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
+[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
 
 ## SDK-integratie
 
 ### Android SDK-integratie
 
-**Instellen met Gradle**
+**Opstelling die Gradle** gebruikt
 
-Voeg de Marketo SDK-afhankelijkheid toe aan de nieuwste versie: Op toepassingsniveau `build.gradle` bestand, onder de sectie Afhankelijkheden, toevoegen (inclusief de juiste versie van Marketo SDK)
+Voeg de Marketo SDK-afhankelijkheid toe met de nieuwste versie: voeg onder de sectie voor afhankelijkheden in het bestand op toepassingsniveau `build.gradle` toe (inclusief de juiste versie van Marketo SDK)
 
 ```
 implementation 'com.marketo:MarketoSDK:0.x.x'
 ```
 
-**Een centrale opslagplaats toevoegen**
+**voeg mavencentcentrale bewaarplaats** toe
 
-Marketo SDK is beschikbaar op het tabblad [gemaskeerde centrale gegevensbank](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` opslagplaats naar hoofdmap `build.gradle`
+Marketo SDK is beschikbaar op de [ Gemaakt centrale bewaarplaats ](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
 
 ```
 build script {
@@ -49,11 +49,11 @@ Synchroniseer vervolgens uw project met de bestanden in de grijze ruimte.
 
 Voordat u een bridge voor uw React Native-project maakt, is het belangrijk dat u onze SDK instelt in uw Xcode-project.
 
-**SDK-integratie - CocoaPods gebruiken**
+**integratie SDK - Gebruikend CocoaPods**
 
 Het is eenvoudig om de SDK van iOS in uw app te gebruiken. Voer de volgende stappen uit om dit in het Xcode-project van uw app in te stellen met CocoaPods, zodat u ons platform kunt integreren met uw app.
 
-Downloaden [CocoaPods](https://cocoapods.org/) - Distributed as a Ruby gem, is het een gebiedsdeelmanager voor doelstelling-C en Swift die het proces vereenvoudigt om derdebibliotheken in uw code, zoals iOS SDK te gebruiken.
+De download [ CocoaPods ](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
 
 Als u het wilt downloaden en installeren, start u een opdrachtregelterminal op uw Mac en voert u de volgende opdracht uit:
 
@@ -81,9 +81,9 @@ Als u het wilt downloaden en installeren, start u een opdrachtregelterminal op u
 
 ## Installatie-instructies voor de native module
 
-Soms moet een React Native-toepassing toegang krijgen tot een API van een native platform die niet standaard beschikbaar is in JavaScript, bijvoorbeeld de native API&#39;s voor toegang tot Apple of Google Pay. Misschien wilt u sommige bestaande Objectc-, Swift-, Java- of C++-bibliotheken opnieuw gebruiken zonder dat u deze opnieuw moet implementeren in JavaScript, of u wilt krachtige, multi-threaded code schrijven voor bijvoorbeeld het verwerken van afbeeldingen.
+Soms moet een React Native-app toegang krijgen tot een native platform-API die niet standaard beschikbaar is in JavaScript, bijvoorbeeld de native API&#39;s voor toegang tot Apple of Google Pay. Misschien wilt u sommige bestaande objectc-, SWIFT-, Java- of C++-bibliotheken opnieuw gebruiken zonder dat u deze opnieuw moet implementeren in JavaScript, of u wilt krachtige, multi-threaded code schrijven voor bijvoorbeeld beeldverwerking.
 
-Het NativeModule-systeem stelt instanties van Java/Objectieve C/C++ (native) klassen als JS-objecten beschikbaar voor JavaScript, zodat u willekeurige native code vanuit JS kunt uitvoeren. Hoewel we niet verwachten dat deze functie deel uitmaakt van het gebruikelijke ontwikkelingsproces, is het van essentieel belang dat deze bestaat. Als React Native geen native API exporteert die uw JS-app nodig heeft, kunt u deze zelf exporteren!
+Het NativeModule-systeem stelt instanties van Java/Objectieve C/C++ (native) klassen als JS-objecten beschikbaar voor JavaScript (JS), zodat u willekeurige native code vanuit JS kunt uitvoeren. Hoewel we niet verwachten dat deze functie deel uitmaakt van het gebruikelijke ontwikkelingsproces, is het van essentieel belang dat deze bestaat. Als React Native geen native API exporteert die uw JS-app nodig heeft, kunt u deze zelf exporteren!
 
 React Native-bridge wordt gebruikt voor communicatie tussen de JSX- en native toepassingslagen. In ons geval kan de host-app de JSX-code schrijven die de methoden van de Marketo SDK kan aanroepen.
 
@@ -174,7 +174,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
 }
 ```
 
-**Het pakket registreren**
+**registreer het Pakket**
 
 Laat het Marketo-pakket reageren.
 
@@ -224,11 +224,11 @@ public class MainApplication extends Application implements ReactApplication {
 
 ### iOS
 
-In de volgende handleiding maakt u een native module. _RNMarketoModule_, zodat u vanuit JavaScript toegang krijgt tot API&#39;s voor Marketo.
+In de volgende gids zult u een inheemse module, _RNMarketoModule_ creëren, die u zal toestaan om tot Marketo APIs van JavaScript toegang te hebben.
 
 Open om aan de slag te gaan het iOS-project in uw React Native-toepassing in Xcode. U vindt uw iOS-project hier in een React Native-app. We raden u aan Xcode te gebruiken om uw eigen code te schrijven. Xcode is gemaakt voor iOS-ontwikkeling en als u deze code gebruikt, kunt u snel kleinere fouten oplossen, zoals de syntaxis van code.
 
-Maak onze hoofd- en implementatiebestanden van de aangepaste native module. Een nieuw bestand maken met de naam `MktoBridge.h` en voeg er het volgende aan toe:
+Maak onze hoofd- en implementatiebestanden van de aangepaste native module. Maak een nieuw bestand met de naam `MktoBridge.h` en voeg er het volgende aan toe:
 
 ```
 //
@@ -380,15 +380,13 @@ RNMarketoModule.uninitializeMarketoPush()
 
 #### Pushmeldingen configureren
 
-
 Initialiseer Duwen met project-id en kanaalnaam
 
 ```
 RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
-Voeg de volgende Dienst aan toe `AndroidManifest.xml`
-
+Voeg de volgende service toe aan `AndroidManifest.xml`
 
 ```xml
 <service android:exported="true" android:name=".MyFirebaseMessagingService" android:stopWithTask="true">
@@ -401,7 +399,7 @@ Voeg de volgende Dienst aan toe `AndroidManifest.xml`
 </activity/>
 ```
 
-Een klasse met een naam maken `FirebaseMessagingService.java` en voeg de volgende code toe
+Een klasse met de naam `FirebaseMessagingService.java` maken en de volgende code toevoegen
 
 ```java
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -427,15 +425,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 De toestemmingen moeten in uw project van Xcode worden toegelaten om pushberichten naar het apparaat van de gebruiker te verzenden.
 
-Om pushmeldingen te verzenden, [pushmeldingen toevoegen](push-notifications.md).
+Om pushberichten te verzenden, [ voeg Push Meldingen ](push-notifications.md) toe.
 
-Nu in uw `AppDelegate.m` bestand in XCode, Marketo importeren
+Importeer nu Marketo in uw `AppDelegate.m` -bestand in XCode
 
 ```
 #import <MarketoFramework/MarketoFramework.h> 
 ```
 
-Toevoegen `UNUserNotificationCenterDelegate` aan Interface AppDelegate als volgt om Afgevaardigden te behandelen
+Voeg `UNUserNotificationCenterDelegate` aan Interface AppDelegate als volgt toe om Afgevaardigden te behandelen
 
 ```
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
@@ -443,7 +441,7 @@ Toevoegen `UNUserNotificationCenterDelegate` aan Interface AppDelegate als volgt
 @end
 ```
 
-Registreren voor externe berichten in `didFinishLaunchingWithOptions` methode.
+Registreer u voor externe berichten in de methode `didFinishLaunchingWithOptions` .
 
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -485,7 +483,7 @@ Registreren voor externe berichten in `didFinishLaunchingWithOptions` methode.
 }
 ```
 
-Neem het volgende op `UNUserNotificationCenter` afgevaardigde vereiste berichten afgevaardigde methodes.
+Neem de volgende `UNUserNotificationCenter` gedelegeerde vereiste berichtgedelegeerde methoden op.
 
 ```
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
@@ -516,7 +514,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 **Android**
 
-&quot;MarketoActivity&quot; toevoegen aan `AndroidManifest.xml` bestand in toepassingstag.
+Voeg &quot;MarketoActivity&quot; toe aan het `AndroidManifest.xml` -bestand in de toepassingstag.
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity" android:configChanges="orientation|screenSize" android:exported="true">
@@ -537,9 +535,9 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 1. URL-schema&#39;s instellen: `mkto-<S_ecret Key_>`
 
-1. Inclusief `application:openURL:sourceApplication:annotation:` tot `AppDelegate.m` bestand (doelstelling-C)
+1. `application:openURL:sourceApplication:annotation:` opnemen in `AppDelegate.m` -bestand (doelstelling-C)
 
-**iOS - Aangepast URL-type/-verwijderinkten afhandelen in AppDelegate** 
+**iOS - het Type/Deplinks van de Douane van de Handle in AppDelegate** 
 
 ```
 - (BOOL)application:(UIApplication *)app
