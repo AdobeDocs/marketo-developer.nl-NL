@@ -1,16 +1,16 @@
 ---
-title: "syncLead"
+title: syncLead
 feature: SOAP
-description: "syncLead SOAP-aanroepen"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncLead SOAP aanroepen
+exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
+source-git-commit: ebe8faf41dff0e0ba5f4323f5909cc3c9813fd10
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 0%
 
 ---
 
-
-# syncLean
+# syncLead
 
 Deze functie voegt één lead record in of werkt deze bij. Bij het bijwerken van een bestaande lead wordt de lead aangeduid met een van de volgende toetsen:
 
@@ -21,7 +21,7 @@ Deze functie voegt één lead record in of werkt deze bij. Bij het bijwerken van
 
 Als een bestaande gelijke wordt gevonden, voert de vraag een update uit. Als dat niet het geval is, wordt er een lead ingevoegd en gemaakt. Anonieme leads kunnen worden bijgewerkt met de Marketo Cookie-id en worden bij update bekend.
 
-Met uitzondering van E-mail worden al deze id&#39;s beschouwd als unieke sleutels. De Marketo-id heeft voorrang op alle andere toetsen. Als beide `foreignSysPersonId` en de Marketo-id aanwezig is in de hoofdrecord, heeft de Marketo-id prioriteit en de `foreignSysPersonId` wordt bijgewerkt voor die lead. Als alleen `foreignSysPersonId` gegeven, dan wordt het gebruikt als uniek herkenningsteken. Als beide `foreignSysPersonId` en e-mail aanwezig zijn, maar de Marketo-id is niet aanwezig, de `foreignSysPersonId` heeft voorrang en de e-mail zal voor die lood worden bijgewerkt.
+Met uitzondering van E-mail worden al deze id&#39;s beschouwd als unieke sleutels. De Marketo-id heeft voorrang op alle andere toetsen. Als zowel `foreignSysPersonId` als de Marketo-id aanwezig zijn in de lead record, heeft de Marketo-id voorrang en wordt de `foreignSysPersonId` bijgewerkt voor die lead. Als de enige `foreignSysPersonId` is gegeven, wordt deze gebruikt als een unieke id. Als zowel `foreignSysPersonId` als E-mail aanwezig zijn maar de Marketo-id niet aanwezig is, heeft `foreignSysPersonId` voorrang en wordt de e-mail voor die lead bijgewerkt.
 
 Desgewenst kan een Context Header worden opgegeven om de doelwerkruimte een naam te geven.
 
@@ -42,14 +42,14 @@ Als Marketo-werkruimten NIET zijn ingeschakeld, MOET de werkruimte Standaard de 
 
 | Veldnaam | Vereist/optioneel | Beschrijving |
 | --- | --- | --- |
-| leadRecord->Id | Vereist - Alleen bij e-mail of `foreignSysPersonId` is niet aanwezig | De Marketo-id van de lead record |
-| leadRecord->Email | Vereist - Alleen wanneer id of `foreignSysPersonId` is niet aanwezig | Het e-mailadres dat is gekoppeld aan de lead record |
+| leadRecord->Id | Vereist - Alleen wanneer e-mail of `foreignSysPersonId` niet aanwezig is | De Marketo-id van de lead record |
+| leadRecord->Email | Vereist - Alleen wanneer id of `foreignSysPersonId` niet aanwezig is | Het e-mailadres dat is gekoppeld aan de lead record |
 | leadRecord->`foreignSysPersonId` | Vereist - Alleen wanneer id of e-mail niet aanwezig is | De id van het externe systeem die is gekoppeld aan de loodrecord |
-| leadRecord->foreignSysType | Optioneel - Alleen vereist als `foreignSysPersonId` is aanwezig | Het type extern systeem. Mogelijke waarden: CUSTOM, SFDC, NETSUITE |
+| leadRecord->foreignSysType | Optioneel - Alleen vereist als `foreignSysPersonId` aanwezig is | Het type extern systeem. Mogelijke waarden: CUSTOM, SFDC, NETSUITE |
 | leadRecord->leadAttributeList->attribute->attrName | Vereist | The name of the lead attribute you want to update the value of. |
 | leadRecord->leadAttributeList->attribute->attrValue | Vereist | De waarde die u wilt instellen op het kenmerk lead dat in attrName is opgegeven. |
 | returnLead | Vereist | Indien waar (true), wordt de volledige bijgewerkte lead record geretourneerd bij update. |
-| marketoCookie | Optioneel | De [Munchkin javascript](../javascript-api/lead-tracking.md) koekje |
+| marketoCookie | Optioneel | Het [ Munchkin javascript ](../javascript-api/lead-tracking.md) koekje |
 
 ## XML aanvragen
 
