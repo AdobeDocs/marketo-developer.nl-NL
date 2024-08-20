@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 5d18a24f25e5bda39e10bce3b2a77370dd28c937
+source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
 workflow-type: tm+mt
-source-wordcount: '237'
+source-wordcount: '238'
 ht-degree: 5%
 
 ---
@@ -49,6 +49,7 @@ ht-degree: 5%
 - REST{#rest}
    - [REST API-overzicht](rest-api/rest-api.md)
    - [ REST API verwijzing ](https://developer.adobe.com/marketo-apis/)
+   - [Activiteiten](rest-api/activities.md)
    - Assets {#assets}
       - [Assets](rest-api/assets.md)
       - [Dynamische inhoud](rest-api/dynamic-content.md)
