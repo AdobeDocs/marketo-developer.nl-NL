@@ -1,14 +1,14 @@
 ---
 title: Voorbeelden
-description: "Voorbeelden van Marketo-code"
+description: Voorbeelden van Marketo-code voor het configureren van formulierhandelingen
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: dc5f0cc5-ff5a-48b0-be36-52c10e56f798
+source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
 workflow-type: tm+mt
-source-wordcount: '207'
+source-wordcount: '211'
 ht-degree: 0%
 
 ---
-
 
 # Voorbeelden
 
@@ -32,7 +32,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 
 ## Bezoeker doorsturen naar door gebruiker gedefinieerde URL
 
-In dit voorbeeld gaat de bezoeker naar een URL die door JavaScript wordt bepaald na een geslaagde verzending, in plaats van naar de geconfigureerde pagina voor bedankt.
+In dit voorbeeld gaat de bezoeker naar een URL die door JavaScript wordt bepaald na een geslaagde verzending in plaats van naar de geconfigureerde pagina voor bedankt.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -137,7 +137,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 
 ## Formulier tonen in LightBox
 
-In dit voorbeeld wordt het formulier weergegeven in een dialoogvenster met een lichtbakstijl als de URL een parameter bevat `lightboxForm=true`.
+In dit voorbeeld wordt het formulier weergegeven in een dialoogvenster met een lichtbakstijl als de URL een parameter `lightboxForm=true` bevat.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 
