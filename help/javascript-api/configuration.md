@@ -3,9 +3,9 @@ title: Configuratie
 description: Gebruik de configuratie Javascript API om configuratiewaarden in te stellen wanneer u Munchkin gebruikt.
 feature: Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 257478ecb76b5908c2f623192f37be25bff1a02a
 workflow-type: tm+mt
-source-wordcount: '618'
+source-wordcount: '554'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ Het configuratieinstellingenobject kan een willekeurig aantal eigenschappen uit 
 | Naam | Gegevenstype | Beschrijving |
 |---|---|---|
 | altIds | Array | Accepteert een array van Munchkin-id-tekenreeksen. Wanneer toegelaten, dupliceert dit alle Activiteit van het Web aan de gerichte abonnementen, die op hun Munchkin identiteitskaart worden gebaseerd. |
-| anonymizeIP | Boolean | Anonymizes het IP-adres dat in Marketo is opgenomen voor nieuwe bezoekers. U kunt bepalen of uw abonnement is ingericht voor Munchkin V2 door te controleren of uw `{Munchkin-Id}.mktoresp.com` -domein een van de volgende adressen heeft: `192.28.144.124` `134.213.193.62` `192.28.147.68` `103.237.104.82` . U kunt het onderstaande script ook uitvoeren vanuit een unix shell: nslookup {munchkin-id}.mktoresp.com | grep -E -c -e &quot;(192.28.144.124,134.213.193.62,192.28.147.68,103.237.104.82)&quot; Als output &quot;0&quot;dan is uw abonnement niet provisioned met Munchkin V2; als het 1 of groter output, dan is het provisioned. |
+| anonymizeIP | Boolean | Anonymizes het IP adres dat in Marketo voor nieuwe bezoekers wordt geregistreerd. |
 | apiOnly | Boolean | Indien ingesteld op true, roept de functie `Munchkin.Init()` `visitsWebPage` niet aan. Dit is handig voor webtoepassingen van één pagina die volledige controle over elke `visitsWebPage` -gebeurtenis nodig hebben. |
 | asyncOnly | Boolean | Indien ingesteld op true, wordt de XMLHttpRequest asynchroon verzonden. De standaardwaarde is false. |
 | clickTime | Geheel | Hiermee stelt u de hoeveelheid tijd in die na een klik moet worden geblokkeerd om te klikken op een trackingverzoek (in milliseconden). Als u deze waarde vermindert, wordt de klikcontrole minder nauwkeurig. De standaardwaarde is 350 ms. |
