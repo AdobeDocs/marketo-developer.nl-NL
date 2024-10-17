@@ -1,14 +1,14 @@
 ---
-title: "Foutcodes"
+title: Foutcodes
 feature: REST API
-description: "Beschrijvingen van Marketo-foutcodes."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Marketo-foutcodebeschrijvingen.
+exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
+source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
 workflow-type: tm+mt
-source-wordcount: '2272'
+source-wordcount: '2273'
 ht-degree: 2%
 
 ---
-
 
 # Foutcodes
 
@@ -22,7 +22,7 @@ Wanneer het ontwikkelen voor Marketo, is het belangrijk dat de verzoeken en de r
 
 De Marketo REST-API kan drie verschillende fouttypen retourneren onder normale werking:
 
-* HTTP-niveau: deze fouten worden aangegeven door een `4xx` code.
+* HTTP-niveau: deze fouten worden aangegeven door een `4xx` -code.
 * Responsniveau: deze fouten worden opgenomen in de array &quot;errors&quot; van de JSON-respons.
 * Recordniveau: deze fouten worden opgenomen in de &quot;resultaat&quot;-array van de JSON-respons en worden op individuele recordbasis aangegeven met het veld &quot;status&quot; en de array &quot;reason&quot;.
 
@@ -30,12 +30,12 @@ Voor fouttypen op antwoordniveau en op recordniveau wordt een HTTP-statuscode va
 
 ### Fouten op HTTP-niveau
 
-Onder normale bedrijfsomstandigheden mag Marketo slechts twee fouten in de HTTP-statuscode retourneren. `413 Request Entity Too Large`, en `414 Request URI Too Long`. Deze zijn zowel terugwinbaar door de fout te vangen, het verzoek te wijzigen en opnieuw te proberen, maar met slimme codeerpraktijken, zou u deze nooit in het wild moeten ontmoeten.
+Onder normale bedrijfsomstandigheden mag Marketo slechts twee fouten in de HTTP-statuscode `413 Request Entity Too Large` en `414 Request URI Too Long` retourneren. Deze zijn zowel terugwinbaar door de fout te vangen, het verzoek te wijzigen en opnieuw te proberen, maar met slimme codeerpraktijken, zou u deze nooit in het wild moeten ontmoeten.
 
 Marketo retourneert 413 als de Request Payload groter is dan 1 MB, of 10 MB in het geval van Import Lead. In de meeste gevallen is het onwaarschijnlijk dat deze limieten worden overschreden, maar door een controle toe te voegen aan de grootte van het verzoek en records te verplaatsen die ertoe leiden dat de limiet wordt overschreden naar een nieuw verzoek, moeten omstandigheden worden voorkomen die ertoe leiden dat deze fout door eindpunten wordt geretourneerd.
 
-414 wordt geretourneerd wanneer de URI van een GET-aanvraag groter is dan 8 kB. Om het te vermijden, controleer tegen de lengte van uw vraagkoord om te zien of overschrijdt het deze grens. Als het uw verzoek in een methode van de POST verandert, dan input uw vraagkoord als verzoeklichaam met de extra parameter `_method=GET`. Hiermee wordt de beperking op URI&#39;s genegeerd. Het is zeldzaam om deze grens in de meeste gevallen te raken, maar het is enigszins gemeenschappelijk wanneer het terugwinnen van grote partijen verslagen met lange individuele filterwaarden zoals een GUID.
-De [Identiteit](https://developer.adobe.com/marketo-apis/api/identity/) Het eindpunt kan een 401 Onbevoegde fout terugkeren. Dit is doorgaans het gevolg van een ongeldige client-id of een ongeldig clientgeheim. Foutcodes op HTTP-niveau
+414 wordt geretourneerd wanneer de URI van een GET-aanvraag groter is dan 8 kB. Om het te vermijden, controleer tegen de lengte van uw vraagkoord om te zien of overschrijdt het deze grens. Als het uw verzoek in een methode van de POST verandert, dan voer uw vraagkoord als verzoeklichaam met de extra parameter `_method=GET` in. Hiermee wordt de beperking op URI&#39;s genegeerd. Het is zeldzaam om deze grens in de meeste gevallen te raken, maar het is enigszins gemeenschappelijk wanneer het terugwinnen van grote partijen verslagen met lange individuele filterwaarden zoals een GUID.
+Het [ eindpunt van de Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/) kan een 401 Onbevoegde fout terugkeren. Dit is doorgaans het gevolg van een ongeldige client-id of een ongeldig clientgeheim. Foutcodes op HTTP-niveau
 
 <table>
   <thead>
@@ -62,7 +62,7 @@ De [Identiteit](https://developer.adobe.com/marketo-apis/api/identity/) Het eind
 
 #### Fouten op responsniveau
 
-Fouten in het responsniveau zijn aanwezig wanneer de `success` De parameter van de reactie wordt geplaatst aan vals, en gestructureerd als:
+Er zijn fouten in het responsniveau aanwezig wanneer de parameter `success` van de reactie is ingesteld op false en als volgt is gestructureerd:
 
 ```json
 {
@@ -77,7 +77,7 @@ Fouten in het responsniveau zijn aanwezig wanneer de `success` De parameter van 
 }
 ```
 
-Elk object in de array &#39;errors&#39; heeft twee leden. `code`, een geheel getal tussen 601 en 799 en een `message` het opgeven van de plaintekstreden voor de fout. 6xx-codes geven altijd aan dat een aanvraag volledig is mislukt en niet is uitgevoerd. Een voorbeeld is 601, het &quot;teken van de Toegang ongeldig,&quot;dat kan terugkrijgen door het nieuwe toegangstoken met het verzoek opnieuw voor authentiek te verklaren en over te gaan. 7xx fouten wijzen erop dat het verzoek ontbrak, of omdat geen gegevens werden teruggekeerd, of het verzoek verkeerd geparametereerd was, zoals het omvatten van een ongeldige datum, of het missen van een vereiste parameter.
+Elk object in de array &#39;errors&#39; heeft twee leden, `code` . Dit is een geheel getal tussen 601 en 799 en een `message` dat de reden voor de fout in normale tekst aangeeft. 6xx-codes geven altijd aan dat een aanvraag volledig is mislukt en niet is uitgevoerd. Een voorbeeld is 601, het &quot;teken van de Toegang ongeldig,&quot;dat kan terugkrijgen door het nieuwe toegangstoken met het verzoek opnieuw voor authentiek te verklaren en over te gaan. 7xx fouten wijzen erop dat het verzoek ontbrak, of omdat geen gegevens werden teruggekeerd, of het verzoek verkeerd geparametereerd was, zoals het omvatten van een ongeldige datum, of het missen van een vereiste parameter.
 
 #### Foutcodes op responsniveau
 
@@ -110,7 +110,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="603"></a>603</td>
       <td>Toegang geweigerd</td>
-      <td>Verificatie is geslaagd, maar de gebruiker heeft onvoldoende machtigingen om deze API aan te roepen. [Aanvullende machtigingen](custom-services.md) moeten mogelijk worden toegewezen aan de gebruikersrol, of <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Lijst van gewenste personen voor IP-Gebaseerde API Toegang</a> kan worden ingeschakeld.</td>
+      <td>Verificatie is geslaagd, maar de gebruiker heeft onvoldoende machtigingen om deze API aan te roepen. [De extra toestemmingen] (douane-services.md) kunnen aan de gebruikersrol moeten worden toegewezen, of <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access"> Lijst van gewenste personen voor IP-Gebaseerde API Toegang </a> kan worden toegelaten.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -155,7 +155,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="612"></a>612</td>
       <td>Ongeldig inhoudstype</td>
-      <td>Als deze fout optreedt, voegt u een koptekst voor het inhoudstype toe waarin de JSON-indeling is opgegeven. Probeer bijvoorbeeld het inhoudssoort application/json te gebruiken. <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type">Zie deze StackOverflow-vraag</a> voor meer informatie .</td>
+      <td>Als deze fout optreedt, voegt u een koptekst voor het inhoudstype toe waarin de JSON-indeling is opgegeven. Probeer bijvoorbeeld het inhoudssoort application/json te gebruiken. <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type"> zie deze vraag StackOverflow </a> voor meer details.</td>
     </tr>
     <tr>
       <td><a name="613"></a>613</td>
@@ -207,7 +207,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
       <td>De aanroep kan niet worden uitgevoerd omdat deze in strijd is met een vereiste om een element te maken of bij te werken, bijvoorbeeld wanneer u een e-mail wilt maken zonder sjabloon. Het is ook mogelijk deze fout op te halen wanneer u probeert:
         <ul>
           <li>Inhoud ophalen voor bestemmingspagina's die sociale inhoud bevatten.</li>
-          <li>Een programma klonen dat bepaalde elementtypen bevat (zie <a href="programs.md#clone">Programmakloon</a> voor meer informatie ) .</li>
+          <li>Kloon een programma dat bepaalde activa types (zie </a> van de Kloon van het Programma 0} {voor meer informatie) bevat.<a href="programs.md#clone"></li>
           <li>Een element goedkeuren zonder concept (dat wil zeggen dat het al is goedgekeurd).</li>
         </ul></td>
     </tr>
@@ -224,7 +224,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="712"></a>712</td>
       <td>De bewerking Samenvoegen tot persoonlijke account is ongeldig</td>
-      <td>Een samenvoegen van leads is mislukt als gevolg van een poging tot samenvoegen van leads die Salesforce Person Accounts zijn.  Salesforce Person Accounts moet worden samengevoegd in Salesforce.</td>
+      <td>Een samenvoegen van leads is mislukt als gevolg van een poging om leads samen te voegen die Salesforce Person Accounts zijn.  Salesforce Person Accounts moet in Salesforce worden samengevoegd.</td>
     </tr>
     <tr>
       <td><a name="713"></a>713</td>
@@ -352,8 +352,8 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Ongeldige cookiewaarde '%s'</td>
-      <td>Kan voorkomen wanneer het roepen van <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> met een ongeldige waarde voor de cookieparameter.
-        Dit gebeurt ook wanneer u <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Regels ophalen op filtertype</a> met filterType=cookies en ongeldige geldige waarde voor filterValues parameter.</td>
+      <td>Kan voorkomen wanneer het roepen van <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST"> associeerde lood </a> met een ongeldige waarde voor de "koekjesparameter".
+        Dit komt ook voor wanneer het roepen <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET"> leidt door het Type van Filter </a> met ` filterType=cookies' en een ongeldige waarde voor de parameter ` filterValues `.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -469,19 +469,20 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
     </tr>
     <tr>
       <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads samenvoegen</a> De vraag met mergeInCRM vlag is 4.</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> Samenvoegen leidt </a> vraag met de vlag mergeInCRM is 4.</td>
       <td>U maakt een gedupliceerde record. U wordt aangeraden een bestaande record te gebruiken.
         Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads samenvoegen</a> oproep mislukt vanwege lengte van SFDC-veld</td>
-      <td>Een samenvoegen van leads met mergeInCRM ingesteld op true is mislukt omdat SFDC Field de limiet van toegestane tekens overschrijdt. U corrigeert de fout door de lengte van het SFDC-veld te verkleinen of mergeInCRM in te stellen op false.</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan ` de lengte van het Gebied van SFDC</td>
+      <td>Een samenvoegen van Leads-aanroep waarbij mergeInCRM is ingesteld op true, is mislukt omdat het SFDC-veld de limiet van toegestane tekens overschrijdt. U corrigeert de fout door de lengte van het veld SFDC Field te verkleinen of mergeInCRM in te stellen op false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads samenvoegen</a> De aanroep is mislukt vanwege een verwijderde entiteit, niet vanwege een lead/contactpersoon of omdat de criteria van het veldfilter niet overeenkomen.</td>
-      <td>Fout bij samenvoegen, kan samenvoegbewerking niet uitvoeren in native gesynchroniseerde CRM Dit is de foutmelding die Marketo ontvangt bij samenvoegen in Salesforce.</td>
+      <td></a> ontbroken vraag van de Leads van 0} Fusie {wegens geschrapte entiteit, niet een lood/contact, of de criteria van de gebiedsfilter past niet aan.<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"></td>
+      <td>Fout bij samenvoegen, kan samenvoegbewerking niet uitvoeren in native gesynchroniseerde CRM
+        Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
     </tr>
   </tbody>
 </table>
