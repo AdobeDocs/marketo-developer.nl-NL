@@ -3,7 +3,7 @@ title: Verificatie
 feature: REST API
 description: Marketo-gebruikers verifiëren voor API-gebruik.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: e0fc654efe4501f734ab5158ce0bfd3ed08896ce
+source-git-commit: 2bea5277a80ca99d98eb9b774f8cbea24cb6705f
 workflow-type: tm+mt
 source-wordcount: '579'
 ht-degree: 0%
@@ -64,7 +64,7 @@ Er zijn twee methodes die u kunt gebruiken om een teken in uw vraag, als kopbal 
 
    >[!IMPORTANT]
    >
-   >De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd in een verdere versie. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+   >De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30th 2025 van Juni. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Tips en aanbevolen procedures
 
