@@ -3,9 +3,9 @@ title: Verificatie
 feature: REST API
 description: Marketo-gebruikers verifiëren voor API-gebruik.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 2bea5277a80ca99d98eb9b774f8cbea24cb6705f
+source-git-commit: d57167d60f1cc6a32c600b72829afcba81e6ec92
 workflow-type: tm+mt
-source-wordcount: '579'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
@@ -52,19 +52,13 @@ Responsdefinitie
 
 Wanneer het maken van vraag aan REST API methodes, moet een toegangstoken in elke vraag worden omvat om de vraag succesvol te zijn.
 
-Er zijn twee methodes die u kunt gebruiken om een teken in uw vraag, als kopbal van HTTP, of als parameter van het vraagkoord te omvatten:
+Het toegangstoken moet als kopbal van HTTP worden verzonden.
 
-1. HTTP-header
+`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
 
-   `Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-1. Query-parameter
-
-   `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-   >[!IMPORTANT]
-   >
-   >De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30th 2025 van Juni. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>[!IMPORTANT]
+>
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30th 2025 van Juni. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Tips en aanbevolen procedures
 
