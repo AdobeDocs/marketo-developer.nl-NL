@@ -2,13 +2,13 @@
 title: Activiteiten
 feature: REST API
 description: Een API voor het beheer van Marketo Engage-activiteiten.
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
+source-git-commit: 6baf62bc8881470eca597899e3228c377fb597d0
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
 
 ---
-
 
 # Activiteiten
 
@@ -133,7 +133,7 @@ In sommige gevallen reageert deze API mogelijk met minder dan 300 activity-items
 
 Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` vervangen door het `marketoGUID` string-kenmerk als unieke id. 
 
-## Wijzigingen in gegevenswaarde
+### Wijzigingen in gegevenswaarde
 
 Voor de activiteiten van de Verandering van de Waarde van Gegevens, wordt een gespecialiseerde versie van de activiteiten API verstrekt. Het [ krijgt de Veranderingen van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) eindpunt keert slechts activiteiten van de verslagen van de Verandering van de Waarde van Gegevens aan loodgebieden terug. De interface is hetzelfde als de API voor lead-activiteiten ophalen, met twee verschillen:
 
@@ -188,7 +188,7 @@ Elke activiteit in de reactie heeft een veldarray, met een lijst met wijzigingen
 
 Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` vervangen door het `marketoGUID` string-kenmerk als unieke id.
 
-## Verwijderde leads
+### Verwijderde leads
 
 Er is ook een speciaal eindpunt [ krijgen Geschrapte Leads ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) voor het terugwinnen van geschrapte activiteiten van Marketo.
 
@@ -229,7 +229,7 @@ GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQ
 
 Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` vervangen door het `marketoGUID` string-kenmerk als unieke id.
 
-## Resultaten doorbladeren
+### Resultaten doorbladeren
 
 Door gebrek, de eindpunten die in deze sectie worden vermeld terugkeren 300 activiteitenpunten tegelijkertijd.  Als het kenmerk `moreResult` true is, zijn meer resultaten beschikbaar. Roep het eindpunt aan tot het `moreResult` attribuut vals terugkeert, wat betekent dat er geen meer resultaten beschikbaar zijn. De `nextPageToken` die van dit eindpunt is teruggekeerd zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
 
@@ -322,7 +322,7 @@ GET /rest/v1/activities/external/type/{apiName}/describe.json
 }
 ```
 
-### Tekst maken
+## Tekst maken
 
 Voor elk type aangepaste activiteit zijn een weergavenaam, API-naam, triggernaam, filternaam en primair kenmerk vereist.
 
@@ -386,7 +386,7 @@ POST /rest/v1/activities/external/type.json
 }
 ```
 
-### Type update
+## Type update
 
 Het bijwerken van een type lijkt erg op het bijwerken, behalve dat apiName de enige vereiste parameter is als padparameter.
 
@@ -448,7 +448,7 @@ Geldige gegevenstypen voor kenmerken zijn: string, boolean, integer, float, link
 
 Wanneer u het primaire kenmerk van een type activiteit wijzigt, moet een bestaand primair kenmerk eerst op false worden ingesteld. `isPrimary`
 
-## Kenmerken maken
+### Kenmerken maken
 
 Voor het maken van een kenmerk wordt een vereiste padparameter `apiName` gebruikt. Ook de parameters `name` en `dataType` zijn vereist.` The description and` `isPrimary` -parameters zijn optioneel.
 
@@ -515,7 +515,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 }
 ```
 
-## Kenmerken bijwerken
+### Kenmerken bijwerken
 
 Wanneer updates van kenmerken worden uitgevoerd, is de `apiName` van het kenmerk de primaire sleutel. De update werkt alleen als de parameter `apiName` bestaat (u kunt de parameter `apiName` dus niet wijzigen met update).
 
@@ -582,7 +582,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 }
 ```
 
-## Kenmerken verwijderen
+### Kenmerken verwijderen
 
 Als u een kenmerk verwijdert, wordt een vereiste padparameter `apiName` gebruikt. Dit is de API-naam voor aangepaste activiteit.  Ook vereist is een kenmerkparameter die een array van kenmerkobjecten is.  Elk object moet een parameter `apiName` bevatten die de API-naam van het type aangepaste activiteit is.
 
@@ -710,4 +710,4 @@ POST /rest/v1/activities/external.json
 De eindpunten van activiteiten hebben een onderbreking van 30 s tenzij hieronder vermeld.
 
 * Pagingtoken ophalen: 300 seconden 
-* Aangepaste activiteit toevoegen: 90 seconden 
+* Aangepaste activiteit toevoegen: 90 seconden
