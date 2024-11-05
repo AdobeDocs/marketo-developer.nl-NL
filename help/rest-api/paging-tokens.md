@@ -1,20 +1,22 @@
 ---
-title: "Paging Tokens"
+title: Pagingtokens
 feature: REST API
-description: "Gegevens voor paginerende tokens weergeven."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Gegevens over paginerende tokens weergeven.
+exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
+source-git-commit: a00583f367c2da36d9d1d6e0b05bfd4216573fbb
 workflow-type: tm+mt
-source-wordcount: '345'
+source-wordcount: '352'
 ht-degree: 0%
 
 ---
-
 
 # Pagingtokens
 
 Marketo biedt paginatokens om de resultaten te doorbladeren of gegevens op te halen die zijn bijgewerkt ten opzichte van een bepaalde gegevens.
 
-In bepaalde gevallen kunnen lange paginering tokentekenreeksen worden geretourneerd. Hierdoor kan een HTTP 414-foutcode optreden. Meer informatie over hoe deze te verwerken zijn [fouten](error-codes.md).
+In bepaalde gevallen kunnen lange paginering tokentekenreeksen worden geretourneerd. Hierdoor kan een HTTP 414-foutcode optreden. U kunt meer informatie vinden over hoe te om deze [ fouten ](error-codes.md) te behandelen.
+
+Zie [ het Pagelen Token API ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) documentatie.
 
 ## Typen token
 
@@ -25,7 +27,7 @@ Er zijn twee verwante, maar verschillende typen paginatokens die Marketo biedt:
 
 ## Op datum gebaseerd
 
-Het eerste is een paginatoken die een datum vertegenwoordigt. Deze worden gebruikt om activiteiten, veranderingen van de gegevenswaarde, en geschrapte lood terug te winnen die na de datum voorkwamen die door het pagineren teken wordt vertegenwoordigd. Dit type het pagineren teken wordt geproduceerd door het roepen van [Paginasken ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) en inclusief een datetime.
+Het eerste is een paginatoken die een datum vertegenwoordigt. Deze worden gebruikt om activiteiten, veranderingen van de gegevenswaarde, en geschrapte lood terug te winnen die na de datum voorkwamen die door het pagineren teken wordt vertegenwoordigd. Dit type van het pagineren van teken wordt geproduceerd door [ te roepen krijgt het Pagelen Token ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) eindpunt en met inbegrip van datetime.
 
 ```
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -39,7 +41,7 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 }
 ```
 
-Het formaat van de `sinceDateTime` parameter moet voldoen aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standaarddatumnotatie. Voor beste resultaten, gebruik een volledige datetime die de tijdstreek omvat. De tijdzone kan als of een compensatie van GMT worden vertegenwoordigd gebruikend het volgende formaat:
+Het formaat van de `sinceDateTime` parameter moet [ ISO 8601 ](https://en.wikipedia.org/wiki/ISO_8601) standaarddatumaantekening in overeenstemming zijn. Voor beste resultaten, gebruik een volledige datetime die de tijdstreek omvat. De tijdzone kan als of een compensatie van GMT worden vertegenwoordigd gebruikend het volgende formaat:
 
 `yyyy-mm-ddThh:mm:ss+|-hh:mm`
 
@@ -53,9 +55,9 @@ Voorbeelden
 
 `2016-09-15T10:53:00Z`
 
-Omdat `sinceDateTime` Is een vraagparameter, moet het URL gecodeerd zijn.
+Omdat `sinceDateTime` een queryparameter is, moet deze URL-gecodeerd zijn.
 
-De `nextPageToken` tekenreeks wordt vervolgens aan een [Leadactiviteiten ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET), [Wijzigingen in lead ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET), of [Verwijderde leads ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) De vraag, en de activiteiten worden teruggewonnen van na datetime die aan Get het Pagineren Symbolische API wordt verstrekt.
+Het `nextPageToken` koord wordt dan verstrekt aan a [ krijgt de Activiteiten van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET), [ krijgt de Veranderingen van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET), of [ krijgen Geschrapte vraag van Leads ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET), en de activiteiten worden teruggewonnen van na datetime die aan Get het Pageren Symbolische API wordt verstrekt.
 
 ```
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12
@@ -63,4 +65,4 @@ GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDA
 
 ## Op positie gebaseerd
 
-Het tweede type van het pagineren teken kan door om het even welke vraag van de partijherwinning aan een gegevensbestand API van het Lood zijn teruggekeerd. Dit type het pagineren teken is gelijkaardig in concept aan een gegevensbestandcurseur die verkeer van verslagen toelaat. Bijvoorbeeld, kan een Get Leidingen door de vraag van het Type van Filter een reeks groter dan de bepaalde partijgrootte vertegenwoordigen, gewoonlijk maximum en gebrek van 300. Als er meer resultaten zijn, is het veld moreResult waar in de reactie en wordt een `nextPageToken` wordt geretourneerd. Om de extra verslagen in de resultaatreeks terug te winnen, omvat een extra vraag `nextPageToken` met de ontvangen waarde van de vorige reactie in de nieuwe vraag. De resulterende reactie retourneert de volgende pagina in de resultaatset.
+Het tweede type van het pagineren teken kan door om het even welke vraag van de partijherwinning aan een gegevensbestand API van het Lood zijn teruggekeerd. Dit type het pagineren teken is gelijkaardig in concept aan een gegevensbestandcurseur die verkeer van verslagen toelaat. Bijvoorbeeld, kan een Get Leidingen door de vraag van het Type van Filter een reeks groter dan de bepaalde partijgrootte vertegenwoordigen, gewoonlijk maximum en gebrek van 300. Als er meer resultaten zijn, is het veld moreResult waar in de reactie en wordt een `nextPageToken` geretourneerd. Om de extra verslagen in de resultaatreeks terug te winnen, een extra vraag die `nextPageToken` met de ontvangen waarde van de vorige reactie in de nieuwe vraag omvat. De resulterende reactie retourneert de volgende pagina in de resultaatset.
