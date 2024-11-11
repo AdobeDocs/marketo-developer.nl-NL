@@ -3,9 +3,9 @@ title: Verificatie
 feature: REST API
 description: Marketo-gebruikers verifiëren voor API-gebruik.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: d57167d60f1cc6a32c600b72829afcba81e6ec92
+source-git-commit: 6f8dc76703aba204b6d0d4f1a3b5275aea819f08
 workflow-type: tm+mt
-source-wordcount: '0'
+source-wordcount: '558'
 ht-degree: 0%
 
 ---
@@ -58,13 +58,13 @@ Het toegangstoken moet als kopbal van HTTP worden verzonden.
 
 >[!IMPORTANT]
 >
->De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30th 2025 van Juni. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Tips en aanbevolen procedures
 
 Het beheren van de vervaldatum van toegangstoken is belangrijk om ervoor te zorgen dat uw integratie regelmatig werkt en onverwachte authentificatiefouten tijdens normale verrichting voorkomt. Wanneer het ontwerpen van authentificatie voor uw integratie, ben zeker om het teken en de vervalperiode op te slaan in de reactie van de Identiteit.
 
-Voordat u een REST-aanroep maakt, moet u de geldigheid van de token controleren op basis van de resterende levensduur. Als het teken is verlopen, dan vernieuwt het door [ Punt van de Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) te roepen. Dit helpt ervoor zorgen dat uw vraag REST nooit wegens een verlopen teken ontbreekt. Dit helpt u de latentie van uw vraag van REST op een voorspelbare manier beheren, die voor eindgebruiker-onder ogen ziet toepassingen van cruciaal belang is.
+Voordat u een REST-aanroep maakt, moet u de geldigheid van de token controleren op basis van de resterende levensduur. Als het teken is verlopen, dan vernieuwt het door [ eindpunt van de Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) te roepen. Dit helpt ervoor zorgen dat uw vraag REST nooit wegens een verlopen teken ontbreekt. Dit helpt u de latentie van uw vraag van REST op een voorspelbare manier beheren, die voor eindgebruiker-onder ogen ziet toepassingen van cruciaal belang is.
 
 Als een verlopen teken wordt gebruikt om een vraag van het SPEL voor authentiek te verklaren, zal de vraag REST ontbreken en een 602 foutencode terugkeren. Als een ongeldig token wordt gebruikt om een REST-aanroep te verifiëren, wordt een 601-foutcode geretourneerd. Als één van beide codes worden ontvangen, zou de cliënt het teken door het aanroepen van het eindpunt van de Identiteit moeten vernieuwen.
 
