@@ -1,14 +1,14 @@
 ---
-title: "Bulk Extract"
+title: Bulk extraheren
 feature: REST API
-description: "Batchbewerkingen voor het extraheren van Marketo-gegevens."
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Batchbewerkingen voor het extraheren van Marketo-gegevens.
+exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '1643'
+source-wordcount: '1683'
 ht-degree: 0%
 
 ---
-
 
 # Bulk extraheren
 
@@ -21,11 +21,15 @@ Marketo verstrekt interfaces voor terugwinning van grote reeksen persoon en op p
 
 Uitpakken van opsommingstekens wordt uitgevoerd door een taak te maken, de gegevensset te definiëren die moet worden opgehaald, de taak te vragen, te wachten totdat de taak is voltooid en een bestand te schrijven, en het bestand vervolgens via HTTP op te halen. Deze taken worden asynchroon uitgevoerd en kunnen worden gepolled om de status van de export op te halen.
 
-`Note:` Eindpunten van de Bulk-API worden niet voorafgegaan door &#39;/rest&#39;, zoals andere eindpunten.
+`Note:` Eindpunten van de bulk-API worden niet voorafgegaan door &#39;/rest&#39;, zoals andere eindpunten.
 
 ## Verificatie
 
-De bulk extract APIs gebruikt de zelfde OAuth 2.0 authentificatiemethode zoals andere Marketo REST APIs. Hiervoor moet een geldig toegangstoken worden ingesloten als de parameter query-string `access_token={_AccessToken_}`of als HTTP-header `Authorization: Bearer {_AccessToken_}`.
+De bulk extract APIs gebruikt de zelfde OAuth 2.0 authentificatiemethode zoals andere Marketo REST APIs. Hiervoor moet een geldig toegangstoken worden verzonden als HTTP-header `Authorization: Bearer {_AccessToken_}` .
+
+>[!IMPORTANT]
+>
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Limieten
 
@@ -45,13 +49,13 @@ Het maximumaantal taken in de wachtrij is 10. Als u een baan probeert te vragen 
 
 ### Bestandsgrootte
 
-De bulkextractie-API&#39;s worden gemeten op basis van de grootte op schijf van de gegevens die door een bulkextractietaak worden opgehaald. De expliciete grootte in bytes voor een taak kan worden bepaald door de `fileSize` kenmerk van de voltooide statusreactie van een exporttaak.
+De bulkextractie-API&#39;s worden gemeten op basis van de grootte op schijf van de gegevens die door een bulkextractietaak worden opgehaald. De expliciete grootte in bytes voor een taak kan worden bepaald door het kenmerk `fileSize` te lezen op basis van de voltooide statusreactie van een exporttaak.
 
-Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer de quota wordt overschreden, kunt u geen andere baan tot stand brengen of in de rij opnemen tot de dagelijkse quota om middernacht opnieuw wordt ingesteld [Central Time](https://en.wikipedia.org/wiki/Central_Time_Zone). Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
+Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer het quotum wordt overschreden, kunt u niet een andere baan tot stand brengen of in rij brengen tot de dagelijkse quota bij middernacht [ Centrale Tijd ](https://en.wikipedia.org/wiki/Central_Time_Zone) terugstelt. Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
 
 Als een taak in de wachtrij is geplaatst of wordt verwerkt, wordt deze uitgevoerd tot voltooiing (zonder een fout of annulering van een taak). Als een taak om een of andere reden mislukt, moet u deze opnieuw maken. Bestanden worden alleen volledig geschreven wanneer een taak de voltooide status bereikt (gedeeltelijke bestanden worden nooit weggeschreven). U kunt verifiëren dat een dossier volledig werd geschreven door het te berekenen hash SHA-256 en het vergelijken van dat met checksum die door de eindpunten van de baanstatus wordt teruggekeerd.
 
-U kunt de totale hoeveelheid schijf bepalen die voor de huidige dag wordt gebruikt door Get de Leiding van de Uitvoer/Activiteit/de Banen van het Lid van het Programma te roepen. Deze eindpunten geven een lijst weer van alle banen in de afgelopen zeven dagen. U kunt die lijst tot enkel de banen filtreren die in de huidige dag voltooiden (gebruiken `status` en `finishedAt` kenmerken). Vervolgens telt u de bestandsgrootten voor deze taken samen om het totale gebruikte bedrag te produceren. U kunt een bestand op geen enkele manier verwijderen om schijfruimte vrij te maken.
+U kunt de totale hoeveelheid schijf bepalen die voor de huidige dag wordt gebruikt door Get de Leiding van de Uitvoer/Activiteit/de Banen van het Lid van het Programma te roepen. Deze eindpunten geven een lijst weer van alle banen in de afgelopen zeven dagen. U kunt die lijst filteren tot alleen de taken die op de huidige dag zijn voltooid (met de kenmerken `status` en `finishedAt` ). Vervolgens telt u de bestandsgrootten voor deze taken samen om het totale gebruikte bedrag te produceren. U kunt een bestand op geen enkele manier verwijderen om schijfruimte vrij te maken.
 
 ## Machtigingen
 
@@ -107,7 +111,7 @@ In dit eenvoudige verzoek wordt een taak samengesteld die de waarden in de velde
 }
 ```
 
-Als we de taak maken, wordt een taak-id geretourneerd in de `exportId` kenmerk. Vervolgens kunnen we deze taak-id gebruiken om de taak in de wachtrij te plaatsen, de taak te annuleren, de status te controleren of het voltooide bestand op te halen.
+Wanneer we de taak maken, wordt een taak-id in het kenmerk `exportId` geretourneerd. Vervolgens kunnen we deze taak-id gebruiken om de taak in de wachtrij te plaatsen, de taak te annuleren, de status te controleren of het voltooide bestand op te halen.
 
 ### Algemene parameters
 
@@ -122,7 +126,7 @@ Elk eindpunt van de baanverwezenlijking deelt sommige gemeenschappelijke paramet
 
 ## Taken ophalen
 
-Soms moet u uw recente taken opvragen. Dit wordt gemakkelijk gedaan met Get de Banen van de Uitvoer voor het overeenkomstige objecten type. Elk Get eindpunt van de Banen van de Uitvoer steunt a `status` filterveld, a  `batchSize` om het aantal geretourneerde banen te beperken, en `nextPageToken` voor het pagineren door grote resultaatreeksen. Het statusfilter ondersteunt elke geldige status voor een exporttaak: Gemaakt, In wachtrij geplaatst, Verwerking, Geannuleerd, Voltooid en Mislukt. De batchSize heeft een maximum en gebrek van 300. Laten we de lijst met lead-exporttaken ophalen:
+Soms moet u uw recente taken opvragen. Dit wordt gemakkelijk gedaan met Get de Banen van de Uitvoer voor het overeenkomstige objecten type. Elk eindpunt voor Exporttaken ophalen ondersteunt een filterveld van het type `status` ,  `batchSize` om het aantal geretourneerde taken te beperken en `nextPageToken` om door grote resultaatsets te bladeren. Het statusfilter ondersteunt elke geldige status voor een exporttaak: Gemaakt, In wachtrij geplaatst, Verwerking, Geannuleerd, Voltooid en Mislukt. De batchSize heeft een maximum en gebrek van 300. Laten we de lijst met lead-exporttaken ophalen:
 
 ```
 GET /bulk/v1/leads/export.json?status=Completed,Failed
@@ -193,7 +197,7 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 }
 ```
 
-De binnenste `status` Het lid geeft de voortgang van de taak aan en kan een van de volgende waarden hebben: Gemaakt, In wachtrij geplaatst, Verwerken, Geannuleerd, Voltooid, Mislukt. In dit geval is onze taak voltooid, dus kunnen we stoppen met opiniepeilingen en doorgaan met het ophalen van het bestand. Wanneer de `fileSize` lid geeft de totale lengte van het bestand aan in bytes, en het `fileChecksum` lid bevat de SHA-256-hash van het bestand. Taakstatus is beschikbaar gedurende 30 dagen nadat de status Voltooid of Mislukt is bereikt.
+Het binnenste `status` lid geeft de voortgang van de taak aan en kan een van de volgende waarden zijn: Gemaakt, In wachtrij geplaatst, Verwerken, Geannuleerd, Voltooid, Mislukt. In dit geval is onze taak voltooid, dus kunnen we stoppen met opiniepeilingen en doorgaan met het ophalen van het bestand. Na voltooiing geeft het `fileSize` -lid de totale lengte van het bestand in bytes aan en het `fileChecksum` -lid bevat de SHA-256-hash van het bestand. Taakstatus is beschikbaar gedurende 30 dagen nadat de status Voltooid of Mislukt is bereikt.
 
 ## Uw gegevens ophalen
 
@@ -205,7 +209,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een baan niet heeft voltooid, of een slechte baan ID wordt overgegaan, antwoorden de dossiereindpunten met een status van 404 niet Gevonden, en een plaintext foutenmelding als lading, in tegenstelling tot de meeste andere eindpunten van Marketo REST.
 
-Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van de GET tot het eindpunt overgaan, die van byte 0 beginnen:
+Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [ RFC 7233 ](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van de GET tot het eindpunt overgaan, die van byte 0 beginnen:
 
 ```
 Range: bytes=0-9999
@@ -221,7 +225,7 @@ Content-Range: bytes 0-9999/123424
 
 ### Gedeeltelijke inning en hervatting
 
-Bestanden kunnen gedeeltelijk worden opgehaald of later worden hervat met de opdracht `Range` header. Het bereik van een bestand begint bij byte 0 en eindigt bij de waarde van `fileSize` min 1. De lengte van het bestand wordt ook gerapporteerd als noemer in de waarde van de `Content-Range` antwoordkopbal wanneer het roepen van een Get eindpunt van het Dossier van de Uitvoer. Als een herwinning gedeeltelijk ontbreekt, kan het later worden hervat. Bijvoorbeeld, als u probeert om een dossier terug te winnen 1000 lange bytes, maar slechts de eerste 725 bytes werden ontvangen, kan de herwinning van het punt van mislukking opnieuw worden geprobeerd door het eindpunt opnieuw te roepen en een nieuwe waaier over te gaan:
+Bestanden kunnen gedeeltelijk worden opgehaald of later worden hervat met de header `Range` . Het bereik voor een bestand begint bij byte 0 en eindigt bij de waarde `fileSize` minus 1. De lengte van het bestand wordt ook gerapporteerd als de noemer in de waarde van de antwoordheader van `Content-Range` wanneer een aanroep van het eindpunt Exportbestand ophalen wordt gedaan. Als een herwinning gedeeltelijk ontbreekt, kan het later worden hervat. Bijvoorbeeld, als u probeert om een dossier terug te winnen 1000 lange bytes, maar slechts de eerste 725 bytes werden ontvangen, kan de herwinning van het punt van mislukking opnieuw worden geprobeerd door het eindpunt opnieuw te roepen en een nieuwe waaier over te gaan:
 
 ```
 Range: bytes 724-999
@@ -231,7 +235,7 @@ Hiermee worden de resterende 275 bytes van het bestand geretourneerd.
 
 #### Verificatie bestandsintegriteit
 
-De eindpunten van de taakstatus retourneren een controlesom in het dialoogvenster `fileChecksum` kenmerk Wanneer `status` is &quot;Voltooid&quot;. De controlesom is een SHA-256-hash van het geëxporteerde bestand. U kunt de controlesom vergelijken met SHA-256 knoeiboel van het teruggewonnen dossier om te verifiëren dat het volledig is.
+De eindpunten van de taakstatus retourneren een controlesom in het kenmerk `fileChecksum` wanneer `status` &quot;Voltooid&quot; is. De controlesom is een SHA-256-hash van het geëxporteerde bestand. U kunt de controlesom vergelijken met SHA-256 knoeiboel van het teruggewonnen dossier om te verifiëren dat het volledig is.
 
 Hier volgt een voorbeeld van een reactie met de controlesom:
 

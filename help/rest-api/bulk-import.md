@@ -1,14 +1,14 @@
 ---
-title: "Bulkimport"
+title: Bulkimport
 feature: REST API
-description: "Gegevens van personen in batch importeren."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Gegevens van personen in batch importeren.
+exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '554'
+source-wordcount: '592'
 ht-degree: 0%
 
 ---
-
 
 # Bulkimport
 
@@ -24,7 +24,11 @@ Eindpunten van de Bulk-API worden niet voorafgegaan door &#39;/rest&#39;, zoals 
 
 ## Verificatie
 
-De bulkimport-API&#39;s gebruiken dezelfde OAuth 2.0-verificatiemethode als andere Marketo REST-API&#39;s.  Hiervoor moet een geldig toegangstoken worden ingesloten als de parameter query-string `access_token={_AccessToken_}`of als HTTP-header `Authorization: Bearer {_AccessToken_}`.
+De bulkimport-API&#39;s gebruiken dezelfde OAuth 2.0-verificatiemethode als andere Marketo REST-API&#39;s.  Hiervoor is een geldig toegangstoken vereist dat als HTTP-header `Authorization: Bearer {_AccessToken_}` wordt verzonden.
+
+>[!IMPORTANT]
+>
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Limieten
 
@@ -42,7 +46,7 @@ Bulkimport is een recordbewerking &quot;invoegen of bijwerken&quot;. Als een ove
 
 ## Een taak maken
 
-Marketo-API&#39;s voor bulkimport gebruiken het concept van een taak voor het uitvoeren van gegevensimporten. Laten we eens kijken naar het maken van een eenvoudige lead-importtaak met de opdracht [Leads importeren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) eindpunt.  Merk op dat dit eindpunt gebruikt [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dit kan lastig zijn om de juiste taal te kiezen, dus de beste praktijk is om een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze.  Als je gewoon je voeten nat maakt, raden we je aan om te gebruiken [krullen](https://curl.se/).
+Marketo-API&#39;s voor bulkimport gebruiken het concept van een taak voor het uitvoeren van gegevensimporten. Kijk bij het creëren van een eenvoudige lood invoerbaan gebruikend de [ Invoer leidt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) eindpunt.  Merk op dat dit eindpunt [ multipart/form-data als inhoud-type ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) gebruikt. Dit kan lastig zijn om de juiste taal te kiezen, dus de beste praktijk is om een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze.  Als u enkel uw voeten nat krijgt, stellen wij voor dat u [ krullen ](https://curl.se/) gebruikt.
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -96,7 +100,7 @@ Elk eindpunt van de baanverwezenlijking deelt sommige gemeenschappelijke paramet
 
 ## Status opiniepeilingtaak
 
-De status van de taak kan eenvoudig worden bepaald met de opdracht [Status importlead ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) eindpunt.
+Het bepalen van het statuut van de baan is eenvoudig gebruikend [ krijgt het Punt van de Status van het Lood van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
 
 ```
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -120,13 +124,13 @@ GET /bulk/v1/leads/batch/{batchId}.json
 }
 ```
 
-De binnenste `status` Het lid geeft de voortgang van de taak aan en kan een van de volgende waarden hebben: In wachtrij plaatsen, importeren, Voltooien, Mislukt. In dit geval is onze taak voltooid, dus kunnen we ophouden met stemmen.
+Het binnenste `status` lid geeft de voortgang van de taak aan en kan een van de volgende waarden hebben: In wachtrij plaatsen, Importeren, Voltooien, Mislukt. In dit geval is onze taak voltooid, dus kunnen we ophouden met stemmen.
 
 ## Mislukt
 
-Ontbrekende gegevens worden aangegeven door de `numOfRowsFailed` kenmerk in de reactie Status van Importlead ophalen. Indien `numOfRowsFailed` is groter dan nul, dan wijst die waarde op het aantal mislukkingen die voorkwamen.
+Fouten worden aangegeven door het kenmerk `numOfRowsFailed` in het antwoord &#39;Status van lead importeren&#39;. Als `numOfRowsFailed` groter is dan nul, geeft die waarde het aantal mislukkingen aan dat is opgetreden.
 
-Als u de records en de oorzaken van mislukte rijen wilt ophalen, moet u het foutbestand ophalen met de [Fout bij ophalen van lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) eindpunt.
+Om de verslagen en de oorzaken van ontbroken rijen terug te winnen, zult u het mislukkingsdossier moeten terugwinnen gebruikend [ krijg de Lood van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) eindpunt.
 
 ```
 GET /bulk/v1/leads/batch/{batchId}/failures.json
