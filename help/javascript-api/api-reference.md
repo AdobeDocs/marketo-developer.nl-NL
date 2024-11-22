@@ -1,30 +1,32 @@
 ---
-title: Naslaggids voor Munchkin API
+title: Munchkin API-naslag
 description: Gebruik de Munchkin Javascript API om uw Munchkin-gegevens aan te passen.
-feature: Javascript
-source-git-commit: c6c0a492ede415471e10efb6213eb3f590e63ebe
+feature: Munchkin Tracking Code, Javascript
+exl-id: e9727691-5501-4223-bc98-2b4bacc33513
+source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 2%
 
 ---
 
-
-# Naslaggids voor Munchkin API
+# Munchkin API-naslag
 
 Munchkin biedt verschillende functies die u handmatig via JavaScript kunt aanroepen. Hiermee kunt u browsergebeurtenissen op een aangepaste manier bijhouden, zoals het afspelen van video of het klikken op niet-koppelingen.
 
 ## Functies
 
-De Munchkin-API bestaat uit de volgende functies: `init`, `createTrackingCookie`, `munchkinFunction` .
+De Munchkin API bestaat uit de volgende functies: `init`, `createTrackingCookie`, `munchkinFunction` .
+
+<a name="munchkin_init"></a>
 
 ### Munchkin.init()
 
-`Munchkin.init()` moet worden aangeroepen voordat andere functies worden uitgevoerd. Het plaatst Munchkin op de huidige pagina om activiteiten naar een specifieke instantie te verzenden en produceert een activiteit van de &quot;Web-pagina van Bezoekingen&quot;voor de huidige pagina.
+`Munchkin.init()` moet worden aangeroepen voordat andere functies worden uitgevoerd. Het plaatst omhoog Munchkin op de huidige pagina om activiteiten naar een specifieke instantie te verzenden en produceert de activiteit van de &quot;Web-pagina van Bezoekingen&quot;voor de huidige pagina.
 
 | Parameternaam | Optioneel/vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| Munchkin-id | Vereist | String | Munchkin-account-id gevonden onder Beheer > Integratie > Munchkin. Hiermee stelt u de doelinstantie in waarnaar activiteiten moeten worden verzonden. |
+| Munchkin-id | Vereist | String | Munchkin-account-id gevonden onder Beheer > Integratie > Munchkin-menu. Hiermee stelt u de doelinstantie in waarnaar activiteiten moeten worden verzonden. |
 | [ Montages van de Configuratie ](configuration.md) | Optioneel | Object | Hiermee schakelt u alternatieve gedragsinstellingen voor Munchkin in. |
 
 ```javascript

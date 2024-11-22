@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 28b040f6473677abaaa0c73f1bb6e887e9e35a81
+source-git-commit: 8160ddaea848d0aefe4eef89a67f55b210c91f70
 workflow-type: tm+mt
-source-wordcount: '241'
+source-wordcount: '243'
 ht-degree: 5%
 
 ---
@@ -18,14 +18,15 @@ ht-degree: 5%
 - [Home](home.md)
 - [Aan de slag](getting-started.md)
 - Javascript-API {#javascriptapi}
-   - [Configuratie](javascript-api/configuration.md)
    - [Aangepaste gegevensgebeurtenissen](javascript-api/custom-data-events.md)
    - [Voorbeelden](javascript-api/examples.md)
    - [Forms API-naslag](javascript-api/forms-api-reference.md)
    - [Bezoekergegevens ophalen](javascript-api/get-visitor-data.md)
    - [Javascript-API](javascript-api/javascript-api.md)
-   - [Regelafstand bijhouden](javascript-api/lead-tracking.md)
-   - [Munchkin API-naslag](javascript-api/api-reference.md)
+   - [ Lood het Volgen ]{#leadtracking}
+      - [Regelafstand bijhouden](javascript-api/lead-tracking.md)
+      - [Configuratie](javascript-api/configuration.md)
+      - [Munchkin API-naslag](javascript-api/api-reference.md)
    - [Patroonovereenkomst](javascript-api/pattern-match.md)
    - [Voorspelende inhoud](javascript-api/predictive-content.md)
    - [Omleiding](javascript-api/redirect.md)
