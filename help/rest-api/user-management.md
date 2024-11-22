@@ -3,9 +3,9 @@ title: Gebruikersbeheer
 feature: REST API
 description: Voer CRUD-bewerkingen uit op gebruikersrecords.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+source-git-commit: 159c3fe29c26ea0fff718bf582a7e4c9a1740831
 workflow-type: tm+mt
-source-wordcount: '1185'
+source-wordcount: '1180'
 ht-degree: 0%
 
 ---
@@ -23,12 +23,12 @@ In tegenstelling tot andere Marketo REST API&#39;s geldt het volgende voor het g
    1. De toestemming van de &quot;Gebruikers van de Toegang&quot;van de [ Admin van de Toegang ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) groep
    1. De &quot;API van het Beheer van de Gebruiker van de Toegang&quot;van de [ Toegang API ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) groep
 - De instanties van de reactie bevatten niet de &quot;succes&quot;booleaanse attributen die op succes of mislukking van een vraag wijzen. In plaats daarvan moet u de statuscode van de HTTP-reactie evalueren. Als een vraag slaagt, is een 200 statuscode teruggekeerd. Wanneer een aanroep mislukt, wordt een statuscode van een ander niveau dan 200 geretourneerd en bevat de responsstructuur de standaardarray &#39;errors&#39; met foutcode en een beschrijvend foutbericht.
-- Het formaat van datetime koorden is &quot;yyyyMMdd&#39;T&#39;HH :mm: ss.SSS&#39;t&#39;+|-hhm&quot;. Dit is van toepassing op de volgende kenmerken: createdAt, updatedAt, expiredAt.
+- De indeling van datetime-tekenreeksen is `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm` . Dit is van toepassing op de volgende kenmerken: `createdAt`, `updatedAt`, `expiresAt` .
 - De eindpunten van de API voor gebruikersbeheer worden, net als andere eindpunten, niet voorafgegaan door &quot;/rest&quot;.
 
 ## Query
 
-De steun van de vraag voor gebruikersbeheer omvat capaciteit om alle gebruikers, rollen, en werkruimten terug te winnen. U kunt ook één gebruikersrecord ophalen met gebruikers-id of met rol-/woordruimterecord met gebruikers-id.
+De steun van de vraag voor gebruikersbeheer omvat capaciteit om alle gebruikers, rollen, en werkruimten terug te winnen. U kunt ook één gebruikersrecord ophalen op basis van gebruikers-id of een rol-/werkruimterecord op basis van gebruikers-id.
 
 ### Gebruiker op id
 
