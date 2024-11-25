@@ -5,7 +5,7 @@ breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8160ddaea848d0aefe4eef89a67f55b210c91f70
+source-git-commit: afe7e713fe15d63822625cd0299dc7125761cd33
 workflow-type: tm+mt
 source-wordcount: '243'
 ht-degree: 5%
@@ -23,7 +23,7 @@ ht-degree: 5%
    - [Forms API-naslag](javascript-api/forms-api-reference.md)
    - [Bezoekergegevens ophalen](javascript-api/get-visitor-data.md)
    - [Javascript-API](javascript-api/javascript-api.md)
-   - [ Lood het Volgen ]{#leadtracking}
+   - Regelafstand bijhouden {#leadtracking}
       - [Regelafstand bijhouden](javascript-api/lead-tracking.md)
       - [Configuratie](javascript-api/configuration.md)
       - [Munchkin API-naslag](javascript-api/api-reference.md)
@@ -60,8 +60,8 @@ ht-degree: 5%
       - [Mappen](rest-api/folders.md)
       - [Forms](rest-api/forms.md)
       - [Landingspagina&#39;s](rest-api/landing-pages.md)
-      - [Landingspagina-sjablonen](rest-api/landing-page-templates.md)
       - [Regels voor omleiding van bestemmingspagina](rest-api/landing-page-redirect-rules.md)
+      - [Landingspagina-sjablonen](rest-api/landing-page-templates.md)
       - [Lijst met standaardvelden](rest-api/list-of-standard-fields.md)
       - [Programma&#39;s](rest-api/programs.md)
       - [Slimme campagnes](rest-api/smart-campaigns.md)
