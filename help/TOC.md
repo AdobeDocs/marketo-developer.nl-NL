@@ -1,14 +1,14 @@
 ---
-user-guide-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
-user-guide-description: "Deze gids verstrekt instructies om  [!DNL Marketo]  APIs te gebruiken."
-breadcrumb-title: "[!DNL Marketo] Handleiding voor ontwikkelaars"
+user-guide-title: '[!DNL Marketo] Handleiding voor ontwikkelaars'
+user-guide-description: Deze gids verstrekt instructies om  [!DNL Marketo]  APIs te gebruiken.
+breadcrumb-title: '[!DNL Marketo] Handleiding voor ontwikkelaars'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
 source-git-commit: afe7e713fe15d63822625cd0299dc7125761cd33
 workflow-type: tm+mt
 source-wordcount: '243'
-ht-degree: 5%
+ht-degree: 6%
 
 ---
 

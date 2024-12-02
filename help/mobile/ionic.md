@@ -1,7 +1,7 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: Gebruiken [!DNL Ionic] met Marketo voor mobiele apparaten
+description: Gebruikend  [!DNL Ionic]  met Marketo voor mobiele apparaten
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # Ionic
 
-In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integreert. [!DNL Ionic] condensator wordt momenteel niet ondersteund.
+In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integreert. [!DNL Ionic] -condensator wordt momenteel niet ondersteund.
 
 ## Vereisten
 
-1. [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
-1. Pushmeldingen instellen ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
-1. Installeren [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. Push van de opstelling Meldingen ([ iOS ](push-notifications.md) | [ Android ](push-notifications.md)).
+1. Installeer [[!DNL Ionic] ](https://ionicframework.com/getting-started/) &amp; [ Cordova CLI ](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installatie-instructies
 
-### Marketo instellen [!DNL Ionic] Insteekmodule
+### Marketo-insteekmodule instellen [!DNL Ionic]
 
-1. Ervan uitgaande dat Cordova CLI is geïnstalleerd, ga naar uw [!DNL Ionic] toepassingsmap en voer de volgende opdracht uit om de Marketo-insteekmodule aan uw toepassing toe te voegen:
+1. Ervan uitgaande dat Cordova CLI is geïnstalleerd, gaat u naar de toepassingsmap van [!DNL Ionic] en voert u de volgende opdracht uit om de Marketo-insteekmodule aan uw toepassing toe te voegen:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -44,15 +44,15 @@ In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integre
 
 ### Enable Push Notifications in xCode
 
-1. Schakel de functie voor pushmeldingen in in het xCode-project.![Meldingsmogelijkheden](assets/notification-capability.png)
+1. Schakel de functie voor pushmeldingen in in het xCode-project.![ Capability van het Bericht ](assets/notification-capability.png)
 
 ### Pushmeldingen bijhouden
 
-Plak de volgende code in de `application:didFinishLaunchingWithOptions:` functie.
+Plak de volgende code in de functie `application:didFinishLaunchingWithOptions:` .
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 Marketo *sharedInstance = [Marketo sharedInstance];
@@ -60,7 +60,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 [sharedInstance trackPushNotification:launchOptions];
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 let sharedInstance: Marketo = Marketo.sharedInstance()
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### Marketo Framework initialiseren
 
-Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de `onDeviceReady` in uw JavaScript-hoofdbestand.
+Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de functie `onDeviceReady` in het JavaScript-hoofdbestand.
 
-U moet `ionicCordova` als kadertype voor [!DNL Ionic] Cordova Apps.
+U moet `ionicCordova` doorgeven als frameworktype voor [!DNL Ionic] Cordova-apps.
 
 #### Syntaxis
 
@@ -99,7 +99,7 @@ marketo.onStart(
 
 - Callback met succes: functie die moet worden uitgevoerd als het Marketo-framework correct is geïnitialiseerd.
 - Callback van mislukking: functie uit te voeren als het Marketo-framework niet kan worden geïnitialiseerd.
-- MUNCHKIN-ID : Munchkin-id ontvangen van Marketo op het moment van registratie.
+- MUNCHKIN-id: Munchkin-id ontvangen van Marketo op het moment van registratie.
 - SECRET KEY : Geheime sleutel die bij de registratie van Marketo is ontvangen.
 
 ### Marketo-pushmelding initialiseren
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Callback met succes: functie die moet worden uitgevoerd als de Marketo-pushmelding correct is geïnitialiseerd.
 - Callback van mislukking: functie uit te voeren als de pushmelding van Marketo niet kan worden geïnitialiseerd.
-- GCM_PROJECT_ID : GCM-project-id gevonden in [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) na het maken van de app.
+- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [ wordt gevonden de Console van Ontwikkelaars van Google ](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) na het creëren van app.
 
 Het token kan ook bij afmelden niet worden geregistreerd.
 
@@ -177,7 +177,7 @@ marketo.associateLead(
 
 ## Handeling rapporteren
 
-U kunt elke door de gebruiker uitgevoerde actie rapporteren door de `reportaction` functie.
+U kunt elke door de gebruiker uitgevoerde actie rapporteren door de functie `reportaction` aan te roepen.
 
 ### Syntaxis
 

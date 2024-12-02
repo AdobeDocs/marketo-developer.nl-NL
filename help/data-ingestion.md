@@ -1,27 +1,27 @@
 ---
-title: "Gegevensinname"
-description: "Overzicht van API voor gegevensinsluiting"
+title: Gegevensopname
+description: Overzicht van API voor gegevensverwerking
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '945'
-ht-degree: 3%
+ht-degree: 4%
 
 ---
 
 
-# Gegevensinname
+# Gegevensopname
 
 De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken. 
 
-Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden opgehaald door zich te abonneren op gebeurtenissen van de [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/). &#x200B;
+Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ Stream van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) in te tekenen. &#x200B;
 
 Interfaces worden aangeboden voor twee objecttypen: Personen, Aangepaste objecten. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
-De API voor gegevensinsluiting bevindt zich in een persoonlijke bètaversie. Genodigden moeten aanspraak kunnen maken op [Marketo Engage Performance Tier Package](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+De API voor gegevensinsluiting bevindt zich in een persoonlijke bètaversie. Invitees worden vereist om een recht voor [ Pakket van de Rij van Prestaties van het Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) te hebben.
 
 ## Verificatie
 
-De API voor gegevensverwerking gebruikt dezelfde OAuth 2.0-verificatiemethode als Marketo REST API om een toegangstoken te genereren, maar het toegangstoken moet via HTTP-header worden doorgegeven `X-Mkto-User-Token`. U kunt het toegangstoken niet via een vraagparameter overgaan.
+De API voor gegevensverwerking gebruikt dezelfde OAuth 2.0-verificatiemethode als de Marketo REST API om een toegangstoken te genereren, maar het toegangstoken moet via HTTP-header `X-Mkto-User-Token` worden doorgegeven. U kunt het toegangstoken niet via een vraagparameter overgaan.
 
 Token voor voorbeeldtoegang via koptekst:
 
@@ -61,7 +61,7 @@ De gegevensrepresentatie wordt in de aanvraaginstantie opgenomen als application
 
 De domeinnaam is: `mkto-ingestion-api.adobe.io`
 
-Het pad begint met `/subscriptions/_MunchkinId_` waar `_MunchkinId_` is specifiek voor je Marketo-exemplaar. U vindt uw Munchkin-id in de gebruikersinterface van het Marketo Engage onder **Beheerder** >**Mijn account** > **Ondersteuningsinformatie**. De rest van het pad wordt gebruikt om de bron van interesse op te geven.
+Het pad begint met `/subscriptions/_MunchkinId_` waar `_MunchkinId_` specifiek is voor uw Marketo-instantie. U kunt uw identiteitskaart van Munchkin in het Marketo Engage UI onder **Admin** vinden > **Mijn Rekening** > **Informatie van de Steun**. De rest van het pad wordt gebruikt om de bron van interesse op te geven.
 
 Voorbeeld-URL voor personen:
 
@@ -73,7 +73,7 @@ Voorbeeld-URL voor aangepaste objecten:
 
 ## Reacties
 
-Alle reacties retourneren een unieke aanvraag-id via de `X-Request-Id` header.
+Alle reacties retourneren een unieke aanvraag-id via de header `X-Request-Id` .
 
 Voorbeeld van aanvraag-id via header:
 
@@ -89,7 +89,7 @@ Voorbeeld van een geslaagde reactie:
 
 ### Fout
 
-Wanneer een vraag een fout veroorzaakt, is een status niet-202 teruggekeerd samen met een reactiekarakter met extra foutendetails. De hoofdtekst van de reactie is application/json en bevat één object met leden `error_code` en `message`.
+Wanneer een vraag een fout veroorzaakt, is een status niet-202 teruggekeerd samen met een reactiekarakter met extra foutendetails. De hoofdtekst van de reactie is application/json en bevat één object met leden `error_code` en `message` .
 
 Hieronder vindt u hergebruikte foutcodes van Adobe Developer Gateway.
 
@@ -145,7 +145,7 @@ Indieningsinstantie
 |---|---|---|---|---|
 | prioriteit | String | Nee | Prioriteit van het verzoek:normaal hoog | normaal |
 | partitionName | String | Nee | Naam van partitie van persoon | Standaard |
-| dedupeFields | Object | Nee | Te dedupliceren kenmerken op. Een of twee kenmerknamen zijn toegestaan. Twee attributen worden gebruikt in een verrichting AND. Als beide `email` en `firstName` worden gespecificeerd, worden zij allebei gebruikt om op een persoon te zoeken die de EN verrichting gebruikt. Ondersteunde kenmerken zijn:`idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attributes (&quot;string&quot; en &quot;integer&quot;) | email |
+| dedupeFields | Object | Nee | Te dedupliceren kenmerken op. Een of twee kenmerknamen zijn toegestaan. Twee attributen worden gebruikt in een verrichting AND. Als bijvoorbeeld zowel `email` als `firstName` zijn opgegeven, worden beide gebruikt om een persoon op te zoeken met de bewerking AND. Ondersteunde kenmerken zijn:`idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attributen (alleen het type &quot;string&quot; en &quot;integer&quot;) | email |
 | personen | Array van object | Ja | Lijst met kenmerknaam-waardeparen voor de persoon | - |
 
 | Machtiging |
@@ -224,7 +224,7 @@ Aanvragingsinstantie
 
 #### Persoon niet aanwezig
 
-Als een koppelingsgebied aan een Persoon in het verzoek wordt gespecificeerd en die Persoon niet bestaat, komen verscheidene opnieuw voor. Als die persoon tijdens het venster Opnieuw proberen is toegevoegd (65 minuten), is de update gelukt. Als het koppelingsveld bijvoorbeeld `email` op Persoon, en Persoon bestaat niet, dan komen opnieuw proberen voor.
+Als een koppelingsgebied aan een Persoon in het verzoek wordt gespecificeerd en die Persoon niet bestaat, komen verscheidene opnieuw voor. Als die persoon tijdens het venster Opnieuw proberen is toegevoegd (65 minuten), is de update gelukt. Als het koppelingsveld bijvoorbeeld `email` on Person is en Person niet bestaat, worden opnieuw pogingen uitgevoerd.
 
 #### Voorbeeld van aangepaste objecten
 
@@ -279,10 +279,10 @@ Hier volgt een overzicht van het gebruik van hulplijnen:
 Hier volgt een lijst met verschillen tussen de API voor gegevensverwerking en andere Marketo REST-API&#39;s:
 
 - Dit is geen volledige CRUD interface, het steunt &quot;upsert&quot;slechts
-- Om voor authentiek te verklaren, moet u toegangstoken overgaan gebruikend `X-Mkto-User-Token` header
+- Voor verificatie moet u toegangstoken doorgeven met de header `X-Mkto-User-Token` .
 - De URL-domeinnaam is `mkto-ingestion-api.adobe.io`
 - Het URL-pad begint met `/subscriptions/_MunchkinId_`
 - Er zijn geen queryparameters
 - Als de vraag succesvol is, is een status 202 teruggekeerd en het antwoordlichaam leeg is
-- Als de vraag ontbreekt, is een status niet-202 teruggekeerd en het reactiekader bevat `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
-- De aanvraag-id wordt geretourneerd via `X-Request-Id` header
+- Als de aanroep mislukt, wordt de status non-202 geretourneerd en bevat de hoofdtekst van de reactie `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
+- De aanvraag-id wordt via `X-Request-Id` header geretourneerd
