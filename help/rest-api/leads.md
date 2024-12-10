@@ -3,9 +3,9 @@ title: Leads
 feature: REST API
 description: Details over de API-aanroepen voor leads
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
+source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
 workflow-type: tm+mt
-source-wordcount: '3343'
+source-wordcount: '3338'
 ht-degree: 0%
 
 ---
@@ -18,10 +18,10 @@ De API van Marketo Lead biedt een groot aantal mogelijkheden voor eenvoudige CRU
 
 ## Beschrijven
 
-Een van de belangrijkste mogelijkheden van de API voor leads is de Describe-methode. Gebruik Beschrijf Leads om een volledige lijst op te halen van de velden die beschikbaar zijn voor interactie via zowel de REST API als de SOAP API, en metagegevens voor elke velden:
+Een van de belangrijkste mogelijkheden van de API voor leads is de Describe-methode. Gebruik Beschrijf Leads om een volledige lijst op te halen van de velden die beschikbaar zijn voor interactie via zowel de REST API als metagegevens voor elk van deze velden:
 
 * Gegevenstype
-* REST- en SOAP API-namen
+* REST API-namen
 * Lengte (indien van toepassing)
 * Alleen-lezen
 * Friendly label
@@ -95,7 +95,7 @@ Voor deze methode is er altijd één record in de eerste positie van de resultaa
 
 Met de optie Leads ophalen op filtertype wordt hetzelfde type record geretourneerd, maar kan tot 300 per pagina worden geretourneerd. Hiervoor zijn de parameters `filterType` en `filterValues` query vereist.
 
-`filterType` accepteert elk aangepast veld of de meeste veelgebruikte velden. Roep het eindpunt `Describe2` aan voor een uitgebreide lijst met doorzoekbare velden die zijn toegestaan voor gebruik in `filterType` . Bij het zoeken op aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer` . U kunt velddetails verkrijgen (beschrijving, type, enz.) met behulp van de bovengenoemde methode Describe.
+`filterType` accepteert elk aangepast veld of de meeste veelgebruikte velden. Roep het eindpunt `Describe2` aan voor een uitgebreide lijst met doorzoekbare velden die zijn toegestaan voor gebruik in `filterType` . Bij het zoeken op aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer` . U kunt velddetails (beschrijving, type, enz.) verkrijgen met behulp van de hierboven beschreven methode.
 
 `filterValues` accepteert maximaal 300 waarden in een komma-gescheiden indeling. De vraag zoekt naar verslagen waar het gebied van de lood één van inbegrepen `filterValues` aanpast. Als het aantal leads dat overeenkomt met het hoofdfilter groter is dan 1.000, wordt een fout geretourneerd: &quot;1003, Te veel resultaten komen overeen met het filter&quot;.
 
@@ -708,7 +708,7 @@ Binnen de invoerrecord is het object `leadFormFields` vereist. Dit object bevat 
 
 Het `visitorData` -lidobject is optioneel en bevat naam-/waardeparen die overeenkomen met gegevens tijdens het bezoek aan een pagina, zoals `pageURL` , `queryString` , `leadClientIpAddress` en `userAgentString` . Kan worden gebruikt om aanvullende activiteitsvelden te vullen voor filteren en activeren.
 
-De lidtekenreeks van het cookie is optioneel en kunt u een Munchkin-cookie koppelen aan een persoonrecord in Marketo. Wanneer een nieuwe lood wordt gecreeerd, worden om het even welke vroegere anonieme activiteiten geassocieerd met die lood, tenzij de koekjeswaarde eerder met een ander gekend verslag was geassocieerd. Als de waarde van het cookie eerder gekoppeld was, worden nieuwe activiteiten bijgehouden op basis van de record, maar worden oude activiteiten niet van de bestaande bekende record verwijderd. Als u een nieuwe lead zonder activiteitengeschiedenis wilt maken, laat u gewoon het cookielid weg.
+De string van het cookielid is optioneel en staat u toe om een Munchkin cookie te koppelen aan een persoonrecord in Marketo. Wanneer een nieuwe lood wordt gecreeerd, worden om het even welke vroegere anonieme activiteiten geassocieerd met die lood, tenzij de koekjeswaarde eerder met een ander gekend verslag was geassocieerd. Als de waarde van het cookie eerder gekoppeld was, worden nieuwe activiteiten bijgehouden op basis van de record, maar worden oude activiteiten niet van de bestaande bekende record verwijderd. Als u een nieuwe lead zonder activiteitengeschiedenis wilt maken, laat u gewoon het cookielid weg.
 
 Nieuwe leads worden gemaakt in de primaire partitie voor de werkruimte waarin het formulier zich bevindt.
 
@@ -789,11 +789,11 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 
 De lead die is opgegeven in de padparameter, is de winnende lead. Als er dus velden zijn die conflicteren tussen de records die worden samengevoegd, wordt de waarde van de winnaar gebruikt, behalve als het veld in de winnende record leeg is en het corresponderende veld in de laatste record niet. De leads die in de parameter `leadId` of `leadIds` worden opgegeven, zijn de verliezende leads.
 
-Als u een SFDC-sync-toegelaten abonnement hebt, dan kunt u de `mergeInCRM` parameter in uw verzoek ook gebruiken. Indien ingesteld op true, wordt de corresponderende samenvoeging in uw CRM ook uitgevoerd. Als beide leads zich in SFDC bevinden en de ene een CRM-lead is en de andere een CRM-contactpersoon, is de winnaar de CRM-contactpersoon (ongeacht welke lead als winnaar is opgegeven). Als een van de leads zich in SFDC bevindt en de andere alleen Marketo is, dan is de winnaar de SFDC-lead (ongeacht welke lead als winnaar is opgegeven).
+Als u een abonnement hebt waarvoor SFDC-sync is ingeschakeld, kunt u ook de parameter `mergeInCRM` in uw aanvraag gebruiken. Indien ingesteld op true, wordt de corresponderende samenvoeging in uw CRM ook uitgevoerd. Als beide leads zich in SFDC bevinden en de ene een CRM-lead is en de andere een CRM-contactpersoon, is de winnaar de CRM-contactpersoon (ongeacht welke lead als winnaar is opgegeven). Als een van de leads alleen in SFDC is en de andere alleen Marketo, dan is de winnaar de SFDC lead (ongeacht welke lead als winnaar is opgegeven).
 
 ## Webactiviteit koppelen
 
-Marketo registreert via Lead Tracking (Munchkin) webactiviteiten voor bezoekers van uw website en Marketo Landing Pages. Deze activiteiten, bezoeken en klikken, worden vastgelegd met een sleutel die overeenkomt met een cookie &quot;_mkto_trk&quot; die is ingesteld in de browser van de lead. Marketo gebruikt deze code om de activiteiten van dezelfde persoon bij te houden. Normaal, komt de vereniging aan loodverslagen voor wanneer een lood door van een e-mail van Marketo klikt of een vorm van Marketo invult, maar soms kan een vereniging door een verschillend type van gebeurtenis worden teweeggebracht, en u kunt het Associate eindpunt van de Lood daartoe gebruiken. Het eindpunt neemt bekende identiteitskaart van het loodverslag als wegparameter en de &quot;_mkto_trk&quot;koekjeswaarde in de koekjesvraagparameter.
+Met behulp van Lead Tracking (Munchkin) registreert Marketo de webactiviteit voor bezoekers van uw website en Marketo Landing Pages. Deze activiteiten, bezoeken en klikken, worden vastgelegd met een sleutel die overeenkomt met een cookie &quot;_mkto_trk&quot; die is ingesteld in de browser van de lead. Marketo gebruikt deze code om de activiteiten van dezelfde persoon bij te houden. Normaal, komt de vereniging aan loodverslagen voor wanneer een lood door van een e-mail van Marketo klikt of een vorm van Marketo invult, maar soms kan een vereniging door een verschillend type van gebeurtenis worden teweeggebracht, en u kunt het Associate eindpunt van de Lood daartoe gebruiken. Het eindpunt neemt bekende identiteitskaart van het loodverslag als wegparameter en de &quot;_mkto_trk&quot;koekjeswaarde in de koekjesvraagparameter.
 
 ### Verzoek
 
