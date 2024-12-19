@@ -2,9 +2,9 @@
 title: Aan de slag
 description: Aan de slag met Marketo Engage-API's
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 490411e411bed7b5b76fd9e5f41ccc9d156b2ba9
 workflow-type: tm+mt
-source-wordcount: '1265'
+source-wordcount: '1337'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,11 @@ ht-degree: 0%
 
 Marketo Engage is een platform voor marketingautomatisering dat marketers in staat stelt gepersonaliseerde meerkanaalprogramma&#39;s en -campagnes te beheren voor vooruitzichten en klanten. Het platform van de Marketo Engage kan worden uitgebreid gebruikend integratiepunten. Hieronder vind je de kernentiteiten en hun relaties.
 
-De volgende objecten zijn niet beschikbaar via REST API als native synchronisatie is ingeschakeld: Bedrijf, Opportunity, Opportunity Role, Sales Person
+>[!NOTE]
+>De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](./rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, te raadplegen gelieve de SOAP API [ Gids van de Migratie ](./soap-api/migration.md) voor informatie over hoe te migreren.
+>
+
+Wanneer of de Inheemse verbinding van SFDC of van de Dynamica CRM van MS op een instantie van het Marketo Engage wordt toegelaten, zijn de volgende voorwerpen read-Only: Bedrijf, Opportunity, de Rol van de Kanaal, Persoon van de Verkoop
 
 ![ Model van Gegevens ](assets/data_model.png)
 

@@ -3,9 +3,9 @@ title: Regelafstand bijhouden
 description: API voor bijhouden van leads
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '767'
+source-wordcount: '764'
 ht-degree: 0%
 
 ---
@@ -74,7 +74,7 @@ Bij het eerste bezoek van een lead aan een pagina op uw domein wordt een nieuwe 
 
 - De lead moet een door Munchkin bijgehouden pagina met een parameter `mkt_tok` in de queryreeks bezoeken via een bijgehouden Marketo-e-mailkoppeling.
 - De lead moet een Marketo-formulier invullen.
-- Een SOAP [ syncLead ](../soap-api/leads.md) of REST [ associeerde Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) vraag moet worden verzonden.
+- Een REST [ associeerde Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) vraag moet worden verzonden.
 
 Wanneer aan een van deze voorwaarden is voldaan, worden het cookie en alle bijbehorende webactiviteit gekoppeld aan de bekende lead.
 

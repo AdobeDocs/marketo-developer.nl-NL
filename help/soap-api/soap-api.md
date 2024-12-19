@@ -3,16 +3,16 @@ title: SOAP API
 feature: SOAP
 description: Overzicht van Marketo SOAP
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '207'
+source-wordcount: '229'
 ht-degree: 0%
 
 ---
 
 # SOAP API
 
-De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn.  Al nieuwe ontwikkeling zou met Marketo [ REST ](https://developer.adobe.com/marketo-apis/) API moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden.
+De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](../rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, te raadplegen gelieve de SOAP API [ Gids van de Migratie ](./migration.md) voor informatie over hoe te migreren.
 
 ## SOAP WSDL
 
