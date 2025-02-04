@@ -1,20 +1,20 @@
 ---
-title: "importToList"
+title: importToList
 feature: SOAP
-description: "importToList SOAP-aanroepen"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: importToList SOAP aanroepen
+exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
+source-git-commit: 8a019985fc9ce7e1aa690ca26bfa263cd3c48cfc
 workflow-type: tm+mt
-source-wordcount: '317'
+source-wordcount: '393'
 ht-degree: 0%
 
 ---
-
 
 # importToList
 
 Met deze functie kunt u een lijst met leads importeren naar een bestaande statische lijst in Marketo, vergelijkbaar met de functie voor het importeren van lijsten in de Marketo-gebruikersinterface.
 
-**Importindeling:** Deze waarden zijn identiek aan de structuur van een CSV die in een lijstinvoer wordt gebruikt.
+**het Formaat van de Invoer:** Deze waarden zijn identiek aan de structuur van een CSV die in een lijstinvoer wordt gebruikt.
 
 **Voorbeeld:**
 
@@ -24,9 +24,9 @@ Met deze functie kunt u een lijst met leads importeren naar een bestaande statis
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Opmerking:** `displayName` in de `importFileHeader` in plaats van de `name` waarden.
+`displayName` -waarden moeten worden gebruikt in de `importFileHeader` -waarden en niet in de `name` -waarden.
 
-**Dynamische e-mailinhoud:** U kunt desgewenst waarden doorgeven per lead die fungeren als vervangingen voor Mijn tokens in een e-mail.
+**Dynamische E-mailinhoud:** naar keuze, kunt u waarden op een per loodbasis overgaan die als vervangingen voor Mijn Tokens in e-mail dienst doen.
 
 | E-mail | Eerste | Laatste | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
@@ -34,9 +34,11 @@ Met deze functie kunt u een lijst met leads importeren naar een bestaande statis
 | mary@company.com | Mary | Rodgers | Kip | Bruin |
 | wanda@megacorp.com | Wanda | Williams | Veggie | Hazel |
 
-**Belangrijk:** Als u tokens toevoegt voor de leads, moet u de slimme campagne opgeven die deze gebruikt. De volgende keer dat de opgegeven slimme campagne wordt uitgevoerd, worden de waarden uit de lijst gebruikt in plaats van de normale waarden voor Mijn token. Nadat één campagne is uitgevoerd, worden de tokens genegeerd.
+**Belangrijk:** als u in tokens voor de lood toevoegt, moet u de Slimme Campagne specificeren die hen gebruikt. De volgende keer dat de opgegeven slimme campagne wordt uitgevoerd, worden de waarden uit de lijst gebruikt in plaats van de normale waarden voor Mijn token. Nadat één campagne is uitgevoerd, worden de tokens genegeerd.
 
-**OPMERKING:** `importToList` kan tijd vergen om te voltooien, met name voor grote lijsten. Als u van plan bent om de onlangs ingevoerde lijst in andere API vraag te gebruiken, zou u moeten gebruiken `importToListStatus` om te controleren of de bewerking is voltooid.
+`importToList` kan tijd vergen om te voltooien, vooral voor grote lijsten. Als u van plan bent de nieuw geïmporteerde lijst te gebruiken in andere API-aanroepen, moet u `importToListStatus` gebruiken om te controleren of de bewerking is voltooid.
+
+**Nota:** het Invoeren van ONGELDIGE waarden voor numerieke gebieden in een Csv- dossier kan een activiteit van de &quot;Waarde van Gegevens van de Verandering&quot;voor die gebieden produceren, zelfs als het gebied reeds leeg is. Om het even welke slimme campagnes die een &quot;Gewijzigde&quot;Filter van de Waarde van Gegevens of een &quot;Verandering van de Waarde van Gegevens&quot;gebruiken kunnen ertoe leiden om voor die campagnes te kwalificeren alhoewel de gegevens niet werkelijk veranderen. Gebruik beperkingen voor deze filters/triggers om ervoor te zorgen dat leads niet in aanmerking komen voor onjuiste campagnes wanneer ze worden geïmporteerd.
 
 ## Verzoek
 
