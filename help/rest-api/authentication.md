@@ -3,9 +3,9 @@ title: Verificatie
 feature: REST API
 description: Marketo-gebruikers verifiëren voor API-gebruik.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 6f8dc76703aba204b6d0d4f1a3b5275aea819f08
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '558'
+source-wordcount: '564'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ De knoppen `Client ID` en `Client Secret` vindt u in het menu **[!UICONTROL Admi
 
 De `Identity URL` vindt u in het menu **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** in de sectie REST API.
 
-Creeer een toegangstoken gebruikend een HTTP GET (of POST) verzoek als zo:
+Maak een toegangstoken met behulp van een HTTP GET (of POST)-aanvraag als volgt:
 
 ```
 GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client Id>&client_secret=<Client Secret>
@@ -52,13 +52,15 @@ Responsdefinitie
 
 Wanneer het maken van vraag aan REST API methodes, moet een toegangstoken in elke vraag worden omvat om de vraag succesvol te zijn.
 
-Het toegangstoken moet als kopbal van HTTP worden verzonden.
-
-`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
 >[!IMPORTANT]
 >
 >De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+
+Het toegangstoken moet als kopbal van HTTP worden verzonden. Bijvoorbeeld in een CURL-aanvraag:
+
+```bash
+$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+```
 
 ## Tips en aanbevolen procedures
 

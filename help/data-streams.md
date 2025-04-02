@@ -1,17 +1,17 @@
 ---
-title: "Gegevensstromen"
-description: "Overzicht gegevensstromen"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Gegevensstromen
+description: Overzicht van gegevensstromen
+exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1589'
+source-wordcount: '1583'
 ht-degree: 0%
 
 ---
 
-
 # Gegevensstromen
 
-De marketingorganisaties van onze klanten vertrouwen op tijdige en gerichte marketingcampagnes om op hun bedrijf te blijven en concurrerend te zijn. Om snelle beslissingen te ondersteunen en strategische veranderingen op snelheid mogelijk te maken, is het belangrijk dat u over gegevens beschikt om die belangrijke beslissingen die gerichte en gerichte campagnes leveren, te ondersteunen en te sturen. Er zijn ook sommige klanten die de inspanningen van de Marketing op niveaus van hun klantensegmenten zowel binnen als buiten Marketo Engage uitvoeren. Om deze verschillende inspanningen te ondersteunen, heeft Marketo de mogelijkheid gecreëerd om grote hoeveelheden gegevens te verkrijgen in bijna realtime via gegevensstreams.
+De marketingorganisaties van onze klanten vertrouwen op tijdige en gerichte marketingcampagnes om op hun bedrijf te blijven en concurrerend te zijn. Om snelle beslissingen te ondersteunen en strategische veranderingen op snelheid mogelijk te maken, is het belangrijk dat u over gegevens beschikt om die belangrijke beslissingen die gerichte en gerichte campagnes leveren, te ondersteunen en te sturen. Er zijn ook klanten die marketinginspanningen uitvoeren op het niveau van hun klantensegmenten, zowel binnen als buiten Marketo Engage. Om deze verschillende inspanningen te ondersteunen, heeft Marketo de mogelijkheid gecreëerd om grote hoeveelheden gegevens te verkrijgen in bijna realtime via gegevensstreams.
 
 Naast de voordelen van gegevens in real time, zijn er productgerelateerde voordelen:
 
@@ -19,7 +19,7 @@ Naast de voordelen van gegevens in real time, zijn er productgerelateerde voorde
 - Vermindert het scenario van API grenzen, die minder waakzaam overseinen produceren.
 - U hoeft geen grote hoeveelheden te exporteren om gegevens te extraheren vanwege de mogelijkheid voor gegevensstreaming.
 
-Gegevensstromen zijn beschikbaar voor diegenen die een [Marketo Engage Performance Tier Package](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+De Streams van gegevens zijn beschikbaar aan die die het Pakket van de Rij van de Prestaties van a [ Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) hebben gekocht.
 
 ## Overzicht van gegevensstroom voor hoofdactiviteit
 
@@ -66,11 +66,11 @@ Als aangepaste objecten moeten worden gestreamd, moet dit alle hoofdobjecten zij
 
 ## Overzicht van gegevensstroom door gebruikerscontrole
 
-De Stream van de Gegevens van de Controle van de gebruiker verstrekt dichtbij controle in real time het volgen van activaveranderingen door gebruikers &#x200B;. Dit laat een klant toe om activagebeurtenissen effectief te controleren, een mening in gebruikersveranderingen te verstrekken, en processen of werkschema&#39;s teweeg te brengen die op verschillende soorten controlegebeurtenissen worden gebaseerd. Bijna worden de activa in real time veranderingen verzonden via de gebeurtenissen van Adobe I/O naar een configureerbaar eindpunt. Controlegebeurtenissen worden uitgesplitst naar type element en kunnen worden geabonneerd op controlegebeurtenissen die voor hen van belang zijn.
+De Stream van de Gegevens van de Controle van de gebruiker verstrekt dichtbij controle in real time het volgen van activaveranderingen door gebruikers &#x200B;. Dit laat een klant toe om activagebeurtenissen effectief te controleren, een mening in gebruikersveranderingen te verstrekken, en processen of werkschema&#39;s teweeg te brengen die op verschillende soorten controlegebeurtenissen worden gebaseerd. Bijna worden de activa in real time verzonden via de gebeurtenissen van Adobe I/O naar een configureerbaar eindpunt. Controlegebeurtenissen worden uitgesplitst naar type element en kunnen worden geabonneerd op controlegebeurtenissen die voor hen van belang zijn.
 
 Een goede reden om een abonnement te nemen op deze stream is:
 
-- Wijzigingen bijhouden bij het gebruik van meerdere marketingsystemen: er zijn klanten die ook een bepaald niveau van marketingactiviteiten uitvoeren in een ander systeem, zoals een CRM zoals Salesforce, en vervolgens de lead doorgeven aan Marketo. De lead wordt soms bijgewerkt en gesynchroniseerd, dus het is belangrijk om te volgen welk systeem recente wijzigingen heeft aangebracht.
+- Wijzigingen bijhouden bij het gebruik van meerdere marketingsystemen: er zijn klanten die ook een bepaald niveau van marketingactiviteiten uitvoeren in een ander systeem, zoals een CRM, zoals Salesforce, en vervolgens de lead doorgeven aan Marketo. De lead wordt soms bijgewerkt en gesynchroniseerd, dus het is belangrijk om te volgen welk systeem recente wijzigingen heeft aangebracht.
 
 Lijst met gestreamde gebruikersauditgebeurtenissen:
 
@@ -128,7 +128,7 @@ Voorbeeld van een controlegebeurtenis gebruiker:
 
 ## Gegevensstroomoverzicht van kennisgeving
 
-Gegevensstroom voor meldingen is beschikbaar als onderdeel van het aanbod op prestatieniveau van Marketo Engage.
+Gegevensstroom voor meldingen is beschikbaar als onderdeel van het prestatieniveauaanbod van Marketo Engage.
 
 Momenteel kan het meldingscentrum in Marketo zo worden geconfigureerd dat meldingen naar een e-mailadres worden verzonden. De Stream van de Gegevens van het bericht laat de berichten toe om rechtstreeks naar een configureerbaar eindpunt via de gebeurtenissen van Adobe I/O worden verzonden. Meldingen worden vandaag via de gebruikersinterface geleverd en kunnen worden aangehaald door de oranje bel in de rechterbovenhoek van het scherm. Deze stream neemt deze meldingen en stuurt ze door een stream.
 
@@ -179,20 +179,20 @@ De hoofdactiviteitsstroom biedt vrijwel realtime streaming van Marketo Lead Acti
 
 Om de gegevensstroom van de Activiteit van de Lood uit te voeren, zijn hier de stappen voor klanten te volgen:
 
-1. Maak een eindpunt van HTTP bloot dat verzoeken van de POST met een lichaam JSON van openbaar Internet kan ontvangen. De Activity Push Data Stream verzendt aanvragen naar:
-1. Geef Adobe de volgende informatie:
-   1. Marketo Munchkin-id voor abonnement
+1. Maak een eindpunt van HTTP bloot dat POST- verzoeken met een lichaam JSON van openbaar Internet kan ontvangen. De Activity Push Data Stream verzendt aanvragen naar:
+1. Geef Adobe het volgende op:
+   1. Marketo Munchkin ID for their subscription
    1. De URL van het eindpunt in stap 1
    1. De typen activiteiten die zij willen ontvangen (volledige lijst hierboven)
    1. Een middel van authentificatie, zodat de klant kan verifiëren dat de verzoeken wettig zijn. Ofwel:
-      1. Een identiteitsprovider-URL, client-id en clientgeheim voor OAuth [Verificatie clientreferenties](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
-      1. Een API-token, dat kan worden opgenomen in aanvragen die door de Lead Activity DataStream worden verzonden in queryparameters of in een machtigingsheader (keuze van de klant)
+      1. Een identiteitsleverancier URL, identiteitskaart van de Cliënt, en Geheim voor de Authentificatie van de Credentials van de Cliënt OAuth [ ](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+      1. Een API-token, dat kan worden opgenomen in aanvragen die door de Lead Activity DataStream worden verzonden in een Authorization http-header
 
-De Adobe laat dan de gegevensstroom toe, waarbij de puntklanten beginnen om gegevens te ontvangen.
+Adobe schakelt vervolgens de gegevensstroom in, waarna klanten gegevens beginnen te ontvangen.
 
 Het diagram van UML van een typische vraag van de Gegevens van de Activiteit van het Lood:
 
-![Gegevensstroomdiagram voor leidingactiviteit](assets/lead-activity-data-stream.png)
+![ het diagram van de Gegevens van de Activiteit van de Leiding ](assets/lead-activity-data-stream.png)
 
 Voorbeeld van het maken van URL-eindpunten:
 
@@ -239,41 +239,41 @@ app.listen(port,()=>{
 })
 ```
 
-Een codevoorbeeld voor een toepassing die de Marketo Lead Activity Data Stream gebruikt, kunt u vinden [hier](https://github.com/ihgrant/activity-stream-consumer-example).
+Een codesteekproef voor een toepassing die de stroom van de Gegevens van de Activiteit van de Lood van Marketo verbruikt kan [ hier ](https://github.com/ihgrant/activity-stream-consumer-example) worden gevonden.
 
 ### Gegevensstroom van gebruikerscontrole en gegevensstroom van berichten
 
-De gebeurtenissen van de Controle van de gebruiker worden verzonden naar Adobe IO en kunnen door het programma openen met Adobe ID worden verbruikt. Hier volgen de volgende stappen:
+De gebeurtenissen van de Controle van de gebruiker worden verzonden naar Adobe IO en kunnen door login met een Adobe ID worden verbruikt. Hier volgen de volgende stappen:
 
-1. De klanten verstrekken Adobe van het volgende:
+1. Klanten bieden Adobe het volgende:
    1. Adobe ID
-   1. Marketo Munchkin-id voor abonnement
+   1. Marketo Munchkin ID for their subscription
 1. De klant stelt een REST eindpunt bloot om gebeurtenissen normaal in de vorm van een webhaak te verbruiken.
-1. Zodra dat wordt verstrekt, laat de Adobe de stroom voor het abonnement van de klant toe.
-1. De klant stelt de stream vervolgens in Adobe-IO in (te verstrekken instructies)
-   1. Voor deze stap is een Adobe-instelling vereist
-   1. Vereist Adobe of gebruiker om ontwikkelaar of functie voor systeembeheer te hebben
+1. Zodra dat wordt verstrekt, laat Adobe de stroom voor het abonnement van de klant toe.
+1. De klant stelt vervolgens de stream in Adobe IO in (instructies die moeten worden verstrekt)
+   1. Voor deze stap is Adobe Org vereist
+   1. Adobe Org-gebruiker moet Ontwikkelaar of Systeembeheerfunctie hebben
 
-Ga voor Adobe IO naar [Marketo-gegevensstromen voor gebruikerscontrole instellen met Adobe-IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) in de sectie Openbare documentatie.
+Aan opstelling Adobe IO, zie [ de Streams van de Gegevens van de Controle van de Gebruiker van Marketo met Adobe IO ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) in de Openbare sectie van de Documentatie.
 
 ### Gebruikersauditgegevensstroom instellen in Marketo
 
-De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar [Pagina met productbeschrijving](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor productlimieten en -functies.
+De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar de [ Pagina van de Beschrijving van het Product ](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor de grenzen en de eigenschappen van het Product.
 
 ### Adobe I/O instellen
 
-[Zie Aan de slag met Adobe I/O-gebeurtenissen](https://developer.adobe.com/runtime/docs/guides/getting-started/)
+[ zie Begonnen het Worden met Adobe I/O Events ](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
-Voor de basisinstructies voor dit gebruik begint u bij [console.adobe.io](https://developer.adobe.com/console):
+Voor basisinstructies voor dit gebruiksgeval, die van [ console.adobe.io ](https://developer.adobe.com/console) beginnen:
 
-Selecteer bij de aanwijzing een van de **[!UICONTROL Create New Project]** of **[!UICONTROL Add Event]**.
+Selecteer **[!UICONTROL Create New Project]** of **[!UICONTROL Add Event]** als daarom wordt gevraagd.
 
 ### Aan de slag met uw nieuwe project
 
-Als u Adobe-services wilt gaan gebruiken, voegt u een API, gebeurtenissen of runtime toe, raadpleegt u onze [documentatie](https://developer.adobe.com/runtime/docs/).
+Om de diensten van Adobe te beginnen te gebruiken, voeg API, gebeurtenissen of runtime toe, bekijk onze [ documentatie ](https://developer.adobe.com/runtime/docs/).
 
 ## Openbare documentatie
 
-- [Marketo-gegevensstromen](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
-- [Introductie tot Adobe IO Events &amp; Webhooks](https://developer.adobe.com/events/docs/guides/)
-- [Blog gegevensstromen](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)
+- [ de Streams van Gegevens van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
+- [ Intro aan de Gebeurtenissen van Adobe IO &amp; Webhooks ](https://developer.adobe.com/events/docs/guides/)
+- [ Blog van de Streams van Gegevens ](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

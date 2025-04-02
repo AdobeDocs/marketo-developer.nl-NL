@@ -3,9 +3,9 @@ title: Uitpakken van bulkactiviteiten
 feature: REST API
 description: Gegevens van Marketo over de verwerking van batches.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 8c22255673fee1aa0f5b47393a241fcf6680778b
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1343'
+source-wordcount: '1342'
 ht-degree: 0%
 
 ---
@@ -222,7 +222,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier.
 
-Als een gevraagd lead-veld leeg is (geen gegevens bevat), wordt `then null` in het corresponderende veld in het exportbestand geplaatst.  In het onderstaande voorbeeld is het veld campagneId voor de geretourneerde activiteit leeg.
+Als een gevraagd lead-veld leeg is (geen gegevens bevat), wordt `then null` in het corresponderende veld in het exportbestand geplaatst.  In het onderstaande voorbeeld is het veld `campaignId` voor de geretourneerde activiteit leeg.
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes
