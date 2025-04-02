@@ -3,9 +3,9 @@ title: Verificatie
 feature: REST API
 description: Marketo-gebruikers verifiëren voor API-gebruik.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 9582f7ac5998b670dd04cc6529db23f558c0e18e
 workflow-type: tm+mt
-source-wordcount: '564'
+source-wordcount: '610'
 ht-degree: 0%
 
 ---
@@ -51,15 +51,27 @@ Responsdefinitie
 ## Een toegangstoken gebruiken
 
 Wanneer het maken van vraag aan REST API methodes, moet een toegangstoken in elke vraag worden omvat om de vraag succesvol te zijn.
+Het toegangstoken moet als kopbal van HTTP worden verzonden.
 
 >[!IMPORTANT]
 >
 >De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
-Het toegangstoken moet als kopbal van HTTP worden verzonden. Bijvoorbeeld in een CURL-aanvraag:
+### Schakelen naar de header Autorisatie
+
+
+Als u wilt overschakelen van het gebruik van de parameter `access_token` query naar een machtigingheader, moet u een kleine codewijziging doorvoeren.
+
+Met CURL als voorbeeld verzendt deze code de waarde `access_token` als formulierparameter (de markering -F):
 
 ```bash
-$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+curl ...  -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/apiCall.json
+```
+
+Deze code verzendt dezelfde waarde als de `Authorization: Bearer` http header (de markering -H):
+
+```bash
+curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/bulk/v1/apiCall.json
 ```
 
 ## Tips en aanbevolen procedures
