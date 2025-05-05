@@ -100,7 +100,7 @@ Munchkin cookies zijn specifiek voor elk domein op het tweede niveau, dat wil ze
 
 ## Beta
 
-Om binnen aan het bèta kanaal van Munchkin voor uw landende pagina&#39;s te kiezen, ga naar uw [ Admin -> het menu van de Borst van de Schat ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en laat &quot;Munchkin Beta op het Aanvoeren van Pagina&#39;s&quot;toe plaatsen. Dit biedt nieuwe codefragmenten in de map **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** gebruiken om de bètaversie op externe sites te gebruiken.
+Om binnen aan het bèta kanaal van Munchkin voor uw landende pagina&#39;s te kiezen, ga naar uw [ Admin -> het menu van de Borst van de Schat ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en laat &quot;Munchkin Beta op het Aanvoeren van Pagina&#39;s&quot;toe plaatsen. Dit biedt nieuwe codefragmenten in de map **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** gebruiken om de bètaversie op externe sites te gebruiken.
 
 ## Uitschakelen
 

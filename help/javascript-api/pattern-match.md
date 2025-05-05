@@ -14,7 +14,7 @@ ht-degree: 0%
 
 RTP stelt een nutsfunctie bloot om te controleren of het patroon bepaalde koord aanpast. Het nut kan niet in async worden gebruikt omdat het een aanwijzing terugkeert als er een gelijke of niet is.
 
-U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
+U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
 
 ## Gebruik
 

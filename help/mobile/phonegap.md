@@ -16,7 +16,7 @@ Integratie van Marketo PhoneGap-insteekmodule
 
 ## Vereisten
 
-1. [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
+1. [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
 1. Pushmeldingen instellen ([iOS](push-notifications.md) | [Android](push-notifications.md)).
 1. [PhoneGap/Cordova CLI installeren](https://cordova.apache.org/docs/en/latest/guide/cli/).
 

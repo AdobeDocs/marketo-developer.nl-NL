@@ -14,9 +14,9 @@ ht-degree: 0%
 
 Marketo staat het gebruik van Webhooks toe om met derdeWebservices te communiceren. Webhooks ondersteunen het gebruik van de HTTP-werkwoorden van de GET of POST om gegevens van een specifieke URL te verzenden of op te halen. Raadpleeg de volgende artikelen voor gedetailleerde instructies over het maken van Webhooks in toepassingen en hoe u deze aan Slimme campagnes kunt toevoegen:
 
-- [Webhaak maken](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [Bellen Webhaak](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [Een webhaak gebruiken in een slimme campagne](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [Webhaak maken](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [Bellen Webhaak](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [Een webhaak gebruiken in een slimme campagne](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 Elke afzonderlijke webhaak heeft de volgende eigenschappen:
 
@@ -33,9 +33,9 @@ Gegevens kunnen via webservicereacties naar leads worden geschreven [Responstoew
 
 Alle uitgaande gebieden in een Webhaak (URL, Malplaatje, en Kopbal van de Douane) bevolken de inhoud van tekenen in de zelfde context van de stroomstap. Dit betekent dat de Tokens van het Lood en van het Systeem altijd beschikbaar zijn, terwijl de Tkens van de Trekker, van de Campagne, en van het Programma in hun respectieve werkingsgebied beschikbaar zijn. Zie tokenartikelen:
 
-- [Overzicht van tokens](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
-- [Verklarende woordenlijst systeemtokens](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [Tokens voor interessante momenten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [Overzicht van tokens](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
+- [Verklarende woordenlijst systeemtokens](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
+- [Tokens voor interessante momenten](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
 Een algemeen geval voor dit is wanneer een Programma of een Campagne uitdrukkelijk aan een derdemiddel in kaart wordt gebracht. Een id kan op programmaniveau als een `My Token`en wordt vervolgens als token doorgegeven aan de Webhaak-aanvraag.
 

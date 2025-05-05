@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Referentie voor eindpunt e-mailsjabloon](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-E-mailsjablonen vormen de basis voor elke nieuwe e-mail in Marketo.  E-mailberichten kunnen van sjablonen worden losgekoppeld via HTML-vervanging, maar e-mails moeten eerst met een sjabloon worden gemaakt als basis.  Sjablonen worden in Marketo gemaakt als pure HTML-documenten met metagegevens, zoals namen en beschrijvingen.  Er zijn weinig beperkingen op de inhoud, maar de HTML van de sjabloon moet geldig zijn en ten minste één bewerkbare sectie bevatten, die voldoet aan de vereisten [hier beschreven](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-mailsjablonen vormen de basis voor elke nieuwe e-mail in Marketo.  E-mailberichten kunnen van sjablonen worden losgekoppeld via HTML-vervanging, maar e-mails moeten eerst met een sjabloon worden gemaakt als basis.  Sjablonen worden in Marketo gemaakt als pure HTML-documenten met metagegevens, zoals namen en beschrijvingen.  Er zijn weinig beperkingen op de inhoud, maar de HTML van de sjabloon moet geldig zijn en ten minste één bewerkbare sectie bevatten, die voldoet aan de vereisten [hier beschreven](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Query
 

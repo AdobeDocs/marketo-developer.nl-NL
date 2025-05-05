@@ -22,7 +22,7 @@ U kunt meer dan één aanvraag voor bulkimport indienen, binnen de limieten. Elk
 
 ## Voorbeeld van aangepast object
 
-Voordat u de bulk-API kunt gebruiken, moet u eerst de gebruikersinterface van Marketo Admin gebruiken voor [een aangepast object maken](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Stel bijvoorbeeld dat we een aangepast object &#39;Auto&#39; hebben gemaakt met de velden &#39;Kleur&#39;, &#39;Merk&#39;, &#39;Model&#39; en &#39;VIN&#39;. Hieronder ziet u de Admin UI-schermen die het aangepaste object weergeven. U ziet dat we VIN-veld hebben gebruikt voor deduplicatie. De API-namen worden gemarkeerd, omdat ze moeten worden gebruikt bij het aanroepen van API-gerelateerde eindpunten in bulk.
+Voordat u de bulk-API kunt gebruiken, moet u eerst de gebruikersinterface van Marketo Admin gebruiken voor [een aangepast object maken](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Stel bijvoorbeeld dat we een aangepast object &#39;Auto&#39; hebben gemaakt met de velden &#39;Kleur&#39;, &#39;Merk&#39;, &#39;Model&#39; en &#39;VIN&#39;. Hieronder ziet u de Admin UI-schermen die het aangepaste object weergeven. U ziet dat we VIN-veld hebben gebruikt voor deduplicatie. De API-namen worden gemarkeerd, omdat ze moeten worden gebruikt bij het aanroepen van API-gerelateerde eindpunten in bulk.
 
 ![Aangepast object invoegen](assets/bulk-insert-co-car-1.png)
 

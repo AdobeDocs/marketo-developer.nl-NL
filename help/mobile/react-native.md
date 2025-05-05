@@ -16,7 +16,7 @@ In dit artikel vindt u informatie over het installeren en instellen van een eige
 
 ## Vereisten
 
-[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
+[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
 
 ## SDK-integratie
 

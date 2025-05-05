@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Hiermee voegt u de mogelijkheid toe om functies te activeren op een bepaalde status van het algemene rtp-object.
 
-U moet een klant van de Personalisatie van het Web zijn en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
+U moet een klant van de Personalisatie van het Web zijn en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
 
 ## Gebruik
 

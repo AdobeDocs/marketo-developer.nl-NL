@@ -235,7 +235,7 @@ Programmaleden ondersteunen verschillende filteropties. Er kunnen meerdere filte
     <tr>
       <td>isExhausted</td>
       <td>Boolean</td>
-      <td>Accepteert een Booleaanse waarde die wordt gebruikt voor het filteren van de lidmaatschapsrecords voor programma's <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personen met een verouderde inhoud</a>.</td>
+      <td>Accepteert een Booleaanse waarde die wordt gebruikt voor het filteren van de lidmaatschapsrecords voor programma's <a href="https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personen met een verouderde inhoud</a>.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>

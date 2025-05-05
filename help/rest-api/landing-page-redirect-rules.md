@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van CRUD-bewerkingen op URL&#39;s voor omleiding van bestemmingspagina&#39;s. Deze API&#39;s volgen het standaard interfacepatroon voor de bron-API&#39;s die de opties Query, Maken, Bijwerken en Verwijderen bieden.
 
-Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. Aanvullende informatie over Regels voor omleiding van landingspagina&#39;s vindt u [hier](https://experienceleague.adobe.com/docs/marketo/using/home.html).
+Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. Aanvullende informatie over Regels voor omleiding van landingspagina&#39;s vindt u [hier](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL).
 
 ## Query
 
@@ -156,7 +156,7 @@ De `redirectTo` parameter geeft de bestemmingspagina aan. Dit is een JSON-object
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | Niet-Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Meer informatie over het maken van omleidingsregels voor landingspagina&#39;s vindt u [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
+Meer informatie over het maken van omleidingsregels voor landingspagina&#39;s vindt u [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=nl-NL).
 
 ```
 POST /rest/asset/v1/redirectRules.json

@@ -16,7 +16,7 @@ Installatie-instructies voor de extensie Marketo Mobile SDK in [!DNL Adobe Launc
 
 ## Vereisten
 
-- [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin)
+- [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin)
 - Volg de instructies in het dialoogvenster [!DNL Adobe Launch] portal voor installatie
 - [Pushmeldingen instellen](push-notifications.md) (optioneel)
 

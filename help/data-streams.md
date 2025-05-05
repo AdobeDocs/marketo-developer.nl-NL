@@ -258,7 +258,7 @@ Aan opstelling Adobe IO, zie [ de Streams van de Gegevens van de Controle van de
 
 ### Gebruikersauditgegevensstroom instellen in Marketo
 
-De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar de [ Pagina van de Beschrijving van het Product ](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor de grenzen en de eigenschappen van het Product.
+De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar de [ Pagina van de Beschrijving van het Product ](https://helpx.adobe.com/nl/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor de grenzen en de eigenschappen van het Product.
 
 ### Adobe I/O instellen
 

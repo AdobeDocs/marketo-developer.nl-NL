@@ -14,7 +14,7 @@ ht-degree: 0%
 
 JavaScript-API voor gebruikerscontext stelt gegevens op gebruikers- en bezoekersniveau beschikbaar voor meerdere sessies om geavanceerde verpersoonlijkingsmogelijkheden mogelijk te maken met behulp van historisch gebruikersgedrag en gegevens. De API gaat voorbij gegevens lezen en stelt douanevariabelen bloot die u toestaan om zinvolle gegevens en gebeurtenissen aan de achtergrond RTP voor geavanceerde segmentatie en verpersoonlijkingsdoeleinden te duwen. Aanvullende mogelijkheden: [Triggers](../javascript-api/triggers.md), [Patroonovereenkomst](../javascript-api/pattern-match.md).
 
-- U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
+- U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
 - De gebruikerscontext-API is een functie die op verzoek door Marketo Support moet worden ingeschakeld. Wanneer API wordt toegelaten, zal een userContext voorwerp onder het globale voorwerp RTP worden blootgesteld.
 
 ## Contextkenmerken gebruiker
