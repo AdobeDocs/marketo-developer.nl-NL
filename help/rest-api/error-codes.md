@@ -124,7 +124,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     </tr>
     <tr>
       <td><a name="606"></a>606</td>
-      <td>Maximumsnelheid `%s'; overschreden met in `%s` sec</td>
+      <td>Maximumsnelheid `%s'; overschreden met in `%s&grave; sec</td>
       <td>Het aantal vraag in de afgelopen 20 seconden was groter dan 100</td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
       <td>De aanroep kan niet worden uitgevoerd omdat deze in strijd is met een vereiste om een element te maken of bij te werken, bijvoorbeeld wanneer u een e-mail wilt maken zonder sjabloon. Het is ook mogelijk deze fout op te halen wanneer u probeert:
         <ul>
           <li>Inhoud ophalen voor bestemmingspagina's die sociale inhoud bevatten.</li>
-          <li>Kloon een programma dat bepaalde activa types (zie </a> van de Kloon van het Programma 0} {voor meer informatie) bevat.<a href="programs.md#clone"></li>
+          <li>Kloon een programma dat bepaalde activa types (zie </a> van de Kloon van het Programma 0&rbrace; &lbrace;voor meer informatie) bevat.<a href="programs.md#clone"></li>
           <li>Een element goedkeuren zonder concept (dat wil zeggen dat het al is goedgekeurd).</li>
         </ul></td>
     </tr>
@@ -239,7 +239,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="718"></a>718</td>
       <td>ExternalSalesPersonID niet gevonden</td>
-      <td>Een vraag van de Kanalen van de Synchronisatie werd gemaakt met een niet-bestaande ` waarde ExternalSalesPersonID.</td>
+      <td>Een vraag van de Kanalen van de Synchronisatie werd gemaakt met een niet-bestaande &grave; waarde ExternalSalesPersonID.</td>
     </tr>
     <tr>
       <td>719</td>
@@ -353,7 +353,7 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
       <td><a name="1012"></a>1012</td>
       <td>Ongeldige cookiewaarde '%s'</td>
       <td>Kan voorkomen wanneer het roepen van <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST"> associeerde lood </a> met een ongeldige waarde voor de "koekjesparameter".
-        Dit komt ook voor wanneer het roepen <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET"> leidt door het Type van Filter </a> met ` filterType=cookies' en een ongeldige waarde voor de parameter ` filterValues `.</td>
+        Dit komt ook voor wanneer het roepen <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET"> leidt door het Type van Filter </a> met ` filterType=cookies' en een ongeldige waarde voor de parameter ` filterValues &grave;.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -475,12 +475,12 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan ` de lengte van het Gebied van SFDC</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan &grave; de lengte van het Gebied van SFDC</td>
       <td>Een samenvoegen van Leads-aanroep waarbij mergeInCRM is ingesteld op true, is mislukt omdat het SFDC-veld de limiet van toegestane tekens overschrijdt. U corrigeert de fout door de lengte van het veld SFDC Field te verkleinen of mergeInCRM in te stellen op false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td></a> ontbroken vraag van de Leads van 0} Fusie {wegens geschrapte entiteit, niet een lood/contact, of de criteria van de gebiedsfilter past niet aan.<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"></td>
+      <td></a> ontbroken vraag van de Leads van 0&rbrace; Fusie &lbrace;wegens geschrapte entiteit, niet een lood/contact, of de criteria van de gebiedsfilter past niet aan.<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"></td>
       <td>Fout bij samenvoegen, kan samenvoegbewerking niet uitvoeren in native gesynchroniseerde CRM
         Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
     </tr>

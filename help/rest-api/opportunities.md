@@ -188,7 +188,7 @@ Velden met zoekmogelijkheden zijn eenvoudig.  U kunt één enkel bedrijfgebied 
 
 #### Op naam
 
-Het [ krijgt Gebied van de Opportunity door het 1} eindpunt van de Naam {wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
+Het [ krijgt Gebied van de Opportunity door het 1&rbrace; eindpunt van de Naam &lbrace;wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
 
 ```
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json

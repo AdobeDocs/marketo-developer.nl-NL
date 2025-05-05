@@ -82,7 +82,7 @@ GET /rest/asset/v1/program/{id}.json
 
 ### Op naam
 
-Het [ krijgt Programma door het 1} eindpunt van de Naam {vereist een `name` vraagparameter. ](https://developer.adobe.com/marketo-apis/api/asset/) Optionele Booleaanse queryparameters zijn `includeTags` en `includeCosts` die worden gebruikt om programmalabels en programmakosten te retourneren.
+Het [ krijgt Programma door het 1&rbrace; eindpunt van de Naam &lbrace;vereist een `name` vraagparameter. ](https://developer.adobe.com/marketo-apis/api/asset/) Optionele Booleaanse queryparameters zijn `includeTags` en `includeCosts` die worden gebruikt om programmalabels en programmakosten te retourneren.
 
 ```
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
@@ -126,7 +126,7 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Bladeren
 
-Het [ krijgt het 1} eindpunt van Programma&#39;s {staat u toe om voor programma&#39;s te doorbladeren.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
+Het [ krijgt het 1&rbrace; eindpunt van Programma&#39;s &lbrace;staat u toe om voor programma&#39;s te doorbladeren.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
 
 Met de optionele parameter `status` kunt u filteren op de status van het programma. Deze parameter is alleen van toepassing op betrokkenheid- en e-mailprogramma&#39;s. De mogelijke waarden zijn &quot;aan&quot; en &quot;uit&quot; voor betrokkenheidsprogramma&#39;s en &quot;ontgrendeld&quot; voor e-mailprogramma&#39;s.
 
