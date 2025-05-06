@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] Handleiding voor ontwikkelaars'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
 workflow-type: tm+mt
-source-wordcount: '247'
+source-wordcount: '249'
 ht-degree: 6%
 
 ---
@@ -30,7 +30,7 @@ ht-degree: 6%
    - [Patroonovereenkomst](javascript-api/pattern-match.md)
    - [Voorspelende inhoud](javascript-api/predictive-content.md)
    - [Omleiding](javascript-api/redirect.md)
-   - [Rijke media Recommendations](javascript-api/rich-media-recommendation.md)
+   - [Aanbevelingen voor rijke media](javascript-api/rich-media-recommendation.md)
    - [Sociaal](javascript-api/social.md)
    - [Triggers](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
@@ -90,7 +90,7 @@ ht-degree: 6%
    - [Definities van Swagger downloaden](rest-api/swagger.md)
    - [Eindpuntverwijzing](rest-api/endpoint-reference.md)
    - [Foutcodes](rest-api/error-codes.md)
-   - Database openen {#lead-database}
+   - Database lead {#lead-database}
       - [Activiteiten](rest-api/activities.md)
       - [Bedrijven](rest-api/companies.md)
       - [Aangepaste objecten](rest-api/custom-objects.md)
@@ -147,7 +147,7 @@ ht-degree: 6%
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
-   - [Veelgestelde vragen SOAP](soap-api/soap-faq.md)
+   - [Veelgestelde vragen over SOAP](soap-api/soap-faq.md)
    - Statische lijsten {#static-lists}
       - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
       - [[!DNL importToList]](soap-api/importtolist.md)
@@ -163,3 +163,4 @@ ht-degree: 6%
 - [Licentie](api-license.md)
 - [Partnersandbox](partner-sandbox.md)
 - [Zelfbedieningsstroomstappen](self-service-flow-steps.md)
+- [Blogarchief](blog.md)
