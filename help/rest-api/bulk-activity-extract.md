@@ -3,9 +3,9 @@ title: Uitpakken van bulkactiviteiten
 feature: REST API
 description: Gegevens van Marketo over de verwerking van batches.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: a5b855691e7fb9e628e2d68fd14a8a6c689d6750
 workflow-type: tm+mt
-source-wordcount: '1342'
+source-wordcount: '1332'
 ht-degree: 0%
 
 ---
@@ -26,7 +26,7 @@ De Bulk Activity Extraheren-API&#39;s vereisen dat de API-gebruiker beschikt ove
 | --- | --- | --- | --- |
 | createdAt | Datumbereik | Ja | Accepteert een JSON-object met de leden `startAt` en `endAt` . `startAt` accepteert een datetime die het lage watermerk vertegenwoordigt en `endAt` accepteert een datetime die het hoge watermerk vertegenwoordigt. Het bereik moet 31 dagen of minder zijn. Taken met dit filtertype retourneren alle toegankelijke records die binnen het datumbereik zijn gemaakt. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden. |
 | activityTypeIds | Array\[geheel getal\] | Nee | Accepteert een JSON-object met één lid, `activityTypeIds` . De waarde moet een array van gehele getallen zijn die overeenkomen met de gewenste activiteitstypen. De &quot;Lood van de Schrapping&quot;activiteit wordt niet gesteund (gebruik [ krijgen schrapte Leads ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) eindpunt in plaats daarvan). Haal activiteitentype ids gebruikend terug [ krijgt het eindpunt van de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
-| [ primaryAttributeValueIds ](#primaryattributevalueids-options) | Array\[geheel getal\] | Nee | Accepteert een JSON-object met één lid, `primaryAttributeValueIds` . De waarde is een array van id&#39;s die de primaire kenmerken opgeven waarop moet worden gefilterd. Er kunnen maximaal 50 id&#39;s worden opgegeven. De id&#39;s zijn de unieke id voor een lead-veld of een element en kunnen worden opgehaald door het juiste REST API-eindpunt aan te roepen. Bijvoorbeeld, om op een specifieke Vorm voor de &quot;Vul uit de activiteit van de Vorm&quot;te filtreren, ga de naam van de Vorm tot [ over krijgt Vorm door het 1&rbrace; eindpunt van de Naam om Vorm identiteitskaart terug te winnen. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) Hieronder volgt een lijst met activiteitstypen waarvoor het filteren van primaire kenmerken wordt ondersteund. |
+| [ primaryAttributeValueIds ](#primaryattributevalueids-options) | Array\[geheel getal\] | Nee | Accepteert een JSON-object met één lid, `primaryAttributeValueIds` . De waarde is een array van id&#39;s die de primaire kenmerken opgeven waarop moet worden gefilterd. Er kunnen maximaal 50 id&#39;s worden opgegeven. De id&#39;s zijn de unieke id voor een lead-veld of een element en kunnen worden opgehaald door het juiste REST API-eindpunt aan te roepen. Bijvoorbeeld, om op een specifieke Vorm voor de &quot;Vul uit de activiteit van de Vorm&quot;te filtreren, ga de naam van de Vorm tot [ over krijgt Vorm door het 1} eindpunt van de Naam om Vorm identiteitskaart terug te winnen. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) Hieronder volgt een lijst met activiteitstypen waarvoor het filteren van primaire kenmerken wordt ondersteund. |
 | [ primaryAttributeValues ](#primaryattributevalues-options) | Array\[String\] | Nee | Accepteert een JSON-object met één lid, `primaryAttributeValues` . De waarde is een array van namen die de primaire kenmerken opgeven waarop moet worden gefilterd. Er kunnen maximaal 50 namen worden opgegeven. De namen zijn het unieke herkenningsteken voor of een lood gebied of activa, en kunnen worden teruggewonnen door het aangewezen REST API eindpunt te roepen. Bijvoorbeeld, om op een specifieke Vorm voor de &quot;Vul uit de activiteit van de Vorm&quot;te filtreren, ga Vorm ID tot [ over krijgen Vorm door Identiteitseindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) om de naam van de Vorm terug te winnen. Hieronder volgt een lijst met activiteitstypen waarvoor het filteren van primaire kenmerken wordt ondersteund. |
 
 ### Opties voor primaryAttributeValueIds {#primaryattributevalueids-options}
@@ -104,7 +104,7 @@ Wanneer u `primaryAttributeValues` gebruikt, moet het filter `activityTypeIds` a
 | filter | Serie [ Voorwerp ] | Ja | Accepteert een array van filters. Precies één `createdAt` -filter moet in de array worden opgenomen. Er kan een optioneel `activityTypeIds` -filter worden opgenomen. De filters worden toegepast op de toegankelijke activiteitenset en de resulterende set activiteiten wordt geretourneerd door de exporttaak. |
 | format | String | Nee | Accepteert een van de volgende opties: CSV, TSV, SSV Het geëxporteerde bestand wordt gerenderd als een bestand met door komma&#39;s gescheiden waarden, door tabs gescheiden waarden of een bestand met door spaties gescheiden waarden, indien ingesteld. De standaardwaarde is CSV als de waarde is uitgeschakeld. |
 | columnHeaderNames | Object | Nee | Een JSON-object met sleutelwaardeparen van veld- en kolomkopnamen. De sleutel moet de naam zijn van een veld dat is opgenomen in de exporttaak. De waarde is de naam van de geëxporteerde kolomkop voor dat veld. |
-| velden | Serie [ Koord ] | Nee | Optionele array van tekenreeksen die veldwaarden bevatten. De weergegeven velden worden opgenomen in het geëxporteerde bestand. Standaard worden de volgende velden geretourneerd: `marketoGUIDleadId` `activityDate` `activityTypeId` `campaignId` `primaryAttributeValueId` `primaryAttributeValueattributes` . Deze parameter kan worden gebruikt om het aantal velden te verminderen dat wordt geretourneerd door een subset van de bovenstaande lijst op te geven. Voorbeeld:&quot;velden&quot;: [ &quot;leadId&quot;, &quot;activityDate&quot;, &quot;activityTypeId&quot;] Een extra gebied &quot;actionResult&quot;kan worden gespecificeerd om de activiteitenactie (&quot;succesvol&quot;, &quot;overgeslagen&quot;, of &quot;ontbroken&quot;) te omvatten. |
+| velden | Serie [ Koord ] | Nee | Optionele array van tekenreeksen die veldwaarden bevatten. De weergegeven velden worden opgenomen in het geëxporteerde bestand. Standaard worden de volgende velden geretourneerd: <ul><li>`marketoGUIDleadId`</li><li> `activityDate` </li><li>`activityTypeId` </li><li>`campaignId`</li><li> `primaryAttributeValueId` </li><li>`primaryAttributeValue`</li><li> `attributes`</li></ul>. Deze parameter kan worden gebruikt om het aantal gebieden te verminderen die door een ondergroep van de bovenstaande lijst te specificeren zijn teruggekeerd:`"fields": ["leadId", "activityDate", "activityTypeId"]`. U kunt een extra veld `actionResult` opgeven om de handeling activity op te nemen: `("succeeded", "skipped", or "failed")` . |
 
 
 ## Een taak maken
@@ -214,7 +214,7 @@ Het statusveld kan reageren met een van de volgende waarden:
 
 ## Uw gegevens ophalen
 
-Zodra de baan volledig is, wint uw gegevens terug gebruikend [ krijgt het 1&rbrace; eindpunt van het Dossier van de Activiteit van de Uitvoer.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET)
+Zodra de baan volledig is, wint uw gegevens terug gebruikend [ krijgt het 1} eindpunt van het Dossier van de Activiteit van de Uitvoer.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET)
 
 ```
 GET /bulk/v1/activities/export/{exportId}/file.json
