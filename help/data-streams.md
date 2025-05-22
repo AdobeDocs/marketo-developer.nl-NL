@@ -2,14 +2,18 @@
 title: Gegevensstromen
 description: Overzicht van gegevensstromen
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 43bcafd335a2fdc709e917ef74504500422c2889
 workflow-type: tm+mt
-source-wordcount: '1583'
+source-wordcount: '1596'
 ht-degree: 0%
 
 ---
 
 # Gegevensstromen
+
+>[!NOTE]
+> De huidige informatie over gegevensstromen wordt nu gevonden bij [ Gebruikend de Streams van Gegevens ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/).
+>
 
 De marketingorganisaties van onze klanten vertrouwen op tijdige en gerichte marketingcampagnes om op hun bedrijf te blijven en concurrerend te zijn. Om snelle beslissingen te ondersteunen en strategische veranderingen op snelheid mogelijk te maken, is het belangrijk dat u over gegevens beschikt om die belangrijke beslissingen die gerichte en gerichte campagnes leveren, te ondersteunen en te sturen. Er zijn ook klanten die marketinginspanningen uitvoeren op het niveau van hun klantensegmenten, zowel binnen als buiten Marketo Engage. Om deze verschillende inspanningen te ondersteunen, heeft Marketo de mogelijkheid gecreëerd om grote hoeveelheden gegevens te verkrijgen in bijna realtime via gegevensstreams.
 
@@ -185,7 +189,7 @@ Om de gegevensstroom van de Activiteit van de Lood uit te voeren, zijn hier de s
    1. De URL van het eindpunt in stap 1
    1. De typen activiteiten die zij willen ontvangen (volledige lijst hierboven)
    1. Een middel van authentificatie, zodat de klant kan verifiëren dat de verzoeken wettig zijn. Ofwel:
-      1. Een identiteitsleverancier URL, identiteitskaart van de Cliënt, en Geheim voor de Authentificatie van de Credentials van de Cliënt OAuth [&#128279;](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+      1. Een identiteitsleverancier URL, identiteitskaart van de Cliënt, en Geheim voor de Authentificatie van de Credentials van de Cliënt OAuth [ ](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
       1. Een API-token, dat kan worden opgenomen in aanvragen die door de Lead Activity DataStream worden verzonden in een Authorization http-header
 
 Adobe schakelt vervolgens de gegevensstroom in, waarna klanten gegevens beginnen te ontvangen.
@@ -258,7 +262,7 @@ Aan opstelling Adobe IO, zie [ de Streams van de Gegevens van de Controle van de
 
 ### Gebruikersauditgegevensstroom instellen in Marketo
 
-De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar de [ Pagina van de Beschrijving van het Product ](https://helpx.adobe.com/nl/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor de grenzen en de eigenschappen van het Product.
+De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar de [ Pagina van de Beschrijving van het Product ](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor de grenzen en de eigenschappen van het Product.
 
 ### Adobe I/O instellen
 

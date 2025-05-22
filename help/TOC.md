@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] Handleiding voor ontwikkelaars'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
+source-git-commit: 43bcafd335a2fdc709e917ef74504500422c2889
 workflow-type: tm+mt
-source-wordcount: '249'
+source-wordcount: '250'
 ht-degree: 6%
 
 ---
@@ -158,7 +158,7 @@ ht-degree: 6%
    - [Responstoewijzingen](webhooks/response-mappings.md)
    - [Webhaken](webhooks/webhooks.md)
 - [ Bibliotheken van de Cliënt ](https://github.com/Marketo/Community-Supported-Client-Libraries)
-- [Gegevensstromen](data-streams.md)
+- [ Streams van Gegevens ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [E-mailscripting](email-scripting.md)
 - [Licentie](api-license.md)
 - [Partnersandbox](partner-sandbox.md)
