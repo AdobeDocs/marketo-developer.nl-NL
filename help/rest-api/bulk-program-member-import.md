@@ -1,20 +1,20 @@
 ---
 title: Bulkprogramma-lid importeren
 feature: REST API
-description: "Batch importeren van lidgegevens."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Batch importeren van lidgegevens.
+exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '838'
+source-wordcount: '837'
 ht-degree: 0%
 
 ---
 
-
 # Bulkprogramma-lid importeren
 
-[Referentie voor eindpunt van import van bulkprogramma-lid](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
+{de Verwijzing van het Eindpunt van het Punt van de Invoer van het Lid van het BulkProgramma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)[
 
-Voor grote hoeveelheden records van programmaleden kunnen programmaleden asynchroon worden geïmporteerd met de [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
+Voor grote hoeveelheden verslagen van het programmalid, kunnen de programmaleden asynchroon met [ bulk API ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
 ## Verwerkingslimieten
 
@@ -22,7 +22,7 @@ U mag meer dan één aanvraag voor bulkimport indienen, met beperkingen. Elke aa
 
 ## Bestand importeren
 
-De eerste rij van het bestand moet een header zijn die de corresponderende REST API-namen vermeldt als velden waarin de waarden van elke rij moeten worden toegewezen. REST API-namen kunnen worden opgehaald met [Lead beschrijven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) en/of [Lid van programma beschrijven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET) eindpunten. Records kunnen loodvelden, aangepaste doorloopvelden en aangepaste lidvelden van een programma bevatten.
+De eerste rij van het bestand moet een header zijn die de corresponderende REST API-namen vermeldt als velden waarin de waarden van elke rij moeten worden toegewezen. REST API de namen kunnen worden teruggewonnen gebruikend [ beschrijf Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) en/of [ beschrijft de eindpunten van het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET). Records kunnen loodvelden, aangepaste doorloopvelden en aangepaste lidvelden van een programma bevatten.
 
 Een typisch bestand volgt dit standaardpatroon:
 
@@ -31,17 +31,17 @@ email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-De vraag zelf wordt gemaakt gebruikend `multipart/form-data` inhoudstype.
+De aanroep zelf wordt gemaakt met het inhoudstype `multipart/form-data` .
 
 Dit type verzoek kan moeilijk zijn uit te voeren, zodat wordt het hoogst geadviseerd dat u een bestaande bibliotheekimplementatie gebruikt.
 
 ## Een taak maken
 
-De [Programmsleden importeren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) het eindpunt leest een dossier dat de verslagen van het programmalid bevat en voegt hen aan een programma met een bepaalde status toe. De records kunnen zowel hoofdvelden als aangepaste velden voor programmaleden bevatten. Alle records moeten het e-mailveld bevatten, dat wordt gebruikt voor deduplicatiedoeleinden.
+Het [ eindpunt van de Leden van het Programma van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) leest een dossier dat de verslagen van het programmalid bevat en voegt hen aan een programma met een bepaalde status toe. De records kunnen zowel hoofdvelden als aangepaste velden voor programmaleden bevatten. Alle records moeten het e-mailveld bevatten, dat wordt gebruikt voor deduplicatiedoeleinden.
 
-De `programId` path parameter specifies the program to which the members are added.
+De padparameter `programId` geeft het programma op waaraan de leden worden toegevoegd.
 
-Er zijn drie vereiste vraagparameters. De `format` parameter geeft de bestandsindeling voor import aan (CSV, TSV of SSV), de `programMemberStatus` geeft de programmastatus aan van de leden die aan het programma worden toegevoegd, en `file` parameter bevat de naam van het importbestand dat de records van het programmalid bevat.
+Er zijn drie vereiste vraagparameters. De parameter `format` geeft de indeling van het importbestand (CSV, TSV of SSV) op, de parameter `programMemberStatus` geeft de status van het programma op voor de leden die aan het programma worden toegevoegd en de parameter `file` bevat de naam van het importbestand dat de records van de programmaleden bevat.
 
 ```
 POST /bulk/v1/program/{programId}/members/import.json?format=csv&programMemberStatus=On List
@@ -85,7 +85,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 }
 ```
 
-Bericht in antwoord op onze oproep dat er een `batchId` en `status` veld voor de record in de resultaatarray. Aangezien dit eindpunt asynchroon is, kan het een status van In de rij geplaatst terugkeren, Importeren, of Ontbroken. U moet de `batchId` om de status van de importtaak op te halen en fouten en/of waarschuwingen op te halen wanneer deze zijn voltooid. De `batchId` blijft zeven dagen geldig.
+In het antwoord op onze oproep ziet u dat er een `batchId` - en een `status` -veld zijn voor de record in de resultaatarray. Aangezien dit eindpunt asynchroon is, kan het een status van In de rij geplaatst terugkeren, Importeren, of Ontbroken. U moet de `batchId` behouden om de status van de importtaak op te halen en om fouten en/of waarschuwingen op te halen als de taak is voltooid. De `batchId` blijft zeven dagen geldig.
 
 Gebruikend het voorbeeld hierboven, is een eenvoudige manier om het eindpunt te roepen cURL van de bevellijn te gebruiken:
 
@@ -109,7 +109,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## Status opiniepeilingtaak
 
-Nadat de importtaak is gemaakt, moet u een query uitvoeren op de status ervan. Het is aan te raden de importtaak elke 5-30 seconden te peilen. Doe dit door de `batchId` padparameter naar de [Lidstatus van importprogramma ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) eindpunt.
+Nadat de importtaak is gemaakt, moet u een query uitvoeren op de status ervan. Het is aan te raden de importtaak elke 5-30 seconden te peilen. Doe dit door de `batchId` wegparameter tot het [ overgaan krijgt de Status van het Lid van het Programma van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) eindpunt.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -139,15 +139,15 @@ Als de taak is voltooid, ziet u een overzicht van het aantal rijen dat is verwer
 
 ## Mislukt
 
-Ontbrekende gegevens worden aangegeven door de `numOfRowsFailed` kenmerk in [Lidstatus van importprogramma ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) reactie. Als numOfRowsFailed groter is dan nul, dan wijst die waarde op het aantal mislukkingen die voorkwamen.
+De mislukkingen worden vermeld door het `numOfRowsFailed` attribuut in [ krijgen de Status van het Lid van het Programma van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) reactie. Als numOfRowsFailed groter is dan nul, dan wijst die waarde op het aantal mislukkingen die voorkwamen.
 
-Gebruik de [Fout door lid van importprogramma ophalen](http://TODO) eindpunt om verslagen en oorzaken van ontbroken rijen terug te winnen door het overgaan van `batchId` padparameter.
+Gebruik het Get Lid van het Programma van de Invoer eindpunt van Mislukt om verslagen en oorzaken van ontbroken rijen terug te winnen door de `batchId` wegparameter over te gaan.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/failures.json
 ```
 
-Het eindpunt antwoordt met een dossier erop wijst die welke rijen, samen met een bericht erop wijzen die waarom het verslag ontbrak. De bestandsindeling is dezelfde als die in `format` parameter tijdens het maken van taken. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de fout.
+Het eindpunt antwoordt met een dossier erop wijst die welke rijen, samen met een bericht erop wijzen die waarom het verslag ontbrak. De bestandsindeling is dezelfde als die is opgegeven in de parameter `format` tijdens het maken van taken. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de fout.
 
 Stel dat u het volgende bestand met een ongeldige loodscore importeert:
 
@@ -156,7 +156,7 @@ firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD
 ```
 
-Wanneer u de taakstatus controleert, ziet u `numOfRowsFailed` is 1 wat erop wijst dat een mislukking voorkwam:
+Wanneer u de taakstatus controleert, ziet u dat `numOfRowsFailed` 1 is, wat aangeeft dat er een fout is opgetreden:
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -193,15 +193,15 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## Waarschuwingen
 
-Waarschuwingen worden aangegeven door de `numOfRowsWithWarning` kenmerk in [Lidstatus van importprogramma ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) reactie. Indien `numOfRowsWithWarning` is groter dan nul, dan wijst die waarde op het aantal waarschuwingen die voorkwamen.
+De waarschuwingen worden vermeld door het `numOfRowsWithWarning` attribuut in [ krijgen de Status van het Lid van het Programma van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) reactie. Als `numOfRowsWithWarning` groter is dan nul, geeft die waarde het aantal waarschuwingen aan dat is opgetreden.
 
-Gebruik de [Waarschuwingen voor leden van importprogramma ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) eindpunt om verslagen en oorzaken van waarschuwingsrijen terug te winnen door over te gaan `batchId` padparameter.
+Gebruik [ krijgen de Waarschuwingen van het Lid van het Programma van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) eindpunt om verslagen en oorzaken van waarschuwingsrijen terug te winnen door de `batchId` wegparameter over te gaan.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/warnings.json
 ```
 
-Het eindpunt antwoordt met een dossier erop wijst die welke rijen tot waarschuwingen, samen met een bericht erop wijzen die waarom het verslag een waarschuwing produceerde. De bestandsindeling is dezelfde als die in `format` parameter tijdens het maken van taken. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de waarschuwing.
+Het eindpunt antwoordt met een dossier erop wijst die welke rijen tot waarschuwingen, samen met een bericht erop wijzen die waarom het verslag een waarschuwing produceerde. De bestandsindeling is dezelfde als die is opgegeven in de parameter `format` tijdens het maken van taken. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de waarschuwing.
 
 Stel dat u het volgende bestand met een ongeldig e-mailadres importeert:
 
@@ -210,7 +210,7 @@ firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0
 ```
 
-Wanneer u de taakstatus controleert, ziet u `numOfRowsWithWarning` is 1 wat erop wijst dat een waarschuwing voorkwam:
+Wanneer u de taakstatus controleert, ziet u dat `numOfRowsWithWarning` 1 is, wat aangeeft dat er een waarschuwing is opgetreden:
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/status.json

@@ -1,24 +1,24 @@
 ---
-title: "Programmaleden"
+title: Programmaleden
 feature: REST API
-description: "Maak en beheer programmaleden."
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Maak en beheer programmaleden.
+exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '1712'
+source-wordcount: '1708'
 ht-degree: 0%
 
 ---
 
-
 # Programmaleden
 
-[Eindpuntverwijzing van programmaleden](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
+[ Verwijzing van het Eindpunt van de Leden van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Deze gegevens kunnen worden weergegeven in de [Tabblad Leden](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) in de gebruikersinterface van het Marketo Engage.
+Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Dit gegeven is viewable in het 0} LEDEN van het programma ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Landen in Marketo Engage UI.[
 
 ## Beschrijven
 
-De [Lid van programma beschrijven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) volgt het standaardpatroon voor databaseobjecten voor leads. De `searchableFields` -array geeft u de reeks velden die geldig zijn voor het opvragen. De `fields` array bevat veldmetagegevens, zoals de naam van de REST API, de weergavenaam en de updatemogelijkheid van het veld.
+[ beschrijf het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) eindpunt volgt het standaardpatroon voor loodgegevensbestandvoorwerpen. De array `searchableFields` geeft u de reeks velden die geldig zijn om te vragen. De array `fields` bevat veldmetagegevens, zoals de naam van de REST API, de weergavenaam en de updatemogelijkheid van velden.
 
 ```
 GET /rest/v1/programs/members/describe.json
@@ -209,26 +209,26 @@ GET /rest/v1/programs/members/describe.json
 
 ## Query
 
-De [Programmaleden ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) eindpunt staat u toe om leden van een programma terug te winnen. Hiervoor is een `programId` padparameter, en `filterType` en `filterValues` queryparameters.
+Het [ krijgt 1} eindpunt van de Leden van het Programma {staat u toe om leden van een programma terug te winnen. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) Hiervoor zijn een parameter `programId` path en queryparameters `filterType` en `filterValues` vereist.
 
-`programId` wordt gebruikt om aan te geven welk programma moet worden doorzocht.
+`programId` wordt gebruikt om op te geven welk programma moet worden doorzocht.
 
-`filterType` wordt gebruikt om aan te geven welk veld moet worden gebruikt als zoekfilter. Hiermee worden alle velden in de lijst &quot;doorzoekbareFields&quot; geaccepteerd die door de [Lid van programma beschrijven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) eindpunt. Als u een filterType opgeeft dat een aangepast veld is, moet het dataType van het aangepaste veld &#39;string&#39; of &#39;integer&#39; zijn. Als u een filterType buiten &quot;leadId&quot;specificeert, kan een maximum van 100.000 verslagen van het programmalid door het verzoek worden verwerkt. Afhankelijk van de configuratie van uw Marketo-instantie ontvangt u een van de volgende fouten:
+`filterType` wordt gebruikt om op te geven welk veld moet worden gebruikt als zoekfilter. Het keurt om het even welk gebied in de &quot;doorzoekableFields&quot;lijst goed die door [ is teruggekeerd beschrijft het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) eindpunt. Als u een filterType opgeeft dat een aangepast veld is, moet het dataType van het aangepaste veld &#39;string&#39; of &#39;integer&#39; zijn. Als u een filterType buiten &quot;leadId&quot;specificeert, kan een maximum van 100.000 verslagen van het programmalid door het verzoek worden verwerkt. Afhankelijk van de configuratie van uw Marketo-instantie ontvangt u een van de volgende fouten:
 
 - Als het totale aantal programmaleden meer dan 100.000 bedraagt, wordt een fout geretourneerd: &quot;1003, Totale lidmaatschapsgrootte: 100.001 overschrijdt de toegestane limiet van 100.000 voor het filter&quot;.
-- Indien het totale aantal programmaleden _die overeenkomen met het filter_ is groter dan 100.000, er wordt een fout geretourneerd: &quot;1003, Matching membership size: 100.001 overschrijdt de toegestane limiet (100.000) voor deze api&quot;.
+- Als het totale aantal programmaleden _dat de filter_ aanpast 100.000 overschrijdt, is een fout teruggekeerd: &quot;1003, het Aanpassen lidmaatschapsgrootte: 100.001 overschrijdt de toegestane grens (100.000) voor deze api&quot;.
 
-Als u een query wilt uitvoeren op een programma waarvan het aantal leden de limiet overschrijdt, gebruikt u de opdracht [Extraheren-API voor leden van het Bulkprogramma](bulk-program-member-extract.md) in plaats daarvan.
+Om een programma te vragen de waarvan lidmaatschapstelling de grens overschrijdt, gebruik in plaats daarvan het [ BulkLid van het Programma API van het Uittreksel ](bulk-program-member-extract.md).
 
-`filterValues` wordt gebruikt om op te geven naar welke waarden moet worden gezocht en accepteert maximaal 300 waarden in een komma-gescheiden indeling. De vraag zoekt naar verslagen waar het gebied van het programmalid één van inbegrepen filterValues aanpast.
+`filterValues` wordt gebruikt om op te geven naar welke waarden moet worden gezocht en accepteert maximaal 300 waarden in een door komma&#39;s gescheiden indeling. De vraag zoekt naar verslagen waar het gebied van het programmalid één van inbegrepen filterValues aanpast.
 
-U kunt ook filteren op datumbereik door `updatedAt` als filterType met `startAt` en `endAt` datetime-parameters. Het bereik moet zeven dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden.
+U kunt ook filteren op datumbereik door `updatedAt` op te geven als filterType met de datetime-parameters `startAt` en `endAt` . Het bereik moet zeven dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden.
 
-De optionele `fields` queryparameter accepteert een door komma&#39;s gescheiden lijst met veld-API-namen die door de [Lid van programma beschrijven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) eindpunt. Wanneer deze worden opgenomen, bevat elke record in het antwoord de opgegeven velden. Als u deze waarde weglaat, wordt de standaardset geretourneerde velden gebruikt `acquiredBy`, `leadId`, `membershipDate`, `programId`, en `reachedSuccess`.
+De facultatieve `fields` vraagparameter keurt een komma-gescheiden lijst van gebied API namen goed die door [ zijn teruggekeerd beschrijf 2} eindpunt van het Lid van het Programma. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) Wanneer deze worden opgenomen, bevat elke record in het antwoord de opgegeven velden. Als u deze waarde weglaat, wordt de standaardset met velden `acquiredBy` , `leadId` , `membershipDate` , `programId` en `reachedSuccess` geretourneerd.
 
-Standaard worden maximaal 300 records geretourneerd. U kunt de `batchSize` query parameter om dit aantal te verminderen. Als de **moreResult** Het kenmerk is true, dit betekent dat er meer resultaten beschikbaar zijn. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` is teruggekeerd van deze API zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
+Standaard worden maximaal 300 records geretourneerd. U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen. Als het **moreResult** attribuut waar is, betekent dit meer resultaten beschikbaar zijn. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
 
-Als de totale lengte van uw GET- verzoek 8KB overschrijdt, is een fout van HTTP teruggekeerd: &quot;414, URI te lang&quot; (per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc72316.5.12)). Als tijdelijke oplossing kunt u uw GET wijzigen in POST, toevoegen `_method=GET` parameter, en plaats vraagkoord in het verzoeklichaam.
+Als de totale lengte van uw GET-aanvraag groter is dan 8 kB, wordt een HTTP-fout geretourneerd: &quot;414, URI te lang&quot;. Als tussenoplossing kunt u GET wijzigen in POST, parameter `_method=GET` toevoegen en een queryreeks in de hoofdtekst van de aanvraag plaatsen.
 
 ```
 GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValues=Influenced
@@ -346,15 +346,15 @@ Er zijn twee eindpunten die het maken/bijwerken van verrichting op programmalede
 
 ### Status van programmalid
 
-De [Status van programmalid synchroniseren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) eindpunt wordt gebruikt om de programmastatus voor één of meerdere leden tot stand te brengen of bij te werken.
+Het ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) eindpunt van de Status van het Lid van het Programma van de Synchronisatie [ wordt gebruikt om de programmastatus voor één of meerdere leden tot stand te brengen of bij te werken.
 
-De vereiste `programId` path parameter specifies the program containing members to create or update.
+De vereiste `programId` padparameter geeft het programma op met leden die moeten worden gemaakt of bijgewerkt.
 
-De vereiste `statusName` parameter geeft de status van het programma aan die op een lijst met leads moet worden toegepast. De statusName moet overeenkomen met een beschikbare status voor het kanaal van het programma. Geldige statussen kunnen worden opgehaald met de opdracht [Kanalen ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels/operation/getAllChannelsUsingGET) eindpunt. Als de status van een lead een grotere stapwaarde heeft dan de opgegeven statusName, wordt die lead overgeslagen.
+De vereiste parameter `statusName` geeft de status van het programma aan die moet worden toegepast op een lijst met leads. De statusName moet overeenkomen met een beschikbare status voor het kanaal van het programma. De geldige statussen kunnen worden teruggewonnen gebruikend [ krijgt het eindpunt van Kanalen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels/operation/getAllChannelsUsingGET). Als de status van een lead een grotere stapwaarde heeft dan de opgegeven statusName, wordt die lead overgeslagen.
 
-De vereiste `input` parameter is een array van `leadId` die overeenkomen met de programmaleden. U kunt tot 300 leadIds per vraag voorleggen. Voor elke record wordt een upsertbewerking uitgevoerd. Als leadId aan een programmalid wordt geassocieerd, dan wordt zijn lidmaatschapsstatus bijgewerkt. Als niet, wordt een nieuw verslag van het programmalid gecreeerd, wordt het verslag geassocieerd met leadId, en de lidmaatschapsstatus wordt toegewezen.
+De vereiste parameter `input` is een array van `leadId` die overeenkomt met de programmeerleden. U kunt tot 300 leadIds per vraag voorleggen. Voor elke record wordt een upsertbewerking uitgevoerd. Als leadId aan een programmalid wordt geassocieerd, dan wordt zijn lidmaatschapsstatus bijgewerkt. Als niet, wordt een nieuw verslag van het programmalid gecreeerd, wordt het verslag geassocieerd met leadId, en de lidmaatschapsstatus wordt toegewezen.
 
-Het eindpunt reageert met a `status` van &quot;bijgewerkt&quot;, &quot;gemaakt&quot; of &quot;overgeslagen&quot;. Indien overgeslagen, `reasons` array wordt ook opgenomen. Het eindpunt zal ook met a reageren `seq` veld dat een index is die kan worden gebruikt om de ingediende records te correleren met de volgorde van de reactie.
+Het eindpunt reageert met een `status` van &quot;bijgewerkt&quot;, &quot;gemaakt&quot; of &quot;overgeslagen&quot;. Als deze wordt overgeslagen, wordt ook een array `reasons` opgenomen. Het eindpunt zal ook met een `seq` gebied antwoorden dat een index is die kan worden gebruikt om de voorgelegde verslagen aan de orde van de reactie te correleren.
 
 Als de vraag succesvol is, wordt een &quot;activiteit van de Status van het Programma van de Verandering&quot;geschreven aan het de activiteitenlogboek van de lood.
 
@@ -414,13 +414,13 @@ Content-Type: application/json
 
 ### Gegevens van programmalid
 
-De [Gegevens programmalid synchroniseren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberDataUsingPOST) het eindpunt wordt gebruikt om de gegevens van het programmalid voor één of meerdere leden bij te werken. U kunt elk aangepast veld of elke standaardveld wijzigen dat &quot;kan worden bijgewerkt&quot; (zie [Lid van programma beschrijven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) eindpunt).
+Het [ eindpunt van de Gegevens van het Lid van het Programma van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberDataUsingPOST) wordt gebruikt om de gegevens van het programmalid voor één of meerdere leden bij te werken. U kunt om het even welk douanegebied wijzigen, of standaardgebieden die &quot;updateable&quot;zijn (zie [ beschrijven Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) eindpunt).
 
-De vereiste `programId` path parameter specifies the program containing members to update.
+De vereiste `programId` padparameter geeft het programma op met leden die moeten worden bijgewerkt.
 
-De vereiste `input` parameter is een array. Elk arrayelement bevat een `leadId` en een of meer velden die moeten worden bijgewerkt (met gebruik van de API-naam). Voor elke record wordt een updatebewerking uitgevoerd. De leadId moet aan een programmalid worden geassocieerd. De velden moeten kunnen worden bijgewerkt. U kunt tot 300 leadIds per vraag voorleggen.
+De vereiste parameter `input` is een array. Elk arrayelement bevat een `leadId` en een of meer velden die moeten worden bijgewerkt (met behulp van de API-naam). Voor elke record wordt een updatebewerking uitgevoerd. De leadId moet aan een programmalid worden geassocieerd. De velden moeten kunnen worden bijgewerkt. U kunt tot 300 leadIds per vraag voorleggen.
 
-Het eindpunt reageert met a `status` van &quot;bijgewerkt&quot; of &quot;overgeslagen&quot;. Indien overgeslagen, `reasons` array wordt ook opgenomen. Het eindpunt zal ook met a reageren `seq` veld dat een index is die kan worden gebruikt om de ingediende records te correleren met de volgorde van de reactie.
+Het eindpunt reageert met een `status` van &quot;bijgewerkt&quot; of &quot;overgeslagen&quot;. Als deze wordt overgeslagen, wordt ook een array `reasons` opgenomen. Het eindpunt zal ook met een `seq` gebied antwoorden dat een index is die kan worden gebruikt om de voorgelegde verslagen aan de orde van de reactie te correleren.
 
 Als de vraag succesvol is, wordt een activiteit van het &quot;Lid van het Programma van de Verandering&quot;geschreven aan het activiteitenlogboek van de lood.
 
@@ -482,9 +482,9 @@ Content-Type: application/json
 
 ## Velden
 
-Het programmalidobject bevat standaardvelden en optionele aangepaste velden. In elk abonnement op een Marketo Engage staan standaardvelden, terwijl de gebruiker aangepaste velden maakt. Elke velddefinitie bestaat uit een set kenmerken die het veld beschrijven. Voorbeelden van kenmerken zijn weergavenaam, API-naam en dataType. Deze kenmerken worden gezamenlijk metagegevens genoemd.
+Het programmalidobject bevat standaardvelden en optionele aangepaste velden. Alle Marketo Engage-abonnementen bevatten standaardvelden, terwijl de gebruiker aangepaste velden maakt. Elke velddefinitie bestaat uit een set kenmerken die het veld beschrijven. Voorbeelden van kenmerken zijn weergavenaam, API-naam en dataType. Deze kenmerken worden gezamenlijk metagegevens genoemd.
 
-Met de volgende eindpunten kunt u velden in het programmalidobject opvragen, maken en bijwerken. Deze API&#39;s vereisen dat de eigenaar-API-gebruiker een rol heeft met een van beide **Standaardveld voor schema-lezen** of **Aangepast veld schema voor lezen/schrijven** machtigingen.
+Met de volgende eindpunten kunt u velden in het programmalidobject opvragen, maken en bijwerken. Deze APIs vereisen dat de het bezitten API gebruiker een rol met één of allebei van het **lezen-schrijven StandaardGebied van het Schema** of **lezen-schrijven het Gebied van de Douane van het Schema** toestemmingen heeft.
 
 ### Query-velden
 
@@ -492,7 +492,7 @@ De velden voor het opvragen van programmaleden zijn eenvoudig. U kunt één veld
 
 #### Op naam
 
-De [Veld voor programmalid ophalen op naam](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) het eindpunt wint meta-gegevens voor één enkel gebied op het voorwerp van het programmalid terug. De vereiste `fieldApiName` path parameter specifies the API name of the field. De reactie is als het beschrijf het eindpunt van het Lid van het Programma maar bevat extra meta-gegevens zoals `isCustom` kenmerk dat aangeeft of het veld een aangepast veld is.
+Het [ krijgt Gebied van het Lid van het Programma door het eindpunt van de Naam ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) wint meta-gegevens voor één enkel gebied op het voorwerp van het programmalid terug. De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op. De reactie is als het beschrijf het eindpunt van het Lid van het Programma maar bevat extra meta-gegevens zoals `isCustom` attributen die erop wijzen of het gebied een douanegebied is.
 
 ```
 GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
@@ -521,7 +521,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 #### Bladeren
 
-De [Veld voor programmalid ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) het eindpunt wint meta-gegevens voor alle gebieden op het voorwerp van het programmalid terug. Standaard worden maximaal 300 records geretourneerd. U kunt de `batchSize` query parameter om dit aantal te verminderen. Als de `moreResult` Het kenmerk is true, dit betekent dat er meer resultaten beschikbaar zijn. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` is teruggekeerd van deze API zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
+Het [ krijgt de Eind van de Velden van het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) terugwint meta-gegevens voor alle gebieden op het voorwerp van het programmalid. Standaard worden maximaal 300 records geretourneerd. U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen. Als het kenmerk `moreResult` true is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
 
 ```
 GET /rest/v1/programs/members/schema/fields.json?batchSize=5
@@ -597,13 +597,13 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Velden maken
 
-De [Veld voor programmaleden maken](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) het eindpunt leidt tot één of meerdere douanegebieden op het voorwerp van het programmalid. Dit eindpunt verstrekt functionaliteit die vergelijkbaar is met wat is [beschikbaar in de gebruikersinterface van het Marketo Engage](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Met dit eindpunt kunt u maximaal 20 aangepaste velden maken.
+Het [ creeert de Eind van het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) leidt tot één of meerdere douanegebieden op het voorwerp van het programmalid. Dit eindpunt verstrekt functionaliteit die aan vergelijkbaar is wat [ beschikbaar in Marketo Engage UI ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields) is. Met dit eindpunt kunt u maximaal 20 aangepaste velden maken.
 
-Houd zorgvuldig rekening met elk veld dat u maakt in de productie-instantie van een Marketo Engage met behulp van de API. Nadat een veld is gemaakt, kunt u het niet verwijderen ([u kunt het alleen verbergen](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
+Houd zorgvuldig rekening met elk veld dat u met de API maakt in de productie-instantie van Marketo Engage. Zodra een gebied is gecreeerd, kunt u niet het schrappen ([ u het ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo) slechts kunt verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
 
-De vereiste `input` parameter is een array van veldobjecten van het programmalid. Elk object bevat een of meer kenmerken. De vereiste kenmerken zijn `displayName`, `name`, en `dataType` die overeenkomen met de weergavenaam van de gebruikersinterface van het veld, de API-naam van het veld en het veldtype. U kunt desgewenst opgeven `description`, `isHidden`, `isHtmlEncodingInEmail`, en `isSensitive`.
+De vereiste parameter `input` is een array van veldobjecten van programmalidden. Elk object bevat een of meer kenmerken. Vereiste kenmerken zijn de `displayName` , `name` en `dataType` die overeenkomen met respectievelijk de weergavenaam van de gebruikersinterface van het veld, de API-naam van het veld en het veldtype. U kunt optioneel `description` , `isHidden` , `isHtmlEncodingInEmail` en `isSensitive` opgeven.
 
-Er zijn een paar regels verbonden aan `name` en `displayName` naamgeving. De `name` Het kenmerk moet uniek zijn, beginnen met een letter en mag alleen letters, cijfers of onderstrepingsteken bevatten. De *`isplayName` moet uniek zijn en mag geen speciale tekens bevatten. Een gemeenschappelijke naamgevingsconventie is van toepassing [kamelenkast](https://en.wikipedia.org/wiki/Camel_case#) tot `displayName` produceren `name`. Bijvoorbeeld een `displayName` van &quot;Mijn aangepaste veld&quot; zou een `name` van &quot;myCustomField&quot;.
+Er zijn een paar regels verbonden aan `name` en `displayName` het noemen. Het kenmerk `name` moet uniek zijn, beginnen met een letter en alleen letters, cijfers of onderstrepingsteken bevatten. * `isplayName` moet uniek zijn, en kan geen speciale karakters bevatten. Een gemeenschappelijke noemende overeenkomst moet [ camel geval ](https://en.wikipedia.org/wiki/Camel_case#) op `displayName` toepassen om `name` te produceren. Een `displayName` van &quot;Mijn aangepaste veld&quot; zou bijvoorbeeld een `name` van &quot;myCustomField&quot; produceren.
 
 ```
 POST /rest/v1/programs/members/schema/fields.json
@@ -637,7 +637,7 @@ POST /rest/v1/programs/members/schema/fields.json
 
 ### Veld bijwerken
 
-De [Veld van programmalid bijwerken](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) het eindpunt werkt één enkel douanegebied op het voorwerp van het programmalid bij. Over het algemeen zijn bewerkingen voor veldupdates die worden uitgevoerd met de interface van het Marketo Engage haalbaar met de API. In de onderstaande tabel zijn enkele verschillen samengevat.
+Het [ eindpunt van het Lid van het Programma van de Update ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) werkt één enkel douanegebied op het voorwerp van het programmalid bij. Over het algemeen zijn bewerkingen voor veldupdates die worden uitgevoerd met de gebruikersinterface van Marketo Engage haalbaar met de API. In de onderstaande tabel zijn enkele verschillen samengevat.
 
 | Kenmerk | Kan worden bijgewerkt door API? | Kan worden bijgewerkt via gebruikersinterface? | Kan worden bijgewerkt door API? | Kan worden bijgewerkt via gebruikersinterface? |
 |---|---|---|---|---|
@@ -651,7 +651,7 @@ De [Veld van programmalid bijwerken](https://developer.adobe.com/marketo-apis/a
 | length | nee | nee | nee | nee |
 | name | nee | nee | nee | nee |
 
-De vereiste `fieldApiName` path parameter specifies the API name of the field to update. De vereiste `input` parameter is een array die één hoofdobject bevat. Het veldobject bevat een of meer kenmerken.
+De vereiste `fieldApiName` padparameter geeft de API-naam op van het veld dat moet worden bijgewerkt. De vereiste parameter `input` is een array die één hoofdobject in het veld bevat. Het veldobject bevat een of meer kenmerken.
 
 ```
 POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
@@ -684,9 +684,9 @@ POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
 
 ## Verwijderen
 
-De [Programmeleden verwijderen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/deleteProgramMemberUsingPOST) het eindpunt wordt gebruikt om de verslagen van het programmalid te schrappen. De vereiste `programId` path parameter specifies the program containing members to delete. De verzoekende instantie bevat een `input` array van loodhoudende id&#39;s. Per oproep mogen maximaal 300 lead id&#39;s worden gebruikt.
+Het [ punt van de Leden van het Programma van de Schrapping ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/deleteProgramMemberUsingPOST) wordt gebruikt om de verslagen van het programmalid te schrappen. De vereiste `programId` padparameter geeft het programma op dat leden bevat die moeten worden verwijderd. De aanvraaghoofdtekst bevat een `input` -array met loodid. Maximaal 300 loodhoudende stoffen  per oproep zijn toegestaan.
 
-Het eindpunt reageert met a `status` van &quot;verwijderde&quot; of &quot;overgeslagen&quot;. Indien overgeslagen, `reasons` array wordt ook opgenomen. Het eindpunt zal ook met a reageren `seq` veld dat een index is die kan worden gebruikt om de ingediende records te correleren met de volgorde van de reactie.
+Het eindpunt reageert met een `status` van &quot;removed&quot; of &quot;overgeslagen&quot;. Als deze wordt overgeslagen, wordt ook een array `reasons` opgenomen. Het eindpunt zal ook met een `seq` gebied antwoorden dat een index is die kan worden gebruikt om de voorgelegde verslagen aan de orde van de reactie te correleren.
 
 ```
 POST /rest/v1/programs/{programId}/members/delete.json

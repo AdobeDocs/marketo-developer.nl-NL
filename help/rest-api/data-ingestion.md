@@ -2,9 +2,10 @@
 title: Gegevensopname
 feature: REST API, Dynamic Content
 description: Gegevens gebruiken met Marketo API's.
-source-git-commit: 1595aa6df0b0404c7cda2c246c9249018fe87e77
+exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '968'
+source-wordcount: '965'
 ht-degree: 3%
 
 ---
@@ -13,11 +14,11 @@ ht-degree: 3%
 
 De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om de inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken.
 
-Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ Stream van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) in te tekenen. &#x200B;
+Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ Stream van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) in te tekenen. &#x200B;
 
 Interfaces worden aangeboden voor twee objecttypen: Personen, Aangepaste objecten. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
-De API voor gegevensinname bevindt zich momenteel in een persoonlijke bètaversie.  Genodigden worden vereist om een recht voor [ Reeks van de Rij van Prestaties van het Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket te hebben.
+De API voor gegevensinname bevindt zich momenteel in een persoonlijke bètaversie.  Invitees worden vereist om een recht voor [ de Rij van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket te hebben.
 
 ## Verificatie
 
@@ -55,13 +56,13 @@ Gegevensinname maakt gebruik van de volgende aangepaste HTTP-headers.
 
 ## Verzoeken
 
-Gebruik de methode van de POST van HTTP om gegevens naar de server te verzenden.
+Gebruik de POST-methode van HTTP om gegevens naar de server te verzenden.
 
 De gegevensrepresentatie wordt in de aanvraaginstantie opgenomen als application/json.
 
 De domeinnaam is: `mkto-ingestion-api.adobe.io`
 
-Het pad begint met `/subscriptions/MunchkinId` waar MunchkinId specifiek is voor uw Marketo-instantie. U kunt uw identiteitskaart Munchkin in het Marketo Engage UI onder **Admin** vinden > **Mijn Rekening** > **Informatie van de Steun**.  De rest van het pad wordt gebruikt om de bron van interesse op te geven.
+Het pad begint met `/subscriptions/MunchkinId` waar MunchkinId specifiek is voor uw Marketo-instantie. U kunt uw identiteitskaart van Munchkin in Marketo Engage UI onder **Admin** vinden > **Mijn Rekening** > **Informatie van de Steun**.  De rest van het pad wordt gebruikt om de bron van interesse op te geven.
 
 Voorbeeld-URL voor personen:
 
