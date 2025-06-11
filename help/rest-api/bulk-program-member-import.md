@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Bulkprogramma-lid importeren
 
-{de Verwijzing van het Eindpunt van het Punt van de Invoer van het Lid van het BulkProgramma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)[
+&lbrace;de Verwijzing van het Eindpunt van het Punt van de Invoer van het Lid van het BulkProgramma [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
 
 Voor grote hoeveelheden verslagen van het programmalid, kunnen de programmaleden asynchroon met [ bulk API ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
