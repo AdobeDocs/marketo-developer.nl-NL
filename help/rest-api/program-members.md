@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [ Verwijzing van het Eindpunt van de Leden van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Dit gegeven is viewable in het 0&rbrace; LEDEN van het programma [&#128279;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Landen in Marketo Engage UI.
+Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Dit gegeven is viewable in het 0&rbrace; LEDEN van het programma [&#128279;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Landen in Marketo Engage UI.
 
 ## Beschrijven
 
@@ -597,9 +597,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Velden maken
 
-Het [ creeert de Eind van het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) leidt tot één of meerdere douanegebieden op het voorwerp van het programmalid. Dit eindpunt verstrekt functionaliteit die aan vergelijkbaar is wat [ beschikbaar in Marketo Engage UI ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields) is. Met dit eindpunt kunt u maximaal 20 aangepaste velden maken.
+Het [ creeert de Eind van het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) leidt tot één of meerdere douanegebieden op het voorwerp van het programmalid. Dit eindpunt verstrekt functionaliteit die aan vergelijkbaar is wat [ beschikbaar in Marketo Engage UI ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields) is. Met dit eindpunt kunt u maximaal 20 aangepaste velden maken.
 
-Houd zorgvuldig rekening met elk veld dat u met de API maakt in de productie-instantie van Marketo Engage. Zodra een gebied is gecreeerd, kunt u niet het schrappen ([ u het ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo) slechts kunt verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
+Houd zorgvuldig rekening met elk veld dat u met de API maakt in de productie-instantie van Marketo Engage. Zodra een gebied is gecreeerd, kunt u niet het schrappen ([ u het ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo) slechts kunt verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
 
 De vereiste parameter `input` is een array van veldobjecten van programmalidden. Elk object bevat een of meer kenmerken. Vereiste kenmerken zijn de `displayName` , `name` en `dataType` die overeenkomen met respectievelijk de weergavenaam van de gebruikersinterface van het veld, de API-naam van het veld en het veldtype. U kunt optioneel `description` , `isHidden` , `isHtmlEncodingInEmail` en `isSensitive` opgeven.
 
