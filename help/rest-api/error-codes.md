@@ -3,9 +3,9 @@ title: Foutcodes
 feature: REST API
 description: Marketo-foutcodebeschrijvingen.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
+source-git-commit: d44ec0442bc33e3e5cb7e2dd6ce3947036c7cd25
 workflow-type: tm+mt
-source-wordcount: '2273'
+source-wordcount: '2283'
 ht-degree: 2%
 
 ---
@@ -54,7 +54,7 @@ Het [ eindpunt van de Identiteit ](https://developer.adobe.com/marketo-apis/api/
     <tr>
       <td><a name="414"></a>414</td>
       <td>Request-URI te lang</td>
-      <td>De URI van de aanvraag is groter dan 8 kB. Het verzoek zou als POST met param `_method=GET` in URL, en de rest van het vraagkoord in het lichaam van het verzoek opnieuw moeten worden geprobeerd.</td>
+      <td>De URI van de aanvraag is groter dan 8 kB. Het verzoek zou als POST met param `_method=GET ` in URL, en de rest van het vraagkoord in het lichaam van het verzoek opnieuw moeten worden geprobeerd.</td>
     </tr>
   </tbody>
 </table>
@@ -110,7 +110,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="603"></a>603</td>
       <td>Toegang geweigerd</td>
-      <td>Verificatie is geslaagd, maar de gebruiker heeft onvoldoende machtigingen om deze API aan te roepen. [De extra toestemmingen] (douane-services.md) kunnen aan de gebruikersrol moeten worden toegewezen, of <a href="https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access"> Lijst van gewenste personen voor IP-Gebaseerde API Toegang </a> kan worden toegelaten.</td>
+      <td>Verificatie is geslaagd, maar de gebruiker heeft onvoldoende machtigingen om deze API aan te roepen. [De extra toestemmingen] (douane-services.md) kunnen aan de gebruikersrol moeten worden toegewezen, of <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access"> Lijst van gewenste personen voor IP-Gebaseerde API Toegang </a> kan worden toegelaten.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -124,7 +124,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     </tr>
     <tr>
       <td><a name="606"></a>606</td>
-      <td>Maximumsnelheid `%s'; overschreden met in `%s&grave; sec</td>
+      <td>Maximumsnelheid `%s'; overschreden met in `%s` sec</td>
       <td>Het aantal vraag in de afgelopen 20 seconden was groter dan 100</td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
       <td>De aanroep kan niet worden uitgevoerd omdat deze in strijd is met een vereiste om een element te maken of bij te werken, bijvoorbeeld wanneer u een e-mail wilt maken zonder sjabloon. Het is ook mogelijk deze fout op te halen wanneer u probeert:
         <ul>
           <li>Inhoud ophalen voor bestemmingspagina's die sociale inhoud bevatten.</li>
-          <li>Kloon een programma dat bepaalde activa types (zie </a> van de Kloon van het Programma 0&rbrace; &lbrace;voor meer informatie) bevat.<a href="programs.md#clone"></li>
+          <li>Kloon een programma dat bepaalde activa types (zie </a> van de Kloon van het Programma 0} {voor meer informatie) bevat.<a href="programs.md#clone"></li>
           <li>Een element goedkeuren zonder concept (dat wil zeggen dat het al is goedgekeurd).</li>
         </ul></td>
     </tr>
@@ -239,7 +239,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="718"></a>718</td>
       <td>ExternalSalesPersonID niet gevonden</td>
-      <td>Een vraag van de Kanalen van de Synchronisatie werd gemaakt met een niet-bestaande &grave; waarde ExternalSalesPersonID.</td>
+      <td>Een vraag van de Kanalen van de Synchronisatie werd gemaakt met een niet-bestaande ` waarde ExternalSalesPersonID.</td>
     </tr>
     <tr>
       <td>719</td>
@@ -287,8 +287,10 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
 
 #### Foutcodes op recordniveau
 
-<table>
-  <tbody>
+>[!NOTE]
+>
+><table>
+<tbody>
     <tr>
       <td>Antwoordcode</td>
       <td>Beschrijving</td>
@@ -353,7 +355,7 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
       <td><a name="1012"></a>1012</td>
       <td>Ongeldige cookiewaarde '%s'</td>
       <td>Kan voorkomen wanneer het roepen van <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST"> associeerde lood </a> met een ongeldige waarde voor de "koekjesparameter".
-        Dit komt ook voor wanneer het roepen <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET"> leidt door het Type van Filter </a> met ` filterType=cookies' en een ongeldige waarde voor de parameter ` filterValues &grave;.</td>
+        Dit komt ook voor wanneer het roepen <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET"> leidt door het Type van Filter </a> met ` filterType=cookies' en een ongeldige waarde voor de parameter ` filterValues `.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -430,10 +432,12 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
       <td><ul>
           <li>Te veel taken in de wachtrij</li>
           <li>Dagelijks exportquotum overschreden</li>
+          <li>Taak al in de wachtrij</li>
         </ul></td>
       <td><ul>
           <li>Abonnementen mogen maximaal 10 bulkextractietaken tegelijk in de wachtrij plaatsen.</li>
           <li>Standaard zijn extractietaken beperkt tot 500 MB per dag (worden dagelijks opnieuw ingesteld om 12:00 AM CST).</li>
+          <li>De export-id is al in de wachtrij geplaatst.</li>
         </ul></td>
     </tr>
     <tr>
@@ -475,14 +479,15 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan &grave; de lengte van het Gebied van SFDC</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan ` de lengte van het Gebied van SFDC</td>
       <td>Een samenvoegen van Leads-aanroep waarbij mergeInCRM is ingesteld op true, is mislukt omdat het SFDC-veld de limiet van toegestane tekens overschrijdt. U corrigeert de fout door de lengte van het veld SFDC Field te verkleinen of mergeInCRM in te stellen op false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td></a> ontbroken vraag van de Leads van 0&rbrace; Fusie &lbrace;wegens geschrapte entiteit, niet een lood/contact, of de criteria van de gebiedsfilter past niet aan.<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"></td>
+      <td></a> ontbroken vraag van de Leads van 0} Fusie {wegens geschrapte entiteit, niet een lood/contact, of de criteria van de gebiedsfilter past niet aan.<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"></td>
       <td>Fout bij samenvoegen, kan samenvoegbewerking niet uitvoeren in native gesynchroniseerde CRM
         Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
     </tr>
   </tbody>
 </table>
+
