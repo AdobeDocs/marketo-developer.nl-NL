@@ -3,7 +3,7 @@ title: PhoneGap
 feature: Mobile Marketing
 description: PhoneGap gebruiken met Marketo op mobiele apparaten
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '797'
 ht-degree: 0%
@@ -16,9 +16,9 @@ Integratie van Marketo PhoneGap-insteekmodule
 
 ## Vereisten
 
-1. [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
-1. Pushmeldingen instellen ([iOS](push-notifications.md) | [Android](push-notifications.md)).
-1. [PhoneGap/Cordova CLI installeren](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. Push van de opstelling Meldingen ([ iOS ](push-notifications.md) | [ Android ](push-notifications.md)).
+1. [ installeer PhoneGap/Cordova CLI ](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installatie-instructies
 
@@ -36,7 +36,7 @@ Integratie van Marketo PhoneGap-insteekmodule
 
    `$ cordova plugin ls com.marketo.plugin 0.X.0 "MarketoPlugin" cordova-plugin-fcm 2.1.2 "FCMPlugin"`
 
-**Migreren naar nieuwere versie (optioneel)**
+**migreer aan Nieuwere (Facultatieve) Versie**
 
 Voer de volgende opdracht uit om een bestaande plug-in te verwijderen:
 
@@ -46,12 +46,12 @@ Voer de volgende opdracht uit om de plug-in opnieuw toe te voegen:
 
 `$ cordova plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
-**Cordova versie 8.0.0 (Cordova@Android7.0.0) en hoger**
+**versie 8.0.0 van Cordova (Cordova@Android7.0.0) en hierboven**
 
-Als het Android-platform van Cordova is gemaakt, opent u de app met Android Studio en werkt u de update `dirs` waarde van de `Marketo.gradle` bestand gevonden in het dialoogvenster `com.marketo.plugin` map.
+Nadat het Cordova Android-platform is gemaakt, opent u de app met Android Studio en werkt u de `dirs` -waarde bij van het `Marketo.gradle` -bestand in de map `com.marketo.plugin` .
 
 ```
-repositories{    
+repositories{
   jcenter()
   flatDir{
       dirs '../app/src/main/aar'
@@ -59,25 +59,25 @@ repositories{
 }
 ```
 
-Voeg de platforms toe die voor de app moeten worden geselecteerd `$cordova platform add android` `$ cordova platform add ios`
+De platforms toevoegen die voor de app moeten worden gebruikt `$cordova platform add android` `$ cordova platform add ios`
 
 Lijst met toegevoegde platforms controleren `$cordova platform ls`
 
 1. Ondersteuning voor Firebase Cloud Messaging
 
 1. Firebase-app configureren op Firebase-console.
-   1. Een project maken/toevoegen op [&#128279;](https://console.firebase.google.com/)Firebase Console.
-      1. In de [Firebase-console](https://console.firebase.google.com/), selecteert u **[!UICONTROL Add Project]**.
-      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]**.
+   1. Creeer/voeg een Project op [ ](https://console.firebase.google.com/) de Console van de Vuurbasis toe.
+      1. In de [ console van de Vuurbasis ](https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
+      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
       1. Selecteer Firebase toevoegen aan uw Android-toepassing in het welkomstscherm van Firebase.
-      1. Geef uw pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]**. Een nieuwe `google-services.json` bestand voor uw Firebase-app wordt gedownload.
+      1. Geef de pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]** . Er wordt een nieuw `google-services.json` -bestand voor de Firebase-app gedownload.
    1. Navigeren naar **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
-      1. Klikken op **[!UICONTROL General]** tab. Download het bestand &#39;google-services.json&#39;.
-      1. Klikken op **[!UICONTROL Cloud Messaging]** tab. Kopiëren [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Geef deze [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] naar Marketo.
+      1. Klik op de tab **[!UICONTROL General]** . Download het bestand &#39;google-services.json&#39;.
+      1. Klik op de tab **[!UICONTROL Cloud Messaging]** . Kopieer [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] . Geef deze [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] door aan Marketo.
    1. FCM-wijzigingen configureren in PhoneGap-app
       1. Verplaats het gedownloade bestand &#39;google-services.json&#39; naar de hoofdmap van de module Phonegap-app
-      1. Verwijder het bestand &#39;&#39;MyFirebaseInstanceIDService&#39;&#39; van de locatie `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (Verouderd)
-      1. Het bestand &#39;&#39;MyFirebaseMessagingService&#39;&#39; op de locatie wijzigen `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` als volgt:
+      1. Verwijder het bestand &#39;&#39;MyFirebaseInstanceIDService&#39;&#39; van de locatie `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (Afgekeurd)
+      1. Wijzig het bestand &#39;MyFirebaseMessagingService&#39; op de locatie `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` als volgt:
 
          ```
          import com.marketo.Marketo;
@@ -118,15 +118,15 @@ Lijst met toegevoegde platforms controleren `$cordova platform ls`
 
 Schakel de functie voor pushmeldingen in in het xCode-project.
 
-### 4. Pushmeldingen bijhouden
+### &#x200B;4. Pushmeldingen bijhouden
 
-Plak de volgende code in de `application:didFinishLaunchingWithOptions:` functie.
+Plak de volgende code in de functie `application:didFinishLaunchingWithOptions:` .
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
-Werk de `applicationDidBecomeActive` methode zoals hieronder
+Werk de methode `applicationDidBecomeActive` hieronder bij
 
 ```
 Marketo *sharedInstance = [Marketo sharedInstance];
@@ -134,9 +134,9 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 [sharedInstance trackPushNotification:launchOptions];
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
-Werk de `applicationDidBecomeActive` methode zoals hieronder
+Werk de methode `applicationDidBecomeActive` hieronder bij
 
 ```
 let sharedInstance: Marketo = Marketo.sharedInstance()
@@ -146,11 +146,11 @@ sharedInstance.trackPushNotification(launchOptions)
 
 >[!ENDTABS]
 
-### 5. Marketo Framework initialiseren
+### &#x200B;5. Marketo Framework initialiseren
 
-Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de `onDeviceReady` in uw JavaScript-hoofdbestand.
+Om ervoor te zorgen dat het Marketo-framework wordt gestart bij het opstarten van de app, voegt u de volgende code toe onder de functie `onDeviceReady` in het JavaScript-hoofdbestand.
 
-We moeten doorgeven `phonegap` als frameworktype voor PhoneGap-apps.
+We moeten `phonegap` doorgeven als het frameworktype voor PhoneGap-apps.
 
 ### Syntaxis
 
@@ -160,11 +160,11 @@ marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
   function(error) { console.log("an error occurred:" + error); },
   'YOUR_MUNCHKIN_ID',
-  'YOUR_SECRET_KEY', 
+  'YOUR_SECRET_KEY',
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }
@@ -175,10 +175,10 @@ marketo.onStart(
 
 - Callback met succes: functie die moet worden uitgevoerd als het Marketo-framework correct is geïnitialiseerd.
 - Callback van mislukking: functie uit te voeren als het Marketo-framework niet kan worden geïnitialiseerd.
-- MUNCHKIN-ID : Munchkin-id ontvangen van Marketo op het moment van registratie.
+- MUNCHKIN-id: Munchkin-id ontvangen van Marketo op het moment van registratie.
 - SECRET KEY : Geheime sleutel die bij de registratie van Marketo is ontvangen.
 
-### 6. Initialiseer Marketo-pushmelding
+### &#x200B;6. Initialiseer Marketo-pushmelding
 
 Om ervoor te zorgen dat de Marketo-pushmelding wordt gestart, voegt u de volgende code toe na de initialisatiefunctie in het JavaScript-hoofdbestand.
 
@@ -197,7 +197,7 @@ marketo.initializeMarketoPush(
 
 - Callback met succes: functie die moet worden uitgevoerd als de Marketo-pushmelding correct is geïnitialiseerd.
 - Callback van mislukking: functie uit te voeren als de pushmelding van Marketo niet kan worden geïnitialiseerd.
-- GCM_PROJECT_ID : GCM-project-id gevonden in [Google Developers Console](https://console.developers.google.com/) na het maken van de app.
+- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [ wordt gevonden de Console van Ontwikkelaars van Google ](https://console.developers.google.com/) na het creëren van app.
 
 Het token kan ook bij afmelden niet worden geregistreerd.
 
@@ -255,7 +255,7 @@ marketo.associateLead(
 
 ## Handeling rapporteren
 
-U kunt elke door de gebruiker uitgevoerde actie rapporteren door de `reportaction` functie.
+U kunt elke door de gebruiker uitgevoerde actie rapporteren door de functie `reportaction` aan te roepen.
 
 ### Syntaxis
 
@@ -327,6 +327,6 @@ Er zijn drie manieren om leads te maken van een hybride app:
 1. MARKETO REST API
 1. Formulier verzenden
 
-Afhankelijk van de gebruikte methode wordt een nieuw gemaakte lead herkend door verschillende triggers en filters. Leads die zijn gemaakt met de MME SDK of REST API, worden weergegeven in de triggers en filters voor &#39;Lead gemaakt&#39;. Leads die zijn gemaakt door het verzenden van een formulier, worden weergegeven in de triggers en filters Formulier invullen.
+Afhankelijk van de gebruikte methode wordt een nieuw gemaakte lead herkend door verschillende triggers en filters. Leads die zijn gemaakt met de MME SDK- of REST-API, worden weergegeven in de triggers en filters voor &#39;Lead gemaakt&#39;. Leads die zijn gemaakt door het verzenden van een formulier, worden weergegeven in de triggers en filters Formulier invullen.
 
 De beste praktijken moeten verenigbaar met de methode blijven die door Web wordt gebruikt app wanneer het creëren van lood. Als u al een Web-app hebt die formulierverzending als mechanisme voor het maken van leads gebruikt, gebruikt u dat mechanisme bij het maken van leads in uw hybride app. Als u al een Web-app hebt die onze REST API als mechanisme gebruikt om verbindingen tot stand te brengen, dan gebruik dat zelfde mechanisme wanneer het creëren van lood in uw hybride app. Als u geen formulierverzending of REST API gebruikt als mechanisme voor het maken van leads in uw webapp, kunt u overwegen om de MME SDK te gebruiken voor het maken van leads in Marketo.

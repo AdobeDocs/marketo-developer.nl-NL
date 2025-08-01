@@ -3,7 +3,7 @@ title: Kansen
 feature: REST API
 description: ' Configureer mogelijkheden met de Marketo API.'
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '786'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo stelt API&#39;s beschikbaar voor het lezen, schrijven, maken en bijwerken van opportuniteitsrecords. In Marketo zijn opportuniteitsrecords gekoppeld aan hoofd- en contactrecords via het tussentijdse object Opportunity Role. Een opportuniteit kan dus aan vele individuele leads worden gekoppeld.  Beide objecttypen worden via de API beschikbaar gemaakt en hebben, net als de meeste objecttypen voor databases met leads, beide een bijbehorende beschrijvingsaanroep, die metagegevens over de objecttypen retourneert.
 
-De kans APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
+De kans APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) hebben wordt toegelaten.
 
 ## Beschrijven
 
@@ -27,48 +27,48 @@ GET /rest/v1/opportunities/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunity",
          "displayName":"Opportunity",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId"
             ],
-            [  
+            [
                "marketoGUID"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
@@ -92,11 +92,11 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa ",
          "externalOpportunityId":"19UYA31581L000000",
@@ -105,7 +105,7 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc ",
          "externalOpportunityId":"29UYA31581L000000",
@@ -133,18 +133,18 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000",
          "name":"Chairs",
          "description":"Chairs",
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "externalOpportunityId":"29UYA31581L000000",
          "name":"Big Dog Day Care-Phase12",
          "description":"Big Dog Day Care-Phase12",
@@ -156,16 +156,16 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb"
@@ -188,7 +188,7 @@ Velden met zoekmogelijkheden zijn eenvoudig.  U kunt één enkel bedrijfgebied 
 
 #### Op naam
 
-Het [ krijgt Gebied van de Opportunity door het 1&rbrace; eindpunt van de Naam &lbrace;wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
+Het [ krijgt Gebied van de Opportunity door het 1} eindpunt van de Naam {wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
 
 ```
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
@@ -303,13 +303,13 @@ POST /rest/v1/opportunities/delete.json
 ```
 
 ```json
-{ 
+{
    "deleteBy":"dedupeFields",
-   "input":[ 
-      { 
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000"
       },
-      { 
+      {
          "externalOpportunityId":"29UYA31581L000000"
       }
    ]
@@ -317,16 +317,16 @@ POST /rest/v1/opportunities/delete.json
 ```
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[ 
-      { 
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"
       },
-      { 
+      {
          "seq":1,
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"

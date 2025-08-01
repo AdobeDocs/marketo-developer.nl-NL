@@ -1,14 +1,14 @@
 ---
-title: "Rich Media Recommendation"
-description: "Rich Media Recommendation"
+title: Aanbevelingen voor rijke media
+description: Aanbevelingen voor rijke media
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '812'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
-
 
 # Aanbevelingen voor rijke media
 
@@ -16,19 +16,19 @@ De volgende tags en API-aanroepen moeten zijn ingesteld op de pagina die u wilt 
 
 1. In de paginakoptekst
    1. De RTP-tag geïnstalleerd laten
-   1. Voeg de vraag van de GET aan de pagina toe om de aanbevelingen te bevolken
+   1. Voeg de GET-aanroep aan de pagina toe om de aanbevelingen in te vullen
    1. Voeg de vraag van de REEKS toe om het malplaatje te vormen
 1. In de pagina
    1. Plaats de sjabloontag (klasse div) op de locatie waar u de sjabloon wilt weergeven
 
-Meer informatie is beschikbaar [hier](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Sjabloonlabel
 
 | Kenmerk | Optioneel/vereist | Beschrijving |
 |---|---|---|
 | class | Vereist | Specificeer dat dit div HTML element RTP aanbeveling div is. |
-| data-rtp-template-id | Vereist | De sjabloon-id. Dit bepaalt de groepering van uw aanbeveling. Gebruik &#39;template1&#39; voor horizontale uitlijning, &#39;template2&#39; voor verticale uitlijning of &#39;template3&#39; voor verticale uitlijning die alleen titel en beschrijving bevat. Het script voert de overeenkomstige sjabloon in dit `div.Permissible` waarden: template1, template2, template3. |
+| data-rtp-template-id | Vereist | De sjabloon-id. Dit bepaalt de groepering van uw aanbeveling. Gebruik &#39;template1&#39; voor horizontale uitlijning, &#39;template2&#39; voor verticale uitlijning of &#39;template3&#39; voor verticale uitlijning die alleen titel en beschrijving bevat. Het script voert de overeenkomstige sjabloon in deze `div.Permissible` waarden in: template1, template2, template3. |
 
 ### Voorbeelden
 
@@ -50,11 +50,11 @@ Als u uw aanbevelingen verticaal wilt uitlijnen met alleen titel en beschrijving
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Zie schermafbeeldingen van sjabloonuitlijning [hier](#example_of_rich_media_recommendation_template_1).
+Zie screenshots van malplaatjeuitlijningen [ hier ](#example_of_rich_media_recommendation_template_1).
 
 ## Aanbeveling vullen
 
-Met deze methode worden alle rich media gevuld `<divs>` op de pagina met aanbevelingen.
+Met deze methode worden alle rich media `<divs>` op de pagina gevuld met aanbevelingen.
 
 ### Gebruik
 
@@ -103,7 +103,7 @@ Dit codefragment toont het plaatsen van categorieën met veelvoudige configurati
 ```javascript
 rtp("set", "rcmd", "richmedia",
     {
-        "template1": 
+        "template1":
         {
             "rcmd.title.text": "RECOMMENDED CONTENT",
             "rcmd.general.font.family": "arial",
@@ -149,7 +149,7 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.background.color | &quot;rcmd.cta.background.color&quot; : &quot;green&quot; | Hiermee wijzigt u de achtergrondkleur van de knop. Deze eigenschap ondersteunt alle CSS-kleurwaarden (kleurnaam, rgb, ...) |
 | rcmd.cta.font.color | &quot;rcmd.cta.font.color&quot; : &quot;rgb(90, 84, 164)&quot; | Hiermee wijzigt u de fontkleur van de knop. Deze eigenschap ondersteunt alle waarden voor fontkleuren (rgb, hex, ...) |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Hiermee wijzigt u de knoptekst. De tekst is hetzelfde voor alle knoppen. |
-| categorie | &quot;categorie&quot;: [&quot;één categorie&quot;] | Wijzigt de aanbevolen categorie die door deze sjabloon wordt ondersteund. Het malplaatje toont slechts aanbevelingen met één van de categorieën die door deze configuratie worden geplaatst. |
+| categorie | &quot;category&quot; : [ &quot;one category&quot;] | Wijzigt de aanbevolen categorie die door deze sjabloon wordt ondersteund. Het malplaatje toont slechts aanbevelingen met één van de categorieën die door deze configuratie worden geplaatst. |
 
 
 Opmerking: de configuratieondersteuning kan per sjabloon worden gewijzigd.
@@ -164,7 +164,7 @@ Dit voorbeeld heeft één sjabloon met drie aanbevelingen. Kopieer dit voorbeeld
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -196,7 +196,7 @@ Dit voorbeeld heeft één sjabloon met drie aanbevelingen. De sjabloontitel is &
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -232,16 +232,16 @@ rtp('get','rcmd', 'richmedia');
 
 #### Voorbeeld van Sjabloon 1 voor veelzijdige mediaconclusies
 
-**Naam**: template1 **Beschrijving**: Horizontale inhoud inclusief afbeelding, titel en beschrijving en aanroep naar actieknop.
+**Naam**: template1 **Beschrijving**: Horizontale inhoud met inbegrip van beeld, titel, en beschrijving en de knoop van call to action.
 
-![Rich Media-sjabloon](assets/rich-media-template1.png)
+![ Rich Media malplaatje ](assets/rich-media-template1.png)
 
 #### Voorbeeld van sjabloon #2 voor rich Media Recommendation
 
-**Naam**: template2 **Beschrijving**: Verticale inhoud inclusief afbeelding, titel en beschrijving en aanroep naar actieknop.
+**Naam**: template2 **Beschrijving**: Verticale inhoud met inbegrip van beeld, titel, en beschrijving en de knoop van call to action.
 
-![Rich Media-sjabloon](assets/rich-media-template2.png)
+![ Rich Media malplaatje ](assets/rich-media-template2.png)
 
 #### Voorbeeld van sjabloon 3 voor rich Media Recommendation
 
-**Naam**: template3 **Beschrijving**: Verticale inhoud inclusief alleen titel en beschrijving. Bij de muisaanwijzer verandert de koptekst van kleur en is deze gekoppeld aan de URL van de inhoud. Beschrijving is ook gekoppeld aan inhoud zonder kleurwijziging. ![Rich Media-sjabloon](assets/rich-media-template3.png)
+**Naam**: template3 **Beschrijving**: Verticale inhoud met inbegrip van slechts titel en beschrijving. Bij de muisaanwijzer verandert de koptekst van kleur en is deze gekoppeld aan de URL van de inhoud. Beschrijving is ook gekoppeld aan inhoud zonder kleurwijziging. ![ Rich Media malplaatje ](assets/rich-media-template3.png)

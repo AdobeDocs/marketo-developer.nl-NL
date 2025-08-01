@@ -1,18 +1,18 @@
 ---
-title: "listOperation"
+title: listOperation
 feature: SOAP
-description: "listOperation SOAP-aanroepen"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: listOperation SOAP-aanroepen
+exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '187'
 ht-degree: 0%
 
 ---
 
-
 # listOperation
 
-Deze methode wordt gebruikt om bewerkingen uit te voeren op een statische lijst die is gedefinieerd in de Marketo lead-database. Als u leden van een statische lijst die in een programma is gedefinieerd, wilt toevoegen of verwijderen, gebruikt u [importToList](importtolist.md). Elke vraag aan dit eindpunt heeft een grens van 1000 lood per vraag.
+Deze methode wordt gebruikt om bewerkingen uit te voeren op een statische lijst die is gedefinieerd in de Marketo lead-database. Om, leden van een statische die lijst toe te voegen of te verwijderen binnen een programma wordt bepaald, gebruik [ importToList ](importtolist.md). Elke vraag aan dit eindpunt heeft een grens van 1000 lood per vraag.
 
 Bewerkingstypen zijn:
 
@@ -27,7 +27,7 @@ Bewerkingstypen zijn:
 | listOperation | Vereist | Het type bewerking dat u wilt uitvoeren in de opgegeven lijst. Mogelijke bewerkingen: `ADDTOLIST`, `ISMEMBEROFLIST`, `REMOVEFROMLIST` |
 | listKey->keyType | Vereist | Het type lijst waarop u wilt werken. Mogelijke waarden: `MKTOLISTNAME`, `MKTOSALESUSERID`, `SFDCLEADOWNERID` |
 | listKey->keyValue | Vereist | Naam van de lijst waarop u wilt werken. |
-| listMemberList->leadKey->keyType | Vereist | `keyType` Hiermee kunt u de id opgeven die u wilt gebruiken om naar de lead te verwijzen. Mogelijke waarden: `IDNUM` |
+| listMemberList->leadKey->keyType | Vereist | In `keyType` kunt u de id opgeven die u wilt gebruiken om naar de lead te verwijzen. Mogelijke waarden: `IDNUM` |
 | listMemberList->leadKey->keyValue | Vereist | `keyValue` is de waarde waarop u de lijst wilt gebruiken |
 | strikt | Optioneel | De strikte wijze ontbreekt voor de volledige verrichting als om het even welke ondergroep van de vraag ontbreekt. In de niet-strikte modus wordt alles voltooid wat mogelijk is en worden fouten geretourneerd voor alles wat is mislukt. |
 
@@ -101,21 +101,21 @@ Bewerkingstypen zijn:
 
 ```php
  <?php
- 
+
   $debug = true;
- 
+
   $marketoSoapEndPoint     = "";  // CHANGE ME
   $marketoUserId           = "";  // CHANGE ME
   $marketoSecretKey        = "";  // CHANGE ME
   $marketoNameSpace        = "http://www.marketo.com/mktows/";
- 
+
   // Create Signature
   $dtzObj = new DateTimeZone("America/Los_Angeles");
   $dtObj  = new DateTime('now', $dtzObj);
   $timeStamp = $dtObj->format(DATE_W3C);
   $encryptString = $timeStamp . $marketoUserId;
   $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
   // Create SOAP Header
   $attrs = new stdClass();
   $attrs->mktowsUserId = $marketoUserId;
@@ -126,24 +126,24 @@ Bewerkingstypen zijn:
   if ($debug) {
     $options["trace"] = true;
   }
- 
+
   // Create Request
   $request = new stdClass();
   $request->listOperation = "ISMEMBEROFLIST"; // ADDTOLIST, ISMEMBEROFLIST, REMOVEFROMLIST
- 
+
   $listKey = new stdClass();
   $listKey->keyType = "MKTOLISTNAME";  // MKTOLISTNAME, MKTOSALESUSERID, SFDCLEADOWNERID
   $listKey->keyValue = "Trav-Test-List";
   $request->listKey = $listKey;
- 
+
   $leadKey = array("keyType" => "IDNUM", "keyValue" => "87710");
   $leadKey2 = array("keyType" => "IDNUM", "keyValue" => "1089946");
   $leadList = new stdClass();
- 
+
   $leadList->leadKey = array($leadKey, $leadKey2);
   $request->listMemberList = $leadList;
   $request->strict = false;
-  
+
   $params = array("paramsListOperation" => $request);
   $soapClient = new SoapClient($marketoSoapEndPoint ."?WSDL", $options);
   try {
@@ -156,9 +156,9 @@ Bewerkingstypen zijn:
     print "RAW request:\n" .$soapClient->__getLastRequest() ."\n";
     print "RAW response:\n" .$soapClient->__getLastResponse() ."\n";
   }
- 
+
   print_r($response);
- 
+
 ?>
 ```
 
@@ -177,73 +177,73 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class ListOperation {
     public static void main(String[] args) {
- 
+
         System.out.println("Executing List Operation");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsListOperation request = new ParamsListOperation();
             request.setListOperation(ListOperationType.ISMEMBEROFLIST);
-             
+
             ListKey listKey = new ListKey();
             listKey.setKeyType(ListKeyType.MKTOLISTNAME);
             listKey.setKeyValue("Trav-Test-List");
             request.setListKey(listKey);
-             
+
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.IDNUM);
             key.setKeyValue("87710");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.IDNUM);
             key2.setKeyValue("1089946");
-             
+
             ArrayOfLeadKey leadKeys = new ArrayOfLeadKey();
             leadKeys.getLeadKeies().add(key);
             leadKeys.getLeadKeies().add(key2);
-             
+
             request.setListMemberList(leadKeys);
-             
+
             JAXBElement<Boolean> strict = new ObjectFactory().createParamsListOperationStrict(false);
             request.setStrict(strict);
-             
+
             SuccessListOperation result = port.listOperation(request, header);
-             
+
             JAXBContext context = JAXBContext.newInstance(SuccessListOperation.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -272,9 +272,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

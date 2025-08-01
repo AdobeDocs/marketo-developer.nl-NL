@@ -3,9 +3,9 @@ title: '[!DNL Adobe Launch] Installatie van extensies'
 feature: Mobile Marketing
 description: '[!DNL Adobe Launch] Overzicht van installatie van extensies'
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '665'
+source-wordcount: '664'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Installatie-instructies voor [!DNL Adobe Launch] Marketo-extensie. De onderstaan
 
 ## Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
 1. [ vorm het bezit in  [!DNL Adobe Launch]  portaal ](https://experience.adobe.com/#/@amc/data-collection/home)
 1. De geheime sleutel van de toepassing en de Munchkin-id voor de eigenschap in de portal [!DNL Adobe Launch] configureren
 1. [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)
@@ -76,8 +76,8 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ```
 #ifdef __IPHONE_10_0
--(BOOL)application:(UIApplication *)application 
-           openURL:(NSURL *)url 
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
            options:(NSDictionary *)options{
     return [[ALMarketo sharedInstance] application:application
                                          openURL:url
@@ -151,16 +151,16 @@ Voeg &quot;MarketoActivity&quot; toe aan `AndroidManifest.xml` in de toepassings
 
 ## Ondersteuning voor Firebase Cloud Messaging
 
-De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabiel en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw Android-app-ontwikkelaar bevat.
+De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabieler en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw Android-app-ontwikkelaar bevat.
 
 Android app-ontwikkelaars kunnen nu direct Google [ Firebase Cloud Messaging ](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK gebruiken.
 
 ### FCM toevoegen aan uw toepassing
 
-1. De nieuwste Marketo Android SDK integreren in Android App.  De stappen zijn beschikbaar bij [ GitHub ](https://github.com/Marketo/android-sdk).
+1. Integreer de nieuwste Marketo Android SDK in Android App.  De stappen zijn beschikbaar bij [ GitHub ](https://github.com/Marketo/android-sdk).
 1. Firebase-app configureren op Firebase-console.
-   1. Creeer/voeg een Project op [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/) de Console van de Vuurbasis toe.
-      1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
+   1. Creeer/voeg een Project op [ ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/) de Console van de Vuurbasis toe.
+      1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
       1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
       1. Selecteer **[!UICONTROL Add Firebase to your Android App]** in het welkomstscherm van Firebase.
       1. Geef de pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]** . Er wordt een nieuw `google-services.json` -bestand voor de Firebase-app gedownload.
@@ -187,13 +187,13 @@ Android app-ontwikkelaars kunnen nu direct Google [ Firebase Cloud Messaging ](h
             ```
             dependencies {
               compile 'com.google.firebase:firebase-core:17.4.0'
-            } 
-            // Add to the bottom of the file 
+            }
+            // Add to the bottom of the file
             apply plugin: 'com.google.gms.google-services'
             ```
 
          1. Klik tot slot op **[!UICONTROL Sync now]** in de bar die in identiteitskaart verschijnt
-   1. Bewerk manifest van uw app De FCM SDK voegt automatisch alle vereiste machtigingen en de vereiste ontvangerfunctionaliteit toe. Zorg ervoor dat u de volgende verouderde (en mogelijk schadelijke) elementen uit het manifest van uw app verwijdert:
+   1. Het manifest van uw app bewerken De FCM SDK voegt automatisch alle vereiste machtigingen en de vereiste ontvangerfunctionaliteit toe. Zorg ervoor dat u de volgende verouderde (en mogelijk schadelijke) elementen uit het manifest van uw app verwijdert:
 
       ```xml
       <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -209,7 +209,7 @@ Android app-ontwikkelaars kunnen nu direct Google [ Firebase Cloud Messaging ](h
         <intent-filter>
           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
           <category android:name="<your-package-name> />
-        </intent-filter> 
+        </intent-filter>
       </receiver>
       ```
 
@@ -218,17 +218,17 @@ Android app-ontwikkelaars kunnen nu direct Google [ Firebase Cloud Messaging ](h
 
 Veelgestelde vragen over ondersteuning voor Firebase Cloud Messaging.
 
-**Q: Waar kan ik instructies vinden om aan de recentste versie van MME SDK bij te werken?** de Instructies kunnen op de Plaats van de Ontwikkelaar van Marketo [&#128279;](installation.md) worden gevonden.
+**Q: Waar kan ik instructies vinden om aan de recentste versie van MME SDK bij te werken?** de Instructies kunnen op de Plaats van de Ontwikkelaar van Marketo [ ](installation.md) worden gevonden.
 
 **Q: Zal het bijwerken aan de recentste versie van SDK me vereisen om een bijgewerkte versie van mijn Toepassing van Android aan mijn bestaande gebruikers te publiceren?** Nee.
 
 **Q: Hoe beïnvloedt het de bestaande klanten MME die Android Apps hebben gepubliceerd die met Marketo Android SDK worden geïntegreerd?** Ze kunnen een bestaande GCM-client-app op Android als volgt migreren naar Firebase Cloud Messaging (FCM):
 
-1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
+1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
 1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
 1. Selecteer **[!UICONTROL Add Firebase to your Android App]** in het welkomstscherm van Firebase.
 1. Geef de pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]** . Een nieuw Google-services.json-bestand voor uw
 1. Firebase-app wordt gedownload.
 1. Selecteer **[!UICONTROL Continue]** en volg de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
 
-**Q: Kunnen wij de gecreeerde lood richten gebruikend de oude SDK van Marketo die app GCM gebruikte?** Ja. Alle leads die met de Marketo SDK zijn gemaakt, kunnen worden verzonden voor de pushberichten.
+**Q: Kunnen wij de lood richten die gebruikend de oude SDK van Marketo worden gecreeerd die app GCM gebruikte?** Ja. Alle leads die met Marketo SDK zijn gemaakt, kunnen worden gebruikt voor het verzenden van de pushberichten.

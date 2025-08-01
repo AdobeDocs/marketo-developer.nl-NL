@@ -1,20 +1,20 @@
 ---
-title: "Opportunity Roles"
+title: Opportuniteitsrollen
 feature: REST API
-description: "Hanteer opportunityrollen in Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Oplossingsrollen in Marketo afhandelen.
+exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '253'
 ht-degree: 0%
 
 ---
 
-
 # Opportuniteitsrollen
 
-[Opportunity Roles Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[ Verwijzing van het Eindpunt van de Rollen van de Kans ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
-Leads worden gekoppeld aan kansen via tussenliggende `opportunityRole` object.
+Leads worden gekoppeld aan mogelijkheden via het tussenliggende `opportunityRole` -object.
 
 Opportunity Role API&#39;s worden alleen weergegeven voor abonnementen waarvoor geen native CRM-synchronisatie is ingeschakeld.
 
@@ -27,72 +27,72 @@ GET /rest/v1/opportunities/roles/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunityRole",
          "displayName":"Opportunity Role",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId",
             "leadId",
             "role"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId",
                "leadId",
                "role"
             ],
-            [  
+            [
                "marketoGUID"
             ],
-            [  
+            [
                "leadId"
             ],
-            [  
+            [
                "externalOpportunityId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"leadId",
                "displayName":"Lead Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"role",
                "displayName":"Role",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"isPrimary",
                "displayName":"Is Primary",
                "dataType":"boolean",
                "updateable":true
             },
-            {  
+            {
                "name":"externalCreatedDate",
                "displayName":"External Created Date",
                "dataType":"datetime",
@@ -106,33 +106,33 @@ GET /rest/v1/opportunities/roles/describe.json
 
 ## Query
 
-Merk op dat beide `dedupeFields` en `searchableFields` zijn iets anders dan kansen. `dedupeFields` verstrekt eigenlijk een samengestelde sleutel, waar alle drie `externalOpportunityId`, `leadId`, en `role` zijn vereist. Zowel moeten de opportuniteit als de leidende verbinding door de identiteitskaart- gebieden in de bestemmingsinstantie bestaan, voor verslagverwezenlijking om te slagen. Voor `searchableFields`, `marketoGUID`, `leadId`, en `externalOpportunityId` zijn allen geldig voor vragen op zich en gebruiken een patroon identiek aan Kansen, maar er is een extra optie om de samengestelde sleutel aan vraag te gebruiken, die vereist het voorleggen van een voorwerp JSON via POST, met de extra vraagparameter `_method=GET`.
+`dedupeFields` en `searchableFields` verschillen iets van kansen. `dedupeFields` biedt in feite een samengestelde sleutel, waarbij alle drie `externalOpportunityId` , `leadId` en `role` vereist zijn. Zowel moeten de opportuniteit als de leidende verbinding door de identiteitskaart- gebieden in de bestemmingsinstantie bestaan, voor verslagverwezenlijking om te slagen. `searchableFields` , `marketoGUID` , `leadId` en `externalOpportunityId` zijn allemaal geldig voor query&#39;s op zichzelf en gebruiken een patroon dat identiek is aan Opportunity, maar er is een extra optie om de samengestelde sleutel te gebruiken voor query. Hiervoor moet een JSON-object via POST worden verzonden, met de extra queryparameter `_method=GET` .
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType": "dedupeFields",
-   "fields": [  
+   "fields": [
       "marketoGuid",
       "externalOpportunityId",
       "leadId",
       "role"
    ],
-   "input": [  
-      {  
+   "input": [
+      {
         "externalOpportunityId": "Opportunity1",
         "leadId": 1,
         "role": "Captain"
       },
-      {  
+      {
         "externalOpportunityId": "Opportunity2",
         "leadId": 1872,
         "role": "Commander"
       },
-      {  
+      {
         "externalOpportunityId": "Opportunity3",
         "leadId": 273891,
         "role": "Lieutenant Commander"
@@ -141,7 +141,7 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-Dit veroorzaakt het zelfde type van reactie zoals een standaardvraag van de GET, heeft het eenvoudig een verschillende interface voor het doen van het verzoek.
+Dit veroorzaakt het zelfde type van reactie zoals een standaardvraag van GET, heeft het eenvoudig een verschillende interface voor het maken van het verzoek.
 
 ## Maken en bijwerken
 
@@ -156,7 +156,7 @@ POST /rest/v1/opportunities/roles.json
    "action": "createOrUpdate",
    "dedupeBy": "dedupeFields",
    "input": [
-      {  
+      {
          "externalOpportunityId": "19UYA31581L000000",
          "leadId": 456783,
          "role": "Technical Buyer",
@@ -200,10 +200,10 @@ POST /rest/v1/opportunities/roles/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy": "dedupeFields",
-   "input": [  
-      {  
+   "input": [
+      {
         "externalOpportunityId": "19UYA31581L000000",
         "leadId": 456783,
         "role": "Technical Buyer"

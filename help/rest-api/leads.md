@@ -3,7 +3,7 @@ title: Leads
 feature: REST API
 description: Details over de API-aanroepen voor leads
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '3338'
 ht-degree: 0%
@@ -37,20 +37,20 @@ GET /rest/v1/leads/describe.json
 ### Antwoord
 
 ```json
-{  
+{
    "requestId":"37ca#1475b74e276",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":2,
          "displayName":"Company Name",
          "dataType":"string",
          "length":255,
-         "rest":{  
+         "rest":{
             "name":"company",
             "readOnly":false
          },
-         "soap":{  
+         "soap":{
             "name":"Company",
             "readOnly":false
          }
@@ -99,7 +99,7 @@ Met de optie Leads ophalen op filtertype wordt hetzelfde type record geretournee
 
 `filterValues` accepteert maximaal 300 waarden in een komma-gescheiden indeling. De vraag zoekt naar verslagen waar het gebied van de lood één van inbegrepen `filterValues` aanpast. Als het aantal leads dat overeenkomt met het hoofdfilter groter is dan 1.000, wordt een fout geretourneerd: &quot;1003, Te veel resultaten komen overeen met het filter&quot;.
 
-Als de totale lengte van uw GET- verzoek 8KB overschrijdt, is een fout van HTTP teruggekeerd: &quot;414, URI te lang&quot;(per RFC 7231). Als tussenoplossing kunt u uw GET in POST veranderen, de parameter _method=GET toevoegen, en een vraagkoord in het verzoeklichaam plaatsen.
+Als de totale lengte van uw GET-aanvraag groter is dan 8KB, wordt een HTTP-fout geretourneerd: &quot;414, URI te lang&quot; (volgens RFC 7231). Als tussenoplossing kunt u uw GET wijzigen in POST, de parameter _method=GET toevoegen en een querytekenreeks in de hoofdtekst van de aanvraag plaatsen.
 
 ### Verzoek
 
@@ -150,7 +150,7 @@ Als er geen records worden gevonden, geeft de reactie aan dat de array is gelukt
 
 Zowel krijgen lood door Identiteitskaart als krijgt lood door het Type van Filter zal ook een parameter van de gebiedsvraag goedkeuren, die een komma gescheiden lijst van API gebieden goedkeurt. Als dit is opgenomen, worden bij elke record in het antwoord de weergegeven velden opgenomen.  Als deze waarde wordt weggelaten, wordt een standaardset velden geretourneerd: `id`, `email`, `updatedAt`, `createdAt`, `firstName` en `lastName` .
 
-## Adobe-ECID
+## ADOBE ECID
 
 Als de functie voor delen van publiek via Adobe Experience Cloud is ingeschakeld, wordt een cookie gesynchroniseerd waarbij de Adobe Experience Cloud-id (ECID) aan Marketo-leads wordt gekoppeld.  De hierboven vermelde methoden voor het ophalen van leads kunnen worden gebruikt om bijbehorende ECID-waarden op te halen.  Dit doet u door `ecids` op te geven in de parameter fields. Bijvoorbeeld `&fields=email,firstName,lastName,ecids` .
 
@@ -160,7 +160,7 @@ Naast het ophalen van gegevens voor leads kunt u ook een lead record maken, bijw
 
 >[!NOTE]
 >
-> Het bijwerken van de gebieden van het Bedrijf die [ gebruiken leidt de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) in plaats daarvan.
+> Het bijwerken van de gebieden van het Bedrijf die [ gebruiken leidt de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik [ in plaats daarvan.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)
 
 >[!NOTE]
 >
@@ -175,21 +175,21 @@ POST /rest/v1/leads.json
 ### Lichaam
 
 ```json
-{  
+{
    "action":"createOnly",
    "lookupField":"email",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"kjashaedd-1@klooblept.com",
          "firstName":"Kataldar-1",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-2@klooblept.com",
          "firstName":"Kataldar-2",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-3@klooblept.com",
          "firstName":"Kataldar-3",
          "postalCode":"04828"
@@ -201,19 +201,19 @@ POST /rest/v1/leads.json
 ### Antwoord
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "id":52,
          "status":"created"
       }
@@ -233,7 +233,7 @@ Opmerking: wanneer u meerdere aanvragen voor het uploaden van leads tegelijkerti
 
 ## Velden
 
-Het hoofdobject bevat standaardvelden en eventueel aangepaste velden. In elk abonnement op een Marketo Engage staan standaardvelden, terwijl de gebruiker aangepaste velden maakt. Elke velddefinitie bestaat uit een set kenmerken die het veld beschrijven. Voorbeelden van kenmerken zijn weergavenaam, API-naam en dataType. Deze kenmerken worden gezamenlijk metagegevens genoemd.
+Het hoofdobject bevat standaardvelden en eventueel aangepaste velden. Alle Marketo Engage-abonnementen bevatten standaardvelden, terwijl de gebruiker aangepaste velden maakt. Elke velddefinitie bestaat uit een set kenmerken die het veld beschrijven. Voorbeelden van kenmerken zijn weergavenaam, API-naam en dataType. Deze kenmerken worden gezamenlijk metagegevens genoemd.
 
 Met de volgende eindpunten kunt u velden in het hoofdobject opvragen, maken en bijwerken. Deze APIs vereist dat de het bezitten gebruiker API een rol met één of allebei van het Gelezen-Schrijf StandaardGebied van het Schema of Gelezen-Schrijf de toestemmingen van het Gebied van het Schema van de Douane heeft.
 
@@ -417,8 +417,8 @@ GET /rest/v1/leads/schema/fields.json
 
 ## Velden maken
 
-Met het eindpunt Voorloopvelden maken maakt u een of meer aangepaste velden op het hoofdobject. Dit eindpunt verstrekt functionaliteit die aan wat in het Marketo Engage UI beschikbaar is vergelijkbaar is. Met dit eindpunt kunt u maximaal 100 aangepaste velden maken.
-Houd zorgvuldig rekening met elk veld dat u maakt in de productie-instantie van een Marketo Engage met behulp van de API.  Nadat een veld is gemaakt, kunt u het niet verwijderen (u kunt het alleen verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
+Met het eindpunt Voorloopvelden maken maakt u een of meer aangepaste velden op het hoofdobject. Dit eindpunt verstrekt functionaliteit die met wat in Marketo Engage UI beschikbaar is vergelijkbaar is. Met dit eindpunt kunt u maximaal 100 aangepaste velden maken.
+Houd zorgvuldig rekening met elk veld dat u met de API maakt in de productie-instantie van Marketo Engage.  Nadat een veld is gemaakt, kunt u het niet verwijderen (u kunt het alleen verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
 
 De vereiste invoerparameter is een array van hoofdobjecten. Elk object bevat een of meer kenmerken. Vereiste kenmerken zijn de `displayName` , `name` en `dataType` die overeenkomen met respectievelijk de weergavenaam van de gebruikersinterface van het veld, de API-naam van het veld en het veldtype.  U kunt optioneel `description` , `isHidden` , `isHtmlEncodingInEmail` en `isSensitive` opgeven.
 
@@ -474,7 +474,7 @@ POST /rest/v1/leads/schema/fields.json
 
 ## Veld bijwerken
 
-Het eindpunt van het Gebied van de Lood van de Update werkt één enkel douaneveld op het loodvoorwerp bij. Voor het grootste deel zijn bewerkingen voor veldupdates die worden uitgevoerd met de interface van het Marketo Engage, haalbaar met behulp van de API. In de onderstaande tabel zijn enkele verschillen samengevat.
+Het eindpunt van het Gebied van de Lood van de Update werkt één enkel douaneveld op het loodvoorwerp bij. Voor het grootste deel zijn bewerkingen voor veldupdates die worden uitgevoerd met de gebruikersinterface van Marketo Engage haalbaar met behulp van de API. In de onderstaande tabel zijn enkele verschillen samengevat.
 
 <table>
 <tbody>
@@ -764,7 +764,7 @@ Content-Type: application/json
 }
 ```
 
-Hier kunnen de overeenkomstige activiteitendetails van het formulier invullen worden weergegeven vanuit de gebruikersinterface van het Marketo Engage:
+Hier ziet u de bijbehorende activiteitengegevens voor Formulier invullen in de gebruikersinterface van Marketo Engage:
 
 ![ Vul Vorm UI ](assets/fill_out_form_activity_details.png) uit
 
@@ -781,7 +781,7 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ### Antwoord
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -804,7 +804,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 ### Antwoord
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -816,7 +816,7 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads door Filtertype, hoewel filterType en filterValues niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ### Verzoek
 
@@ -827,14 +827,14 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ### Antwoord
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
    "nextPageToken":
 "PS5VL5WD4UOWGOUCJR6VY7JQO2KUXL7BGBYXL4XH4BYZVPYSFBAONP4V4KQKN4SSBS55U4LEMAKE6===",
     "result":[
        {
-            "id":50,  
+            "id":50,
             "email":"kjashaedd@klooblept.com",
             "firstName":"Kataldar",
              "postalCode":"04828"
@@ -843,11 +843,11 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
            "id":2343,
            "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
-           "postalCode":"04828" 
+           "postalCode":"04828"
        },
       {
            "id":88498,
-           "email":"kjashaedd@klooblept.com", 
+           "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
          "postalCode":"04828"
          }

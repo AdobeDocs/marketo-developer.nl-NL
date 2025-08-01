@@ -1,20 +1,20 @@
 ---
-title: "Web Personalization"
-description: "Web Personalization"
+title: Web Personalization
+description: Web Personalization
 feature: Web Personalization, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '401'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
+# Web Personalization
 
-# Webpersonalisatie
+De Web Personalization JavaScript API breidt het geautomatiseerde verpersoonlijkingsvermogen van het platform uit. Zo kunt u gebeurtenissen bijhouden en een webpagina dynamisch aanpassen. De extra mogelijkheden: [ Gebeurtenissen van de Gegevens van de Douane ](custom-data-events.md), [ Dynamische Inhoud ](web-personalization.md), [ krijgen de Gegevens van de Bezoeker ](get-visitor-data.md), [ uitsluiten markering voor Specifieke Bots ](#exclude_tag_for_specific_bots).
 
-De JavaScript-API voor webpersonalisatie breidt de mogelijkheden voor geautomatiseerde personalisatie van het platform uit. Zo kunt u gebeurtenissen bijhouden en een webpagina dynamisch aanpassen. Aanvullende mogelijkheden: [Aangepaste gegevensgebeurtenissen](custom-data-events.md), [Dynamische inhoud](web-personalization.md), [Bezoekergegevens ophalen](get-visitor-data.md), [Label uitsluiten voor specifieke blokken](#exclude_tag_for_specific_bots).
-
-- U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
+- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 - RTP ondersteunt geen accountgebaseerde marketing met benoemde accountlijsten. ABM-lijsten en -code hebben alleen betrekking op de geüploade accountlijsten (CSV-bestanden) die in RTP worden beheerd.
 
 ## Taginstelling
@@ -22,7 +22,7 @@ De JavaScript-API voor webpersonalisatie breidt de mogelijkheden voor geautomati
 De markering RTP zou bij de kopbal van de gepersonaliseerde pagina moeten worden opgenomen.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 (function(c,h,a,f,e,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 c[a].p=e;c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -71,12 +71,12 @@ rtp('send', 'view', page);
 
 ## Label uitsluiten voor specifieke blokken (gebruikersagenten)
 
-Om specifieke browsers van het verzenden van gegevens naar het platform van de Personalisatie van het Web (in het geval van geïdentificeerde bots) uit te sluiten, voeg de volgende verklaring van IF aan het markeringsmanuscript toe.
+Als u specifieke browsers wilt uitsluiten van het verzenden van gegevens naar het Web Personalization-platform (in het geval van bepaalde bots), voegt u de volgende IF-instructie toe aan het tagscript.
 
-In het onderstaande codevoorbeeld wordt &quot;Googlebot|msnbot&quot; gebruikt als beide voorbeelden om activiteiten op het gebied van personalisatie van het web uit te sluiten.
+In het onderstaande codevoorbeeld wordt &quot;Googlebot|msnbot&quot; gebruikt als beide voorbeelden om activiteiten van Web Personalization uit te sluiten.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
     (function(c,h,a,f,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -91,9 +91,9 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 <!-- End of RTP tag -->
 ```
 
-## JavaScript-aanroepen beschreven
+## JavaScript Calls Verklaard
 
-Beschrijving van JavaScript dat aan een website wordt toegevoegd wanneer het gebruiken van de Personalisatie van het Web en Voorspelende Inhoud.
+Beschrijving van JavaScript die aan een website wordt toegevoegd wanneer Web Personalization en Predictive Content worden gebruikt.
 
 ### Core/Afhankelijke JavaScript
 
@@ -111,8 +111,7 @@ Beschrijving van JavaScript dat aan een website wordt toegevoegd wanneer het geb
 
 | Naam | Beschrijving | Besturing |
 |-------------------------|-----------------------------------------------------------------------|-----------------------|
-| ga-integration-2.0.1.js | Wordt gebruikt als integratie tussen Googles Analytics/Facebook/SiteCatalyst is ingeschakeld | Onder zeggenschap van Marketo |
+| ga-integration-2.0.1.js | Wordt gebruikt als de integratie Google Analytics/Facebook/SiteCatalyst is ingeschakeld | Onder zeggenschap van Marketo |
 | insightera-bar-2.1.js | Wordt gebruikt als de aanbevolen balk voor voorspellende inhoud is ingeschakeld | Onder zeggenschap van Marketo |
 | froogaloop2.min.js | Wordt gebruikt als het bijhouden van inhoud is ingeschakeld en de Vimeo-speler op de pagina aanwezig is | - |
 | iframe-api-v1.js | Wordt gebruikt als het bijhouden van inhoud is ingeschakeld en de YouTube-speler op de pagina aanwezig is | - |
-

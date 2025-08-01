@@ -3,20 +3,20 @@ title: React Native
 feature: Mobile Marketing
 description: React Native voor Marketo installeren
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e7cb23c4d578d949553b2b7a6e127d6be54cdf23
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '811'
+source-wordcount: '810'
 ht-degree: 0%
 
 ---
 
 # React Native
 
-In dit artikel vindt u informatie over het installeren en instellen van een eigen SDK voor Marketo om uw mobiele app te integreren met ons platform.
+In dit artikel vindt u informatie over het installeren en instellen van Marketo native SDK voor het integreren van uw mobiele app met ons platform.
 
 ## Vereisten
 
-[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin).
+[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 
 ## SDK-integratie
 
@@ -24,7 +24,7 @@ In dit artikel vindt u informatie over het installeren en instellen van een eige
 
 **Opstelling die Gradle** gebruikt
 
-Voeg de Marketo SDK-afhankelijkheid toe met de nieuwste versie: voeg onder de sectie voor afhankelijkheden in het bestand op toepassingsniveau `build.gradle` toe (inclusief de juiste versie van Marketo SDK)
+Voeg de Marketo SDK-afhankelijkheid toe met de meest recente versie: voeg onder de sectie Afhankelijkheden in het bestand op toepassingsniveau `build.gradle` toe (inclusief de juiste versie van Marketo SDK)
 
 ```
 implementation 'com.marketo:MarketoSDK:0.x.x'
@@ -32,7 +32,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 **voeg mavencentcentrale bewaarplaats** toe
 
-Marketo SDK is beschikbaar op de [ Gemaakt centrale bewaarplaats ](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
+Marketo SDK is beschikbaar op de [ beven centrale bewaarplaats ](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
 
 ```
 build script {
@@ -49,9 +49,9 @@ Synchroniseer vervolgens uw project met de bestanden in de grijze ruimte.
 
 Voordat u een bridge voor uw React Native-project maakt, is het belangrijk dat u onze SDK instelt in uw Xcode-project.
 
-**integratie SDK - Gebruikend CocoaPods**
+**integratie van SDK - het Gebruiken CocoaPods**
 
-Het is eenvoudig om de SDK van iOS in uw app te gebruiken. Voer de volgende stappen uit om dit in het Xcode-project van uw app in te stellen met CocoaPods, zodat u ons platform kunt integreren met uw app.
+Het is eenvoudig om iOS SDK in uw app te gebruiken. Voer de volgende stappen uit om dit in het Xcode-project van uw app in te stellen met CocoaPods, zodat u ons platform kunt integreren met uw app.
 
 De download [ CocoaPods ](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
 
@@ -85,11 +85,11 @@ Soms moet een React Native-app toegang krijgen tot een native platform-API die n
 
 Het NativeModule-systeem stelt instanties van Java/Objectieve C/C++ (native) klassen als JS-objecten beschikbaar voor JavaScript (JS), zodat u willekeurige native code vanuit JS kunt uitvoeren. Hoewel we niet verwachten dat deze functie deel uitmaakt van het gebruikelijke ontwikkelingsproces, is het van essentieel belang dat deze bestaat. Als React Native geen native API exporteert die uw JS-app nodig heeft, kunt u deze zelf exporteren!
 
-React Native-bridge wordt gebruikt voor communicatie tussen de JSX- en native toepassingslagen. In ons geval kan de host-app de JSX-code schrijven die de methoden van de Marketo SDK kan aanroepen.
+React Native-bridge wordt gebruikt voor communicatie tussen de JSX- en native toepassingslagen. In ons geval kan de host-app de JSX-code schrijven die de Marketo SDK-methoden kan aanroepen.
 
 ### Android
 
-Dit bestand bevat de omvattende methoden die de methoden van de Marketo SDK intern kunnen aanroepen met parameters die u opgeeft.
+Dit bestand bevat de omvattende methoden die de Marketo SDK-methoden intern kunnen aanroepen met parameters die u opgeeft.
 
 ```
 public class RNMarketoModule extends ReactContextBaseJavaModule {
@@ -141,7 +141,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
       public void initializeSDK(String frameworkType, String munchkinId, String appSecreteKey){
           marketoSdk.initializeSDK(munchkinId,appSecreteKey,frameworkType);
     }
-   
+
 
    @ReactMethod
    public void initializeMarketoPush(String projectId){
@@ -189,7 +189,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
            modules.add(new RNMarketoModule(reactContext));
 
-           return modules;    
+           return modules;
    }
 
    @NonNull
@@ -204,14 +204,14 @@ Als u de pakketregistratie wilt voltooien, voegt u het MarketoPluginPackage toe 
 
 ```
 public class MainApplication extends Application implements ReactApplication {
- 
+
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
- 
+
         @Override
         protected List getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
@@ -243,7 +243,7 @@ Maak onze hoofd- en implementatiebestanden van de aangepaste native module. Maak
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MktoBridge : NSObject 
+@interface MktoBridge : NSObject
 
 @end
 
@@ -280,18 +280,18 @@ NS_ASSUME_NONNULL_END
 #import <React/RCTBridge.h>
 #import "ConstantStringsHeader.h"
 
-@implementation MktoBridge 
+@implementation MktoBridge
 
 RCT_EXPORT_MODULE(RNMarketoModule);
- 
+
 +(BOOL)requiresMainQueueSetup{
   return NO;
 }
- 
+
 RCT_EXPORT_METHOD(initializeSDK:(NSString *) munchkinId SecretKey: (NSString *) secretKey andFrameworkType: (NSString *) frameworkType){
   [[Marketo sharedInstance] initializeWithMunchkinID:munchkinId appSecret:secretKey mobileFrameworkType:frameworkType launchOptions:nil];
 }
- 
+
 RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary *)metaData){
   MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
   [meta setType:[metaData objectForKey:KEY_ACTION_TYPE]];
@@ -300,7 +300,7 @@ RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary
   [meta setMetric:[metaData valueForKey:KEY_ACTION_METRIC]];
   [[Marketo sharedInstance] reportAction:actionName withMetaData:meta];
 }
- 
+
 RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   MarketoLead *lead = [[MarketoLead alloc] init];
   if ([leadDetails objectForKey:KEY_EMAIL] != nil) {
@@ -309,32 +309,32 @@ RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   if ([leadDetails objectForKey:KEY_FIRST_NAME] != nil) {
     [lead setFirstName:[leadDetails objectForKey:KEY_FIRST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_LAST_NAME] != nil) {
     [lead setLastName:[leadDetails objectForKey:KEY_LAST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_CITY] != nil) {
     [lead setCity:[leadDetails objectForKey:KEY_CITY]];
   }
     [[Marketo sharedInstance] associateLead:lead];
 }
- 
+
 RCT_EXPORT_METHOD(uninitializeMarketoPush){
   [[Marketo sharedInstance] unregisterPushDeviceToken];
 }
- 
+
 RCT_EXPORT_METHOD(reportAll){
   [[Marketo sharedInstance] reportAll];
 }
- 
+
 RCT_EXPORT_METHOD(setSecureSignature:(NSDictionary *)secureSignature){
   MKTSecuritySignature *secSignature = [[MKTSecuritySignature alloc]
                                         initWithAccessKey:[secureSignature objectForKey:KEY_ACCESSKEY]
                                         signature:[secureSignature objectForKey:KEY_SIGNATURE]
                                         timestamp: [secureSignature objectForKey:KEY_EMAIL]
                                         email:[secureSignature objectForKey:KEY_EMAIL]];
-  
+
     [[Marketo sharedInstance] setSecureSignature:secSignature];
 }
 
@@ -374,7 +374,7 @@ const NewModuleButton = () => {
   };
 
   return (
-    
+
   );
   };
 
@@ -430,8 +430,8 @@ Voeg de volgende service toe aan `AndroidManifest.xml`
     <intent-filter>
         <action  android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
     </intent-filter/>
-    <intent-filter> 
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/> 
+    <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
     </intent-filter/>
 </activity/>
 ```
@@ -530,7 +530,7 @@ registerForRemoteNotifications();
   return [self bundleURL];
 }
 
--(void)userNotificationCenter:(UNUserNotificationCenter *)center 
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center
       willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
     completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
 }
@@ -538,7 +538,7 @@ registerForRemoteNotifications();
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)(void))completionHandler {
-    [[Marketo sharedInstance] userNotificationCenter:center 
+    [[Marketo sharedInstance] userNotificationCenter:center
                       didReceiveNotificationResponse:response
                                withCompletionHandler:completionHandler];
 }
@@ -601,10 +601,10 @@ Voeg &quot;MarketoActivity&quot; toe aan het `AndroidManifest.xml` -bestand in d
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
-   
+
     return [[Marketo sharedInstance] application:app
                                          openURL:url
-                                         options:options];    
+                                         options:options];
 }
 ```
 

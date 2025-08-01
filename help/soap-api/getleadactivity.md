@@ -1,34 +1,34 @@
 ---
-title: "getLeadActivity"
+title: getLeadActivity
 feature: SOAP
-description: "getLeadActivity SOAP-aanroepen"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLeadActivity SOAP-aanroepen
+exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 0%
 
 ---
 
-
 # getLeadActivity
 
 Deze functie wint de activiteitengeschiedenis voor één enkele lood terug die door de verstrekte sleutel wordt geïdentificeerd. U kunt opgeven welke typen activiteiten u in het resultaat wilt retourneren. Als u alle activiteitstypen wilt opgeven, moet u een lege waarde opgeven. Geef voor meer dan één type activiteit een lijst met activiteitstypen door. Bij het aanvragen van meerdere activiteiten is het resterende aantal geen nauwkeurig getal, maar moet het worden behandeld als een vlag die aangeeft dat er meer activiteiten zijn wanneer het resterende aantal > 0 is.
 
-A [streampositie](stream-position.md) kan worden gebruikt om door grote resultaatreeksen te pagineren.
+A [ stroompositie ](stream-position.md) kan worden gebruikt om door grote resultaatreeksen te pagineren.
 
 ## Verzoek
 
 | Veldnaam | Vereist/optioneel | Beschrijving |
 | --- | --- | --- |
-| leadKey->keyType | Vereist | keyType staat u toe om het gebied te specificeren u wenst om de lood door te vragen. Mogelijke waarden zijn:`IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadKey->keyType | Vereist | keyType staat u toe om het gebied te specificeren u wenst om de lood door te vragen. Mogelijke waarden zijn: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadKey->keyValue | Vereist | `keyValue` is de waarde u wenst om de lood door te vragen. |
 | activityFilter->includeAttributes->activityType | Optioneel | Beperkt de reactie om slechts die gespecificeerde activiteitstypes op te nemen. Zie WSDL voor alle activiteitstypen. |
-| activityFilter->excludeAttributes->activityType | Optioneel | Beperkt de reactie om die gespecificeerde activiteitstypes uit te sluiten. Zie WSDL voor alle activiteitstypen. OPMERKING: u kunt niet beide opgeven `includeAttributes` en `excludeAttributes` binnen de zelfde vraag. |
-| batchSize | Optioneel | Maximumaantal records dat moet worden geretourneerd. Systeem beperkt tot 100 of `batchSize`, afhankelijk van welke waarde lager is. |
-| startPosition->offset | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. De compensatiewaarde is teruggekeerd door het vorige gebied van de vraagreactie `newStartPosition->offset`. |
-| startPosition->activityCreatedAt | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. ActivityCreatedAt is teruggekeerd door het vorige gebied van de vraagreactie `newStartPosition->activityCreatedAt`. (W3C WSDL-datumnotatie). |
-| startPosition->latestCreatedAt | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. NieuwstCreatedAt is teruggekeerd door het vorige gebied van de vraagreactie `newStartPosition->latestCreatedAt`. (W3C WSDL-datumnotatie). |
-| startPosition->oldestCreatedAt | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. oldCreatedAt is teruggekeerd door het vorige gebied van de vraagreactie `newStartPosition->oldestCreatedAt`. (W3C WSDL-datumnotatie). |
+| activityFilter->excludeAttributes->activityType | Optioneel | Beperkt de reactie om die gespecificeerde activiteitstypes uit te sluiten. Zie WSDL voor alle activiteitstypen. NOTA: U kunt niet zowel `includeAttributes` als `excludeAttributes` binnen de zelfde vraag specificeren. |
+| batchSize | Optioneel | Maximumaantal records dat moet worden geretourneerd. Systeem beperkt zich tot 100 of `batchSize`, afhankelijk van welke waarde het minst is. |
+| startPosition->offset | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. De verschuivingswaarde wordt geretourneerd door het vorige veld voor aanroepreacties `newStartPosition->offset` . |
+| startPosition->activityCreatedAt | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. activityCreatedAt wordt teruggekeerd door het de reactiegebied van de vorige vraag `newStartPosition->activityCreatedAt`. (W3C WSDL-datumnotatie). |
+| startPosition->latestCreatedAt | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. De latestCreatedAt wordt teruggekeerd door het het reactiegebied van de vorige vraag `newStartPosition->latestCreatedAt`. (W3C WSDL-datumnotatie). |
+| startPosition->oldestCreatedAt | Optioneel | Wordt gebruikt om een groot aantal reacties op de activiteit te pagineren. Het oudsteCreatedAt wordt teruggekeerd door het het reactiegebied van de vorige vraag `newStartPosition->oldestCreatedAt`. (W3C WSDL-datumnotatie). |
 
 ## XML aanvragen
 
@@ -668,27 +668,27 @@ A [streampositie](stream-position.md) kan worden gebruikt om door grote resultaa
 </SOAP-ENV:Envelope>
 ```
 
-Houd er rekening mee dat binnen `activityRecord` de `id` element wordt vervangen door `marketoGUID` element als unieke id.  Deze wijziging vindt plaats in de release van voorjaar 2017.
+Merk op dat binnen `activityRecord` -elementen het `id` -element wordt vervangen door het `marketoGUID` -element als unieke id.  Deze wijziging vindt plaats in de release van voorjaar 2017.
 
 ## Voorbeeldcode - PHP
 
 ```php
  <?php
- 
+
   $debug = true;
- 
+
   $marketoSoapEndPoint     = "";  // CHANGE ME
   $marketoUserId           = "";  // CHANGE ME
   $marketoSecretKey        = "";  // CHANGE ME
   $marketoNameSpace        = "http://www.marketo.com/mktows/";
- 
+
   // Create Signature
   $dtzObj = new DateTimeZone("America/Los_Angeles");
   $dtObj  = new DateTime('now', $dtzObj);
   $timeStamp = $dtObj->format(DATE_W3C);
   $encryptString = $timeStamp . $marketoUserId;
   $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
   // Create SOAP Header
   $attrs = new stdClass();
   $attrs->mktowsUserId = $marketoUserId;
@@ -699,26 +699,26 @@ Houd er rekening mee dat binnen `activityRecord` de `id` element wordt vervangen
   if ($debug) {
     $options["trace"] = true;
   }
- 
+
   // Create Request
   $leadKey = array("keyType" => "EMAIL", "keyValue" => "two@t.com");
-  
+
   $includeTypes = array("VisitWebpage", "FillOutForm" );
   $actIncludeArray = new stdClass();
   $actIncludeArray->activityType = $includeTypes;
-  
+
   $filter = new stdClass();
   $filter->includeTypes = $actIncludeArray;
-  
+
   $startPosition = new stdClass();
   $startPosition->latestCreatedAt= "";
   $startPosition->offset = "";
- 
- 
+
+
   $leadKeyParams = array("leadKey" => $leadKey, "activityFilter" => $filter, "batchSize" => 10, "startPosition" => $startPosition);
   $params = array("paramsGetLeadActivity" => $leadKeyParams);
- 
- 
+
+
   $soapClient = new SoapClient($marketoSoapEndPoint ."?WSDL", $options);
   try {
     $leadActivity = $soapClient->__soapCall('getLeadActivity', $params, $options, $authHdr);  }
@@ -730,7 +730,7 @@ Houd er rekening mee dat binnen `activityRecord` de `id` element wordt vervangen
     print "RAW response:\n" .$soapClient->__getLastResponse() ."\n";
   }
   print_r($leadActivity);
- 
+
 ?>
 ```
 
@@ -749,68 +749,68 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
+
 public class GetLeadActivity {
- 
- 
+
+
     public static void main(String[] args) {
         System.out.println("Executing Get Lead Activity");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsGetLeadActivity request = new ParamsGetLeadActivity();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("t@t.com");
             request.setLeadKey(key);
- 
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> batchSize = objectFactory.createParamsGetLeadActivityBatchSize(10);
             request.setBatchSize(batchSize);
-             
+
             ActivityTypeFilter atv = new ActivityTypeFilter();
             ArrayOfActivityType aatt = new ArrayOfActivityType();
-             
+
             aatt.getActivityTypes().add(ActivityType.VISIT_WEBPAGE);
             aatt.getActivityTypes().add(ActivityType.FILL_OUT_FORM);
-             
+
             atv.setIncludeTypes(aatt);
             JAXBElement<ActivityTypeFilter> typeFilter = objectFactory.createParamsGetLeadActivityActivityFilter(atv);
             request.setActivityFilter(typeFilter);
-             
+
             SuccessGetLeadActivity result = port.getLeadActivity(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessGetLeadActivity.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -839,9 +839,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 
@@ -860,7 +860,7 @@ request = {
     :start_position => {
         :"last_created_at/" => "",
         :"offset/" => "" },
-    :batch_size => "10" 
+    :batch_size => "10"
 }
 
 response = client.call(:get_lead_activity, message: request)

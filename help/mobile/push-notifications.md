@@ -1,14 +1,14 @@
 ---
-title: "Push Notifications"
-feature: "Mobile Marketing"
-description: "Enable Push Notifications for Marketo Mobile"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Pushmeldingen
+feature: Mobile Marketing
+description: Enable Push Notifications for Marketo Mobile
+exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
 
 ---
-
 
 # Pushmeldingen
 
@@ -20,11 +20,11 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 
 1. Pushmeldingen configureren op Apple Developer Account.
 1. Enable push notifications in xCode.
-1. Schakel pushmeldingen in de app in met Marketo SDK.
+1. Schakel pushmeldingen in in de app met Marketo SDK.
 
 ### Pushmeldingen configureren op Apple Developer Account
 
-1. Aanmelden bij de Apple Developer [Lidcentrum](http://developer.apple.com/membercenter).
+1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [ ](http://developer.apple.com/membercenter).
 1. Klik op Certificaten, id&#39;s en profielen.
 1. Klik op de map &quot;Certificates->All&quot; onder &quot;iOS, tvOS, watchOS&quot;.
 1. Selecteer &quot;+&quot; in het linkerbovenscherm naast certificaten ![](assets/certificates-plus.png)
@@ -32,31 +32,31 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 1. Selecteer de toepassings-id die u gebruikt om de app te maken.![](assets/push-appid.png)
 1. CSR maken en uploaden om het pushcertificaat te genereren. ![](assets/push-ssl.png)
 1. Certificaat downloaden naar lokale computer en dubbelklikken om te installeren. ![](assets/certificate-download.png)
-1. Open &quot;Keychain Access&quot;, klik met de rechtermuisknop op het certificaat en exporteer 2 items naar het `.p12` bestand.![key_chain](assets/key-chain.png)
+1. Open &quot;Keychain Access&quot;, klik met de rechtermuisknop op het certificaat en exporteer 2 items naar het `.p12` -bestand.![ key_chain ](assets/key-chain.png)
 1. Upload dit bestand via Marketo Admin Console om meldingen te configureren.
 1. App-inrichtingsprofielen bijwerken.
 
 ### Enable Push Notifications in xCode
 
-Schakel de functie voor pushmeldingen in in het xCode-project.![](assets/push-xcode.png)
+Zet het vermogen van de pushmelding in xCode project aan.![](assets/push-xcode.png)
 
 ### Enable Push Notifications in App with Marketo SDK
 
-De volgende code toevoegen aan `AppDelegate.m` bestand om pushmeldingen naar de apparaten van uw klant te verzenden.
+Voeg de volgende code toe aan het `AppDelegate.m` -bestand om pushberichten te verzenden naar de apparaten van uw klant.
 
-**Opmerking** - Als u de [!DNL Adobe Launch] extensie, gebruiken `ALMarketo` als klassenaam
+**Nota** - als het gebruiken van de [!DNL Adobe Launch] uitbreiding, gebruik `ALMarketo` als classname
 
-Importeren na in `AppDelegate.h`.
+Importeren na in `AppDelegate.h` .
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 #import <UserNotifications/UserNotifications.h>
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 import UserNotifications
@@ -64,17 +64,17 @@ import UserNotifications
 
 >[!ENDTABS]
 
-Toevoegen `UNUserNotificationCenterDelegate` tot `AppDelegate` zoals hieronder weergegeven.
+Voeg `UNUserNotificationCenterDelegate` toe aan `AppDelegate`, zoals hieronder wordt weergegeven.
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenterDelegate
@@ -86,7 +86,7 @@ Inleiding pushmeldingenservice. Voeg onder code toe om pushberichten in te schak
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```objectivec
 BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -104,11 +104,11 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 }
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            
+
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound,    .badge]) { granted, error in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -118,22 +118,22 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                 }
             }
         }
-        
+
         return true
 }
 ```
 
 >[!ENDTABS]
 
-Roep deze methode aan om het registratieproces met Apple Push Service in werking te stellen. Als de registratie slaagt, roept de app de gedelegeerde objecten van uw app aan `application:didRegisterForRemoteNotificationsWithDeviceToken:` en geeft deze een apparaattoken door.
+Roep deze methode aan om het registratieproces met Apple Push Service in werking te stellen. Als de registratie slaagt, roept de app de methode `application:didRegisterForRemoteNotificationsWithDeviceToken:` van het gedelegeerde object van uw App aan en geeft deze het apparaattoken door.
 
-Als de registratie mislukt, roept de app de gedelegeerde van de app aan `application:didFailToRegisterForRemoteNotificationsWithError:` in plaats daarvan.
+Als de registratie mislukt, roept de app in plaats daarvan de methode `application:didFailToRegisterForRemoteNotificationsWithError:` van de gedelegeerde van de app aan.
 
 Registreer pushtoken bij Marketo. Als u pushberichten van Marketo wilt ontvangen, moet u het apparaattoken registreren bij Marketo.
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -142,7 +142,7 @@ Registreer pushtoken bij Marketo. Als u pushberichten van Marketo wilt ontvangen
 }
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -157,13 +157,13 @@ Het token kan ook niet worden geregistreerd wanneer de gebruiker zich afmeldt.
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 [[Marketo sharedInstance] unregisterPushDeviceToken];
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 Marketo.sharedInstance().unregisterPushDeviceToken
@@ -177,7 +177,7 @@ Druk op pushmelding. Als u pushberichten van Marketo wilt ontvangen, moet u het 
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
@@ -186,7 +186,7 @@ Druk op pushmelding. Als u pushberichten van Marketo wilt ontvangen, moet u het 
 }
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
@@ -202,7 +202,7 @@ Met deze methode kunt u een waarschuwing, geluid of een hogere badge weergeven t
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center
@@ -213,10 +213,10 @@ Met deze methode kunt u een waarschuwing, geluid of een hogere badge weergeven t
 }
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
-func userNotificationCenter(_ center: UNUserNotificationCenter, 
+func userNotificationCenter(_ center: UNUserNotificationCenter,
             willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (
     UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert, .sound,.badge])
@@ -231,7 +231,7 @@ De methode zal op de afgevaardigde worden geroepen wanneer de gebruiker op het b
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
@@ -240,7 +240,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletion
 }
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -257,19 +257,19 @@ Pushmeldingen bijhouden
 
 Als uw app op de achtergrond wordt uitgevoerd (of niet actief is), ontvangt het apparaat een pushmelding zoals hieronder wordt weergegeven. Marketo houdt bij wanneer de gebruiker op het bericht tikt.
 
-![mobile8](assets/mobile8.png)
+![ mobile8 ](assets/mobile8.png)
 
-Als het apparaat een pushmelding ontvangt, wordt deze doorgegeven aan `application:didReceiveRemoteNotification:` callback op uw afgevaardigde van de App.
+Als het apparaat een pushmelding ontvangt, wordt deze doorgegeven aan `application:didReceiveRemoteNotification:` callback op uw App-gedelegeerde.
 
 Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenissen voor apps en pushmeldingen worden weergegeven.
 
-![mobile9](assets/mobile9.png)
+![ mobile9 ](assets/mobile9.png)
 
 ## Pushmelding instellen op Android
 
 1. Voeg de volgende machtigingen toe in de tag application.
 
-   Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet om de toestemmingen &quot;INTERNET&quot;en &quot;ACCESS_NETWORK_STATE&quot;verzoeken. Als uw toepassing al om deze machtigingen vraagt, slaat u deze stap over.
+   Open `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet om de toestemmingen &quot;INTERNET&quot;en &quot;ACCESS_NETWORK_STATE&quot;verzoeken. Als uw toepassing al om deze machtigingen vraagt, slaat u deze stap over.
 
    ```xml
    <uses‐permission android:name="android.permission.INTERNET"/>
@@ -285,7 +285,7 @@ Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenisse
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. FCM instellen met HTTPv1 (Google heeft [vervangen XMPP-protocol](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) op 12 juni 2023 en in juni 2024) 
+1. De vestiging FCM met HTTPv1 (Google heeft [ verouderd protocol XMPP ](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) op 12 Juni, 2023 en zal in Juni 2024 worden verwijderd) 
 
 - MME FCM HTTPv1 inschakelen in Marketo-functiebeheer ![](assets/feature-manager.png)
    - Upload Service Account Json-bestand voor de toepassing in MLM.
@@ -309,7 +309,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
 
 ## Marketo Push Service registreren
 
-1. Als u pushberichten van Marketo wilt ontvangen, moet u de Firebase-berichtenservice toevoegen aan uw `AndroidManifest.xml`. Voeg toe vóór de afsluitende toepassingstag.
+1. Als u pushberichten van Marketo wilt ontvangen, moet u de Firebase-berichtenservice toevoegen aan uw `AndroidManifest.xml` . Voeg toe vóór de afsluitende toepassingstag.
 
    ```xml
    <meta-data
@@ -323,7 +323,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    </service>
    ```
 
-1. Marketo SDK-methoden toevoegen aan het bestand `MyFirebaseMessagingService` als volgt
+1. Marketo SDK-methoden als volgt toevoegen aan het bestand `MyFirebaseMessagingService`
 
    ```java
    import com.marketo.Marketo;
@@ -348,7 +348,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    }
    ```
 
-   **Opmerking** - Als u de extensie Adobe gebruikt, voegt u het volgende toe:
+   **Nota** - als het gebruiken van de uitbreiding van Adobe, voeg zoals hieronder toe
 
    ```java
    import com.marketo.Marketo;
@@ -371,7 +371,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    }
    ```
 
-**OPMERKING**: De FCM SDK voegt automatisch alle vereiste machtigingen en de vereiste ontvangerfunctionaliteit toe. Zorg ervoor dat u de volgende verouderde (en mogelijk schadelijke, omdat hierdoor dubbele berichten kunnen ontstaan) elementen uit het manifest van uw app verwijdert als u eerdere versies van SDK hebt gebruikt
+**NOTA**: FCM SDK voegt automatisch alle vereiste toestemmingen evenals de vereiste ontvangerfunctionaliteit toe. Verwijder de volgende verouderde (en mogelijk schadelijke) elementen uit het manifest van uw app als u eerdere versies van SDK hebt gebruikt
 
 ```xml
 <receiver android:name="com.marketo.MarketoBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -399,14 +399,14 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    marketoSdk.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Als u [!DNL Adobe Launch] Gebruik de volgende instructies voor extensie
+   Als u de extensie [!DNL Adobe Launch] gebruikt, gebruikt u deze instructies
 
    ```java
    // Enable push notification here. The push notification channel name can by any string
    ALMarketo.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Als u geen SENDER_ID hebt, schakelt u de Google Cloud Messaging Service in door de in [deze zelfstudie](https://developers.google.com/cloud-messaging/).
+   Als u geen SENDER_ID hebt, dan laat de Dienst van het Overseinen van de Wolk van Google toe door de stappen te voltooien die in [ worden gedetailleerd dit leerprogramma ](https://developers.google.com/cloud-messaging/).
 
    Het token kan ook niet worden geregistreerd wanneer de gebruiker zich afmeldt.
 
@@ -414,7 +414,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    marketoSdk.uninitializeMarketoPush();
    ```
 
-   Als u [!DNL Adobe Launch] extensie, gebruik de onderstaande instructie
+   Gebruik de onderstaande instructies als u de extensie [!DNL Adobe Launch] gebruikt
 
    ```java
    ALMarketo.uninitializeMarketoPush();
@@ -430,13 +430,13 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    config.setNotificationLargeIcon(bitmap);
    
    // Required icon Resource ID
-   config.setNotificationSmallIcon(R.drawable.notification_small_icon); 
+   config.setNotificationSmallIcon(R.drawable.notification_small_icon);
    
-   // Set the configuration 
+   // Set the configuration
    //Use the static methods on ALMarketo class when using Adobe Extension
-   Marketo.getInstance(context).setNotificationConfig(config); 
+   Marketo.getInstance(context).setNotificationConfig(config);
    
-   // Get the configuration set 
+   // Get the configuration set
    Marketo.getInstance(context).getNotificationConfig();
    ```
 
@@ -464,7 +464,7 @@ Controleer uw configuratie tweemaal om ervoor te zorgen dat u het juiste die cer
 
 ### .p12-bestand ontbreekt een certificaat of sleutel (iOS)
 
-Wanneer u het certificaat exporteert, moet u ervoor zorgen dat u de sleutel exporteert _en_ het certificaat.
+Wanneer u het certificaat uitvoert, zorg ervoor dat u de sleutel _en_ het certificaat uitvoert.
 
 ### Provisioning Profiles Out-of-Date (iOS)
 

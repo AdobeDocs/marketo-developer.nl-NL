@@ -1,20 +1,20 @@
 ---
-title: "Lijsten met benoemde accounts"
+title: Lijsten met benoemde accounts
 feature: REST API
-description: "Configureer benoemde accountlijsten."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: benoemde accountlijsten configureren.
+exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 0%
 
 ---
 
-
 # Lijsten met benoemde accounts
 
-[Verwijzing naar eindpunt voor benoemde accountlijsten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[ Genoemde Verwijzing van het Eindpunt van de Rekening maakt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Lijsten met benoemde accounts](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo staan voor verzamelingen benoemde accounts. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
+[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
 `Content`
 
 ## Machtigingen
@@ -37,18 +37,18 @@ Lijsten met benoemde accounts hebben een beperkt aantal standaardvelden en kunne
 
 ## Query
 
-Het opvragen van accountlijsten is eenvoudig en eenvoudig. Er zijn momenteel slechts twee geldige filterTypes voor het opvragen van benoemde accountlijsten: &quot;dedupeFields&quot; en &quot;idField&quot;. Het veld waarop moet worden gefilterd, wordt ingesteld in het dialoogvenster `filterType` parameter van de query en de waarden worden ingesteld in `filterValues as` een door komma&#39;s gescheiden lijst. De `nextPageToken` en `batchSize` filters zijn ook optionele parameters.
+Het opvragen van accountlijsten is eenvoudig en eenvoudig. Er zijn momenteel slechts twee geldige filterTypes voor het opvragen van benoemde accountlijsten: &quot;dedupeFields&quot; en &quot;idField&quot;. Het veld waarop moet worden gefilterd, wordt ingesteld in de parameter `filterType` van de query en de waarden worden ingesteld in `filterValues as` een lijst met komma&#39;s als scheidingsteken. De filters `nextPageToken` en `batchSize` zijn ook optionele parameters.
 
 ```
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb",
          "name": "Saas List",
@@ -57,7 +57,7 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
          "type": "default",
          "updateable": true
       },
-      { 
+      {
          "seq": 1,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fc",
          "name": "My Account List",
@@ -72,25 +72,25 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 ## Maken en bijwerken
 
-Het creëren en het bijwerken van genoemde verslagen van de rekeningslijst volgt de gevestigde patronen voor andere het creëren en bijwerken van het Gegevensbestand van de Leiding verrichtingen. Houd er rekening mee dat lijsten met benoemde accounts maar één veld hebben dat kan worden bijgewerkt. `name`.
+Het creëren en het bijwerken van genoemde verslagen van de rekeningslijst volgt de gevestigde patronen voor andere het creëren en bijwerken van het Gegevensbestand van de Leiding verrichtingen. Houd er rekening mee dat lijsten met benoemde accounts maar één veld hebben dat kan worden bijgewerkt, `name` .
 
-Het eindpunt laat de twee standaardactietypen toe: &quot;createOnly,&quot;en &quot;updateOnly.&quot;  De `action defaults` naar &quot;createOnly&quot;.
+Het eindpunt laat de twee standaardactietypen toe: &quot;createOnly,&quot;en &quot;updateOnly.&quot;  De lus `action defaults` to &quot;createOnly&quot;.
 
-De optionele `dedupeBy parameter` kan worden opgegeven als de handeling is `updateOnly`.  Toegestane waarden zijn &quot;dedupeFields&quot; (overeenkomend met &quot;name&quot;) of &quot;idField&quot; (overeenkomend met &quot;marketoGUID&quot;).  In `createOnly` modi, alleen &quot;name&quot; is toegestaan als de `dedupeBy` veld. U kunt maximaal 300 records tegelijk verzenden.
+De optionele `dedupeBy parameter` kan worden opgegeven als de handeling `updateOnly` is.  Toegestane waarden zijn &quot;dedupeFields&quot; (overeenkomend met &quot;name&quot;) of &quot;idField&quot; (overeenkomend met &quot;marketoGUID&quot;).  In de modi `createOnly` is alleen &quot;name&quot; toegestaan als het veld `dedupeBy` . U kunt maximaal 300 records tegelijk verzenden.
 
 ```
 POST /rest/v1/namedAccountLists.json
 ```
 
 ```json
-{ 
+{
    "action": "createOnly",
    "dedupeBy": "dedupeFields",
-   "input": [ 
-      { 
+   "input": [
+      {
          "name": "SAAS List"
       },
-      { 
+      {
          "name": "Manufacturing (Domestic)"
       }
    ]
@@ -98,16 +98,16 @@ POST /rest/v1/namedAccountLists.json
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "status": "created",
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      { 
+      {
          "seq": 1,
          "status": "created",
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fc"
@@ -118,23 +118,23 @@ POST /rest/v1/namedAccountLists.json
 
 ## Verwijderen
 
-Verwijderen van lijsten met benoemde accounts is eenvoudig en kan worden uitgevoerd op basis van de `name`of de `marketoGUID` van de lijst. Om de sleutel te selecteren u wenst te gebruiken, ga of &quot;dedupeFields&quot;voor naam, of &quot;idField&quot;voor marketoGUID in`deleteB` lid van uw verzoek. Als deze waarde niet is ingesteld, wordt dedupeFields standaard ingesteld. U kunt maximaal 300 records tegelijk verwijderen.
+Verwijderen van lijsten met benoemde accounts is eenvoudig en kan worden uitgevoerd op basis van de `name` of de `marketoGUID` in de lijst. Om de sleutel te selecteren u wenst om te gebruiken, ga of &quot;dedupeFields&quot;voor naam, of &quot;idField&quot;voor marketoGUID in het `deleteB` lid van uw verzoek over. Als deze waarde niet is ingesteld, wordt dedupeFields standaard ingesteld. U kunt maximaal 300 records tegelijk verwijderen.
 
 ```
 POST /rest/v1/namedAccountLists/delete.json
 ```
 
 ```json
-{ 
+{
    "deleteBy": "dedupeFields",
-   "input": [ 
-      { 
+   "input": [
+      {
          "name": "Saas List"
       },
-      { 
+      {
          "name": "B2C List"
       },
-      { 
+      {
          "name": "Launchpoint Partner List"
       }
    ]
@@ -142,25 +142,25 @@ POST /rest/v1/namedAccountLists/delete.json
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb",
          "status": "deleted"
       },
-      { 
+      {
          "seq": 1,
          "id": "dff23271-f996-47d7-984f-f2676861b5fc",
          "status": "deleted"
       },
-      { 
+      {
          "seq": 2,
          "status": "skipped",
-         "reasons": [ 
-            { 
+         "reasons": [
+            {
                "code": "1013",
                "message": "Record not found"
             }
@@ -170,35 +170,37 @@ POST /rest/v1/namedAccountLists/delete.json
 }
 ```
 
-Als een record niet kan worden gevonden voor een bepaalde sleutel, heeft het bijbehorende resultaatitem een`status` van &quot;overgeslagen&quot;en een reden met een code en een bericht beschrijvend de mislukking, zoals aangetoond in het bovengenoemde voorbeeld.
+In het geval dat een verslag niet voor een bepaalde sleutel kan worden gevonden, zal het overeenkomstige resultaatpunt a `status` van &quot;overgeslagen&quot;en een reden met een code en een bericht hebben beschrijvend de mislukking, zoals aangetoond in het bovengenoemde voorbeeld.
 
 ## Lidmaatschap beheren
 
 ### Vraag-lidmaatschap
 
-Het opvragen van het lidmaatschap van een lijst met benoemde accounts is eenvoudig. Alleen de`i` van de rekeninglijst. Optionele parameters zijn:
+Het vragen van het lidmaatschap van een genoemde rekeningslijst is eenvoudig, die slechts `i` van de rekeningslijst vereist. Optionele parameters zijn:
 
--`field` - een door komma&#39;s gescheiden lijst met velden die moeten worden opgenomen in de reactierecords -`nextPageToke` - voor het doorbladeren van de resultatenset -`batchSiz` - voor het opgeven van het aantal records dat moet worden geretourneerd
+-`field` - een door komma&#39;s gescheiden lijst met velden die moeten worden opgenomen in de reactierecords
+- `nextPageToke` - voor het pagineren door de resultaatreeks
+- `batchSiz` - voor het specificeren van het aantal records dat moet worden geretourneerd
 
-Indien`field` is niet ingesteld, dan`marketoGUI`,`nam`, `createdA`, en`updatedA` wordt geretourneerd. `batchSiz` heeft een maximum- en standaardwaarde van 300.
+Als `field` unset is, dan `marketoGUI`, `nam`, `createdA`, en `updatedA` zal zijn teruggekeerd. `batchSiz` heeft een maximum- en standaardwaarde van 300.
 
 ```
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb",
          "name": "Saas List",
          "createdAt": "2017-02-01T00:00:00Z",
          "updatedAt": "2017-03-05T17:21:15Z"
       },
-      { 
+      {
          "seq": 1,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fc",
          "name": "My Account List",
@@ -221,7 +223,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 {
     "input": [
         {
-             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb" 
+             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
         },
         {
              "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
@@ -251,7 +253,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Leden verwijderen
 
-Het verwijderen van records uit een accountlijst heeft een ander pad, maar heeft dezelfde interface, waarvoor een`marketoGUI` voor elke record die u wilt verwijderen. U kunt maximaal 300 records tegelijk verwijderen.
+Het verwijderen van verslagen uit een rekeningslijst heeft een verschillend weg, maar de zelfde interface, die a `marketoGUI` voor elk verslag vereist dat u wilt schrappen. U kunt maximaal 300 records tegelijk verwijderen.
 
 ```
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
@@ -261,7 +263,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 {
     "input": [
         {
-             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb" 
+             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
         },
         {
              "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"

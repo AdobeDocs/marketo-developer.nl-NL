@@ -1,39 +1,39 @@
 ---
-title: "getMObjects"
+title: getMObjects
 feature: SOAP
-description: "getMObjects SOAP-aanroepen"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getMObjects SOAP-oproepen
+exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 0%
 
 ---
 
-
 # getMObjects
 
-Hiermee wordt een of meer opgehaald [MObjects](marketo-objects.md) door gebruik te maken van een combinatie van criteria bestaande uit:
+Wint één of meerdere [ MObjects ](marketo-objects.md) terug gebruikend een combinatie van criteria die uit bestaan:
 
 - Nul of één unieke id, de Marketo-id of de externe id
 - Nul of meer kenmerkfilters als naam/waarde/vergelijkingstrips
 - Nul of meer gekoppelde objectfilters als objectnaam/id-paren
 
-Retourneert een lijst met overeenkomende MObjects van één type, tot 100 in een batch, en een [streampositie](stream-position.md) token voor het ophalen van opeenvolgende batches.
+Keert een lijst van passende MObjects, elk van één enkel type, tot 100 in een partij terug, en het teken van de a [ stroompositie ](stream-position.md) voor het terugwinnen van opeenvolgende partijen.
 
 ## Verzoek
 
 | Veldnaam | Vereist/optioneel | Beschrijving |
 | --- | --- | --- |
-| type | Vereist | Het objecttype waarop u een query wilt uitvoeren. Kan een van de volgende opties zijn: `Opportunity`, `OpportunityPersonRole`, of `Program` |
+| type | Vereist | Het objecttype waarop u een query wilt uitvoeren. Kan een van de volgende opties hebben: `Opportunity`, `OpportunityPersonRole` of `Program` |
 | id | Optioneel | Id van het MObject |
 | includeDetails | Optioneel | Wanneer waar zal alle attributen voor een bepaalde MObject terugkeren. Deze parameter is alleen van toepassing bij gebruik met Program MObjects |
-| mObjCriteriaList->mObjCriteria->attrName | Optioneel | Een of meer van de volgende invoerparameters kunnen worden gebruikt:`Name`, `Role`, `Type`, `Stage`, `CRM Id`, `Created At`, `Updated At` of `Tag Type` (er kan slechts één worden gespecificeerd), `Tag Value`, `Workspace Name`, `Workspace Id`, `Include Archive` |
+| mObjCriteriaList->mObjCriteria->attrName | Optioneel | Een of meer van de volgende invoerparameters kunnen worden gebruikt: `Name`, `Role`, `Type`, `Stage`, `CRM Id`, `Created At`, `Updated At` of `Tag Type` (er kan slechts één worden opgegeven), `Tag Value`, `Workspace Name`, `Workspace Id`, `Include Archive` |
 | mObjCriteriaList->mObjCriteria->attrValue | Optioneel | De waarde die u voor het filtreren wilt gebruiken |
-| mObjCriteriaList->mObjCriteria->vergelijking | Optioneel | Eén van `EQ`, `NE`, `LT` ,`LE`, `GT`, `GE` |
+| mObjCriteriaList->mObjCriteria->vergelijking | Optioneel | Een van `EQ`, `NE`, `LT` , `LE`, `GT`, `GE` |
 | mObjAssociationList->mObjAssociation->mObjType | Optioneel |  |
 | mObjAssociationList->mObjAssociation->id | Optioneel | De id van het bijbehorende object (lead/bedrijf/opportunity) |
 | mObjAssociationList->mObjAssociation->externalKey | Optioneel | Een aangepast kenmerk van het gekoppelde object |
-| streamPosition | Optioneel | Wordt gebruikt om door meerdere resultaatsets te pagineren. De waarde die wordt doorgegeven, is de waarde die door de vorige `getMObjects` vraag. |
+| streamPosition | Optioneel | Wordt gebruikt om door meerdere resultaatsets te pagineren. De waarde die wordt doorgegeven, is de waarde die door de vorige `getMObjects` aanroep wordt geretourneerd. |
 
 ## XML aanvragen
 
@@ -441,14 +441,14 @@ $marketoSoapEndPoint    = "";  // CHANGE ME
 $marketoUserId      = "";  // CHANGE ME
 $marketoSecretKey   = "";  // CHANGE ME
 $marketoNameSpace   = "http://www.marketo.com/mktows/";
- 
+
 // Create Signature
 $dtzObj = new DateTimeZone("America/Los_Angeles");
 $dtObj  = new DateTime('now', $dtzObj);
 $timeStamp = $dtObj->format(DATE_W3C);
 $encryptString = $timeStamp . $marketoUserId;
 $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
 // Create SOAP Header
 $attrs = new stdClass();
 $attrs->mktowsUserId = $marketoUserId;
@@ -462,19 +462,19 @@ if ($debug) {
 // Create Request
 $params->type = 'Program';
 // $params->id = "1003";
- 
+
 $mObjCriteria1 = new stdClass();
 $mObjCriteria1->attrName="Id";
 $mObjCriteria1->comparison="LE";
 $mObjCriteria1->attrValue="1010";
- 
+
 $mObjCriteria2 = new stdClass();
 $mObjCriteria2->attrName="Name";
 $mObjCriteria2->comparison="NE";
 $mObjCriteria2->attrValue="elizprogramtest";
- 
+
 $params->mObjCriteriaList=array($mObjCriteria1, $mObjCriteria2);
- 
+
 $soapClient = new SoapClient($marketoSoapEndPoint ."?WSDL", $options);
 try {
   $leads = $soapClient->__soapCall('getMObjects', array($params), $options, $authHdr);
@@ -504,67 +504,67 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class getMObjects {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Get MObjects");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsGetMObjects request = new ParamsGetMObjects();
             request.setType("Program");
-             
+
             MObjCriteria criteria = new MObjCriteria();
             criteria.setAttrName("Id");
             criteria.setComparison(ComparisonEnum.LE);
             criteria.setAttrValue("1010");
-             
+
             MObjCriteria criteria2 = new MObjCriteria();
             criteria2.setAttrName("Name");
             criteria2.setComparison(ComparisonEnum.NE);
             criteria2.setAttrValue("elizprogramtest");
-             
+
             ArrayOfMObjCriteria mObjCriteria= new ArrayOfMObjCriteria();
             mObjCriteria.getMObjCriterias().add(criteria);
             mObjCriteria.getMObjCriterias().add(criteria2);
-             
+
             request.setMObjCriteriaList(mObjCriteria);
- 
+
             SuccessGetMObjects result = port.getMObjects(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessGetMObjects.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -593,9 +593,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

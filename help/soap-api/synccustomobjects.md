@@ -1,14 +1,14 @@
 ---
-title: "syncCustomObjects"
+title: syncCustomObjects
 feature: SOAP
-description: "syncCustomObjects SOAP call"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncCustomObjects SOAP-aanroepen
+exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 0%
 
 ---
-
 
 # syncCustomObjects
 
@@ -20,7 +20,7 @@ Accepteert een array van aangepaste objecten die moeten worden gemaakt of bijgew
 
 In één enkele API vraag, sommige updates kunnen slagen en sommige kunnen ontbreken. Voor elke fout wordt een foutbericht geretourneerd.
 
-Voor aangepaste objecten die zijn ingericht met de nieuwe interface voor aangepaste objecten, worden alleen velden aangegeven als `dedupe` velden in de gebruikersinterface kunnen als kenmerken worden doorgegeven in `CustomObjKeyList`. Velden koppelen die niet `dedupe` velden moeten als kenmerk worden doorgegeven in `customObjAttributeList`.
+Voor aangepaste objecten die zijn ingericht met de nieuwe gebruikersinterface voor aangepaste objecten, kunnen alleen velden die zijn aangewezen als `dedupe` -velden in de gebruikersinterface als kenmerken worden doorgegeven in `CustomObjKeyList` . Koppelingsvelden die geen `dedupe` -velden zijn, moeten als kenmerk worden doorgegeven in `customObjAttributeList` .
 
 ## Verzoek
 
@@ -122,14 +122,14 @@ $marketoSoapEndPoint    = "";  // CHANGE ME
 $marketoUserId      = "";  // CHANGE ME
 $marketoSecretKey   = ""; // CHANGE ME
 $marketoNameSpace   = "http://www.marketo.com/mktows/";
- 
+
 // Create Signature
 $dtzObj = new DateTimeZone("America/Los_Angeles");
 $dtObj  = new DateTime('now', $dtzObj);
 $timeStamp = $dtObj->format(DATE_W3C);
 $encryptString = $timeStamp . $marketoUserId;
 $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
 // Create SOAP Header
 $attrs = new stdClass();
 $attrs->mktowsUserId = $marketoUserId;
@@ -140,7 +140,7 @@ $options = array("connection_timeout" => 15, "location" => $marketoSoapEndPoint)
 if ($debug) {
   $options["trace"] = 1;
 }
- 
+
 // Create Request
 $keyAttrib1 = new stdClass();
 $keyAttrib1->attrName = 'MKTOID';
@@ -202,8 +202,8 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class SyncCustomObjects {
     public static void main(String[] args) {
         System.out.println("Executing Sync Custom Objects");
@@ -211,85 +211,85 @@ public class SyncCustomObjects {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsSyncCustomObjects request = new ParamsSyncCustomObjects();
             request.setObjTypeName("RoadShow");
             JAXBElement<SyncOperationEnum> operation = new ObjectFactory().createParamsSyncCustomObjectsOperation(SyncOperationEnum.UPSERT);
             request.setOperation(operation);
-             
+
             ArrayOfCustomObj customObjects = new ArrayOfCustomObj();
-             
+
             CustomObj customObj = new CustomObj();
-             
-            ArrayOfAttribute arrayOfKeyAttributes = new ArrayOfAttribute();         
+
+            ArrayOfAttribute arrayOfKeyAttributes = new ArrayOfAttribute();
             Attribute attr = new Attribute();
             attr.setAttrName("MKTOID");
             attr.setAttrValue("1090177");
-             
+
             Attribute attr2 = new Attribute();
             attr2.setAttrName("rid");
             attr2.setAttrValue("rid1");
-             
+
             arrayOfKeyAttributes.getAttributes().add(attr);
             arrayOfKeyAttributes.getAttributes().add(attr2);
-             
- 
+
+
             JAXBElement<ArrayOfAttribute> keyAttributes = new ObjectFactory().createCustomObjCustomObjKeyList(arrayOfKeyAttributes);
             customObj.setCustomObjKeyList(keyAttributes);
             ArrayOfAttribute arrayOfValueAttributes = new ArrayOfAttribute();
-             
+
             Attribute city = new Attribute();
             city.setAttrName("city");
             city.setAttrValue("SanMateo");
-             
+
             Attribute zip = new Attribute();
             zip.setAttrName("zip");
             zip.setAttrValue("94404");
-             
+
             Attribute state = new Attribute();
             state.setAttrName("state");
             state.setAttrValue("California");
-             
+
             arrayOfValueAttributes.getAttributes().add(city);
             arrayOfValueAttributes.getAttributes().add(state);
             arrayOfValueAttributes.getAttributes().add(zip);
-             
+
             JAXBElement<ArrayOfAttribute> valueAttributes = new ObjectFactory().createCustomObjCustomObjAttributeList(arrayOfValueAttributes);
             customObj.setCustomObjAttributeList(valueAttributes);
-             
+
             customObjects.getCustomObjs().add(customObj);
- 
+
             SuccessSyncCustomObjects result = port.syncCustomObjects(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessSyncCustomObjects.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -318,9 +318,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

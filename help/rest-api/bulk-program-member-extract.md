@@ -1,18 +1,18 @@
 ---
-title: "Bulk Program Member Extract"
+title: Bulkprogrammalid extraheren
 feature: REST API
-description: "Batchverwerking van gegevensextractie door leden."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Batchverwerking van gegevensextractie door lidstaten.
+exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 0%
 
 ---
 
-
 # Bulkprogrammalid extraheren
 
-[Referentie voor eindpunt voor uittrekpunt van lid van het bulkprogramma](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
+[ Bulk de Verwijzing van Eindpunten van het Lid van het Programma Extraheren ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
 
 De reeks van het Uittreksel van het Lid van het Bulk van het Programma van REST APIs verstrekt een programmatic interface voor het terugwinnen van grote reeksen verslagen van het programmalid uit Marketo. Dit is de aanbevolen interface voor gebruiksgevallen die een continue uitwisseling van gegevens tussen Marketo en een of meer externe systemen vereisen, voor ETL-, data warehousing- en archiefdoeleinden.
 
@@ -22,7 +22,7 @@ De Bulk APIs van het Lid van het Programma Extraheren vereist dat de het bezitte
 
 ## Beschrijven
 
-[Lid van programma beschrijven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) is de primaire bron van de waarheid voor of de gebieden voor gebruik, en meta-gegevens over die gebieden beschikbaar zijn. De `name` bevat de naam van de REST API.
+[ beschrijf het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) is de primaire bron van waarheid voor of de gebieden voor gebruik, en meta-gegevens over die gebieden beschikbaar zijn. Het attribuut `name` bevat de REST API-naam.
 
 ```
 GET /rest/v1/programs/members/describe.json
@@ -213,7 +213,7 @@ GET /rest/v1/programs/members/describe.json
 
 ## Filters
 
-Programmaleden ondersteunen verschillende filteropties. Er kunnen meerdere filtertypen worden opgegeven voor een taak. In dat geval worden ze ANDed bij elkaar geplaatst. U moet de `programId` of de `programIds` filter. Alle andere filters zijn optioneel. De `updatedAt` filter vereist extra infrastructuurcomponenten die nog niet op alle abonnementen zijn uitgevoerd.
+Programmaleden ondersteunen verschillende filteropties. Er kunnen meerdere filtertypen worden opgegeven voor een taak. In dat geval worden ze ANDed bij elkaar geplaatst. U moet het filter `programId` of `programIds` opgeven. Alle andere filters zijn optioneel. Voor het filter `updatedAt` zijn aanvullende infrastructuurcomponenten vereist die nog niet voor alle abonnementen zijn geïmplementeerd.
 
 <table>
   <tbody>
@@ -225,17 +225,17 @@ Programmaleden ondersteunen verschillende filteropties. Er kunnen meerdere filte
     <tr>
       <td>programId</td>
       <td>Geheel</td>
-      <td>Accepteert de id van een programma. Taken retourneren alle toegankelijke records die lid zijn van het programma op het moment dat de taak wordt verwerkt.Programma-id's ophalen met de opdracht <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Programma's ophalen</a> parameter.Kan niet worden gebruikt met filter programIds.</td>
+      <td>Accepteert de id van een programma. De banen keren alle toegankelijke verslagen terug die leden van het programma in de tijd zijn dat de baan met verwerking.Win programmaids terug gebruikend <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs"> krijgt Programma's </a> eindpunt.Kan niet met filter programIds worden gebruikt.</td>
     </tr>
     <tr>
       <td>programIds</td>
       <td>Array[geheel getal]</td>
-      <td>Accepteert een array van maximaal 10 programma-id's. Taken retourneren alle toegankelijke records die lid zijn van de programma's op het moment dat de taak wordt verwerkt. Een extra veld "programId" wordt als eerste veld toegevoegd aan het exportbestand. In dit veld wordt het programma aangegeven waaruit een register voor het lidmaatschap van het programma is opgehaald.De id van het programma ophalen met de <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Programma's ophalen</a> eindpunt.Kan niet met programId filter worden gebruikt.</td>
+      <td>Accepteert een array van maximaal 10 programma-id's. Taken retourneren alle toegankelijke records die lid zijn van de programma's op het moment dat de taak wordt verwerkt. Een extra veld "programId" wordt als eerste veld toegevoegd aan het exportbestand. Dit gebied identificeert het programma dat een verslag van het programmalidmaatschap werd gehaald.Haal programmids terug gebruikend <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs"> krijgt Programma's </a> eindpunt.Kan met filter programId worden gebruikt.</td>
     </tr>
     <tr>
       <td>isExhausted</td>
       <td>Boolean</td>
-      <td>Accepteert een Booleaanse waarde die wordt gebruikt voor het filteren van de lidmaatschapsrecords voor programma's <a href="https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personen met een verouderde inhoud</a>.</td>
+      <td>Accepteert boolean die wordt gebruikt om de verslagen van het programmalidmaatschap voor <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content"> mensen te filtreren die inhoud </a> uitgeput hebben.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -320,23 +320,23 @@ Het eindpunt van de Taak van het Lid van het Programma van de Uitvoer leidt vers
 
 | Parameter | Gegevenstype | Vereist | Notities |
 |---|---|---|---|
-| velden | Array[String] | Ja | De parameter fields accepteert een JSON-array met tekenreeksen. De weergegeven velden worden opgenomen in het geëxporteerde bestand. De volgende veldtypen kunnen worden geëxporteerd:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Geef een veld op met de REST API-naam die kan worden opgehaald met de endpunten Lead2 beschrijven en/of Programmalid beschrijven. |
+| velden | Serie [ Koord ] | Ja | De parameter fields accepteert een JSON-array met tekenreeksen. De weergegeven velden worden opgenomen in het geëxporteerde bestand. De volgende veldtypen kunnen worden geëxporteerd: `LeadCustom` `LeadProgram` MemberCustom `ProgramMember` . Geef een veld op met de REST API-naam die kan worden opgehaald met de endpunten Lead2 beschrijven en/of Programmalid beschrijven. |
 | columnHeaderNames | Object | Nee | Een JSON-object met sleutelwaardeparen van veld- en kolomkopnamen. De sleutel moet de naam zijn van een veld dat is opgenomen in de exporttaak. De waarde is de naam van de geëxporteerde kolomkop voor dat veld. |
 | format | String | Nee | Accepteert één van: CSV, TSV, SSV. Het geëxporteerde bestand wordt gerenderd als een bestand met door komma&#39;s gescheiden waarden, door tabs gescheiden waarden of door spaties gescheiden waarden, indien ingesteld. De standaardwaarde is CSV als de waarde is uitgeschakeld. |
 
 
 ## Een taak maken
 
-De parameters voor de taak worden gedefinieerd voordat de exportbewerking wordt gestart met de opdracht [Taak voor lid van exportprogramma maken](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) eindpunt. We moeten de `filter` met de programma-id en de `fields` die nodig zijn voor de uitvoer. Optioneel kunnen we de `format` van het bestand en de `columnHeaderNames`.
+De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [ creeer het eindpunt van de Taak van het Lid van het Programma van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST). We moeten definiëren welke `filter` de programma-id bevat en welke `fields` nodig is voor het exporteren. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
 
 ```
 POST /bulk/v1/program/members/export/create.json
 ```
 
 ```json
-{ 
+{
    "format": "CSV",
-   "fields": [ 
+   "fields": [
         "firstName",
         "lastName",
         "email",
@@ -350,7 +350,7 @@ POST /bulk/v1/program/members/export/create.json
         "pMCustomField01",
         "pMCustomField02"
    ],
-   "filter": { 
+   "filter": {
       "programId":1044
    }
 }
@@ -371,7 +371,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Daartoe [Taak van het Lid van het Programma van de Uitvoer](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) het eindpunt moet worden geroepen gebruikend `exportId` vanuit de reactie op de aanmaakstatus:
+Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Taak van het Lid van het Programma van de Enqueue ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) {worden geroepen gebruikend `exportId` van de reactie van de aanmaakstatus:
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -393,13 +393,13 @@ POST /bulk/v1/program/members/export/{exportId}/enqueue.json
 }
 ```
 
-Dit zal met een eerste `status` van &quot;In de wachtrij geplaatst&quot; waarna deze wordt ingesteld op &quot;Verwerking&quot; wanneer er een beschikbare exportsleuf is.
+Dit zal met een aanvankelijke `status` van &quot;In de rij&quot;antwoorden waarna zal het aan &quot;Verwerking&quot;worden geplaatst wanneer er een beschikbare uitvoergroef is.
 
 ## Status opiniepeilingtaak
 
 Opmerking: de status kan alleen worden opgehaald voor taken die door dezelfde API-gebruiker zijn gemaakt.
 
-Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling met de opdracht [Status van lid van exportprogramma ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Het statusveld kan reageren met elk van de volgende opties: Gemaakt, In wachtrij geplaatst, Verwerken, Geannuleerd, Voltooid, Mislukt.
+Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling die het [ gebruiken krijgt de Status van de Taak van het Lid van het Programma van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Het statusveld kan reageren met elk van de volgende opties: Gemaakt, In wachtrij geplaatst, Verwerken, Geannuleerd, Voltooid, Mislukt.
 
 ```
 GET /bulk/v1/program/members/export/{exportId}/status.json
@@ -422,7 +422,7 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 }
 ```
 
-Het statuseindpunt antwoordt erop wijzend dat de baan nog verwerkt, zodat is het dossier nog niet beschikbaar voor terugwinning. Eenmaal de taak `status` Als de waarde &quot;Voltooid&quot; is, kan deze worden gedownload.
+Het statuseindpunt antwoordt erop wijzend dat de baan nog verwerkt, zodat is het dossier nog niet beschikbaar voor terugwinning. Zodra de taak `status` is gewijzigd in &quot;Voltooid&quot;, kan deze worden gedownload.
 
 ```json
 {
@@ -447,9 +447,9 @@ Het statuseindpunt antwoordt erop wijzend dat de baan nog verwerkt, zodat is het
 
 ## Uw gegevens ophalen
 
-Als u het bestand van een voltooide programmalidexport wilt ophalen, roept u gewoon de [Lid-bestand van exportprogramma ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET) eindpunt met uw `exportId`.
+Om het dossier van een voltooide uitvoer van het programmalid terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van het Lid van het Programma van de Uitvoer met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET).`exportId`
 
-De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een gevraagd veld voor een programmalid leeg is (geen gegevens bevat), `null` wordt in het desbetreffende veld in het exportbestand geplaatst.
+De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een gevraagd veld voor een programmalid leeg is (geen gegevens bevat), wordt `null` in het corresponderende veld in het exportbestand geplaatst.
 
 ```
 GET /bulk/v1/program/members/export/{exportId}/file.json
@@ -471,11 +471,11 @@ Jory,Cassel,jcas@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1799,f
 Septa,Mordane,smor@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1800,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
 ```
 
-Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. U kunt meer lezen over het gebruik van de Range-header met Marketo [Bulk extraheren](bulk-extract.md).
+Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. U kunt meer lezen over het gebruiken van de kopbal van de Waaier met Marketo [ Bulk Extraheert ](bulk-extract.md).
 
 ## Een taak annuleren
 
-Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend [Taak voor programmalid annuleren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) eindpunt:
+Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [ annuleert het eindpunt van de Taak van het Lid van het Programma van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST):
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/cancel.json

@@ -2,9 +2,9 @@
 title: Blogarchief
 description: Een archief van het Marketo Developers-blog van 2014-2023
 exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
-source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '61741'
+source-wordcount: '61715'
 ht-degree: 0%
 
 ---
@@ -14,15 +14,15 @@ ht-degree: 0%
 >[!INFO]
 >
 >Dit is een archief van de Marketo-blog, dat loopt van 2014 tot 2023. Het wordt hier alleen als historische referentie verstrekt.
->&#x200B;>Sommige informatie is mogelijk verouderd.  Controleer altijd de huidige documentatie op de recentste functionaliteit.
+>>Sommige informatie is mogelijk verouderd.  Controleer altijd de huidige documentatie op de recentste functionaliteit.
 >
 
 >[!IMPORTANT]
->De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. De Marketo REST API moet alle nieuwe ontwikkelingen ondergaan en de bestaande services moeten tegen die datum zijn gemigreerd om onderbreking van de service te voorkomen. Als u de dienst hebt die SOAP API gebruikt, te raadplegen gelieve de [ Gids van de Migratie van SOAP API ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/soap/migration) voor informatie over hoe te migreren.
+>De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. De Marketo REST API moet alle nieuwe ontwikkelingen ondergaan en de bestaande services moeten tegen die datum zijn gemigreerd om onderbreking van de service te voorkomen. Als u de dienst hebt die SOAP API gebruikt, te raadplegen gelieve de [ Gids van de Migratie van SOAP API ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) voor informatie over hoe te migreren.
 >
 
 >[!IMPORTANT]
->Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 oktober 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [ kopbal van de Vergunning ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. De nieuwe ontwikkeling zou de kopbal van de Vergunning uitsluitend moeten gebruiken.
+>Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 oktober 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [ kopbal van de Vergunning ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. De nieuwe ontwikkeling zou de kopbal van de Vergunning uitsluitend moeten gebruiken.
 >
 
 ## Welkom bij het Marketo Developer Blog
@@ -67,7 +67,7 @@ Gepost op _2016-06-01_ door _David_
 
 ## De klant- en perspectiefinformatie van Marketo ophalen met behulp van de API
 
-U kunt informatie over klanten en vooruitzichten terugwinnen die binnen Marketo gebruikend `getLead` en [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads) SOAP API worden opgeslagen. `getMultipleLeads` Het is vaak gewenst om deze informatie op een terugkomende basis te halen om een ander systeem bij te houden aangezien de klanten en de perspectiefinformatie wordt bijgewerkt of nieuwe verslagen in Marketo worden gecreeerd. We tonen u het codevoorbeeld dat op terugkerende basis zou worden uitgevoerd om Marketo voor updates te opiniepeilen. Het onderstaande diagram toont de API-aanroepen die op een ingestelde periodieke timer zijn gemaakt. Afhankelijk van het gebruiksgeval kan de periodieke timer zo worden ingesteld dat deze elke 10 minuten de onderstaande code uitvoert.
+U kunt informatie over klanten en vooruitzichten terugwinnen die binnen Marketo gebruikend `getLead` en [`getMultipleLeads` SOAP API worden opgeslagen. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads) Het is vaak gewenst om deze informatie op een terugkomende basis te halen om een ander systeem bij te houden aangezien de klanten en de perspectiefinformatie wordt bijgewerkt of nieuwe verslagen in Marketo worden gecreeerd. We tonen u het codevoorbeeld dat op terugkerende basis zou worden uitgevoerd om Marketo voor updates te opiniepeilen. Het onderstaande diagram toont de API-aanroepen die op een ingestelde periodieke timer zijn gemaakt. Afhankelijk van het gebruiksgeval kan de periodieke timer zo worden ingesteld dat deze elke 10 minuten de onderstaande code uitvoert.
 
 De eerste vraag aan [`getMultipleLeads` ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads) zal de tijdwaaier, batchSize plaatsen en welke gebieden moeten zijn teruggekeerd. Alle leads in Marketo die in het opgegeven tijdbereik zijn bijgewerkt, worden samen met een streamPosition geretourneerd wanneer er meer records beschikbaar zijn dan de batchSize die is opgegeven.
 
@@ -182,9 +182,9 @@ public class GetMultipleLeads {
         URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
         String marketoUserId = "CHANGE ME";
         String marketoSecretKey = "CHANGE ME";
-        QName serviceName = new QName("<http://www.marketo.com/mktows/>", 
+        QName serviceName = new QName("<http://www.marketo.com/mktows/>",
         "MktMktowsApiService");
-        MktMktowsApiService service = new 
+        MktMktowsApiService service = new
         MktMktowsApiService(marketoSoapEndPoint, serviceName);
         MktowsPort port = service.getMktowsApiSoapPort();
 
@@ -233,7 +233,7 @@ public class GetMultipleLeads {
         attributes.getStringItems().add("Email");
         request.setIncludeAttributes(attributes);
 
-        JAXBElement<Integer> batchSize = new 
+        JAXBElement<Integer> batchSize = new
         ObjectFactory().createParamsGetMultipleLeadsBatchSize(2);
         request.setBatchSize(batchSize);
 
@@ -243,15 +243,15 @@ public class GetMultipleLeads {
 
         do {
         if (count > 0) {
-        // Set the streamPosition on subsequent calls to paginate 
+        // Set the streamPosition on subsequent calls to paginate
         through large result sets
         String pos = result.getResult().getNewStreamPosition();
-        JAXBElement<String> streamPos = new 
+        JAXBElement<String> streamPos = new
         ObjectFactory().createParamsGetMultipleLeadsStreamPosition(pos);
         request.setStreamPosition(streamPos);
         }
 
-        JAXBContext context = 
+        JAXBContext context =
         JAXBContext.newInstance(ParamsGetMultipleLeads.class);
         Marshaller m = context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -328,7 +328,7 @@ Gepast op _2014-04-22_ door _Murta_
 
 ### Marketo Forms Security Update:
 
-Wij introduceerden een grens op het aantal en de frequentie van vorm na het indienen van één enkel IP adres. Deze limiet geldt nu voor 30 berichten per minuut om onze klanten te beschermen tegen kwaadwillig gebruik van geprogrammeerde formulieren. [ syncLead API ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/soap/leads/synclead) is het geadviseerde integratievehikel voor programmatic voorlegging van nieuwe contacten in Marketo.    
+Wij introduceerden een grens op het aantal en de frequentie van vorm na het indienen van één enkel IP adres. Deze limiet geldt nu voor 30 berichten per minuut om onze klanten te beschermen tegen kwaadwillig gebruik van geprogrammeerde formulieren. [ syncLead API ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) is het geadviseerde integratievehikel voor programmatic voorlegging van nieuwe contacten in Marketo.    
 
 Gepost op _2014-04-29_ door _Travis Kaufman_
 
@@ -409,71 +409,71 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.EMAIL);
             key2.setKeyValue("anotherlead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
             leadKeyList.getLeadKeies().add(key2);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -529,14 +529,14 @@ We tonen u eerst hoe u code voor het bijhouden van Munchkin in Marketo genereert
 Dit codevoorbeeld roept de Munchkin API aan nadat de gebruiker 5 seconden op de pagina is geweest en ook 500 pixels omlaag op de pagina heeft geschoven:
 
 ```javascript
-<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script> 
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
  setTimeout(function(){
   $(window).scroll(function() {
       var y_scroll_position = window.pageYOffset;
-      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked        
-  
+      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked
+
   if(y_scroll_position > scroll_position) {
   //Munchkin tracking code
    (function() {
@@ -547,7 +547,7 @@ $(function(){
         Munchkin.init('XXX-XXX-XXX');
       }
      }
-     
+
      var s = document.createElement('script');
      s.type = 'text/javascript';
      s.async = true;
@@ -560,7 +560,7 @@ $(function(){
      s.onload = initMunchkin;
      document.getElementsByTagName('head')[0].appendChild(s);
    })();
-   }   
+   }
  },5000); //Sets time delay before tracking user
 });
 </script>
@@ -687,71 +687,71 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.EMAIL);
             key2.setKeyValue("anotherlead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
             leadKeyList.getLeadKeies().add(key2);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -878,9 +878,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 # Create SOAP Header
-headers = { 
- 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,      
- "requestTimestamp"  => requestTimestamp 
+headers = {
+ 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+ "requestTimestamp"  => requestTimestamp
  }
 }
 
@@ -921,7 +921,6 @@ response = client.call(:sync_multiple_leads, message: request)
 
 puts response
 ```
-
  
 
 Dit artikel bevat code die wordt gebruikt om douaneserveringen uit te voeren. Vanwege de aangepaste aard van de service kan het team van technische ondersteuning van Marketo geen problemen met aangepaste werkzaamheden oplossen. Probeer niet om het volgende codevoorbeeld uit te voeren zonder aangewezen technische ervaring, of toegang tot een ervaren ontwikkelaar.
@@ -933,86 +932,86 @@ Gepast op _2014-06-27_ door _Murta_
 Stel dat een gebruiker een Marketo-formulier op uw site invult. Wat gebeurt er? Marketo cookies de gebruiker en koppelt deze aan de e-mail die ze hebben verzonden. Wat gebeurt er als de gebruiker de volgende keer uw website bezoekt en hetzelfde formulier opnieuw invult met een andere e-mail. Wat gebeurt er? Marketo maakt een nieuwe lead record en overschrijft de eerste cookie in de browser van de gebruiker. De gebruiker is nu een nieuwe/andere lead in Marketo. Wij tonen u vier manieren om het e-mailadres van een lood in Marketo met inbegrip van de [ syncLead API methode ](/help/soap-api/synclead.md) bij te werken, het douanegebied in een vormmethode, Marketo UI, en door een lijst in te voeren. **via syncLead API** U kunt [ syncLead API ](/help/soap-api/synclead.md) gebruiken om een loodverslag bij te werken gebruikend hun identiteitskaart van Marketo en nieuw e-mailadres. Verzoek om XML voor `syncMultipleLeads` SOAP API-aanroep
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>  
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">  
-  <SOAP-ENV:Header>  
-    <ns1:AuthenticationHeader>  
-      <mktowsUserId>bigcorp1_461839624B16E06BA2D663</mktowsUserId>  
-      <requestSignature>92f05a7be4838ae1c0e5aafe814891ee72968a08</requestSignature>  
-      <requestTimestamp>2013-07-31T12:38:47-07:00</requestTimestamp>  
-    </ns1:AuthenticationHeader>  
-  </SOAP-ENV:Header>  
-  <SOAP-ENV:Body>  
-    <ns1:paramsSyncLead>  
-      <leadRecord>  
-        <leadId>1090240</leadId>  
-        <Email>t@t.com</Email>  
-      </leadRecord>  
-      <returnLead>false</returnLead>  
-    </ns1:paramsSyncLead>  
-  </SOAP-ENV:Body>  
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">
+  <SOAP-ENV:Header>
+    <ns1:AuthenticationHeader>
+      <mktowsUserId>bigcorp1_461839624B16E06BA2D663</mktowsUserId>
+      <requestSignature>92f05a7be4838ae1c0e5aafe814891ee72968a08</requestSignature>
+      <requestTimestamp>2013-07-31T12:38:47-07:00</requestTimestamp>
+    </ns1:AuthenticationHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:paramsSyncLead>
+      <leadRecord>
+        <leadId>1090240</leadId>
+        <Email>t@t.com</Email>
+      </leadRecord>
+      <returnLead>false</returnLead>
+    </ns1:paramsSyncLead>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 Response XML for syncMultipleLeads SOAP API Call
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>  
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:xsi="<http://www.w3.org/2001/XMLSchema-instance>" xmlns:ns1="<http://www.marketo.com/mktows/">  
-  <SOAP-ENV:Body>  
-    <ns1:successSyncLead>  
-      <result>  
-        <leadId>1090240</leadId>  
-        <syncStatus>  
-          <leadId>1090240</leadId>  
-          <status>UPDATED</status>  
-          <error xsi:nil="true" />  
-        </syncStatus>  
-        <leadRecord xsi:nil="true" />  
-      </result>  
-    </ns1:successSyncLead>  
-  </SOAP-ENV:Body>  
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:xsi="<http://www.w3.org/2001/XMLSchema-instance>" xmlns:ns1="<http://www.marketo.com/mktows/">
+  <SOAP-ENV:Body>
+    <ns1:successSyncLead>
+      <result>
+        <leadId>1090240</leadId>
+        <syncStatus>
+          <leadId>1090240</leadId>
+          <status>UPDATED</status>
+          <error xsi:nil="true" />
+        </syncStatus>
+        <leadRecord xsi:nil="true" />
+      </result>
+    </ns1:successSyncLead>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 Zie onder een voorbeeldprogramma van Ruby dat hierboven verzoekXML zal uitvoeren.
 
 ```java
-require 'savon' # Use version 2.0 Savon gem  
-require 'date'  
-  
-mktowsUserId = "" # CHANGE ME  
-marketoSecretKey = "" # CHANGE ME  
-marketoSoapEndPoint = "" # CHANGE ME  
-marketoNameSpace = "<http://www.marketo.com/mktows/>"  
-  
-# Create Signature  
-Timestamp = DateTime.now  
-requestTimestamp = Timestamp.to_s  
-encryptString = requestTimestamp + mktowsUserId  
-digest = OpenSSL::Digest.new('sha1')  
-hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptString)  
-requestSignature = hashedsignature.to_s  
-  
-# Create SOAP Header  
-headers = {   
- 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,        
- "requestTimestamp"  => requestTimestamp   
- }  
-}  
-  
-client = Savon.client(wsdl: '<http://app.marketo.com/soap/mktows/2_3?WSDL>', soap_header: headers, endpoint: marketoSoapEndPoint, open_timeout: 90, read_timeout: 90, namespace_identifier: :ns1, env_namespace: 'SOAP-ENV')  
-  
-# Create Request  
-request = {  
- :lead_record => {  
-  :Email => "<t@t.com>",  
-  :lead_id => "1090240",  
- :return_lead => "false"  
-}  
-  
-response = client.call(:sync_lead, message: request)  
-  
+require 'savon' # Use version 2.0 Savon gem
+require 'date'
+
+mktowsUserId = "" # CHANGE ME
+marketoSecretKey = "" # CHANGE ME
+marketoSoapEndPoint = "" # CHANGE ME
+marketoNameSpace = "<http://www.marketo.com/mktows/>"
+
+# Create Signature
+Timestamp = DateTime.now
+requestTimestamp = Timestamp.to_s
+encryptString = requestTimestamp + mktowsUserId
+digest = OpenSSL::Digest.new('sha1')
+hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptString)
+requestSignature = hashedsignature.to_s
+
+# Create SOAP Header
+headers = {
+ 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+ "requestTimestamp"  => requestTimestamp
+ }
+}
+
+client = Savon.client(wsdl: '<http://app.marketo.com/soap/mktows/2_3?WSDL>', soap_header: headers, endpoint: marketoSoapEndPoint, open_timeout: 90, read_timeout: 90, namespace_identifier: :ns1, env_namespace: 'SOAP-ENV')
+
+# Create Request
+request = {
+ :lead_record => {
+  :Email => "<t@t.com>",
+  :lead_id => "1090240",
+ :return_lead => "false"
+}
+
+response = client.call(:sync_lead, message: request)
+
 puts response
 ```
 
@@ -1032,14 +1031,14 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/leads.json"
 # Replace with your access token
-auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab" 
+auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
 request_url = marketo_instance + endpoint + auth_token
 
 # Build request body
-data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] } 
+data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] }
 
 # Make request
 response = RestClient.post request_url, data.to_json, :content_type => :json, :accept => :json
@@ -1052,7 +1051,7 @@ Gepast op _2015-02-20_ door _Murta_
 
 ## Een aangepast veld maken in Marketo en dit veld bijwerken via AP
 
-Stel dat u aanvullende gegevens over uw leads hebt die niet in de standaard Marketo-velden passen. Dit aangepaste veld kan bijvoorbeeld een score van derden zijn. U kunt een douanegebied in Marketo voor uw derdescore tot stand brengen, en dan de waarde van dit gebied via of Marketo [ REST APIs ](https://developer.adobe.com/marketo-apis/) of [ SOAP APIs ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/soap/activity-type-filters) bijwerken. We tonen u eerst hoe u een aangepast veld maakt in Marketo en vervolgens hoe u dit veld bijwerkt met de REST API.
+Stel dat u aanvullende gegevens over uw leads hebt die niet in de standaard Marketo-velden passen. Dit aangepaste veld kan bijvoorbeeld een score van derden zijn. U kunt een douanegebied in Marketo voor uw derdescore tot stand brengen, en dan de waarde van dit gebied via of Marketo [ REST APIs ](https://developer.adobe.com/marketo-apis/) of [ SOAP APIs ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/activity-type-filters) bijwerken. We tonen u eerst hoe u een aangepast veld maakt in Marketo en vervolgens hoe u dit veld bijwerkt met de REST API.
 
 ### Een aangepast veld maken in Marketo
 
@@ -1073,10 +1072,10 @@ In de vorige sectie hebben we een aangepast veld met de naam `myCustomField` gem
 **Lichaam van het Verzoek**
 
 ```json
-{  
+{
    "action":"createOrUpdate",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"<example@example.com>",
          "myCustomField":"examplestring"
       }
@@ -1103,9 +1102,9 @@ Dit is het proxyformulier in Marketo dat het Unbounce-formulier vertegenwoordigt
 ```javascript
 var MARKETO_MUNCHKIN_ID='614-CGT-700';
 var MARKETO_ACCOUNT_STRING = 'fpmarkets';
-  
-var UNBOUNCE_MARKETO_FIELD_MAP = new Object(); 
-  
+
+var UNBOUNCE_MARKETO_FIELD_MAP = new Object();
+
 //default field mappings
 UNBOUNCE_MARKETO_FIELD_MAP['first_name'] = 'FirstName';
 UNBOUNCE_MARKETO_FIELD_MAP['email'] = 'Email';
@@ -1115,39 +1114,39 @@ UNBOUNCE_MARKETO_FIELD_MAP['phone_number'] = 'Phone';
 function getMarketoField(k) {
     return UNBOUNCE_MARKETO_FIELD_MAP[k];
 }
-  
-  
+
+
 var formFields = [];
 var hiddenClonedFields = [];
-var firstForm = document.forms[0];  
-  
-//Convert Unbounce form names to Marketo field names  
+var firstForm = document.forms[0];
+
+//Convert Unbounce form names to Marketo field names
 for(i=0; i<firstForm.elements.length; i++){
  var formField = firstForm.elements[i];
  var newFieldName = getMarketoField(formField.name);
-  
+
   if(newFieldName != undefined) {
-        
-    
+
+
     //save original field as hidden field
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
     hiddenField.setAttribute("name", formField.name);
     hiddenField.setAttribute("id", formField.id);
     hiddenClonedFields.push(hiddenField);
-    
+
     //change original field
     console.log ( 'Changed form field name: ' + formField.name + '=>' + newFieldName );
     formField.name = newFieldName;
     formField.id = newFieldName;
     formFields.push(formField);
-    
-    
+
+
   } else {
     console.log ( 'Couldn't map:' + formField.name );
   }
 }
-  
+
 //Add hidden cloned Unbounce fields to form
 //for Unbounce validation
 for(i=0; i<hiddenClonedFields.length; i++){
@@ -1160,8 +1159,8 @@ for(i=0; i<hiddenClonedFields.length; i++){
     }(hiddenClonedFields[i]));
     console.log ( 'Added cloned field: ' + hiddenClonedFields[i].name );
 }
-  
-   
+
+
 //Add MunchkinId to form
 var input = document.createElement("input");
 input.setAttribute("type", "hidden");
@@ -1430,12 +1429,12 @@ Dit fragment verwacht dat één formulier op de pagina wordt geladen. Als er vee
 ```javascript
 <script>
 //add a callback to the first ready form on the page
-MktoForms2.whenReady( function(form){ 
+MktoForms2.whenReady( function(form){
  //add the tracking field to be submitted
         form.addHiddenFields({"_mkt_trk":""});
         //clear the value during the onSubmit event to prevent tracking association
  form.onSubmit( function(form){
-  form.vals({"_mkt_trk":""}); 
+  form.vals({"_mkt_trk":""});
  })
 })
 </script>
@@ -1459,7 +1458,7 @@ Gebruikend [ RTP JavaScript APIs ](/help/javascript-api/web-personalization.md) 
 ```javascript
 <script>
 //modify the form and grab the user
-MktoForms2.whenReady( function(form) { 
+MktoForms2.whenReady( function(form) {
         //add the hidden fields to the form
  form.addHiddenFields({
   "mostRecentCountry":"",
@@ -1492,7 +1491,7 @@ Gepast op _2014-09-19_ door _Murta_
 
 ## Veelgestelde vragen over Marketo REST vs SOAP API&#39;s
 
-**Bijgewerkt: Maart 2016** hier zijn antwoorden aan de vaakst gestelde vragen over Marketo [ REST ](/help/rest-api/rest-api.md) en [ SOAP ](/help/soap-api/soap-api.md) APIs. **Q: Wat zijn de belangrijkste verschillen tussen Marketo REST en SOAP APIs?** A: Hoewel de mogelijkheid om specifieke gegevens via REST- en SOAP-API&#39;s te push/pull-specifieke gegevens grotendeels overlapt, bestaat er bepaalde functionaliteit die alleen in REST- of SOAP-API&#39;s bestaat. In termen van prestaties, heeft REST API betere [ productie ](https://en.wikipedia.org/wiki/Throughput) dan SOAP API. In termen van het authentificatiemodel, heeft REST API een authentificatiemodel dat een het verlopen teken gebruikt. Onze REST API verleent ook toegang tot de activa van Marketo [&#128279;](https://developer.adobe.com/marketo-apis/api/asset/).   **Q: Welke eigenschappen beschikbaar in REST API die niet in SOAP API beschikbaar zijn?** A: [ Lijst van lijsten API ](/help/rest-api/list-of-standard-fields.md), [ verwijdert een lood uit een lijst API ](/help/rest-api/lead-database.md), [ Gebruik API van het Gebruik ](/help/rest-api/rest-api.md), en [ Fout API ](/help/rest-api/rest-api.md) zijn slechts beschikbaar met REST API. **Q: Zijn er plannen om het aantal APIs te verhogen beschikbaar voor SOAP API?** A: Nee. **Q: Zijn er plannen om het aantal APIs te verhogen beschikbaar voor REST API?** A: Ja. REST is op dit moment het belangrijkste aandachtspunt bij de ontwikkeling van de Marketo API.
+**Bijgewerkt: Maart 2016** hier zijn antwoorden aan de vaakst gestelde vragen over Marketo [ REST ](/help/rest-api/rest-api.md) en [ SOAP ](/help/soap-api/soap-api.md) APIs. **Q: Wat zijn de belangrijkste verschillen tussen Marketo REST en SOAP APIs?** A: Hoewel de mogelijkheid om specifieke gegevens via REST- en SOAP-API&#39;s te push/pull-specifieke gegevens grotendeels overlapt, bestaat er bepaalde functionaliteit die alleen in REST- of SOAP-API&#39;s bestaat. In termen van prestaties, heeft REST API betere [ productie ](https://en.wikipedia.org/wiki/Throughput) dan SOAP API. In termen van het authentificatiemodel, heeft REST API een authentificatiemodel dat een het verlopen teken gebruikt. Onze REST API verleent ook toegang tot de activa van Marketo [ ](https://developer.adobe.com/marketo-apis/api/asset/).   **Q: Welke eigenschappen beschikbaar in REST API die niet in SOAP API beschikbaar zijn?** A: [ Lijst van lijsten API ](/help/rest-api/list-of-standard-fields.md), [ verwijdert een lood uit een lijst API ](/help/rest-api/lead-database.md), [ Gebruik API van het Gebruik ](/help/rest-api/rest-api.md), en [ Fout API ](/help/rest-api/rest-api.md) zijn slechts beschikbaar met REST API. **Q: Zijn er plannen om het aantal APIs te verhogen beschikbaar voor SOAP API?** A: Nee. **Q: Zijn er plannen om het aantal APIs te verhogen beschikbaar voor REST API?** A: Ja. REST is op dit moment het belangrijkste aandachtspunt bij de ontwikkeling van de Marketo API.
 
 Gepast op _2014-09-20_ door _Murta_
 
@@ -1560,7 +1559,7 @@ Stel dat u een dagelijkse e-mail verzendt en dat u de datum van die dag automati
 
 `$current_date`
 
-1. Verwijs naar het token in de e-mailsjabloon.** Noteer de naam van de token. Ga naar uw e-mailconcept. Neem het token op.  Wanneer het e-mailbericht wordt verzonden, wordt de waarde van het token ingevuld. Voor meer informatie, gelieve te zien de [ e-mailScripting ontwikkelaarsdocumentatie ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/email-scripting).
+1. Verwijs naar het token in de e-mailsjabloon.** Noteer de naam van de token. Ga naar uw e-mailconcept. Neem het token op.  Wanneer het e-mailbericht wordt verzonden, wordt de waarde van het token ingevuld. Voor meer informatie, gelieve te zien de [ e-mailScripting ontwikkelaarsdocumentatie ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/email-scripting).
 
 Gepast op _2014-11-22_ door _Murta_
 
@@ -1619,11 +1618,11 @@ Om deze vraag te maken, hebben wij uw Authentificatie en REST eindpunten van uw 
 Wanneer we deze aanroep maken, wordt een JSON-object geretourneerd dat er als volgt uitziet:
 
 ```json
-{  
+{
     "requestId":"e42b#14272d07d78",
     "success":true,
-    "result":[  
-        {  
+    "result":[
+        {
         "id":50,
         "firstName":"Kenny",
  "lastName":"Elkington",
@@ -1638,11 +1637,11 @@ Nu we over onze hoofddetails beschikken, kunnen we deze in een Marketo-formulier
 ```javascript
 <script>
 //print your JSON object dynamically as the mktoLead variable
-var mktoLead = {  
+var mktoLead = {
     "requestId":"e42b#14272d07d78",
     "success":true,
-    "result":[  
-        {  
+    "result":[
+        {
         "id":50,
         "firstName":"Kenny",
   "lastName":"Elkington",
@@ -1661,7 +1660,7 @@ MktoForms2.whenReady( function(form) {
  //set the first result as local variable
  var mktoLeadFields = mktoLead.result[0];
     //map your results from REST call to the corresponding field name on the form
- var prefillFields = { 
+ var prefillFields = {
    "Email" : mktoLeadFields.email,
    "FirstName" : mktoLeadFields.firstName,
    "LastName" : mktoLeadFields.lastName,
@@ -1834,7 +1833,7 @@ Trello is a [ populaire web-based toepassing van het projectbeheer ](https://tre
 1. Klik op Concept bewerken voor de e-mail die u in Stap 5 hebt gemaakt. Sleep de relevante tokens die u op uw Trello-kaart wilt weergeven. De onderwerpregel van de e-mail van Marketo wordt weergegeven in de titel van de Trello-kaart en de tekst van de e-mail van Marketo wordt weergegeven in de beschrijving van de Trello-kaart. U kunt bijvoorbeeld &quot;LEAD-WAARSCHUWING: `{{lead.First Name:default=edit me}}` `{{lead.Last Name:default=edit me}}` gebruiken als u de voor- en achternaam van de lead in de titel van de Trello-kaart wilt opnemen. Voer vervolgens de e-mail in.
 1. Navigeer naar slimme campagne. Klik op Stroom. Sleep Waarschuwing verzenden naar het middelste deelvenster. Selecteer het zojuist gemaakte e-mailbericht. Selecteer &#39;Verzenden naar&#39; als Geen. Selecteer &#39;Aan andere e-mails&#39; als de Trello-e-mail in stap twee.
 1. Klik op Planning in het bovenste menu. Klik op Activeren. Klik op Bevestigen.
-1. Test de integratie. Een kaart met de voornaam en achternaam van de leider in de titel verschijnt op het bord van Trello. Zie {de documentatie van 0} Trello [&#128279;](https://support.atlassian.com/trello/) voor meer informatie.
+1. Test de integratie. Een kaart met de voornaam en achternaam van de leider in de titel verschijnt op het bord van Trello. Zie {de documentatie van 0} Trello [ voor meer informatie.](https://support.atlassian.com/trello/)
 
 Gepast op _2014-11-18_ door _Murta_
 
@@ -2278,14 +2277,14 @@ In Google Analytics kunt u aangepaste gegevensgebeurtenissen verzenden en deze v
 ```javascript
 function pushFormDataToGa(a){
 setTimeout(function () {
-document.getElementsByTagName('form')[0].getElementsByClassName(a.submitButton)[0].addEventListener('click', function() { 
+document.getElementsByTagName('form')[0].getElementsByClassName(a.submitButton)[0].addEventListener('click', function() {
   allFields = document.getElementsByTagName('form')[0].getElementsByTagName('input');
   for(i=0;i<allFields.length;i++){
    if( (allFields[i].type !="hidden" && allFields[i].type !="submit" && allFields[i].value !="" && a.fieldsToExclude.indexOf(allFields[i].id) === -1  ) || (allFields[i].type === "hidden" && a.sendHiddenFields) ){
     console.log( allFields[i].name + ": "  + allFields[i].value);
     if(typeof(_gaq) != "undefined"){
     //Classic
-    _trackEvent("Marketo Form Submission", allFields[i].value , allFields[i].name 
+    _trackEvent("Marketo Form Submission", allFields[i].value , allFields[i].name
 {'nonInteraction': 1});
     }else if(typeof(ga) !="undefined"){
     //Universal
@@ -2295,7 +2294,7 @@ document.getElementsByTagName('form')[0].getElementsByClassName(a.submitButton)[
 pushFormDataToGa({
  submitButton: "mktoButton",
  fieldsToExclude: ["Email","LastName", "FirstName"],
- sendHiddenFields : false  
+ sendHiddenFields : false
 });
 ```
 
@@ -2376,7 +2375,7 @@ Wanneer een gebruiker op de knop &quot;Verzenden&quot; op een Marketo-formulier 
 <form id="mktoForm_19"></form>
 <script>
 MktoForms2.loadForm("//app-e.marketo.com", "212-RBI-463", 19,function(form){
- 
+
 //Add this function to your Marketo form script
 form.onSubmit(function(){
 alert("Do you really want to submit the form?");
@@ -2497,7 +2496,7 @@ Stel dat u de kleur van de hinttekst (ook wel de plaatsaanduidingstekst genoemd)
 ::-webkit-input-placeholder {
   color: blue;
 }
-::-moz-placeholder { 
+::-moz-placeholder {
   color: blue;
 }
 :-ms-input-placeholder {
@@ -2515,13 +2514,13 @@ Stel dat u de kleur van de hinttekst (ook wel de plaatsaanduidingstekst genoemd)
 ::-webkit-input-placeholder {
   color: blue;
 }
-::-moz-placeholder { 
+::-moz-placeholder {
   color: blue;
 }
 :-ms-input-placeholder {
   color: blue;
 }
-:-moz-placeholder { 
+:-moz-placeholder {
   color: blue;
 }
 </style>
@@ -2534,13 +2533,13 @@ Stel dat u de kleur van de hinttekst (ook wel de plaatsaanduidingstekst genoemd)
 ::-webkit-input-placeholder {
   color: blue;
 }
-::-moz-placeholder { 
+::-moz-placeholder {
   color: blue;
 }
 :-ms-input-placeholder {
   color: blue;
 }
-:-moz-placeholder { 
+:-moz-placeholder {
   color: blue;
 }
 </style>
@@ -2584,7 +2583,7 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/activities/pagingtoken.json"
 # Replace with your access token
 auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
@@ -2607,7 +2606,7 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/activities.json"
 # Replace with your access token
 auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
@@ -2801,7 +2800,7 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/leads.json"
 # Replace with your access token
 auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
@@ -2894,7 +2893,7 @@ events: {
 
 function onPlayerStateChange(event) {
 switch( event.data ) {
-//Send video started event to Marketo 
+//Send video started event to Marketo
 case YT.PlayerState.PLAYING: Munchkin.munchkinFunction('visitWebPage', {
 url: '/video/'+videoId
 , params: 'video=started'
@@ -3056,14 +3055,14 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "https://AAA-BBB-CCC.mktorest.com" 
+marketo_instance = "https://AAA-BBB-CCC.mktorest.com"
 endpoint = "/rest/v1/leads.json"
 # Replace with your access token
-auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab" 
+auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
 request_url = marketo_instance + endpoint + auth_token
 
 # Build request body
-data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] } 
+data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] }
 
 # Make request
 response = RestClient.post request_url, data.to_json, :content_type => :json, :accept => :json
@@ -3131,8 +3130,8 @@ Met deze aangepaste JavaScript kunnen RTP-gebruikers campagnes weergeven enkele 
 <script>
 function sendCustomRTPEvent(a){
  var eventValue="t="+a;
- setTimeout(function(){ 
-  rtp('send', 'event', {value: eventValue}); 
+ setTimeout(function(){
+  rtp('send', 'event', {value: eventValue});
   rtp('get', 'campaign',true);
  }, 1000 \* a);
 }
@@ -3221,7 +3220,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class SyncEmailUnsubscribe {
-    // Define Marketo instance meta data here.  
+    // Define Marketo instance meta data here.
     // Each row contains three elements: Account Id, Client Id, Client Secret.
     // For example:
     //  public static String instanceData[][] = {
@@ -3432,7 +3431,7 @@ In dat bericht werd een codevoorbeeld weergegeven dat op terugkerende basis kan 
 1. De vraag krijgt de Veranderingen van de Lood om een lijst van alle Lood Ids te produceren die of specifieke veranderde loodgebieden hadden, of tijdens een bepaalde tijdspanne werden toegevoegd.
 1. De vraag krijgt identiteitskaart van de Lood voor elke Lood ID in de lijst om gebiedsgegevens van het loodverslag terug te winnen.
 
-We nemen de opgehaalde gegevens in stap 2 en formatteren deze voor gebruik door een extern systeem.  **Input van het Programma** door gebrek gaat het programma &quot;terug&quot;één dag van de huidige datum om veranderingen te zoeken. Je zou dit programma bijvoorbeeld elke dag op hetzelfde tijdstip kunnen uitvoeren. Om verder terug in tijd te gaan, kunt u het aantal dagen als argument van de bevellijn specificeren, effectief verhogend het tijdvenster. Het programma bevat verscheidene variabelen die u kunt wijzigen: CUSTOM_SERVICE_DATA - dit bevat uw gegevens van de Dienst van de Douane van Marketo [&#128279;](/help/rest-api/custom-services.md) (Identiteitskaart van de Rekening, Identiteitskaart van de Cliënt, Geheime cliënt).  LEAD_CHANGE_FIELD_FILTER - Dit bevat een door komma&#39;s gescheiden lijst met loodvelden die we controleren op wijzigingen. READ_BATCH_SIZE - Dit is het aantal verslagen dat tegelijkertijd moet terugwinnen. Gebruik dit om de reactie op lichaamsomvang aan te passen. **Output van het Programma** het programma verzamelt omhoog alle veranderde loodverslagen en formatteert hen in JSON als serie van loodvoorwerpen als volgt:
+We nemen de opgehaalde gegevens in stap 2 en formatteren deze voor gebruik door een extern systeem.  **Input van het Programma** door gebrek gaat het programma &quot;terug&quot;één dag van de huidige datum om veranderingen te zoeken. Je zou dit programma bijvoorbeeld elke dag op hetzelfde tijdstip kunnen uitvoeren. Om verder terug in tijd te gaan, kunt u het aantal dagen als argument van de bevellijn specificeren, effectief verhogend het tijdvenster. Het programma bevat verscheidene variabelen die u kunt wijzigen: CUSTOM_SERVICE_DATA - dit bevat uw gegevens van de Dienst van de Douane van Marketo [ (Identiteitskaart van de Rekening, Identiteitskaart van de Cliënt, Geheime cliënt). ](/help/rest-api/custom-services.md) LEAD_CHANGE_FIELD_FILTER - Dit bevat een door komma&#39;s gescheiden lijst met loodvelden die we controleren op wijzigingen. READ_BATCH_SIZE - Dit is het aantal verslagen dat tegelijkertijd moet terugwinnen. Gebruik dit om de reactie op lichaamsomvang aan te passen. **Output van het Programma** het programma verzamelt omhoog alle veranderde loodverslagen en formatteert hen in JSON als serie van loodvoorwerpen als volgt:
 
 ```json
 {
@@ -3450,7 +3449,7 @@ We nemen de opgehaalde gegevens in stap 2 en formatteren deze voor gebruik door 
 }
 ```
 
-Het idee is dat u dit JSON dan als verzoeklading aan een externe Webdienst kon overgaan om de gegevens te synchroniseren. {de Logische 1} Logica van het 0&rbrace; Programma &lbrace;vestigen wij eerst ons tijdvenster, stellen ons eindpuntURL van REST samen, en verkrijgen ons toegangstoken van de Authentificatie. **&#x200B;**&#x200B;Vervolgens zetten we een &#39;Get Paging Token/Get Lead Changes&#39;-lus in werking, die loopt tot we de doorvoertoevoer van de loodwijzigingen uitputten. Het doel van deze lus is een lijst met unieke lead-id&#39;s te verzamelen, zodat we deze later in het programma kunnen doorgeven aan &#39;lead by id&#39;. In dit voorbeeld geven we Lead-wijzigingen op om te zoeken naar wijzigingen in de volgende velden: firstName, lastName, email. U kunt een willekeurige combinatie van velden selecteren voor uw doeleinden. Hiermee worden Lead-wijzigingen geretourneerd naar &#39;result&#39;-objecten die een Activity Type ID bevatten, die we kunnen gebruiken om resultaten te filteren. Nota: U kunt een lijst van de Types van Activiteit krijgen door [ te roepen krijgt de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getAllActivityTypesUsingGET) REST eindpunt. We zijn geïnteresseerd in twee soorten activiteiten die worden geretourneerd: 1. Nieuwe lead (12)
+Het idee is dat u dit JSON dan als verzoeklading aan een externe Webdienst kon overgaan om de gegevens te synchroniseren. {de Logische 1} Logica van het 0} Programma {vestigen wij eerst ons tijdvenster, stellen ons eindpuntURL van REST samen, en verkrijgen ons toegangstoken van de Authentificatie. **** Vervolgens zetten we een &#39;Get Paging Token/Get Lead Changes&#39;-lus in werking, die loopt tot we de doorvoertoevoer van de loodwijzigingen uitputten. Het doel van deze lus is een lijst met unieke lead-id&#39;s te verzamelen, zodat we deze later in het programma kunnen doorgeven aan &#39;lead by id&#39;. In dit voorbeeld geven we Lead-wijzigingen op om te zoeken naar wijzigingen in de volgende velden: firstName, lastName, email. U kunt een willekeurige combinatie van velden selecteren voor uw doeleinden. Hiermee worden Lead-wijzigingen geretourneerd naar &#39;result&#39;-objecten die een Activity Type ID bevatten, die we kunnen gebruiken om resultaten te filteren. Nota: U kunt een lijst van de Types van Activiteit krijgen door [ te roepen krijgt de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getAllActivityTypesUsingGET) REST eindpunt. We zijn geïnteresseerd in twee soorten activiteiten die worden geretourneerd: 1. Nieuwe lead (12)
 
 ```json
 {
@@ -3806,7 +3805,7 @@ iOS 0.3.5
 
 Android 0.3.3
 
-* Toegevoegd android:configChanges-kenmerk aan AndroidManifest.xml `<activity>` -element om te voorkomen dat het voortgangsdialoogvenster wordt gesloten wanneer u een testapparaat hebt toegevoegd en de oriëntatie hebt gewijzigd. [ MOB-687 ]
+* Toegevoegd android :configChanges -kenmerk aan AndroidManifest.xml `<activity>` -element om te voorkomen dat het voortgangsdialoogvenster wordt gesloten wanneer u een testapparaat hebt toegevoegd en de oriëntatie hebt gewijzigd. [ MOB-687 ]
 
 Gepost op _2015-06-30_ door _David_
 
@@ -3818,7 +3817,7 @@ Verschillende van onze klanten bieden oplossingen voor webapps voor hun gebruike
 * Verschillende typen abonnementen (up-sell, cross-sell of webinar training)
 * Nieuwe functies die relevant zijn voor de gebruikersactiviteit
 
-**Het teamgebruik van het Geval van het Geval van het Gebruik van de 1&rbrace; Marketo het Team van de Succes van de Klant gebruikt In-App Web Personalization om met specifieke abonnementstypes (Vonk, Norm, Uitgezocht, of Onderneming) met gepersonaliseerde inhoud te communiceren, ervoor zorgen zij progressieve campagnes zien en in-app gebruikers voeden die op hun overeenkomst worden gebaseerd.** Zie hoe dit kan worden gedaan voor een gebruiker met een Enterprise-abonnementstype. **Vereiste** begrijp de [ Context API van de Gebruiker RTP ](/help/javascript-api/web-personalization.md). **laat de Context API van de Gebruiker** Verzoek van de Steun van Marketo toe om de Context API van de Gebruiker voor uw rekening toe te laten RTP. **plaats de Variabele van de Douane** Er zijn 5 groeven van de douanevariabele beschikbaar in RTP om gegevens naar te verzenden. In dit voorbeeld sturen we een type gebruikersabonnement naar Aangepaste variabele 1.
+**Het teamgebruik van het Geval van het Geval van het Gebruik van de 1} Marketo het Team van de Succes van de Klant gebruikt In-App Web Personalization om met specifieke abonnementstypes (Vonk, Norm, Uitgezocht, of Onderneming) met gepersonaliseerde inhoud te communiceren, ervoor zorgen zij progressieve campagnes zien en in-app gebruikers voeden die op hun overeenkomst worden gebaseerd.** Zie hoe dit kan worden gedaan voor een gebruiker met een Enterprise-abonnementstype. **Vereiste** begrijp de [ Context API van de Gebruiker RTP ](/help/javascript-api/web-personalization.md). **laat de Context API van de Gebruiker** Verzoek van de Steun van Marketo toe om de Context API van de Gebruiker voor uw rekening toe te laten RTP. **plaats de Variabele van de Douane** Er zijn 5 groeven van de douanevariabele beschikbaar in RTP om gegevens naar te verzenden. In dit voorbeeld sturen we een type gebruikersabonnement naar Aangepaste variabele 1.
 
 `rtp('set', 'customVar1', 'Enterprise');`
 
@@ -3845,7 +3844,7 @@ Er zijn een paar configuratievereisten binnen Marketo om de vereiste vraag met d
 * Er moet een Transactiee-mail zijn gemaakt en goedgekeurd in uw Marketo-exemplaar.
 * Er moet een actieve triggercampagne zijn met de campagne is aangevraagd, Source: Web Service API, die is ingesteld om de e-mail te verzenden
 
-Eerst [ creeer en keur uw e-mail ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) goed. Als de e-mail werkelijk transactie is, zult u waarschijnlijk het aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen. Goedkeuren en we zijn klaar om onze campagne te maken. Als u aan het creëren van campagnes nieuw bent, controle uit [ creeer een Nieuw Slimme Campagne ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign) artikel op docs.marketo.com. Zodra u uw campagne hebt gecreeerd, moeten wij door deze stappen gaan. Configureer uw slimme lijst met de trigger voor de campagne: nu moeten we de stroom configureren om een stap E-mail verzenden naar onze e-mail te sturen. Voordat u de activering uitvoert, moet u een aantal instellingen op het tabblad Planning opgeven. Als deze specifieke e-mail maar één keer naar een bepaalde record moet worden verzonden, laat u de kwalificatie-instellingen ongewijzigd. Als het vereist is dat zij de e-mail veelvoudige tijden ontvangen, niettemin, zult u dit aan of elke keer of aan één van de beschikbare wegen willen aanpassen. Nu zijn we klaar om te activeren.
+Eerst [ creeer en keur uw e-mail ](https://experienceleague.adobe.com/en/docs/marketo/using/home) goed. Als de e-mail werkelijk transactie is, zult u waarschijnlijk het aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen. Goedkeuren en we zijn klaar om onze campagne te maken. Als u aan het creëren van campagnes nieuw bent, controle uit [ creeer een Nieuw Slimme Campagne ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign) artikel op docs.marketo.com. Zodra u uw campagne hebt gecreeerd, moeten wij door deze stappen gaan. Configureer uw slimme lijst met de trigger voor de campagne: nu moeten we de stroom configureren om een stap E-mail verzenden naar onze e-mail te sturen. Voordat u de activering uitvoert, moet u een aantal instellingen op het tabblad Planning opgeven. Als deze specifieke e-mail maar één keer naar een bepaalde record moet worden verzonden, laat u de kwalificatie-instellingen ongewijzigd. Als het vereist is dat zij de e-mail veelvoudige tijden ontvangen, niettemin, zult u dit aan of elke keer of aan één van de beschikbare wegen willen aanpassen. Nu zijn we klaar om te activeren.
 
 ### Het verzenden van de API Vraag
 
@@ -3856,7 +3855,7 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -3909,7 +3908,7 @@ public class RequestCampaign {
  private Auth auth;
  public ArrayList leads = new ArrayList();
  public ArrayList tokens = new ArrayList();
- 
+
  public RequestCampaign(Auth auth, int campaignId) {
   this.auth = auth;
   this.endpoint = this.auth.marketoInstance + "/rest/v1/campaigns/" + campaignId + "/trigger.json";
@@ -3938,7 +3937,7 @@ public class RequestCampaign {
    JsonObject requestBody = buildRequest(); //builds the Json Request Body
    String s = endpoint + "?access_token=" + auth.getToken(); //takes the endpoint URL and appends the access_token parameter to authenticate
    System.out.println("Executing RequestCampaign calln" + "Endpoint: " + s + "nRequest Body:n"  + requestBody);
-   URL url = new URL(s); 
+   URL url = new URL(s);
    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection(); //Return a URL connection and cast to HttpsURLConnection
    urlConn.setRequestMethod("POST");
    urlConn.setRequestProperty("Content-type", "application/json");
@@ -3958,7 +3957,7 @@ public class RequestCampaign {
   }
   return result;
  }
- 
+
  private JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
   JsonObject input = new JsonObject();
@@ -3986,7 +3985,7 @@ Gepast op _2015-07-17_ door _Kenny_
 
 ## Lead-gegevens verifiëren en ophalen van Marketo met de REST API
 
-**Nota:** in de voorbeelden hieronder van Java, gebruiken wij het minimum-json pakket om vertegenwoordiging JSON in onze code te behandelen. U kunt meer over dit project hier lezen: [ https://github.com/ralfstx/minimal-json ](https://github.com/ralfstx/minimal-json) Één van de gemeenschappelijkste vereisten wanneer het integreren met Marketo is de herwinning van loodgegevens. De meesten, als niet alle integraties of de herwinning of de voorlegging van loodgegevens van een abonnement van Marketo zullen vereisen, zodat zullen wij vandaag een blik bij een basistaak van de de terugwinning van loodinformatie nemen, door [&#128279;](/help/rest-api/authentication.md) met een abonnement voor authentiek te verklaren en dan loodgegevens van het terug te winnen. Om onze leads op te halen, moeten we eerst verifiëren met het doel-Marketo-exemplaar met OAuth 2.0. Er zijn drie gegevens die we moeten verifiëren met Marketo, de client-id, het clientgeheim en de host van de Marketo-instantie. Hier is de klasse die wij gebruiken om voor authentiek te verklaren:
+**Nota:** in de voorbeelden hieronder van Java, gebruiken wij het minimum-json pakket om vertegenwoordiging JSON in onze code te behandelen. U kunt meer over dit project hier lezen: [ https://github.com/ralfstx/minimal-json ](https://github.com/ralfstx/minimal-json) Één van de gemeenschappelijkste vereisten wanneer het integreren met Marketo is de herwinning van loodgegevens. De meesten, als niet alle integraties of de herwinning of de voorlegging van loodgegevens van een abonnement van Marketo zullen vereisen, zodat zullen wij vandaag een blik bij een basistaak van de de terugwinning van loodinformatie nemen, door [ ](/help/rest-api/authentication.md) met een abonnement voor authentiek te verklaren en dan loodgegevens van het terug te winnen. Om onze leads op te halen, moeten we eerst verifiëren met het doel-Marketo-exemplaar met OAuth 2.0. Er zijn drie gegevens die we moeten verifiëren met Marketo, de client-id, het clientgeheim en de host van de Marketo-instantie. Hier is de klasse die wij gebruiken om voor authentiek te verklaren:
 
 ```java
 package dev.marketo.blog_leads;
@@ -4006,7 +4005,7 @@ public class Auth {
  private String idEndpoint; //idEndpoint constructed to authenticate with service when constructor is used
  private String token; //token is stored for reuse until expiration
  private Long expiry; //used to store time of expiration
- 
+
  //Creates an instance of Auth which is used to Authenticate with a particular service on a particular instance
  public Auth(String id, String secret, String instanceUrl) {
   this.clientId = id;
@@ -4076,7 +4075,7 @@ public class Leads {
  public Integer batchSize;
  public String nextPageToken;
  public ArrayList fields = new ArrayList();
- 
+
  public Leads(Auth a) {
   this.auth = a;
   this.endpoint = new StringBuilder(this.auth.marketoInstance + "/rest/v1/leads.json");
@@ -4158,7 +4157,7 @@ package dev.marketo.blog_leads;
 
 import com.eclipsesource.json.JsonObject;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -4180,8 +4179,8 @@ In dit belangrijkste methodevoorbeeld, leiden wij tot een geval van Auth, en dan
 
 Token is leeg of verlopen. Nieuwe verificatie proberen
 Proberen te verifiëren met <https://299-BYM-827.mktorest.com/identity/oauth/token?grant_type=client_credentials&client_id=b417d98f-9289-47d1-a61f-db141bf0267f&client_secret=0DipOvz4h2wP1ANeVjlfwMvECJpo0ZYc>
-De Reactie van de Authentificatie van het krijgen: {&quot;access_token&quot;:&quot;ec0f02c0-28ac-4d6c-b7d7-00e47ae85ff1:st&quot;, &quot;token_type&quot;:&quot;betoonder&quot;,&quot;expired_in&quot;:538,&quot;scope&quot;:&quot;<apiuser@mktosupport.com>&quot;}
-{&quot;requestId&quot;:&quot;14fb6#14e6a7a9ad6&quot;, &quot;resultaat&quot;:[{&quot;id&quot;:1026322, &quot;updatedAt&quot;:&quot;2015-07-07T21 :43: 25Z&quot;, &quot;lastName&quot;:&quot;Lead&quot;, &quot;email&quot;:&quot;<testlead@marketo.com>&quot;, &quot;createdAt&quot;:&quot;2015-07-07T21 :43: 25Z&quot;, &quot;firstName&quot;:&quot;Test&quot;},{&quot;id&quot;:1026323,&quot;updatedAt&quot;:&quot;2015-07-07T 21 :43: 43Z&quot;, &quot;lastName&quot;:&quot;Lead2&quot;, &quot;e-mail&quot;:&quot;<testlead@marketo.com>&quot;, &quot;createdAt&quot;:&quot;2015-07-07T21 :43: 43Z&quot;, &quot;firstName&quot;:&quot;Test&quot;} ], &quot;succes&quot;:waar}
+Reactie van de Authentificatie: {&quot;access_token&quot;:&quot;ec0f02c0-28ac-4d6c-b7d7-00e47ae85ff1 :st&quot;, &quot;token_type&quot;:&quot;drager&quot;, &quot;expired_in&quot;:538, &quot;werkingsgebied&quot;<apiuser@mktosupport.com>&quot;}
+{&quot;requestId&quot;:&quot;14fb6#14e6a7a9ad6&quot;, &quot;resultaat&quot;:[{&quot;id&quot;:1026322, &quot;updatedAt&quot;:&quot;2015-07-07T21 :43: 25Z&quot;, &quot;lastName&quot;:&quot;Lead&quot;, &quot;email&quot;<testlead@marketo.com>&quot; &quot;createdAt&quot;:&quot;2015-07-07T21 :43: 25Z&quot;, &quot;firstName&quot;:&quot;Test&quot;,{&quot;id&quot;:1026323, &quot;updatedAt&quot;:&quot;2015-07-07T21 :43: 43Z&quot;, &quot;lastName&quot;: Lead2&quot;, &quot;e-mail&quot;:&quot;<testlead@marketo.com>&quot;, &quot;createdAt&quot;:&quot;2015-07-07T21 :43: 43Z&quot;, &quot;firstName&quot;:&quot;Test&quot;} ], &quot;succes&quot;:true
 
 Nu hebben we leidende gegevens die we op welke manier dan ook kunnen verwerken. Bedankt voor het lezen en geef feedback in de opmerkingen.
 
@@ -4227,7 +4226,7 @@ In Marketo zijn er een paar vitale relaties om de rapportage van kansen volledig
 * Om in aanmerking te komen voor een Has Opportunity Smart-lijstfilter, moet een lead een OpportunityRole hebben dat gerelateerd is aan een opportuniteit.
 * De kansen hebben een vele-aan-één verhouding aan het voorwerp van het Bedrijf via het externalCompanyId gebied.
 * De leiders hebben een één-aan-vele verhouding aan Bedrijven via het externalCompanyId gebied.
-* De kansen worden toegeschreven aan een programma dat op het Programma van de Aankoop van een lood of hun lidmaatschap en succes in een programma wordt gebaseerd (zie [ Begrip Attributie ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/reporting/revenue-cycle-analytics/revenue-tools/attribution/understanding-attribution)).
+* De kansen worden toegeschreven aan een programma dat op het Programma van de Aankoop van een lood of hun lidmaatschap en succes in een programma wordt gebaseerd (zie [ Begrip Attributie ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/revenue-cycle-analytics/revenue-tools/attribution/understanding-attribution)).
 
 Als u deze relaties opbouwt in uw hoofddatabase, kunt u Marketo-analysemogelijkheden volledig benutten en zien welke invloed uw programma&#39;s hebben op het creëren van kansen en het winnen van de resultaten.
 
@@ -4255,12 +4254,12 @@ import com.eclipsesource.json.JsonObject;
 
 public class UpsertCompanies {
  public List<JsonObject> input; //a list of Companies to use for input.  Each must have a member "externalCompanyId".
- public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate 
+ public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate
  public String dedupeBy; //select mode of Deduplication, dedupeFields for all dedupe parameters(externalCompanyId), idField for marketoId
  private String endpoint; //endpoint URL created with Constructor
  private Auth auth; //Marketo Auth Object
- 
- 
+
+
  //Constructs an UpsertOpportunities with Auth, but with no input set
  public UpsertCompanies(Auth auth){
   this.auth = auth;
@@ -4282,13 +4281,13 @@ public class UpsertCompanies {
   }
   return this;
  }
- 
+
  public JsonObject postData(){
   JsonObject result = null;
   try {
    JsonObject requestBody = buildRequest(); //builds the Json Request Body
    String s = endpoint + "?access_token=" + auth.getToken(); //takes the endpoint URL and appends the access_token parameter to authenticate
-   URL url = new URL(s); 
+   URL url = new URL(s);
    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection(); //Return a URL connection and cast to HttpsURLConnection
    urlConn.setRequestMethod("POST");
    urlConn.setRequestProperty("Content-type", "application/json");
@@ -4308,7 +4307,7 @@ public class UpsertCompanies {
   }
   return result;
  }
- 
+
  private JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
   JsonArray in = new JsonArray(); //Create a JsonArray for the "input" member to hold Opp records
@@ -4348,7 +4347,7 @@ public class UpsertCompanies {
   this.dedupeBy = dedupeBy;
   return this;
  }
- 
+
 }
 ```
 
@@ -4388,12 +4387,12 @@ import com.eclipsesource.json.JsonObject;
 
 public class UpsertOpportunities {
  public List<JsonObject> input; //a list of Opportunities to use for input.  Each must have a member "externalopportunityid".  Each can optionally include "externalCompanyId" for company association
- public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate 
+ public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate
  public String dedupeBy; //select mode of Deduplication, dedupeFields for all dedupe parameters, idField for marketoId
  private String endpoint; //endpoint URL created with Constructor
  private Auth auth; //Marketo Auth Object
- 
- 
+
+
  //Constructs an UpsertOpportunities with Auth, but with no input set
  public UpsertOpportunities(Auth auth){
   this.auth = auth;
@@ -4414,13 +4413,13 @@ public class UpsertOpportunities {
   }
   return this;
  }
- 
+
  public JsonObject postData(){
   JsonObject result = null;
   try {
    JsonObject requestBody = buildRequest(); //builds the Json Request Body
    String s = endpoint + "?access_token=" + auth.getToken(); //takes the endpoint URL and appends the access_token parameter to authenticate
-   URL url = new URL(s); 
+   URL url = new URL(s);
    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection(); //Return a URL connection and cast to HttpsURLConnection
    urlConn.setRequestMethod("POST");
    urlConn.setRequestProperty("Content-type", "application/json");
@@ -4440,7 +4439,7 @@ public class UpsertOpportunities {
   }
   return result;
  }
- 
+
  private JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
   JsonArray in = new JsonArray(); //Create a JsonArray for the "input" member to hold Opp records
@@ -4479,7 +4478,7 @@ public class UpsertOpportunities {
   this.dedupeBy = dedupeBy;
   return this;
  }
- 
+
 }
 ```
 
@@ -4534,7 +4533,7 @@ public class UpsertOpportunityRoles {
  public String dedupeBy;//select mode of Deduplication, dedupeFields for all dedupe parameters, idField for marketoId
  private String endpoint; //endpoint URL created with Constructor
  private Auth auth; //Marketo Auth Object
- 
+
  //Constructs an UpsertOpportunityRoles with Auth, but with no input set
  public UpsertOpportunityRoles(Auth auth) {
   this.auth = auth;
@@ -4581,7 +4580,7 @@ public class UpsertOpportunityRoles {
   }
   return result;
  }
- 
+
  public JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject();
   JsonArray in = new JsonArray();
@@ -4620,7 +4619,7 @@ public class UpsertOpportunityRoles {
   this.dedupeBy = dedupeBy;
   return this;
  }
- 
+
 }
 ```
 
@@ -4657,19 +4656,19 @@ package dev.marketo.opportunities;
 
 import com.eclipsesource.json.JsonObject;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
-     //create an Instance of Auth 
+     //create an Instance of Auth
         Auth auth = new Auth("CLIENT_ID_CHANGE_ME", "CLIENT_SECRET_CHANGE_ME", "MARKETO_HOST_CHANGE_ME");
-        
+
         //Create a new company to associate to
         JsonObject myCompany = new JsonObject().add("externalCompanyId", "myCompany");
         UpsertCompanies upsertCompanies = new UpsertCompanies(auth).addCompanies(myCompany);
         JsonObject companiesResult = upsertCompanies.postData();
         System.out.println(companiesResult);
-        
+
         //Create some JsonObjects for Opportunity Data
         JsonObject opp1 = new JsonObject().add("name", "opportunity1")
            .add("externalopportunityid", "Opportunity1Test")
@@ -4686,7 +4685,7 @@ public class App
                                 .addOpportunities(opp1, opp2);
         JsonObject oppsResult = upsertOpps.postData();
         System.out.println(oppsResult);
-        
+
         //Create Some opp roles now
         JsonObject opp1Role = new JsonObject()
            .add("role", "Captain")
@@ -4696,7 +4695,7 @@ public class App
            .add("role", "Commander")
            .add("externalopportunityid", opp2.get("externalopportunityid").asString())
            .add("leadId", 318795);
-        
+
         //Create an Instance of UpsertOpportunityRoles and POST it
         UpsertOpportunityRoles upsertRoles = new UpsertOpportunityRoles(auth)
            .setAction("createOnly")
@@ -4714,11 +4713,11 @@ GEPast op _2015-08-07_ door _Kenny_
 
 ## Transactiee-mails verzenden met de Marketo REST API: Deel 2, Aangepaste inhoud
 
-Deze week bekijken we hoe we dynamische inhoud kunnen doorgeven aan onze e-mails via de API-oproep voor aanvraagcampagne. De Campagne van het verzoek staat niet alleen het teweegbrengen van e-mail extern toe, maar u kunt de inhoud van [ Mijn Tokens ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program) binnen e-mail ook vervangen. Mijn tokens zijn herbruikbare inhoud die kan worden aangepast op het niveau van de programma- of marketingmap. Deze kunnen ook als placeholders bestaan om door uw vraag van de verzoekcampagne worden vervangen.
+Deze week bekijken we hoe we dynamische inhoud kunnen doorgeven aan onze e-mails via de API-oproep voor aanvraagcampagne. De Campagne van het verzoek staat niet alleen het teweegbrengen van e-mail extern toe, maar u kunt de inhoud van [ Mijn Tokens ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program) binnen e-mail ook vervangen. Mijn tokens zijn herbruikbare inhoud die kan worden aangepast op het niveau van de programma- of marketingmap. Deze kunnen ook als placeholders bestaan om door uw vraag van de verzoekcampagne worden vervangen.
 
 ### Uw e-mail maken
 
-Om onze inhoud aan te passen, moeten wij eerst a [ programma ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program) en een [ e-mail ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of elke andere inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren. Tokens kunnen niet worden opgeslagen als ze leeg zijn. Plaats hier een tijdelijke aanduiding voor tekst. Nu moeten we ons token invoegen in de e-mail: Dit token is nu toegankelijk voor vervanging via een oproep tot een campagne. Deze token kan zo eenvoudig zijn als een enkele tekstregel die per e-mail moet worden vervangen, of kan bijna de volledige opmaak van de e-mail bevatten.
+Om onze inhoud aan te passen, moeten wij eerst a [ programma ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program) en een [ e-mail ](https://experienceleague.adobe.com/en/docs/marketo/using/home) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of elke andere inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren. Tokens kunnen niet worden opgeslagen als ze leeg zijn. Plaats hier een tijdelijke aanduiding voor tekst. Nu moeten we ons token invoegen in de e-mail: Dit token is nu toegankelijk voor vervanging via een oproep tot een campagne. Deze token kan zo eenvoudig zijn als een enkele tekstregel die per e-mail moet worden vervangen, of kan bijna de volledige opmaak van de e-mail bevatten.
 
 ### De code
 
@@ -4729,22 +4728,22 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
      //Create an instance of Auth so that we can authenticate with our Marketo instance
         Auth auth = new Auth("Client ID - CHANGE ME", "Client Secret - CHANGE ME", "Host - CHANGE ME");
-        
+
         //Create and parameterize an instance of Leads
         Leads leadsRequest = new Leads(auth).setFilterType("email").addFilterValue("requestCampaign.test@marketo.com");
-        
+
         //get the inner results array of the response
         JsonArray leadsResult = leadsRequest.getData().get("result").asArray();
-        
+
         //get the id of the record indexed at 0
         int lead = leadsResult.get(0).asObject().get("id").asInt();
-        
+
         //Set the ID of our campaign from Marketo
         int campaignId = 1578;
         RequestCampaign rc = new RequestCampaign(auth, campaignId).addLead(lead);
@@ -5002,13 +5001,13 @@ class SalesPerson{
  private $action;// string designating request action, createOnly, updateOnly, createOrUpdate
  private $dedupeBy;//dedupeFields or idField
  private $input;//array of salesperson objects for input
- 
+
  //takes an Auth object as the first argument
  public function _construct($auth, $input){
   $this->auth = $auth;
   $this->input = $input;
  }
- 
+
  //constructs the json request body
  private function bodyBuilder(){
   $body = new stdClass();
@@ -5064,7 +5063,7 @@ class SalesPerson{
  public function getInput(){
   return $this->input;
  }
- 
+
 }
 ```
 
@@ -5172,7 +5171,7 @@ class Leads{
  public function getPartitionName() {
   return $this->partitionName;
  }
- 
+
 }
 ```
 
@@ -5245,7 +5244,7 @@ class Auth{
  private $clientSecret;//client secret
  private $token;//access_token
  private $expiry;
- 
+
  function _construct($host, $clientId, $clientSecret){
   $this->host = $host;
   $this->clientId = $clientId;
@@ -5300,13 +5299,13 @@ Als een integratie ongewenste gevolgen heeft, kan het vervelend en moeilijk zijn
 
 ### Workspace Management
 
-Voor de abonnementen van de Onderneming van Marketo, is het gemeenschappelijk voor de dienst om toegang tot één enkele werkruimte slechts te vereisen, en dit kan [ door roltaak aan de API Gebruiker ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/allow-user-access-to-a-workspace) worden afgedwongen. Elke gebruikersrol kan of globaal, of op een per-werkruimtasebasis worden toegewezen, zodat kan de toegang in werkruimten waar aangewezen worden beperkt, die de zo minimaal mogelijke reeks toestemmingen verstrekken.
+Voor de abonnementen van de Onderneming van Marketo, is het gemeenschappelijk voor de dienst om toegang tot één enkele werkruimte slechts te vereisen, en dit kan [ door roltaak aan de API Gebruiker ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/allow-user-access-to-a-workspace) worden afgedwongen. Elke gebruikersrol kan of globaal, of op een per-werkruimtasebasis worden toegewezen, zodat kan de toegang in werkruimten waar aangewezen worden beperkt, die de zo minimaal mogelijke reeks toestemmingen verstrekken.
 
 GEPast op _2015-08-28_ door _Kenny_
 
 ## Hoe te om de Gedeelten van de Lood te specificeren die REST APII gebruiken
 
-**Lood het Partitioneren van de Lood** de Verdelingen van de Lood van Marketo verstrekken een geschikte manier om lood te isoleren. Met partities kunnen verschillende marketinggroepen binnen uw organisatie één Marketo-exemplaar delen. Voor meer informatie, zie [ Begrijpend Werkruimten en de Verdelingen van de Lood ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions). Stel dat u hoofdpartities gebruikt en via de Marketo REST-API leads maakt. Hoe zorgt u ervoor dat de leads die u maakt, in de juiste partitie terechtkomen? In dit artikel wordt getoond hoe. In het belang van dit voorbeeld gebruiken we Workspaces en Partitions om onze leads te isoleren op basis van geografie.
+**Lood het Partitioneren van de Lood** de Verdelingen van de Lood van Marketo verstrekken een geschikte manier om lood te isoleren. Met partities kunnen verschillende marketinggroepen binnen uw organisatie één Marketo-exemplaar delen. Voor meer informatie, zie [ Begrijpend Werkruimten en de Verdelingen van de Lood ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions). Stel dat u hoofdpartities gebruikt en via de Marketo REST-API leads maakt. Hoe zorgt u ervoor dat de leads die u maakt, in de juiste partitie terechtkomen? In dit artikel wordt getoond hoe. In het belang van dit voorbeeld gebruiken we Workspaces en Partitions om onze leads te isoleren op basis van geografie.
 
 Eerst definiëren we een werkruimte met de naam &#39;Land&#39;. Vervolgens maken we binnen die werkruimte twee partities met de naam &quot;Mexico&quot; en &quot;Canada&quot;.  **creeer Lood in Verdeling** veronderstel nu dat wij twee lood in de &quot;Mexico&quot;verdeling willen tot stand brengen. Om leads te creëren noemen we de. Om de verdeling te specificeren, moeten wij het &quot;partitieName&quot;attribuut in het verzoeklichaam omvatten. Hoe weten wij wat om voor de waarde te gebruiken partitionName? Wij kunnen een lijst van geldige waarden van de verdelingsnaam voor onze instantie terugwinnen door [ te roepen krijgt de Verdelingen van de Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/describeProgramMemberUsingGET) API als volgt:
 
@@ -5413,8 +5412,8 @@ Veel Marketo-klanten, met name klanten die zich richten op cross-selling, hebben
 ### Terwijl ik twee getallen wil vergelijken, moet ik mijn veldwaarden omzetten in gehele getallen
 
 ```
-#set ($score1 = $math.toInteger(${lead.Apple_Score})) 
-#set ($score2 = $math.toInteger(${lead.Banana_Score})) 
+#set ($score1 = $math.toInteger(${lead.Apple_Score}))
+#set ($score2 = $math.toInteger(${lead.Banana_Score}))
 ##check if the lead score is greater than feature score
 #if($score1 >= $score2)
                 ##if Apple score is greater
@@ -5437,11 +5436,11 @@ Gepast op _2015-09-14_ door _Kenny_
 
 ## Een Marketo-formulierverzending maken op de achtergrond
 
-Als uw organisatie veel verschillende platforms heeft voor het hosten van webinhoud en klantgegevens, wordt het redelijk gebruikelijk om parallelle verzendingen van een formulier nodig te hebben, zodat de resulterende gegevens op verschillende platforms kunnen worden verzameld. Er zijn verschillende strategieën om dit te doen, maar de beste is vaak de eenvoudigste: de Forms 2 API gebruiken om een verborgen Marketo-formulier te verzenden. Dit werkt met elk nieuw Marketo-formulier, maar bij voorkeur moet u hiervoor een leeg formulier maken, dat geen velden heeft. Zo zorgt u ervoor dat het formulier niet meer gegevens laadt dan nodig is, omdat we niets hoeven te renderen. Behaal nu enkel [ bed code ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) van uw vorm in en voeg het aan het lichaam van uw gewenste pagina toe, makend een kleine wijziging. Uw insluitcode bevat een formulierelement zoals:
+Als uw organisatie veel verschillende platforms heeft voor het hosten van webinhoud en klantgegevens, wordt het redelijk gebruikelijk om parallelle verzendingen van een formulier nodig te hebben, zodat de resulterende gegevens op verschillende platforms kunnen worden verzameld. Er zijn verschillende strategieën om dit te doen, maar de beste is vaak de eenvoudigste: de Forms 2 API gebruiken om een verborgen Marketo-formulier te verzenden. Dit werkt met elk nieuw Marketo-formulier, maar bij voorkeur moet u hiervoor een leeg formulier maken, dat geen velden heeft. Zo zorgt u ervoor dat het formulier niet meer gegevens laadt dan nodig is, omdat we niets hoeven te renderen. Behaal nu enkel [ bed code ](https://experienceleague.adobe.com/en/docs/marketo/using/home) van uw vorm in en voeg het aan het lichaam van uw gewenste pagina toe, makend een kleine wijziging. Uw insluitcode bevat een formulierelement zoals:
 
 `<form id="mktoForm_1068"></form>`
 
-U wilt &#39;style=&quot;display:none&quot; aan het element toevoegen zodat het niet zichtbaar is, zoals hier:
+U zult &quot;style=&quot;display :none&quot;aan het element willen toevoegen zodat is het niet zichtbaar, als dit:
 
 `<form id="mktoForm_1068" style="display:none"></form>`
 
@@ -5495,9 +5494,9 @@ Het verzenden van achtergrondformulieren is een van de aanbevolen vervangingsmet
         </script>
 </head>
 
-<body> 
+<body>
   <!--
-    Start Embed code.  
+    Start Embed code.
     Pasted from Form Actions -> Embed Code except for addition of 'style="display:none"' to the form tag in order to hide it, and instance-specific codes redacted
     Replace with your own code for testing
   -->
@@ -5522,11 +5521,11 @@ Het verzenden van achtergrondformulieren is een van de aanbevolen vervangingsmet
 
             //the addHiddenFields methods lets us add arbitrary fields to the form as well as their values
             form.addHiddenFields(values);
-            
+
             //submit the form
             form.submit();
-            
-            
+
+
         })
     </script>
 </body>
@@ -5638,9 +5637,9 @@ Wanneer
 Uitvoerbestand voorbeelden_2015_10_111-AAA-222.json
 
 ```json
-[ 
-    { "date": "2015-10-15", "total": 0, "users" : [] }, 
-    { "date": "2015-10-16", "total": 9, "users": [ { "userId": "some.body@yahoo.com", "count": 9 } ] }, 
+[
+    { "date": "2015-10-15", "total": 0, "users" : [] },
+    { "date": "2015-10-16", "total": 9, "users": [ { "userId": "some.body@yahoo.com", "count": 9 } ] },
     { "date": "2015-10-17", "total": 1120, "users": [ { "userId": "some.body@yahoo.com", "count": 200 }, { "userId": "some.body@marketo.com", "count": 200 }, { "userId": "some.body@gmail.com", "count": 720 } ] },
 ]
 ```
@@ -6011,7 +6010,7 @@ Zoals uit het onderstaande diagram blijkt, hebben we er voor gekozen om e-mailge
 
 **Invoer van het Programma** door gebrek gaat het programma in tijd één dag van de huidige datum terug om veranderingen te zoeken. Je zou dit programma bijvoorbeeld elke dag op hetzelfde tijdstip kunnen uitvoeren. Om verder terug in tijd te gaan, kunt u het aantal dagen als argument van de bevellijn specificeren, effectief verhogend het venster van tijd. Het programma bevat verschillende variabelen die u kunt wijzigen: CUSTOM_SERVICE_DATA - Dit bevat uw Marketo Custom Service-gegevens (account-id, client-id, clientgeheim). READ_BATCH_SIZE - Dit is het aantal verslagen dat tegelijkertijd moet terugwinnen. Gebruik dit om de reactie op lichaamsomvang aan te passen. LEAD_FIELDS - Dit bevat een lijst van loodgebieden die wij willen verzamelen. ACTIVITY_TYPES - Dit bevat een lijst van activiteitentypes die wij willen verzamelen.
 
-{de Logische 1} Logica van het 0&rbrace; Programma &lbrace;vestigen wij eerst ons tijdvenster, stellen ons eindpuntURL van REST samen, en verkrijgen ons toegangstoken van de Authentificatie. **&#x200B;**&#x200B;Vervolgens zetten we een &#39;Get Paging Token/Get Lead Activity&#39;-lus in werking, die loopt tot we de levering van activiteiten uitputten. Het doel van deze lus is activiteitsrecords op te halen en velden van belang uit die records te extraheren. Wij vertellen krijgen de Activiteiten van de Lood om slechts voor de volgende activiteitentypes te zoeken:
+{de Logische 1} Logica van het 0} Programma {vestigen wij eerst ons tijdvenster, stellen ons eindpuntURL van REST samen, en verkrijgen ons toegangstoken van de Authentificatie. **** Vervolgens zetten we een &#39;Get Paging Token/Get Lead Activity&#39;-lus in werking, die loopt tot we de levering van activiteiten uitputten. Het doel van deze lus is activiteitsrecords op te halen en velden van belang uit die records te extraheren. Wij vertellen krijgen de Activiteiten van de Lood om slechts voor de volgende activiteitentypes te zoeken:
 
 * E-mail bezorgd
 * E-mailadres opzeggen
@@ -6486,7 +6485,7 @@ public class SyncMultipleLeadsExample {
       // Create Signature
       DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
       String text = df.format(new Date());
-      String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);      
+      String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
       String encryptString = requestTimestamp + marketoUserId ;
 
       SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
@@ -6494,7 +6493,7 @@ public class SyncMultipleLeadsExample {
       mac.init(secretKey);
       byte[] rawHmac = mac.doFinal(encryptString.getBytes());
       char[] hexChars = Hex.encodeHex(rawHmac);
-      String signature = new String(hexChars); 
+      String signature = new String(hexChars);
 
       // Set Authentication Header
       AuthenticationHeader header = new AuthenticationHeader();
@@ -6528,7 +6527,7 @@ public class SyncMultipleLeadsExample {
         LeadRecord leadRec = new LeadRecord();
 
         JAXBElement email = objectFactory.createLeadRecordEmail(c.email);
-        leadRec.setEmail(email);      
+        leadRec.setEmail(email);
 
         Attribute attr1 = new Attribute();
         attr1.setAttrName("FirstName");
@@ -6555,7 +6554,7 @@ public class SyncMultipleLeadsExample {
 
       }
 
-      request.setLeadRecordList(arrayOfLeadRecords);      
+      request.setLeadRecordList(arrayOfLeadRecords);
 
       JAXBContext context = JAXBContext.newInstance(SuccessSyncMultipleLeads.class);
       Marshaller m = context.createMarshaller();
@@ -6584,7 +6583,6 @@ public class SyncMultipleLeadsExample {
   }
 }
 ```
-
  
 Dit artikel bevat code die wordt gebruikt om douaneserveringen uit te voeren. Vanwege de aangepaste aard van de service kan het team van technische ondersteuning van Marketo geen problemen met aangepaste werkzaamheden oplossen. Probeer niet om het volgende codevoorbeeld uit te voeren zonder aangewezen technische ervaring, of toegang tot een ervaren ontwikkelaar.
 
@@ -6664,71 +6662,71 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.EMAIL);
             key2.setKeyValue("anotherlead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
             leadKeyList.getLeadKeies().add(key2);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -6752,9 +6750,9 @@ Stel je voor dat je de follow-upe-mails van je callcenter wilt automatiseren. Na
 
 **hoe te om in Dynamische Inhoud over te gaan Gebruikend API** in Marketo, zijn Mijn Tokens variabelen die u in uw Programma kunt gebruiken. Met Mijn tokens kunt u informatie met betrekking tot uw programma op één locatie invoeren, die informatie vervangen door een waarde die u opgeeft, en deze informatie ophalen in andere delen van de toepassing, zoals een e-mailsjabloon. Met de requestCampaign SOAP API kunt u een array met Program Tokens doorgeven, die bestaande tokens overschrijven. Nadat de campagne is gestart, worden de tokens genegeerd. U creeert Mijn Tokens op of het de omslagniveau van de Campagne, of op het niveau van het Programma. Mijn tokens op het de omslagniveau van de Campagne zullen neer aan alle Programma&#39;s erven binnen de omslag van de Campagne. Als u Mijn Tokens op het de omslagniveau van de Campagne creeert, kunt u de geërfte waarde op het niveau van het Programma overschrijven. Als u bijvoorbeeld tokens definieert voor de datum van het programma en de beschrijving van het programma op het mapniveau van de campagne, kunt u deze waarden overschrijven op het niveau van het individuele programma.
 
-Zo doe je dit. 1. Selecteer in de boomstructuur Marketingactiviteiten de map Campagne of het Programma waar u de tokens wilt maken. Selecteer Mijn tokens in de bovenste menubalk. Vervolgens wordt het canvas Mijn tokens weergegeven. Sleep vanuit de rechterzijstructuur een Symbolische Type naar het canvas, in dit geval &quot;Tekst&quot;. Markeer Mijn token in het veld Tokennaam en voer een unieke token-naam in. In dit geval is dit &quot;my.conversationtopic&quot;. Voer in het veld Waarde een relevante waarde in voor de token, die in dit geval &quot;Bedankt dat u ons vandaag hebt gebeld&quot; is. Door de API te gebruiken, overschrijven we de standaardwaarde Mijn token. Klik op Opslaan om het aangepaste token op te slaan.  1. Klik op Nieuw om een nieuwe e-mail te maken. Klik vervolgens op Nieuwe lokale Assets en selecteer E-mail. Vul vervolgens de relevante velden in om uw e-mail een naam te geven. Klik bij het schrijven van uw e-mail op het pictogram Token om tokens in uw e-mail op te nemen. Nu u uw sjabloon-e-mail met tokens hebt gemaakt, voegen we het e-mailbericht toe als een stroomactie voor de campagne in de volgende stap. Dus wanneer u de campagne via de API oproept, wordt de e-mail verzonden.\
+Zo doe je dit. 1. Selecteer in de boomstructuur Marketingactiviteiten de map Campagne of het Programma waar u de tokens wilt maken. Selecteer Mijn tokens in de bovenste menubalk. Vervolgens wordt het canvas Mijn tokens weergegeven. Sleep vanuit de rechterzijstructuur een Symbolische Type naar het canvas, in dit geval &quot;Tekst&quot;. Markeer Mijn token in het veld Tokennaam en voer een unieke token-naam in. In dit geval is dit &quot;my.conversationtopic&quot;. Voer in het veld Waarde een relevante waarde in voor de token, die in dit geval &quot;Bedankt dat u ons vandaag hebt gebeld&quot; is. Door de API te gebruiken, overschrijven we de standaardwaarde Mijn token. Klik op Opslaan om het aangepaste token op te slaan.  1. Klik op Nieuw om een nieuwe e-mail te maken. Klik vervolgens op Nieuwe lokale Assets en selecteer E-mail. Vul vervolgens de relevante velden in om uw e-mail een naam te geven. Klik bij het schrijven van uw e-mail op het pictogram Token om tokens in uw e-mail op te nemen. Nu u uw sjabloon-e-mail met tokens hebt gemaakt, voegen we het e-mailbericht toe als een stroomactie voor de campagne in de volgende stap. Dus wanneer u de campagne via de API oproept, wordt de e-mail verzonden.
 **hoe te om de Actie van de Stroom E-mail op een Campagne** tot stand te brengen de vereniging van een e-mail met een Slimme Campagne staat marketers toe om te beheren hoe zij een e-mail willen kijken, en staat de derdetoepassing toe om te bepalen wie het en wanneer ontvangt. Nadat u een e-mailbericht hebt gemaakt als een nieuw lokaal element, kunt u dit instellen als een stroomactie in een campagne. Zoek en selecteer het e-mailbericht dat u wilt verzenden.
-**Steekproef van de Code om requestCampaign API** te roepen na vestiging de campagne en trekkers in de interface van Marketo, tonen wij u hoe te om API te gebruiken om een e-mail te verzenden. Het eerste voorbeeld is een XML-aanvraag, het tweede een XML-reactie en het laatste voorbeeld is een Java-codevoorbeeld dat kan worden gebruikt om de XML-aanvraag te genereren. We tonen u ook hoe u de campagne-id kunt vinden die wordt gebruikt wanneer u de requestCampaign-API aanroept. De API-aanroep vereist ook dat u de id van de Marketo-campagne vooraf kent. U kunt de campagne-id op een van de volgende manieren bepalen: 1. Gebruik [ getCampaignsForSource ](/help/soap-api/getcampaignsforsource.md) API 1. Open de Marketo-campagne in een browser en bekijk de URL-adresbalk. De campagne-id (vertegenwoordigd als een 4-cijferig geheel getal) is direct na &quot;SC&quot; te vinden. Bijvoorbeeld `<https://app-stage.marketo.com/#SC&#x200B;**1025**&#x200B;A1>` . Het bolle gedeelte is de campagne-id - &quot;1025&quot;. SOAP-aanvraag voor requestCampaign
+**Steekproef van de Code om requestCampaign API** te roepen na vestiging de campagne en trekkers in de interface van Marketo, tonen wij u hoe te om API te gebruiken om een e-mail te verzenden. Het eerste voorbeeld is een XML-aanvraag, het tweede een XML-reactie en het laatste voorbeeld is een Java-codevoorbeeld dat kan worden gebruikt om de XML-aanvraag te genereren. We tonen u ook hoe u de campagne-id kunt vinden die wordt gebruikt wanneer u de requestCampaign-API aanroept. De API-aanroep vereist ook dat u de id van de Marketo-campagne vooraf kent. U kunt de campagne-id op een van de volgende manieren bepalen: 1. Gebruik [ getCampaignsForSource ](/help/soap-api/getcampaignsforsource.md) API 1. Open de Marketo-campagne in een browser en bekijk de URL-adresbalk. De campagne-id (vertegenwoordigd als een 4-cijferig geheel getal) is direct na &quot;SC&quot; te vinden. Bijvoorbeeld `<https://app-stage.marketo.com/#SC**1025**A1>` . Het bolle gedeelte is de campagne-id - &quot;1025&quot;. SOAP-aanvraag voor requestCampaign
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -6815,77 +6813,77 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
 
             ArrayOfAttrib aoa = new ArrayOfAttrib();
-             
+
             Attrib attrib = new Attrib();
             attrib.setName("{{my.conversationtopic}}");
             attrib.setValue("Thank you for calling about adding a line of service to your current plan.");
-             
+
             aoa.getAttribs().add(attrib);
-             
+
             JAXBElement<ArrayOfAttrib> arrayOfAttrib = objectFactory.createParamsRequestCampaignProgramTokenList(aoa);
             request.setProgramTokenList(arrayOfAttrib);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -6935,14 +6933,14 @@ Stel dat u gebruikers wilt volgen die een specifiek bericht op uw bedrijfsblog b
 Dit codevoorbeeld roept de Munchkin API aan nadat de gebruiker 5 seconden op de pagina is geweest en ook 500 pixels omlaag op de pagina heeft geschoven:
 
 ```javascript
-<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script> 
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
  setTimeout(function(){
   $(window).scroll(function() {
       var y_scroll_position = window.pageYOffset;
-      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked        
-  
+      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked
+
   if(y_scroll_position > scroll_position) {
   //Munchkin tracking code
    (function() {
@@ -6953,7 +6951,7 @@ $(function(){
         Munchkin.init('XXX-XXX-XXX');
       }
      }
-     
+
      var s = document.createElement('script');
      s.type = 'text/javascript';
      s.async = true;
@@ -6966,7 +6964,7 @@ $(function(){
      s.onload = initMunchkin;
      document.getElementsByTagName('head')[0].appendChild(s);
    })();
-   }   
+   }
  },5000); //Sets time delay before tracking user
 });
 </script>
@@ -6986,11 +6984,11 @@ Gepast op _2014-04-17_ door _Murta_
 
 ## Lokaal telefoonnummer dynamisch wijzigen met RTP
 
-Personalization is alles - dat hebben we allang ontdekt. Met dit gezegd zijnde, is het voor mij nog steeds verrassend dat het zo moeilijk is om, telkens als ik directe hulp nodig heb, de relevante lokale telefoonnummers op een website te vinden. Het goede ding wij [ Marketo in real time Personalization ](https://business.adobe.com/products/marketo/content-personalization.html) (RTP) hebben geïnstalleerd op <https://business.adobe.com/products/marketo/adobe-marketo.html>. Wij kunnen hefboomwerking [ RTP Bezoeker API ](/help/javascript-api/web-personalization.md) om het telefoonaantal dynamisch te veranderen dat een Webbezoeker in verschillende secties van de website ziet. Wow! Kan je dat geloven? Hoe werkt deze magie? Eerst, moet u RTP hebben die op uw website wordt geïnstalleerd zoals [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) wordt beschreven. Volg daarna de onderstaande instructies en implementeer de JavaScript-code op uw website:
+Personalization is alles - dat hebben we allang ontdekt. Met dit gezegd zijnde, is het voor mij nog steeds verrassend dat het zo moeilijk is om, telkens als ik directe hulp nodig heb, de relevante lokale telefoonnummers op een website te vinden. Het goede ding wij [ Marketo in real time Personalization ](https://business.adobe.com/products/marketo/content-personalization.html) (RTP) hebben geïnstalleerd op <https://business.adobe.com/products/marketo/adobe-marketo.html>. Wij kunnen hefboomwerking [ RTP Bezoeker API ](/help/javascript-api/web-personalization.md) om het telefoonaantal dynamisch te veranderen dat een Webbezoeker in verschillende secties van de website ziet. Wow! Kan je dat geloven? Hoe werkt deze magie? Eerst, moet u RTP hebben die op uw website wordt geïnstalleerd zoals [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) wordt beschreven. Volg daarna de onderstaande instructies en implementeer de JavaScript-code op uw website:
 
 1. Neem uw internationaal telefoonaantal in de **defaultPhone** configuratie op
 1. Tussenvoegsel het element identiteitskaart(en) van HTML in de **divIds** configuratie
-1. Als u het telefoonaantal een klik-aan-vraag verbinding voor mobiele browsers wilt maken, dan plaats de **configuratie 0&rbrace; mobileLink &lbrace;aan** waar **.**
+1. Als u het telefoonaantal een klik-aan-vraag verbinding voor mobiele browsers wilt maken, dan plaats de **configuratie 0} mobileLink {aan** waar **.**
 1. Wijs de verschillende plaatsen met hun telefoonaantallen in **cityPhone**, **statePhone**, en **countryPhone** configuraties in kaart
 
 Hier volgen bijvoorbeeld voorbeeldwaarden voor configuratie-instellingen:
@@ -7040,7 +7038,7 @@ Het script controleert of er een overeenkomst in deze volgorde is: cityPhone > s
                         document.getElementById(d[i]).href= "tel:" + p;
                     }
                     console.log(p);
-                }                
+                }
             }
             loop = false;
             phoneChanged = true;
@@ -7073,7 +7071,7 @@ Het script controleert of er een overeenkomst in deze volgorde is: cityPhone > s
     mobileLink: true,  //if you use click to call link (with href="tel:") you can also change its number
 
     cityPhone: {
-        "<a href='#'>yanir</a>": ["San Mateo", "San Francisco"],        
+        "<a href='#'>yanir</a>": ["San Mateo", "San Francisco"],
         "+353.1.242.3000": ["tel-aviv"]
     },
     statePhone: {
@@ -7094,10 +7092,10 @@ GEPast op _2016-02-02_ door _Yanir_
 
 ### Aangepaste objecten
 
-* [ de Voorwerpen N van de Douane N:N verhoudingen nu gesteund ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
+* [ de Verhoudingen van Objecten N van de Douane :N nu gesteund ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
    * Lood- of accountrecords kunnen nu vele tot vele relaties hebben via aangepaste objecten via de definitie van tussenliggende objecten. Nadat u een zelfstandig aangepast objecttype hebt gemaakt, kunt u een tussentijds objecttype maken met koppelingsvelden voor zowel het zelfstandige object als voor leads of accounts.
    * Er zijn geen nieuwe API-aanroepen voor deze functie, maar de objectdefinities moeten correct zijn geconfigureerd om deze relaties via de API te benutten.
-* `getLeadActivities` en `getLeadChanges` retourneren geen activiteiten meer van anonieme leads. Zie [ Volgende Generatie Munchkin die FAQ ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) volgen voor meer informatie
+* `getLeadActivities` en `getLeadChanges` retourneren geen activiteiten meer van anonieme leads. Zie [ Volgende Generatie Munchkin die FAQ ](https://experienceleague.adobe.com/en/docs/marketo/using/home) volgen voor meer informatie
 
 Gepast op _2016-02-05_ door _Kenny_
 
@@ -7259,9 +7257,9 @@ Bewerk de &#39;verificatie-instellingen&#39;:
 
   `{"access_token":"{{access_token}}"}`
 
-* Toegang tot token-plaatsing&#x200B;**:** Token in Querystring
+* Toegang tot token-plaatsing**:** Token in Querystring
 
-Nadat een aangepaste Marketo-service is gemaakt, worden de client-id en het clientgeheim beschikbaar. Wij gebruiken cliënt identiteitskaart en cliëntgeheim om een toegangstoken via het REST API [ eindpunt van de Authentificatie &lbrace;te produceren. ](/help/rest-api/authentication.md) Vervolgens kunnen we deze toegangstoken gebruiken om volgende aanvragen voor de REST API in te dienen. Het token verloopt na een uur en moet opnieuw worden gegenereerd om door te gaan met het aanroepen van de REST API. Wij kozen authentificatietype = &quot;Auth van de Zitting&quot;aangezien het ons toestaat om een manuscript van de douaneauthentificatie uit te voeren telkens als ons zittingsteken wordt verlopen. In de sectie &#39;API voor scripts&#39; wordt uitgelegd hoe u dit mechanisme implementeert dat alleen met dit type verificatie kan werken.
+Nadat een aangepaste Marketo-service is gemaakt, worden de client-id en het clientgeheim beschikbaar. Wij gebruiken cliënt identiteitskaart en cliëntgeheim om een toegangstoken via het REST API [ eindpunt van de Authentificatie {te produceren. ](/help/rest-api/authentication.md) Vervolgens kunnen we deze toegangstoken gebruiken om volgende aanvragen voor de REST API in te dienen. Het token verloopt na een uur en moet opnieuw worden gegenereerd om door te gaan met het aanroepen van de REST API. Wij kozen authentificatietype = &quot;Auth van de Zitting&quot;aangezien het ons toestaat om een manuscript van de douaneauthentificatie uit te voeren telkens als ons zittingsteken wordt verlopen. In de sectie &#39;API voor scripts&#39; wordt uitgelegd hoe u dit mechanisme implementeert dat alleen met dit type verificatie kan werken.
 **Triggers** Zapier Triggers zijn er om gegevens in Zapier te brengen. We hebben er geen nodig voor onze gebruiksgevallen, omdat we in plaats daarvan een Marketo Webhaak zullen gebruiken. We moeten echter nog steeds een dummy Trigger schrijven als verplichte test voor onze Marketo-connector. Wij gaan tot een Testen Trigger leiden die Marketo REST API [ roepen krijgt het Dagelijkse eindpunt van het Gebruik ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getDailyUsageUsingGET). Klik **toevoegen Nieuwe Trekker** om de tovenaar en vulling-up de volgende gebieden (de niet vermelde gebieden kunnen leeg worden verlaten) te beginnen: Naam en Beschrijving
 
 * Naam: Trigger testen
@@ -7283,7 +7281,7 @@ Voorbeeldresultaat
 
 * Leeg laten
 
-Klik **leiden de Montages van de Trekker** en plaatsen onze Testrekker om te zijn die wij zullen gebruiken om de geloofsbrieven van een gebruiker te verifiëren. **De Acties van het Zapier van 0&rbrace; &lbrace;zijn daar om gegevens uit Zapier te verzenden.** We gaan de Create_Update Lead-actie implementeren die de Marketo REST API aanroept. Met deze handeling kunnen we een nieuwe lead in Marketo maken, of als de lead al bestaat, wordt deze bijgewerkt met de verzonden waarden. We gebruiken het veld &#39;email&#39; voor deduplicatie. Klik **toevoegen Nieuwe Actie** om de tovenaar en vulling-up de volgende gebieden (de niet vermelde gebieden kunnen leeg zijn) te beginnen: Naam en Beschrijving
+Klik **leiden de Montages van de Trekker** en plaatsen onze Testrekker om te zijn die wij zullen gebruiken om de geloofsbrieven van een gebruiker te verifiëren. **De Acties van het Zapier van 0} {zijn daar om gegevens uit Zapier te verzenden.** We gaan de Create_Update Lead-actie implementeren die de Marketo REST API aanroept. Met deze handeling kunnen we een nieuwe lead in Marketo maken, of als de lead al bestaat, wordt deze bijgewerkt met de verzonden waarden. We gebruiken het veld &#39;email&#39; voor deduplicatie. Klik **toevoegen Nieuwe Actie** om de tovenaar en vulling-up de volgende gebieden (de niet vermelde gebieden kunnen leeg zijn) te beginnen: Naam en Beschrijving
 
 * Naam: maken_regel bijwerken
 * Nieuw: Lood
@@ -7308,16 +7306,16 @@ Met de scriptfunctie van Zapier kunt u de aanvragen en reacties manipuleren die 
 
 ```javascript
 var Zap = {
-     
+
     get_session_info: function(bundle) {
-  
+
        console.log('Entering get_session_info method ...');
-    
+
          var access_token,
             access_token_request_payload,
             access_token_response;
 
-    
+
         // Assemble the meta data for our Access Token swap request
          console.log('building Request with client_id=' + bundle.auth_fields.client_id + ', and client_secret=' + bundle.auth_fields.client_secret);
         access_token_request_payload = {
@@ -7330,7 +7328,7 @@ var Zap = {
             },
             headers: {
                 'Content-Type': 'application/json',  // Could be anything.
-                Accept: 'application/json' 
+                Accept: 'application/json'
             }
         };
 
@@ -7340,61 +7338,61 @@ var Zap = {
         // Extract the Access Token from returned JSON.
         access_token = JSON.parse(access_token_response.content).access_token;
         console.log('New Access_Token=' + access_token);
-   
+
         // This will be mixed into bundle.auth_fields in future calls.
         //bundle.auth_fields.access_token=access_token;
         return {'access_token': access_token};
     },
-  
-  
+
+
     test_trigger_pre_poll: function(bundle) {
-     
+
          console.log('Entering test_trigger_pre_poll method ...');
-         
+
          bundle.request.params = {
          'access_token':bundle.auth_fields.access_token
          };
-         
+
          return bundle.request;
-        
+
     },
-  
+
 
     test_trigger_post_poll: function(bundle) {
-    
+
         console.log('Entering test_trigger_post_poll method ...');
-        
+
         var data = JSON.parse(bundle.response.content);
         if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
             console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
-            
+
            throw new InvalidSessionException(); // Calling get_session_info() to regenerate Access Token
         }
 
         return JSON.parse(bundle.response.content);
     },
-     
+
     create_update_lead_pre_write: function(bundle) {
-    
-       bundle.request.params = {'access_token':bundle.auth_fields.access_token};  
+
+       bundle.request.params = {'access_token':bundle.auth_fields.access_token};
        return bundle.request;
     },
 
     create_update_lead_post_write: function(bundle) {
-         
+
          var data = JSON.parse(bundle.response.content);
          if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
             console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
             throw new InvalidSessionException(); // Calling get_session_info() to regenerate Access Token
         }
         return JSON.parse(bundle.response.content);
-    } 
+    }
 };
 ```
 
 **Methoden** **get_session_info**
 
-* Deze methode is verantwoordelijk voor het produceren van of het regenereren van een toegangstoken die het Marketo REST API [&#128279;](/help/rest-api/authentication.md) eindpunt van de Authentificatie  roepen.
+* Deze methode is verantwoordelijk voor het produceren van of het regenereren van een toegangstoken die het Marketo REST API [ eindpunt van de Authentificatie ](/help/rest-api/authentication.md) roepen.
 * Het wordt geroepen telkens als om het even welke methode &quot;post_poll&quot;een &quot;Verlopen van het Token van de Toegang&quot;fout ontmoet. Een toegangstoken is gepland om elke 1 uur te verlopen zodat wordt dit verwacht.
 * Het Eindpunt van de actie URL: https://{{munchkin_account_id}} .mktorest.com/identity/oauth/token
 
@@ -7589,7 +7587,7 @@ Gepost op _2016-04-17_ door _David_
       * Knop Verzenden bijwerken
    * Wanneer het gebruiken van **krijgt of doorbladert Programma&#39;s**, zal identiteitskaart van de Campagne van SFDC voor Programma&#39;s zijn teruggekeerd die met een Campagne van SFDC verbonden zijn
 
-**de Voorwerpen van de Douane** de Voorwerpen van de Douane zullen nu datatypes van het Gebied van de Tekst steunen, die voor koordgebieden van maximaal 2000 karakters toestaan om op de gebieden van douaneobjecten van dit type worden opgeslagen. **Admin de gebruikers van het Adres van 0&rbrace; IP Whitelisting {zullen een whitelist van IP adressen nu kunnen beheren om onbevoegde toegang via APIs te verhinderen.** [ u kunt meer over deze eigenschap hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) lezen. **Admin de gebruikers van de Activiteit UI van de Douane van 0} zullen de types van Activiteit van de Douane in hun admin menu nu kunnen bepalen, en verslagen toevoegen aan lood via [ voeg de Activiteiten van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/addCustomActivityUsingPOST) API toe.** [ u kunt over het bepalen van de types van douaneactiviteit hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) lezen.
+**de Voorwerpen van de Douane** de Voorwerpen van de Douane zullen nu datatypes van het Gebied van de Tekst steunen, die voor koordgebieden van maximaal 2000 karakters toestaan om op de gebieden van douaneobjecten van dit type worden opgeslagen. **Admin de gebruikers van het Adres van 0} IP Whitelisting {zullen een whitelist van IP adressen nu kunnen beheren om onbevoegde toegang via APIs te verhinderen.** [ u kunt meer over deze eigenschap hier ](https://experienceleague.adobe.com/en/docs/marketo/using/home) lezen. **Admin de gebruikers van de Activiteit UI van de Douane van 0} zullen de types van Activiteit van de Douane in hun admin menu nu kunnen bepalen, en verslagen toevoegen aan lood via** voeg de Activiteiten van de Douane [ API toe. ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/addCustomActivityUsingPOST) [ u kunt over het bepalen van de types van douaneactiviteit hier ](https://experienceleague.adobe.com/en/docs/marketo/using/home) lezen.
 
 GEPast op _2016-06-01_ door _Kenny_
 
@@ -7643,7 +7641,7 @@ $client_id = "client_id_example";
 $client_secret = "client_secret_example";
 $grant_type = "grant_type_example";
 
-try { 
+try {
     $result = $api_instance->identityOauthTokenGet($client_id, $client_secret, $grant_type);
     print_r($result->getAccessToken);
 } catch (Exception $e) {
@@ -7742,12 +7740,12 @@ let
     clientSecretStr = Excel.CurrentWorkbook(){[Name="REST_API_Authentication"]}[Content]{0}[Client Secret],
 
     // Calling Marketo API Get Access Token
-    getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr, 
+    getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr,
     TokenJson = try Json.Document(Web.Contents(getAccessTokenUrl)) otherwise "Marketo REST API Authentication failed, please check your credentials",
 
     // Parsing access token
     accessTokenStr = TokenJson [access_token]
-       
+
 in
     accessTokenStr
 ```
@@ -7769,14 +7767,14 @@ let
             clientSecretStr = Excel.CurrentWorkbook(){[Name="REST_API_Authentication"]}[Content]{0}[Client Secret],
 
             // Calling Marketo API Get Access Token
-           getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr, 
+           getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr,
            TokenJson = try Json.Document(Web.Contents(getAccessTokenUrl)) otherwise "Marketo REST API Authentication failed, please check your credentials",
 
-            // Parsing access token from Json 
+            // Parsing access token from Json
            accessTokenStr = TokenJson [access_token]
-       
+
         in
-            accessTokenStr 
+            accessTokenStr
 
 in FnMktoGetAccessToken
 ```
@@ -7807,7 +7805,7 @@ let
 
     // Build Multiple Leads by List Id URL
     getMultipleLeadsByListIdUrl = mktoUrlStr & "/rest/v1/list/" & listIdStr & "/leads.json?fields=" & LeadFieldsStr,
-   
+
     // Build Marketo Access Token URL parameter
     accessTokenParamStr = "&access_token=" & FnMktoGetAccessToken(),
 
@@ -7817,16 +7815,16 @@ let
     FnProcessOnePage =
     (accessTokenParamStr, pagingTokenParamStr) as record =>
         let
-        
-            // Send REST API Request             
+
+            // Send REST API Request
             content = Web.Contents(getMultipleLeadsByListIdUrl & accessTokenParamStr & pagingTokenParamStr),
-            
+
             // Recover Json output and watch if token is expired, in that case, regenerate access token
             newAccessTokenParamStr = if Json.Document(content)[success]=true then accessTokenParamStr else "?access_token=" & FnMktoGetAccessToken(),
             getMultipleLeadsByListIdJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(getMultipleLeadsByListIdUrl & newAccessTokenParamStr & pagingTokenParamStr)),
-            
-            // Parse Json outputs: data and next page token     
-            data = try getMultipleLeadsByListIdJson[result] otherwise null,          
+
+            // Parse Json outputs: data and next page token
+            data = try getMultipleLeadsByListIdJson[result] otherwise null,
             next  = try  "&nextPageToken=" & getMultipleLeadsByListIdJson[nextPageToken] otherwise null,
             res = [Data=data, Next=next, Access=newAccessTokenParamStr]
         in
@@ -7880,7 +7878,7 @@ let
     FnMktoGetPagedData =(url, accessTokenParamStr, pagingTokenParamStr)=>
 
     let
-    
+
         // Get the number of iterations (pages of 300 records) - Table Scoping
         iterationsNum = Excel.CurrentWorkbook(){[Name="Scoping"]}[Content]{0}[Max Records Pages],
 
@@ -7888,16 +7886,16 @@ let
         FnProcessOnePage =
         (accessTokenParamStr, pagingTokenParamStr) as record =>
             let
-        
-                // Send REST API Request             
+
+                // Send REST API Request
                 content = Web.Contents(url& accessTokenParamStr & pagingTokenParamStr),
-            
+
                 // Recover Json output and watch if token is expired, in that case, regenerate access token
                 newAccessTokenParamStr = if Json.Document(content)[success]=true then accessTokenParamStr else "?access_token=" & FnMktoGetAccessToken(),
                 contentJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(url & newAccessTokenParamStr & pagingTokenParamStr)),
-            
-                // Parse Json outputs: data and next page token     
-                data = try contentJson[result] otherwise null,          
+
+                // Parse Json outputs: data and next page token
+                data = try contentJson[result] otherwise null,
                 next  = try  "&nextPageToken=" & contentJson[nextPageToken] otherwise null,
                 res = [Data=data, Next=next, Access=newAccessTokenParamStr]
             in
@@ -7934,7 +7932,7 @@ let
 
     // Build Multiple Leads by List Id URL
     getMultipleLeadsByListIdUrl = mktoUrlStr & "/rest/v1/list/" & listIdStr & "/leads.json?fields=" & LeadFieldsStr,
-   
+
     // Build Marketo Access Token URL parameter
     accessTokenParamStr = "&access_token=" & FnMktoGetAccessToken(),
 
@@ -7942,8 +7940,8 @@ let
     pagingTokenParamStr = "",
 
     // Invoke the multiple REST API calls through the FnMktoGetPagedData function
-    result = FnMktoGetPagedData (getMultipleLeadsByListIdUrl , accessTokenParamStr, pagingTokenParamStr) 
-        
+    result = FnMktoGetPagedData (getMultipleLeadsByListIdUrl , accessTokenParamStr, pagingTokenParamStr)
+
 in
     result
 ```
@@ -7963,7 +7961,7 @@ Er zijn een zeer groot aantal potentiële activiteitstypen, die van abonnement a
 
 #### Op datum gebaseerd paginapunt
 
-We moeten eerst deze functie bouwen om het eerste &#39;date-based&#39; paginering token te genereren, dat nodig is om de periode voor onze Activity query&#39;s te bepalen. U vindt hier de documentatie over het pagineren teken [&#128279;](/help/rest-api/paging-tokens.md). Creeer een nieuwe lege vraag genoemd **FnMktoGetPagingToken** en ga de volgende code in de geavanceerde redacteur in:
+We moeten eerst deze functie bouwen om het eerste &#39;date-based&#39; paginering token te genereren, dat nodig is om de periode voor onze Activity query&#39;s te bepalen. U vindt hier de documentatie over het pagineren teken [ ](/help/rest-api/paging-tokens.md). Creeer een nieuwe lege vraag genoemd **FnMktoGetPagingToken** en ga de volgende code in de geavanceerde redacteur in:
 
 ```
 let
@@ -7977,20 +7975,20 @@ let
             mktoPTSinceDatetimeStr = DateTime.ToText(Excel.CurrentWorkbook(){[Name="Scoping"]}[Content]{0}[Paging Token SinceDatetime], "yyyy-MM-ddThh:mm:ss"),
 
             // Building URL for API Call
-            getPagingTokenUrl = mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & accessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr, 
+            getPagingTokenUrl = mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & accessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr,
 
             // Calling Marketo API Get Paging Token
             content = Web.Contents(getPagingTokenUrl),
 
             // Recover Json output and watch if access token is expired, in that case, regenerate it
             newAccessTokenStr = if Json.Document(content)[success]=true then accessTokenStr else "?access_token=" & FnMktoGetAccessToken(),
-            pagingTokenJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & newAccessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr)),           
+            pagingTokenJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & newAccessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr)),
 
             // Parsing Paging Token
             pagingTokenStr = pagingTokenJson[nextPageToken]
-       
+
         in
-            pagingTokenStr 
+            pagingTokenStr
 
 in FnMktoGetPagingToken
 ```
@@ -8003,7 +8001,7 @@ Laten wij nu de vraag &quot;MktoInterestingMomentsActiviteiten&quot;schrijven di
 
 ```
 let
-    
+
     // Get Url from config worksheet - Table REST_API_Authentication
     mktoUrlStr = Excel.CurrentWorkbook(){[Name="REST_API_Authentication"]}[Content]{0}[URL],
     // Get the List id - Table Scoping
@@ -8011,7 +8009,7 @@ let
 
     // Build Get Activities URL
     getActivitiesUrl = mktoUrlStr & "/rest/v1/activities.json?ListId=" & listIdStr & "&activityTypeIds=46",
-   
+
     // Build Marketo Access Token URL parameter
     accessTokenStr = FnMktoGetAccessToken(),
     accessTokenParamStr = "&access_token=" & accessTokenStr,
@@ -8021,7 +8019,7 @@ let
 
     // Invoke the multiple REST API calls through the FnMktoGetPagedData function
     result = FnMktoGetPagedData (getActivitiesUrl , accessTokenParamStr, pagingTokenParamStr)
-   
+
 in
     result
 ```
@@ -8088,7 +8086,7 @@ Gepast op _2016-12-07_ door _Kenny_
 
 ## Waarom we @MarketoDev Twitter Handl3 hadden ingedrukt
 
-We hebben besloten de greep van @MarketoDev op Twitter af te schaffen. De rekening wordt op 9 december 2011 gedeactiveerd. Vreemd waarom? **Terugspoelen terug naar begin 2014...** wij hebben enkel de Plaats van de Ontwikkelaars van Marketo gelanceerd om ontwikkelaars te helpen tegen onze APIs bouwen. We wilden het Marketo-platform meer bekendheid geven en de toegangsbelemmeringen voor ontwikkelaars verminderen. In combinatie met deze inspanning creëerden we @MarketoDev om samen te werken met onze technologiepartners en klanten die geneigd waren geïntegreerde oplossingen met Marketo te bouwen. Zoals elke dappere nieuwe onderneming, wisten we niet zeker hoe dit zou uitkomen. In eerste instantie tweetten we nieuwe blogberichten en nieuwe API-releases. De dingen waren goed; het verkeer naar de website van de Ontwikkelaars ging omhoog! We kregen ook een reeks vragen, die we naar behoren hebben beantwoord. **snel door:sturen naar eind 2016..** aangezien het [ 3&rbrace; ecosysteem van de Partner LaunchPoint &lbrace;groeide, verhoogde de hoeveelheid tweetactiviteit. ](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) Als reactie op het aantal vragen die naar @MarketoDev waren gestuurd, was het een grote baan voor ons kleine team geworden. We hebben steeds meer algemene vragen over het product en de verkoop ontvangen, die we hebben doorgestuurd naar @Marketo of @MarketoCares. We hadden ook vastgesteld dat 140 tekens simpelweg niet voldoende waren voor ontwikkelingsgerelateerde vragen. Het beantwoorden van deze vaak leidde tot lange en betrokken draden van gesprek, een benadering die niet schrapte. Tot slot analyseerden we de verkeersbronnen voor bezoekers van de Developers Site en ontdekten we dat de meeste afkomstig zijn van organische zoekopdrachten en de functionaliteit &quot;Nu abonneren&quot; op onze blog. Om deze redenen hebben we besloten om de stekker op @MarketoDev te plaatsen. **Van hier op uit...** als u een Twitter-fan (en wie niet) bent, vrees niet! Onze Twitter-afdeling houdt rekening met @Marketo en met de klantenondersteuning van @MarketoCares.
+We hebben besloten de greep van @MarketoDev op Twitter af te schaffen. De rekening wordt op 9 december 2011 gedeactiveerd. Vreemd waarom? **Terugspoelen terug naar begin 2014...** wij hebben enkel de Plaats van de Ontwikkelaars van Marketo gelanceerd om ontwikkelaars te helpen tegen onze APIs bouwen. We wilden het Marketo-platform meer bekendheid geven en de toegangsbelemmeringen voor ontwikkelaars verminderen. In combinatie met deze inspanning creëerden we @MarketoDev om samen te werken met onze technologiepartners en klanten die geneigd waren geïntegreerde oplossingen met Marketo te bouwen. Zoals elke dappere nieuwe onderneming, wisten we niet zeker hoe dit zou uitkomen. In eerste instantie tweetten we nieuwe blogberichten en nieuwe API-releases. De dingen waren goed; het verkeer naar de website van de Ontwikkelaars ging omhoog! We kregen ook een reeks vragen, die we naar behoren hebben beantwoord. **snel door:sturen naar eind 2016..** aangezien het [ 3} ecosysteem van de Partner LaunchPoint {groeide, verhoogde de hoeveelheid tweetactiviteit. ](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) Als reactie op het aantal vragen die naar @MarketoDev waren gestuurd, was het een grote baan voor ons kleine team geworden. We hebben steeds meer algemene vragen over het product en de verkoop ontvangen, die we hebben doorgestuurd naar @Marketo of @MarketoCares. We hadden ook vastgesteld dat 140 tekens simpelweg niet voldoende waren voor ontwikkelingsgerelateerde vragen. Het beantwoorden van deze vaak leidde tot lange en betrokken draden van gesprek, een benadering die niet schrapte. Tot slot analyseerden we de verkeersbronnen voor bezoekers van de Developers Site en ontdekten we dat de meeste afkomstig zijn van organische zoekopdrachten en de functionaliteit &quot;Nu abonneren&quot; op onze blog. Om deze redenen hebben we besloten om de stekker op @MarketoDev te plaatsen. **Van hier op uit...** als u een Twitter-fan (en wie niet) bent, vrees niet! Onze Twitter-afdeling houdt rekening met @Marketo en met de klantenondersteuning van @MarketoCares.
 
 Gepost op _2016-12-02_ door _David_
 
@@ -8147,17 +8145,17 @@ Open het Draaien van de Macht door de knoop van &quot;Beheren&quot;van het menu 
 
 ### Expressies voor gegevensanalyse (DAX)
 
-We moeten de gegevens voor bepaalde rapporten verrijken of opnieuw opmaken. Laten wij de Uitdrukkingen van de Analyse van Gegevens van de Draai van de Macht (DAX) gebruiken om sommige douaneberekeningen als berekende kolommen en maatregelen (ook te bepalen die als berekende gebieden worden bekend). Zie de koppeling &#39;DAX in Power draaitraject&#39; in de sectie Verwijzingen voor meer informatie over DAX. Zorg ervoor dat het berekeningsgebied wordt weergegeven in het venster Draaien van voeding; schakel dit in via het menu Startpagina voor roteren van stroom als dit niet het geval is.  Selecteer het **MktoLeads** lusje en voeg de **3&rbrace; maatregel van de Telling van Leads &lbrace;in het Gebied van de Berekening van Leads toe:** Ladentelling:= **&#x200B;**&#x200B;DISTINCTCOUNT&#x200B;**&#x200B;** ([ identiteitskaart ]) **.** Deze maatregel telt de verschillende leads die in de lijst beschikbaar zijn, op basis van hun id. Zij zou ook rekening houden met de eventuele filters die in het kader van een verslag worden toegepast. Deze maatregel is niet echt nodig, omdat de verslagen het aantal leads kunnen samenvatten, maar we hebben wel een aantal leads met een kortere naam dan &quot;som van MktoLeads&quot; geboekt. Het is ook een eenvoudig voorbeeld waarmee u zich eenvoudig een aantal complexere maatstaven kunt voorstellen voor gemiddelden, min, max voor een bepaald type gegevensinvoer (bijvoorbeeld alle leads met een score hoger dan 50, gemiddelde score, enz.). ...).  Nu selecteren **MktoWebActiviteiten** tabel en creeer drie berekende kolommen. Voeg de volgende berekende kolommen in door helemaal rechts van de tabel te schuiven en op de kolom &#39;Kolom toevoegen&#39; te klikken. **Activiteit:** verkrijg het gebruikersvriendelijke etiket van de Activiteit door omhoog identiteitskaart van de Activiteit in de lijst MktoActivtyTypes te kijken. **\= &#x200B;**&#x200B;**LOOKUPVALUE**&#x200B;**&#x200B; (MktoActivityTypes [ naam ], MktoActivityTypes [ identiteitskaart ], [ activityTypeId ])** **jaar-Maand:** reformat de datum van de Activiteit met een patroon &quot;YYYYYmm&quot;dat geschikter is sommige verslagen . **\= &#x200B;**&#x200B;**LEFT**&#x200B;**&#x200B; ([ activityDate ], 4) &amp;**&#x200B;**MID**&#x200B;**&#x200B; ([ activityDate ], 6, 2)** **Datum:** De Datum van de Activiteit is enkel een Koord van onze originele vraag, zet het aan een juiste datum om. **\= &#x200B;**&#x200B;**DATUM**&#x200B;**&#x200B; (**&#x200B;**LINKS**&#x200B;**&#x200B; ([ activityDate ], 4), &#x200B;**&#x200B;**MID**&#x200B;**&#x200B; ([ activityDate ], 6, 2), &#x200B;**&#x200B;**MID**&#x200B;**&#x200B; ([ activityDate ], 9, 2)** Nu creeer de drie zelfde maatregelen voor **MktoEmailActivity** tabel, en 2 extra degenen: **Campagne:** verkrijg de gebruikersvriendelijke naam van de Campagne door omhoog identiteitskaart van de Campagne in de lijst MktoCampaigns te kijken. **\= &#x200B;**&#x200B;**LOOKUPVALUE**&#x200B;**&#x200B; (MktoCampaigns [ naam ], MktoCampaigns [ identiteitskaart ], [ campagneId ])** **Programma:** verkrijg de gebruikersvriendelijke naam van het Programma door omhoog te kijken identiteitskaart van de Campagne in de lijst MktoCampagne panden. De tabel MktoPrograms kan meer details over het Programma zoals omslag, werkruimte, enz. verstrekken. **\= &#x200B;**&#x200B;**LOOKUPVALUE**&#x200B;**&#x200B; (MktoCampaigns [ programName ], MktoCampaigns [ identiteitskaart ], [ campagneId ])**
+We moeten de gegevens voor bepaalde rapporten verrijken of opnieuw opmaken. Laten wij de Uitdrukkingen van de Analyse van Gegevens van de Draai van de Macht (DAX) gebruiken om sommige douaneberekeningen als berekende kolommen en maatregelen (ook te bepalen die als berekende gebieden worden bekend). Zie de koppeling &#39;DAX in Power draaitraject&#39; in de sectie Verwijzingen voor meer informatie over DAX. Zorg ervoor dat het berekeningsgebied wordt weergegeven in het venster Draaien van voeding; schakel dit in via het menu Startpagina voor roteren van stroom als dit niet het geval is.  Selecteer het **MktoLeads** lusje en voeg de **3} maatregel van de Telling van Leads {in het Gebied van de Berekening van Leads toe:** Ladentelling:= **DISTINCTCOUNT ****(**** identiteitskaart [) ].** Deze maatregel telt de verschillende leads die in de lijst beschikbaar zijn, op basis van hun id. Zij zou ook rekening houden met de eventuele filters die in het kader van een verslag worden toegepast. Deze maatregel is niet echt nodig, omdat de verslagen het aantal leads kunnen samenvatten, maar we hebben wel een aantal leads met een kortere naam dan &quot;som van MktoLeads&quot; geboekt. Het is ook een eenvoudig voorbeeld waarmee u zich eenvoudig een aantal complexere maatstaven kunt voorstellen voor gemiddelden, min, max voor een bepaald type gegevensinvoer (bijvoorbeeld alle leads met een score hoger dan 50, gemiddelde score, enz.). ...).  Nu selecteren **MktoWebActiviteiten** tabel en creeer drie berekende kolommen. Voeg de volgende berekende kolommen in door helemaal rechts van de tabel te schuiven en op de kolom &#39;Kolom toevoegen&#39; te klikken. **Activiteit:** verkrijg het gebruikersvriendelijke etiket van de Activiteit door omhoog identiteitskaart van de Activiteit in de lijst MktoActivtyTypes te kijken. **\= ****LOOKUPVALUE**** (MktoActivityTypes [ naam ], MktoActivityTypes [ identiteitskaart ], [ activityTypeId ])** **jaar-Maand:** reformat de datum van de Activiteit met een patroon &quot;YYYYYmm&quot;dat geschikter is sommige verslagen . **\= ****LEFT**** ([ activityDate ], 4) &amp;****MID**** ([ activityDate ], 6, 2)** **Datum:** De Datum van de Activiteit is enkel een Koord van onze originele vraag, zet het aan een juiste datum om. **\= ****DATUM**** (****LINKS**** ([ activityDate ], 4), ****MID**** ([ activityDate ], 6, 2), ****MID**** ([ activityDate ], 9, 2)** Nu creeer de drie zelfde maatregelen voor **MktoEmailActivity** tabel, en 2 extra degenen: **Campagne:** verkrijg de gebruikersvriendelijke naam van de Campagne door omhoog identiteitskaart van de Campagne in de lijst MktoCampaigns te kijken. **\= ****LOOKUPVALUE**** (MktoCampaigns [ naam ], MktoCampaigns [ identiteitskaart ], [ campagneId ])** **Programma:** verkrijg de gebruikersvriendelijke naam van het Programma door omhoog te kijken identiteitskaart van de Campagne in de lijst MktoCampagne panden. De tabel MktoPrograms kan meer details over het Programma zoals omslag, werkruimte, enz. verstrekken. **\= ****LOOKUPVALUE**** (MktoCampaigns [ programName ], MktoCampaigns [ identiteitskaart ], [ campagneId ])**
 
 ### Entiteitsrelaties
 
 We hebben eerder een manier gezien om informatie uit een andere tabel in het model op te zoeken en ontbrekende gegevens in te vullen. Kracht Draaien biedt een krachtigere optie om de verhoudingen tussen sommige lijsten van het gegevensmodel te bepalen, die ons toestaat om die verhoudingen direct van de rapporten te gebruiken. Laten we de belangrijkste relaties voor onze verslagen definiëren. Selecteer de mening van het Diagram van het Venster van de Draairichting van de Macht. Traceer de volgende verhoudingen binnen het modeldiagram van Gegevens:
 
-* **MktoInterestingMomentActiviteiten:leadId →** **MktoLeads:id**
-* **MktoScoringActivities:leadId →** **MktoLeads:id**
-* **MktoRevenueStageActivity:leadId →** **MktoLeads:id**
-* **MktoWebActiviteiten:leadId →** **MktoLeads:id**
-* **MktoEmailActivities:leadId →** **MktoLeads: id**
+* **MktoInterestingMomentActiviteiten :leadId →** **MktoLeads:id**
+* **MktoScoringActivity :leadId →** **MktoLeads:id**
+* **MktoRevenueStageActiviteiten :leadId →** **MktoLeads:id**
+* **MktoWebActiviteiten :leadId →** **MktoLeads:id**
+* **MktoEmailActivity :leadId →** **MktoLeads: id**
 
 We gebruiken al deze relaties en objecten niet in onze rapporten, alleen de Leads, Webactiviteiten en e-mailactiviteiten. Nu is het tijd om wat rapporten op te stellen.
 
@@ -8175,7 +8173,7 @@ Schakel over naar de Kaartweergave door &#39;Kaart&#39; te selecteren in het men
 
 ### Webactiviteiten die worden geanimeerd op een 3D-kaart
 
-In dit derde rapport worden uw toonaangevende webactiviteiten per branche weergegeven op een 3D-wereldkaart. We hebben een 3D-kaart nodig voor dit verslag. Typ gewoon &#39;3D&#39; in het Excel-zoekvak en selecteer &#39;3D-kaart&#39;. Maak een nieuwe rondleiding in het pop-upvenster.  Selecteer het Bubblediagram in het rechterdeelvenster. Sleep en laat vallen de gebieden, van **MktoLeads** en **MktoWebActiviteiten** lijsten, als hieronder het cijfer: **MktoLeads.industrie →** **Categorie** **MktoLeads.inferredCity →** **Plaats** Mkto2&rbrace; ktoWebActiviteiten → **&#x200B;**&#x200B;Tijd **(dit gebruik de DAX berekende kolom wij op** MktoWebActiviteiten **vroeger uitvoerden.** Het id gebied kon ook voor tellende activiteiten worden gebruikt.) **MktoWebActiviteiten.Date →** **Tijd** (dit gebruik de DAX berekende kolom die wij op **MktoWebActiviteiten** vroeger) **MktoWebActiviteiten.Activity** uitvoerden kan ook als filter worden gebruikt om de verschillende soorten Webactiviteiten uit te filtreren.
+In dit derde rapport worden uw toonaangevende webactiviteiten per branche weergegeven op een 3D-wereldkaart. We hebben een 3D-kaart nodig voor dit verslag. Typ gewoon &#39;3D&#39; in het Excel-zoekvak en selecteer &#39;3D-kaart&#39;. Maak een nieuwe rondleiding in het pop-upvenster.  Selecteer het Bubblediagram in het rechterdeelvenster. Sleep en laat vallen de gebieden, van **MktoLeads** en **MktoWebActiviteiten** lijsten, als hieronder het cijfer: **MktoLeads.industrie →** **Categorie** **MktoLeads.inferredCity →** **Plaats** Mkto2} ktoWebActiviteiten → **** Tijd **(dit gebruik de DAX berekende kolom wij op** MktoWebActiviteiten **vroeger uitvoerden.** Het id gebied kon ook voor tellende activiteiten worden gebruikt.) **MktoWebActiviteiten.Date →** **Tijd** (dit gebruik de DAX berekende kolom die wij op **MktoWebActiviteiten** vroeger) **MktoWebActiviteiten.Activity** uitvoerden kan ook als filter worden gebruikt om de verschillende soorten Webactiviteiten uit te filtreren.
 
 Met de knop Thema&#39;s kunt u het kleurenschema van uw 3D-kaart wijzigen. Open de optie Scèneopties om uw animaties aan te passen.
 En je bent klaar met de 3D World Map, nu kun je plezier hebben om de wereldbol te animeren en er video van te maken.
@@ -8320,7 +8318,7 @@ Nieuwe eindpunten ter ondersteuning van CRUD-bewerkingen in lijsten met benoemde
 ### Overige verbeteringen
 
 * Het [ krijgt Campagnes ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getCampaignByIdUsingGET) eindpunt nu staat u toe om &quot;trekbare&quot;campagnes te filtreren. Dit wordt bereikt door &quot;isTriggerable=true&quot;als vraagparameter door te geven.
-* Het [&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) eindpunt van het Programma van de Kloon  &lbrace;steunt nu programma&#39;s die alle activa behalve het Bericht van SMS bevatten.
+* Het [ eindpunt van het Programma van de Kloon ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) {steunt nu programma&#39;s die alle activa behalve het Bericht van SMS bevatten.
 
 ### Ionic
 
@@ -8334,7 +8332,7 @@ Gepost op _2017-06-16_ door _David_
 
 ## Internet van dingen voor Marketers met IFTTT en Zapier
 
-Het internet van de dingen (IoT) is de onderlinge netwerkverbinding van aangesloten apparaten, apparaten, mobiele apparatuur, voertuigen, enz. met ingebouwde elektronica, software, sensoren, en netwerkconnectiviteit die deze voorwerpen toelaten om gegevens met wolkeninformatiesystemen te verzamelen en uit te wisselen. Deze technologieën groeien en trenderen zo snel dat ze van invloed zijn op hoe we leven, hoe we werken en hoe we zaken doen in een tijd. Marketo het toonaangevende Marketing Engagement Platform is klaar voor de IoT met zijn mogelijkheden om met om het even welke vorm van communicatie kanaal te schrapen en in wisselwerking te staan. Marketo kan reeds meer dan 70 types van activiteiten met betrekking tot e-mail, Web, mobiel, CRM, enz. volgen en het steunt ook [ douaneactiviteiten ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-activities/create-a-custom-activity.html?lang=nl-NL) die door om het even welk derdesysteem kunnen worden gevoed. Marketo [ douanevoorwerpen ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects.html?lang=nl-NL) maken het mogelijk om alle soorten 3de partijmetriek met betrekking tot uw zaken te volgen, en staat marketers toe om die metriek recht van Marketo slimme campagnecilters en trekkers te hefboomwerking. Voor de implementatie van IoT voor consumenten zou een gecentraliseerde server nodig zijn voor interactie met consumentenapparaten en deze server zou gegevens uitwisselen met het open platform van Marketo, met mogelijkheden zoals REST API, Custom Objects, Custom Activity, enz. - gedocumenteerde [ hier ](http://eto.com/). Niet gemakkelijk te demonstreren via een blogbericht. In plaats daarvan gaan we de IFTTT-service integreren met Marketo om een aantal coole IoT-gebruiksscenario&#39;s voor de marketers te implementeren, zoals:
+Het internet van de dingen (IoT) is de onderlinge netwerkverbinding van aangesloten apparaten, apparaten, mobiele apparatuur, voertuigen, enz. met ingebouwde elektronica, software, sensoren, en netwerkconnectiviteit die deze voorwerpen toelaten om gegevens met wolkeninformatiesystemen te verzamelen en uit te wisselen. Deze technologieën groeien en trenderen zo snel dat ze van invloed zijn op hoe we leven, hoe we werken en hoe we zaken doen in een tijd. Marketo het toonaangevende Marketing Engagement Platform is klaar voor de IoT met zijn mogelijkheden om met om het even welke vorm van communicatie kanaal te schrapen en in wisselwerking te staan. Marketo kan reeds meer dan 70 types van activiteiten met betrekking tot e-mail, Web, mobiel, CRM, enz. volgen en het steunt ook [ douaneactiviteiten ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-activities/create-a-custom-activity.html) die door om het even welk derdesysteem kunnen worden gevoed. Marketo [ douanevoorwerpen ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects.html) maken het mogelijk om alle soorten 3de partijmetriek met betrekking tot uw zaken te volgen, en staat marketers toe om die metriek recht van Marketo slimme campagnecilters en trekkers te hefboomwerking. Voor de implementatie van IoT voor consumenten zou een gecentraliseerde server nodig zijn voor interactie met consumentenapparaten en deze server zou gegevens uitwisselen met het open platform van Marketo, met mogelijkheden zoals REST API, Custom Objects, Custom Activity, enz. - gedocumenteerde [ hier ](http://eto.com/). Niet gemakkelijk te demonstreren via een blogbericht. In plaats daarvan gaan we de IFTTT-service integreren met Marketo om een aantal coole IoT-gebruiksscenario&#39;s voor de marketers te implementeren, zoals:
 
 * Het keurig uw team van de Marketing telkens als een lood aan een wegshow wordt geregistreerd door een gekleurd licht in het bureau te knipperen
 * Het keurig uw team van de Verkoop telkens als een overeenkomst wordt gewonnen door automatisch een bel te bevestigen die aan een aangesloten machtstekker wordt gestopt
@@ -8363,7 +8361,7 @@ Van IFTTT, onderzoek naar de &quot;Maker&quot;dienst en klik op het.  De eerste 
 
 ### Rechtstreeks een IFTTT-handeling vanuit de markt activeren
 
-Ten eerste zullen we ons richten op het initiëren van allerlei webserviceacties van derden vanuit Marketo. Voor dat gaan wij a [ Marketo Webhaak ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook.html?lang=nl-NL) gebruiken. We beginnen met een pushbericht op uw mobiele telefoon of tablet via de mobiele IFTTT-app en implementeren vervolgens een IoT-scenario dat een Philips Hue-licht knippert.
+Ten eerste zullen we ons richten op het initiëren van allerlei webserviceacties van derden vanuit Marketo. Voor dat gaan wij a [ Marketo Webhaak ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook.html) gebruiken. We beginnen met een pushbericht op uw mobiele telefoon of tablet via de mobiele IFTTT-app en implementeren vervolgens een IoT-scenario dat een Philips Hue-licht knippert.
 
 ### Marketo Webhaak
 
@@ -8420,7 +8418,7 @@ Laten we de actie &#39;Knipperlichten&#39; selecteren. De app vraagt van Philips
 
 ### Marketo-actie uitvoeren vanuit IFTTT via Zapie
 
-Nu gaan we een Marketo Smart Campaign starten vanuit het IFTTT Platform. Voor dat gaan wij [ Marketo REST API ](/help/rest-api/rest-api.md) gebruiken. Aangezien deze API wordt beveiligd en een Authentificatie OAuth2 voorafgaand vereist om om het even wat aan te halen, moeten wij die authentificatie via een ander platform zoals Zapier behandelen, omdat IFTTT niet toestaat om twee opeenvolgende vraag op API met het Kanaal van de Maker te ketenen. Wij kozen [&#128279;](https://zapier.com/) de Dienst van de Automatisering van de Web-app van Zapier  Zapier &lbrace;omdat wij reeds introduceerden en die stap voor stap verklaren hoe te om een schakelaar van de douaneMarketo voor Zapier uit te voeren. Andere platforms zoals [ Werkato ](https://www.workato.com/integrations/marketo) zou een oplossing ook kunnen zijn.
+Nu gaan we een Marketo Smart Campaign starten vanuit het IFTTT Platform. Voor dat gaan wij [ Marketo REST API ](/help/rest-api/rest-api.md) gebruiken. Aangezien deze API wordt beveiligd en een Authentificatie OAuth2 voorafgaand vereist om om het even wat aan te halen, moeten wij die authentificatie via een ander platform zoals Zapier behandelen, omdat IFTTT niet toestaat om twee opeenvolgende vraag op API met het Kanaal van de Maker te ketenen. Wij kozen [ de Dienst van de Automatisering van de Web-app van Zapier ](https://zapier.com/) Zapier {omdat wij reeds introduceerden en die stap voor stap verklaren hoe te om een schakelaar van de douaneMarketo voor Zapier uit te voeren. Andere platforms zoals [ Werkato ](https://www.workato.com/integrations/marketo) zou een oplossing ook kunnen zijn.
 
 ### Marketo-campagne
 
@@ -8456,16 +8454,16 @@ Met de scriptfunctie van Zapier kunt u de aanvragen en reacties manipuleren die 
 
 ```javascript
 var Zap = {
- 
+
  get_session_info: function(bundle) {
- 
+
  console.log('Entering get_session_info method ...');
- 
+
  var access_token,
  access_token_request_payload,
  access_token_response;
 
- 
+
  // Assemble the meta data for our Access Token swap request
  console.log('building Request with client_id=' + bundle.auth_fields.client_id + ', and client_secret=' + bundle.auth_fields.client_secret);
  access_token_request_payload = {
@@ -8478,7 +8476,7 @@ var Zap = {
  },
  headers: {
  'Content-Type': 'application/json', // Could be anything.
- Accept: 'application/json' 
+ Accept: 'application/json'
  }
  };
 
@@ -8488,46 +8486,46 @@ var Zap = {
  // Extract the Access Token from returned JSON.
  access_token = JSON.parse(access_token_response.content).access_token;
  console.log('New Access_Token=' + access_token);
- 
+
  // This will be mixed into bundle.auth_fields in future calls.
  //bundle.auth_fields.access_token=access_token;
  return {'access_token': access_token};
  },
- 
+
  test_trigger_pre_poll: function(bundle) {
- 
+
  console.log('Entering test_trigger_pre_poll method ...');
- 
+
  bundle.request.params = {
  'access_token':bundle.auth_fields.access_token
  };
- 
+
  return bundle.request;
- 
+
  },
- 
+
  test_trigger_post_poll: function(bundle) {
- 
+
  console.log('Entering test_trigger_post_poll method ...');
- 
+
  var data = JSON.parse(bundle.response.content);
  if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
  console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
- 
+
  throw new InvalidSessionException(); // Calling get_session_info() to regenerate Access Token
  }
 
  return JSON.parse(bundle.response.content);
  },
- 
+
  launch_campaign_pre_write: function(bundle) {
- 
- bundle.request.params = {'access_token':bundle.auth_fields.access_token}; 
+
+ bundle.request.params = {'access_token':bundle.auth_fields.access_token};
  return bundle.request;
  },
 
  launch_campaign_post_write: function(bundle) {
- 
+
  var data = JSON.parse(bundle.response.content);
  if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
  console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
@@ -8535,7 +8533,7 @@ var Zap = {
  }
  return JSON.parse(bundle.response.content);
  }
- 
+
 };
 ```
 
@@ -8642,7 +8640,7 @@ U hebt een Google Cloud-account nodig. U kunt GCP voor vrije met een krediet pro
      \*/
     exports.scoreCompare = function scoreCompare (req, res) {
      var onlineScore=parseInt(req.body.onlineScore);
-     var offlineScore=parseInt(req.body.offlineScore); 
+     var offlineScore=parseInt(req.body.offlineScore);
      console.log('/scoreCompare: got values onlineScore =' + onlineScore + ', offlineScore =' + offlineScore);
      var result;
      if (onlineScore>offlineScore) {result = 'online';} else {result = 'offline';}
@@ -8670,7 +8668,7 @@ Waar [ UW_STAGING_BUCKET_NAME ] de naam van uw het opvoeren emmertje van de Opsl
    * HTTP-werkruimte: POST
    * URL: [ https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare](https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare)
    * Kopteksten: content-type = application/json
-   * Body: {&quot;onlineScore&quot;:110, &quot;offlineScore&quot;:200} Output zou moeten geven: {&quot;output&quot;: &quot;off-line&quot;}.
+   * Body: {&quot;onlineScore&quot;:110, &quot;offlineScore&quot;:200 Output zou moeten geven: {&quot;output&quot;: &quot;off-line&quot;}.
 
 ### De functie Cloud aanroepen vanuit een Marketo Webhaak
 
@@ -8703,7 +8701,7 @@ U velen nu voorproef een e-mail gebruikend [ krijgt het Volledige eindpunt van d
 
 ### HTML van e-mail 2.0 vervangen
 
-Wij hebben het [ Ee-maileindpunt van de Update Volledige Inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#operation/createEmailFullContentUsingPOST) toegevoegd om u toe te staan om blokken van de e-mailinhoud van HTML te vervangen. Als u de code van HTML van een e-mail van Marketo gebruikend Marketo E-mail 2.0 Redacteur uitgeeft, dan is het verband tussen e-mail en zijn malplaatje gebroken, meer over dat [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html). Gebruikend dit eindpunt, kunt u de inhoud van HTML van een e-mail programmatically bijwerken waarvan verhouding is gebroken. Daarnaast hebben we alle andere e-maillevenscyclusgerelateerde eindpunten aangepast zodat deze compatibel zijn met e-mails waarin de relatie is verbroken:
+Wij hebben het [ Ee-maileindpunt van de Update Volledige Inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#operation/createEmailFullContentUsingPOST) toegevoegd om u toe te staan om blokken van de e-mailinhoud van HTML te vervangen. Als u de code van HTML van een e-mail van Marketo gebruikend Marketo E-mail 2.0 Redacteur uitgeeft, dan is het verband tussen e-mail en zijn malplaatje gebroken, meer over dat [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html). Gebruikend dit eindpunt, kunt u de inhoud van HTML van een e-mail programmatically bijwerken waarvan verhouding is gebroken. Daarnaast hebben we alle andere e-maillevenscyclusgerelateerde eindpunten aangepast zodat deze compatibel zijn met e-mails waarin de relatie is verbroken:
 
 * Concept voor e-mail goedkeuren
 * E-mail niet goedkeuren
@@ -8738,7 +8736,7 @@ Toegevoegde twee parameters aan [ krijgen het Programma door het eindpunt van de
 
 ### Overige verbeteringen
 
-De Bulk Extract-API is nu &#39;werkruimte-bewust&#39;. Wanneer u een API-Enige Gebruiker voor de Dienst van de Douane van a [&#128279;](/help/rest-api/custom-services.md) creeert, moet u een Rol van de Gebruiker met API Toegang voor één of meerdere werkruimten selecteren. Eerder, werd de Dienst van de Douane verleend toegang tot alle werkruimten. De aangepaste service krijgt nu alleen toegang tot de werkruimte(n) die zijn geselecteerd tijdens het maken van gebruikers met alleen API.
+De Bulk Extract-API is nu &#39;werkruimte-bewust&#39;. Wanneer u een API-Enige Gebruiker voor de Dienst van de Douane van a [ ](/help/rest-api/custom-services.md) creeert, moet u een Rol van de Gebruiker met API Toegang voor één of meerdere werkruimten selecteren. Eerder, werd de Dienst van de Douane verleend toegang tot alle werkruimten. De aangepaste service krijgt nu alleen toegang tot de werkruimte(n) die zijn geselecteerd tijdens het maken van gebruikers met alleen API.
 
 Gepost op _2018-03-02_ door _David_
 
@@ -8804,7 +8802,7 @@ Bepaalde Unicode-tekens zijn beschadigd in het extractie-uitvoerbestand.
 [ Programma van de Kloon ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
 
 * Als u het e-mailprogramma hebt gekloond, is de logica voor het filter SmartList ingesteld op Alles in het resulterende programma, ongeacht de aanvankelijke instelling.
-* Als u een programma probeerde te klonen dat een statische lijst had bevat (die werd geschrapt), dan ontving u 709, &quot;de volgende activa zijn niet gestaafd:Lijst&quot;fout.
+* Als u probeerde om een programma te klonen dat een statische lijst had bevat (die werd geschrapt), dan ontving u 709, &quot;de volgende activa zijn niet gestaafd :List&quot;fout.
 * Als u een programma over werkruimten probeerde te klonen, dan ontving u een fout 611, &quot;Kan programma&quot;niet klonen.
 
 [ krijgt Statische Lijst door Id ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getStaticListByIdUsingGET)
@@ -8837,7 +8835,7 @@ De release van Fall 2019 is voornamelijk een onderhoudsrelease die bestaat uit k
 
 ### Verbeteringen
 
-* Toegevoegde [ E-mailCC Gebieden ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/email-cc) steun voor [ Activa API ](/help/rest-api/assets.md). CC-veldinstellingen worden doorgegeven zoals u had verwacht tijdens goedkeurings-/kloonbewerkingen (conceptgoedkeuring van e-mail- of e-mailsjabloon, e-mail- of programmacolone). Alle op e-mail betrekking hebbende eindpunten keren nu de waarden van de Gebieden van CC in het **ccFields** bezit terug. Schuif omlaag in de onderstaande reactie om een voorbeeld te zien. Deze verandering beïnvloedt de volgende eindpunten: [ krijgt E-mail door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByIdUsingGET), [ krijgt E-mail door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByNameUsingGET), [ krijgt E-mail ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailUsingGET), [ keurt het Ontwerp van de E-mail- Opstelling ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST) goed, [ het Ontwerp van het E-mailMalplaatje ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST_1), [ E-mail van de Kloon ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST).[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
+* Toegevoegde [ E-mailCC Gebieden ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-cc) steun voor [ Activa API ](/help/rest-api/assets.md). CC-veldinstellingen worden doorgegeven zoals u had verwacht tijdens goedkeurings-/kloonbewerkingen (conceptgoedkeuring van e-mail- of e-mailsjabloon, e-mail- of programmacolone). Alle op e-mail betrekking hebbende eindpunten keren nu de waarden van de Gebieden van CC in het **ccFields** bezit terug. Schuif omlaag in de onderstaande reactie om een voorbeeld te zien. Deze verandering beïnvloedt de volgende eindpunten: [ krijgt E-mail door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByIdUsingGET), [ krijgt E-mail door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByNameUsingGET), [ krijgt E-mail ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailUsingGET), [ keurt het Ontwerp van de E-mail- Opstelling ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST) goed, [ het Ontwerp van het E-mailMalplaatje ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST_1), [ E-mail van de Kloon ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST).[](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
 
 ```json
 {
@@ -8910,7 +8908,7 @@ De release van Fall 2019 is voornamelijk een onderhoudsrelease die bestaat uit k
 
 ### Resoluties beschermen
 
-* Aangepast [ Veelvoudige het brandmerken Domeinen ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) steun voor [ Activa API ](/help/rest-api/assets.md). Eerder werden instellingen voor Meerdere brandingdomeinen niet doorgegeven bij het goedkeuren van een e-mailconcept, het klonen van een e-mail of het klonen van een programma. Dit is gecorrigeerd. Deze verandering beïnvloedt de volgende eindpunten: [ keur E-mailOntwerp ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST) goed, [ Kloon E-mail ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [ Kloonprogramma.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
+* Aangepast [ Veelvoudige het brandmerken Domeinen ](https://experienceleague.adobe.com/en/docs/marketo/using/home) steun voor [ Activa API ](/help/rest-api/assets.md). Eerder werden instellingen voor Meerdere brandingdomeinen niet doorgegeven bij het goedkeuren van een e-mailconcept, het klonen van een e-mail of het klonen van een programma. Dit is gecorrigeerd. Deze verandering beïnvloedt de volgende eindpunten: [ keur E-mailOntwerp ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST) goed, [ Kloon E-mail ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [ Kloonprogramma.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
 * Toegevoegde [ apiOnly ](/help/javascript-api/configuration.md) configuratie het plaatsen. Standaard wordt op webpagina&#39;s die de Munchkin-tag bevatten de gebeurtenis &quot;Visits Web Page&quot; (Webpagina bezoeken) uitgevoerd wanneer de webpagina in de browser wordt geladen. In sommige gevallen is dit ongewenst. Webtoepassingen van één pagina die bijvoorbeeld volledige controle moeten hebben over het moment waarop deze gebeurtenis wordt gestart. Om dit gebruiksgeval te steunen, hebben wij een nieuwe **apiOnly** configuratie die plaatsen toegevoegd. Als de waarde true is, genereert de Munchkin-tag geen activiteit &quot;Visits Web Page&quot; tijdens het laden van de pagina.
 * Toegevoegde [ domainSelectorV2 ](/help/javascript-api/configuration.md) configuratie het plaatsen. Door gebrek, behandelt de markering van Munchkin correct Web-pagina&#39;s die op plaatsen met twee-brief [ domeinen van het landcode top-level ](https://en.wikipedia.org/wiki/Country_code_top-level_domain) (voorbeelden: .io, .co, .ly) worden ontvangen. Hierdoor wordt het Munchkin-cookie-domeinkenmerk onjuist ingesteld. Om een betere uit dooservaring te bereiken, hebben wij een nieuwe **domainSelectorV2** configuratie het plaatsen toegevoegd. Wanneer ingesteld op true, wordt een verbeterd algoritme gebruikt om het Munchkin cookie domain-kenmerk automatisch in te stellen.
 * Aangepast [ opt-uit ](/help/javascript-api/lead-tracking.md) koekjesdomein. In bepaalde gevallen is het domeinkenmerk van het Munchkin Opt-Out-cookie (mkto_opt_out) onjuist ingesteld. Het opt-uit koekje van Munchkin gebruikt nu de zelfde logica zoals het koekje van Munchkin (_mkto_trk) om het attribuut van het domeinkoekje te bepalen, met inbegrip van het eerbiedigen van **domainLevel** configuratie die plaatst.
@@ -8937,7 +8935,7 @@ De volgende eindpunten keren de controlesom terug: [ krijgen de Status van de Ta
 #### Resoluties beschermen
 
 1. De Vaste kwestie met [ Bulk de Invoer van het Voorwerp van de Douane ](/help/rest-api/bulk-custom-object-import.md) wanneer het invoeren van decimale aantallen in geheelgebieden. Vóór de correctie werd het decimale getal omgezet in een geheel getal door het gehele getalgedeelte toe te wijzen en het breukgedeelte te verwijderen (5.432 werd bijvoorbeeld omgezet in 5). Er wordt nu een fout met het gegevenstype &quot;Invalid data type in field Source ID&quot; gegenereerd voor elke rij waarin gegevens voorkomen die niet overeenkomen.
-1. Vaste kwestie waar een E-mailprogramma dat gebruikend het [&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) eindpunt van het Programma van de Kloon  werd gecreeerd Communicatie montages van Limieten in bepaalde gevallen niet respecteerde.
+1. Vaste kwestie waar een E-mailprogramma dat gebruikend het [ eindpunt van het Programma van de Kloon ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) werd gecreeerd Communicatie montages van Limieten in bepaalde gevallen niet respecteerde.
 1. Vaste kwestie met [ goedkeurde het Landing Concept van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) eindpunt waar het 611 zou terugkeren. &quot;Systeemfout&quot; wanneer de landingspagina het formulier E-mail opzeggen bevatte.
 1. Vaste kwestie met [ goedkeurde het Landing Concept van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) eindpunt waar het 611 zou terugkeren. &quot;De fout van het systeem&quot;wanneer de het landen pagina gebruikend het [ Klonen Landing van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneLandingPageUsingPOST) eindpunt was gekloond.
 
@@ -8982,7 +8980,7 @@ In augustus 2019 publiceren we nieuwe REST API&#39;s, verbeteren we bestaande AP
 1. Toegevoegde eindpunten voor het extraheren van definities van slimme lijsten.
    1. Krijg [ Slimme Lijst door het Slimme eindpunt van identiteitskaart van de Campagne ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListBySmartCampaignIdUsingGET) het slimme lijstverslag voor een bepaalde slimme campagne identiteitskaart terugkeert.
    1. Krijg [ Slimme Lijst door het eindpunt van identiteitskaart van het Programma ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListByProgramIdUsingGET) keert het slimme lijstverslag voor bepaalde programma identiteitskaart terug.
-1. Verbeterde het [ eindpunt van de Inhoud E-mail van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#operation/updateEmailContentUsingPOST) om updates aan e-mailkopbalgebieden voor e-mailkopbal toe te staan die van hun malplaatje (onderwerp, van naam, van e-mail, antwoord aan) zijn gebroken. Gebroken van het malplaatje wordt beschreven [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html).
+1. Verbeterde het [ eindpunt van de Inhoud E-mail van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#operation/updateEmailContentUsingPOST) om updates aan e-mailkopbalgebieden voor e-mailkopbal toe te staan die van hun malplaatje (onderwerp, van naam, van e-mail, antwoord aan) zijn gebroken. Gebroken van het malplaatje wordt beschreven [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html).
 
 ### Resoluties beschermen
 
@@ -8996,7 +8994,7 @@ In augustus 2019 publiceren we nieuwe REST API&#39;s, verbeteren we bestaande AP
 1. Om zich aan Adobe te richten wereldklasse norm voor veiligheid, zullen wij steun voor de Veiligheid van de Laag van het Vervoer (TLS) 1.0 en 1.1 vanaf 13 December, 2019 verwerpen. Systemen die met Marketo integreren en niet voldoen aan het 1.2-protocol, kunnen mogelijk de toegang tot Marketo Engage-services verliezen. Zorg ervoor dat alle clientsystemen vóór 13 december 2019 compatibel zijn met TLS 1.2 om uw Marketo Engage-toegang te behouden. De meer gedetailleerde informatie kan [ hier ](https://nation.marketo.com:443/t5/knowledgebase/tls-1-0-1-1-deprecation-faq/ta-p/249085) worden gevonden.
 
 
-1. Alle Slimme verwante inhoud van de Campagne verblijft nu in het [ Slimme 1&rbrace; menupunt van Campagnes &lbrace;(onder REST API > Assets).](/help/rest-api/smart-campaigns.md)
+1. Alle Slimme verwante inhoud van de Campagne verblijft nu in het [ Slimme 1} menupunt van Campagnes {(onder REST API > Assets).](/help/rest-api/smart-campaigns.md)
 
 Gepost op _2019-08-16_ door _David_
 
@@ -9013,7 +9011,7 @@ Gepost op _2020-01-17_ door _David_
 
 ## Elk aangepast object ophalen
 
-Wij worden vaak gevraagd hoe te om Marketo API te gebruiken om een lijst van alle [ douanevoorwerpen ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) (COs) te krijgen. Het vragen voor COs vereist meer dan zijn naam: sommige _a priori_ kennis over elke CO wordt ook vereist. De methoden om die kennis op te halen zijn mogelijk niet duidelijk, aangezien de API geen methode biedt om rechtstreeks een query uit te voeren. Net als bij veel doelstellingen in Marketo Engage bieden slimme lijsten een antwoord voor CO&#39;s die zijn gekoppeld aan personen (Leads). De slimme Lijsten werken verschillend met Bedrijven en u zult omhoog met een lijst van alle Personen beëindigen de waarvan Bedrijven met het type van voorwerp voor de filter verbonden zijn zodat kunt u het noodzakelijk vinden om bedrijven afhankelijk van uw doelstellingen te dedupliceren. Telkens wanneer een nieuw Aangepast object wordt goedgekeurd, wordt een bijbehorend filter gemaakt. Het zal in het formaat &quot;**worden genoemd heeft de NAAM van CO**&quot;. In het voorbeeld hieronder, is de naam van het douanevoorwerp &quot;**Abonnement van het Spoor van de Conferentie&quot;** en zijn filter wordt genoemd &quot;**heeft het Abonnement van het Spoor van de Conferentie**&quot;. Zodra u de Slimme Lijst hebt gecreeerd, kunt u de informatie nodig terugwinnen om voor bijbehorende COs te vragen gebruikend het [ eindpunt van douanevoorwerpen ](/help/rest-api/custom-objects.md). Exporteer de lijst zodat het gekoppelde veld wordt opgenomen (id of e-mailadres). U kunt het gebruiken van het [ BulkLood uitvoeren API ](/help/rest-api/bulk-lead-extract.md) filtreren door **smartListName** of **smartListId** filter of [ uitvoer van UI ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/managing-people-in-smart-lists/export-people-to-excel-from-a-list-or-smart-list). In de volgende stap gebruikt u elke gekoppelde veldwaarde om gekoppelde aangepaste objecten afzonderlijk te controleren. De naam van het douanevoorwerp is **&quot;Abonnement van het Spoor van de Conferentie&quot;** in dit voorbeeld, en zijn API naam is **conferenceTrackSubscription_c**. U vindt de API naam zowel in UI als &quot;**API Naam**&quot;en via API als &quot;**naam**&quot;.  Beheerder | De Eigen Objecten van Marketo [/titel ] en hier is een fragment dat door het [ Eigen Objecten API van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET) eindpunt is teruggekeerd:
+Wij worden vaak gevraagd hoe te om Marketo API te gebruiken om een lijst van alle [ douanevoorwerpen ](https://experienceleague.adobe.com/en/docs/marketo/using/home) (COs) te krijgen. Het vragen voor COs vereist meer dan zijn naam: sommige _a priori_ kennis over elke CO wordt ook vereist. De methoden om die kennis op te halen zijn mogelijk niet duidelijk, aangezien de API geen methode biedt om rechtstreeks een query uit te voeren. Net als bij veel doelstellingen in Marketo Engage bieden slimme lijsten een antwoord voor CO&#39;s die zijn gekoppeld aan personen (Leads). De slimme Lijsten werken verschillend met Bedrijven en u zult omhoog met een lijst van alle Personen beëindigen de waarvan Bedrijven met het type van voorwerp voor de filter verbonden zijn zodat kunt u het noodzakelijk vinden om bedrijven afhankelijk van uw doelstellingen te dedupliceren. Telkens wanneer een nieuw Aangepast object wordt goedgekeurd, wordt een bijbehorend filter gemaakt. Het zal in het formaat &quot;**worden genoemd heeft de NAAM van CO**&quot;. In het voorbeeld hieronder, is de naam van het douanevoorwerp &quot;**Abonnement van het Spoor van de Conferentie&quot;** en zijn filter wordt genoemd &quot;**heeft het Abonnement van het Spoor van de Conferentie**&quot;. Zodra u de Slimme Lijst hebt gecreeerd, kunt u de informatie nodig terugwinnen om voor bijbehorende COs te vragen gebruikend het [ eindpunt van douanevoorwerpen ](/help/rest-api/custom-objects.md). Exporteer de lijst zodat het gekoppelde veld wordt opgenomen (id of e-mailadres). U kunt het gebruiken van het [ BulkLood uitvoeren API ](/help/rest-api/bulk-lead-extract.md) filtreren door **smartListName** of **smartListId** filter of [ uitvoer van UI ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/managing-people-in-smart-lists/export-people-to-excel-from-a-list-or-smart-list). In de volgende stap gebruikt u elke gekoppelde veldwaarde om gekoppelde aangepaste objecten afzonderlijk te controleren. De naam van het douanevoorwerp is **&quot;Abonnement van het Spoor van de Conferentie&quot;** in dit voorbeeld, en zijn API naam is **conferenceTrackSubscription_c**. U vindt de API naam zowel in UI als &quot;**API Naam**&quot;en via API als &quot;**naam**&quot;.  Beheerder | De Eigen Objecten van Marketo [/titel ] en hier is een fragment dat door het [ Eigen Objecten API van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET) eindpunt is teruggekeerd:
 
 ```json
 {
@@ -9050,11 +9048,11 @@ Wij worden vaak gevraagd hoe te om Marketo API te gebruiken om een lijst van all
 }
 ```
 
-Als u de aangepaste objecten wilt ophalen die zijn gekoppeld aan een (1:1) of een aan vele (1:N) met de personen in uw slimme lijst, voert u een aanvraag als volgt uit:
+Om de douanevoorwerpen terug te winnen verbonden één aan één (1 :1) of één aan vele (1 :N) met de Personen in uw Slimme Lijst, doe een verzoek als dit:
 
 `GET /rest/v1/customobjects/conferenceTrackSubscription_c.json?filterType=leadID&filterValues=1000302,1000303,1000304,1000306,1000307`
 
-In dit voorbeeld, wordt dit douanevoorwerp verbonden met Personen door het **leadID** gebied zodat is het filtertype &quot;**leadID**&quot;. De parameter van filterwaarden is een komma-gescheiden lijst van IDs die van de Slimme uitvoer van de Lijst wordt genomen. De aanvraag kan zoveel filterwaarden bevatten als u in één aanvraag-URI kunt gebruiken: maximaal 8 kB tekens. Verzoeken waarbij deze lengte wordt overschreden, retourneren een foutcode op 414 HTTP-niveau. De reactie kan in meer dan één brok zijn teruggekeerd. Als zo, **moreResult** **&#x200B;**&#x200B;waar zal zijn en a **nextPageToken** zal inbegrepen zijn. U zult dan aan [ pagina door ](/help/rest-api/paging-tokens.md) de resultaten moeten **moreResult** **vals** zijn. Hier volgt een deel van het resultaat voor de bovenstaande API-aanvraag:
+In dit voorbeeld, wordt dit douanevoorwerp verbonden met Personen door het **leadID** gebied zodat is het filtertype &quot;**leadID**&quot;. De parameter van filterwaarden is een komma-gescheiden lijst van IDs die van de Slimme uitvoer van de Lijst wordt genomen. De aanvraag kan zoveel filterwaarden bevatten als u in één aanvraag-URI kunt gebruiken: maximaal 8 kB tekens. Verzoeken waarbij deze lengte wordt overschreden, retourneren een foutcode op 414 HTTP-niveau. De reactie kan in meer dan één brok zijn teruggekeerd. Als zo, **moreResult** **** waar zal zijn en a **nextPageToken** zal inbegrepen zijn. U zult dan aan [ pagina door ](/help/rest-api/paging-tokens.md) de resultaten moeten **moreResult** **vals** zijn. Hier volgt een deel van het resultaat voor de bovenstaande API-aanvraag:
 
 ```json
 "result": [
@@ -9100,13 +9098,13 @@ In dit voorbeeld, wordt dit douanevoorwerp verbonden met Personen door het **lea
     }
 ```
 
-U hebt nu de waarden voor elk douanevoorwerp direct verbonden met de Personen in uw Slimme Lijst en voorbij het terugwinnen van de waarden, kunt u **marketoGUID** aan [ Update ](/help/rest-api/custom-objects.md) gebruiken of [ Schrapping ](/help/rest-api/custom-objects.md) deze voorwerpen. Voor douanevoorwerpen verbonden aan Personen in een vele aan vele verhouding (N:N), keert de bovengenoemde techniek het eerste niveauvoorwerp terug dat het intermediaire voorwerp is dat elke Persoon met veelvoudige tweede niveau COs verbindt.
+U hebt nu de waarden voor elk douanevoorwerp direct verbonden met de Personen in uw Slimme Lijst en voorbij het terugwinnen van de waarden, kunt u **marketoGUID** aan [ Update ](/help/rest-api/custom-objects.md) gebruiken of [ Schrapping ](/help/rest-api/custom-objects.md) deze voorwerpen. Voor douanevoorwerpen verbonden aan Personen in een vele aan vele verhouding (N :N), keert de bovengenoemde techniek het eerste niveauvoorwerp terug dat het intermediaire voorwerp is dat elke Persoon met veelvoudige tweede niveau COs verbindt.
 
 Om die tweede niveau COs terug te winnen, begin een nieuwe reeks vragen voor het tweede niveau CO type door op het verbindingsgebied en de waarden te filtreren die uit het eerste niveau intermediair voorwerp worden gehaald. Bijvoorbeeld, kon het bovengenoemde &quot;**Abonnement van het Spoor van de Conferentie&quot;** voorwerp een ander niveau van voorwerpen hebben die zittingen roepen **&quot;Zitting&quot;** die waarschijnlijk door **subscriptionID** zouden worden verbonden. Het verzoek om zittingen terug te winnen verbonden aan de bovengenoemde Abonnementen van het Spoor van de Conferentie zou dan als dit kijken:
 
 `GET /rest/v1/customobjects/session_c.json?filterType=subscriptionID&filterValues=4ad59184-6bf1-4eeb-a583-d82aeee68210,e5e0aba4-f27f-494d-93ed-9cb580989bf3,e65007cd-86b1-4c17-8d55-057c96e1788a,39d956b2-85e2-4c24-94e7-e9fa5a09d3d0,bf14218c-ae6a-42b3-a14e-f7182903cbcd`
 
-_voetnoot_ _1)**smartListName**&#x200B;en **smartListId**&#x200B;filtertypes zijn niet beschikbaar voor sommige abonnementen. Als niet beschikbaar voor uw abonnement, ontvangt u een fout wanneer het roepen van het Create eindpunt van de Baan van de Uitvoer (**&quot;1035, Niet gestaafd filtertype voor doelabonnement&quot;**). Klanten kunnen contact opnemen met de ondersteuning van Marketo om deze functionaliteit in hun abonnement in te schakelen._
+_voetnoot_ _1)**smartListName**en **smartListId**filtertypes zijn niet beschikbaar voor sommige abonnementen. Als niet beschikbaar voor uw abonnement, ontvangt u een fout wanneer het roepen van het Create eindpunt van de Baan van de Uitvoer (**&quot;1035, Niet gestaafd filtertype voor doelabonnement&quot;**). Klanten kunnen contact opnemen met de ondersteuning van Marketo om deze functionaliteit in hun abonnement in te schakelen._
 
 Gepast op _2020-01-14_ door _Tony_
 
@@ -9187,11 +9185,11 @@ Dit eindpunt keert een limitatieve lijst met inbegrip van zowel standaard als do
 
 ### Taakdatumbereiken exporteren: elk 31 dagen
 
-Elke exporttaak kan maximaal 31 dagen duren. De demo-instantie die ik gebruik, is gemaakt in augustus 2016, dus moet ik vandaag iets meer dan 40 banen creëren. Dat is het aantal dagen sinds de eerste aanmaakdatum gedeeld door 31 naar boven afgerond. Met de API kunnen twee exporttaken tegelijk worden verwerkt, zodat u twee taken tegelijk kunt uitvoeren. Bulkextractietaken zijn een middel dat met elke andere integratie wordt gedeeld, dus ik zal aardig zijn. Ik laat de andere baan voor andere integraties beschikbaar en zal laten zien dat er één voor één werk is. De datums die voor de **worden gebruikt createdAt** filter worden geformatteerd gebruikend de [ specificatie van ISO 8601 ](https://www.w3.org/TR/NOTE-datetime). Ze bevinden zich altijd in GMT (Z+0000), zodat de tijdzone eenvoudig wordt weergegeven als &quot;Z&quot; of &quot;+00:00&quot;. Augustus 1st, is 2016 **2016-08-01T00 :00: 00+00:00** en 31 dagen later is 1 September, 2016 die **2016-09-01T00 :00: 0 is 0+00:00.** Zowel begin als eindtijden zijn inclusief, zodat ga ik 1 seconde van die beëindigende tijd aftrekken: **2016-09-01T00 :00: 00+00:00** wordt **2016-08-31T23 :59: 59+00:00**. Als u een seconde aftrekt, worden overlappende tijden voorkomen. Aangezien GMT het gebrek is, kunt u **Z** of **+ 00 ook verlaten:00** weg.
+Elke exporttaak kan maximaal 31 dagen duren. De demo-instantie die ik gebruik, is gemaakt in augustus 2016, dus moet ik vandaag iets meer dan 40 banen creëren. Dat is het aantal dagen sinds de eerste aanmaakdatum gedeeld door 31 naar boven afgerond. Met de API kunnen twee exporttaken tegelijk worden verwerkt, zodat u twee taken tegelijk kunt uitvoeren. Bulkextractietaken zijn een middel dat met elke andere integratie wordt gedeeld, dus ik zal aardig zijn. Ik laat de andere baan voor andere integraties beschikbaar en zal laten zien dat er één voor één werk is. De datums die voor de **worden gebruikt createdAt** filter worden geformatteerd gebruikend de [ specificatie van ISO 8601 ](https://www.w3.org/TR/NOTE-datetime). Zij zijn altijd in GMT (Z+0000) zodat zal timezone eenvoudig als &quot;Z&quot;of &quot;+00 :00&quot;worden vertegenwoordigd. Augustus 1st, is 2016 **2016-08-01T00 :00: 00+00:00** en 31 dagen later is 1 September, 2016 die **2016-09-01T00 :00: 00+0 is 0:00.** Zowel begin als eindtijden zijn inclusief, zodat ga ik 1 seconde van die beëindigende tijd aftrekken: **2016-09-01T00 :00: 00+00:00** wordt **2016-08-31T23 :59: 59+00:00**. Als u een seconde aftrekt, worden overlappende tijden voorkomen. Aangezien GMT het gebrek is, kunt u **Z** of **+ 00:00** ook verlaten.
 
 ### Deduplicatie
 
-Hoewel ik de moeite heb genomen overlappende tijden te vermijden, heb ik ook deduplicatie geïmplementeerd. Ik deed dat aangezien er sommige randgevallen zijn wanneer de tijden veranderen ([ de Tijd van de Besparing van het Daglicht ](https://en.wikipedia.org/wiki/Daylight_saving_time)) resulterend in dubbelzinnige waarden, en, dientengevolge, kan het Bulk van Marketo API anders onverwachte dubbele lood terugkeren. Het is zeldzaam dat dit gebeurt, maar moet in om het even welke integratie worden rekenschap gegeven gebruikend datetime filterwaaiers. Ik heb één seconde verwijderd om duidelijk te maken dat de tijden inclusief zijn. Ik zou u niet willen denken dat het creëren van een baan met **createdAt** en **endAt** keer van **2016-08-01T00 :00: 00Z** en **2016-09-01T00 :00: 00Z 9&rbrace; zal respectievelijk niet leiden omvatten die op** worden gecreeerd 2016-09-01T00 :00: 00Z **; het zal.**
+Hoewel ik de moeite heb genomen overlappende tijden te vermijden, heb ik ook deduplicatie geïmplementeerd. Ik deed dat aangezien er sommige randgevallen zijn wanneer de tijden veranderen ([ de Tijd van de Besparing van het Daglicht ](https://en.wikipedia.org/wiki/Daylight_saving_time)) resulterend in dubbelzinnige waarden, en, dientengevolge, kan het Bulk van Marketo API anders onverwachte dubbele lood terugkeren. Het is zeldzaam dat dit gebeurt, maar moet in om het even welke integratie worden rekenschap gegeven gebruikend datetime filterwaaiers. Ik heb één seconde verwijderd om duidelijk te maken dat de tijden inclusief zijn. Ik zou u niet willen denken dat het creëren van een baan met **createdAt** en **endAt** keer van **2016-08-01T00 :00: 00Z** en **2016-09-01T00 :00: 00Z 9} zal respectievelijk niet leiden omvatten die op** worden gecreeerd 2016-09-01T00 **00Z :00:; het zal.**
 
 ### Een taak maken
 
@@ -9320,7 +9318,7 @@ In februari 2020 geven we nieuwe REST API&#39;s vrij. Zie de volledige lijst met
 
 ### Aankondigingen
 
-* Na September 2020, [&#128279;](/help/rest-api/assets.md) Eindpunten van activa API  zullen niet meer **_method** vraagparameter goedkeuren. Dit werd gebruikt om vraagparameters in een POST lichaam over te gaan om de lengtebeperkingen van URI te mijden. Om tegemoet te komen aan verzoeken die deze parameter vereisen, wordt de URI-limiet voor de bron-API&#39;s verhoogd van 6KiB naar 65KiB.
+* Na September 2020, [ Eindpunten van activa API ](/help/rest-api/assets.md) zullen niet meer **_method** vraagparameter goedkeuren. Dit werd gebruikt om vraagparameters in een POST lichaam over te gaan om de lengtebeperkingen van URI te mijden. Om tegemoet te komen aan verzoeken die deze parameter vereisen, wordt de URI-limiet voor de bron-API&#39;s verhoogd van 6KiB naar 65KiB.
 * Met betrekking tot onze positie op ITP, gelieve dit Marketo Communautaire post te zien: [ Browser de Updates van het Koekje: Hoe Marketo/Munchkin wordt beïnvloed ](https://nation.marketo.com:443/t5/knowledgebase/browser-cookie-updates-how-marketo-munchkin-is-affected/ta-p/251524)
 * Er is een wijziging aangebracht in de activiteit &#39;Status wijzigen in progressie&#39;. Het kenmerk &quot;Id van programmalid&quot; is toegevoegd ter ondersteuning van de aanstaande functie &quot;Aangepaste velden programmalid&quot;.
 
@@ -9360,11 +9358,11 @@ Gepast op _2020-05-06_ door _Kenny_
 
 ## Een Marketo-formulierverzending maken op de achtergrond
 
-Als uw organisatie veel verschillende platforms heeft voor het hosten van webinhoud en klantgegevens, wordt het redelijk gebruikelijk om parallelle verzendingen van een formulier nodig te hebben, zodat de resulterende gegevens op verschillende platforms kunnen worden verzameld. Er zijn verschillende strategieën om dit te doen, maar de beste is vaak de eenvoudigste: de Forms 2 API gebruiken om een verborgen Marketo-formulier te verzenden. Dit werkt met elk nieuw Marketo-formulier, maar bij voorkeur moet u hiervoor een leeg formulier maken, dat geen velden heeft. Zo zorgt u ervoor dat het formulier niet meer gegevens laadt dan nodig is, omdat we niets hoeven te renderen. Behaal nu enkel [ bed code ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) van uw vorm in en voeg het aan het lichaam van uw gewenste pagina toe, makend een kleine wijziging. Uw insluitcode bevat een formulierelement zoals:
+Als uw organisatie veel verschillende platforms heeft voor het hosten van webinhoud en klantgegevens, wordt het redelijk gebruikelijk om parallelle verzendingen van een formulier nodig te hebben, zodat de resulterende gegevens op verschillende platforms kunnen worden verzameld. Er zijn verschillende strategieën om dit te doen, maar de beste is vaak de eenvoudigste: de Forms 2 API gebruiken om een verborgen Marketo-formulier te verzenden. Dit werkt met elk nieuw Marketo-formulier, maar bij voorkeur moet u hiervoor een leeg formulier maken, dat geen velden heeft. Zo zorgt u ervoor dat het formulier niet meer gegevens laadt dan nodig is, omdat we niets hoeven te renderen. Behaal nu enkel [ bed code ](https://experienceleague.adobe.com/en/docs/marketo/using/home) van uw vorm in en voeg het aan het lichaam van uw gewenste pagina toe, makend een kleine wijziging. Uw insluitcode bevat een formulierelement zoals:
 
 `<form id="mktoForm_1068"></form>`
 
-U wilt &#39;style=&quot;display:none&quot; aan het element toevoegen zodat het niet zichtbaar is, zoals hier:
+U zult &quot;style=&quot;display :none&quot;aan het element willen toevoegen zodat is het niet zichtbaar, als dit:
 
 `<form id="mktoForm_1068" style="display:none"></form>`
 
@@ -9418,9 +9416,9 @@ Het verzenden van achtergrondformulieren is een van de aanbevolen vervangingsmet
         </script>
 </head>
 
-<body> 
+<body>
   <!--
-    Start Embed code.  
+    Start Embed code.
     Pasted from Form Actions -> Embed Code except for addition of 'style="display:none"' to the form tag in order to hide it, and instance-specific codes redacted
     Replace with your own code for testing
   -->
@@ -9449,18 +9447,17 @@ Het verzenden van achtergrondformulieren is een van de aanbevolen vervangingsmet
             //pass the same set of values to associateLead
             //hashString: secret + email
             Munchkin.munchkinFunction('associateLead', values, "CHANGE ME");
-            
+
             //submit the form
             form.submit();
-            
-            
+
+
         })
     </script>
 </body>
 
 </html>
 ```
-
    
 Gepast op _2020-05-26_ door _Kenny_
 
@@ -9507,7 +9504,7 @@ Naast standaardobjecten kunt u in Marketo ook uw eigen aangepaste objecten maken
 
 **Snelle Uiteinden**
 
-* Leer meer aan opstellings douanevoorwerpen [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/home).
+* Leer meer aan opstellings douanevoorwerpen [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/home).
 * U kunt het aangepaste Marketo-object gebruiken als een tussenliggend object en ook een aangepast object van een aangepast object bedoelen.
 
 ### Waarom aangepaste objecten?
@@ -9613,29 +9610,29 @@ Gepast op _2020-10-18_ door _Amit_
 
 In januari 2021 brengen we nieuwe REST API&#39;s vrij en verhelpen we verschillende defecten. Zie de volledige lijst met updates hieronder.
 
-* Toegevoegd [ legt 1&rbrace; eindpunt van de Vorm voor &lbrace;die u toestaat om programmatic vormvoorlegging uit te voeren. ](/help/rest-api/leads.md) Formulieren van derden kunnen nu worden geïntegreerd met Marketo-formulieren om te profiteren van bestaande marketingworkflows.
+* Toegevoegd [ legt 1} eindpunt van de Vorm voor {die u toestaat om programmatic vormvoorlegging uit te voeren. ](/help/rest-api/leads.md) Formulieren van derden kunnen nu worden geïntegreerd met Marketo-formulieren om te profiteren van bestaande marketingworkflows.
 * Toegevoegd [ krijgt het Bestaan van de Pagina Volledige Inhoud ](/help/rest-api/landing-pages.md) eindpunt dat de in series vervaardigde versie van HTML van een het landen pagina terugkeert. Hiermee kunt u volledig persoonlijke voorvertoningen van bestemmingspagina&#39;s weergeven zonder u aan te melden bij Marketo Engage. Dit kan helpen bewerkings- en vertaalworkflows in geïntegreerde toepassingen stroomlijnen.
-* U kunt het aantal douanevoorwerpen nu vormen beschikbaar voor toegang via het manuscript van de Snelheid. De instructies van de configuratie kunnen [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting) worden gevonden.
+* U kunt het aantal douanevoorwerpen nu vormen beschikbaar voor toegang via het manuscript van de Snelheid. De instructies van de configuratie kunnen [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting) worden gevonden.
 
 ### Resoluties beschermen
 
 * Vaste kwestie waar het [ punt van de Gebruiker van de Schrapping ](/help/rest-api/user-management.md) u zou toestaan om een API-Enige Gebruiker te schrappen die door de Dienst van de Douane in gebruik was. Er wordt nu een fout &quot;611, u kunt een API-gebruiker die in API-service wordt gebruikt, niet verwijderen.&quot; [ LM-141893 ]
 * Vaste kwestie waar [ krijgt Gebruikers ](/help/rest-api/user-management.md) eindpunt verwijderde gebruikers in sommige gevallen zou terugkeren. [ LM-141542 ]
 * Vaste kwestie waar [ het eindpunt van het Programma van de Kloon ](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST). Als u een programmanaam hebt opgegeven die langer is dan 255 tekens, wordt &quot;611. Kan programmafout niet klonen&quot; geretourneerd. Nu wordt &quot;701. De naam mag niet meer dan 255 tekens bevatten&quot;. [ LM-143436 ]
-* Vaste kwestie met [ goedkeuren het Aanvoeren van het 1&rbrace; eindpunt van het Ontwerp van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST). Wanneer u een openingspagina hebt goedgekeurd en de mobiele versie is geactiveerd, ziet u in bepaalde gevallen de inhoud van de mobiele versie in de desktopversie. [ LM-146867 ]
+* Vaste kwestie met [ goedkeuren het Aanvoeren van het 1} eindpunt van het Ontwerp van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST). Wanneer u een openingspagina hebt goedgekeurd en de mobiele versie is geactiveerd, ziet u in bepaalde gevallen de inhoud van de mobiele versie in de desktopversie. [ LM-146867 ]
 * Vaste kwestie met [ Ongoedgekeurd het LandingPagina ](https://developer.adobe.com/marketo-apis/api/asset/#operation/unapproveLandingPageByIdUsingPOST) eindpunt dat u toestond om een het landen pagina niet goed te keuren die als follow-up pagina door één of meerdere vormen in gebruik was. Er wordt nu een fout &quot;709, Unapproval landing page failed. De landende pagina is in gebruik door één of meerdere vormen als follow-up pagina met vorm IDs:[_formId1, formId2,..._]&quot;. [ LM-143326 ]
 
 Gepost op _2021-01-15_ door _David_
 
 ## Munchkin 160 Beta en Beacon API
 
-**jan 27th 2021:** Sommige gebruikers van Marketo die door de Verval van de Lood van de Vereniging zullen worden beïnvloed ontvingen een e-mailbericht in fout erop wijzend dat zij Munchkin Beta hebben die op één of meerdere van hun instanties wordt toegelaten. Deze release wordt gehouden totdat het juiste publiek op de hoogte is gesteld. Beginnend met versie 160 van Munchkin JavaScript, wordt [ baken API ](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API) de standaardmanier die Munchkin met de achtergrond van Marketo communiceert. Dit werd beschikbaar als optie in Zomer 2020 met de versie van versie 159 via de **configuratieparameter 0&rbrace; useBeaconAPI.** De API van het baken heeft verscheidene voordelen boven het gebruiken van de oude methode XMLHttpRequest, maar de belangrijkste verbetering is dat het een niet-blokkerende asynchrone API voor de mededeling van HTTP is die voor gebruik in alle moderne browsers van Internet beschikbaar is. Hoewel de meeste gebruikers van Munchkin geen verandering in websitegedrag zullen opmerken, zal deze update Munchkin verhinderen navigatie te blokkeren terwijl het wachten om een klikgebeurtenis aan het achtereind voor te leggen, of eenvoudigweg, dit alles maar elimineert de mogelijkheid van Munchkin dat browser &quot;hangt&quot;na het klikken van een verbinding aan een nieuwe pagina. Dit is een zeldzaam maar frustrerend voorval voor sommige Marketo-klanten.
+**jan 27th 2021:** Sommige gebruikers van Marketo die door de Verval van de Lood van de Vereniging zullen worden beïnvloed ontvingen een e-mailbericht in fout erop wijzend dat zij Munchkin Beta hebben die op één of meerdere van hun instanties wordt toegelaten. Deze release wordt gehouden totdat het juiste publiek op de hoogte is gesteld. Beginnend met versie 160 van Munchkin JavaScript, wordt [ baken API ](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API) de standaardmanier die Munchkin met de achtergrond van Marketo communiceert. Dit werd beschikbaar als optie in Zomer 2020 met de versie van versie 159 via de **configuratieparameter 0} useBeaconAPI.** De API van het baken heeft verscheidene voordelen boven het gebruiken van de oude methode XMLHttpRequest, maar de belangrijkste verbetering is dat het een niet-blokkerende asynchrone API voor de mededeling van HTTP is die voor gebruik in alle moderne browsers van Internet beschikbaar is. Hoewel de meeste gebruikers van Munchkin geen verandering in websitegedrag zullen opmerken, zal deze update Munchkin verhinderen navigatie te blokkeren terwijl het wachten om een klikgebeurtenis aan het achtereind voor te leggen, of eenvoudigweg, dit alles maar elimineert de mogelijkheid van Munchkin dat browser &quot;hangt&quot;na het klikken van een verbinding aan een nieuwe pagina. Dit is een zeldzaam maar frustrerend voorval voor sommige Marketo-klanten.
 
 Vanaf 27 januari 2021 is de uitrol van deze versie in afwachting van een herschikking in behandeling. Hoewel er geen problemen met betrekking tot deze wijziging worden verwacht en er geen problemen zijn vastgesteld tijdens het testen, is het voor Marketo onmogelijk om alle mogelijke implementatieconfiguraties van Munchkin te testen en u kunt deze wijzigingen vooraf testen of u wilt deze wijziging opgeven totdat deze versie algemeen beschikbaar is. Hieronder vindt u instructies voor verschillende scenario&#39;s.
 
 ### API voor testbaken
 
-Als u wenst om bijgewerkte bakens API in afwachting van de aanstaande versie te testen, kunt u dit doen, door de **parameter 0&rbrace; useBeaconAPI aan uw configuratie van Munchkin op een externe testpagina toe te voegen.** Deze test werkt met de algemeen beschikbare of bètaversie van Munchkin. De configuratieparameter wordt hieronder weergegeven in het tweede argument van het aanroepen van de methode `Munchkin.init()` op regel 7: `{ 'useBeaconAPI': true}`
+Als u wenst om bijgewerkte bakens API in afwachting van de aanstaande versie te testen, kunt u dit doen, door de **parameter 0} useBeaconAPI aan uw configuratie van Munchkin op een externe testpagina toe te voegen.** Deze test werkt met de algemeen beschikbare of bètaversie van Munchkin. De configuratieparameter wordt hieronder weergegeven in het tweede argument van het aanroepen van de methode `Munchkin.init()` op regel 7: `{ 'useBeaconAPI': true}`
 
 ```javascript
 <script type="text/javascript">
@@ -9664,7 +9661,7 @@ Als u wenst om bijgewerkte bakens API in afwachting van de aanstaande versie te 
 
 ### Munchkin Beta uitschakelen op Marketo-bestemmingspagina&#39;s
 
-Om Munchkin Beta op Marketo landende pagina&#39;s onbruikbaar te maken, moet u tot uw [&#128279;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) menu van de Controle van de Treasure toegang hebben  in de Admin sectie van uw abonnement en Munchkin Beta veranderen op het Aanvoeren van Pagina&#39;s die aan gehandicapten plaatsen.
+Om Munchkin Beta op Marketo landende pagina&#39;s onbruikbaar te maken, moet u tot uw [ menu van de Controle van de Treasure toegang hebben ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) in de Admin sectie van uw abonnement en Munchkin Beta veranderen op het Aanvoeren van Pagina&#39;s die aan gehandicapten plaatsen.
 
 ### Munchkin Beta uitschakelen op externe pagina&#39;s
 
@@ -9699,7 +9696,7 @@ Gepast op _2021-01-08_ door _Kenny_
 
 ## Definitieve API-afschrijving van e-mail V1
 
-[ Verdringing van e-mail V1 begon bijna twee jaar geleden ](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666) en beginnend met de de onderhoudsversie van Maart aan de abonnementen van Londen &amp; Nederland op 17 Maart, 2021 en alle andere abonnementen op 19 Maart, 2021, zal alle API steun voor V1 e-mail worden beëindigd. Na deze release zullen pogingen om via de API&#39;s voor middelen te communiceren met e-mails van V1 fouten en geen acties meer tot gevolg hebben. Alle bekende resterende gebruikers zijn sinds 24 februari 2021 op de hoogte gesteld, maar het is mogelijk dat er nog steeds sprake is van integratie die kan proberen met deze activa te communiceren. De meest voorkomende typen integratie die hiervan het slachtoffer zijn, zijn services die digitaal beheer, vertaling en lokalisatie van bedrijfsmiddelen bieden. Als u integratiemislukkingen als resultaat van deze verandering waarneemt, [ zult u nog problematische activa kunnen bevorderen door hen uit te geven en goed te keuren ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/transitioning-to-email-editor-2-0). Zodra een e-mailmiddel aan V2 wordt bevorderd, zou u het gebruiken met de geïntegreerde diensten moeten kunnen hervatten.
+[ Verdringing van e-mail V1 begon bijna twee jaar geleden ](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666) en beginnend met de de onderhoudsversie van Maart aan de abonnementen van Londen &amp; Nederland op 17 Maart, 2021 en alle andere abonnementen op 19 Maart, 2021, zal alle API steun voor V1 e-mail worden beëindigd. Na deze release zullen pogingen om via de API&#39;s voor middelen te communiceren met e-mails van V1 fouten en geen acties meer tot gevolg hebben. Alle bekende resterende gebruikers zijn sinds 24 februari 2021 op de hoogte gesteld, maar het is mogelijk dat er nog steeds sprake is van integratie die kan proberen met deze activa te communiceren. De meest voorkomende typen integratie die hiervan het slachtoffer zijn, zijn services die digitaal beheer, vertaling en lokalisatie van bedrijfsmiddelen bieden. Als u integratiemislukkingen als resultaat van deze verandering waarneemt, [ zult u nog problematische activa kunnen bevorderen door hen uit te geven en goed te keuren ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/transitioning-to-email-editor-2-0). Zodra een e-mailmiddel aan V2 wordt bevorderd, zou u het gebruiken met de geïntegreerde diensten moeten kunnen hervatten.
 
 Gepast op _2021-03-17_ door _Kenny_
 
@@ -9709,10 +9706,10 @@ In mei 2021 geven we nieuwe REST API&#39;s uit, verbeteren we de bestaande REST 
 
 * Toegevoegde API&#39;s voor programmaleden waarmee u de lidmaatschapsrecords voor programma&#39;s kunt ophalen, bijwerken en verwijderen. Voor meer informatie zie [ REST API > het Gegevensbestand van het Lood > de Leden van het Programma ](/help/rest-api/program-members.md).
 * Toegevoegde Bulk API&#39;s voor het uitpakken van aangepaste objecten die u toestaan Marketo Custom Object-records op het eerste niveau te exporteren die zijn gekoppeld aan leads in een een-op-een relatie. Voor meer informatie zie [ REST API > Bulk Extraheren > het Bulk Uittreksel van het Voorwerp van de Douane van de Douane ](/help/rest-api/bulk-custom-object-extract.md).
-* Wij hebben zowel de [ Lood API ](/help/rest-api/leads.md) als [ Bulk Lood Extraheren API ](/help/rest-api/bulk-lead-extract.md) verbeterd om gebruikers toe te staan om identiteitskaart van Adobe Experience Cloud (ECID) terug te winnen. Dit staat gebruikers toe die [ Synchroniseren Soorten publiek van Adobe Experience Cloud ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html?lang=nl-NL) om lood te identificeren die ECIDs hebben geassocieerd. Dit opent omhoog [ integratiemogelijkheden ](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) met andere producten van Adobe Experience Cloud.
+* Wij hebben zowel de [ Lood API ](/help/rest-api/leads.md) als [ Bulk Lood Extraheren API ](/help/rest-api/bulk-lead-extract.md) verbeterd om gebruikers toe te staan om identiteitskaart van Adobe Experience Cloud (ECID) terug te winnen. Dit staat gebruikers toe die [ Synchroniseren Soorten publiek van Adobe Experience Cloud ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html) om lood te identificeren die ECIDs hebben geassocieerd. Dit opent omhoog [ integratiemogelijkheden ](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) met andere producten van Adobe Experience Cloud.
 * Wij hebben [ BulkLood de Invoer API ](/help/rest-api/bulk-lead-import.md) verbeterd om toe te voegen leidt tot bedrijfverslagen tijdens het de invoerproces te steunen. Dit wordt gedaan door het **externalCompanyId** gebied aan het de invoerdossier te omvatten.
 * Wij hebben verscheidene eindpunten van het Programma verbeterd om pariteit van functionaliteit te voorzien die in Marketo Engage UI wordt gevonden. Wij hebben [ verbeterd creeer Programma&#39;s ](/help/rest-api/assets.md) en [ kloon Programma&#39;s ](https://developer.adobe.com/marketo-apis/api/asset/) eindpunten om, verrichtingen op gebeurtenisprogramma&#39;s tot stand te brengen, te klonen of te bewegen. Dit is voor gebruikers die gebeurtenisprogramma&#39;s organiseren door ze onder andere programmatypen te nesten. Wij hebben ook het [ punt van het Programma van de Schrapping ](https://developer.adobe.com/marketo-apis/api/asset/) verbeterd om schrapping van programma&#39;s toe te laten die de volgende activa bevatten: De Berichten van de duw, Berichten in-app, Rapporten, het Bestaan van Pagina&#39;s met Ingesloten Sociale Assets.
-* Als Admin van Marketo, kunt u [ een specifiek gebied als &quot;gevoelig&quot;merken ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) zodat worden zijn waarden [ nooit voorgevuld in vormen ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/forms/form-fields/disable-pre-fill-for-a-form-field), daardoor beschermend gebruikers&#39; gevoelige gegevens. We hebben verschillende eindpunten voor formuliervelden verbeterd zodat deze gelijk zijn aan deze functionaliteit die is gevonden in de gebruikersinterface van Marketo Engage.
+* Als Admin van Marketo, kunt u [ een specifiek gebied als &quot;gevoelig&quot;merken ](https://experienceleague.adobe.com/en/docs/marketo/using/home) zodat worden zijn waarden [ nooit voorgevuld in vormen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/form-fields/disable-pre-fill-for-a-form-field), daardoor beschermend gebruikers&#39; gevoelige gegevens. We hebben verschillende eindpunten voor formuliervelden verbeterd zodat deze gelijk zijn aan deze functionaliteit die is gevonden in de gebruikersinterface van Marketo Engage.
 
 ### Resoluties beschermen
 
@@ -9735,7 +9732,7 @@ De steun van de partnergemeenschap van Marketo Engage is één van de pijlers va
 1. In het **Onderwerp** vakje gaat &quot;Aanbieding van het Punt van de Lancering&quot; in
 1. In de **doos van de Beschrijving** gaat &quot;Aanbieding van het Punt van de Lancering&quot; in
 1. In **Type van Steun** dropdown uitgezochte &quot;Steun van het Programma&quot;
-1. In het **dropdown van het Product van 0&rbrace; Adobe Exchange uitgezochte &quot;Programma van Adobe Exchange&quot;**
+1. In het **dropdown van het Product van 0} Adobe Exchange uitgezochte &quot;Programma van Adobe Exchange&quot;**
 1. Verzend het formulier. Ons team heeft binnenkort contact met u.
 
 Gepost op _2021-07-22_ door _David_
@@ -9757,11 +9754,11 @@ In augustus 2021 verbeteren we de bestaande REST API&#39;s en verhelpen we versc
 ### E-mails
 
 * We hebben het eindpunt E-mails ophalen verbeterd door het filter `earliestUpdatedAt`/`latestUpdatedAt` toe te voegen. Op deze manier kunt u het veld `updatedAt` gebruiken om alleen te zoeken naar een subset e-mailberichten, waardoor incrementele synchronisatie mogelijk is.
-* Wij hebben Get E-mail, krijgen E-mail door Naam verbeterd, krijgen E-mail door de eindpunten van identiteitskaart om terugwinning van [ Champion en Challenger ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger) type e-mailverslagen te steunen.
+* Wij hebben Get E-mail, krijgen E-mail door Naam verbeterd, krijgen E-mail door de eindpunten van identiteitskaart om terugwinning van [ Champion en Challenger ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger) type e-mailverslagen te steunen.
 
 ### Resoluties beschermen
 
-* Het probleem met het eindpunt Gebruikers ophalen is opgelost. De gebruikers die a [ vergunning van de Kalender van de Marketing ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license) waren verleend werden niet teruggekeerd. Gebruikers van de marketingkalender worden nu correct geretourneerd.
+* Het probleem met het eindpunt Gebruikers ophalen is opgelost. De gebruikers die a [ vergunning van de Kalender van de Marketing ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license) waren verleend werden niet teruggekeerd. Gebruikers van de marketingkalender worden nu correct geretourneerd.
 * Probleem opgelost met het eindpunt Formulier verzenden. In het geval van dubbele lead records wordt Formulier verzenden gebruikt om de fout &#39;1007, Multiple lead match lookup criteria&#39; uit te geven. Verzend Vorm nu werkt het recentst bijgewerkte verslag op de zelfde manier bij dat [ Forms 2.0 API ](/help/javascript-api/forms-api-reference.md).
 * Er zijn verschillende misleidende foutberichten verbeterd die zijn geretourneerd door het veld Regelafstand bijwerken en Eindpunten voor leidende velden maken. [ LM-151890, LM-151888, LM-151889 ]
 * Probleem opgelost met het veld Ophalen op naam en de eindpunten van de velden Ophalen. Beide eindpunten kunnen mogelijk iets verouderde informatie retourneren. Ze retourneren nu altijd actuele informatie.
@@ -9774,7 +9771,7 @@ Gepost op _2021-08-22_ door _David_
 
 ## Munchkin-versie 161-rollout
 
-Op 7 september 2021 begint versie 161 van Munchkin met het uitrollen van 10% van de abonnementen met Munchkin Beta ingeschakeld, gevolgd door 50% op 16 september en 100% op 30 september. Deze wijziging heeft invloed op Marketo-bestemmingspagina&#39;s en op de versie van het bestand munchkin-beta.js die wordt gebruikt voor externe bestemmingspagina&#39;s die worden geladen van abonnementen waarop de nieuwe versie is geïmplementeerd. In deze versie wordt de Munchkin Associate Lead-methode volledig afgekeurd. Dit is een functie waarmee persoonlijke gegevens kunnen worden verzonden naar een Marketo-abonnement en de bijbehorende webbrowsergeschiedenis met een bekende persoonrecord. De geassocieerde Lood wordt verwijderd ten gunste van modernere en veiligere alternatieven, zoals [ Forms JS API ](/help/javascript-api/forms-api-reference.md), de Vorm legt API en [ associate Lood REST API ](/help/rest-api/leads.md) voor. Als u of uw organisatie deze methode gebruikt, zou u vanaf gebruik tegen 12 oktober 2021 moeten migreren wanneer de publicatie van Oktober gepland is te beginnen. Als u niet meer in de bèta van Munchkin wenst te kiezen, kunt u gebruik op Marketo landende pagina&#39;s onbruikbaar maken door de &quot;Beta van Munchkin op het Bestaan van Pagina&#39;s&quot;eigenschap aan `disabled` in het [ menu van de Chest van de Schat ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) van een knevel te voorzien. Als u de Munchkin Beta JavaScript hebt geïmplementeerd op externe webpagina&#39;s en wilt overschakelen naar het standaard Munchkin releasekanaal, moet u het codefragment bijwerken om Munchkin JavaScript te laden van munchkin.js in plaats van munchkin-beta.js.
+Op 7 september 2021 begint versie 161 van Munchkin met het uitrollen van 10% van de abonnementen met Munchkin Beta ingeschakeld, gevolgd door 50% op 16 september en 100% op 30 september. Deze wijziging heeft invloed op Marketo-bestemmingspagina&#39;s en op de versie van het bestand munchkin-beta.js die wordt gebruikt voor externe bestemmingspagina&#39;s die worden geladen van abonnementen waarop de nieuwe versie is geïmplementeerd. In deze versie wordt de Munchkin Associate Lead-methode volledig afgekeurd. Dit is een functie waarmee persoonlijke gegevens kunnen worden verzonden naar een Marketo-abonnement en de bijbehorende webbrowsergeschiedenis met een bekende persoonrecord. De geassocieerde Lood wordt verwijderd ten gunste van modernere en veiligere alternatieven, zoals [ Forms JS API ](/help/javascript-api/forms-api-reference.md), de Vorm legt API en [ associate Lood REST API ](/help/rest-api/leads.md) voor. Als u of uw organisatie deze methode gebruikt, zou u vanaf gebruik tegen 12 oktober 2021 moeten migreren wanneer de publicatie van Oktober gepland is te beginnen. Als u niet meer in de bèta van Munchkin wenst te kiezen, kunt u gebruik op Marketo landende pagina&#39;s onbruikbaar maken door de &quot;Beta van Munchkin op het Bestaan van Pagina&#39;s&quot;eigenschap aan `disabled` in het [ menu van de Chest van de Schat ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) van een knevel te voorzien. Als u de Munchkin Beta JavaScript hebt geïmplementeerd op externe webpagina&#39;s en wilt overschakelen naar het standaard Munchkin releasekanaal, moet u het codefragment bijwerken om Munchkin JavaScript te laden van munchkin.js in plaats van munchkin-beta.js.
 
 Gepast op _2021-08-24_ door _Kenny_
 
@@ -9788,14 +9785,14 @@ Gepast op _2021-10-04_ door _Kenny_
 
 In oktober 2021 verbeteren we de bestaande REST API&#39;s en verhelpen we verschillende defecten. Zie de volledige lijst met updates hieronder.
 
-* Wij hebben het [ voorlegt 1&rbrace; eindpunt van de Vorm &lbrace;verbeterd om de gebieden van de programmalid als deel van de vormvoorlegging te steunen. ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/SubmitFormUsingPOST) Naar keuze, kan een programma als programma worden gespecificeerd om vorm aan toe te voegen, en/of het programma om de douanegebieden van het programmalid aan toe te voegen zoals [ hier ](/help/rest-api/leads.md) wordt beschreven.
-Wij hebben het [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getProgramMembersUsingGET) eindpunt van de Leden van het Programma verbeterd om gebaseerde vragen van de datumwaaier te steunen die op de updatedAt attributen worden gebaseerd. Dit wordt gedaan door het beginnen en het beëindigen van datetime parameters over te gaan zoals [ hier ](/help/rest-api/program-members.md) wordt beschreven.
-* Wij hebben [ Leads Gebieden ](/help/rest-api/leads.md) APIs verbeterd om [ Gevoelige Gebieden ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive) te steunen. [ krijgt het Gebied van de Lood door Naam ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET), [ krijgt LeidingsGebieden ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET), [ leidt tot Gebieden van de Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST), en [ 2&rbrace; eindpunten van het Gebied van de Lood van de Update ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST) steunt nu de isSensitive attributen.
+* Wij hebben het [ voorlegt 1} eindpunt van de Vorm {verbeterd om de gebieden van de programmalid als deel van de vormvoorlegging te steunen. ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/SubmitFormUsingPOST) Naar keuze, kan een programma als programma worden gespecificeerd om vorm aan toe te voegen, en/of het programma om de douanegebieden van het programmalid aan toe te voegen zoals [ hier ](/help/rest-api/leads.md) wordt beschreven.
+Wij hebben het [ ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getProgramMembersUsingGET) eindpunt van de Leden van het Programma verbeterd om gebaseerde vragen van de datumwaaier te steunen die op de updatedAt attributen worden gebaseerd. Dit wordt gedaan door het beginnen en het beëindigen van datetime parameters over te gaan zoals [ hier ](/help/rest-api/program-members.md) wordt beschreven.
+* Wij hebben [ Leads Gebieden ](/help/rest-api/leads.md) APIs verbeterd om [ Gevoelige Gebieden ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive) te steunen. [ krijgt het Gebied van de Lood door Naam ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET), [ krijgt LeidingsGebieden ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET), [ leidt tot Gebieden van de Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST), en [ 2} eindpunten van het Gebied van de Lood van de Update ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST) steunt nu de isSensitive attributen.
 
 ### Resoluties beschermen
 
 * Vaste kwestie met [ het Beheer van de Gebruiker ](/help/rest-api/user-management.md) API. Bevat aan de gebruikers van Marketo die voor gebruik met [ Insight van de Verkoop ](https://business.adobe.com/products/marketo/sales-insight.html) worden gevormd. Deze gebruikers zijn nu teruggekeerd door [ krijgen Gebruikers ](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET) eindpunt, en deze gebruikers kunnen nu worden geschrapt gebruikend het [ punt van de Gebruiker van de Schrapping ](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST). [ LM-155864 ]
-* Vaste kwestie met toevoegen [&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/addRichTextFieldUsingPOST) eindpunt van het Gebied van de Tekst 0&rbrace; Rich.  Wanneer u een tekstveld met tekstopmaak van meer dan 65 k tekens toevoegt aan een e-mail, openingspagina, fragment of formulier, retourneert deze de waarde &quot;611, Systeemfout&quot;. Het keert nu fout &quot;701 terug, de Verrichting kan niet worden voltooid. &#39;content&#39; overschrijdt een maximumlengte van 65.535 bytes.&#39;
+* Vaste kwestie met toevoegen [ eindpunt van het Gebied van de Tekst 0} Rich. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/addRichTextFieldUsingPOST) Wanneer u een tekstveld met tekstopmaak van meer dan 65 k tekens toevoegt aan een e-mail, openingspagina, fragment of formulier, retourneert deze de waarde &quot;611, Systeemfout&quot;. Het keert nu fout &quot;701 terug, de Verrichting kan niet worden voltooid. &#39;content&#39; overschrijdt een maximumlengte van 65.535 bytes.&#39;
 
 Gepost op _2021-10-25_ door _David_
 
@@ -9813,7 +9810,7 @@ In januari 2022 verbeteren we de bestaande REST API&#39;s en verhelpen we versch
 ### Resoluties beschermen
 
 * Vaste latentiekwestie tussen tijd van vraag aan [ leidt tot de Gebieden van de Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) eindpunt en tijd toen het nieuwe gecreeerde loodgebied in slimme lijst beschikbaar was. [ LM-152838 ]
-* Vaste kwestie met [ creeerde Loodgebieden ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) eindpunt waar de gecreeerde gebieden niet beschikbaar waren in de drop-down lijst van vormgebieden die wordt gebruikt om [ gebieden aan vorm ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form) in Marketo Engage UI toe te voegen. [ LM-158243 ]
+* Vaste kwestie met [ creeerde Loodgebieden ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) eindpunt waar de gecreeerde gebieden niet beschikbaar waren in de drop-down lijst van vormgebieden die wordt gebruikt om [ gebieden aan vorm ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form) in Marketo Engage UI toe te voegen. [ LM-158243 ]
 * Vaste kwestie met [ krijgt Campagnes ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getCampaignsUsingGET) eindpunt waar de trekkerbare campagnes niet waren teruggekeerd wanneer de parameter isTriggerable=true werd gespecificeerd. [ LM-158283 ]
 * Vaste kwestie waar [ leidt door Identiteitskaart van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#operation/deleteTokenByNameUsingPOST) eindpunt een fout &quot;611, de fout van het Systeem&quot;in bepaalde gevallen zou terugkeren. [ LM-157214 ]
 * Opschonk verscheidene foutenmeldingen die door het [ verbindingspunt van het Lood van de Update ](/help/rest-api/leads.md) worden teruggekeerd. [ LM-151886, LM-151888, LM-151889 ]
@@ -9825,10 +9822,10 @@ Gepost op _2022-01-27_ door _David_
 In maart 2022 verbeteren we de bestaande REST API&#39;s en verhelpen we verschillende defecten. Zie de volledige lijst met updates hieronder.
 
 * Wij hebben het **actionResult** gebied aan het de uitvoerdossier toegevoegd dat door het Bulk Uittreksel API van de Activiteit wordt geproduceerd. Dit veld kan worden gebruikt om een onderscheid te maken tussen geslaagde, overgeslagen en mislukte activiteiten.
-* Wij hebben het **isOpenTrackingDisabled** gebied aan reacties van [ Emails API ](/help/rest-api/emails.md) toegevoegd. Dit gebied kan worden gebruikt om te bepalen of [ Open het Volgen ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview) eigenschap onbruikbaar maakt wordt toegelaten.
+* Wij hebben het **isOpenTrackingDisabled** gebied aan reacties van [ Emails API ](/help/rest-api/emails.md) toegevoegd. Dit gebied kan worden gebruikt om te bepalen of [ Open het Volgen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview) eigenschap onbruikbaar maakt wordt toegelaten.
 * Er zijn twee eindpunten toegevoegd waarmee u programmatags selectief kunt beheren. Het [ eindpunt van de Markeringen van het Programma van de Update ](/help/rest-api/programs.md) staat u toe om een programmalag selectief bij te werken. Het [ eindpunt van de Markeringen van het Programma van de Schrapping ](/help/rest-api/programs.md) staat u toe om een programmalag selectief te schrappen.
-* Wij hebben de **isExecutable** parameter aan het [ Slimme 3&rbrace; eindpunt van de Campagne van de Kloon toegevoegd. ](/help/rest-api/smart-campaigns.md) Met deze parameter kunt u een programma klonen als een uitvoerbaar programma.
-* Wij hebben het **headStart** gebied aan [ Programma&#39;s API ](/help/rest-api/programs.md) toegevoegd. Dit staat u toe om te creëren, bij te werken en terug te winnen [ HoofdBegin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs) het plaatsen voor E-mailProgramma&#39;s.
+* Wij hebben de **isExecutable** parameter aan het [ Slimme 3} eindpunt van de Campagne van de Kloon toegevoegd. ](/help/rest-api/smart-campaigns.md) Met deze parameter kunt u een programma klonen als een uitvoerbaar programma.
+* Wij hebben het **headStart** gebied aan [ Programma&#39;s API ](/help/rest-api/programs.md) toegevoegd. Dit staat u toe om te creëren, bij te werken en terug te winnen [ HoofdBegin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs) het plaatsen voor E-mailProgramma&#39;s.
 
 ### Resoluties beschermen
 
@@ -9838,7 +9835,7 @@ In maart 2022 verbeteren we de bestaande REST API&#39;s en verhelpen we verschil
 
 ### Adobe IMS-integratie
 
-* Diegenen die aan [ IMS van Adobe ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) zijn bezet kunnen niet alle [ het Beheer APIs van de Gebruiker van Marketo gebruiken ](/help/rest-api/user-management.md). De volgende eindpunten zullen een fout op wanneer geroepen op de Instanties van Marketo die met Adobe IMS zijn geïntegreerd terugkeren: [ nodigt Gebruiker ](https://developer.adobe.com/marketo-apis/api/user/#operation/inviteUserUsingPOST) uit, [ krijgt Uitgenodigde Gebruiker door Identiteitskaart ](https://developer.adobe.com/marketo-apis/api/user/#operation/getInvitedUserUsingGET), [ de Attributen van de Gebruiker van de Update ](https://developer.adobe.com/marketo-apis/api/user/#operation/updateUserAttributeUsingPOST), [ Schrapping Gebruiker ](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST), en [ Schrapping Uitgenodigde Gebruiker ](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteInvitedUserUsingPOST). Als vervanging, zou het [ Beheer APIs van de Gebruiker van Adobe ](https://developer.adobe.com/umapi/) moeten worden gebruikt.
+* Diegenen die aan [ IMS van Adobe ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) zijn bezet kunnen niet alle [ het Beheer APIs van de Gebruiker van Marketo gebruiken ](/help/rest-api/user-management.md). De volgende eindpunten zullen een fout op wanneer geroepen op de Instanties van Marketo die met Adobe IMS zijn geïntegreerd terugkeren: [ nodigt Gebruiker ](https://developer.adobe.com/marketo-apis/api/user/#operation/inviteUserUsingPOST) uit, [ krijgt Uitgenodigde Gebruiker door Identiteitskaart ](https://developer.adobe.com/marketo-apis/api/user/#operation/getInvitedUserUsingGET), [ de Attributen van de Gebruiker van de Update ](https://developer.adobe.com/marketo-apis/api/user/#operation/updateUserAttributeUsingPOST), [ Schrapping Gebruiker ](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST), en [ Schrapping Uitgenodigde Gebruiker ](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteInvitedUserUsingPOST). Als vervanging, zou het [ Beheer APIs van de Gebruiker van Adobe ](https://developer.adobe.com/umapi/) moeten worden gebruikt.
 
 Gepost op _2022-03-14_ door _David_
 
@@ -9846,8 +9843,8 @@ Gepost op _2022-03-14_ door _David_
 
 In mei 2022 verbeteren we de bestaande REST API&#39;s en verhelpen we verschillende defecten. Zie de volledige lijst met updates hieronder.
 
-* Wij hebben de capaciteit toegevoegd om [ Bedrijf ](/help/rest-api/companies.md) terug te winnen, [ Kans ](/help/rest-api/opportunities.md), en [ Verkopers ](/help/rest-api/sales-persons.md) verslagen wanneer of [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) in uw instantie van Marketo Engage worden toegelaten.
-* Wij hebben [ bijgewerkt krijgen E-mail Dynamische Inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET) eindpunt om u toe te staan om [ Dynamische Inhoud ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/using-dynamic-content-in-an-email) van een e-mailonderwerpregel terug te winnen. Dit werkt ongeacht of de opgegeven e-mail is gekoppeld aan een e-mailsjabloon.
+* Wij hebben de capaciteit toegevoegd om [ Bedrijf ](/help/rest-api/companies.md) terug te winnen, [ Kans ](/help/rest-api/opportunities.md), en [ Verkopers ](/help/rest-api/sales-persons.md) verslagen wanneer of [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) in uw instantie van Marketo Engage worden toegelaten.
+* Wij hebben [ bijgewerkt krijgen E-mail Dynamische Inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET) eindpunt om u toe te staan om [ Dynamische Inhoud ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/using-dynamic-content-in-an-email) van een e-mailonderwerpregel terug te winnen. Dit werkt ongeacht of de opgegeven e-mail is gekoppeld aan een e-mailsjabloon.
 
 `POST /rest/asset/v1/form/{id}/field/State.json?values=[{"label":"Alaska"},{"value":"AK"},{"label":"West Virginia","value":"WV"},{"label":"Wyoming","value":"WY"}]`
 
@@ -9868,9 +9865,9 @@ In augustus 2022 verbeteren we de bestaande REST API&#39;s. Zie de volledige lij
 LWe hebben verscheidene nieuwe filters toegevoegd die kunnen worden gebruikt wanneer het roepen van Create het eindpunt van de Taak van het Lid van het Programma van de Uitvoer. Veel van de filters kunnen in combinatie met elkaar worden gebruikt om de geëxtraheerde gegevensset te verfijnen.
 
 * Het **programIds** filter kan worden gebruikt om tot 10 programmaherkenningstekens te specificeren die productie kunnen helpen verbeteren.
-* **isExhausted** filter kan aan filterverslagen voor [ mensen worden gebruikt die uitgeputte inhoud ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content) hebben.
-* Het **filter 0&rbrace; nurtureCadence kan worden gebruikt om verslagen te filtreren die op [ worden gebaseerd het programmacadence van de Overeenkomst ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/program-flow-actions/change-engagement-program-cadence).**
-* De **statusNames** filter kan aan filterverslagen voor één of meerdere [ programmastatussen ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/understanding-program-membership) worden gebruikt.
+* **isExhausted** filter kan aan filterverslagen voor [ mensen worden gebruikt die uitgeputte inhoud ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content) hebben.
+* Het **filter 0} nurtureCadence kan worden gebruikt om verslagen te filtreren die op** worden gebaseerd het programmacadence van de Overeenkomst [.](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/program-flow-actions/change-engagement-program-cadence)
+* De **statusNames** filter kan aan filterverslagen voor één of meerdere [ programmastatussen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/understanding-program-membership) worden gebruikt.
 * Het **updatedAt** filter kan aan filterverslagen worden gebruikt die op een datumwaaier worden gebaseerd.
 
 ### Aankondigingen
@@ -9884,7 +9881,7 @@ Gepost op _2022-09-03_ door _David_
 In oktober 2022 verbeteren we de bestaande REST API&#39;s. Zie de volledige lijst met updates hieronder.
 
 * Wij hebben [ BulkLood de Invoer API ](/help/rest-api/bulk-lead-import.md) verbeterd om het toevoegen van Lood aan de verslagen van de Personen van de Verkoop tijdens het de invoerproces te steunen. Dit wordt gedaan door het **externalSalesPersonId** gebied in het de invoerdossier te omvatten.
-* Vaste kwestie met [ creeer Loodgebieden ](/help/rest-api/leads.md) eindpunt dat voorkwam toen het creëren van het type van Score gebieden. Deze gebieden waren niet beschikbaar voor gebruik in [ de stroomactie van de Score van de Verandering ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/change-score) in Marketo Engage UI. [ LM-166815 ]
+* Vaste kwestie met [ creeer Loodgebieden ](/help/rest-api/leads.md) eindpunt dat voorkwam toen het creëren van het type van Score gebieden. Deze gebieden waren niet beschikbaar voor gebruik in [ de stroomactie van de Score van de Verandering ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/change-score) in Marketo Engage UI. [ LM-166815 ]
 
 ### Aankondigingen
 
@@ -9906,7 +9903,7 @@ Gebruikersinterface van beheerder
 
 ### Extraheren voor bulklood
 
-* We hebben de gebruikersinterface van Marketo Engage Admin verbeterd zodat u de dagelijkse capaciteitstoewijzing van de API voor bulkextractie voor uw abonnement kunt bekijken. Bovendien kunt u het capaciteitsgebruik door API-Gebruiker in de afgelopen 7 dagen bekijken. Meer informatie kan [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/settings/bulk-export-api-information) worden gevonden.
+* We hebben de gebruikersinterface van Marketo Engage Admin verbeterd zodat u de dagelijkse capaciteitstoewijzing van de API voor bulkextractie voor uw abonnement kunt bekijken. Bovendien kunt u het capaciteitsgebruik door API-Gebruiker in de afgelopen 7 dagen bekijken. Meer informatie kan [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/bulk-export-api-information) worden gevonden.
 
 ### Resoluties beschermen
 
@@ -9914,7 +9911,7 @@ Gebruikersinterface van beheerder
 
 ### Aankondigingen
 
-* Gelieve te zien [ dit artikel ](https://nation.marketo.com/t5/product-documents/upcoming-change-to-marketo-rest-api/ta-p/331698) op de Gemeenschap van Marketo betreffende REST API en een verandering in de 2&rbrace; redenuitdrukking van het de reactiebericht van HTTP [&#128279;](https://www.rfc-editor.org/rfc/rfc7230#section-3.1.2).
+* Gelieve te zien [ dit artikel ](https://nation.marketo.com/t5/product-documents/upcoming-change-to-marketo-rest-api/ta-p/331698) op de Gemeenschap van Marketo betreffende REST API en een verandering in de 2} redenuitdrukking van het de reactiebericht van HTTP [.](https://www.rfc-editor.org/rfc/rfc7230#section-3.1.2)
 * Het attribuut van het Lidmaatschap van het Programma **statusReason** is veranderd om updateable te zijn.
 
 Gepost op _2023-01-21_ door _David_

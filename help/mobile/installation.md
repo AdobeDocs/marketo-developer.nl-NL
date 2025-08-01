@@ -1,25 +1,25 @@
 ---
-title: "Installatie"
-feature: "Mobile Marketing"
-description: "SDK's installeren voor Mobile Marketo"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Installatie
+feature: Mobile Marketing
+description: SDK's installeren voor Mobile Marketo
+exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '758'
+source-wordcount: '757'
 ht-degree: 0%
 
 ---
 
-
 # Installatie
 
-Installatie-instructies voor de Marketo Mobile SDK. De onderstaande stappen zijn vereist voor het verzenden van pushberichten en/of In-App-berichten.
+Installatie-instructies voor Marketo Mobile SDK. De onderstaande stappen zijn vereist voor het verzenden van pushberichten en/of In-App-berichten.
 
 ## Marketo SDK installeren op iOS
 
 ### Vereisten
 
-1. [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin)
-1. [Pushmeldingen instellen](push-notifications.md) (optioneel)
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)
 
 ### Framework installeren via CocoaPods
 
@@ -35,31 +35,31 @@ Installatie-instructies voor de Marketo Mobile SDK. De onderstaande stappen zijn
 
 1. Selecteer uw project van de Navigator van het Project en onder &quot;voeg de Afhankelijkheid van het Pakket&quot;toe, klik &#39;+&#39; zoals hieronder getoond:
 
-   ![Afhankelijkheid toevoegen](assets/dependency-manager-add.png)
+   ![ voeg Afhankelijkheid ](assets/dependency-manager-add.png) toe
 
 1. Voeg Marketo-pakket van deze repo toe. Voeg deze URL voor deze gegevensopslagruimte toe: https://github.com/Marketo/ios-sdk.
 
-   ![Repo-URL](assets/dependency-manager-url.png)
+   ![ Repo URL ](assets/dependency-manager-url.png)
 
-1. Voeg nu de bundel van het Middel toe zoals getoond: Bepaal `MarketoFramework.XCframework` in projectnavigator en open het in Vinder. Slepen en slepen `MKTResources.bundle` om bundelbronnen te kopiëren.
+1. Voeg nu de bundel van het Middel toe zoals getoond: plaats `MarketoFramework.XCframework` in projectnavigator en open het in Vinder. Sleep `MKTResources.bundle` naar Bundelbronnen kopiëren.
 
 ### Snelle overbruggingsheader instellen
 
 1. Ga naar Bestand > Nieuw > Bestand en selecteer Koptekstbestand.
 
-   ![Koptekstbestand selecteren](assets/choose-header-file.png)
+   ![ Uitgezochte &quot;Dossier van de Kopbal&quot;](assets/choose-header-file.png)
 
-1. Geef het bestand de naam &quot;&lt;_ProjectName_>-Bridging-header&quot;.
+1. Noem het dossier &quot;&lt; _ProjectName_>-Bridging-Header&quot;.
 
 1. Ga naar Project > Doel > de Fasen van de Bouwstijl > de Verschuivende Compiler > de Generatie van de Code. Voeg het volgende pad toe aan Objectoverbruggingskoptekst:
 
    `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
-   ![Fasen samenstellen](assets/build-phases.png)
+   ![ bouwt Fasen ](assets/build-phases.png)
 
 ## SDK initialiseren
 
-Voordat u de SDK van Marketo iOS kunt gebruiken, moet u deze initialiseren met uw Munchkin-account-id en toepassingsbeveiligingssleutel. U vindt deze allemaal in het gebied Marketo Admin onder &quot;Mobiele apps en apparaten&quot;.
+Voordat u de Marketo iOS SDK kunt gebruiken, moet u deze initialiseren met uw Munchkin-account-id en toepassingsbeveiligingssleutel. U vindt deze allemaal in het gebied Marketo Admin onder &quot;Mobiele apps en apparaten&quot;.
 
 1. Open uw bestand AppDelegate.m (doelstelling-C) of Bridging (SWIFT) en importeer het headerbestand Marketo.h.
 
@@ -67,13 +67,13 @@ Voordat u de SDK van Marketo iOS kunt gebruiken, moet u deze initialiseren met u
    #import <MarketoFramework/MarketoFramework.h>
    ```
 
-1. Plak de volgende code in de `application:didFinishLaunchingWithOptions`: functie.
+1. Plak de volgende code in de functie `application:didFinishLaunchingWithOptions`:.
 
    Merk op dat wij &quot;inheems&quot;als kadertype voor Inheemse Apps moeten overgaan.
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 Marketo *sharedInstance = [Marketo sharedInstance];
@@ -81,7 +81,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 [sharedInstance initializeWithMunchkinID:@"munchkinAccountId" appSecret:@"secretKey" mobileFrameworkType:@"native" launchOptions:launchOptions];
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 let sharedInstance: Marketo = Marketo.sharedInstance()
@@ -91,33 +91,33 @@ sharedInstance.initialize(withMunchkinID: "munchkinAccountId", appSecret: "secre
 
 >[!ENDTABS]
 
-1. Vervangen `munkinAccountId` en `secretKey` hierboven gebruikt u de &#39;&#39;Munchkin-account-id&#39;&#39; en &#39;&#39;Geheime sleutel&#39;&#39; in de Marketo **[!UICONTROL Admin]** > **[!UICONTROL Mobile Apps and Devices]** sectie.
+1. Vervang `munkinAccountId` en `secretKey` hiervoor door gebruik te maken van de opties &quot;Munchkin-account-id&quot; en &quot;Geheime sleutel&quot; in de sectie Marketo **[!UICONTROL Admin]** > **[!UICONTROL Mobile Apps and Devices]** .
 
 ## iOS-testapparaten
 
 1. Selecteer Project > Doel > Info > URL-typen.
 1. Id toevoegen: ${PRODUCT_NAME}
 1. URL-schema&#39;s instellen: `mkto-<Secret Key_>`
-1. Inclusief toepassing:openURL:sourceApplication:annotation: naar bestand AppDelegate.m (doelstelling-C)
+1. Omvat toepassing :openURL: sourceApplication :annotation: aan het dossier AppDelegate.m (doelstelling-C)
 
 ## Type aangepaste URL afhandelen in AppDelegate
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-   
+
     return [[Marketo sharedInstance] application:app
                                          openURL:url
-                                         options:options];    
+                                         options:options];
 }
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 private func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool
@@ -132,17 +132,17 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Vereisten
 
-1. [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin)
-1. [Pushmeldingen instellen](push-notifications.md#android_setup_push) (optioneel)
-1. [Marketo SDK voor Android downloaden](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [ Push Berichten van de Opstelling ](push-notifications.md#android_setup_push) (facultatief)
+1. [ Download Marketo SDK voor Android ](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
-### Instellen van Android SDK met verloopgebied
+### Android SDK Setup () met Gradle
 
 1. Voeg onder de sectie Afhankelijkheden in het bestand build.gradle op toepassingsniveau toe
 
 `implementation 'com.marketo:MarketoSDK:0.8.9'`
 
-1. De basis `build.gradle` bestand moet
+1. Het hoofdbestand `build.gradle` moet
 
    ```
    buildscript {
@@ -156,7 +156,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Machtigingen configureren
 
-Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet om de toestemmingen &quot;INTERNET&quot;en &quot;ACCESS_NETWORK_STATE&quot;verzoeken. Als uw toepassing al om deze machtigingen vraagt, slaat u deze stap over.
+Open `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet om de toestemmingen &quot;INTERNET&quot;en &quot;ACCESS_NETWORK_STATE&quot;verzoeken. Als uw toepassing al om deze machtigingen vraagt, slaat u deze stap over.
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
@@ -165,7 +165,7 @@ Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet o
 
 ### SDK initialiseren
 
-1. Open de klasse Application of Activity in uw app en importeer de SDK van Marketo in uw Activiteit vóór setContentView of in Application Context.
+1. Open de klasse Application of Activity in uw app en importeer de Marketo SDK in uw Activiteit vóór setContentView of in Application Context.
 
    ```java
    // Initialize Marketo
@@ -175,7 +175,7 @@ Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet o
 
 1. ProGuard-configuratie (optioneel)
 
-   Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `proguard.cfg` bestand. Het bestand bevindt zich in uw projectmap. Als u deze code toevoegt, wordt de Marketo SDK uitgesloten van het verduisteringsproces.
+   Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `proguard.cfg` -bestand. Het bestand bevindt zich in uw projectmap. Als u deze code toevoegt, wordt de Marketo SDK uitgesloten van het verduisteringsproces.
 
    ```
    -dontwarn com.marketo.*
@@ -185,7 +185,7 @@ Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet o
 
 ## Android-testapparaten
 
-&quot;MarketoActivity&quot; toevoegen aan `AndroidManifest.xml` bestand in toepassingstag.
+Voeg &quot;MarketoActivity&quot; toe aan het `AndroidManifest.xml` -bestand in de toepassingstag.
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity"  android:configChanges="orientation|screenSize" >
@@ -200,25 +200,25 @@ Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet o
 
 ## Ondersteuning voor Firebase Cloud Messaging
 
-De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabieler en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw ontwikkelaar van Android-apps bevat.
+De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabieler en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw Android-app-ontwikkelaar bevat.
 
-Ontwikkelaars van Android-apps kunnen nu direct Google gebruiken [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK.
+Android app-ontwikkelaars kunnen nu direct Google [ Firebase Cloud Messaging ](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK gebruiken.
 
 ### FCM toevoegen aan uw toepassing
 
-1. De nieuwste Marketo Android-SDK integreren in Android App.  Stappen zijn beschikbaar op [GitHub](https://github.com/Marketo/android-sdk).
+1. Integreer de nieuwste Marketo Android SDK in Android App.  De stappen zijn beschikbaar bij [ GitHub ](https://github.com/Marketo/android-sdk).
 1. Firebase-app configureren op Firebase-console.
-   1. Een project maken/toevoegen op [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
-      1. In de [Firebase-console](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), selecteert u `Add Project`.
-      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer `Add Firebase`.
-      1. Selecteer in het welkomstscherm van Firebase de optie `Add Firebase to your Android App`.
-      1. Geef uw pakketnaam en SHA-1 op en selecteer `Add App`. Een nieuwe `google-services.json` bestand voor uw Firebase-app wordt gedownload.
-      1. Selecteren `Continue` en volg de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
+   1. Creeer/voeg een Project op [ ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/) de Console van de Vuurbasis toe.
+      1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte `Add Project`.
+      1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer `Add Firebase` .
+      1. Selecteer `Add Firebase to your Android App` in het welkomstscherm van Firebase.
+      1. Geef de pakketnaam en SHA-1 op en selecteer `Add App` . Er wordt een nieuw `google-services.json` -bestand voor de Firebase-app gedownload.
+      1. Selecteer `Continue` en volg de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
 
    1. Navigeer naar &#39;Projectinstellingen&#39; in projectoverzicht
       1. Klik op het tabblad Algemeen. Download het bestand &#39;google-services.json&#39;.
       1. Klik op het tabblad Cloud Messaging. Kopieer &#39;Server-sleutel&#39; en &#39;Afzender-id&#39;. Geef deze &#39;Server Key&#39; en &#39;Sender ID&#39; op aan Marketo.
-   1. FCM-wijzigingen configureren in Android-app
+   1. FCM-wijzigingen configureren in Android App
       1. Schakel naar de projectweergave in Android Studio om de hoofdmap van uw project te bekijken
          1. Verplaats het gedownloade bestand &#39;google-services.json&#39; naar de hoofdmap van de Android-toepassingsmodule
          1. Voeg het volgende toe in build.gradle op projectniveau:
@@ -236,13 +236,13 @@ Ontwikkelaars van Android-apps kunnen nu direct Google gebruiken [Firebase Cloud
             ```
             dependencies {
               compile 'com.google.firebase:firebase-core:17.4.0'
-            } 
-            // Add to the bottom of the file 
+            }
+            // Add to the bottom of the file
             apply plugin: 'com.google.gms.google-services'
             ```
 
          1. Klik ten slotte op &quot;Nu synchroniseren&quot; in de balk die wordt weergegeven in de id
-   1. Bewerk manifest van uw app De FCM SDK voegt automatisch alle vereiste machtigingen en de vereiste ontvangerfunctionaliteit toe. Zorg ervoor dat u de volgende verouderde (en mogelijk schadelijke) elementen uit het manifest van uw app verwijdert:
+   1. Het manifest van uw app bewerken De FCM SDK voegt automatisch alle vereiste machtigingen en de vereiste ontvangerfunctionaliteit toe. Zorg ervoor dat u de volgende verouderde (en mogelijk schadelijke) elementen uit het manifest van uw app verwijdert:
 
       ```xml
       <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -258,6 +258,6 @@ Ontwikkelaars van Android-apps kunnen nu direct Google gebruiken [Firebase Cloud
         <intent-filter>
           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
           <category android:name="<your-package-name> />
-        </intent-filter> 
+        </intent-filter>
       </receiver>
       ```

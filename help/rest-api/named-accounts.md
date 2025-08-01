@@ -1,18 +1,18 @@
 ---
-title: "Benoemde accounts"
+title: Benoemde accounts
 feature: REST API
-description: "Benoemde accounts manipuleren via de API."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Benoemde accounts manipuleren via de API.
+exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '679'
 ht-degree: 0%
 
 ---
 
-
 # Benoemde accounts
 
-[Referentie eindpunt benoemde accounts](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
+[ Benoemde Verwijzing van het Eindpunt van Rekeningen ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
 
 Marketo biedt een set API&#39;s voor het uitvoeren van CRUD-bewerkingen op benoemde accounts voor gebruik met Marketo ABM. Deze API&#39;s volgen het standaard interfacepatroon voor API&#39;s voor hoofddatabases en bieden de opties Beschrijven, Maken/Bijwerken, Verwijderen en Query.
 
@@ -20,106 +20,106 @@ Momenteel zijn de CRUD-bewerkingen voor benoemde accounts de enige ABM-functies 
 
 ## Beschrijven
 
-Als benoemde benoemde accounts worden metagegevens geretourneerd die betrekking hebben op het gebruik van benoemde accounts via API&#39;s van Marketo, waaronder een lijst met geldige doorzoekbare velden bij het opvragen en een lijst met alle velden die beschikbaar zijn voor API-gebruik. De `idField` van een benoemde account altijd `marketoGUID`en de enige beschikbare `dedupeField`en de sleutel voor het creëren is de `name` veld van het object.
+Als benoemde benoemde accounts worden metagegevens geretourneerd die betrekking hebben op het gebruik van benoemde accounts via API&#39;s van Marketo, waaronder een lijst met geldige doorzoekbare velden bij het opvragen en een lijst met alle velden die beschikbaar zijn voor API-gebruik. De `idField` van een benoemde account is altijd `marketoGUID` en de enige beschikbare `dedupeField` . De sleutel voor het maken is het `name` -veld van het object.
 
 ```
 GET /rest/v1/namedaccounts/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"d65e#156c27ac57d",
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"Named Account",
          "description":"Marketo standard account attribute map",
          "createdAt":"2016-08-18T20:16:41Z",
          "updatedAt":"2016-08-18T20:16:41Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "name"
          ],
          "searchableFields":[
             [
                "marketoGUID",
-            ], 
-            [  
+            ],
+            [
                "annualRevenue"
             ],
-            [  
+            [
                "city"
             ],
-            [  
+            [
                "country"
             ],
-            [  
+            [
                "domainName"
             ],
-            [  
+            [
                "industry"
             ],
-            [  
+            [
                "logoUrl"
             ],
-            [  
+            [
                "membershipCount"
             ],
-            [  
+            [
                "name"
             ],
-            [  
+            [
                "numberOfEmployees"
             ],
-            [  
+            [
                "opptyAmount"
             ],
-            [  
+            [
                "opptyCount"
             ],
-            [  
+            [
                "score1"
             ],
-            [  
+            [
                "score2"
             ],
-            [  
+            [
                "score3"
             ],
-            [  
+            [
                "score4"
             ],
-            [  
+            [
                "score5"
             ],
-            [  
+            [
                "sicCode"
             ],
-            [  
+            [
                "state"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"annualRevenue",
                "displayName":"annualRevenue",
                "dataType":"currency",
                "updateable":true
             },
-            {  
+            {
                "name":"city",
                "displayName":"city",
                "dataType":"string",
                "length":255,
                "updateable":true
             },
-            {  
+            {
                "name":"country",
                "displayName":"country",
                "dataType":"string",
@@ -135,7 +135,7 @@ GET /rest/v1/namedaccounts/describe.json
 
 ### Query
 
-Het vragen voor genoemde rekeningen is gebaseerd op het gebruik van een filterType en een reeks tot 300 komma-gescheiden filterValues. `filterType` kan elk veld zijn dat wordt geretourneerd in het `searchableFields` lid van het beschrijvingsresultaat voor benoemde accounts, terwijl filterValues elke geldige invoer voor het gegevenstype van het veld kan zijn. Als u een specifieke set velden van wilt retourneren, moet een parameter fields worden doorgegeven, waarbij de waarde bestaat uit een door komma&#39;s gescheiden lijst met velden die moeten worden geretourneerd in het antwoord. Zoals andere vraagopties, is het maximumaantal verslagen voor één enkele vraagpagina 300, en de extra verslagen in de reeks moeten met het gebruik van nextPageToken worden gevraagd die door de vraag is teruggekeerd.
+Het vragen voor genoemde rekeningen is gebaseerd op het gebruik van een filterType en een reeks tot 300 komma-gescheiden filterValues. `filterType` kan elk willekeurig veld zijn dat wordt geretourneerd in het `searchableFields` -lid van het beschrijvingsresultaat voor benoemde accounts, terwijl filterValues geldige invoer kan zijn voor het gegevenstype van het veld. Als u een specifieke set velden van wilt retourneren, moet een parameter fields worden doorgegeven, waarbij de waarde bestaat uit een door komma&#39;s gescheiden lijst met velden die moeten worden geretourneerd in het antwoord. Zoals andere vraagopties, is het maximumaantal verslagen voor één enkele vraagpagina 300, en de extra verslagen in de reeks moeten met het gebruik van nextPageToken worden gevraagd die door de vraag is teruggekeerd.
 
 ```
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
@@ -166,7 +166,7 @@ GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 
 ### Maken en bijwerken
 
-Voor het maken en bijwerken van benoemde accounts wordt het standaarddatabasepatroon voor leads gebruikt. Registers moeten worden doorgegeven in het invoerlid van een JSON-instantie in een verzoek om POST. `input` is het enige vereiste lid met `action` en `dedupeBy` als optioneel lid. Er kunnen maximaal 300 records in de invoer worden opgenomen. Actie kan van het type createOnly, updateOnly of createOrUpdate zijn. Als deze waarde niet is opgegeven, wordt de handeling standaard ingesteld op createOrUpdate. dedupeBy kan slechts worden gespecificeerd wanneer de actie updateOnly is, en slechts één van dedupeFields of idField goedkeurt, die aan de naam en marketoGUID gebieden beantwoorden, respectievelijk.
+Voor het maken en bijwerken van benoemde accounts wordt het standaarddatabasepatroon voor leads gebruikt. Records moeten in een POST-verzoek worden doorgegeven in het invoerlid van een JSON-instantie. `input` is het enige vereiste lid, met `action` en `dedupeBy` als optionele leden. Er kunnen maximaal 300 records in de invoer worden opgenomen. Actie kan van het type createOnly, updateOnly of createOrUpdate zijn. Als deze waarde niet is opgegeven, wordt de handeling standaard ingesteld op createOrUpdate. dedupeBy kan slechts worden gespecificeerd wanneer de actie updateOnly is, en slechts één van dedupeFields of idField goedkeurt, die aan de naam en marketoGUID gebieden beantwoorden, respectievelijk.
 
 ```
 POST /rest/v1/namedaccounts.json
@@ -177,15 +177,15 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "action":"updateOnly",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "name":"Google",
          "domainName":"www.google.com"
       },
-      {  
+      {
          "name":"Yahoo",
          "domainName":"www.yahoo.com"
       }
@@ -194,16 +194,16 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc"
@@ -224,7 +224,7 @@ Het opvragen van benoemde accountvelden is eenvoudig. U kunt één benoemd accou
 
 #### Op naam
 
-De [Veld voor benoemde account ophalen op naam](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) het eindpunt wint meta-gegevens voor één enkel gebied op het genoemde rekeningsvoorwerp terug. De vereiste padparameter fieldApiName geeft de API-naam van het veld op. De reactie is als het beschrijf Benoemde eindpunt van de Rekening maar bevat extra meta-gegevens zoals het isCustom attribuut dat erop wijst of het gebied een douanegebied is.
+Het [ krijgt Benoemd Gebied van de Rekening door het eindpunt van de Naam ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) wint meta-gegevens voor één enkel gebied op het genoemde rekeningsvoorwerp terug. De vereiste padparameter fieldApiName geeft de API-naam van het veld op. De reactie is als het beschrijf Benoemde eindpunt van de Rekening maar bevat extra meta-gegevens zoals het isCustom attribuut dat erop wijst of het gebied een douanegebied is.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Bladeren
 
-De [Benoemde accountvelden ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) het eindpunt wint meta-gegevens voor alle gebieden op het genoemde rekeningsvoorwerp terug. Standaard worden maximaal 300 records geretourneerd. U kunt de batchSize vraagparameter gebruiken om dit aantal te verminderen. Als het kenmerk moreResult waar is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. nextPageToken die van deze API is teruggekeerd zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
+Het [ krijgt Benoemde eindpunt van de Rekening Gebieden ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) wint meta-gegevens voor alle gebieden op het genoemde rekeningsvoorwerp terug. Standaard worden maximaal 300 records geretourneerd. U kunt de batchSize vraagparameter gebruiken om dit aantal te verminderen. Als het kenmerk moreResult waar is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. nextPageToken die van deze API is teruggekeerd zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
@@ -331,7 +331,7 @@ GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 
 ### Verwijderen
 
-Verwijderingen worden uitgevoerd via een JSON-POST-aanvraag en hebben een vereist invoerlid en een optioneel deleteBy-lid. deleteBy kan één van &quot;dedupeFields&quot;of &quot;idField&quot;zijn, die aan naam of marketoGUID, respectievelijk beantwoorden, en zal aan dedupeFields in gebreke blijven als unset. Het inputlid keurt een serie van tot 300 verslagen goed, die één lid bevatten elk, of naam of marketoGUID afhankelijk van het plaatsen van deleteBy.
+Verwijderingen worden uitgevoerd via een JSON POST-aanvraag en hebben een vereist invoerlid en een optioneel deleteBy-lid. deleteBy kan één van &quot;dedupeFields&quot;of &quot;idField&quot;zijn, die aan naam of marketoGUID, respectievelijk beantwoorden, en zal aan dedupeFields in gebreke blijven als unset. Het inputlid keurt een serie van tot 300 verslagen goed, die één lid bevatten elk, of naam of marketoGUID afhankelijk van het plaatsen van deleteBy.
 
 ```
 POST /rest/v1/namedaccounts/delete.json
@@ -342,16 +342,16 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "name":"Google"
       },
-      {  
+      {
          "name":"Yahoo"
       },
-      {  
+      {
          "name":"Marketo"
       }
    ]
@@ -359,25 +359,25 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"
       },
-      {  
+      {
          "seq":1,
          "id":"dff23271-f996-47d7-984f-f2676861b5fc",
          "status":"deleted"
       },
-      {  
+      {
          "seq":2,
          "status":"skipped",
-         "reasons":[  
-            {  
+         "reasons":[
+            {
                "code":"1013",
                "message":"Record not found"
             }
