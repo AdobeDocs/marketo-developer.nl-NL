@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Bedrijven vertegenwoordigen de organisatie waartoe hoofdrecords behoren. De lood worden toegevoegd aan een Bedrijf door hun overeenkomstige `externalCompanyId` gebied te bevolken gebruikend [ Leads van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) of [ BulkLood de 4&rbrace; eindpunten van de Invoer. ](bulk-lead-import.md) Nadat een lead aan een bedrijf is toegevoegd, kunt u de lead van dat bedrijf niet verwijderen (tenzij u de lead aan een ander bedrijf toevoegt). Leads die aan een bedrijfsrecord zijn gekoppeld, nemen de waarden van een bedrijfsrecord rechtstreeks over alsof de waarden in het eigen record van de lead staan.
 
-Het bedrijf APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) hebben wordt toegelaten.
+Het bedrijf APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
 
 ## Beschrijven
 

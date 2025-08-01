@@ -18,7 +18,7 @@ Installatie-instructies voor Marketo Mobile SDK. De onderstaande stappen zijn ve
 
 ### Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
 1. [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)
 
 ### Framework installeren via CocoaPods
@@ -132,7 +132,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
 1. [ Push Berichten van de Opstelling ](push-notifications.md#android_setup_push) (facultatief)
 1. [ Download Marketo SDK voor Android ](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 

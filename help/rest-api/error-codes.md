@@ -110,7 +110,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="603"></a>603</td>
       <td>Toegang geweigerd</td>
-      <td>Verificatie is geslaagd, maar de gebruiker heeft onvoldoende machtigingen om deze API aan te roepen. [De extra toestemmingen] (douane-services.md) kunnen aan de gebruikersrol moeten worden toegewezen, of <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access"> Lijst van gewenste personen voor IP-Gebaseerde API Toegang </a> kan worden toegelaten.</td>
+      <td>Verificatie is geslaagd, maar de gebruiker heeft onvoldoende machtigingen om deze API aan te roepen. [De extra toestemmingen] (douane-services.md) kunnen aan de gebruikersrol moeten worden toegewezen, of <a href="https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access"> Lijst van gewenste personen voor IP-Gebaseerde API Toegang </a> kan worden toegelaten.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
