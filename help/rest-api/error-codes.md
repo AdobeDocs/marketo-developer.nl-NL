@@ -124,7 +124,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     </tr>
     <tr>
       <td><a name="606"></a>606</td>
-      <td>Maximumsnelheid `%s'; overschreden met in `%s` sec</td>
+      <td>Maximumsnelheid `%s'; overschreden met in `%s&grave; sec</td>
       <td>Het aantal vraag in de afgelopen 20 seconden was groter dan 100</td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
       <td>De aanroep kan niet worden uitgevoerd omdat deze in strijd is met een vereiste om een element te maken of bij te werken, bijvoorbeeld wanneer u een e-mail wilt maken zonder sjabloon. Het is ook mogelijk deze fout op te halen wanneer u probeert:
         <ul>
           <li>Inhoud ophalen voor bestemmingspagina's die sociale inhoud bevatten.</li>
-          <li>Kloon een programma dat bepaalde activa types (zie <a href="programs.md#clone"> van de Kloon van het Programma 0} {voor meer informatie) bevat.</a></li>
+          <li>Kloon een programma dat bepaalde activa types (zie <a href="programs.md#clone"> van de Kloon van het Programma 0&rbrace; &lbrace;voor meer informatie) bevat.</a></li>
           <li>Een element goedkeuren zonder concept (dat wil zeggen dat het al is goedgekeurd).</li>
         </ul></td>
     </tr>
@@ -239,7 +239,7 @@ Een API-aanroep die deze responscode retourneert, wordt niet in mindering gebrac
     <tr>
       <td><a name="718"></a>718</td>
       <td>ExternalSalesPersonID niet gevonden</td>
-      <td>Een vraag van de Kanalen van de Synchronisatie werd gemaakt met een niet-bestaande ` waarde ExternalSalesPersonID.</td>
+      <td>Een vraag van de Kanalen van de Synchronisatie werd gemaakt met een niet-bestaande &grave; waarde ExternalSalesPersonID.</td>
     </tr>
     <tr>
       <td>719</td>
@@ -290,209 +290,209 @@ Elke record in een succesvol verzoek kan slagen of ontbreken op een individuele 
 >[!NOTE]
 >
 ><table>
-<tbody>
-    <tr>
-      <td>Antwoordcode</td>
-      <td>Beschrijving</td>
-      <td>Opmerking</td>
-    </tr>
-    <tr>
-      <td><a name="1001"></a>1001</td>
-      <td>Ongeldige waarde '%s'. Vereist van type '%s'</td>
-      <td>Er wordt een fout gegenereerd wanneer een parameterwaarde niet overeenkomt met het type. Bijvoorbeeld de tekenreekswaarde die is opgegeven voor een parameter integer.</td>
-    </tr>
-    <tr>
-      <td><a name="1002"></a>1002</td>
-      <td>Ontbrekende waarde voor de vereiste parameter '%s'</td>
-      <td>Er wordt een fout gegenereerd wanneer een vereiste parameter ontbreekt in de aanvraag</td>
-    </tr>
-    <tr>
-      <td><a name="1003"></a>1003</td>
-      <td>Ongeldige gegevens</td>
-      <td>Wanneer de overgelegde gegevens geen geldig type voor het bepaalde eindpunt of de wijze zijn; zoals wanneer identiteitskaart voor een lood met actie wordt voorgelegd die als createOnly wordt aangewezen of wanneer het gebruiken van de Campagne van het Verzoek op een partijcampagne wordt aangewezen.</td>
-    </tr>
-    <tr>
-      <td><a name="1004"></a>1004</td>
-      <td>Geen lood gevonden</td>
-      <td>Voor syncLead, wanneer de actie "updateOnly"is en als lood niet wordt gevonden</td>
-    </tr>
-    <tr>
-      <td><a name="1005"></a>1005</td>
-      <td>De lead bestaat al</td>
-      <td>Voor syncLead, wanneer de actie "createOnly"is en als een lood reeds bestaat</td>
-    </tr>
-    <tr>
-      <td><a name="1006"></a>1006</td>
-      <td>Veld '%s' niet gevonden</td>
-      <td>Een inbegrepen gebied in de vraag is geen geldig gebied.</td>
-    </tr>
-    <tr>
-      <td><a name="1007"></a>1007</td>
-      <td>Meerdere leads komen overeen met de opzoekcriteria</td>
-      <td>Meerdere leads komen overeen met de opzoekcriteria. Updates kunnen alleen worden uitgevoerd wanneer de sleutel overeenkomt met één record</td>
-    </tr>
-    <tr>
-      <td><a name="1008"></a>1008</td>
-      <td>Toegang geweigerd voor partitie '%s'</td>
-      <td>De gebruiker voor de douanedienst heeft geen toegang tot een werkruimte met de verdeling waar het verslag bestaat.</td>
-    </tr>
-    <tr>
-      <td><a name="1009"></a>1009</td>
-      <td>Partitienaam moet worden opgegeven</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a name="1010"></a>1010</td>
-      <td>Partitie-update niet toegestaan</td>
-      <td>De opgegeven record bestaat al in een aparte hoofdpartitie.</td>
-    </tr>
-    <tr>
-      <td><a name="1011"></a>1011</td>
-      <td>Veld '%s' wordt niet ondersteund</td>
-      <td>Bij opzoekveld of 'filterType' opgegeven met niet-ondersteunde standaardvelden (bijv. firstName, lastName)</td>
-    </tr>
-    <tr>
-      <td><a name="1012"></a>1012</td>
-      <td>Ongeldige cookiewaarde '%s'</td>
-      <td>Kan voorkomen wanneer het roepen van <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST"> associeerde lood </a> met een ongeldige waarde voor de "koekjesparameter".
-        Dit komt ook voor wanneer het roepen <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET"> leidt door het Type van Filter </a> met ` filterType=cookies' en een ongeldige waarde voor de parameter ` filterValues `.</td>
-    </tr>
-    <tr>
-      <td><a name="1013"></a>1013</td>
-      <td>Object niet gevonden</td>
-      <td>Hiermee wordt het object (list, campagne) van id opgehaald en wordt deze foutcode geretourneerd</td>
-    </tr>
-    <tr>
-      <td><a name="1014"></a>1014</td>
-      <td>Kan object niet maken</td>
-      <td>Kan object niet maken (lijst)</td>
-    </tr>
-    <tr>
-      <td><a name="1015"></a>1015</td>
-      <td>Lood niet in lijst</td>
-      <td>De aangewezen lood is geen lid van de doellijst</td>
-    </tr>
-    <tr>
-      <td><a name="1016"></a>1016</td>
-      <td>Te veel invoer</td>
-      <td>Er staan te veel importen in de wachtrij. Er is maximaal 10 toegestaan</td>
-    </tr>
-    <tr>
-      <td><a name="1017"></a>1017</td>
-      <td>Object bestaat al</td>
-      <td>Maken is mislukt omdat de record al bestaat</td>
-    </tr>
-    <tr>
-      <td><a name="1018"></a>1018</td>
-      <td>CRM ingeschakeld</td>
-      <td>De handeling kan niet worden uitgevoerd, omdat voor de instantie een native CRM-integratie is ingeschakeld.</td>
-    </tr>
-    <tr>
-      <td><a name="1019"></a>1019</td>
-      <td>Importeren wordt uitgevoerd</td>
-      <td>De doellijst wordt al geïmporteerd naar</td>
-    </tr>
-    <tr>
-      <td><a name="1020"></a>1020</td>
-      <td>Te veel klonen voor programma</td>
-      <td>Het abonnement heeft het toegewezen gebruik van "cloneToProgramName" in het Programma voor de dag bereikt</td>
-    </tr>
-    <tr>
-      <td><a name="1021"></a>1021</td>
-      <td>Bedrijfsupdate niet toegestaan</td>
-      <td>Bedrijfsupdate niet toegestaan tijdens syncLead</td>
-    </tr>
-    <tr>
-      <td><a name="1022"></a>1022</td>
-      <td>Object in gebruik</td>
-      <td>Verwijderen is niet toegestaan wanneer een object door een ander object wordt gebruikt</td>
-    </tr>
-    <tr>
-      <td><a name="1025"></a>1025</td>
-      <td>Programmastatus niet gevonden</td>
-      <td>Er is een status opgegeven om de status van het leidingprogramma te wijzigen die niet overeenkomt met een status die beschikbaar is voor het kanaal van het programma.</td>
-    </tr>
-    <tr>
-      <td><a name="1026"></a>1026</td>
-      <td>Aangepast object niet ingeschakeld</td>
-      <td>De handeling kan niet worden uitgevoerd omdat de integratie van aangepaste objecten niet is ingeschakeld voor de instantie.</td>
-    </tr>
-    <tr>
-      <td><a name="1027"></a>1027</td>
-      <td>Maximale maximale activiteitstypen bereikt</td>
-      <td>Het abonnement heeft het maximumaantal beschikbare types van douaneactiviteit bereikt.</td>
-    </tr>
-    <tr>
-      <td><a name="1028"></a>1028</td>
-      <td>Max. veldlimiet bereikt</td>
-      <td>Aangepaste activiteiten hebben maximaal 20 secundaire kenmerken.</td>
-    </tr>
-    <tr>
-      <td><a name="1029"></a>1029</td>
-      <td><ul>
-          <li>Te veel taken in de wachtrij</li>
-          <li>Dagelijks exportquotum overschreden</li>
-          <li>Taak al in de wachtrij</li>
-        </ul></td>
-      <td><ul>
-          <li>Abonnementen mogen maximaal 10 bulkextractietaken tegelijk in de wachtrij plaatsen.</li>
-          <li>Standaard zijn extractietaken beperkt tot 500 MB per dag (worden dagelijks opnieuw ingesteld om 12:00 AM CST).</li>
-          <li>De export-id is al in de wachtrij geplaatst.</li>
-        </ul></td>
-    </tr>
-    <tr>
-      <td><a name="1035"></a>1035</td>
-      <td>Niet-ondersteund filtertype</td>
-      <td>In sommige abonnementen, worden de volgende de filtertypes van Extraheren van de Lood van de Bulk niet gesteund: updateAt, smartListId, smartListName.</td>
-    </tr>
-    <tr>
-      <td><a name="1036"></a>1036</td>
-      <td>Dubbel object gevonden in invoer</td>
-      <td>Er is een aanroep gemaakt om twee of meer records bij te werken met dezelfde externe sleutel. Bijvoorbeeld, roept een vraag van de Bedrijven van de Synchronisatie gebruikend zelfde externalCompanyId voor meer dan één bedrijf.</td>
-    </tr>
-    <tr>
-      <td><a name="1037"></a>1037</td>
-      <td>Lood is overgeslagen</td>
-      <td>De lead is overgeslagen omdat deze al in of voorbij deze status is.</td>
-    </tr>
-    <tr>
-      <td><a name="1042"></a>1042</td>
-      <td>Ongeldige runAt-datum</td>
-      <td>De runAt-datum die is opgegeven voor de planningscampagne was te ver in de toekomst (het maximum is 2 jaar).</td>
-    </tr>
-    <tr>
-      <td><a name="1048"></a>1048</td>
-      <td>Concept voor verwijderen van aangepast object is mislukt</td>
-      <td>Er is een aanroep gemaakt om de conceptversie van een aangepast object te verwijderen.</td>
-    </tr>
-    <tr>
-      <td><a name="1049"></a>1049</td>
-      <td>Kan activiteit niet maken</td>
-      <td>Kenmerkarray is te lang.
-        De array met kenmerken die aan de record zijn doorgegeven, overschrijdt de maximale lengte van 65536 bytes</td>
-    </tr>
-    <tr>
-      <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> Samenvoegen leidt </a> vraag met de vlag mergeInCRM is 4.</td>
-      <td>U maakt een gedupliceerde record. U wordt aangeraden een bestaande record te gebruiken.
-        Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
-    </tr>
-    <tr>
-      <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan ` de lengte van het Gebied van SFDC</td>
-      <td>Een samenvoegen van Leads-aanroep waarbij mergeInCRM is ingesteld op true, is mislukt omdat het SFDC-veld de limiet van toegestane tekens overschrijdt. U corrigeert de fout door de lengte van het veld SFDC Field te verkleinen of mergeInCRM in te stellen op false.</td>
-    </tr>
-    <tr>
-      <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> ontbroken vraag van de Leads van 0} Fusie {wegens geschrapte entiteit, niet een lood/contact, of de criteria van de gebiedsfilter past niet aan.</a></td>
-      <td>Fout bij samenvoegen, kan samenvoegbewerking niet uitvoeren in native gesynchroniseerde CRM
-        Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
-    </tr>
-    <tr>
-      <td><a name="1079"></a>1079</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan het Gepersonaliseerde conflict URL in dubbele verslagen</td>
-      <td>Bij een oproep voor samenvoegen van leads zijn veel leads opgegeven met dezelfde persoonlijke URL. Om op te lossen gebruikt u de gebruikersinterface van Marketo Engage om deze verslagen samen te voegen.</td>
-    </tr>
-  </tbody>
-</table>
+><tbody>
+>    <tr>
+>      <td>Antwoordcode</td>
+>      <td>Beschrijving</td>
+>      <td>Opmerking</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1001"></a>1001</td>
+>      <td>Ongeldige waarde '%s'. Vereist van type '%s'</td>
+>      <td>Er wordt een fout gegenereerd wanneer een parameterwaarde niet overeenkomt met het type. Bijvoorbeeld de tekenreekswaarde die is opgegeven voor een parameter integer.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1002"></a>1002</td>
+>      <td>Ontbrekende waarde voor de vereiste parameter '%s'</td>
+>      <td>Er wordt een fout gegenereerd wanneer een vereiste parameter ontbreekt in de aanvraag</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1003"></a>1003</td>
+>      <td>Ongeldige gegevens</td>
+>      <td>Wanneer de overgelegde gegevens geen geldig type voor het bepaalde eindpunt of de wijze zijn; zoals wanneer identiteitskaart voor een lood met actie wordt voorgelegd die als createOnly wordt aangewezen of wanneer het gebruiken van de Campagne van het Verzoek op een partijcampagne wordt aangewezen.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1004"></a>1004</td>
+>      <td>Geen lood gevonden</td>
+>      <td>Voor syncLead, wanneer de actie "updateOnly"is en als lood niet wordt gevonden</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1005"></a>1005</td>
+>      <td>De lead bestaat al</td>
+>      <td>Voor syncLead, wanneer de actie "createOnly"is en als een lood reeds bestaat</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1006"></a>1006</td>
+>      <td>Veld '%s' niet gevonden</td>
+>      <td>Een inbegrepen gebied in de vraag is geen geldig gebied.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1007"></a>1007</td>
+>      <td>Meerdere leads komen overeen met de opzoekcriteria</td>
+>      <td>Meerdere leads komen overeen met de opzoekcriteria. Updates kunnen alleen worden uitgevoerd wanneer de sleutel overeenkomt met één record</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1008"></a>1008</td>
+>      <td>Toegang geweigerd voor partitie '%s'</td>
+>      <td>De gebruiker voor de douanedienst heeft geen toegang tot een werkruimte met de verdeling waar het verslag bestaat.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1009"></a>1009</td>
+>      <td>Partitienaam moet worden opgegeven</td>
+>      <td></td>
+>    </tr>
+>    <tr>
+>      <td><a name="1010"></a>1010</td>
+>      <td>Partitie-update niet toegestaan</td>
+>      <td>De opgegeven record bestaat al in een aparte hoofdpartitie.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1011"></a>1011</td>
+>      <td>Veld '%s' wordt niet ondersteund</td>
+>      <td>Bij opzoekveld of 'filterType' opgegeven met niet-ondersteunde standaardvelden (bijv. firstName, lastName)</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1012"></a>1012</td>
+>      <td>Ongeldige cookiewaarde '%s'</td>
+>      <td>Kan voorkomen wanneer het roepen van <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST"> associeerde lood </a> met een ongeldige waarde voor de "koekjesparameter".
+>        Dit komt ook voor wanneer het roepen <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET"> leidt door het Type van Filter </a> met ` filterType=cookies' en een ongeldige waarde voor de parameter ` filterValues &grave;.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1013"></a>1013</td>
+>      <td>Object niet gevonden</td>
+>      <td>Hiermee wordt het object (list, campagne) van id opgehaald en wordt deze foutcode geretourneerd</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1014"></a>1014</td>
+>      <td>Kan object niet maken</td>
+>      <td>Kan object niet maken (lijst)</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1015"></a>1015</td>
+>      <td>Lood niet in lijst</td>
+>      <td>De aangewezen lood is geen lid van de doellijst</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1016"></a>1016</td>
+>      <td>Te veel invoer</td>
+>      <td>Er staan te veel importen in de wachtrij. Er is maximaal 10 toegestaan</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1017"></a>1017</td>
+>      <td>Object bestaat al</td>
+>      <td>Maken is mislukt omdat de record al bestaat</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1018"></a>1018</td>
+>      <td>CRM ingeschakeld</td>
+>      <td>De handeling kan niet worden uitgevoerd, omdat voor de instantie een native CRM-integratie is ingeschakeld.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1019"></a>1019</td>
+>      <td>Importeren wordt uitgevoerd</td>
+>      <td>De doellijst wordt al geïmporteerd naar</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1020"></a>1020</td>
+>      <td>Te veel klonen voor programma</td>
+>      <td>Het abonnement heeft het toegewezen gebruik van "cloneToProgramName" in het Programma voor de dag bereikt</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1021"></a>1021</td>
+>      <td>Bedrijfsupdate niet toegestaan</td>
+>      <td>Bedrijfsupdate niet toegestaan tijdens syncLead</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1022"></a>1022</td>
+>      <td>Object in gebruik</td>
+>      <td>Verwijderen is niet toegestaan wanneer een object door een ander object wordt gebruikt</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1025"></a>1025</td>
+>      <td>Programmastatus niet gevonden</td>
+>      <td>Er is een status opgegeven om de status van het leidingprogramma te wijzigen die niet overeenkomt met een status die beschikbaar is voor het kanaal van het programma.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1026"></a>1026</td>
+>      <td>Aangepast object niet ingeschakeld</td>
+>      <td>De handeling kan niet worden uitgevoerd omdat de integratie van aangepaste objecten niet is ingeschakeld voor de instantie.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1027"></a>1027</td>
+>      <td>Maximale maximale activiteitstypen bereikt</td>
+>      <td>Het abonnement heeft het maximumaantal beschikbare types van douaneactiviteit bereikt.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1028"></a>1028</td>
+>      <td>Max. veldlimiet bereikt</td>
+>      <td>Aangepaste activiteiten hebben maximaal 20 secundaire kenmerken.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1029"></a>1029</td>
+>      <td><ul>
+>          <li>Te veel taken in de wachtrij</li>
+>          <li>Dagelijks exportquotum overschreden</li>
+>          <li>Taak al in de wachtrij</li>
+>        </ul></td>
+>      <td><ul>
+>          <li>Abonnementen mogen maximaal 10 bulkextractietaken tegelijk in de wachtrij plaatsen.</li>
+>          <li>Standaard zijn extractietaken beperkt tot 500 MB per dag (worden dagelijks opnieuw ingesteld om 12:00 AM CST).</li>
+>          <li>De export-id is al in de wachtrij geplaatst.</li>
+>        </ul></td>
+>    </tr>
+>    <tr>
+>      <td><a name="1035"></a>1035</td>
+>      <td>Niet-ondersteund filtertype</td>
+>      <td>In sommige abonnementen, worden de volgende de filtertypes van Extraheren van de Lood van de Bulk niet gesteund: updateAt, smartListId, smartListName.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1036"></a>1036</td>
+>      <td>Dubbel object gevonden in invoer</td>
+>      <td>Er is een aanroep gemaakt om twee of meer records bij te werken met dezelfde externe sleutel. Bijvoorbeeld, roept een vraag van de Bedrijven van de Synchronisatie gebruikend zelfde externalCompanyId voor meer dan één bedrijf.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1037"></a>1037</td>
+>      <td>Lood is overgeslagen</td>
+>      <td>De lead is overgeslagen omdat deze al in of voorbij deze status is.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1042"></a>1042</td>
+>      <td>Ongeldige runAt-datum</td>
+>      <td>De runAt-datum die is opgegeven voor de planningscampagne was te ver in de toekomst (het maximum is 2 jaar).</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1048"></a>1048</td>
+>      <td>Concept voor verwijderen van aangepast object is mislukt</td>
+>      <td>Er is een aanroep gemaakt om de conceptversie van een aangepast object te verwijderen.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1049"></a>1049</td>
+>      <td>Kan activiteit niet maken</td>
+>      <td>Kenmerkarray is te lang.
+>        De array met kenmerken die aan de record zijn doorgegeven, overschrijdt de maximale lengte van 65536 bytes</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1076"></a>1076</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> Samenvoegen leidt </a> vraag met de vlag mergeInCRM is 4.</td>
+>      <td>U maakt een gedupliceerde record. U wordt aangeraden een bestaande record te gebruiken.
+>        Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1077"></a>1077</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan &grave; de lengte van het Gebied van SFDC</td>
+>      <td>Een samenvoegen van Leads-aanroep waarbij mergeInCRM is ingesteld op true, is mislukt omdat het SFDC-veld de limiet van toegestane tekens overschrijdt. U corrigeert de fout door de lengte van het veld SFDC Field te verkleinen of mergeInCRM in te stellen op false.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1078"></a>1078</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> ontbroken vraag van de Leads van 0&rbrace; Fusie &lbrace;wegens geschrapte entiteit, niet een lood/contact, of de criteria van de gebiedsfilter past niet aan.</a></td>
+>      <td>Fout bij samenvoegen, kan samenvoegbewerking niet uitvoeren in native gesynchroniseerde CRM
+>        Dit is de foutmelding die Marketo ontvangt bij het samenvoegen in Salesforce.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1079"></a>1079</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST"> de vraag van de Leads van de Fusie </a> ontbrak toe te schrijven aan het Gepersonaliseerde conflict URL in dubbele verslagen</td>
+>      <td>Bij een oproep voor samenvoegen van leads zijn veel leads opgegeven met dezelfde persoonlijke URL. Om op te lossen gebruikt u de gebruikersinterface van Marketo Engage om deze verslagen samen te voegen.</td>
+>    </tr>
+>  </tbody>
+></table>
 
