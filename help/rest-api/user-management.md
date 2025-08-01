@@ -245,7 +245,7 @@ GET /userservice/management/v1/users/roles.json
 
 ### Bladeren door werkruimten
 
-Het [ krijgt het 1} eindpunt van de Werkruimten {keert een lijst van alle werkruimteverslagen terug.](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET)
+Het [ krijgt het 1&rbrace; eindpunt van de Werkruimten &lbrace;keert een lijst van alle werkruimteverslagen terug.](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET)
 
 ```
 GET /userservice/management/v1/users/workspaces.json
@@ -429,7 +429,7 @@ De steun van de update voor rollen omvat capaciteit om rollen toe te voegen en t
 
 ## Rollen toevoegen
 
-Het [ voegt 1} eindpunt van Rollen {neemt één enkele ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST) wegparameter toe en voegt één of meerdere gebruikersrollen aan de overeenkomstige gebruiker toe. `userid` De aanvraaginstantie bevat een lijst met een of meer objecten die elk een  `accessRoleId` en een `workspaceId` -kenmerk. Als dit lukt, wordt de volledige lijst met `accessRoleId/workspaceId` paren voor de opgegeven gebruiker geretourneerd.
+Het [ voegt 1&rbrace; eindpunt van Rollen &lbrace;neemt één enkele ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST) wegparameter toe en voegt één of meerdere gebruikersrollen aan de overeenkomstige gebruiker toe. `userid` De aanvraaginstantie bevat een lijst met een of meer objecten die elk een  `accessRoleId` en een `workspaceId` -kenmerk. Als dit lukt, wordt de volledige lijst met `accessRoleId/workspaceId` paren voor de opgegeven gebruiker geretourneerd.
 
 ```
 POST /userservice/management/v1/users/{userid}/roles/create.json

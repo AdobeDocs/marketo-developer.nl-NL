@@ -35,7 +35,7 @@ Organisatie, Industrie, de Lijsten ABM, Plaats, ISP, Gelijke Segmenten
 | Voorwaarde | Gegevenshiërarchie | Voorbeeld |
 |-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
 | Overeenkomende segmenten (werkt alleen na eerste klik) | matchedSegments.name | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;matchingSegments.name&#39;, [&#39;Fortune 1.000&#39;, &#39;Enterprise&#39;] , &#39;http://www.marketo.com&#39;); |
-| Overeenkomende segmenten (werkt alleen na eerste klik) | matchedSegments.id | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;matchingSegments.id&quot;, [ {106, 107, 190 ] , &quot;http://www.marketo.com&#39;); |
+| Overeenkomende segmenten (werkt alleen na eerste klik) | matchedSegments.id | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;matchingSegments.id&quot;, [ &lbrace;106, 107, 190 ] , &quot;http://www.marketo.com&#39;); |
 | ABM-lijsten | abm.name | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;abm.name&#39;, [&#39;top_key_accounts&#39;, &#39;active_customer&#39;] , &#39;http://www.marketo.com&#39;); |
 | ABM-lijsten | abm.code | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;abm.code&quot;, [  , 15 ] , &quot;http://www.marketo.com&#39;); |
 | Organisaties | org | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;org&#39;, [&#39;ebay&#39;], &#39;http://www.marketo.com&#39;); |
@@ -106,7 +106,7 @@ De omleidingsvraag steunt veelvoudige vraag. Hierdoor kunt u omleiden met meerde
 | &#39;send&#39; | Vereist | String | Methode, actie. |
 | &#39;redirect&#39; | Vereist | String | Naam van methode. |
 | field_name | Vereist | String | Veldnaam die moet worden vergeleken met. Voorbeeld: &#39;abm.name&#39; (zie hierboven). |
-| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:{&#39;http://marketo.com&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
+| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:&lbrace;&#39;http://marketo.com&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
 
 
 #### Voorbeeld
