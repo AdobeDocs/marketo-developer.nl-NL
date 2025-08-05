@@ -3,7 +3,7 @@ title: Activiteiten
 feature: REST API
 description: Een API voor het beheer van Marketo Engage-activiteiten.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
@@ -131,7 +131,7 @@ Als het kenmerk `moreResult` true is, zijn er meer resultaten beschikbaar. Ga do
 
 In sommige gevallen reageert deze API mogelijk met minder dan 300 activity-items, maar het kenmerk `moreResult` is ook ingesteld op true.  Dit wijst erop dat er meer activiteiten zijn die kunnen worden teruggekeerd en dat het eindpunt voor recentere activiteiten kan worden gevraagd door teruggekeerde `nextPageToken` in een verdere vraag te omvatten.
 
-Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` vervangen door het `marketoGUID` string-kenmerk als unieke id. 
+Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` vervangen door het `marketoGUID` string-kenmerk als unieke id.
 
 ### Wijzigingen in gegevenswaarde
 
@@ -435,7 +435,6 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 De types kunnen met het Goedkeuren Type van Activiteit van de Douane, het Ontwerp van het Type van Activiteit van de Douane, en het Type van Activiteit van de Douane van de Schrapping worden beheerd, enkel zoals standaardMarketo activa.
 
-
 ## Kenmerken van type aangepaste activiteit
 
 Elk type van douaneactiviteit kan van 0-20 secundaire attributen hebben. Secundaire kenmerken kunnen elk geldig veldtype voor een Marketo-veld hebben. Ze worden toegevoegd, bijgewerkt en verwijderd apart van het bovenliggende type, maar kunnen worden bewerkt tijdens het gebruik van een type activiteit en vervolgens worden goedgekeurd. Wanneer de gebieden op een levend type worden uitgegeven, dan hebben alle activiteiten van dat type die na goedkeuring worden gecreeerd de nieuwe secundaire reeks attributen. Wijzigingen worden niet met terugwerkende kracht toegepast op bestaande activiteiten die dat type delen.
@@ -450,7 +449,7 @@ Wanneer u het primaire kenmerk van een type activiteit wijzigt, moet een bestaan
 
 ### Kenmerken maken
 
-Voor het maken van een kenmerk wordt een vereiste padparameter `apiName` gebruikt. Ook de parameters `name` en `dataType` zijn vereist.` The description and` `isPrimary` -parameters zijn optioneel.
+Voor het maken van een kenmerk wordt een vereiste padparameter `apiName` gebruikt. Ook de parameters `name` en `dataType` zijn vereist.`The description and` `isPrimary` -parameters zijn optioneel.
 
 ```
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
@@ -709,5 +708,5 @@ POST /rest/v1/activities/external.json
 
 De eindpunten van activiteiten hebben een onderbreking van 30 s tenzij hieronder vermeld.
 
-* Pagingtoken ophalen: 300 seconden 
+* Pagingtoken ophalen: 300 seconden
 * Aangepaste activiteit toevoegen: 90 seconden

@@ -3,7 +3,7 @@ title: React Native
 feature: Mobile Marketing
 description: React Native voor Marketo installeren
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '810'
 ht-degree: 0%
@@ -16,7 +16,7 @@ In dit artikel vindt u informatie over het installeren en instellen van Marketo 
 
 ## Vereisten
 
-[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 
 ## SDK-integratie
 
@@ -393,7 +393,7 @@ const { RNMarketoModule } = NativeModules;
 
 Als de bovenstaande bestanden correct zijn geplaatst, kunnen we de JS-module importeren in elke JS-klasse en de methoden ervan rechtstreeks aanroepen. Bijvoorbeeld:
 
-Merk op dat wij &quot;responseNative&quot;als kadertype voor React inheemse apps moeten overgaan. 
+Merk op dat wij &quot;responseNative&quot;als kadertype voor React inheemse apps moeten overgaan.
 
 ```
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
@@ -489,7 +489,6 @@ RNMarketoModule.registerForRemoteNotifications();
 
 export { requestPermission, registerForRemoteNotifications };
 ```
-
 
 `App.tsx` toevoegen om pushberichten toe te staan
 
@@ -595,7 +594,7 @@ Voeg &quot;MarketoActivity&quot; toe aan het `AndroidManifest.xml` -bestand in d
 
 1. `application:openURL:sourceApplication:annotation:` opnemen in `AppDelegate.m` -bestand (doelstelling-C)
 
-**iOS - het Type/Deplinks van de Douane van de Handle in AppDelegate** 
+**iOS - het Type/Deplinks van de Douane van de Handle in AppDelegate**
 
 ```
 - (BOOL)application:(UIApplication *)app

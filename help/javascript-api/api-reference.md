@@ -3,7 +3,7 @@ title: Munchkin API-naslag
 description: Gebruik de Munchkin Javascript API om uw Munchkin-gegevens aan te passen.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 2%
@@ -40,7 +40,6 @@ Wanneer deze wordt aangeroepen, wordt gecontroleerd of er een `_mkto_trk` -cooki
 | Parameternaam | Optioneel/vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
 | forceCreate | Vereist | Boolean | Maak een cookie, zelfs als `cookieAnon` is ingesteld op false. |
-
 
 ```javascript
 Munchkin.createTrackingCookie(true);

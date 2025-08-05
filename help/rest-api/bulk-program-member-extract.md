@@ -3,7 +3,7 @@ title: Bulkprogrammalid extraheren
 feature: REST API
 description: Batchverwerking van gegevensextractie door lidstaten.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 0%
@@ -235,7 +235,7 @@ Programmaleden ondersteunen verschillende filteropties. Er kunnen meerdere filte
     <tr>
       <td>isExhausted</td>
       <td>Boolean</td>
-      <td>Accepteert boolean die wordt gebruikt om de verslagen van het programmalidmaatschap voor <a href="https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content"> mensen te filtreren die inhoud </a> uitgeput hebben.</td>
+      <td>Accepteert boolean die wordt gebruikt om de verslagen van het programmalidmaatschap voor <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content"> mensen te filtreren die inhoud </a> uitgeput hebben.</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -324,7 +324,6 @@ Het eindpunt van de Taak van het Lid van het Programma van de Uitvoer leidt vers
 | columnHeaderNames | Object | Nee | Een JSON-object met sleutelwaardeparen van veld- en kolomkopnamen. De sleutel moet de naam zijn van een veld dat is opgenomen in de exporttaak. De waarde is de naam van de geëxporteerde kolomkop voor dat veld. |
 | format | String | Nee | Accepteert één van: CSV, TSV, SSV. Het geëxporteerde bestand wordt gerenderd als een bestand met door komma&#39;s gescheiden waarden, door tabs gescheiden waarden of door spaties gescheiden waarden, indien ingesteld. De standaardwaarde is CSV als de waarde is uitgeschakeld. |
 
-
 ## Een taak maken
 
 De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [ creeer het eindpunt van de Taak van het Lid van het Programma van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST). We moeten definiëren welke `filter` de programma-id bevat en welke `fields` nodig is voor het exporteren. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
@@ -371,7 +370,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Taak van het Lid van het Programma van de Enqueue ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) &lbrace;worden geroepen gebruikend `exportId` van de reactie van de aanmaakstatus:
+Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Taak van het Lid van het Programma van de Enqueue ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) {worden geroepen gebruikend `exportId` van de reactie van de aanmaakstatus:
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -447,7 +446,7 @@ Het statuseindpunt antwoordt erop wijzend dat de baan nog verwerkt, zodat is het
 
 ## Uw gegevens ophalen
 
-Om het dossier van een voltooide uitvoer van het programmalid terug te winnen, roep eenvoudig het [ krijgen het 1&rbrace; eindpunt van het Dossier van het Lid van het Programma van de Uitvoer met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET).`exportId`
+Om het dossier van een voltooide uitvoer van het programmalid terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van het Lid van het Programma van de Uitvoer met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET).`exportId`
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een gevraagd veld voor een programmalid leeg is (geen gegevens bevat), wordt `null` in het corresponderende veld in het exportbestand geplaatst.
 

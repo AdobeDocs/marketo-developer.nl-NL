@@ -3,7 +3,7 @@ title: Opportuniteitsrollen
 feature: REST API
 description: Oplossingsrollen in Marketo afhandelen.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '253'
 ht-degree: 0%
@@ -229,5 +229,5 @@ POST /rest/v1/opportunities/roles/delete.json
 ## Tijdstippen
 
 - De eindpunten van de Rol van de kans hebben een onderbreking van 30 s tenzij hieronder vermeld
-   - Opportuniteitsrollen synchroniseren: 60 seconden 
+   - Opportuniteitsrollen synchroniseren: 60 seconden
    - Opportuniteitsrollen verwijderen: 60 seconden

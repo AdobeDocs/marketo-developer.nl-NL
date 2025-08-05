@@ -3,7 +3,7 @@ title: Bedrijven
 feature: REST API
 description: Bedrijfsgegevens configureren met Marketo API's.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '564'
 ht-degree: 0%
@@ -14,9 +14,9 @@ ht-degree: 0%
 
 [ Verwijzing van het Eindpunt van Bedrijven ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
 
-Bedrijven vertegenwoordigen de organisatie waartoe hoofdrecords behoren. De lood worden toegevoegd aan een Bedrijf door hun overeenkomstige `externalCompanyId` gebied te bevolken gebruikend [ Leads van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) of [ BulkLood de 4&rbrace; eindpunten van de Invoer. ](bulk-lead-import.md) Nadat een lead aan een bedrijf is toegevoegd, kunt u de lead van dat bedrijf niet verwijderen (tenzij u de lead aan een ander bedrijf toevoegt). Leads die aan een bedrijfsrecord zijn gekoppeld, nemen de waarden van een bedrijfsrecord rechtstreeks over alsof de waarden in het eigen record van de lead staan.
+Bedrijven vertegenwoordigen de organisatie waartoe hoofdrecords behoren. De lood worden toegevoegd aan een Bedrijf door hun overeenkomstige `externalCompanyId` gebied te bevolken gebruikend [ Leads van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) of [ BulkLood de 4} eindpunten van de Invoer. ](bulk-lead-import.md) Nadat een lead aan een bedrijf is toegevoegd, kunt u de lead van dat bedrijf niet verwijderen (tenzij u de lead aan een ander bedrijf toevoegt). Leads die aan een bedrijfsrecord zijn gekoppeld, nemen de waarden van een bedrijfsrecord rechtstreeks over alsof de waarden in het eigen record van de lead staan.
 
-Het bedrijf APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
+Het bedrijf APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) hebben wordt toegelaten.
 
 ## Beschrijven
 
@@ -136,7 +136,7 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## Maken en bijwerken
 
-Het [ eindpunt van de Bedrijven van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) &lbrace;keurt de vereiste `input` parameter goed die een serie van bedrijfvoorwerpen bevat. Net als de mogelijkheden zijn er drie modi voor het maken en bijwerken van bedrijven: createOnly, updateOnly en createOrUpdate.  Modi worden opgegeven in de parameter `action` van de aanvraag. Zowel de parameters `dedupeBy` als `action` zijn optioneel en worden standaard ingesteld op respectievelijk de modi dedupeFields en createOrUpdate.
+Het [ eindpunt van de Bedrijven van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) {keurt de vereiste `input` parameter goed die een serie van bedrijfvoorwerpen bevat. Net als de mogelijkheden zijn er drie modi voor het maken en bijwerken van bedrijven: createOnly, updateOnly en createOrUpdate.  Modi worden opgegeven in de parameter `action` van de aanvraag. Zowel de parameters `dedupeBy` als `action` zijn optioneel en worden standaard ingesteld op respectievelijk de modi dedupeFields en createOrUpdate.
 
 ```
 POST /rest/v1/companies.json
@@ -360,5 +360,5 @@ POST /rest/v1/companies/delete.json
 ## Tijdstippen
 
 - Eindpunten van bedrijven hebben een time-out van 30 seconden, tenzij hieronder vermeld
-   - Bedrijven synchroniseren: 60 seconden 
+   - Bedrijven synchroniseren: 60 seconden
    - Bedrijven verwijderen: 60 seconden

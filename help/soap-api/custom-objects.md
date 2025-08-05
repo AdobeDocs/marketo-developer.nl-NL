@@ -1,14 +1,14 @@
 ---
-title: "Aangepaste objecten"
+title: Aangepaste objecten
 feature: SOAP
-description: "Aangepaste objecten maken."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Aangepaste objecten maken.
+exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '231'
 ht-degree: 0%
 
 ---
-
 
 # Aangepaste objecten
 
@@ -36,6 +36,6 @@ Aangepaste objecten bestaan uit:
 
 De volgende oproepen kunnen worden gebruikt om met CO&#39;s in wisselwerking te staan.
 
-- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
-- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
-- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)
+- [ getCustomObjects ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
+- [ syncCustomObjects ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
+- [ deleteCustomObjects ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)

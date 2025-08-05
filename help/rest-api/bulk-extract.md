@@ -3,9 +3,9 @@ title: Bulk extraheren
 feature: REST API
 description: Batchbewerkingen voor het extraheren van Marketo-gegevens.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '1683'
+source-wordcount: '1682'
 ht-degree: 0%
 
 ---
@@ -29,14 +29,14 @@ De bulk extract APIs gebruikt de zelfde OAuth 2.0 authentificatiemethode zoals a
 
 >[!IMPORTANT]
 >
->De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1&rbrace; kopbal van de Vergunning &lbrace;zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Limieten
 
 - Max. gelijktijdige exporttaken: 2
 - Max. aantal exporttaken (inclusief momenteel uitgevoerde taken): 10
 - Bewaarperiode bestand: zeven dagen
-- Standaard dagelijkse exporttoewijzing: 500 MB (die dagelijks opnieuw wordt ingesteld om 12:00 AM CST). Hogere aankopen zijn mogelijk.
+- Standaard dagelijkse exporttoewijzing: 500MB (die dagelijks opnieuw wordt ingesteld op 12 :00AM CST). Hogere aankopen zijn mogelijk.
 - Maximale tijdbereik voor filter Datumbereik (createdAt of updatedAt): 31 dagen
 
 De filters van het Extraheren van de Lood van het Bulk voor UpdatedAt en Slimme Lijst zijn niet beschikbaar voor sommige abonnementstypes. Indien niet beschikbaar, keert een vraag aan het Create eindpunt van de Baan van de Uitvoer een fout &quot;1035, niet gestaafd filtertype voor doelabonnement&quot;terug. Klanten kunnen contact opnemen met Marketo Support om deze functionaliteit in hun abonnement te laten inschakelen.
@@ -123,7 +123,6 @@ Elk eindpunt van de baanverwezenlijking deelt sommige gemeenschappelijke paramet
 | columnHeaderNames | Object | Hiermee kunt u de namen van kolomkoppen in het geretourneerde bestand instellen. Elke lidsleutel is de naam van de kolomkop waarvan de naam moet worden gewijzigd en de waarde is de nieuwe naam van de kolomkop. Bijvoorbeeld &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
 | filter | Object | Filter toegepast op de extractietaak. De typen en opties variëren per taaktype. |
 
-
 ## Taken ophalen
 
 Soms moet u uw recente taken opvragen. Dit wordt gemakkelijk gedaan met Get de Banen van de Uitvoer voor het overeenkomstige objecten type. Elk eindpunt voor Exporttaken ophalen ondersteunt een filterveld van het type `status` ,  `batchSize` om het aantal geretourneerde taken te beperken en `nextPageToken` om door grote resultaatsets te bladeren. Het statusfilter ondersteunt elke geldige status voor een exporttaak: Gemaakt, In wachtrij geplaatst, Verwerking, Geannuleerd, Voltooid en Mislukt. De batchSize heeft een maximum en gebrek van 300. Laten we de lijst met lead-exporttaken ophalen:
@@ -209,7 +208,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een baan niet heeft voltooid, of een slechte baan ID wordt overgegaan, antwoorden de dossiereindpunten met een status van 404 niet Gevonden, en een plaintext foutenmelding als lading, in tegenstelling tot de meeste andere eindpunten van Marketo REST.
 
-Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [ RFC 7233 ](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van de GET tot het eindpunt overgaan, die van byte 0 beginnen:
+Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [ RFC 7233 ](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van GET tot het eindpunt overgaan, die van byte 0 begint:
 
 ```
 Range: bytes=0-9999

@@ -1,24 +1,24 @@
 ---
-title: "Landing Pages"
+title: Landingspagina's
 feature: REST API, Landing Pages
-description: "Query-openingspagina's uitvoeren in Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Zoek zoekpagina's op in Marketo.
+exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1000'
 ht-degree: 0%
 
 ---
 
-
 # Landingspagina&#39;s
 
-[Referentie eindpunt bestemmingspagina](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages)
+[ Landing de Verwijzing van het Eindpunt van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages)
 
 Openingspagina&#39;s zijn webpagina&#39;s die worden gehost door Marketo.
 
 ## Query
 
-Net als bij de meeste andere elementen kunnen landingspagina&#39;s worden gecontroleerd [op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [door id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByIdUsingGET)en door [bladeren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Deze query&#39;s retourneren alleen metagegevens en de lijst met inhoudssecties voor een bestemmingspagina moet afzonderlijk worden opgevraagd door de id van de bestemmingspagina.
+Zoals de meeste andere activa, kunnen de Aanvoerende Pagina&#39;s [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByNameUsingGET) worden gevraagd, [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByIdUsingGET), en door [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Deze query&#39;s retourneren alleen metagegevens en de lijst met inhoudssecties voor een bestemmingspagina moet afzonderlijk worden opgevraagd door de id van de bestemmingspagina.
 
 Door de inhoud van de bestemmingspagina op te vragen, wordt een lijst geretourneerd met inhoudssecties die beschikbaar zijn op de bestemmingspagina. Er moet een sectie aanwezig zijn in de inhoudslijst van een pagina om de inhoud bij te werken:
 
@@ -56,9 +56,9 @@ De resultaten verschillen per geleide en vrije vormmalplaatjes, aangezien de gel
 
 ## Maken en bijwerken
 
-[Openingspagina&#39;s worden gemaakt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/createLandingPageUsingPOST) door terug te verwijzen naar een sjabloon. De enige velden die u hoeft te maken, zijn naam, sjabloon (de id van de sjabloon) en de map waarin u de pagina wilt plaatsen. Voor extra meta-gegevens die kunnen worden bevolkt, zie de eindpuntverwijzing.
+[ het Bestaan van pagina&#39;s wordt gecreeerd ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/createLandingPageUsingPOST) door terug naar een malplaatje van verwijzingen te voorzien. De enige velden die u hoeft te maken, zijn naam, sjabloon (de id van de sjabloon) en de map waarin u de pagina wilt plaatsen. Voor extra meta-gegevens die kunnen worden bevolkt, zie de eindpuntverwijzing.
 
-Geldige inhoudssoorten voor [pagina-inhoud plaatsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) eindpunten zijn: richText, HTML, Form, Image, Rectangle, Snippet.
+Geldige inhoudstypes voor [ het landen pagina inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) eindpunten zijn: richText, HTML, Vorm, Beeld, Rechthoek, Fragment.
 
 ```
 POST rest/asset/v1/landingPages.json
@@ -105,7 +105,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Metagegevens van de bestemmingspagina kunnen worden bijgewerkt met de [Metagegevenseindpunt bestemmingspagina bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+De landende paginametagegevens kunnen met het [ Update Landing Metadata eindpunt van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/updateLandingPageUsingPOST) worden bijgewerkt.
 
 ## Goedkeuring
 
@@ -113,21 +113,21 @@ Aanlandingspagina&#39;s voldoen aan het standaard conceptgoedgekeurde model, ind
 
 ## Verwijderen
 
-Als u een bestemmingspagina wilt verwijderen, moet deze eerst buiten gebruik zijn en niet door andere Marketo-elementen worden genoemd. De bestemmingspagina moet bovendien niet zijn goedgekeurd. Pagina&#39;s worden afzonderlijk verwijderd met de opdracht [Openingspagina verwijderen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) eindpunt. Pagina&#39;s met ingesloten sociale knoppen kunnen niet worden verwijderd via deze API. 
+Als u een bestemmingspagina wilt verwijderen, moet deze eerst buiten gebruik zijn en niet door andere Marketo-elementen worden genoemd. De bestemmingspagina moet bovendien niet zijn goedgekeurd. De pagina&#39;s worden geschrapt individueel met het [ Schrapping Landing het eindpunt van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST). Pagina&#39;s met ingesloten sociale knoppen kunnen niet worden verwijderd via deze API.
 
 ## Klonen
 
-Marketo biedt een eenvoudige methode voor het klonen van een bestemmingspagina. Dit is een aanvraag voor een POST application/x-www-url-formencoded.
+Marketo biedt een eenvoudige methode voor het klonen van een bestemmingspagina. Dit is een POST-aanvraag via application/x-www-url-formencoded.
 
-De `id` Padparameter geeft de id op van de bestemmingspagina van de bron die moet worden gekloond.
+De padparameter `id` geeft de id op van de bestemmingspagina van de bron die moet worden gekloond.
 
-De `name` wordt gebruikt om de naam van de nieuwe bestemmingspagina te specificeren.
+De parameter `name` wordt gebruikt om de naam van de nieuwe bestemmingspagina te specificeren.
 
-De `folder` parameter wordt gebruikt om de bovenliggende map op te geven waarin de nieuwe bestemmingspagina wordt gemaakt. Dit is in de vorm van een ingesloten JSON-object dat `id` en `type`.
+De parameter `folder` wordt gebruikt om de bovenliggende map op te geven waar de nieuwe bestemmingspagina wordt gemaakt. Dit gebeurt in de vorm van een ingesloten JSON-object met `id` en `type` .
 
-De `template` parameter wordt gebruikt om bron te specificeren het Malplaatje van de Pagina van de Landing.
+De parameter `template` wordt gebruikt om bron te specificeren die het Malplaatje van de Pagina van de Landing identiteitskaart
 
-De optionele `description` wordt gebruikt om de nieuwe Openingspagina te beschrijven.
+De optionele parameter `description` wordt gebruikt om de nieuwe bestemmingspagina te beschrijven.
 
 ```
 POST /rest/asset/v1/landingPage/{id}/clone.json
@@ -173,27 +173,27 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Sectie Inhoud beheren
 
-Inhoudssecties worden gerangschikt op basis van hun indexeigenschap en worden uiteindelijk ingedeeld volgens de CSS-regels die worden toegepast wanneer ze door de client worden weergegeven. Inhoudssecties worden opgenomen en beheerd met de bijbehorende [Toevoegen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) en [Verwijderen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) Sectieeindpunten van de sectie met bestemmingspagina-inhoud worden geplaatst en er kan een query op worden uitgevoerd [Inhoud landingspagina ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Elke sectie heeft een type- en een waardeparameter. Het type bepaalt wat in de waarde moet worden gezet.  Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded, niet als JSON.
+Inhoudssecties worden gerangschikt op basis van hun indexeigenschap en worden uiteindelijk ingedeeld volgens de CSS-regels die worden toegepast wanneer ze door de client worden weergegeven. De secties van de inhoud zijn inbegrepen en beheerd met het corresponderende [ ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST) toevoegen, [ Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) en [ schrap ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) het Landing de inhoudseindpoints van de Pagina, en kunnen worden gevraagd gebruikend [ krijgen het Bestaan Inhoud van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Elke sectie heeft een type- en een waardeparameter. Het type bepaalt wat in de waarde moet worden gezet.  Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded en niet als JSON.
 
-**Sectietypen**
+**Types van Sectie**
 
 | Type | Waarde |
 |--- |--- |
 | DynamicContent | De id van de segmentatie. |
 | Formulier | De id van het formulier. |
-| HTML | Inhoud HTML van tekst. |
+| HTML | Text HTML-inhoud. |
 | Afbeelding | De id van het afbeeldingselement. |
 | Rechthoek | Leeg. |
-| RichText | Inhoud HTML van tekst.  Mag alleen tekstelementen bevatten. |
+| RichText | Text HTML-inhoud.  Mag alleen tekstelementen bevatten. |
 | Fragment | De id van het fragment. |
-| SocialButton | De id van de sociale knop. |
+| SocialButton | De id van  de sociale knop. |
 | Video | De id van de video. |
 
-Voor vrije-formulierpagina&#39;s moeten alle gewenste inhoudssecties worden toegevoegd en worden deze met de id ingesloten in het div-element `mktoContent`. Voor geleide pagina&#39;s kan een lijst van vooraf bepaalde elementen in de lijst van aanwezig zijn [Inhoud landingspagina ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET) eindpunt. Meer kan worden toegevoegd of hun [inhoud bijgewerkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) via hun respectieve eindpunten.
+Voor vrije-formulierpagina&#39;s moeten alle gewenste inhoudssecties worden toegevoegd en worden deze met de id `mktoContent` ingesloten in het div-element. Voor geleide pagina&#39;s, kan een lijst van vooraf bepaalde elementen in de lijst van [ aanwezig zijn krijgt het Bestaan van de Inhoud van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET) eindpunt. Meer kan worden toegevoegd of hun [ inhoud die ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) via hun respectieve eindpunten wordt bijgewerkt.
 
 ### Dynamische inhoud
 
-Als u een sectie Dynamische inhoud wilt maken, moet deze al voorkomen in de inhoudslijst van de bestemmingspagina. De [Sectie Landingspagina-inhoud bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) eindpunt dan moet worden gebruikt om het type aan &quot;DynamicContent&quot;te plaatsen. Wanneer een sectie op dynamische inhoud wordt geplaatst, leidt het tot onderliggende dynamische secties binnen de inhoudssectie die allen het basistype van het omgezette element erven. Elke dynamische sectie neemt ook de inhoud van de omgezette sectie over.
+Als u een sectie Dynamische inhoud wilt maken, moet deze al voorkomen in de inhoudslijst van de bestemmingspagina. Het [ eindpunt van de Sectie van de Inhoud van de Pagina van 0} Update Landing {moet dan worden gebruikt om het type aan &quot;DynamicContent&quot;te plaatsen. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) Wanneer een sectie op dynamische inhoud wordt geplaatst, leidt het tot onderliggende dynamische secties binnen de inhoudssectie die allen het basistype van het omgezette element erven. Elke dynamische sectie neemt ook de inhoud van de omgezette sectie over.
 
 ```
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
@@ -229,7 +229,7 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 }
 ```
 
-[De inhoud bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) voor elk afzonderlijk segment gebeurt op basis van de segment-id.
+[ Bijwerkend de inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) voor elk individueel segment wordt gedaan op basis van segmentidentiteitskaart
 
 ```
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
@@ -261,9 +261,9 @@ segment=New Segment&value=New Content
 
 Een van de nieuwe functies in instructiepagina&#39;s voor landen is bewerkbare variabelen.  Variabelen bevatten waarden voor elementen op een landingspagina.  Variabelen kunnen eenvoudig worden gewijzigd met de editor voor de bestemmingspagina, zoals hieronder wordt weergegeven:
 
-![Landingspagina-variabelen](assets/landing-page-variables.png)
+![ het Bestaan de Variabelen van de Pagina ](assets/landing-page-variables.png)
 
-Variabelen worden gedefinieerd als metatags binnen `<head>` -element van een landingspagina-sjabloon met instructies. Er zijn drie typen variabelen beschikbaar: String, Color en Boolean.  Hier volgt een voorbeeld van drie definities van variabelen:
+Variabelen worden gedefinieerd als metatags binnen het `<head>` -element van een landingspagina in de modus Met instructies. Er zijn drie typen variabelen beschikbaar: String, Color en Boolean.  Hier volgt een voorbeeld van drie definities van variabelen:
 
 ```html
 <head>
@@ -274,7 +274,7 @@ Variabelen worden gedefinieerd als metatags binnen `<head>` -element van een lan
 </head>
 ```
 
-Zie voor meer informatie de sectie &quot;Bewerkbare variabele&quot; in [Een sjabloon voor een bestemmingspagina met instructies maken](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template) documentatie.
+Voor meer informatie zie &quot;Bewerkbare Veranderlijke&quot;sectie in [ creeer een Geleide Landing de documentatie van het Malplaatje van de Pagina ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Query
 
@@ -310,7 +310,7 @@ GET /rest/asset/v1/landingPage/{id}/variables.json
 }
 ```
 
-In dit voorbeeld bevat de bestemmingspagina met instructies drie variabelen: stringVar, colorVar, boolVar.
+In  In dit voorbeeld bevat de bestemmingspagina met instructies drie variabelen: stringVar, colorVar, boolVar.
 
 ### Bijwerken
 
@@ -338,10 +338,10 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 
 ## Voorvertoning openingspagina
 
-Marketo biedt de [Volledige inhoud van bestemmingspagina ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) eindpunt om een live voorvertoning van een landingspagina op te halen zoals deze in een browser zou worden weergegeven. Er is één vereiste parameter, de `id` padparameter die de id is van de bestemmingspagina die u wilt voorvertonen. Er zijn twee extra optionele queryparameters:
+Marketo verstrekt het [ krijgen het Openende Volledige eindpunt van de Pagina van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) om een levende voorproef van een het landen pagina terug te winnen aangezien het in browser zou worden teruggegeven. Er is één vereiste parameter, de `id` padparameter die de id is van de bestemmingspagina die u wilt voorvertonen. Er zijn twee extra optionele queryparameters:
 
 - segmentatie: accepteert een array van JSON-objecten die segmentationId- en segmentId-kenmerken bevatten. Als deze optie is ingesteld, wordt de landingspagina voorvertoond alsof u een lead bent die overeenkomt met die segmenten.
-- leadId: Accepteert de integer-id van een lead. Als deze optie is ingesteld, wordt de landingspagina weergegeven alsof deze door de aangewezen lead is bekeken.
+- leadId:  Accepteert de integer-id van een lead. Als deze optie is ingesteld, wordt de landingspagina weergegeven alsof deze door de aangewezen lead is bekeken.
 
 ```
 GET /rest/asset/v1/landingPage/{id}/fullContent.json?leadId=1001&segmentation=[{"segmentationId":1030,"segmentId":1103}]

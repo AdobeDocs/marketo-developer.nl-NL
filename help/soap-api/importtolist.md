@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: importToList SOAP-aanroepen
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '393'
+source-wordcount: '387'
 ht-degree: 0%
 
 ---
@@ -20,9 +20,9 @@ Met deze functie kunt u een lijst met leads importeren naar een bestaande statis
 
 | E-mail | Eerste | Laatste |
 | --- | --- | --- |
-| joe@company.com | Joe | Smith |
-| mary@company.com | Mary | Rodgers |
-| wanda@megacorp.com | Wanda | Williams |
+| <joe@company.com> | Joe | Smith |
+| <mary@company.com> | Mary | Rodgers |
+| <wanda@megacorp.com> | Wanda | Williams |
 
 `displayName` -waarden moeten worden gebruikt in de `importFileHeader` -waarden en niet in de `name` -waarden.
 
@@ -30,9 +30,9 @@ Met deze functie kunt u een lijst met leads importeren naar een bestaande statis
 
 | E-mail | Eerste | Laatste | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
-| joe@company.com | Joe | Smith | Vis | Blauw |
-| mary@company.com | Mary | Rodgers | Kip | Bruin |
-| wanda@megacorp.com | Wanda | Williams | Veggie | Hazel |
+| <joe@company.com> | Joe | Smith | Vis | Blauw |
+| <mary@company.com> | Mary | Rodgers | Kip | Bruin |
+| <wanda@megacorp.com> | Wanda | Williams | Veggie | Hazel |
 
 **Belangrijk:** als u in tokens voor de lood toevoegt, moet u de Slimme Campagne specificeren die hen gebruikt. De volgende keer dat de opgegeven slimme campagne wordt uitgevoerd, worden de waarden uit de lijst gebruikt in plaats van de normale waarden voor Mijn token. Nadat één campagne is uitgevoerd, worden de tokens genegeerd.
 

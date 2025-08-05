@@ -3,7 +3,7 @@ title: Leads
 feature: REST API
 description: Details over de API-aanroepen voor leads
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '3338'
 ht-degree: 0%
@@ -430,7 +430,6 @@ Er zijn een paar regels verbonden aan naam en `displayName` noemend. Het kenmerk
 POST /rest/v1/leads/schema/fields.json
 ```
 
-
 ### Lichaam
 
 ```json
@@ -451,7 +450,6 @@ POST /rest/v1/leads/schema/fields.json
   ]
 }
 ```
-
 
 ### Antwoord
 
@@ -816,7 +814,7 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads door Filtertype, hoewel filterType en filterValues niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ### Verzoek
 

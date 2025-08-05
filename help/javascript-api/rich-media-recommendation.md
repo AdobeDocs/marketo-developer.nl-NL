@@ -3,7 +3,7 @@ title: Aanbevelingen voor rijke media
 description: Aanbevelingen voor rijke media
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 1%
@@ -21,7 +21,7 @@ De volgende tags en API-aanroepen moeten zijn ingesteld op de pagina die u wilt 
 1. In de pagina
    1. Plaats de sjabloontag (klasse div) op de locatie waar u de sjabloon wilt weergeven
 
-Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Sjabloonlabel
 
@@ -66,7 +66,6 @@ Met deze methode worden alle rich media `<divs>` op de pagina gevuld met aanbeve
 | &#39;rcmd&#39; | Vereist | String | Naam van methode. |
 | &#39;richmedia&#39; | Vereist | String | Naam submethode. |
 
-
 ## Sjabloonconfiguratie wijzigen
 
 Met deze methode wijzigt u de standaardconfiguratie voor een sjabloon.
@@ -84,7 +83,6 @@ Opmerking: wanneer u deze methode gebruikt, moet deze worden aangeroepen voordat
 | &#39;richmedia&#39; | Vereist | String | Naam submethode. |
 | template_id | Optioneel | String | De sjabloon-id voor configuratiewijzigingen. Gebruik deze optie als u de instellingen voor slechts één sjabloon wilt wijzigen. |
 | conf_obj | Vereist | Object | De nieuwe configuratie. Het object bevat alle configuraties als sleutel-/waardepaar. |
-
 
 ### Voorbeelden
 
@@ -150,7 +148,6 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.font.color | &quot;rcmd.cta.font.color&quot; : &quot;rgb(90, 84, 164)&quot; | Hiermee wijzigt u de fontkleur van de knop. Deze eigenschap ondersteunt alle waarden voor fontkleuren (rgb, hex, ...) |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Hiermee wijzigt u de knoptekst. De tekst is hetzelfde voor alle knoppen. |
 | categorie | &quot;category&quot; : [ &quot;one category&quot;] | Wijzigt de aanbevolen categorie die door deze sjabloon wordt ondersteund. Het malplaatje toont slechts aanbevelingen met één van de categorieën die door deze configuratie worden geplaatst. |
-
 
 Opmerking: de configuratieondersteuning kan per sjabloon worden gewijzigd.
 

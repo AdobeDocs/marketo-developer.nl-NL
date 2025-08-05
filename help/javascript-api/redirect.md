@@ -3,9 +3,9 @@ title: Omleiden
 description: Omleiden
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '468'
+source-wordcount: '457'
 ht-degree: 1%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Met de RTP Redirect-API kunt u gesegmenteerde doelgroepen omleiden naar een doel-URL.
 
-- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
+- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
 - RTP ondersteunt geen accountgebaseerde marketing met benoemde accountlijsten. ABM-lijsten en -code hebben alleen betrekking op de geüploade accountlijsten (CSV-bestanden) die in RTP worden beheerd.
 
 ## Gebruik
@@ -34,17 +34,16 @@ Organisatie, Industrie, de Lijsten ABM, Plaats, ISP, Gelijke Segmenten
 
 | Voorwaarde | Gegevenshiërarchie | Voorbeeld |
 |-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
-| Overeenkomende segmenten (werkt alleen na eerste klik) | matchedSegments.name | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;matchingSegments.name&#39;, [&#39;Fortune 1.000&#39;, &#39;Enterprise&#39;] , &#39;http://www.marketo.com&#39;); |
-| Overeenkomende segmenten (werkt alleen na eerste klik) | matchedSegments.id | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;matchingSegments.id&quot;, [ &lbrace;106, 107, 190 ] , &quot;http://www.marketo.com&#39;); |
-| ABM-lijsten | abm.name | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;abm.name&#39;, [&#39;top_key_accounts&#39;, &#39;active_customer&#39;] , &#39;http://www.marketo.com&#39;); |
-| ABM-lijsten | abm.code | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;abm.code&quot;, [  , 15 ] , &quot;http://www.marketo.com&#39;); |
-| Organisaties | org | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;org&#39;, [&#39;ebay&#39;], &#39;http://www.marketo.com&#39;); |
-| Locatie | location.country | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;location.country&#39;, [&#39;United States&#39; ], &#39;http://www.marketo.com&#39;); |
-| Locatie | location.state | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;location.state&#39;, [&#39;ca&#39;], &#39;http://www.marketo.com&#39;); |
-| Locatie | location.city | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;location.city&#39;, [&#39;San Mateo&#39; ], &#39;http://www.marketo.com&#39;); |
-| Industrie | industrieën | rtp(&#39;send&#39;, &#39;redirect&#39;, &#39;industries&#39;, [&#39;Education&#39;], &#39;http://www.marketo.com&#39;); |
-| ISP | isp | rtp(&#39;send&#39;, &#39;redirect&#39;, isp , [&#39;False&#39; ] , &#39;http://www.marketo.com&#39;); |
-
+| Overeenkomende segmenten (werkt alleen na eerste klik) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;matchingSegments.name&#39; , [&#39;Fortune 1,000&#39; , &#39;Enterprise&#39;] , &#39;<http://www.marketo.com>&#39;); |
+| Overeenkomende segmenten (werkt alleen na eerste klik) | matchedSegments.id | rtp ( &quot;verzend&quot;, &quot;redirect&quot;, &quot;matchingSegments.id&quot;, [ 106, 107, 190 ] , &quot;<http://www.marketo.com>&quot;); |
+| ABM-lijsten | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;abm.name&#39;, [&#39;top_key_accounts&#39;, &#39;active_customer&#39;] , &#39;<http://www.marketo.com>&#39;); |
+| ABM-lijsten | abm.code | rtp ( &quot;verzend&quot;, &quot;redirect&quot;, &quot;abm.code&quot;, [ 13, 15 ] , &quot;<http://www.marketo.com>&quot;); |
+| Organisaties | org | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;org&quot;, [ &quot;ebay&quot;], &quot;<http://www.marketo.com>&quot;); |
+| Locatie | location.country | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.country&#39;, [&#39;United States&#39; ] , &#39;<http://www.marketo.com>&#39;); |
+| Locatie | location.state | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.state&#39;, [&#39;ca&#39;], &#39;<http://www.marketo.com>&#39;); |
+| Locatie | location.city | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;location.city&quot;, [ &quot;San Mateo&quot;], &quot;<http://www.marketo.com>&quot;); |
+| Industrie | industrieën | rtp ( &quot;send&quot;, &quot;redirect&quot;, &quot;industries&quot;, [ &quot;Education&quot;], &quot;<http://www.marketo.com>&quot;); |
+| ISP | isp | rtp ( &quot;send&quot;, &quot;redirect&quot;, isp, [ &quot;False&quot;], &quot;<http://www.marketo.com>&quot;); |
 
 ## Notities
 
@@ -87,7 +86,7 @@ rtp('get','campaign');
 
 ## Hoe te om Getraceerde Bezoekers om te leiden
 
-1. Een parameter toevoegen aan het einde van de doel-URL: www.marketo.com?rtp=redirect
+1. Een parameter toevoegen aan het einde van de doel-URL: &lt;www.marketo.com?rtp=redirect>
 1. Creeer een segment genoemd - &quot;opnieuw geleid door RTP&quot;
 1. Gebruik de parameter &#39;Specifieke pagina&#39;s&#39; als doel voor bezoekers die pagina&#39;s weergeven met de onderstaande parameter.
 
@@ -106,8 +105,7 @@ De omleidingsvraag steunt veelvoudige vraag. Hierdoor kunt u omleiden met meerde
 | &#39;send&#39; | Vereist | String | Methode, actie. |
 | &#39;redirect&#39; | Vereist | String | Naam van methode. |
 | field_name | Vereist | String | Veldnaam die moet worden vergeleken met. Voorbeeld: &#39;abm.name&#39; (zie hierboven). |
-| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:&lbrace;&#39;http://marketo.com&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
-
+| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:{&#39;<http://marketo.com>&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
 
 #### Voorbeeld
 

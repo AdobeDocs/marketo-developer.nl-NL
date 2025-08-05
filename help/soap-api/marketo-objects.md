@@ -1,14 +1,14 @@
 ---
-title: "Marketo-objecten"
+title: Marketo-objecten
 feature: SOAP
-description: "Overzicht van Marketo-objecten"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Overzicht van Marketo-objecten
+exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '249'
 ht-degree: 0%
 
 ---
-
 
 # Marketo-objecten
 
@@ -31,7 +31,7 @@ MObjects bestaan uit:
 
 ### Externe toetsen
 
-Externe sleutels zijn aangepaste velden die zijn gedefinieerd voor Marketo-objecten, zoals Lead of Opportunity. De naam is de veldnaam en waarde is de veldwaarde die in een extern systeem wordt gegenereerd. **Marketo past geen unieke beperking op deze waarden toe.** De API-gebruiker moet ervoor zorgen dat de waarden uniek zijn. Als er een duplicaat optreedt, gebruikt Marketo het object dat het laatst is toegevoegd. Dit is vergelijkbaar met het gedrag voor het standaardveld E-mailadres.
+Externe sleutels zijn aangepaste velden die zijn gedefinieerd voor Marketo-objecten, zoals Lead of Opportunity. De naam is de veldnaam en waarde is de veldwaarde die in een extern systeem wordt gegenereerd. **Marketo dwingt geen unieke beperking op deze waarden af.** De API-gebruiker moet ervoor zorgen dat de waarden uniek zijn. Als er een duplicaat optreedt, gebruikt Marketo het object dat het laatst is toegevoegd. Dit is vergelijkbaar met het gedrag voor het standaardveld E-mailadres.
 
 ### Beschikbare API&#39;s
 

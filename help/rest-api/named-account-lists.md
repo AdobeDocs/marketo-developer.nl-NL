@@ -3,7 +3,7 @@ title: Lijsten met benoemde accounts
 feature: REST API
 description: benoemde accountlijsten configureren.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [ Genoemde Verwijzing van het Eindpunt van de Rekening maakt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
+[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
 `Content`
 
 ## Machtigingen
@@ -33,7 +33,6 @@ Lijsten met benoemde accounts hebben een beperkt aantal standaardvelden en kunne
 | createdAt | Datumtijd | Onwaar | De datum waarop de lijst wordt gemaakt. Dit veld wordt beheerd door het systeem en is niet toegestaan als veld bij het maken of bijwerken van een record. |
 | updatedAt | Datumtijd | Onwaar | Datumtijd van de meest recente update van de lijst. Dit veld wordt beheerd door het systeem en is niet toegestaan als veld bij het maken of bijwerken van een record. |
 | type | String | Onwaar | Type lijst. Kan de waarde &quot;default&quot; of &quot;external&quot; hebben. De externe lijsten zijn die gecreeerd door de Mening van de Rekening van CRM. |
-
 
 ## Query
 
@@ -294,9 +293,9 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ## Tijdstippen
 
 - De eindpunten van de lijst met benoemde accounts hebben een time-out van 30 seconden, tenzij hieronder vermeld
-   - Lijsten met benoemde accounts synchroniseren: 60 s 
-   - Lijsten met benoemde accounts verwijderen: 60 s 
-   - Lijsten met benoemde accounts ophalen: 60 s 
-   - Benoemde accountlijstleden toevoegen: 60 s 
-   - Benoemde accountlijstleden verwijderen: 60 s 
+   - Lijsten met benoemde accounts synchroniseren: 60 s
+   - Lijsten met benoemde accounts verwijderen: 60 s
+   - Lijsten met benoemde accounts ophalen: 60 s
+   - Benoemde accountlijstleden toevoegen: 60 s
+   - Benoemde accountlijstleden verwijderen: 60 s
    - Benoemde accountlijstleden ophalen: 60 s

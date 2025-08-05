@@ -3,9 +3,9 @@ title: getLeadChanges
 feature: SOAP
 description: getLeadChanges SOAP-aanroepen
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '402'
+source-wordcount: '401'
 ht-degree: 0%
 
 ---
@@ -40,7 +40,7 @@ Opmerking: het limietaantal leads dat wordt ondersteund in a `LeadKeySelector` i
 | startPosition->activityCreatedAt | Optioneel | De tijdstempel die wordt gebruikt om resultaten te filteren, resulteert alleen in het opnemen van leads met activiteit sinds activityCreatedAt. NOTA: U kunt `LastUpdateAtSelector->latestUpdatedAt` timestamp gebruiken om `activityCreatedAt` te specificeren. |
 | leadSelector | Optioneel | Kan een van de volgende drie typen hebben: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
 | LeadKeySelector: leadSelector->keyType | Vereist | Het id-type waarop u een query wilt uitvoeren. Waarden zijn `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` . |
-| LeadKeySelector: leadSelector->keyValues->stringItem | Vereist | Lijst met sleutelwaarden. Dat is &quot;lead@email.com&quot; |
+| LeadKeySelector: leadSelector->keyValues->stringItem | Vereist | Lijst met sleutelwaarden. Namelijk &quot;<lead@email.com>&quot; |
 | StaticListSelector: leadSelector->staticListName | Optioneel wanneer `leadSelector->staticListId` aanwezig is | De naam van de statische lijst |
 | StaticListSelector: leadSelector->staticListId | Optioneel wanneer `leadSelector->staticListName` aanwezig is | De id van de statische lijst |
 

@@ -3,7 +3,7 @@ title: Bulk aangepast object extraheren
 feature: REST API, Custom Objects
 description: Batch-verwerking van aangepaste Marketo-objecten.
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1298'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 De Bulk reeks van het Uittreksel van de Objecten van de Douane van het Bulk van REST APIs verstrekt een programmatic interface voor het terugwinnen van grote reeksen van douaneobjecten verslagen uit Marketo. Dit is de aanbevolen interface voor gebruiksgevallen die een continue uitwisseling van gegevens tussen Marketo en een of meer externe systemen vereisen, voor ETL-, data warehousing- en archiefdoeleinden.
 
-Deze API ondersteunt het exporteren van Marketo-records van het eerste niveau die rechtstreeks zijn gekoppeld aan een lead. Geef de naam van het aangepaste object door en een lijst met leads waaraan het object is gekoppeld. Voor elke lead in de lijst worden de gekoppelde aangepaste objectrapporten die overeenkomen met de opgegeven aangepaste objectnaam, als rijen naar het exportbestand geschreven. De objecten van de douane gegevens zijn viewable in het [ lusje van de Objecten van de Douane van de het detailpagina van de lood in Marketo UI ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Deze API ondersteunt het exporteren van Marketo-records van het eerste niveau die rechtstreeks zijn gekoppeld aan een lead. Geef de naam van het aangepaste object door en een lijst met leads waaraan het object is gekoppeld. Voor elke lead in de lijst worden de gekoppelde aangepaste objectrapporten die overeenkomen met de opgegeven aangepaste objectnaam, als rijen naar het exportbestand geschreven. De objecten van de douane gegevens zijn viewable in het [ lusje van de Objecten van de Douane van de het detailpagina van de lood in Marketo UI ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Machtigingen
 
@@ -50,19 +50,17 @@ Het [ creeert de Eigen eindpunt van de Objecten van de Uitvoer ](https://develop
 | `columnHeaderNames` | Object | Nee | Een JSON-object met sleutelwaardeparen van veld- en kolomkopnamen. De sleutel moet de naam zijn van een veld dat is opgenomen in de exporttaak. De waarde is de naam van de geëxporteerde kolomkop voor dat veld. |
 | `format` | String | Nee | Accepteert één van: CSV, TSV, SSV. Het geëxporteerde bestand wordt gerenderd als een bestand met door komma&#39;s gescheiden waarden, door tabs gescheiden waarden of door spaties gescheiden waarden, indien ingesteld. De standaardwaarde is CSV als de waarde is uitgeschakeld. |
 
-
 ## Een taak maken
 
 De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [ creeer het eindpunt van de Baan van de Objecten van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST).
 
-De vereiste `apiName` wegparameter is de naam van het douanevoorwerp zoals teruggekeerd door [ beschrijf het 2&rbrace; eindpunt van de Objecten van de Douane &lbrace;. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1) Hiermee geeft u aan welk aangepast Marketo-object u wilt exporteren. Aangepaste CRM-objecten zijn niet toegestaan. De vereiste parameter `filter` bevat de lijst met leads die zijn gekoppeld aan het aangepaste object. Dit kan verwijzen naar een statische lijst, of een slimme lijst. De vereiste parameter `fields` bevat de API-namen van de aangepaste objectkenmerken die in het exportbestand moeten worden opgenomen. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
+De vereiste `apiName` wegparameter is de naam van het douanevoorwerp zoals teruggekeerd door [ beschrijf het 2} eindpunt van de Objecten van de Douane {. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1) Hiermee geeft u aan welk aangepast Marketo-object u wilt exporteren. Aangepaste CRM-objecten zijn niet toegestaan. De vereiste parameter `filter` bevat de lijst met leads die zijn gekoppeld aan het aangepaste object. Dit kan verwijzen naar een statische lijst, of een slimme lijst. De vereiste parameter `fields` bevat de API-namen van de aangepaste objectkenmerken die in het exportbestand moeten worden opgenomen. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
 
 Als voorbeeld, veronderstellen wij dat wij een douanevoorwerp genoemd &quot;Auto&quot;met de volgende gebieden hebben gecreeerd: Kleur, Merk, Model, VIN. Het koppelingsveld is de hoofd-id en het veld voor deduplicatie is VIN.
 
 Aangepaste objectdefinitie
 
 ![ Voorwerp van de Douane ](assets/custom-object-car.png)
-
 
 Aangepaste objectvelden
 
@@ -312,7 +310,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-Dit retourneert een status in de reactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) eindpunt van de Baan van de Objecten van de Uitvoer van 0&rbrace; Enqueue het gebruiken van `apiName` worden geroepen, en `exportId` van de reactie van de aanmaakstatus.
+Dit retourneert een status in de reactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Baan van de Objecten van de Uitvoer van 0} Enqueue het gebruiken van ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) worden geroepen, en `apiName` van de reactie van de aanmaakstatus.`exportId`
 
 ```
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -388,7 +386,7 @@ Het statuseindpunt antwoordt erop wijzend dat de baan nog verwerkt, zodat is het
 
 ## Uw gegevens ophalen
 
-Om het dossier van een voltooide uitvoer van douaneobjecten terug te winnen, roep eenvoudig het [ krijgen het 1&rbrace; eindpunt van het Dossier van de Objecten van de Uitvoer &lbrace;met uw `apiName` en `exportId`.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)
+Om het dossier van een voltooide uitvoer van douaneobjecten terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van de Objecten van de Uitvoer {met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET) en `apiName`.`exportId`
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een aangevraagd aangepast objectkenmerk leeg is (geen gegevens bevat), wordt `null` in het corresponderende veld in het exportbestand geplaatst.
 

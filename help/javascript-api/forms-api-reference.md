@@ -1,18 +1,18 @@
 ---
-title: "Forms API Reference"
-description: "Forms API Reference"
+title: Forms API-naslag
+description: Forms API-naslag
 feature: Forms, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 0%
 
 ---
 
-
 # Forms API-naslag
 
-Er zijn twee hoofdobjecten waarmee u werkt met de Forms 2.0-API. De `MktoForms2` en de `Form` object. De `MktoForms2` -object is de naamruimte op hoofdniveau die zichtbaar is voor Forms2-functionaliteit en bevat functies voor het maken, laden en ophalen van formulierobjecten.
+Er zijn twee hoofdobjecten waarmee u werkt met de Forms 2.0-API. Het object `MktoForms2` en het object `Form` . Het `MktoForms2` -object is de naamruimte op hoofdniveau die zichtbaar is voor Forms2-functionaliteit en bevat functies voor het maken, laden en ophalen van formulierobjecten.
 
 ## Methoden van MktoForms2
 
@@ -33,7 +33,7 @@ Er zijn twee hoofdobjecten waarmee u werkt met de Forms 2.0-API. De `MktoForms2`
     <tr>
       <td></td>
       <td></td>
-      <td>munchkinId (String) -Munchkin-id van het abonnement</td>
+      <td>munchkinId (String) -Munchkin-id van abonnement</td>
       <td></td>
     </tr>
     <tr>
@@ -122,7 +122,6 @@ Er zijn twee hoofdobjecten waarmee u werkt met de Forms 2.0-API. De `MktoForms2`
     </tr>
 </table>
 
-
 ## Formuliermethoden
 
 <table>
@@ -182,7 +181,7 @@ Er zijn twee hoofdobjecten waarmee u werkt met de Forms 2.0-API. De `MktoForms2`
       <td>Formulierobject: hetzelfde formulierobject waarvoor de methode is aangeroepen, voor kettingdoeleinden.</td>
     </tr>
     <tr valign="top">
-      <td>.submitTable(canSubmit) <em>ook beschikbaar als:</em> <em>.submitable(canSubmit)</em></td>
+      <td>.submitTable (canSubmit) <em> ook beschikbaar als:</em> <em>.submit (canSubmit) </em></td>
       <td>Hiermee wordt opgehaald of ingesteld of het formulier kan worden verzonden. Als deze functie zonder argumenten wordt aangeroepen, krijgt deze de waarde als deze met één argument wordt aangeroepen. Hiermee wordt voorkomen dat een formulier wordt verzonden, terwijl aan andere criteria buiten de normale vorm moet worden voldaan.</td>
       <td>canSubmit (optioneel)(Boolean) - Hiermee wordt ingesteld dat het formulier moet worden verzonden of niet kan worden verzonden.</td>
       <td>Booleaanse waarde of formulierobject - Bij aanroep zonder argumenten wordt een Booleaanse waarde geretourneerd die aangeeft of het formulier kan worden verzonden. Als deze optie met één argument wordt aangeroepen, wordt dit formulierobject geretourneerd voor kettingdoeleinden. </td>

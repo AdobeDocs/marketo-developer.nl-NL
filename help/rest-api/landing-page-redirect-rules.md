@@ -1,30 +1,30 @@
 ---
-title: "Regels voor omleiding van bestemmingspagina"
+title: Regels voor omleiding van bestemmingspagina
 feature: REST API, Landing Pages
-description: "Configureer de omleidingsregels voor de landingspagina via de API."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Configureer omleidingsregels voor de bestemmingspagina via de API.
+exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '641'
 ht-degree: 0%
 
 ---
 
-
 # Regels voor omleiding van bestemmingspagina
 
-[Referentie voor eindpunt van regels voor omleiding van bestemmingspagina](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules)
+[ het Bestaan van de Pagina richt Verwijzing van Regels Eindpunt van Regels ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules)
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van CRUD-bewerkingen op URL&#39;s voor omleiding van bestemmingspagina&#39;s. Deze API&#39;s volgen het standaard interfacepatroon voor de bron-API&#39;s die de opties Query, Maken, Bijwerken en Verwijderen bieden.
 
-Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. Aanvullende informatie over Regels voor omleiding van landingspagina&#39;s vindt u [hier](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL).
+Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. De extra informatie bij het Omleiden van de Regels van de Pagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/home.html) worden gevonden.
 
 ## Query
 
-Het vragen van het doorleiden van de landingspagina volgt de standaardvraagtypes voor activa van [door id](#by_id), en [bladeren](#browse).
+Het vragen van het landen van de pagina leidt regels na de standaardvraagtypes voor activa van [ door identiteitskaart ](#by_id), en [ doorbladerend ](#browse).
 
 ### Op id
 
-De [Regels voor omleiding van bestemmingspagina via id ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) het eindpunt neemt één enkele het landen paginaregelomleiding `id` padparameter en retourneert één landingspagina-omleidingsregelrecord.
+Het [ krijgt Landing de Regels van de Omleiding van de Pagina door Identiteitseindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) neemt één enkele het landen van paginaregel opnieuw richt `id` wegparameter en keert één enkele het landen pagina redirect regelverslag terug.
 
 ```
 GET /rest/asset/v1/redirectRule/{id}.json
@@ -59,17 +59,17 @@ GET /rest/asset/v1/redirectRule/{id}.json
 
 ### Bladeren
 
-De [Regels voor omleiding van bestemmingspagina ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET) het eindpunt keert een lijst van het landen van pagina terug omleiden regelverslagen.
+Het [ krijgt het Bestaan van de Pagina richt het eindpunt van Regels ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET) terugkeert een lijst van het landen van pagina omleiden regelverslagen.
 
 Er zijn verscheidene facultatieve vraagparameters die tot filterresultaten kunnen worden overgegaan.
 
-De `offset` parameter is een geheel getal dat het maximale aantal items aangeeft dat moet worden geretourneerd (standaardwaarde is 20). Maximaal is 200. De `maxReturn` parameter is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan samen met verschuiving worden gebruikt (standaardwaarde is 0).
+De parameter `offset` is een geheel getal dat het maximale aantal items aangeeft dat moet worden geretourneerd (de standaardwaarde is 20). Maximaal is 200. De parameter `maxReturn` is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan samen met verschuiving worden gebruikt (standaardwaarde is 0).
 
-De `hostname` parameter kan worden gebruikt om op hostname van de landingspagina&#39;s te filteren.
+De parameter `hostname` kan worden gebruikt om te filteren op hostnaam van de bestemmingspagina&#39;s.
 
-De `redirectToLandingPageId` is een geheel getal dat kan worden gebruikt om te filteren op de landings-id waarnaar u doorstuurt. De `redirectToPath` U kunt gebruiken om te filteren op het pad van de bestemmingspagina&#39;s waarnaar u omleidt.
+De `redirectToLandingPageId` is een geheel getal dat kan worden gebruikt om te filteren op de landings-id van de pagina waarnaar u omleidt. Met `redirectToPath` kunt u filteren op het pad van de bestemmingspagina&#39;s waarnaar u de omleiding wijzigt.
 
-De `earliestUpdatedAt` en `latestUpdatedAt` Met parameters kunt u lage en hoge datumtijdwatermerken instellen voor het retourneren van omleidingsregels voor landingspagina&#39;s die zijn bijgewerkt of oorspronkelijk binnen het opgegeven bereik zijn gemaakt.
+Met de parameters `earliestUpdatedAt` en `latestUpdatedAt` kunt u lage en hoge datumtijdwatermerken instellen voor het retourneren van omleidingsregels voor landingspagina&#39;s die zijn bijgewerkt of oorspronkelijk binnen het opgegeven bereik zijn gemaakt.
 
 ```
 GET /rest/asset/v1/redirectRules.json&maxReturn=3
@@ -136,11 +136,11 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## Maken
 
-De [Regel voor omleiding bestemmingspagina maken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) Het eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST die de volgende drie vereiste parameters heeft.
+[ creeer het Aanvoeren van de Regel van de Omleiding van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) eindpunt wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST die de volgende drie vereiste parameters heeft.
 
-De `hostname` parameter geeft de hostnaam voor de landingspagina op. Dit moet bij een brandingdomein of alias horen. De maximale lengte is 255 tekens.
+De parameter `hostname` geeft de hostnaam voor de landingspagina op. Dit moet bij een brandingdomein of alias horen. De maximale lengte is 255 tekens.
 
-De `redirectFrom` parameter geeft de bestemmingspagina van de bron aan. Dit is een JSON-object dat een type/waardepaar bevat dat bepaalt of de bron een Marketo-landingspagina of een niet-Marketo-landingspagina is. De `type` kan het kenmerk &quot;landingPageId&quot; of &quot;path&quot; zijn.
+De parameter `redirectFrom` geeft de bestemmingspagina van de bron aan. Dit is een JSON-object dat een type/waardepaar bevat dat bepaalt of de bron een Marketo-landingspagina of een niet-Marketo-landingspagina is. Het kenmerk `type` kan &#39;landingPageId&#39; of &#39;path&#39; zijn.
 
 | Parameter | Optioneel/vereist | Type | Beschrijving |
 |---|---|---|---|
@@ -148,15 +148,14 @@ De `redirectFrom` parameter geeft de bestemmingspagina van de bron aan. Dit is e
 | &quot;bezoeker&quot; | Vereist | String | Naam van methode. |
 | callback | Vereist | Functie | Callback functie die voor elke teruggekeerde campagne moet worden teweeggebracht. |
 
-
-De `redirectTo` parameter geeft de bestemmingspagina aan. Dit is een JSON-object dat een type/waardepaar bevat dat bepaalt of de bron een Marketo-landingspagina of een niet-Marketo-landingspagina is. De `type` kan het kenmerk &quot;landingPageId&quot; of &quot;url&quot; zijn.
+De parameter `redirectTo` geeft de bestemmingspagina op. Dit is een JSON-object dat een type/waardepaar bevat dat bepaalt of de bron een Marketo-landingspagina of een niet-Marketo-landingspagina is. Het kenmerk `type` kan &#39;landingPageId&#39; of &#39;url&#39; zijn.
 
 | Type bestemmingspagina | type redirectTo | Voorbeeld |
 |---|---|---|
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | Niet-Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Meer informatie over het maken van omleidingsregels voor landingspagina&#39;s vindt u [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=nl-NL).
+Meer informatie bij het creëren van het doorleiden van de landingspagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html) worden gevonden.
 
 ```
 POST /rest/asset/v1/redirectRules.json
@@ -199,9 +198,9 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## Bijwerken
 
-De [Regels voor omleiding van bestemmingspagina bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) eindpunt neemt één landingspagina omleiden regel `id` padparameter. Dit eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST.
+Het [ eindpunt van de Regels van de Omleiding van de Pagina van 0} Update Landing {neemt één enkele het landen pagina omleiden van regel ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) wegparameter. `id` Dit eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST.
 
-Zoals met creeer hierboven beschreven vraag, worden één of meer van de volgende vraagparameters overgegaan om te specificeren welke attributen van de regel aan update: `hostname`, `redirectFrom`, `redirectTo`.
+Net als met de aanroep create die hierboven wordt beschreven, worden een of meer van de volgende queryparameters doorgegeven om aan te geven welk kenmerk van de regel moet worden bijgewerkt: `hostname`, `redirectFrom`, `redirectTo` .
 
 De bijgewerkte omleidingsregelrecord van de bestemmingspagina wordt geretourneerd in de reactie.
 
@@ -246,7 +245,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## Verwijderen
 
-De [Regel voor omleiding van bestemmingspagina door id verwijderen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) het eindpunt neemt één enkele het landen paginaregelomleiding `id` padparameter.
+De [ Schrapping die Regel van de Omleiding van de Pagina door Identiteitseindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) richt één enkele het landen paginaregel opnieuw richt `id` wegparameter.
 
 ```
 POST /rest/asset/v1/redirectRule/{id}/delete.json
@@ -268,13 +267,13 @@ POST /rest/asset/v1/redirectRule/{id}/delete.json
 
 ## Bladeren door domeinen op bestemmingspagina
 
-De [Domeinen landingspagina&#39;s ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET) het eindpunt keert een lijst van het landen van paginadomeinverslagen terug.
+Het [ krijgt het Bestaan van de Domeinen van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET) eindpunt keert een lijst van het landen van paginadomeinverslagen terug.
 
 Er zijn twee facultatieve vraagparameters die tot filterresultaten kunnen worden overgegaan.
 
-De `offset` parameter is een geheel getal dat het maximale aantal items aangeeft dat moet worden geretourneerd (standaardwaarde is 20, maximum 200).
+De parameter `offset` is een geheel getal dat het maximale aantal items aangeeft dat moet worden geretourneerd (de standaardwaarde is 20, de maximale waarde is 200).
 
-De `maxReturn` parameter is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan samen met `offset` (standaardwaarde is 0).
+De parameter `maxReturn` is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan samen met `offset` worden gebruikt (standaardwaarde is 0).
 
 ```
 POST /rest/asset/v1/landingPageDomains.json?maxReturn=3

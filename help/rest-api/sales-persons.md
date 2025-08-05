@@ -3,7 +3,7 @@ title: Verkopers
 feature: REST API
 description: Lees gegevens over verkooppersonen.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '303'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [ Verwijzing van het Eindpunt van de Verkoper ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-De Persoon van de verkoop APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) hebben wordt toegelaten. Verkooppersonen zijn een soort persoonrecord die de eigenaars van loodrecords zijn. Zij zijn verwant met verslagen van het Lood door het externalSalesPersonId gebied op elk Loodverslag. Wanneer een lead aan een verkooppersoon is gerelateerd door een ingevuld veld externalSalesPersonId, worden de desbetreffende opzoekvelden van de eigenaar van de lead in Marketo ingevuld, zodat de bijbehorende filters en tokens kunnen worden gebruikt.
+De Persoon van de verkoop APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) hebben wordt toegelaten. Verkooppersonen zijn een soort persoonrecord die de eigenaars van loodrecords zijn. Zij zijn verwant met verslagen van het Lood door het externalSalesPersonId gebied op elk Loodverslag. Wanneer een lead aan een verkooppersoon is gerelateerd door een ingevuld veld externalSalesPersonId, worden de desbetreffende opzoekvelden van de eigenaar van de lead in Marketo ingevuld, zodat de bijbehorende filters en tokens kunnen worden gebruikt.
 
 De Personen van de verkoop zijn verwant met de verslagen van het Lood door de [ Synchronisatie te gebruiken leidt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt en het overgaan van het externalSalesPersonId attribuut.
 

@@ -3,7 +3,7 @@ title: Pushmeldingen
 feature: Mobile Marketing
 description: Enable Push Notifications for Marketo Mobile
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -24,7 +24,7 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 
 ### Pushmeldingen configureren op Apple Developer Account
 
-1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [&#128279;](http://developer.apple.com/membercenter).
+1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [ ](http://developer.apple.com/membercenter).
 1. Klik op Certificaten, id&#39;s en profielen.
 1. Klik op de map &quot;Certificates->All&quot; onder &quot;iOS, tvOS, watchOS&quot;.
 1. Selecteer &quot;+&quot; in het linkerbovenscherm naast certificaten ![](assets/certificates-plus.png)
@@ -285,7 +285,7 @@ Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenisse
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. De vestiging FCM met HTTPv1 (Google heeft [ verouderd protocol XMPP ](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) op 12 Juni, 2023 en zal in Juni 2024 worden verwijderd) 
+1. De vestiging FCM met HTTPv1 (Google heeft [ verouderd protocol XMPP ](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) op 12 Juni, 2023 en zal in Juni 2024 worden verwijderd)
 
 - MME FCM HTTPv1 inschakelen in Marketo-functiebeheer ![](assets/feature-manager.png)
    - Upload Service Account Json-bestand voor de toepassing in MLM.
@@ -390,7 +390,6 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
 ```
 
 1. Initialiseer Marketo Push After saving the configuration above, you must initialize Marketo Push Notification. Maak of open de klasse Application en kopieer/plak de onderstaande code. U kunt uw afzender-id ophalen via de Firebase-console.
-
 
    ```java
    Marketo marketoSdk = Marketo.getInstance(getApplicationContext());

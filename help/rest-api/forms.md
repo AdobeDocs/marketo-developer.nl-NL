@@ -1,30 +1,30 @@
 ---
-title: "Forms"
+title: Forms
 feature: REST API, Forms
-description: "Maak en beheer formulieren via de API."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Formulieren maken en beheren met de API.
+exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1598'
 ht-degree: 0%
 
 ---
 
-
 # Forms
 
-[Forms Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
+[ Verwijzing van het Eindpunt van Forms ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
 
-[Referentie eindpunt formuliervelden](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
+[ Verwijzing van het Eindpunt van de Gebieden van de Vorm ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
 
 Marketo-formulieren hebben een complexe reeks eindpunten die volledige controle mogelijk maken over formulierbeheer vanaf externe systemen. De structuur van formulieren kan complex zijn, omdat er veel verschillende typen objecten zijn die als onderdeel van een formulier moeten worden beheerd: Forms, Fields, Fieldsets, Visibility Rules en Follow-up Page Rules.
 
 ## Query
 
-Forms ondersteunt de standaardmethoden voor het ophalen van bedrijfsmiddelen; [door id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET), [op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET), en [door te bladeren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET). Elke formulierreactie bevat alle eigenschappen, behalve de veldlijst.
+Forms steunt de standaardmethodes van activa terugwinning, [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET), en [ door te doorbladeren ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET). Elke formulierreactie bevat alle eigenschappen, behalve de veldlijst.
 
 ### Op ID
 
-[Formulier ophalen op id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) in een formulier `id` als padparameter en retourneert een formulierrecord.
+[ krijgt Vorm door Identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) neemt een vorm `id` als wegparameter en keert een vormverslag terug.
 
 ```
 GET /rest/asset/v1/form/{id}.json
@@ -78,7 +78,7 @@ GET /rest/asset/v1/form/{id}.json
 
 ### Op naam
 
-[Formulier ophalen op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) in een formulier `name` als padparameter en retourneert een formulierrecord.
+[ krijgt Vorm door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) neemt een vorm `name` als wegparameter en keert een vormverslag terug.
 
 ```
 GET /rest/asset/v1/form/byName.json?name=newForm
@@ -132,7 +132,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 ### Bladeren
 
-[Forms ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET) formulieren werken net als andere Asset API-eindpunten voor bladeren en staan optionele filtering toe op `status`, `maxReturn`, en `offset`. De status kan zijn: goedgekeurd, goedgekeurd met concept of concept.
+[ krijgt Forms ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET) vormen werken als andere activa API doorbladert eindpunten, en staat facultatieve het filtreren op `status`, `maxReturn`, en `offset` toe. De status kan zijn: goedgekeurd, goedgekeurd met concept of concept.
 
 ```
 GET /rest/asset/v1/forms.json
@@ -306,10 +306,9 @@ Bij het bewerken van velden of het gedrag ervan in een formulier, moet de veldli
 | Selectievakje | single_checkbox |
 | Slider | bereik |
 
-
 ### Afhankelijkheden
 
-De [Formulier ophalen gebruikt door](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) eindpunt neemt vorm aan `id` als padparameter en retourneert de lijst met elementen die van het formulier afhankelijk zijn. Forms kan door de volgende elementtypen worden gebruikt: Landing Pages, Smart List, Smart Campaigns, Reports, Email Programs.
+[ krijgt Vorm die door ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) wordt gebruikt neemt een vorm `id` als wegparameter en keert de lijst van activa terug die van de vorm afhangen. Forms kan door de volgende elementtypen worden gebruikt: Landing Pages, Smart List, Smart Campaigns, Reports, Email Programs.
 
 ```
 GET /rest/asset/v1/form/{id}/usedBy.json
@@ -335,7 +334,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## Maken en bijwerken
 
-Wanneer [een formulier maken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) er zijn slechts twee vereiste velden: de bovenliggende map van het formulier, de naam van het formulier. Alle andere parameters zijn optioneel met de standaardwaarde. Wanneer het formulier wordt gemaakt, worden er drie standaardvelden weergegeven: Voornaam, Achternaam, E-mail.
+Wanneer [ creërend een vorm ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) er slechts twee vereiste gebieden zijn: de ouderomslag van de vorm, de naam van de vorm. Alle andere parameters zijn optioneel met de standaardwaarde. Wanneer het formulier wordt gemaakt, worden er drie standaardvelden weergegeven: Voornaam, Achternaam, E-mail.
 
 ```
 POST /rest/asset/v1/forms.json
@@ -395,7 +394,7 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 }
 ```
 
-Forms zijn [bijgewerkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) met een gelijkaardige vraag via hun identiteitskaart Tijdens het maken of bijwerken zijn alle basisopmaakparameters toegankelijk en bewerkbaar, zodat u de weergave van het formulier voor de eindgebruiker kunt wijzigen.
+Forms wordt [ bijgewerkt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) met een gelijkaardige vraag via hun identiteitskaart. Tijdens het maken of bijwerken zijn alle basisopmaakparameters toegankelijk en bewerkbaar, zodat u de weergave van het formulier voor de eindgebruiker kunt wijzigen.
 
 ```
 POST /rest/asset/v1/form/736.json
@@ -460,7 +459,7 @@ Het gedrag van de bekende bezoeker en bedankt voor uw pagina kan niet worden gew
 
 Als u velden die bij een formulier horen correct wilt toevoegen of bewerken, moet u de lijst met geldige velden voor de doelinstantie ophalen. Veldinteracties worden altijd uitgevoerd op basis van de id-eigenschap van het veld die wordt weergegeven voor elk item in het resultaat.
 
-Voor Lead-velden doet u dit met de opdracht [Beschikbare formuliervelden ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) en bevat het gegevenstype en standaardmetagegevens voor het veld wanneer het aan een formulier wordt toegevoegd.
+Voor Leidingsgebieden, wordt dit gedaan door [ te gebruiken krijgt Beschikbare Gebieden van de Vorm ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) eindpunt en omvat het gegevenstype en standaardmeta-gegevens voor het gebied wanneer het aan een vorm wordt toegevoegd.
 
 ```
 GET /rest/asset/v1/form/fields.json
@@ -592,7 +591,7 @@ GET /rest/asset/v1/form/fields.json
 }
 ```
 
-Voor aangepaste velden voor programmaleden belt u [Beschikbare velden voor formulierprogrammaleden ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  eindpunt om de gegevenstypes van het de douaneveld van het Lid van het Programma en standaardmeta-gegevens terug te winnen. Als u deze velden in een formulier wilt gebruiken, moet het formulier zich onder een programma bevinden (niet in Design Studio). Landing Pages die formulieren bevatten die deze gebieden gebruiken moeten ook onder een Programma verblijven (kan niet in de Studio van het Ontwerp verblijven, of in de Studio van het Ontwerp worden gekloond).
+Voor de douanegebieden van het Lid van het Programma, vraag [ Beschikbare Gebieden van het Lid van het Programma van de Vorm ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  eindpunt om de gegevenstypes van het de douaneveld van het Lid van het Programma en standaardmeta-gegevens terug te winnen. Als u deze velden in een formulier wilt gebruiken, moet het formulier zich onder een programma bevinden (niet in Design Studio). Landing Pages die formulieren bevatten die deze gebieden gebruiken moeten ook onder een Programma verblijven (kan niet in de Studio van het Ontwerp verblijven, of in de Studio van het Ontwerp worden gekloond).
 
 ```
 GET /rest/asset/v1/form/programMemberFields.json
@@ -631,7 +630,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 Elk formulier bevat een bewerkbare lijst met velden, die bij het laden aan de eindgebruiker wordt weergegeven. Elk veld wordt één voor één toegevoegd, bijgewerkt of verwijderd uit de veldlijst via de respectieve eindpunten.
 
-[Een veld toevoegen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) vereist alleen de id van het bovenliggende formulier en de fieldId van het veld. Alle andere velden zijn leeg of hebben standaardwaarden die zijn gebaseerd op het gegevenstype en de metagegevens van het veld. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.
+[ Toevoegend een gebied ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) vereist slechts identiteitskaart van de oudervorm en fieldId van het gebied. Alle andere velden zijn leeg of hebben standaardwaarden die zijn gebaseerd op het gegevenstype en de metagegevens van het veld. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.
 
 ```
 POST /rest/asset/v1/form/{id}/fields.json
@@ -715,9 +714,9 @@ label=enter the last name here
 }
 ```
 
-In het bovenstaande voorbeeld werken we het veld LastName bij. Dit is een eenvoudige tekenreeks. Sommige formuliervelden zijn complexer. Het veld Aanhef is bijvoorbeeld een veldtype &quot;select&quot; dat een lijst met items bevat, en een standaardwaarde. Als u een tekstveld voor een selectie toevoegt of bijwerkt, tenzij u een van de opties instelt voor een `isDefault` waarde true, heeft de eerste keuze geen waarde en krijgt het label Selecteren...
+In het bovenstaande voorbeeld werken we het veld LastName bij. Dit is een eenvoudige tekenreeks. Sommige formuliervelden zijn complexer. Het veld Aanhef is bijvoorbeeld een veldtype &quot;select&quot; dat een lijst met items bevat, en een standaardwaarde. Als u een tekstveld voor een type selecteren toevoegt of bijwerkt, tenzij u een van de opties instelt als de waarde `isDefault` true, heeft de eerste keuze geen waarde en krijgt deze het label &quot;Selecteren...&quot;
 
-![Aanhef](assets/form-field-salutation.png)
+![ Aanhef ](assets/form-field-salutation.png)
 
 Voor het bijwerken van de lijstitems ziet de notatie van de parameter &quot;values&quot; er als volgt uit:
 
@@ -789,13 +788,11 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
 }
 ```
 
- 
-
 Als u wilt bepalen hoe een complex formulierveld moet worden opgemaakt, bekijkt u de reactie van Veld toevoegen aan formulier.
 
 ### Veld opnieuw rangschikken
 
-Velden in een formulier moeten allemaal als één eenheid opnieuw worden gerangschikt via de [Formulierveldposities wijzigen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) eindpunt. Het eindpunt vereist een parameter genoemd `positions`, dit is een JSON-array van objecten met drie leden:
+De gebieden in een vorm moeten allen als één enkele eenheid via het [ eindpunt van de Posities van het Gebied van de Vorm van de Verandering ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) worden herschikt. Voor het eindpunt is een parameter met de naam `positions` vereist. Dit is een JSON-array met objecten met drie leden:
 
 - columnNumber
 - rowNumber
@@ -833,7 +830,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### RTF
 
-Rijke tekstvelden worden toegevoegd via een [afzonderlijk eindpunt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) van loodvelden. De inhoud van het veld wordt doorgegeven als multipart/form-data. De sjabloon moet zijn gestructureerd als HTML-inhoud die geen script-, metatags of koppelingstags bevat.
+De rijke tekstgebieden worden toegevoegd door a [ afzonderlijk eindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) van loodgebieden. De inhoud van het veld wordt doorgegeven als multipart/form-data. De sjabloon moet zijn gestructureerd als HTML-inhoud die geen script-, metatags of koppelingstags bevat.
 
 ```
 POST /rest/asset/v1/form/{id}/richText.json
@@ -874,7 +871,7 @@ Content-Type: text/html
 
 Marketo-formulieren hebben een optionele component, veldsets genaamd. Veldsets zijn groepen velden die binnen de veldlijst op het hoogste niveau worden behandeld als één veld met het oog op verplaatsing en behandeling door zichtbaarheidsregels. Bijvoorbeeld, als er een gebied voor de Vereisten van de Naleving is, en een cliënt selecteert ja het zou een gebiedsreeks kunnen openbaren die gebieden voor de Eisen van de Naleving HIPAA en PCI bevat.
 
-Velden binnen veldsets zijn uniek voor het formulier als geheel, zodat dubbele velden mogelijk niet zowel in de bovenliggende veldlijst van het formulier als in een onderliggende veldset voorkomen. Veldsets worden toegevoegd via de [Veldset toevoegen aan formulier](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) en wordt dan weergegeven in het resultaat van [Formuliervelden ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Velden worden toegevoegd aan een veldset door ze via [Veldposities bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded, niet als JSON.
+Velden binnen veldsets zijn uniek voor het formulier als geheel, zodat dubbele velden mogelijk niet zowel in de bovenliggende veldlijst van het formulier als in een onderliggende veldset voorkomen. De veldsets worden toegevoegd via [ voegt Gebied toe dat aan 1} eindpunt Formulier {wordt geplaatst en dan in het resultaat van ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) zal verschijnen krijgt Gebieden voor Vorm [. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET) De gebieden worden toegevoegd aan een gebied door hen in fieldList van de veldset via [ de Plaatsen van het Gebied van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) te bewegen. Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded en niet als JSON.
 
 ## zichtbaarheidsregel
 
@@ -917,15 +914,15 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 }
 ```
 
-Voor de volledige lijst van beschikbare exploitanten, zie de eindpuntverwijzingspagina voor [Zichtbaarheidsregels voor formuliervelden toevoegen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST).
+Voor de volledige lijst van beschikbare exploitanten, zie de pagina van de eindpuntverwijzing voor [ voeg de Regels van de Zichtbaarheid van het Gebied van de Vorm ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST) toe.
 
 ## Follow-up
 
-Marketo-formulieren kunnen een dynamisch opvolgingspagina hebben waarbij regels voor omleiding naar een bepaalde pagina of voor het behouden van de huidige pagina kunnen worden toegepast op basis van de inhoud van de opgegeven velden bij verzending. Regels kunnen worden genoemd Dank u de regels van de Pagina of de regels van de Volgorde onderling verwisselbaar. Deze regels worden vertegenwoordigd als een JSON-array met de leden `followupType`, `followupValue`, `operator`, `subjectField`, `values`, en `default`. `default` is een Booleaanse waarde waarvoor slechts één record in de array waar kan zijn. Wanneer een bezoeker voor geen andere regels in aanmerking komt, zal de regel die als gebrek wordt aangewezen worden gebruikt. `followupType` kan lp of url zijn, waarbij lp een Marketo Landing Page id aangeeft voor `followupValue`en url geeft een URL naar een andere pagina aan. De operator wordt gebruikt om de waarde van het onderwerpveld te vergelijken met de lijst met opgegeven waarden.
+Marketo-formulieren kunnen een dynamisch opvolgingspagina hebben waarbij regels voor omleiding naar een bepaalde pagina of voor het behouden van de huidige pagina kunnen worden toegepast op basis van de inhoud van de opgegeven velden bij verzending. Regels kunnen worden genoemd Dank u de regels van de Pagina of de regels van de Volgorde onderling verwisselbaar. Deze regels worden vertegenwoordigd als een JSON-array met de leden `followupType` , `followupValue` , `operator` , `subjectField` , `values` en `default` . `default` is een Booleaanse waarde waarvoor slechts één record in de array waar kan zijn. Wanneer een bezoeker voor geen andere regels in aanmerking komt, zal de regel die als gebrek wordt aangewezen worden gebruikt. `followupType` kan ofwel lp of url zijn, waarbij lp een Marketo Landing Page-id voor `followupValue` aangeeft en url een URL naar een andere pagina aangeeft. De operator wordt gebruikt om de waarde van het onderwerpveld te vergelijken met de lijst met opgegeven waarden.
 
 ## Verzendknop
 
-De stijl van de verzendknop van het formulier wordt beheerd met de [Knop Verzenden bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormSubmitButtonUsingPOST) eindpunt. De buttonPosition, buttonStyle, label en waitLabel (het label dat wordt weergegeven terwijl verzending in behandeling is) kunnen worden gewijzigd.
+Verzenden knoop het stileren van de vorm wordt beheerd met de [ Update legt Knoop ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormSubmitButtonUsingPOST) eindpunt voor. De buttonPosition, buttonStyle, label en waitLabel (het label dat wordt weergegeven terwijl verzending in behandeling is) kunnen worden gewijzigd.
 
 Dit is een destructieve update.
 

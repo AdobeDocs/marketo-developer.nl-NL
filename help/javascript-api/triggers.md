@@ -1,20 +1,20 @@
 ---
-title: "Triggers"
-description: "Triggers"
+title: Triggers
+description: Triggers
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 588836fa-1e4d-41f3-aec5-5cd17eb16071
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '80'
-ht-degree: 0%
+ht-degree: 2%
 
 ---
-
 
 # Triggers
 
 Hiermee voegt u de mogelijkheid toe om functies te activeren op een bepaalde status van het algemene rtp-object.
 
-U moet een klant van de Personalisatie van het Web zijn en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
+U moet een klant van Personalization van het Web zijn en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 
 ## Gebruik
 
@@ -24,7 +24,6 @@ U moet een klant van de Personalisatie van het Web zijn en hebben [RTP-tag geïm
 |---------------------|-------------------|----------|----------------------|
 | &#39;triggerName&#39; | Vereist | String | Naam van methode. |
 | function_to_trigger | Vereist | Functie | Functie die moet worden geactiveerd. |
-
 
 ### Gebruikercontext gereed voor trigger
 

@@ -3,7 +3,7 @@ title: planningCampaign
 feature: SOAP, Smart Campaigns
 description: plannenCampagne SOAP-oproepen
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Deze functie plaatst het programma van een partij Slimme Campagne om of onmiddellijk of op een toekomstige datum in werking te stellen. Er is een bestaande slimme campagne voor nodig. Dit kan met importToList worden gebruikt om een lijst van lood te uploaden en dan een partijcampagne tegen die pas gecreëerde lijst in werking te stellen.
 
-## Optionele programmatokens:
+## Optionele programmatokens
 
 Net als bij de requestCampaign-functie kunt u een array van My Tokens doorgeven in deze API-aanroep die bestaande tokens overschrijft. Nadat de campagne is gestart, worden de tokens genegeerd.
 

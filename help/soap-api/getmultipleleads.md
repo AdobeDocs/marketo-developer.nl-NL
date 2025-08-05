@@ -3,9 +3,9 @@ title: getMultipleLeads
 feature: SOAP
 description: getMultipleLeads SOAP-aanroepen
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '384'
+source-wordcount: '383'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Een veel voorkomend geval voor dit eindpunt is het zoeken naar leads die op spec
 | --- | --- | --- |
 | leadSelector | Vereist | Kan één van de volgende 3 types zijn:`LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
 | keyType | Vereist | Het id-type waarop u een query wilt uitvoeren. Waarden zijn IDNUM, COOKIE, E-MAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID, SFDCOPPTYID. |
-| keyValues->stringItem | Vereist | Lijst met sleutelwaarden. Dat is &quot;lead@email.com&quot; |
+| keyValues->stringItem | Vereist | Lijst met sleutelwaarden. Namelijk &quot;<lead@email.com>&quot; |
 | LastUpdateAtSelector: leadSelector->oldestUpdatedAt | Vereist | Het tijdstempel waarmee de criteria &quot;since&quot; worden opgegeven. Dat wil zeggen: retourneer alle leads die zijn bijgewerkt sinds de opgegeven tijd. (W3C WSDL-datumnotatie) |
 | LastUpdateAtSelector: leadSelector->latestUpdatedAt | Optioneel | Het tijdstempel waarmee de criteria &quot;Tot&quot; worden opgegeven. Dat wil zeggen: &#39;Retourneer alle leads up to the specified time&#39;. (W3C WSDL-datumnotatie) |
 | StaticListSelector: leadSelector->staticListName | Optioneel wanneer `leadSelector->staticListId` aanwezig is | De naam van de statische lijst |

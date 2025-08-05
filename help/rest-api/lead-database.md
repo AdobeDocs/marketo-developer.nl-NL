@@ -3,7 +3,7 @@ title: Database lead
 feature: REST API, Database
 description: Bewerk de hoofddatabase.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1342'
 ht-degree: 0%
@@ -245,7 +245,7 @@ De structuur van het JSON-object is meestal vlak en alle queryparameters voor qu
 
 Creeert en de updates voor loodgegevensbestandverslagen, worden allen uitgevoerd door POSTs met de organismen JSON. De interface voor Kansen, Rollen, de Voorwerpen van de Douane, Bedrijven, en SalesPersonen zijn het zelfde. De interface van de leider is een beetje anders, en je kunt er daar meer over lezen.
 
-De enige vereiste parameter is een array met de naam `input` die maximaal 300 objecten bevat, elk met de velden die u als leden wilt invoegen/bijwerken. U kunt desgewenst ook een parameter `action` opnemen, die een van de volgende kan zijn: `createOnly`, `updateOnly` of `createOrUpdate` . Als de handeling wordt weggelaten, wordt de modus standaard ingesteld op `createOrUpdate` . `dedupeBy` is een andere optionele parameter die kan worden gebruikt wanneer de handeling is ingesteld op createOnly of `createOrUpdate` . ` dedupeBy` kan `idField` of `dedupeFields` zijn. Als `idField` is geselecteerd, wordt de `idField` in de beschrijving gebruikt voor deduplicatie en moet deze worden opgenomen in elke record. De modus `idField` is niet compatibel met de modus `createOnly` . Als `dedupeFields` is geselecteerd, wordt de `dedupeFields` weergegeven in de gebruikte objectbeschrijving en moet elke record in de record worden opgenomen. Als de parameter `dedupeBy` wordt weggelaten, wordt de modus standaard ingesteld op `dedupeFields` .
+De enige vereiste parameter is een array met de naam `input` die maximaal 300 objecten bevat, elk met de velden die u als leden wilt invoegen/bijwerken. U kunt desgewenst ook een parameter `action` opnemen, die een van de volgende kan zijn: `createOnly`, `updateOnly` of `createOrUpdate` . Als de handeling wordt weggelaten, wordt de modus standaard ingesteld op `createOrUpdate` . `dedupeBy` is een andere optionele parameter die kan worden gebruikt wanneer de handeling is ingesteld op createOnly of `createOrUpdate` . `dedupeBy` kan `idField` of `dedupeFields` zijn. Als `idField` is geselecteerd, wordt de `idField` in de beschrijving gebruikt voor deduplicatie en moet deze worden opgenomen in elke record. De modus `idField` is niet compatibel met de modus `createOnly` . Als `dedupeFields` is geselecteerd, wordt de `dedupeFields` weergegeven in de gebruikte objectbeschrijving en moet elke record in de record worden opgenomen. Als de parameter `dedupeBy` wordt weggelaten, wordt de modus standaard ingesteld op `dedupeFields` .
 
 Wanneer een lijst met veldwaarden wordt doorgegeven, wordt de waarde `null` of een lege tekenreeks als `null` naar de database geschreven.
 

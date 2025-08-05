@@ -1,18 +1,18 @@
 ---
-title: "Bulklood Extract"
+title: Extraheren voor bulklood
 feature: REST API
-description: "Batchextractie van loodgegevens."
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Batchextractie van loodgegevens.
+exl-id: 42796e89-5468-463e-9b67-cce7e798677b
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1173'
 ht-degree: 0%
 
 ---
 
-
 # Extraheren voor bulklood
 
-[Referentie Eindpunt van bulklood extraheren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
+[ BulkLood Extraheren Verwijzing Eindpunt van het Eindpunt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
 
 De reeks van het Uittreksel van de Leiding van het Bulk van REST APIs verstrekt een programmatic interface voor het terugwinnen van grote reeksen lood/persoonverslagen uit Marketo. Deze kan ook worden gebruikt om incrementeel leads op te halen op basis van de gemaakte datum van de record, de meest recente update, het lidmaatschap van een statische lijst of het lidmaatschap van een slimme lijst. De aanbevolen interface voor gebruiksgevallen die een continue uitwisseling van gegevens tussen Marketo en een of meer externe systemen vereisen, voor ETL-, data warehousing- en archiefdoeleinden.
 
@@ -22,17 +22,16 @@ De Bulk Lood Extraheren APIs vereist dat de het bezitten API gebruiker een rol m
 
 ## Filters
 
-Leads ondersteunen verschillende filteropties. Bepaalde filters, waaronder de `updatedAt`, `smartListName`, en `smartListId` aanvullende infrastructuuronderdelen vereisen die nog niet op alle abonnementen zijn uitgevoerd. Per exporttaak kan slechts één filtertype worden opgegeven.
+Leads ondersteunen verschillende filteropties. Voor bepaalde filters, zoals `updatedAt` , `smartListName` en `smartListId` , zijn extra infrastructuurcomponenten nodig die nog niet voor alle abonnementen zijn geïmplementeerd. Per exporttaak kan slechts één filtertype worden opgegeven.
 
 | Filtertype | Gegevenstype | Notities |
 |---|---|---|
-| createdAt | Datumbereik | Accepteert een JSON-object met de leden `startAt` en `endAt`. `startAt` een datetime accepteert die het lage watermerk vertegenwoordigt, en `endAt` accepteert een datetime die het hoge watermerk vertegenwoordigt. Het bereik moet 31 dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden. Taken met dit filtertype retourneren alle toegankelijke records die binnen het datumbereik zijn gemaakt. |
-| updatedAt* | Datumbereik | Accepteert een JSON-object met de leden `startAt` en `endAt`. `startAt` een datetime accepteert die het lage watermerk vertegenwoordigt, en `endAt` accepteert een datetime die het hoge watermerk vertegenwoordigt. Het bereik moet 31 dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden. Opmerking: dit filter filtert niet op het zichtbare veld &quot;updatedAt&quot;, dat alleen de updates van standaardvelden weerspiegelt. Het filter wordt gebaseerd op wanneer de meest recente veldupdate aan een lead recordJobs met dit filtertype werd gemaakt, retourneert alle toegankelijke records die het laatst binnen het datumbereik zijn bijgewerkt. |
+| createdAt | Datumbereik | Accepteert een JSON-object met de leden `startAt` en `endAt` . `startAt` accepteert een datetime die het lage watermerk vertegenwoordigt en `endAt` accepteert een datetime die het hoge watermerk vertegenwoordigt. Het bereik moet 31 dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden. Taken met dit filtertype retourneren alle toegankelijke records die binnen het datumbereik zijn gemaakt. |
+| updatedAt* | Datumbereik | Accepteert een JSON-object met de leden `startAt` en `endAt` . `startAt` accepteert een datetime die het lage watermerk vertegenwoordigt en `endAt` accepteert een datetime die het hoge watermerk vertegenwoordigt. Het bereik moet 31 dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden. Opmerking: dit filter filtert niet op het zichtbare veld &quot;updatedAt&quot;, dat alleen de updates van standaardvelden weerspiegelt. Het filter wordt gebaseerd op wanneer de meest recente veldupdate aan een lead recordJobs met dit filtertype werd gemaakt, retourneert alle toegankelijke records die het laatst binnen het datumbereik zijn bijgewerkt. |
 | staticListName | String | Accepteert de naam van een statische lijst. Taken met dit filtertype retourneren alle toegankelijke records die lid zijn van de statische lijst op het moment dat de taak wordt verwerkt. Haal statische lijstnamen terug gebruikend het Get eindpunt van Lijsten. |
 | staticListId | Geheel | Accepteert de id van een statische lijst. Taken met dit filtertype retourneren alle toegankelijke records die lid zijn van de statische lijst op het moment dat de taak wordt verwerkt. Haal statische lijstitems terug gebruikend het Get eindpunt van Lijsten. |
 | smartListName* | String | Accepteert de naam van een slimme lijst. Taken met dit filtertype retourneren alle toegankelijke records die lid zijn van de slimme lijsten op het moment dat de taak wordt verwerkt. Haal slimme lijstnamen terug gebruikend het Get Slimme eindpunt van Lijsten. |
 | smartListId* | Geheel | Accepteert de id van een slimme lijst. Taken met dit filtertype retourneren alle toegankelijke records die lid zijn van de slimme lijsten op het moment dat de taak wordt verwerkt. Haal slimme lijstids terug gebruikend het Get Slimme eindpunt van Lijsten. |
-
 
 Filtertype is niet beschikbaar voor alle abonnementen. Als deze optie niet beschikbaar is voor uw abonnement, wordt een fout weergegeven wanneer u het eindpunt Taak voor lead exporteren aanroept (&quot;1035, Niet-ondersteund filtertype voor doelabonnement&quot;). Klanten kunnen contact opnemen met Marketo Support om deze functionaliteit in hun abonnement te laten inschakelen.
 
@@ -42,14 +41,13 @@ Het eindpunt van de Taak van de Lood van de Uitvoer van de Create verstrekt vers
 
 | Parameter | Gegevenstype | Vereist | Notities |
 |---|---|---|---|
-| velden | Array[String] | Ja | De parameter fields accepteert een JSON-array met tekenreeksen. Elke tekenreeks moet de REST API-naam van een Marketo lead-veld zijn. De weergegeven velden worden opgenomen in het geëxporteerde bestand. De kolomkop voor elk veld is de REST API-naam van elk veld, tenzij deze wordt overschreven door columnHeader. Opmerking: Wanneer de [!DNL Adobe Experience Cloud Audience Sharing] functie is ingeschakeld, vindt een cookie-synchronisatieproces plaats dat gekoppeld is [!DNL Adobe Experience Cloud] ID (ECID) met Marketo-leads. U kunt het veld ecids opgeven om ECID&#39;s op te nemen in het exportbestand. |
+| velden | Serie [ Koord ] | Ja | De parameter fields accepteert een JSON-array met tekenreeksen. Elke tekenreeks moet de REST API-naam van een Marketo lead-veld zijn. De weergegeven velden worden opgenomen in het geëxporteerde bestand. De kolomkop voor elk veld is de REST API-naam van elk veld, tenzij deze wordt overschreven door columnHeader. Opmerking: Wanneer de functie [!DNL Adobe Experience Cloud Audience Sharing] is ingeschakeld, vindt een cookie-synchronisatieproces plaats waarbij [!DNL Adobe Experience Cloud] ID (ECID) aan Marketo-leads wordt gekoppeld. U kunt het veld ecids opgeven om ECID&#39;s op te nemen in het exportbestand. |
 | columnHeaderNames | Object | Nee | Een JSON-object met sleutelwaardeparen van veld- en kolomkopnamen. De sleutel moet de naam zijn van een veld dat is opgenomen in de exporttaak. Dit is de API-naam van het veld die kan worden opgehaald door de optie Lead beschrijven aan te roepen. De waarde is de naam van de geëxporteerde kolomkop voor dat veld. |
 | format | String | Nee | Accepteert één van: CSV, TSV, SSV. Het geëxporteerde bestand wordt gerenderd als een bestand met door komma&#39;s gescheiden waarden, door tabs gescheiden waarden of door spaties gescheiden waarden, indien ingesteld. De standaardwaarde is CSV als de waarde is uitgeschakeld. |
 
-
 ## Een taak maken
 
-De parameters voor de taak worden gedefinieerd voordat de exportbewerking wordt gestart met de opdracht [Taak voor exportlead maken](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) eindpunt. We moeten de `fields` die nodig zijn voor de uitvoer, het type parameters van de `filter`de `format` van het bestand en de eventuele namen van de kolomkoppen.
+De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [ creeer het eindpunt van de Baan van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST). We moeten definiëren welke `fields` nodig is voor het exporteren, het type parameters van `filter` , de `format` van het bestand en de namen van kolomkoppen, indien van toepassing.
 
 ```
 POST /bulk/v1/leads/export/create.json
@@ -79,7 +77,7 @@ POST /bulk/v1/leads/export/create.json
 }
 ```
 
-Met dit verzoek wordt een reeks leads geëxporteerd die zijn gemaakt tussen 1 januari 2017 en 31 januari 2017, inclusief de waarden van de overeenkomstige `firstName`, `lastName`, `id`, en `email` velden.
+Met dit verzoek wordt een reeks leads geëxporteerd die zijn gemaakt tussen 1 januari 2017 en 31 januari 2017, inclusief de waarden van de overeenkomende velden `firstName` , `lastName` , `id` en `email` .
 
 ```json
 {
@@ -97,7 +95,7 @@ Met dit verzoek wordt een reeks leads geëxporteerd die zijn gemaakt tussen 1 ja
 }
 ```
 
-Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Daartoe [Taak voor exportlead in wachtrij plaatsen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) het eindpunt moet worden geroepen gebruikend exportId van de reactie van de aanmaakstatus:
+Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Baan van de Uitvoer van 0} Enqueue het Lood van de Lijn worden geroepen gebruikend exportId van de reactie van de aanmaakstatus:](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST)
 
 ```
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -119,13 +117,13 @@ POST /bulk/v1/leads/export/{exportId}/enqueue.json
 }
 ```
 
-Dit reageert met een `status` van &quot;In de wachtrij geplaatst&quot; waarna deze wordt ingesteld op &quot;Verwerking&quot; wanneer er een beschikbare exportsleuf is.
+Dit reageert met een `status` van &quot;In wachtrij&quot; waarna deze wordt ingesteld op &quot;Verwerken&quot; wanneer er een beschikbare exportsleuf is.
 
 ## Status opiniepeilingtaak
 
-`Note:` De status kan alleen worden opgehaald voor taken die door dezelfde API-gebruiker zijn gemaakt.
+`Note:` De status kan alleen worden opgehaald voor taken die door dezelfde API-gebruiker zijn gemaakt.
 
-Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling met de opdracht [Status van lead-exporttaak ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Laten we even kijken naar de opiniepeiling.
+Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling die [ gebruikt krijgt de Status van de Taak van de Lood van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Laten we even kijken naar de opiniepeiling.
 
 ```
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -160,7 +158,7 @@ Het statusveld kan reageren op:
 
 ## Uw gegevens ophalen
 
-Als u het bestand van een voltooide lead-export wilt ophalen, roept u gewoon de [Voorloopbestand exporteren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) eindpunt met uw `exportId`.
+Om het dossier van een voltooide looduitvoer terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van de Lood van de Uitvoer {met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET).`exportId`
 
 ```
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -168,18 +166,18 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier.
 
-Als een gevraagd lead-veld leeg is (geen gegevens bevat), `null` wordt in het desbetreffende veld in het exportbestand geplaatst. In het onderstaande voorbeeld is het e-mailveld voor de geretourneerde lead leeg.
+Als een gevraagd lead-veld leeg is (geen gegevens bevat), wordt `null` in het corresponderende veld in het exportbestand geplaatst. In het onderstaande voorbeeld is het e-mailveld voor de geretourneerde lead leeg.
 
 ```csv
 firstName,lastName,email,cookies
 Russell,Wilson,null,_mch-localhost-1536605780000-12105
 ```
 
-Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Meer informatie over het gebruik van de Range-header met Marketo [Bulk extraheren](bulk-extract.md).
+Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Lees meer over het gebruiken van de kopbal van de Waaier met Marketo [ Bulk Extraheren ](bulk-extract.md).
 
 ## Een taak annuleren
 
-Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend [Taak lead exporteren annuleren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) eindpunt:
+Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [ annuleert de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) eindpunt van de Lood van de Uitvoer:
 
 ```
 POST /bulk/v1/leads/export/{exportId}/cancel.json

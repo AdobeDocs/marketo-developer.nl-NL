@@ -3,7 +3,7 @@ title: Bulkimport
 feature: REST API
 description: Gegevens van personen in batch importeren.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '592'
 ht-degree: 0%
@@ -28,7 +28,7 @@ De bulkimport-API&#39;s gebruiken dezelfde OAuth 2.0-verificatiemethode als ande
 
 >[!IMPORTANT]
 >
->De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1&rbrace; kopbal van de Vergunning &lbrace;zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Limieten
 
@@ -96,7 +96,6 @@ Elk eindpunt van de baanverwezenlijking deelt sommige gemeenschappelijke paramet
 |---|---|---|
 | format | String | Hiermee bepaalt u de bestandsindeling van de geïmporteerde gegevens met opties voor door komma&#39;s gescheiden waarden, door tabs gescheiden waarden en door puntkomma&#39;s gescheiden waarden. Accepteert één van: CSV, SSV, TSV. De notatie wordt standaard ingesteld op CSV. |
 | file | String | Gegevens worden via meerdelige formuliergegevens in het bestand opgegeven. |
-
 
 ## Status opiniepeilingtaak
 

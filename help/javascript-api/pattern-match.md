@@ -1,20 +1,20 @@
 ---
-title: "Patroonovereenkomst"
-description: "Patroonovereenkomst"
+title: Patroonovereenkomst
+description: Patroonovereenkomst
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '134'
-ht-degree: 0%
+source-wordcount: '133'
+ht-degree: 2%
 
 ---
-
 
 # Patroonovereenkomst
 
 RTP stelt een nutsfunctie bloot om te controleren of het patroon bepaalde koord aanpast. Het nut kan niet in async worden gebruikt omdat het een aanwijzing terugkeert als er een gelijke of niet is.
 
-U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag ge√Ømplementeerd](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
+U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
 
 ## Gebruik
 
@@ -23,8 +23,7 @@ U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag ge√
 | Parameter | Optioneel/vereist | Type | Beschrijving |
 |---|---|---|---|
 | check_out | Vereist | String | Tekenreeks die overeenkomt met het patroon. Voorbeeld: URL huidige pagina, productnaam. |
-| patroon | Vereist | String | % toevoegen voor jokerteken. Het patroon kan zijn:begin met volledige overeenkomst |
-
+| patroon | Vereist | String | % toevoegen voor jokerteken. Het patroon kan :start zonder volledige gelijke zijn |
 
 ## Voorbeelden
 

@@ -1,9 +1,9 @@
 ---
 title: Gegevensopname
 description: Overzicht van API voor gegevensverwerking
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '945'
+source-wordcount: '940'
 ht-degree: 4%
 
 ---
@@ -11,13 +11,13 @@ ht-degree: 4%
 
 # Gegevensopname
 
-De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken. 
+De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken.
 
 Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ Stream van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) in te tekenen. &#x200B;
 
 Interfaces worden aangeboden voor twee objecttypen: Personen, Aangepaste objecten. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
-De API voor gegevensinsluiting bevindt zich in een persoonlijke bètaversie. Invitees worden vereist om een recht voor [ Pakket van de Rij van Prestaties van het Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) te hebben.
+De API voor gegevensinsluiting bevindt zich in een persoonlijke bètaversie. Invitees worden vereist om een recht voor [ Pakket van de Rij van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) te hebben.
 
 ## Verificatie
 
@@ -55,13 +55,13 @@ Gegevensinname maakt gebruik van de volgende aangepaste HTTP-headers.
 
 ## Verzoeken
 
-Gebruik de methode van de POST van HTTP om gegevens naar de server te verzenden.
+Gebruik de POST-methode van HTTP om gegevens naar de server te verzenden.
 
 De gegevensrepresentatie wordt in de aanvraaginstantie opgenomen als application/json.
 
 De domeinnaam is: `mkto-ingestion-api.adobe.io`
 
-Het pad begint met `/subscriptions/_MunchkinId_` waar `_MunchkinId_` specifiek is voor uw Marketo-instantie. U kunt uw identiteitskaart van Munchkin in het Marketo Engage UI onder **Admin** vinden > **Mijn Rekening** > **Informatie van de Steun**. De rest van het pad wordt gebruikt om de bron van interesse op te geven.
+Het pad begint met `/subscriptions/_MunchkinId_` waar `_MunchkinId_` specifiek is voor uw Marketo-instantie. U kunt uw identiteitskaart van Munchkin in Marketo Engage UI onder **Admin** vinden > **Mijn Rekening** > **Informatie van de Steun**. De rest van het pad wordt gebruikt om de bron van interesse op te geven.
 
 Voorbeeld-URL voor personen:
 
@@ -100,7 +100,7 @@ Hieronder vindt u hergebruikte foutcodes van Adobe Developer Gateway.
 | 404 | 404040 | Bron niet gevonden |
 | 429 | 429001 | Limiet voor servicegebruik bereikt |
 
-Hieronder vindt u foutcodes die uniek zijn voor de API voor gegevensinsluiting en die bestaan uit drie segmenten. De eerste drie cijfers zijn de status (teruggekeerd door de Gateway van Adobe IO), die door nul &quot;0&quot;wordt gevolgd, door drie cijfers wordt gevolgd.
+Hieronder vindt u foutcodes die uniek zijn voor de API voor gegevensinsluiting en die bestaan uit drie segmenten. De eerste drie cijfers zijn de status (teruggekeerd door Adobe IO Gateway), die door nul &quot;0&quot;wordt gevolgd, door drie cijfers wordt gevolgd.
 
 | HTTP-statuscode | error_code | bericht |
 |--- |--- |--- |
@@ -143,7 +143,7 @@ Indieningsinstantie
 
 | Sleutel | Gegevenstype | Vereist | Waarde | Standaardwaarde |
 |---|---|---|---|---|
-| prioriteit | String | Nee | Prioriteit van het verzoek:normaal hoog | normaal |
+| prioriteit | String | Nee | Prioriteit van het verzoek :normalhigh | normaal |
 | partitionName | String | Nee | Naam van partitie van persoon | Standaard |
 | dedupeFields | Object | Nee | Te dedupliceren kenmerken op. Een of twee kenmerknamen zijn toegestaan. Twee attributen worden gebruikt in een verrichting AND. Als bijvoorbeeld zowel `email` als `firstName` zijn opgegeven, worden beide gebruikt om een persoon op te zoeken met de bewerking AND. Ondersteunde kenmerken zijn:`idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attributen (alleen het type &quot;string&quot; en &quot;integer&quot;) | email |
 | personen | Array van object | Ja | Lijst met kenmerknaam-waardeparen voor de persoon | - |
@@ -214,8 +214,8 @@ Aanvragingsinstantie
 
 | Sleutel | Gegevenstype | Vereist | Waarde | Standaardwaarde |
 |---|---|---|---|---|
-| prioriteit | String | Nee | Prioriteit van het verzoek:normaal hoog | normaal |
-| dedupeBy | String | Nee | Attributen die moeten worden gededupliceerd op:dedupeFieldsmarttoGUID | dedupeFields |
+| prioriteit | String | Nee | Prioriteit van het verzoek :normalhigh | normaal |
+| dedupeBy | String | Nee | Te dedupliceren kenmerken op :dedupeFieldsmarketoGUID | dedupeFields |
 | customObjects | Array van object | Ja | Lijst met kenmerknaam-waardeparen voor het object. | - |
 
 | Machtiging |
