@@ -814,7 +814,7 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads door Filtertype, hoewel filterType en filterValues niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ### Verzoek
 

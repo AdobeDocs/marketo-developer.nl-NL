@@ -105,7 +105,7 @@ De omleidingsvraag steunt veelvoudige vraag. Hierdoor kunt u omleiden met meerde
 | &#39;send&#39; | Vereist | String | Methode, actie. |
 | &#39;redirect&#39; | Vereist | String | Naam van methode. |
 | field_name | Vereist | String | Veldnaam die moet worden vergeleken met. Voorbeeld: &#39;abm.name&#39; (zie hierboven). |
-| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:{&#39;<http://marketo.com>&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
+| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:&lbrace;&#39;<http://marketo.com>&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
 
 #### Voorbeeld
 

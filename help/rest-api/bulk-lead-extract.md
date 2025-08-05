@@ -95,7 +95,7 @@ Met dit verzoek wordt een reeks leads geëxporteerd die zijn gemaakt tussen 1 ja
 }
 ```
 
-Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Baan van de Uitvoer van 0} Enqueue het Lood van de Lijn worden geroepen gebruikend exportId van de reactie van de aanmaakstatus:](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST)
+Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Baan van de Uitvoer van 0&rbrace; Enqueue het Lood van de Lijn worden geroepen gebruikend exportId van de reactie van de aanmaakstatus:](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST)
 
 ```
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -158,7 +158,7 @@ Het statusveld kan reageren op:
 
 ## Uw gegevens ophalen
 
-Om het dossier van een voltooide looduitvoer terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van de Lood van de Uitvoer {met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET).`exportId`
+Om het dossier van een voltooide looduitvoer terug te winnen, roep eenvoudig het [ krijgen het 1&rbrace; eindpunt van het Dossier van de Lood van de Uitvoer &lbrace;met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET).`exportId`
 
 ```
 GET /bulk/v1/leads/export/{exportId}/file.json
