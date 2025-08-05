@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van CRUD-bewerkingen op URL&#39;s voor omleiding van bestemmingspagina&#39;s. Deze API&#39;s volgen het standaard interfacepatroon voor de bron-API&#39;s die de opties Query, Maken, Bijwerken en Verwijderen bieden.
 
-Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. De extra informatie bij het Omleiden van de Regels van de Pagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/home.html) worden gevonden.
+Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. De extra informatie bij het Omleiden van de Regels van de Pagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) worden gevonden.
 
 ## Query
 
@@ -155,7 +155,7 @@ De parameter `redirectTo` geeft de bestemmingspagina op. Dit is een JSON-object 
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | Niet-Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Meer informatie bij het creëren van het doorleiden van de landingspagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html) worden gevonden.
+Meer informatie bij het creëren van het doorleiden van de landingspagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=nl-NL) worden gevonden.
 
 ```
 POST /rest/asset/v1/redirectRules.json

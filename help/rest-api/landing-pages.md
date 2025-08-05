@@ -274,7 +274,7 @@ Variabelen worden gedefinieerd als metatags binnen het `<head>` -element van een
 </head>
 ```
 
-Voor meer informatie zie &quot;Bewerkbare Veranderlijke&quot;sectie in [ creeer een Geleide Landing de documentatie van het Malplaatje van de Pagina ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Voor meer informatie zie &quot;Bewerkbare Veranderlijke&quot;sectie in [ creeer een Geleide Landing de documentatie van het Malplaatje van de Pagina ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Query
 

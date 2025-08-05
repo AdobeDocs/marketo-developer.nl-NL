@@ -12,7 +12,7 @@ ht-degree: 2%
 
 # Veldtypen
 
-Hier volgt een beschrijving van veldtypen in Marketo. De extra informatie over gebiedstypes kan [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary) worden gevonden. De extra informatie over gebiedstype grenzen kan [ hier ](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613) worden gevonden.
+Hier volgt een beschrijving van veldtypen in Marketo. De extra informatie over gebiedstypes kan [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary) worden gevonden. De extra informatie over gebiedstype grenzen kan [ hier ](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613) worden gevonden.
 
 | Veldtype | Beschrijving | Voorbeeld |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ Hier volgt een beschrijving van veldtypen in Marketo. De extra informatie over 
 | E-mail | Een tekenreeksveld dat e-mailadressen accepteert | <example@example.com> |
 | Float | Een getalveld dat echte getallen bevat en een decimale waarde kan gebruiken. | 10,4 |
 | Geheel | Hele getallen | 10 |
-| Formule | Velden waarvan de waarden worden gegenereerd door gegevens te manipuleren uit andere velden in een lead record. Ze worden niet geëxporteerd en kunnen niet worden gebruikt in slimme campagnes. | Zie dit [ artikel ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| Formule | Velden waarvan de waarden worden gegenereerd door gegevens te manipuleren uit andere velden in een lead record. Ze worden niet geëxporteerd en kunnen niet worden gebruikt in slimme campagnes. | Zie dit [ artikel ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | Percentage | Een percentage uitgedrukt als een geheel getal | 30 |
 | URL | Een tekstveld dat invoer beperkt tot URL&#39;s, inclusief het protocol van de URL. | <http://example.com/> |
 | Telefoonnummer | Telefoonnummer | 111-111-111 |

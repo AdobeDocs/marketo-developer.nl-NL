@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo stelt API&#39;s beschikbaar voor het lezen, schrijven, maken en bijwerken van opportuniteitsrecords. In Marketo zijn opportuniteitsrecords gekoppeld aan hoofd- en contactrecords via het tussentijdse object Opportunity Role. Een opportuniteit kan dus aan vele individuele leads worden gekoppeld.  Beide objecttypen worden via de API beschikbaar gemaakt en hebben, net als de meeste objecttypen voor databases met leads, beide een bijbehorende beschrijvingsaanroep, die metagegevens over de objecttypen retourneert.
 
-De kans APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) hebben wordt toegelaten.
+De kans APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
 
 ## Beschrijven
 
