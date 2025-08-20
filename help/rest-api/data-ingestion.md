@@ -1,9 +1,9 @@
 ---
-title: Gegevensopname
+title: Data-opname
 feature: REST API, Dynamic Content
 description: Gegevens gebruiken met Marketo API's.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 3%
@@ -18,7 +18,9 @@ Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitg
 
 Interfaces worden aangeboden voor twee objecttypen: Personen, Aangepaste objecten. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
-De API voor gegevensinname bevindt zich momenteel in een persoonlijke bètaversie.  Invitees worden vereist om een recht voor [ de Rij van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket te hebben.
+>[!NOTE]
+>
+>De API voor gegevensinname bevindt zich momenteel in een persoonlijke bètaversie.  Invitees worden vereist om een recht voor [ de Rij van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket te hebben.
 
 ## Verificatie
 
