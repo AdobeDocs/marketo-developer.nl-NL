@@ -3,10 +3,10 @@ title: Data-opname
 feature: REST API, Dynamic Content
 description: Gegevens gebruiken met Marketo API's.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
+source-git-commit: af2d0f266a271696dbf7d334f23bcd9962b9eba4
 workflow-type: tm+mt
-source-wordcount: '965'
-ht-degree: 3%
+source-wordcount: '957'
+ht-degree: 4%
 
 ---
 
@@ -14,13 +14,13 @@ ht-degree: 3%
 
 De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om de inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken.
 
-Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ Stream van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) in te tekenen. &#x200B;
+Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ stroom van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) in te tekenen.
 
 Interfaces worden aangeboden voor twee objecttypen: Personen, Aangepaste objecten. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
 >[!NOTE]
 >
->De API voor gegevensinname bevindt zich momenteel in een persoonlijke bètaversie.  Invitees worden vereist om een recht voor [ de Rij van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket te hebben.
+>De toegang tot de Ingestie API van Gegevens vereist beding aan het [ Reeks van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket.
 
 ## Verificatie
 
