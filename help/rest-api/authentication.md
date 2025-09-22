@@ -55,7 +55,7 @@ Het toegangstoken moet als kopbal van HTTP worden verzonden.
 
 >[!IMPORTANT]
 >
->Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 januari 2026. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [ kopbal van de Vergunning ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. Bij nieuwe ontwikkeling wordt alleen de header `Authorization` gebruikt.
+>Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 januari 2026. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [ kopbal van de Vergunning ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. Bij nieuwe ontwikkeling wordt alleen de header `Authorization` gebruikt.
 
 ### Schakelen naar de header Autorisatie
 
