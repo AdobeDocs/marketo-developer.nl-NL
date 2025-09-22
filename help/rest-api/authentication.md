@@ -3,7 +3,7 @@ title: Verificatie
 feature: REST API
 description: Marketo-gebruikers verifiëren voor API-gebruik.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 36e768d562e6f69aeb70a83253dfcf41653f217a
 workflow-type: tm+mt
 source-wordcount: '609'
 ht-degree: 0%
@@ -55,7 +55,7 @@ Het toegangstoken moet als kopbal van HTTP worden verzonden.
 
 >[!IMPORTANT]
 >
->Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 oktober 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [ kopbal van de Vergunning ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. Bij nieuwe ontwikkeling wordt alleen de header `Authorization` gebruikt.
+>Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 januari 2026. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [ kopbal van de Vergunning ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. Bij nieuwe ontwikkeling wordt alleen de header `Authorization` gebruikt.
 
 ### Schakelen naar de header Autorisatie
 
