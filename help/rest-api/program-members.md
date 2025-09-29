@@ -1,11 +1,11 @@
 ---
 title: Programmaleden
 feature: REST API
-description: Maak en beheer programmaleden.
+description: Met de Marketo REST API kunt u leden van programma's lezen, maken, bijwerken en verwijderen, standaard- en aangepaste velden beheren en query's uitvoeren met behulp van doorzoekbare velden.
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
-source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1708'
+source-wordcount: '1726'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [ Verwijzing van het Eindpunt van de Leden van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Dit gegeven is viewable in het 0&rbrace; LEDEN van het programma [&#128279;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Landen in Marketo Engage UI.
+Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Dit gegeven is viewable in het 0} LEDEN van het programma [ Landen in Marketo Engage UI.](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)
 
 ## Beschrijven
 
@@ -209,7 +209,7 @@ GET /rest/v1/programs/members/describe.json
 
 ## Query
 
-Het [ krijgt 1&rbrace; eindpunt van de Leden van het Programma &lbrace;staat u toe om leden van een programma terug te winnen. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) Hiervoor zijn een parameter `programId` path en queryparameters `filterType` en `filterValues` vereist.
+Het [ krijgt 1} eindpunt van de Leden van het Programma {staat u toe om leden van een programma terug te winnen. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) Hiervoor zijn een parameter `programId` path en queryparameters `filterType` en `filterValues` vereist.
 
 `programId` wordt gebruikt om op te geven welk programma moet worden doorzocht.
 
@@ -224,7 +224,7 @@ Om een programma te vragen de waarvan lidmaatschapstelling de grens overschrijdt
 
 U kunt ook filteren op datumbereik door `updatedAt` op te geven als filterType met de datetime-parameters `startAt` en `endAt` . Het bereik moet zeven dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden.
 
-De facultatieve `fields` vraagparameter keurt een komma-gescheiden lijst van gebied API namen goed die door [ zijn teruggekeerd beschrijf 2&rbrace; eindpunt van het Lid van het Programma. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) Wanneer deze worden opgenomen, bevat elke record in het antwoord de opgegeven velden. Als u deze waarde weglaat, wordt de standaardset met velden `acquiredBy` , `leadId` , `membershipDate` , `programId` en `reachedSuccess` geretourneerd.
+De facultatieve `fields` vraagparameter keurt een komma-gescheiden lijst van gebied API namen goed die door [ zijn teruggekeerd beschrijf 2} eindpunt van het Lid van het Programma. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) Wanneer deze worden opgenomen, bevat elke record in het antwoord de opgegeven velden. Als u deze waarde weglaat, wordt de standaardset met velden `acquiredBy` , `leadId` , `membershipDate` , `programId` en `reachedSuccess` geretourneerd.
 
 Standaard worden maximaal 300 records geretourneerd. U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen. Als het **moreResult** attribuut waar is, betekent dit meer resultaten beschikbaar zijn. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
 
@@ -346,7 +346,7 @@ Er zijn twee eindpunten die het maken/bijwerken van verrichting op programmalede
 
 ### Status van programmalid
 
-Het [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) eindpunt van de Status van het Lid van het Programma van de Synchronisatie  wordt gebruikt om de programmastatus voor één of meerdere leden tot stand te brengen of bij te werken.
+Het [ eindpunt van de Status van het Lid van het Programma van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) wordt gebruikt om de programmastatus voor één of meerdere leden tot stand te brengen of bij te werken.
 
 De vereiste `programId` padparameter geeft het programma op met leden die moeten worden gemaakt of bijgewerkt.
 
@@ -597,9 +597,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Velden maken
 
-Het [ creeert de Eind van het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) leidt tot één of meerdere douanegebieden op het voorwerp van het programmalid. Dit eindpunt verstrekt functionaliteit die aan vergelijkbaar is wat [ beschikbaar in Marketo Engage UI ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields) is. Met dit eindpunt kunt u maximaal 20 aangepaste velden maken.
+Het [ creeert de Eind van het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) leidt tot één of meerdere douanegebieden op het voorwerp van het programmalid. Dit eindpunt verstrekt functionaliteit die aan vergelijkbaar is wat [ beschikbaar in Marketo Engage UI ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields) is. Met dit eindpunt kunt u maximaal 20 aangepaste velden maken.
 
-Houd zorgvuldig rekening met elk veld dat u met de API maakt in de productie-instantie van Marketo Engage. Zodra een gebied is gecreeerd, kunt u niet het schrappen ([ u het ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo) slechts kunt verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
+Houd zorgvuldig rekening met elk veld dat u met de API maakt in de productie-instantie van Marketo Engage. Zodra een gebied is gecreeerd, kunt u niet het schrappen ([ u het ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo) slechts kunt verbergen). De proliferatie van ongebruikte gebieden is een slechte praktijk die uw geval zal bemoeilijken.
 
 De vereiste parameter `input` is een array van veldobjecten van programmalidden. Elk object bevat een of meer kenmerken. Vereiste kenmerken zijn de `displayName` , `name` en `dataType` die overeenkomen met respectievelijk de weergavenaam van de gebruikersinterface van het veld, de API-naam van het veld en het veldtype. U kunt optioneel `description` , `isHidden` , `isHtmlEncodingInEmail` en `isSensitive` opgeven.
 

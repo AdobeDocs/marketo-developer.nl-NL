@@ -1,30 +1,30 @@
 ---
-title: "Slimme campagnes"
+title: Slimme campagnes
 feature: REST API, Smart Campaigns
-description: "Slim campagneoverzicht"
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Leer hoe u Marketo REST API's kunt gebruiken voor slimme campagnes, zoals zoeken op id of naam, filters doorbladeren, klonen verwijderen en triggers voor planning of aanvraag plannen
+exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '989'
+source-wordcount: '1012'
 ht-degree: 0%
 
 ---
 
-
 # Slimme campagnes
 
-[Smart Campaigns Endpoint Reference (Asset)](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns)
+[ Slimme Verwijzing van het Eindpunt van Campagnes (Activa) ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns)
 
-[Campagne Endpoint Reference (Leads)](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
+[ Verwijzing van het Eindpunt van campagnes (Leidingen) ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van bewerkingen op slimme campagnes. Deze API&#39;s volgen het standaard interfacepatroon voor element-API&#39;s die query-, maak-, kloon- en verwijderopties bieden. U kunt ook de uitvoering van slimme campagnes beheren door batchcampagnes te plannen of triggercampagnes aan te vragen.
 
 ## Query
 
-Het vragen van slimme campagnes volgt de standaardvraagtypes voor activa van [door id](#by_id), [op naam](#by_name), en [bladeren](#browse).
+Het vragen van slimme campagnes volgt de standaardvraagtypes voor activa van [ door identiteitskaart ](#by_id), [ door naam ](#by_name), en [ doorbladerend ](#browse).
 
 ### Op id
 
-De [Slimme campagne ophalen op id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET) eindpunt neemt één enkele slimme campagne `id` als padparameter en retourneert één slimme-campagnerecord.
+[ krijgt Slimme Campagne door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET) eindpunt neemt één enkele slimme campagne `id` als wegparameter en keert één enkel slim campagneverslag terug.
 
 ```
 GET /rest/asset/v1/smartCampaign/{id}.json
@@ -62,11 +62,11 @@ GET /rest/asset/v1/smartCampaign/{id}.json
 }
 ```
 
-Met dit eindpunt, zal er altijd één enkel verslag in de eerste positie van zijn `result` array.
+Bij dit eindpunt zal er altijd één record zijn in de eerste positie van de array `result` .
 
 ### Op naam
 
-De [Slimme campagne op naam ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) eindpunt neemt één enkele slimme campagne `name` als een parameter en retourneert één slimme-campagnerecord.
+[ krijgt Slimme Campagne door het 1} eindpunt van de Naam {neemt één enkele slimme campagne ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) als parameter en keert één enkel slim campagneverslag terug.`name`
 
 ```
 GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
@@ -108,21 +108,21 @@ GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
 }
 ```
 
-Met dit eindpunt, zal er altijd één enkel verslag in de eerste positie van zijn `result` array.
+Bij dit eindpunt zal er altijd één record zijn in de eerste positie van de array `result` .
 
 ### Bladeren
 
-De [Slimme campagnes ophalen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET) het eindpunt werkt zoals andere activa API doorbladert eindpunten en staat verscheidene facultatieve vraagparameters toe om het filtreren criteria te specificeren.
+[ krijgt Slimme Campagnes ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET) eindpuntwerken zoals andere activa API doorbladert eindpunten en staat verscheidene facultatieve vraagparameters toe om het filtreren criteria te specificeren.
 
-De `earliestUpdatedAt` en `latestUpdatedAt` parameters accepteren `datetimes` in de ISO-8601-indeling (zonder milliseconden). Als beide zijn ingesteld, moet firstUpdatedAt voorafgaan aan latestUpdatedAt.
+De parameters `earliestUpdatedAt` en `latestUpdatedAt` accept `datetimes` in de ISO-8601-indeling (zonder milliseconden). Als beide zijn ingesteld, moet firstUpdatedAt voorafgaan aan latestUpdatedAt.
 
-De `folder` parameter geeft de bovenliggende map aan waarin moet worden gezocht. De indeling is JSON-blok met `id` en `type` kenmerken.
+De parameter `folder` geeft de bovenliggende map aan waarin moet worden gebladerd. De indeling is JSON-blok met `id` - en `type` -kenmerken.
 
-De `maxReturn` parameter is een geheel getal dat het maximale aantal items aangeeft dat moet worden geretourneerd. De standaardwaarde is 20. Maximaal is 200.
+De parameter `maxReturn` is een geheel getal dat het maximale aantal items opgeeft dat moet worden geretourneerd. De standaardwaarde is 20. Maximaal is 200.
 
-De `offset` parameter is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan samen met `maxReturn`. De standaardwaarde is 0.
+De parameter `offset` is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan samen met `maxReturn` worden gebruikt. De standaardwaarde is 0.
 
-De `isActive` parameter is een Booleaanse waarde die aangeeft dat alleen actieve triggercampagnes moeten worden geretourneerd.
+De parameter `isActive` is een Booleaanse waarde die opgeeft dat alleen actieve triggercampagnes moeten worden geretourneerd.
 
 ```
 GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:00&latestUpdatedAt=2016-09-10T23:17:00-00:00
@@ -181,13 +181,13 @@ GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:
 }
 ```
 
-Met dit eindpunt, zal er één of meerdere verslagen in zijn `result` array.
+Bij dit eindpunt zijn er een of meer records in de array `result` .
 
 ## Maken
 
-De [Slimme campagne maken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST) Het eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST met twee vereiste parameters. De `name` parameter geeft de naam aan van de slimme campagne die moet worden gemaakt. De `folder` parameter geeft de bovenliggende map aan waarin de slimme campagne is gemaakt. De indeling is JSON-blok met `id` en `type` kenmerken.
+Het [ creeert Slimme 1} eindpunt van de Campagne {wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST met twee vereiste parameters. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST) De parameter `name` geeft de naam op van de slimme campagne die u wilt maken. De parameter `folder` geeft de bovenliggende map aan waar de slimme campagne is gemaakt. De indeling is JSON-blok met `id` - en `type` -kenmerken.
 
-U kunt desgewenst de slimme campagne beschrijven met de opdracht `description` parameter (maximaal 2000 tekens).
+Desgewenst kunt u de slimme campagne beschrijven met de parameter `description` (maximaal 2000 tekens).
 
 ```
 POST /rest/asset/v1/smartCampaigns.json
@@ -239,7 +239,7 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 
 ## Bijwerken
 
-De [Slimme campagne bijwerken](https://developer.adobe.com/marketo-apis/api/asset/) Het eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST. Er is één slimme campagne voor nodig `id` als padparameter. U kunt de `name` parameter om de naam van de slimme campagne bij te werken, of `description` om de beschrijving van de slimme campagne bij te werken.
+Het [ eindpunt van de Campagne van 0} Update Slimme wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST. ](https://developer.adobe.com/marketo-apis/api/asset/) Er is één slimme campagne `id` voor nodig als padparameter. Met de parameter `name` kunt u de naam van de slimme campagne bijwerken. Met de parameter `description` kunt u de beschrijving van de slimme campagne bijwerken.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}.json
@@ -291,9 +291,9 @@ name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 
 ## Klonen
 
-De [Slimme klonen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) Het eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST met drie vereiste parameters. Het kost een `id` parameter die aangeeft welke slimme campagne moet worden gekloond, een `name` parameter die de naam van nieuwe slimme campagne specificeert, en `folder` om de bovenliggende map op te geven waarin de nieuwe slimme campagne wordt gemaakt. De indeling is JSON-blok met `id` en `type` kenmerken.
+Het [ eindpunt van de Campagne van de Kloon Slimme ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST met drie vereiste parameters. Er is een parameter `id` nodig die de slimme campagne opgeeft die moet worden gekloond, een parameter `name` die de naam van de nieuwe slimme campagne opgeeft en een parameter `folder` om de bovenliggende map op te geven waarin de nieuwe slimme campagne wordt gemaakt. De indeling is JSON-blok met `id` - en `type` -kenmerken.
 
-U kunt desgewenst de slimme campagne beschrijven met de opdracht `description` parameter (maximaal 2000 tekens).
+Desgewenst kunt u de slimme campagne beschrijven met de parameter `description` (maximaal 2000 tekens).
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/clone.json
@@ -345,7 +345,7 @@ name=Test Trigger Campaign Clone&folder={"type": "folder","id": 640}&description
 
 ## Verwijderen
 
-De [Slimme campagne verwijderen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST) eindpunt neemt één enkele slimme campagne `id` als padparameter.
+Het [ punt van de Schrapping Slimme Campagne ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST) neemt één enkele slimme campagne `id` als wegparameter.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/delete.json
@@ -371,15 +371,15 @@ De slimme campagnes van de partij lanceren op een specifiek ogenblik en beïnvlo
 
 ## Schema
 
-Gebruik de [Campagne plannen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) om een batchcampagne onmiddellijk of op een toekomstige datum te plannen. De campagne `id` is een vereiste padparameter. Optionele parameters zijn `tokens`, `runAt`, en `cloneToProgram` die in de aanvraaginstantie worden doorgegeven als applicatie/json.
+Gebruik het [ eindpunt van de Campagne van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) om een partijcampagne te plannen om of onmiddellijk of op een toekomstige datum in werking te stellen. De campagne `id` is een vereiste padparameter. Optionele parameters zijn `tokens` , `runAt` en `cloneToProgram` die in de aanvraagtekst worden doorgegeven als application/json.
 
-De parameter van de tokens serie is een serie van Mijn Tokens die bestaande programmatokens met voeten treden. Nadat de campagne is gestart, worden de tokens genegeerd.  Elk token-arrayitem bevat naam/waardeparen. De naam van het token moet worden opgemaakt als &quot;{{my.name}}&quot;.
+De parameter van de tokens serie is een serie van Mijn Tokens die bestaande programmatokens met voeten treden. Nadat de campagne is gestart, worden de tokens genegeerd.  Elk token-arrayitem bevat naam/waardeparen. De naam van het teken moet als &quot;{{my.name}}&quot; worden geformatteerd.
 
 De runtime parameter specificeert wanneer om de campagne in werking te stellen. Als gespecificeerd niet, zal de campagne 5 minuten nadat het eindpunt is geroepen in werking worden gesteld. De datetime-waarde mag in de toekomst niet meer dan twee jaar bedragen.
 
 Campagnes die via deze API zijn gepland, wachten altijd minimaal vijf minuten voordat ze worden uitgevoerd.
 
-De `cloneToProgram` Tekenreeksparameter bevat de naam van een resulterend programma.  Wanneer deze optie is ingesteld, worden de campagne, het bovenliggende programma en alle elementen ervan gemaakt met de resulterende nieuwe naam. Het bovenliggende programma is gekloond en de nieuwe campagne wordt gepland. Het resulterende programma wordt onder het bovenliggende onderdeel gemaakt. Programma&#39;s met fragmenten, pushmeldingen, in-app berichten, statische lijsten, rapporten en sociale elementen worden mogelijk niet op deze manier gekloond. Wanneer gebruikt, is dit eindpunt beperkt tot 20 vraag per dag. De [clone-programma](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) eindpunt is het aanbevolen alternatief.
+De tekenreeksparameter `cloneToProgram` bevat de naam van een resulterend programma.  Wanneer deze optie is ingesteld, worden de campagne, het bovenliggende programma en alle elementen ervan gemaakt met de resulterende nieuwe naam. Het bovenliggende programma is gekloond en de nieuwe campagne wordt gepland. Het resulterende programma wordt onder het bovenliggende onderdeel gemaakt. Programma&#39;s met fragmenten, pushmeldingen, in-app berichten, statische lijsten, rapporten en sociale elementen worden mogelijk niet op deze manier gekloond. Wanneer gebruikt, is dit eindpunt beperkt tot 20 vraag per dag. Het [ kloonprogramma ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) eindpunt is het geadviseerde alternatief.
 
 ```
 POST /rest/v1/campaigns/{id}/schedule.json
@@ -422,13 +422,13 @@ Slimme campagnes activeren beïnvloedt één persoon per keer op basis van een g
 
 ### Verzoek
 
-Gebruik de [Campagne aanvragen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) eindpunt om een reeks lood tot een trekkercampagne over te gaan om door de stroom van de campagne te lopen. De campagne moet een &quot;Campagne wordt Gevraagd&quot;trekker met &quot;de Dienst API van het Web&quot;als bron hebben.
+Gebruik het [ eindpunt van de Campagne van het Verzoek ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) om een reeks lood tot een trekkercampagne over te gaan om door de stroom van de campagne te lopen. De campagne moet een &quot;Campagne wordt Gevraagd&quot;trekker met &quot;de Dienst API van het Web&quot;als bron hebben.
 
-Dit eindpunt vereist een campagne `id` als padparameter en als een `leads` parameter integer array met lead ids . Een maximum van 100 lood wordt toegestaan per vraag.
+Dit eindpunt vereist een campagne `id` als padparameter, en een `leads` integer-arrayparameter die loodid bevat. Een maximum van 100 lood wordt toegestaan per vraag.
 
-Naar keuze, `tokens` arrayparameter kan worden gebruikt om My Tokens lokaal aan het ouderprogramma van de campagne met voeten te treden. `tokens` accepteert maximaal 100 tokens. Elk `tokens` arrayitem bevat een naam/waardepaar. De naam van het token moet worden opgemaakt als &quot;{{my.name}}&quot;. Als u [Een systeemtoken toevoegen als een koppeling in een e-mailbericht](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) de methode om het &quot;viewAsWebpageLink&quot;systeemteken toe te voegen, kunt u niet het met voeten treden gebruikend `tokens`. In plaats daarvan gebruiken [Een koppeling Weergeven als webpagina toevoegen aan een e-mailbericht](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) aanpak waarmee u &quot;viewAsWebPageLink&quot; kunt negeren met behulp van `tokens`.
+Optioneel kan de arrayparameter `tokens` worden gebruikt om My Tokens lokaal te negeren in het bovenliggende programma van de campagne. `tokens` accepteert maximaal 100 tokens. Elk `tokens` -arrayitem bevat een naam/waardepaar. De naam van het teken moet als &quot;{{my.name}}&quot; worden geformatteerd. Als u [ gebruikt voeg een Symbolisch van het Systeem als Verbinding in een E-mail ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) benadering toe om het &quot;viewAsWebpageLink&quot;systeemteken toe te voegen, kunt u niet het met voeten treden gebruikend `tokens`. In plaats daarvan gebruik [ voegt een Mening als Verbinding van de Pagina van het Web aan een E-mail ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) benadering toe die u toestaat om &quot;viewAsWebPageLink&quot;met voeten te treden gebruikend `tokens`.
 
-De `leads` en `tokens` parameters worden in de aanvraaginstantie doorgegeven als application/json.
+De parameters `leads` en `tokens` worden in de aanvraagtekst doorgegeven als application/json.
 
 ```
 POST /rest/v1/campaigns/{id}/trigger.json
@@ -474,7 +474,7 @@ POST /rest/v1/campaigns/{id}/trigger.json
 
 ### Activeren
 
-De [Slimme campagne activeren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST) het eindpunt is ongecompliceerd. An `id` padparameter is vereist. Activering is alleen succesvol als de volgende waarden gelden voor de campagne:
+Het [ activeert Slimme 1} eindpunt van de Campagne {is ongecompliceerd. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST) Een padparameter `id` is vereist. Activering is alleen succesvol als de volgende waarden gelden voor de campagne:
 
 - Moet worden gedeactiveerd
 - Moet ten minste één trigger en één flowstap hebben
@@ -499,7 +499,7 @@ POST /rest/asset/v1/smartCampaign/{id}/activate.json
 
 ### Deactiveren
 
-De [Slimme campagne deactiveren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST) is eenvoudig. An `id` padparameter is vereist. De deactivering kan alleen slagen als de campagne is geactiveerd.
+[ Deactivate Slimme Campagne ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST) is ongecompliceerd. Een padparameter `id` is vereist. De deactivering kan alleen slagen als de campagne is geactiveerd.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/deactivate.json

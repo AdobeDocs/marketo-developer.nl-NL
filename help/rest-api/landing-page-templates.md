@@ -1,32 +1,32 @@
 ---
-title: "Landing Page Templates"
+title: Landingspagina-sjablonen
 feature: REST API, Landing Pages
-description: "Templates voor bestemmingspagina's maken en bewerken."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Marketo Landing Page Templates beheren via REST API-eindpunten voor gratis formulieren en soorten met instructies, zoeken op id of naam, HTML maken, bijwerken, klonen, Munchkin.
+exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '533'
+source-wordcount: '552'
 ht-degree: 0%
 
 ---
 
-
 # Landingspagina-sjablonen
 
-[Referentie voor eindpunt landingspagina-sjabloon](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
+[ Landing de Verwijzing van het Eindpunt van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
 
 Landing Page Templates is een bovenliggende bron en afhankelijkheid voor afzonderlijke Marketo-bestemmingspagina&#39;s. De het landen pagina&#39;s leiden het skelet van hun inhoud van het oudermalplaatje af.
 
 ## Sjabloontypen
 
-Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Zie voor meer informatie over de verschillen [dit document](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Voor meer informatie over de verschillen, zie [ dit document ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Query
 
-Landingspaginasjablonen ondersteunen de standaardquerytypen voor elementen van [door id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), en [bladeren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Deze eindpunten retourneren metagegevens voor de sjablonen. Het ophalen van de HTML-inhoud van sjablonen moet per sjabloon gebeuren via de bijbehorende id.
+Het landen van de Malplaatjes van de Pagina steunt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Deze eindpunten retourneren metagegevens voor de sjablonen. Het ophalen van de HTML-inhoud van sjablonen moet per template gebeuren via de bijbehorende id.
 
 ## Maken en bijwerken
 
-Sjablonen worden gemaakt als lege elementen met bijbehorende metagegevens. Bij het maken van een sjabloon moeten een naam en map worden opgenomen, samen met een optionele beschrijving, templateType en enableMunchkin-parameter. templateType kan vrij of geleid zijn en is standaard aan freeForm. Zie de sectie Met instructies vs. vrije vorm voor informatie over de verschillende typen. enableMunchkin heeft als standaardwaarde false, en als deze optie is ingeschakeld, wordt Munchkin-tracking niet uitgevoerd op alle onderliggende landingspagina&#39;s van de sjabloon.
+Sjablonen worden gemaakt als lege elementen met bijbehorende metagegevens. Bij het maken van een sjabloon moeten een naam en map worden opgenomen, samen met een optionele beschrijving, templateType en enableMunchkin-parameter. templateType kan vrij of geleid zijn en is standaard aan freeForm. Zie de sectie Met instructies vs. vrije vorm voor informatie over de verschillende typen. enableMunchkin heeft als standaardwaarde false, en als deze optie is ingeschakeld, wordt het bijhouden van Munchkin niet uitgevoerd op alle onderliggende bestemmingspagina&#39;s van de sjabloon.
 
 ```
 POST /rest/asset/v1/landingPageTemplates.json
@@ -66,15 +66,15 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Inhoud voor de sjabloon moet afzonderlijk worden ingevuld via de [Inhoud landingspagina bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) eindpunt.
+De inhoud voor het malplaatje moet afzonderlijk via het [ Update Landing de Inhoud van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) eindpunt worden bevolkt.
 
 ### Metagegevens bijwerken
 
-Metagegevens voor landingspaginasjablonen kunnen worden bijgewerkt via de [Sjabloonmetagegevens bestemmingspagina bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) eindpunt. De naam, beschrijving en de instelling enableMunchkin kunnen op deze manier worden bijgewerkt.
+Metagegevens voor het landen van paginasjablonen kunnen via het [ Update Landing Metadata van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) eindpunt worden bijgewerkt. De naam, beschrijving en de instelling enableMunchkin kunnen op deze manier worden bijgewerkt.
 
 ### Inhoud bijwerken
 
-De inhoud in de Malplaatjes van de Openingspagina wordt gemaakt als destructieve update aan de volledige inhoud van de HTML. De inhoud moet worden doorgegeven als multipart/form-data, waarbij de enige parameter de naam content krijgt.
+Inhoud in Landing Page Templates wordt gemaakt als een destructieve update van alle HTML-inhoud. De inhoud moet worden doorgegeven als multipart/form-data, waarbij de enige parameter de naam content krijgt.
 
 ```
 POST /rest/asset/v1/landingPageTemplate/286/content.json
@@ -112,15 +112,15 @@ Content-Type: text/plain
 
 ## Klonen
 
-Marketo biedt een eenvoudige methode voor het klonen van Landing Page Templates. Dit is een aanvraag voor een POST application/x-www-url-formencoded.
+Marketo biedt een eenvoudige methode voor het klonen van Landing Page Templates. Dit is een POST-aanvraag via application/x-www-url-formencoded.
 
-De `id` De wegparameter specificeert identiteitskaart van het bron het Plaatsen Malplaatje van de Pagina aan kloon.
+De padparameter `id` geeft de id op van de bronlandingspagina die moet worden gekloond.
 
-De `name` parameter wordt gebruikt om de naam van het nieuwe Malplaatje van de Openende Pagina te specificeren.
+De parameter `name` wordt gebruikt om de naam van het nieuwe landende Malplaatje van de Pagina te specificeren.
 
-De `folder` parameter wordt gebruikt om de ouderomslag te specificeren waar het nieuwe Plaatsen van het Malplaatje van de Pagina zal verblijven. Dit is in de vorm van een ingesloten JSON-object dat  `id` en `type`.
+De parameter `folder` wordt gebruikt om de bovenliggende map op te geven waarin het nieuwe landingspaginasjabloon wordt geplaatst. Dit is in de vorm van een ingesloten JSON-object dat  `id` en `type` .
 
-De optionele `description` parameter wordt gebruikt om het nieuwe Malplaatje van de Openende Pagina te beschrijven.
+De optionele parameter `description` wordt gebruikt om de nieuwe landingspaginasjabloon te beschrijven.
 
 ```
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
@@ -167,9 +167,9 @@ De Malplaatjes van de Pagina van de landing volgen het standaard ontwerp-goedgek
 
 Een sjabloon kan alleen worden goedgekeurd als het voldoet aan de regels voor het type ervan, ofwel in de vorm van een vrije vorm. Zie de respectievelijke ontwerpdocumenten voor meer informatie over de vereisten voor het maken en goedkeuren van sjablonen van hun respectievelijke typen:
 
-- [Sjablonen voor openingspagina van vrije vorm](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Sjablonen voor bestemmingspagina met instructies](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Voorbeelden van geleide sjablonen](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [ Vrije Vorm het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [ Geleide het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [ Geleide Voorbeelden van het Malplaatje ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Verwijderen
 

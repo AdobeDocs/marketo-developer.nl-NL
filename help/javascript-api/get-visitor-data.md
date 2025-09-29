@@ -1,20 +1,20 @@
 ---
-title: "Bezoekergegevens ophalen"
-description: "Bezoekergegevens ophalen"
+title: Bezoekergegevens ophalen
+description: Krijg bezoekersidentificatie in real time gebruikend de Context API van de Gebruiker RTP met params, callback voorbeeld, en steekproefreacties voor segmenten, ABM, en plaats.
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 39a2446d-8a31-461e-bbe6-a7edf24b4d52
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '184'
-ht-degree: 0%
+source-wordcount: '203'
+ht-degree: 1%
 
 ---
-
 
 # Bezoekergegevens ophalen
 
 Deze methode wordt gebruikt om de identificatiegegevens van de bezoeker in real time te krijgen.
 
-- U moet een klant van de Personalisatie van het Web worden en hebben [RTP-tag geïmplementeerd](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw site voordat u de Context-API van de gebruiker gebruikt.
+- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
 - RTP ondersteunt geen accountgebaseerde marketing met benoemde accountlijsten. ABM-lijsten en -code hebben alleen betrekking op de geüploade accountlijsten (CSV-bestanden) die in RTP worden beheerd.
 
 Als er een fout optreedt, wordt er een foutbericht weergegeven als onderdeel van het antwoord JSON. Als een code van 500 is teruggekeerd, contacteer steun met het verzoek u maakte.

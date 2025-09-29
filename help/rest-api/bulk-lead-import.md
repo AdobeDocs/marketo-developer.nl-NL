@@ -1,20 +1,20 @@
 ---
-title: "Bulklood Import"
+title: Invoer van bulklood
 feature: REST API
-description: "Batch importeren van gegevens voor lood."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Asynchrone invoer van lood in bulk maken en controleren in Marketo met CSV TSV of SSV.
+exl-id: 615f158b-35f9-425a-b568-0a7041262504
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '803'
+source-wordcount: '812'
 ht-degree: 0%
 
 ---
 
-
 # Invoer van bulklood
 
-[Naslaggids voor invoer van bulklood](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+{de Verwijzing van het Eindpunt van de Invoer van het BulkLood [](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
-Voor grote hoeveelheden loodrecords kan de invoer van leads asynchroon verlopen met de opdracht [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
+Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [ bulk API ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
 ## Verwerkingslimieten
 
@@ -29,9 +29,9 @@ email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-De `externalCompanyId` kan worden gebruikt om de loodrecord te koppelen aan een bedrijfsrecord. De `externalSalesPersonId` kan worden gebruikt om de loodrecord te koppelen aan een record van een verkooppersoon.
+Het veld `externalCompanyId` kan worden gebruikt om de lead record te koppelen aan een bedrijfsrecord. Het veld `externalSalesPersonId` kan worden gebruikt om de lead record te koppelen aan een record van een verkooppersoon.
 
-De vraag zelf wordt gemaakt gebruikend `multipart/form-data` inhoudstype.
+De aanroep zelf wordt gemaakt met het inhoudstype `multipart/form-data` .
 
 Dit type verzoek kan moeilijk zijn uit te voeren, zodat wordt het hoogst geadviseerd dat u een bestaande bibliotheekimplementatie gebruikt.
 
@@ -75,7 +75,7 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Dit eindpunt gebruikt [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dit kan lastig zijn om de juiste taal te kiezen, dus de beste praktijk is om een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze. Een eenvoudige manier om dit met cURL van de bevellijn te doen kijkt als dit:
+Dit eindpunt gebruikt [ multipart/form-data als inhoud-type ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dit kan lastig zijn om de juiste taal te kiezen, dus de beste praktijk is om een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze. Een eenvoudige manier om dit met cURL van de bevellijn te doen kijkt als dit:
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
@@ -90,7 +90,7 @@ Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
 ```
 
-U kunt ook de optie `lookupField`, `listId`, en `partitionName` parameters in uw verzoek. `lookupField` Hiermee kunt u een specifiek veld selecteren waarop u wilt dupliceren, net als Leads synchroniseren. Standaard wordt een e-mail verzonden. U kunt `id` als `lookupField` om een bewerking alleen bijwerken aan te geven. `listId` Hiermee kunt u een statische lijst selecteren om de lijst met leads te importeren. Hierdoor worden de leads in de lijst lid van deze statische lijst, plus eventuele creaties of updates die door het importeren worden veroorzaakt. `partitionName` Hiermee selecteert u een specifieke partitie waarnaar u wilt importeren. Zie de sectie Werkruimten en Partities voor meer informatie.
+U kunt desgewenst ook de parameters `lookupField` , `listId` en `partitionName` in uw aanvraag opnemen. In `lookupField` kunt u een specifiek veld selecteren waarop u wilt dedupliceren, net als Leads synchroniseren. Standaard wordt dit veld gebruikt voor e-mail. U kunt `id` als `lookupField` opgeven om een bewerking Alleen bijwerken aan te geven. In `listId` kunt u een statische lijst selecteren waarnaar u de lijst met leads wilt importeren. Hierdoor worden de leads in de lijst lid van deze statische lijst, en worden deze ook gemaakt of bijgewerkt als gevolg van het importeren. `partitionName` selecteert een specifieke partitie waarnaar u wilt importeren. Zie de sectie Werkruimten en Partities voor meer informatie.
 
 Bericht in het antwoord op onze vraag, dat er geen lijst van successen of mislukkingen zoals met de Leads van de Synchronisatie, maar een batchId en een statusgebied voor het verslag in de resultaatserie is. De reden hiervoor is dat deze API asynchroon is en een status in de wachtrij kan retourneren, importeren of Mislukt. U moet batchId behouden om de status van de importtaak op te halen en om fouten en/of waarschuwingen op te halen als de taak is voltooid. De batchId blijft zeven dagen geldig.
 

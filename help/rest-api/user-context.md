@@ -1,11 +1,11 @@
 ---
 title: Gebruikerscontext
 feature: REST API
-description: Overzicht van de gebruikerscontext en API-beschrijvingen
+description: Leer hoe u de Marketo RTP-gebruikerscontext-API kunt inschakelen en gebruiken om aangepaste variabelen in te stellen, gebruikersgegevens te lezen tijdens bezoeken en bekeken en geklikte campagnes te volgen.
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '266'
+source-wordcount: '286'
 ht-degree: 1%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 1%
 
 De context JavaScript API van de gebruiker stelt gebruiker en bezoekersniveau gegevens over veelvoudige zittingen bloot om geavanceerde verpersoonlijkingsvermogen toe te laten gebruikend historisch gebruikersgedrag en gegevens. De API gaat voorbij gegevens lezen en stelt douanevariabelen bloot die u toestaan om zinvolle gegevens en gebeurtenissen aan de achtergrond RTP voor geavanceerde segmentatie en verpersoonlijkingsdoeleinden te duwen. Extra mogelijkheden: [ Trekkers ](../javascript-api/triggers.md), [ de Gelijke van het Patroon ](../javascript-api/pattern-match.md).
 
-- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
+- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 - De gebruikerscontext-API is een functie die op verzoek door Marketo Support moet worden ingeschakeld. Wanneer API wordt toegelaten, zal een userContext voorwerp onder het globale voorwerp RTP worden blootgesteld.
 
 ## Contextkenmerken gebruiker

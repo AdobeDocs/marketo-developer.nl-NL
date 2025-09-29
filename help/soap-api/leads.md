@@ -1,18 +1,18 @@
 ---
-title: "Leads"
+title: Leads
 feature: SOAP
-description: "Leads SOAP-aanroepen"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Overzicht van SOAP-bewerkingen voor leads, waaronder getLead, getMultipleLeads, syncLead, syncMultipleLeads en mergeLeads voor het ophalen, synchroniseren en samenvoegen van records.
+exl-id: 412fa16c-bd6e-4344-83ed-33dd5381fda4
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '21'
+source-wordcount: '37'
 ht-degree: 0%
 
 ---
 
-
 # Leads
 
-De volgende vraag van de ZEEP kan worden gebruikt om met Leads in wisselwerking te staan.
+De volgende SOAP-aanroepen kunnen worden gebruikt voor interactie met leads.
 
 - [getLead](getlead.md)
 - [getMultipleLeads](getmultipleleads.md)

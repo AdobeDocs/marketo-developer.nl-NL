@@ -1,11 +1,11 @@
 ---
 title: Programma's
 feature: REST API, Programs
-description: Programmagegevens maken en bewerken.
+description: De handleiding Marketo-programma's voor de REST-API voor middelen, waarin de typen, kanalen, tags, lidstatussen en eindpunten worden beschreven die op id of naam worden opgehaald, worden doorzocht en op status worden gefilterd.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '848'
+source-wordcount: '870'
 ht-degree: 0%
 
 ---
@@ -82,7 +82,7 @@ GET /rest/asset/v1/program/{id}.json
 
 ### Op naam
 
-Het [ krijgt Programma door het 1&rbrace; eindpunt van de Naam &lbrace;vereist een `name` vraagparameter. ](https://developer.adobe.com/marketo-apis/api/asset/) Optionele Booleaanse queryparameters zijn `includeTags` en `includeCosts` die worden gebruikt om programmalabels en programmakosten te retourneren.
+Het [ krijgt Programma door het 1} eindpunt van de Naam {vereist een ](https://developer.adobe.com/marketo-apis/api/asset/) vraagparameter. `name` Optionele Booleaanse queryparameters zijn `includeTags` en `includeCosts` die worden gebruikt om programmalabels en programmakosten te retourneren.
 
 ```
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
@@ -126,7 +126,7 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Bladeren
 
-Het [ krijgt het 1&rbrace; eindpunt van Programma&#39;s &lbrace;staat u toe om voor programma&#39;s te doorbladeren.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
+Het [ krijgt het 1} eindpunt van Programma&#39;s {staat u toe om voor programma&#39;s te doorbladeren.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
 
 Met de optionele parameter `status` kunt u filteren op de status van het programma. Deze parameter is alleen van toepassing op betrokkenheid- en e-mailprogramma&#39;s. De mogelijke waarden zijn &quot;aan&quot; en &quot;uit&quot; voor betrokkenheidsprogramma&#39;s en &quot;ontgrendeld&quot; voor e-mailprogramma&#39;s.
 

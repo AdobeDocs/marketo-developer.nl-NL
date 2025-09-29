@@ -1,11 +1,11 @@
 ---
 title: Transactionele e-mail
 feature: REST API
-description: Transactiee-mails verwerken voor aanvraagcampagnes.
+description: Leer hoe u Marketo voor transactie-e-mails configureert en deze activeert via REST API Request-campagne, met instellingenstappen en voorbeelden van Java-code.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '971'
+source-wordcount: '988'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ Een gemeenschappelijk gebruiksgeval voor Marketo API moet het verzenden van tran
 - Er moet een Transactiee-mail zijn gemaakt en goedgekeurd in uw Marketo-exemplaar.
 - Er moet een actieve triggercampagne zijn met de &quot;Campagne is Requested, 1. Source: Web Service API&quot;, die is ingesteld om de e-mail te verzenden
 
-Eerst [ creeer en keur uw e-mail ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) goed. Als de e-mail echt transactie is, zult u het waarschijnlijk aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen:
+Eerst [ creeer en keur uw e-mail ](https://experienceleague.adobe.com/docs/marketo/using/home.html) goed. Als de e-mail echt transactie is, zult u het waarschijnlijk aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen:
 
 ![ verzoek-campagne-e-mail-Montages ](assets/request-campaign-email-settings.png)
 
@@ -28,7 +28,7 @@ Goedkeuren en we zijn klaar om onze campagne te maken:
 
 ![ RequestCampaign-Goedkeuren-Ontwerp ](assets/request-campaign-approve-draft.png)
 
-Als u aan het creëren van campagnes nieuw bent, controle uit [ creeer een Nieuw Slimme Campagne ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=nl-NL) artikel. Als je je campagne hebt gemaakt, moeten we deze stappen doorlopen. Vorm uw Slimme Lijst met de Campagne wordt Gevraagde trekker:
+Als u aan het creëren van campagnes nieuw bent, controle uit [ creeer een Nieuw Slimme Campagne ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) artikel. Als je je campagne hebt gemaakt, moeten we deze stappen doorlopen. Vorm uw Slimme Lijst met de Campagne wordt Gevraagde trekker:
 
 ![ verzoek-Campagne-slim-Lijst ](assets/request-campaign-smart-list.png)
 
@@ -182,7 +182,7 @@ Deze klasse heeft één aannemer die een Auth, en Id van de campagne neemt. Lead
 
 ### Uw e-mail maken
 
-Om onze inhoud aan te passen, moeten wij eerst a [ programma ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=nl-NL) en een [ e-mail ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of enig ander stuk inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren.
+Om onze inhoud aan te passen, moeten wij eerst a [ programma ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) en een [ e-mail ](https://experienceleague.adobe.com/docs/marketo/using/home.html) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of enig ander stuk inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren.
 
 ![ nieuw-Symbolisch ](assets/New-Token.png)
 

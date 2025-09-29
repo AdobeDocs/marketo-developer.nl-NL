@@ -1,24 +1,24 @@
 ---
-title: "Fragmenten"
+title: Fragmenten
 feature: REST API, Snippets
-description: "Fragmenten beheren via de Marketo API."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Marketo Asset REST API voor fragmenten, met inbegrip van vraag door Identiteitskaart en doorblader met status, het krijgen van inhoud, het creëren en het bijwerken van HTML, Tekst, en dynamische inhoud.
+exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '438'
+source-wordcount: '456'
 ht-degree: 0%
 
 ---
 
-
 # Fragmenten
 
-[Fragmenteindpuntverwijzing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[ Verwijzing van het Eindpunt van het Fragment ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
 
-Fragmenten zijn herbruikbare HTML-onderdelen die kunnen worden ingesloten in e-mails en bestemmingspagina&#39;s en die kunnen worden gesegmenteerd voor dynamische inhoud. Fragmenten hebben geen bijbehorende sjablonen en kunnen binnen andere elementen in Marketo worden gemaakt en geïmplementeerd.
+Fragmenten zijn herbruikbare HTML-componenten die kunnen worden ingesloten in e-mails en bestemmingspagina&#39;s en die kunnen worden gesegmenteerd voor dynamische inhoud. Fragmenten hebben geen bijbehorende sjablonen en kunnen binnen andere elementen in Marketo worden gemaakt en geïmplementeerd.
 
 ## Query
 
-Querying-fragmenten volgen het standaardpatroon voor elementen, maar hebben geen Op naam-methode. Beide [Op id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) en [Bladeren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET) Met behulp van methoden kan het statusveld goedgekeurde of conceptversies van het fragment ophalen.
+Querying-fragmenten volgen het standaardpatroon voor elementen, maar hebben geen Op naam-methode. Zowel staan 0} door Identiteitskaart [ en ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) doorbladert [ methodes het gebruik van het statusgebied toe om of goedgekeurde of ontwerp versies van het fragment terug te winnen.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET)
 
 ### Op id
 
@@ -139,11 +139,11 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-De vraag keert een lijst van inhoudssecties terug, die uit secties van type HTML of type DynamicContent, en naar keuze een sectie met een type van Tekst bestaan.
+De vraag keert een lijst van inhoudssecties terug,  die bestaan uit secties van het type HTML of DynamicContent, en optioneel een sectie met een type tekst.
 
 ## Maken en bijwerken
 
-Fragmenten volgen het complexe patroon voor het maken van elementen, waarbij de aanroep naar [fragment maken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST), en zijn inhoud wordt gemaakt afzonderlijk, zodat moet de eerste vraag aan het creeer eindpunt, met een facultatieve beschrijving zijn.   Gegevens worden doorgegeven als x-www-form-urlencoded, niet als JSON.
+De fragmenten volgen het complexe patroon van de activaverwezenlijking, waar de vraag [ fragment ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) creeert, en zijn inhoud afzonderlijk wordt gemaakt, zodat moet de eerste vraag aan creëren eindpunt, met een facultatieve beschrijving zijn.   Gegevens worden doorgegeven als x-www-form-urlencoded, niet als JSON.
 
 ```
 POST /rest/asset/v1/snippets.json
@@ -211,7 +211,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-[Metagegevens bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) wordt ook uitgevoerd door id. Alleen naam en beschrijving kunnen worden bijgewerkt:
+[ het Bijwerken van meta-gegevens ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) wordt ook gedaan door identiteitskaart. Alleen naam en beschrijving kunnen worden bijgewerkt:
 
 ```
 POST /rest/asset/v1/snippet/{id}.json
@@ -344,7 +344,7 @@ POST /rest/asset/v1/snippet/{id}/approveDraft.json
 
 ### Niet goedkeuren
 
-De `unapprove` eindpunt kan slechts op goedgekeurde fragmenten worden gebruikt.
+Het eindpunt `unapprove` kan alleen worden gebruikt voor goedgekeurde fragmenten.
 
 ```
 POST /rest/asset/v1/snippet/{id}/unapprove.json
@@ -400,7 +400,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Klonen
 
-[Een fragment klonen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) met de API eenvoudig is en het standaardpatroon volgt, met een vereiste naam, id van het oorspronkelijke fragment en de oorspronkelijke map en een optionele beschrijving.  Als er geen goedgekeurde versie bestaat, wordt de conceptversie gekloond.
+[ het Klonen van een fragment ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) met API is eenvoudig en volgt het standaardpatroon, met een vereiste naam, identiteitskaart van het originele fragment en de omslag, evenals een facultatieve beschrijving.  Als er geen goedgekeurde versie bestaat, wordt de conceptversie gekloond.
 
 ```
 POST /rest/asset/v1/snippet/{id}/clone.json

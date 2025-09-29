@@ -1,11 +1,11 @@
 ---
 title: getLead
 feature: SOAP
-description: getLead SOAP-oproepen
+description: Gebruik Marketo SOAP getLead om één lead en alle veldwaarden op te halen met IDNUM-, e-mail-, cookie- of SFDC-id's, met XML-voorbeeldcode voor aanvragen en antwoorden plus PHP.
 exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '127'
+source-wordcount: '152'
 ht-degree: 0%
 
 ---

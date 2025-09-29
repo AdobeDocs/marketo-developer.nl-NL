@@ -1,20 +1,20 @@
 ---
-title: "Foutcodes"
+title: Foutcodes
 feature: SOAP
-description: "Foutcodes voor SOAP-aanroepen"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Referentiegids voor Marketo SOAP API-foutcodes met berichten en notities, die betrekking heeft op verificatiefouten, frequentie- en gelijktijdige limieten en aanvraagproblemen.
+exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '390'
+source-wordcount: '407'
 ht-degree: 6%
 
 ---
-
 
 # Foutcodes
 
 Wanneer het ontwikkelen voor Marketo, is het zeer belangrijk dat de verzoeken en de reacties het programma worden geopend wanneer een onverwachte uitzondering wordt ontmoet.  Terwijl bepaalde soorten uitzonderingen, zoals verlopen authentificatie veilig door re-authentificatie kunnen worden behandeld, kunnen anderen steuninteractie vereisen, en de verzoeken en de reacties zullen altijd in dit scenario worden gevraagd.
 
-Hieronder volgt een lijst met SOAP API-foutcodes.
+Hieronder vindt u een lijst met SOAP API-foutcodes.
 
 | Code | Bericht | Notities |
 |--- |--- |--- |

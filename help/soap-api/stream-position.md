@@ -1,14 +1,14 @@
 ---
-title: "Stroompositie"
+title: Stroompositie
 feature: SOAP
-description: "Overzicht van de stuurpositie"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Verklaart stroompositie voor het pagineren van tijd rangschikte gegevens in SOAP, eenvoudige en complexe formaten, en gebruik in getLeadChanges, getLeadActivity, en meer
+exl-id: c3a3fc1e-086b-4822-b2c7-2a7959db557c
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '138'
+source-wordcount: '156'
 ht-degree: 0%
 
 ---
-
 
 # Stroompositie
 

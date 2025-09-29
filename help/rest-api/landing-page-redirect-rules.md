@@ -1,11 +1,11 @@
 ---
 title: Regels voor omleiding van bestemmingspagina
 feature: REST API, Landing Pages
-description: Configureer omleidingsregels voor de bestemmingspagina via de API.
+description: Gebruik Marketo Asset REST API's om regels voor het omleiden van bestemmingspagina's te maken, te zoeken, bij te werken en te verwijderen met filters, paginering, opties voor hostnamen, niet-Marketo-doelen.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '641'
+source-wordcount: '655'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van CRUD-bewerkingen op URL&#39;s voor omleiding van bestemmingspagina&#39;s. Deze API&#39;s volgen het standaard interfacepatroon voor de bron-API&#39;s die de opties Query, Maken, Bijwerken en Verwijderen bieden.
 
-Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. De extra informatie bij het Omleiden van de Regels van de Pagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) worden gevonden.
+Regels voor omleiding van bestemmingspagina bieden de mogelijkheid om een bestemmingspagina-URL om te leiden naar een andere pagina-URL. U kunt Marketo-bestemmingspagina&#39;s, andere bestemmingspagina&#39;s dan Marketo of combinaties daarvan omleiden. De extra informatie bij het Omleiden van de Regels van de Pagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/home.html) worden gevonden.
 
 ## Query
 
@@ -155,7 +155,7 @@ De parameter `redirectTo` geeft de bestemmingspagina op. Dit is een JSON-object 
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | Niet-Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Meer informatie bij het creëren van het doorleiden van de landingspagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=nl-NL) worden gevonden.
+Meer informatie bij het creëren van het doorleiden van de landingspagina kan [ hier ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html) worden gevonden.
 
 ```
 POST /rest/asset/v1/redirectRules.json
@@ -198,7 +198,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## Bijwerken
 
-Het [ eindpunt van de Regels van de Omleiding van de Pagina van 0&rbrace; Update Landing &lbrace;neemt één enkele het landen pagina omleiden van regel ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) wegparameter. `id` Dit eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST.
+Het [ eindpunt van de Regels van de Omleiding van de Pagina van 0} Update Landing {neemt één enkele het landen pagina omleiden van regel ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) wegparameter. `id` Dit eindpunt wordt uitgevoerd met een application/x-www-form-urlencoded POST.
 
 Net als met de aanroep create die hierboven wordt beschreven, worden een of meer van de volgende queryparameters doorgegeven om aan te geven welk kenmerk van de regel moet worden bijgewerkt: `hostname`, `redirectFrom`, `redirectTo` .
 

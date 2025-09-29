@@ -1,14 +1,14 @@
 ---
-title: "Gebruikersprofielen"
+title: Gebruikersprofielen
 feature: Mobile Marketing, Users and Roles
-description: "Gebruikersprofielen gebruiken in Marketo Mobile"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Leer gebruikersprofielen te maken en bij te werken in Marketo Mobile SDK op iOS en Android met Objectieve C Swift en Java, standaard- en aangepaste velden, associatedLead
+exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '83'
+source-wordcount: '103'
 ht-degree: 0%
 
 ---
-
 
 # Gebruikersprofielen
 
@@ -65,11 +65,11 @@ profile.setLinkedInId("linkedinid")
 profile.setTwitterId("twitterid")
 ```
 
-Meer toevoegen [standaardvelden](../rest-api/list-of-standard-fields.md).
+Voeg meer [ standaardgebieden ](../rest-api/list-of-standard-fields.md) toe.
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 // Add other custom fields
@@ -78,7 +78,7 @@ Meer toevoegen [standaardvelden](../rest-api/list-of-standard-fields.md).
 [profile setFieldName:@"phone"withValue:@"123.456.7890"];
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 // Add other custom fields
@@ -93,7 +93,7 @@ Gebruikersprofiel rapporteren.
 
 >[!BEGINTABS]
 
->[!TAB Doelstelling C]
+>[!TAB  Doelstelling C ]
 
 ```
 Marketo *sharedInstance = [Marketo sharedInstance];
@@ -102,7 +102,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 [sharedInstance associateLead:profile];
 ```
 
->[!TAB Swift]
+>[!TAB  Swift ]
 
 ```
 let marketo = Marketo.sharedInstance()
@@ -135,7 +135,7 @@ marketo.associateLead(profile)
    }
    ```
 
-1. Meer toevoegen [standaardvelden](../rest-api/list-of-standard-fields.md).
+1. Voeg meer [ standaardgebieden ](../rest-api/list-of-standard-fields.md) toe.
 
    ```java
    // Add other custom fields

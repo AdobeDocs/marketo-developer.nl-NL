@@ -1,15 +1,15 @@
 ---
-title: Gegevensopname
-description: Overzicht van API voor gegevensverwerking
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+title: Data-opname
+description: Marketo Data Ingestie-API voor hoogwaardige upserts met lage latentie van personen en aangepaste objecten, async status via Observability, OAuth header auth, private beta.
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '940'
+source-wordcount: '960'
 ht-degree: 4%
 
 ---
 
 
-# Gegevensopname
+# Data-opname
 
 De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken.
 

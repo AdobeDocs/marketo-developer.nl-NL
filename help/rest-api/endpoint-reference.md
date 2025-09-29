@@ -1,11 +1,11 @@
 ---
 title: Eindpuntverwijzing
 feature: REST API
-description: Verwijzingen naar Marketo API-eindpunt
+description: Uitgebreide eindpuntlijst van Marketo REST API met methodes, URIs, en vereiste toestemmingen over activiteiten, bulkuitvoer, identiteit, lood, activa, gebruikers.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '4448'
+source-wordcount: '4464'
 ht-degree: 1%
 
 ---
@@ -251,7 +251,7 @@ Hier volgt een uitgebreide lijst met REST API-eindpunten.
 | Benoemde accounts beschrijven | Benoemde accounts | GET | /rest/v1/namedaccounts/describe.json | Benoemd account (alleen-lezen) |
 | Benoemde accounts ophalen | Benoemde accounts | GET | /rest/v1/namedaccounts.json | Benoemd account (alleen-lezen) |
 | Benoemde accounts synchroniseren | Benoemde accounts | POST | /rest/v1/namedaccounts.json | Benoemd account voor lezen/schrijven |
-| Veld voor benoemde account ophalen op naam | Benoemde accounts | GET | /rest/v1/namedaccounts/schema/fields/&lbrace;0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
+| Veld voor benoemde account ophalen op naam | Benoemde accounts | GET | /rest/v1/namedaccounts/schema/fields/{0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
 | Benoemde accountvelden ophalen | Benoemde accounts | GET | /rest/v1/namedaccounts/schema/fields.json | Aangepast veld schema voor lezen/schrijven |
 | Kansen verwijderen | Kansen | POST | /rest/v1/opportunities/delete.json | Opportunity voor lezen/schrijven |
 | Opportuniteitsrollen verwijderen | Kansen | POST | /rest/v1/opportunities/roles/delete.json | Opportunity voor lezen/schrijven |
@@ -268,10 +268,10 @@ Hier volgt een uitgebreide lijst met REST API-eindpunten.
 | Programmaleden ophalen | Programmaleden | GET | /rest/v1/programs/{programId} /members.json | Lead, alleen-lezen |
 | Gegevens programmalid synchroniseren | Programmaleden | POST | /rest/v1/programs/{programId} /members.json | Lead lezen |
 | Status van programmalid synchroniseren | Programmaleden | POST | /rest/v1/programs/{programId} /members/status.json | Lead lezen |
-| Veld voor programmalid ophalen op naam | Programmaleden | GET | /rest/v1/program/members/schema/fields/&lbrace;0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
+| Veld voor programmalid ophalen op naam | Programmaleden | GET | /rest/v1/program/members/schema/fields/{0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
 | Veld voor programmalid ophalen | Programmaleden | GET | /rest/v1/programs/members/schema/fields.json | Aangepast veld schema voor lezen/schrijven |
 | Veld voor programmaleden maken | Programmaleden | POST | /rest/v1/programs/members/schema/fields.json | Aangepast veld schema voor lezen/schrijven |
-| Veld van programmalid bijwerken | Programmaleden | POST | /rest/v1/program/members/schema/fields/&lbrace;0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
+| Veld van programmalid bijwerken | Programmaleden | POST | /rest/v1/program/members/schema/fields/{0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
 | Programma goedkeuren | Programma&#39;s | POST | /rest/asset/v1/program/{id} /approve.json | Read-Write-element |
 | Kloonprogramma | Programma&#39;s | POST | /rest/asset/v1/program/{id} /clone.json | Read-Write-element |
 | Programma&#39;s maken | Programma&#39;s | POST | /rest/asset/v1/programs.json | Read-Write-element |

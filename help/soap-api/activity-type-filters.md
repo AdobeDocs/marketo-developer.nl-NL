@@ -1,14 +1,14 @@
 ---
-title: "Activiteitstypefilters"
+title: Filters voor activiteitstypen
 feature: SOAP
-description: "Activiteitstypefilters voor SOAP-aanroepen."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Blader door alle ondersteunde activiteitstypefilters voor SOAP-oproepen, van het klikken op e-mail en het invullen van formulieren tot de wijzigingen in de SFDC-campagne en het bijwerken van de opportuniteit.
+exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '210'
+source-wordcount: '226'
 ht-degree: 0%
 
 ---
-
 
 # Filters voor activiteitstypen
 
@@ -44,7 +44,7 @@ ht-degree: 0%
 | Klik op Gedeelde koppeling |
 | Regelafstand omzetten |
 | Taak maken |
-| Lood uit SFDC verwijderen |
+| Lead verwijderen uit SFDC |
 | E-mail verzonden |
 | Door e-mail teruggekaatst |
 | E-mail bezorgd |
@@ -73,11 +73,11 @@ ht-degree: 0%
 | Verkoop-e-mail verzenden |
 | Verzonden naar e-mail voor vriend |
 | SFDC-activiteit |
-| SFDC-activiteit bijgewerkt |
-| SFDC-samengevoegde leads |
+| SFDC Activity bijgewerkt |
+| SFDC Merge Leads |
 | Inhoud delen |
 | Lood synchroniseren naar SFDC |
-| Updates voor leads synchroniseren naar SFDC |
+| Updates voor lead synchroniseren met SFDC |
 | E-mailadres opzeggen |
 | Opportunity bijwerken |
 | Webpagina bezoeken |

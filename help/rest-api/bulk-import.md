@@ -1,11 +1,11 @@
 ---
 title: Bulkimport
 feature: REST API
-description: Gegevens van personen in batch importeren.
+description: Marketo Bulk-import voor het laden van leads, aangepaste objecten en programmaleden via uploads van meerdere delen, het maken van asynchrone taken, de opiniepeilingstatus en het afhandelen van fouten.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '592'
+source-wordcount: '610'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ De bulkimport-API&#39;s gebruiken dezelfde OAuth 2.0-verificatiemethode als ande
 
 >[!IMPORTANT]
 >
->De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1&rbrace; kopbal van de Vergunning &lbrace;zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Limieten
 

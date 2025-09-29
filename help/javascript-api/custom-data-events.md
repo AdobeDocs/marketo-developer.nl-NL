@@ -1,11 +1,11 @@
 ---
 title: Aangepaste gegevensgebeurtenissen
-description: Gebruik de JavaScript-API voor aangepaste gegevensgebeurtenissen voor het bijhouden van uw unieke gebeurtenissen.
+description: Verzend aangepaste gebeurtenissen met de RTP JavaScript API voor Web Personalization, met parameters, tekenreeks- of arraygegevens tot vier items en op klikken gebaseerde triggers.
 feature: Javascript
 exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '231'
+source-wordcount: '243'
 ht-degree: 1%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Deze methode verzendt douanegebeurtenissen voor het volgen en verpersoonlijking in real time. Deze kan worden gebruikt om gegevens van derden te verzenden of om uw eigen aangepaste gebeurtenis te activeren op basis van het gedrag van de bezoeker. Aangepaste gegevensgebeurtenissen worden één keer geteld in de sessie van een bezoeker.
 
-U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
+U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 
 | Parameter | Optioneel/vereist | Type | Beschrijving |
 |---|---|---|---|

@@ -1,14 +1,14 @@
 ---
-title: "Diepe koppelingen inschakelen"
-feature: "Mobile Marketing"
-description: "Instructies voor het inschakelen van Diepe koppelingen"
-source-git-commit: cb000968c78e062b3c17be7d0faa6236c73e7358
+title: Diepe koppelingen inschakelen
+feature: Mobile Marketing
+description: Leer hoe u uitgebreide koppelingen in uw app voor Marketo-pushberichten inschakelt met behulp van aangepaste URI-schema's, iOS, Android en PhoneGap-richtlijnen en tips en trucs.
+exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '376'
+source-wordcount: '397'
 ht-degree: 0%
 
 ---
-
 
 # Diepe koppelingen inschakelen
 
@@ -22,18 +22,18 @@ Het proces werkt als volgt:
 
 Hiervoor moet u een aangepaste URI-structuur voor uw app definiëren, het schema in het manifest van uw app registreren en vervolgens code toevoegen om deep link-gebeurtenissen te verwerken en naar de juiste locatie in uw app te gaan.
 
-Raadpleeg voor iOS de documentatie bij Apple op [Een aangepast URL-schema voor uw app definiëren](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
+Voor iOS, verwijs naar de documentatie van Apple op [ die een Regeling van Douane URL voor Uw App ](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app) bepaalt.
 
-Raadpleeg voor Android de documentatie bij Google op [Diepe koppelingen inschakelen voor App Content](https://developer.android.com/training/app-links/deep-linking).
+Voor Android, verwijs naar de documentatie van Google op [ toelatend Diepe Verbindingen voor de Inhoud van de Toepassing ](https://developer.android.com/training/app-links/deep-linking).
 
-Voor PhoneGap-apps is deep linking niet zo direct voorwaarts als bij native iOS- of Android-apps, maar er zijn insteekmodules waarmee uw hybride app kan reageren op deep link-aangepaste URL-schema&#39;s en Universal/App-koppelingen op zowel iOS als Android. Overweeg [deze plug-ins](https://cordova.apache.org/plugins/?q=deeplink).
+Voor PhoneGap-apps is deep linking niet zo direct voorwaarts als bij native iOS- of Android-apps, maar er zijn plug-ins waarmee uw hybride app kan reageren op deep link-aangepaste URL-schema&#39;s en Universal/App-koppelingen op zowel iOS als Android. Overweeg [ deze plug-ins ](https://cordova.apache.org/plugins/?q=deeplink).
 
 Wanneer u deep linking hebt ingeschakeld in uw app, deelt u uw aangepaste URI&#39;s met uw Marketo-gebruikers zodat deze ze kunnen invoegen in de Tap-actie voor pushberichten.
 
-Marketo gebruikt een vooraf gedefinieerde URI-structuur bij het instellen van testapparaten. Raadpleeg het gedeelte &quot;Testapparaten&quot; van het dialoogvenster [Installatiehandleiding](installation.md) voor meer informatie .
+Marketo gebruikt een vooraf gedefinieerde URI-structuur bij het instellen van testapparaten. Verwijs naar de &quot;sectie van de Apparaten van de Test&quot;van de [ Gids van de Installatie ](installation.md) voor meer informatie.
 
 ## Aanbevolen procedures voor het definiëren van een URI-structuur
 
-Als uw merk een bestaande mobiele site heeft, kunt u het beste de URL-structuur voor de diepe koppeling-URI volgen. Als `https://myappname.com/products/purple-shirt` is uw websiteadres voor het product in kwestie, dan `myappname://products/purple-shirt` Dit is een goede URI-structuur voor een diepe koppeling die u in uw app kunt gebruiken.
+Als uw merk een bestaande mobiele site heeft, kunt u het beste de URL-structuur voor de diepe koppeling-URI volgen. Als `https://myappname.com/products/purple-shirt` bijvoorbeeld uw websiteadres voor het product in kwestie is, zou `myappname://products/purple-shirt` een goede structuur van diepe verbindingsURI zijn om in uw app te gebruiken.
 
-In het algemeen moeten uw schema&#39;s uniek zijn voor uw merk. Hoewel er momenteel geen regelgeving is om regelingen wereldwijd uniek te maken, kunt u er zeker van zijn dat uw schema&#39;s uniek zijn, bijvoorbeeld door uw domeinnaam om te keren (bijvoorbeeld `org.companyname`).
+In het algemeen moeten uw schema&#39;s uniek zijn voor uw merk. Hoewel er momenteel geen regels zijn om regelingen wereldwijd uniek te maken, kunt u er zeker van zijn dat uw schema&#39;s uniek zijn door uw domeinnaam om te keren (bijvoorbeeld `org.companyname` ).

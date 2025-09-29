@@ -1,11 +1,11 @@
 ---
 title: Munchkin API-naslag
-description: Gebruik de Munchkin Javascript API om uw Munchkin-gegevens aan te passen.
+description: Gebruik de Munchkin Javascript API om paginabezoeken, verbindingskliks, en douanegebeurtenissen met init te volgen, createTrackingCookie, en munchkinFunction methodes.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '414'
+source-wordcount: '424'
 ht-degree: 2%
 
 ---

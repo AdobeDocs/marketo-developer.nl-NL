@@ -1,10 +1,10 @@
 ---
 title: Gegevensstromen
-description: Overzicht van gegevensstromen
+description: Overzicht van Marketo Engage Data Streams die bijna real-time hoofdactiviteit en gebruikersauditgebeurtenissen mogelijk maken, waardoor de API-limieten voor klanten van Performance Tier worden versoepeld
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1596'
+source-wordcount: '1615'
 ht-degree: 0%
 
 ---
@@ -189,7 +189,7 @@ Om de gegevensstroom van de Activiteit van de Lood uit te voeren, zijn hier de s
    1. De URL van het eindpunt in stap 1
    1. De typen activiteiten die zij willen ontvangen (volledige lijst hierboven)
    1. Een middel van authentificatie, zodat de klant kan verifiëren dat de verzoeken wettig zijn. Ofwel:
-      1. Een identiteitsleverancier URL, identiteitskaart van de Cliënt, en Geheim voor de Authentificatie van de Credentials van de Cliënt OAuth [&#128279;](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+      1. Een identiteitsleverancier URL, identiteitskaart van de Cliënt, en Geheim voor de Authentificatie van de Credentials van de Cliënt OAuth [ ](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
       1. Een API-token, dat kan worden opgenomen in aanvragen die door de Lead Activity DataStream worden verzonden in een Authorization http-header
 
 Adobe schakelt vervolgens de gegevensstroom in, waarna klanten gegevens beginnen te ontvangen.
@@ -262,7 +262,7 @@ Aan opstelling Adobe IO, zie [ de Streams van de Gegevens van de Controle van de
 
 ### Gebruikersauditgegevensstroom instellen in Marketo
 
-De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar de [ Pagina van de Beschrijving van het Product ](https://helpx.adobe.com/nl/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor de grenzen en de eigenschappen van het Product.
+De gegevensstroom van de Controle van de Gebruiker is momenteel beschikbaar als deel van de pakketten van Prestaties samen met andere 3 Streams van Gegevens. Voor meer informatie over de Pakketten, verwijs naar de [ Pagina van de Beschrijving van het Product ](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) voor de grenzen en de eigenschappen van het Product.
 
 ### Adobe I/O instellen
 

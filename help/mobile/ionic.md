@@ -1,11 +1,11 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: Gebruikend  [!DNL Ionic]  met Marketo voor mobiele apparaten
+description: Stapsgewijze handleiding om de Marketo Cordova-insteekmodule te integreren met Ionic, pushmeldingen in te schakelen, SDK te initialiseren, sessies bij te houden en leads te koppelen.
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '606'
+source-wordcount: '620'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integre
 
 ## Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 1. Push van de opstelling Meldingen ([ iOS ](push-notifications.md) | [ Android ](push-notifications.md)).
 1. Installeer [[!DNL Ionic] ](https://ionicframework.com/getting-started/) &amp; [ Cordova CLI ](https://cordova.apache.org/docs/en/latest/guide/cli/).
 

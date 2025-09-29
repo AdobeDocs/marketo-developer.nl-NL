@@ -1,11 +1,11 @@
 ---
 title: Kansen
 feature: REST API
-description: ' Configureer mogelijkheden met de Marketo API.'
+description: Marketo REST API voor het beschrijven, vragen, creëren en bijwerken van mogelijkheden, dedupliceren en doorzoekbare velden, limieten en alleen-lezen gedrag met SFDC of Dynamics sync.
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '786'
+source-wordcount: '803'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo stelt API&#39;s beschikbaar voor het lezen, schrijven, maken en bijwerken van opportuniteitsrecords. In Marketo zijn opportuniteitsrecords gekoppeld aan hoofd- en contactrecords via het tussentijdse object Opportunity Role. Een opportuniteit kan dus aan vele individuele leads worden gekoppeld.  Beide objecttypen worden via de API beschikbaar gemaakt en hebben, net als de meeste objecttypen voor databases met leads, beide een bijbehorende beschrijvingsaanroep, die metagegevens over de objecttypen retourneert.
 
-De kans APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
+De kans APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) hebben wordt toegelaten.
 
 ## Beschrijven
 
@@ -188,7 +188,7 @@ Velden met zoekmogelijkheden zijn eenvoudig.  U kunt één enkel bedrijfgebied 
 
 #### Op naam
 
-Het [ krijgt Gebied van de Opportunity door het 1&rbrace; eindpunt van de Naam &lbrace;wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
+Het [ krijgt Gebied van de Opportunity door het 1} eindpunt van de Naam {wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
 
 ```
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json

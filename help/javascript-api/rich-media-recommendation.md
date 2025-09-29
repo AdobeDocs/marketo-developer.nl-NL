@@ -1,11 +1,11 @@
 ---
 title: Aanbevelingen voor rijke media
-description: Aanbevelingen voor rijke media
+description: Stel Rich Media Recommendation in met Marketo Predictive Content RTP-tag, template1 template2 template3-div's, GET om te vullen, SET om categorieën te configureren.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '831'
 ht-degree: 1%
 
 ---
@@ -21,7 +21,7 @@ De volgende tags en API-aanroepen moeten zijn ingesteld op de pagina die u wilt 
 1. In de pagina
    1. Plaats de sjabloontag (klasse div) op de locatie waar u de sjabloon wilt weergeven
 
-Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Sjabloonlabel
 

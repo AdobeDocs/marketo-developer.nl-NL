@@ -1,11 +1,11 @@
 ---
 title: syncLead
 feature: SOAP
-description: syncLead SOAP-oproepen
+description: Leer hoe u Marketo SOAP syncLead kunt gebruiken om één lead in te voegen of bij te werken, id's en werkruimten te verwerken met aanvraagvelden, XML- en PHP-voorbeelden.
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '518'
+source-wordcount: '540'
 ht-degree: 0%
 
 ---

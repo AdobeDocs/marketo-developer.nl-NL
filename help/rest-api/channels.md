@@ -1,18 +1,18 @@
 ---
-title: "Kanalen"
+title: Kanalen
 feature: REST API
-description: "Gegevens van kanalen configureren met Marketo API's."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Leer hoe u Marketo-kanalen kunt opvragen via de REST-API voor middelen, kunt bladeren met paginering of op naam ophalen, progressiestatus kunt weergeven en de regels voor programmatype kunt begrijpen.
+exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '125'
+source-wordcount: '144'
 ht-degree: 0%
 
 ---
 
-
 # Kanalen
 
-[Referentie kanalen-eindpunt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[ Verwijzing van het Eindpunt van Kanalen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
 
 Kanalen zijn een standaard en vereist veld voor alle programmatypen. Elk type kanaal kan alleen worden gebruikt met de opgegeven `applicableProgramType` en bevat de lijst met beschikbare programmastatussen die geldig zijn voor de programmaleden in elk programma. Als de programmastatus van een kanaal na het creëren van een programma wordt veranderd, dan zal de lijst van programmastatussen die een lood kan worden veranderd aan de lijst die door het kanaal op dat ogenblik wordt gegeven, maar het zal niet de programmasstatus voor om het even welke bestaande verslagen van het programmalidmaatschap met terugwerkende kracht veranderen.
 

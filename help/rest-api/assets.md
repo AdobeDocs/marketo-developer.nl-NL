@@ -1,20 +1,20 @@
 ---
-title: "Activa"
+title: Assets
 feature: REST API
-description: "Een API voor het werken met Marketo-middelen."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Overzicht van Marketo Asset REST-API's voor het opvragen van gegevens op id of naam, bladeren met paginering en het maken of bijwerken van mappen, e-mails, formulieren, sjablonen, bestanden, tokens.
+exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '876'
+source-wordcount: '894'
 ht-degree: 0%
 
 ---
 
-
-# Activa
+# Assets
 
 Marketo biedt API&#39;s voor interactie met de meeste marketing- en organisatiemiddelen binnen Marketo.
 
-## Activa
+## Assets
 
 Tot de Marketo-elementen behoren:
 
@@ -31,11 +31,11 @@ Tot de Marketo-elementen behoren:
 
 ## API
 
-Voor een volledig overzicht van de eindpunten van de Asset API, met inbegrip van parameters en modelleringsinformatie, zie [API-eindpuntverwijzing voor element](endpoint-reference.md).
+Voor een volledige lijst van activa API eindpunten, met inbegrip van parameters en modelleringsinformatie, zie de [ Verwijzing van het Eindpunt van Activa API ](endpoint-reference.md).
 
 ## Query
 
-Elementen hebben doorgaans drie patronen waarmee ze kunnen worden opgehaald: op id, op naam en door te bladeren.  Door identiteitskaart en door naam zullen allebei één enkel middel voor een bepaalde parameter terugwinnen, terwijl het doorbladeren zal terugkeren en het pagineren door de volledige lijst van activa van dat type toestaan.  Afzonderlijke typen elementen hebben verschillende parameters waarmee ze kunnen worden gefilterd. Zorg er dus voor dat u hun afzonderlijke documenten voor details bekijkt.
+Assets heeft doorgaans drie patronen waarmee ze kunnen worden opgehaald: op id, op naam en door te bladeren.  Door identiteitskaart en door naam zullen allebei één enkel middel voor een bepaalde parameter terugwinnen, terwijl het doorbladeren zal terugkeren en het pagineren door de volledige lijst van activa van dat type toestaan.  Afzonderlijke typen elementen hebben verschillende parameters waarmee ze kunnen worden gefilterd. Zorg er dus voor dat u hun afzonderlijke documenten voor details bekijkt.
 
 In bepaalde gevallen bladert het doorbladereindpunt voor sommige activa types zullen geen kindactiva, zoals de toelaatbare waarden voor een markering terugkeren, en zij moeten individueel worden teruggewonnen gebruikend of door Naam of door het eindpunt van Id om de volledige reeks meta-gegevens terug te keren.  Anderen hebben mogelijk afzonderlijke eindpunten die volledig zijn bedoeld voor het ophalen van afhankelijke objecten, zoals formuliervelden.
 
@@ -174,7 +174,7 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 ## Maken en bijwerken
 
-Voor eenvoudige activa types zoals Omslagen, Tokens en Dossiers is er typisch slechts één enkel eindpunt voor verwezenlijking, en dan een extra eindpunt voor het bijwerken van verslagen door identiteitskaart.  Elementen worden gemaakt met een naam die altijd verplicht is. Vervolgens worden eventuele metagegevens en id&#39;s geretourneerd door het antwoord voor het maken of bijwerken.
+Voor eenvoudige activa types zoals Omslagen, Tokens en Dossiers is er typisch slechts één enkel eindpunt voor verwezenlijking, en dan een extra eindpunt voor het bijwerken van verslagen door identiteitskaart.  Assets wordt gemaakt met een naam die altijd verplicht is. Eventuele metagegevens en id&#39;s worden geretourneerd door het antwoord voor het maken of bijwerken.
 
 Hier ziet u bijvoorbeeld hoe u een token kunt maken:
 
@@ -433,7 +433,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 }
 ```
 
-Activa kunnen ook niet worden goedgekeurd als ze zich in een goedgekeurde staat bevinden.  Hierdoor worden eventuele live versies van het element verwijderd en wordt het element geretourneerd naar een status met alleen concept, terwijl alle gekoppelde concepten worden verwijderd.  Deze handeling kan alleen worden uitgevoerd op de meeste middelen als deze nergens in Marketo wordt gebruikt, zoals een e-mail waarnaar wordt verwezen in een stap E-mail verzenden of een fragment dat wordt ingesloten in een e-mail.
+Assets kan ook niet worden goedgekeurd als de status alleen is goedgekeurd.  Hierdoor worden eventuele live versies van het element verwijderd en wordt het element geretourneerd naar een status met alleen concept, terwijl alle gekoppelde concepten worden verwijderd.  Deze handeling kan alleen worden uitgevoerd op de meeste middelen als deze nergens in Marketo wordt gebruikt, zoals een e-mail waarnaar wordt verwezen in een stap E-mail verzenden of een fragment dat wordt ingesloten in een e-mail.
 
 ```
 POST /rest/asset/v1/email/{id}/unapprove.json
@@ -455,7 +455,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 ## Verwijderen
 
-Elementen met goedkeuring en conceptstatus, met uitzondering van formulieren, mogen niet worden verwijderd tijdens de goedkeuring en moeten vóór verwijdering niet worden goedgekeurd.  Verwijderingen kunnen doorgaans alleen worden uitgevoerd wanneer een element niet is goedgekeurd en buiten gebruik is en in het geval van mappen leeg is van elementen.  Een opmerkelijke uitzondering vormen programma&#39;s, die samen met alle onderliggende inhoud kunnen worden verwijderd, zolang het programma en de inhoud ervan nergens buiten de grenzen van het programma worden gebruikt.
+Assets met goedkeuring en ontwerpstaten, met uitzondering van formulieren, mag niet worden verwijderd tijdens de goedkeuring en moet vóór verwijdering niet worden goedgekeurd.  Verwijderingen kunnen doorgaans alleen worden uitgevoerd wanneer een element niet is goedgekeurd en buiten gebruik is en in het geval van mappen leeg is van elementen.  Een opmerkelijke uitzondering vormen programma&#39;s, die samen met alle onderliggende inhoud kunnen worden verwijderd, zolang het programma en de inhoud ervan nergens buiten de grenzen van het programma worden gebruikt.
 
 ```
 POST /rest/asset/v1/program/{id}/delete.json

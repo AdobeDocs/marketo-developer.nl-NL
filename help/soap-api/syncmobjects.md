@@ -1,11 +1,11 @@
 ---
 title: syncMObjects
 feature: SOAP
-description: syncMObjects, SOAP-aanroepen
+description: Marketo SOAP syncMObjects voor het invoegen, bijwerken of uploaden van maximaal 100 programma's, Opportunity and OpportunityPersonRoles, het retourneren van status en Marketo-id's.
 exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '426'
+source-wordcount: '443'
 ht-degree: 1%
 
 ---

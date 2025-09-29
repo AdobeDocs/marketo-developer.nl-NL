@@ -1,23 +1,23 @@
 ---
 title: Aan de slag
-description: Aan de slag met Marketo Engage-API's
+description: Ga aan de slag met Marketo Engage API's en gegevensmodel, inclusief leads, activiteiten, programma's, tags, lijsten, REST-instructies en SOAP-afgekeuringsberichten.
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 490411e411bed7b5b76fd9e5f41ccc9d156b2ba9
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1337'
+source-wordcount: '1352'
 ht-degree: 0%
 
 ---
 
 # Aan de slag
 
-Marketo Engage is een platform voor marketingautomatisering dat marketers in staat stelt gepersonaliseerde meerkanaalprogramma&#39;s en -campagnes te beheren voor vooruitzichten en klanten. Het platform van de Marketo Engage kan worden uitgebreid gebruikend integratiepunten. Hieronder vind je de kernentiteiten en hun relaties.
+Marketo Engage is een platform voor marketingautomatisering dat marketers in staat stelt gepersonaliseerde meerkanaalprogramma&#39;s en -campagnes te beheren voor vooruitzichten en klanten. Het Marketo Engage-platform kan worden uitgebreid met behulp van integratiepunten. Hieronder vind je de kernentiteiten en hun relaties.
 
 >[!NOTE]
->De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](./rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, te raadplegen gelieve de SOAP API [ Gids van de Migratie ](./soap-api/migration.md) voor informatie over hoe te migreren.
+>De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](./rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, gelieve de Gids van de Migratie van SOAP API [ ](./soap-api/migration.md) voor informatie over te raadplegen hoe te migreren.
 >
 
-Wanneer of de Inheemse verbinding van SFDC of van de Dynamica CRM van MS op een instantie van het Marketo Engage wordt toegelaten, zijn de volgende voorwerpen read-Only: Bedrijf, Opportunity, de Rol van de Kanaal, Persoon van de Verkoop
+Als de interne verbinding van SFDC of MS Dynamics CRM is ingeschakeld voor een Marketo Engage-instantie, zijn de volgende objecten Alleen-lezen: Bedrijf, Opportunity, Opportunity Role, Sales Person
 
 ![ Model van Gegevens ](assets/data_model.png)
 
@@ -31,7 +31,7 @@ Verwante APIs: [ REST ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/L
 
 Leads onderhouden op een paar manieren met uw organisatie. Een lead kan een pagina op de website van uw bedrijf bezoeken, een exporteerprogramma bijwonen of een whitepaper downloaden. Elk van deze acties kan binnen Marketo worden gevangen om een marktleider te helpen beter begrijpen welke activiteiten een lood deed en wanneer zodat kunnen zij geschikte en relevante mededelingen coördineren. Activiteiten zijn altijd gerelateerd aan leads door leadId.
 
-U kunt uw eigen aangepaste activiteiten definiëren. Nadat u een aangepaste activiteit hebt gemaakt en gepubliceerd, kunt u aangepaste activiteiten toevoegen via de Marketo API. Meer informatie over douaneactiviteiten kan [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities) worden gevonden.
+U kunt uw eigen aangepaste activiteiten definiëren. Nadat u een aangepaste activiteit hebt gemaakt en gepubliceerd, kunt u aangepaste activiteiten toevoegen via de Marketo API. Meer informatie over douaneactiviteiten kan [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities) worden gevonden.
 
 Verwante APIs: [ REST ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities), [ JavaScript ](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -49,13 +49,13 @@ Met tags kunt u gegevens groeperen voor rapportagedoeleinden. Deze herkenningste
 
 Als Marketo-beheerder kunt u vereiste en optionele labeltypen maken die beschikbaar zijn voor selectie wanneer een Marketo-gebruiker een programma maakt. Mogelijke waarden voor elk van deze typen tags worden door u gedefinieerd en geven aan hoe uw bedrijf aangepaste tags wil gebruiken voor rapportagedoeleinden.
 
-U kunt bijvoorbeeld een aangepast type ‘Regio’ maken met meerdere tagwaarden (bijvoorbeeld Noordoost, Zuidoost), zodat u kunt analyseren welk gebied de meeste leads genereert. Of u kunt bijvoorbeeld een type code &#39;Eigenaar&#39; maken, waarmee u kunt beoordelen en begrijpen welke programmaeigenaars (bijvoorbeeld Maria, David of John) het meeste effect hebben op het creëren van kansen en kansen. Meer informatie over markeringen kan [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags) worden gevonden.
+U kunt bijvoorbeeld een aangepast type ‘Regio’ maken met meerdere tagwaarden (bijvoorbeeld Noordoost, Zuidoost), zodat u kunt analyseren welk gebied de meeste leads genereert. Of u kunt bijvoorbeeld een type code &#39;Eigenaar&#39; maken, waarmee u kunt beoordelen en begrijpen welke programmaeigenaars (bijvoorbeeld Maria, David of John) het meeste effect hebben op het creëren van kansen en kansen. Meer informatie over markeringen kan [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags) worden gevonden.
 
 Verwante APIs: [ REST ](https://developer.adobe.com/marketo-apis/api/asset/)
 
 ## Lijsten
 
-Met lijsten kan een markering een verzameling leads ordenen. Er zijn twee typen lijsten in Marketo: statisch en slim. Een statische lijst is een vaste lijst met leads die een markator naar keuze kan toevoegen of verwijderen. Een slimme lijst is een dynamische verzameling van leads op basis van een reeks aangewezen kenmerken. Een voorbeeld van een slimme lijst zou zijn &quot;Alle leads die de prijspagina op onze website hebben bezocht.&quot; Deze slimme lijst blijft groeien naarmate meer leads de prijspagina bezoeken. Meer informatie over lijsten kan [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) worden gevonden.
+Met lijsten kan een markering een verzameling leads ordenen. Er zijn twee typen lijsten in Marketo: statisch en slim. Een statische lijst is een vaste lijst met leads die een markator naar keuze kan toevoegen of verwijderen. Een slimme lijst is een dynamische verzameling van leads op basis van een reeks aangewezen kenmerken. Een voorbeeld van een slimme lijst zou zijn &quot;Alle leads die de prijspagina op onze website hebben bezocht.&quot; Deze slimme lijst blijft groeien naarmate meer leads de prijspagina bezoeken. Meer informatie over lijsten kan [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/home) worden gevonden.
 
 Verwante APIs: [ REST ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
 
@@ -85,13 +85,13 @@ Tokens die op het niveau van het Programma of van de omslag worden bepaald worde
 
 Mijn tokens die lokaal binnen een specifieke campagnemap of een specifiek programma worden gecreeerd zijn beschikbaar aan dat specifiek programma of (lokale) campagnemap. Mijn tokens die op het niveau van de campagnemap worden gecreeerd zijn beschikbaar voor gebruik over alle programma&#39;s binnen die (geërfte) campagnemap. Mijn tokens die op programmaniveau met douanewaarden worden gewijzigd veranderen niet de ouder Mijn Symbolische waarde van het teken op het niveau van de programmaomslag (met voeten getreden).
 
-Mijn tokens gebruiken de naamgevingsconventie {{my.My Token}} , met het woord &quot;my&quot; toegevoegd aan het begin van de tokennaam. Als u bijvoorbeeld een Date-type Mijn token maakt met de naam EventDate, is de naam van het token {{my.EventDate}} . Meer informatie over Mijn Tokens kan [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program) worden gevonden.
+Mijn tokens gebruiken de naamgevingsconventie {{my.My Token}} , met het woord &quot;my&quot; toegevoegd aan het begin van de tokennaam. Als u bijvoorbeeld een Date-type Mijn token maakt met de naam EventDate, is de naam van het token {{my.EventDate}} . Meer informatie over Mijn Tokens kan [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program) worden gevonden.
 
 Verwante APIs: [ REST ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 
 ## Aangepaste objecten
 
-Met een aangepast Marketo-object kunt u een een-op-veel- of een veel-op-veel-relatie (Edge-Bridge-Edge) tot stand brengen tussen uw Marketo-leads en de aangepaste objectrapporten. Nadat u een aangepast Marketo-object hebt gemaakt en gepubliceerd, kunt u CRUD-bewerkingen op het aangepaste object uitvoeren via de Marketo API. Meer informatie over de verwezenlijking van douaneobjecten kan [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/home) worden gevonden. Wanneer nieuwe records aan het aangepaste object worden toegevoegd, kunt u een trigger voor een slimme lijst gebruiken om te reageren. U kunt douaneobjecten gegevens als filter in slimme lijsten (segmentatie), of in e-mail ook gebruiken gebruikend [ E-mail Scripting ](email-scripting.md).
+Met een aangepast Marketo-object kunt u een een-op-veel- of een veel-op-veel-relatie (Edge-Bridge-Edge) tot stand brengen tussen uw Marketo-leads en de aangepaste objectrapporten. Nadat u een aangepast Marketo-object hebt gemaakt en gepubliceerd, kunt u CRUD-bewerkingen op het aangepaste object uitvoeren via de Marketo API. Meer informatie over de verwezenlijking van douaneobjecten kan [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/home) worden gevonden. Wanneer nieuwe records aan het aangepaste object worden toegevoegd, kunt u een trigger voor een slimme lijst gebruiken om te reageren. U kunt douaneobjecten gegevens als filter in slimme lijsten (segmentatie), of in e-mail ook gebruiken gebruikend [ E-mail Scripting ](email-scripting.md).
 
 Verwante APIs: [ REST ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects)
 

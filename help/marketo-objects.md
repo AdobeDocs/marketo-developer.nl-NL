@@ -1,10 +1,11 @@
 ---
 title: Marketo-objecten
 feature: Email Programs
-description: Een overzicht van het gebruik van Marketo-objecten met snelheidsscripts
-source-git-commit: 3ccb27a0d184e0c1314979d404022bc4e0794f7b
+description: Hulplijn voor het gebruik van Marketo-snelheid met leads, Opportunity en aangepaste objecten, laadvelden, toegang tot de bovenste lijst met tien lijsten, SFDC-relaties en $TriggerObject.
+exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '518'
+source-wordcount: '530'
 ht-degree: 0%
 
 ---

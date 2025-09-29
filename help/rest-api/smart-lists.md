@@ -1,32 +1,32 @@
 ---
-title: "Slimme lijsten"
+title: Slimme lijsten
 feature: REST API
-description: "Slimme lijsten maken en bewerken."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Leer hoe te om Marketo REST APIs te gebruiken om, gebruiker-gecreeerde Slimme Lijsten, met inbegrip van eindpunten door identiteitskaart, naam, campagne, en programma met regels te vragen te klonen en te schrappen.
+exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '419'
+source-wordcount: '439'
 ht-degree: 0%
 
 ---
 
-
 # Slimme lijsten
 
-[Verwijzing naar eindpunt slimme lijsten](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists)
+[ Slimme Verwijzing van Lijsten Eindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists)
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van bewerkingen op slimme lijsten. Deze API&#39;s volgen het standaard interfacepatroon voor de bron-API&#39;s die de opties Query, Delete en Clone bieden.
 
-Opmerking: deze API&#39;s worden alleen ondersteund voor door de gebruiker gemaakte slimme lijsten. Ze kunnen niet worden gebruikt voor [Geïntegreerde/systeemslimme lijsten](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+Opmerking: deze API&#39;s worden alleen ondersteund voor door de gebruiker gemaakte slimme lijsten. Zij kunnen niet voor [ worden gebruikt ingebouwde/Slimme Lijsten van het Systeem ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
 
 ## Query
 
-Het vragen van slimme lijsten volgt de standaardvraagtypes voor activa van [door id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET), en [doorbladeren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET).
+Het vragen van slimme lijsten volgt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET), en [ doorbladert ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET).
 
 ### Op id
 
-[Query uitvoeren op id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) neemt één slimme lijst `id` als padparameter en retourneert één slimme-lijstrecord. U kunt optioneel het `includeRules` booleaanse parameter om slimme-lijstregels op te nemen in de reactie.
+[ Vraag door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) neemt één enkele slimme lijst `id` als wegparameter en keert één enkel slim lijstverslag terug. Desgewenst kunt u de Booleaanse parameter `includeRules` doorgeven om slimme-lijstregels in het antwoord op te nemen.
 
-![Smartlist-regels](assets/smartlist-rules.png)
+![ Smartlist Regels ](assets/smartlist-rules.png)
 
 ```
 GET /rest/asset/v1/smartList/{id}.json?includeRules=true
@@ -99,7 +99,7 @@ GET /rest/asset/v1/smartList/{id}.json?includeRules=true
 
 ### Op slimme campagne-id
 
-[Query uitvoeren op id van slimme campagne](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) neemt één slimme campagne `id` als padparameter en retourneert één slimme-lijstrecord. U kunt optioneel het `includeRules` booleaanse parameter om slimme-lijstregels op te nemen in de reactie.
+[ Vraag door slimme campagne identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) neemt één enkele slimme campagne `id` als wegparameter en keert één enkel slim lijstverslag terug. Desgewenst kunt u de Booleaanse parameter `includeRules` doorgeven om slimme-lijstregels in het antwoord op te nemen.
 
 ```
 GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
@@ -130,7 +130,7 @@ GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
 
 ### Op programma-id
 
-[Query uitvoeren op programma-id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getSmartListByProgramIdUsingGET) neemt één e-mailprogramma `id` als padparameter en retourneert één slimme-lijstrecord. U kunt optioneel het `includeRules` booleaanse parameter om slimme-lijstregels op te nemen in de reactie.
+[ Vraag door programma identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getSmartListByProgramIdUsingGET) neemt één enkel e-mailprogramma `id` als wegparameter en keert één enkel slim lijstverslag terug. Desgewenst kunt u de Booleaanse parameter `includeRules` doorgeven om slimme-lijstregels in het antwoord op te nemen.
 
 ```
 GET /rest/asset/v1/program/{programId}/smartList.json
@@ -161,7 +161,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### Op naam
 
-[Query uitvoeren op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) neemt een slimme lijst `name` als een parameter en retourneert één record in de slimme lijst.  Er wordt een exacte tekenreeksovereenkomst uitgevoerd met alle slimme lijstnamen in de instantie en er wordt een resultaat geretourneerd voor de slimme lijst die overeenkomt met die naam.
+[ Vraag door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) neemt een slimme lijst `name` als parameter en keert één enkel slim lijstverslag terug.  Er wordt een exacte tekenreeksovereenkomst uitgevoerd met alle slimme lijstnamen in de instantie en er wordt een resultaat geretourneerd voor de slimme lijst die overeenkomt met die naam.
 
 ```
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -191,7 +191,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Bladeren
 
-Slimme lijsten kunnen ook [opgehaald in batches](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). De `folder` parameter wordt gebruikt om de bovenliggende map op te geven waaronder de query wordt uitgevoerd. Het object is opgemaakt als een JSON-object dat `id` en `type`. Als andere eindpunten van de bulkmiddelherwinning, `offset` en `maxReturn` Dit zijn optionele parameters die kunnen worden gebruikt voor pagineren. De optionele `earliestUpdatedAt` en `latestUpdatedAt` de datetime parameters kunnen worden gebruikt om de resultaten door UpdatedAt datumwaaier te filtreren.
+De slimme lijsten kunnen ook [ worden teruggewonnen in partijen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). De parameter `folder` wordt gebruikt om de bovenliggende map op te geven waaronder de query wordt uitgevoerd. Het object is opgemaakt als een JSON-object met `id` en `type` . Net als andere eindpunten voor het ophalen van bulkmiddelen zijn `offset` en `maxReturn` optionele parameters die kunnen worden gebruikt voor paginering. De optionele parameters `earliestUpdatedAt` en `latestUpdatedAt` datetime kunnen worden gebruikt om de resultaten te filteren op UpdatedAt-datumbereik.
 
 ```
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
@@ -245,7 +245,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 
 ## Klonen
 
-[Een slimme lijst klonen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST) wordt uitgevoerd met een application/x-www-form-urlencoded POST. De slimme lijst die moet worden gekloond, wordt opgegeven in het dialoogvenster `id` padparameter. De `folder` parameter wordt gebruikt om de bovenliggende map op te geven waaronder de slimme lijst wordt gemaakt en wordt opgemaakt als een JSON-object met id en type. De bovenliggende map moet een map van het type Program of Smart List zijn. De `name` wordt gebruikt om de nieuwe slimme lijst te noemen en moet uniek zijn. Naar keuze de `description` kan worden gebruikt om de slimme lijst te beschrijven.
+[ het Klonen van een slimme lijst ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST) wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST. De slimme lijst die moet worden gekloond, wordt opgegeven in de padparameter `id` . De parameter `folder` wordt gebruikt om de bovenliggende map op te geven waaronder de slimme lijst wordt gemaakt en wordt opgemaakt als een JSON-object met id en type. De bovenliggende map moet een map van het type Program of Smart List zijn. De parameter `name` wordt gebruikt om de nieuwe slimme lijst een naam te geven en moet uniek zijn. De parameter `description` kan optioneel worden gebruikt om de slimme lijst te beschrijven.
 
 ```
 POST /rest/asset/v1/smartList/{id}/clone.json
@@ -283,7 +283,7 @@ folder={"id":31,"type":"Folder"}&name=2018 Leads Qualified
 
 ## Verwijderen
 
-[Een slimme lijst verwijderen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) neemt één slimme lijst `id` als padparameter.
+[ het schrappen van een slimme lijst ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) neemt één enkele slimme lijst `id` als wegparameter.
 
 ```
 POST /rest/asset/v1/smartList/{id}/delete.json

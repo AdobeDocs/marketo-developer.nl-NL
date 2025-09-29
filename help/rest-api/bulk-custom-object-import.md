@@ -1,20 +1,20 @@
 ---
-title: "Bulk Custom Object Import"
+title: Aangepast object bulksgewijs importeren
 feature: Custom Objects
-description: "Batch importeren van aangepaste objecten."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Leer hoe u aangepaste Marketo-objecten bulksgewijs kunt importeren via REST met CSV-, TSV- of SSV-bestanden.
+exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: '866'
 ht-degree: 0%
 
 ---
 
-
 # Aangepast object bulksgewijs importeren
 
-[Naslaggids voor aangepast object bulken](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects)
+[ Bulk de Verwijzing van het Eindpunt van de Invoer van de Objecten van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects)
 
-Als u veel aangepaste objectreeks wilt importeren, kunt u deze het beste asynchroon importeren met de bulk-API. Hiertoe importeert u een vlak bestand dat gescheiden records bevat (komma, tab of puntkomma). Het bestand kan een willekeurig aantal records bevatten, op voorwaarde dat het bestand kleiner is dan 10 MB (anders wordt een HTTP 413-statuscode geretourneerd). De inhoud van het bestand is afhankelijk van de definitie van het aangepaste object. De eerste rij bevat altijd een koptekst waarin de velden worden vermeld waarin waarden van elke rij moeten worden toegewezen. Alle veldnamen in de header moeten overeenkomen met een API-naam (zoals hieronder wordt beschreven). Resterende rijen bevatten de te importeren gegevens, één record per rij. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
+Wanneer u veel aangepaste objectrapporten wilt gebruiken  importeren, is het aan te raden deze asynchroon te importeren met de bulk-API. Hiertoe importeert u een vlak bestand dat gescheiden records bevat (komma, tab of puntkomma). Het bestand kan een willekeurig aantal records bevatten, op voorwaarde dat het bestand kleiner is dan 10 MB (anders een HTTP-bestand  413 statuscode wordt geretourneerd). De inhoud van het bestand is afhankelijk van de definitie van het aangepaste object. De eerste rij bevat altijd een koptekst waarin de velden worden vermeld waarin waarden van elke rij moeten worden toegewezen. Alle veldnamen in de header moeten overeenkomen met een API-naam (zoals hieronder wordt beschreven). Resterende rijen bevatten de te importeren gegevens, één record per rij. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
 ## Verwerkingslimieten
 
@@ -22,17 +22,17 @@ U kunt meer dan één aanvraag voor bulkimport indienen, binnen de limieten. Elk
 
 ## Voorbeeld van aangepast object
 
-Voordat u de bulk-API kunt gebruiken, moet u eerst de gebruikersinterface van Marketo Admin gebruiken voor [een aangepast object maken](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Stel bijvoorbeeld dat we een aangepast object &#39;Auto&#39; hebben gemaakt met de velden &#39;Kleur&#39;, &#39;Merk&#39;, &#39;Model&#39; en &#39;VIN&#39;. Hieronder ziet u de Admin UI-schermen die het aangepaste object weergeven. U ziet dat we VIN-veld hebben gebruikt voor deduplicatie. De API-namen worden gemarkeerd, omdat ze moeten worden gebruikt bij het aanroepen van API-gerelateerde eindpunten in bulk.
+Alvorens de bulk API te gebruiken, moet u eerst Marketo Admin UI gebruiken om [ uw douanevoorwerp ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects) tot stand te brengen. Stel bijvoorbeeld dat we een aangepast object &#39;Auto&#39; hebben gemaakt met de velden &#39;Kleur&#39;, &#39;Merk&#39;, &#39;Model&#39; en &#39;VIN&#39;. Hieronder ziet u de Admin UI-schermen die het aangepaste object weergeven. U ziet dat we VIN-veld hebben gebruikt voor deduplicatie. De API-namen worden gemarkeerd, omdat ze moeten worden gebruikt bij het aanroepen van API-gerelateerde eindpunten in bulk.
 
-![Aangepast object invoegen](assets/bulk-insert-co-car-1.png)
+![ Voorwerp van de Douane van het Tussenvoegsel ](assets/bulk-insert-co-car-1.png)
 
 Hier volgen de aangepaste objectvelden die worden weergegeven in de interface voor beheer.
 
-![Aangepast object-velden invoegen](assets/bulk-insert-co-car-fields.png)
+![ de gebieden van de Objecten van het Tussenvoegsel van de Douane ](assets/bulk-insert-co-car-fields.png)
 
 ### API-namen
 
-U kunt API-namen programmatisch ophalen door de API-naam van het aangepaste object aan de [Beschrijf aangepast object](#describe) eindpunt.
+U kunt API namen programmatically terugwinnen door de naam van douanevoorwerp API tot [ over te gaan beschrijf het ](#describe) eindpunt van de Objecten van de Douane {.
 
 ```
 /rest/v1/customobjects/{apiName}/describe.json
@@ -130,7 +130,7 @@ Regel 1 is de kopbal, en lijnen 2-4 zijn de verslagen van de douaneobjecten gege
 
 ## Een taak maken
 
-Als u een aanvraag voor bulkimport wilt uitvoeren, moet u de API-naam van het aangepaste object opnemen in het pad naar het dialoogvenster [Aangepaste objecten importeren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Identity/operation/identityUsingPOST) eindpunt. U moet ook een parameter &quot;file&quot; opnemen die naar de naam van het importbestand verwijst, en een parameter &quot;format&quot; die aangeeft hoe het importbestand wordt gescheiden (&quot;csv&quot;, &quot;tsv&quot; of &quot;ssv&quot;).
+Om het bulkinvoerverzoek te maken, moet u de API naam van het douanevoorwerp in de weg aan het [ eind omvatten van de Objecten van de Douane van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Identity/operation/identityUsingPOST). U moet ook een parameter &quot;file&quot; opnemen die naar de naam van het importbestand verwijst, en een parameter &quot;format&quot; die aangeeft hoe het importbestand wordt gescheiden (&quot;csv&quot;, &quot;tsv&quot; of &quot;ssv&quot;).
 
 ```
 POST /bulk/v1/customobjects/{apiName}/import.json?format=csv
@@ -171,7 +171,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 In dit voorbeeld hebben we de indeling &quot;csv&quot; opgegeven en ons importbestand de naam &quot;custom_object_import.csv&quot; gegeven.
 
-Bericht in het antwoord op onze vraag, hier is geen lijst van successen of mislukkingen zoals u van het eindpunt van de Objecten van de Douane van de Synchronisatie zou terugkomen. In plaats daarvan ontvangt u een `batchId`. Dit is omdat de vraag asynchroon is, en kan terugkeren a `status` van &quot;In wachtrij&quot;, &quot;Importeren&quot; of &quot;Mislukt&quot;. U moet de batchId behouden, zodat u de status van de importtaak kunt ophalen of fouten en/of waarschuwingen kunt ophalen wanneer de taak is voltooid. De batchId blijft zeven dagen geldig.
+Bericht in het antwoord op onze vraag, hier is geen lijst van successen of mislukkingen zoals u van het eindpunt van de Objecten van de Douane van de Synchronisatie zou terugkomen. In plaats daarvan ontvangt u een `batchId` . De reden hiervoor is dat de aanroep asynchroon is en een `status` van &quot;In wachtrij&quot;, &quot;Importeren&quot; of &quot;Mislukt&quot; kan retourneren. U moet de batchId behouden, zodat u de status van de importtaak kunt ophalen of fouten en/of waarschuwingen kunt ophalen wanneer de taak is voltooid. De batchId blijft zeven dagen geldig.
 
 Een eenvoudige manier om de aanvraag voor bulkimport te repliceren is door krullen vanaf de opdrachtregel te gebruiken:
 
@@ -190,7 +190,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## Status opiniepeilingtaak
 
-Nadat de importtaak is gemaakt, moet u een query uitvoeren op de status ervan. Het is aan te raden de importtaak elke 5-30 seconden te peilen. Dit doet u door de API-naam van het aangepaste object en de `batchId` in het pad naar [Aangepaste objectstatus importeren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) eindpunt.
+Nadat de importtaak is gemaakt, moet u een query uitvoeren op de status ervan. Het is aan te raden de importtaak elke 5-30 seconden te peilen. Doe dit door de API naam van het douanevoorwerp en `batchId` in de weg tot het [ overgaan krijgt de Status van de Objecten van de Douane van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) eindpunt.
 
 ```
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -216,11 +216,11 @@ GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 }
 ```
 
-In dit antwoord ziet u een voltooide import, maar de `status` kan een van de volgende zijn: Voltooid, In wachtrij geplaatst, Importeren, Mislukt. Als de taak is voltooid, ziet u een overzicht van het aantal verwerkte rijen, met fouten en waarschuwingen. Het berichtattribuut is ook een goede plaats om naar extra baaninformatie te zoeken.
+In deze reactie wordt een voltooide import getoond, maar de `status` kan een van de volgende zijn: Voltooid, In wachtrij geplaatst, Importeren, Mislukt. Als de taak is voltooid, ziet u een overzicht van het aantal verwerkte rijen, met fouten en waarschuwingen. Het berichtattribuut is ook een goede plaats om naar extra baaninformatie te zoeken.
 
 ## Mislukt
 
-Ontbrekende gegevens worden aangegeven door de `numOfRowsFailed` kenmerk in [Aangepaste objectstatus importeren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) reactie. Als numOfRowsFailed groter is dan nul, dan wijst die waarde op het aantal mislukkingen die voorkwamen. Bellen [Importeren van aangepast object mislukt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) om een dossier met mislukkingsdetail te verkrijgen. Opnieuw moet u de API-naam van het aangepaste object doorgeven en `batchId` in het pad. Als er geen foutbestand bestaat, wordt een HTTP 404-statuscode geretourneerd.
+De mislukkingen worden vermeld door het `numOfRowsFailed` attribuut in [ krijgen de Status van de Objecten van de Douane van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) reactie. Als numOfRowsFailed groter is dan nul, dan wijst die waarde op het aantal mislukkingen die voorkwamen. De vraag [ krijgt het Eigen Voorwerp van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) eindpunt om een dossier met mislukkingsdetail te verkrijgen. Ook hier moet u de API-naam voor het aangepaste object en `batchId` in het pad doorgeven. Als er geen foutbestand bestaat, wordt een HTTP 404-statuscode geretourneerd.
 
 Als u doorgaat met het voorbeeld, kunt u een fout forceren door de koptekst te wijzigen en &quot;vin&quot; in &quot; vin&quot; te wijzigen (door een spatie tussen de komma en &quot;vin&quot; toe te voegen).
 
@@ -228,7 +228,7 @@ Als u doorgaat met het voorbeeld, kunt u een fout forceren door de koptekst te w
 color,make,model, vin
 ```
 
-Wanneer we de status opnieuw importeren en controleren, zien we deze reactie met `numRowsFailed`3. Dit wijst op drie mislukkingen.
+Wanneer we de status opnieuw importeren en controleren, zien we dit antwoord met `numRowsFailed`: 3. Dit wijst op drie mislukkingen.
 
 ```
 GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
@@ -267,11 +267,11 @@ yellow,bmw,320i,WBA4R7C30HK896061,missing.dedupe.fields
 blue,bmw,325i,WBS3U9C52HP970604,missing.dedupe.fields
 ```
 
-We kunnen zien dat we ons deduplicatieveld missen `vin`.
+We kunnen zien dat we ons deduplicatieveld `vin` missen.
 
 ## Waarschuwingen
 
-Waarschuwingen worden aangegeven door de `numOfRowsWithWarning` kenmerk in de reactie Aangepaste objectstatus importeren. Als numOfRowsWithWarning groter is dan nul, dan wijst die waarde op het aantal waarschuwingen die voorkwamen. Bellen [Waarschuwingen bij eigen object importeren ophalen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) om een dossier met waarschuwingsdetail te verkrijgen. Opnieuw moet u de API-naam van het aangepaste object doorgeven en `batchId` in het pad. Als er geen waarschuwingsbestand bestaat, wordt een HTTP 404-statuscode geretourneerd.
+Waarschuwingen worden aangegeven door het kenmerk `numOfRowsWithWarning` in de statusreactie Aangepast object importeren ophalen. Als numOfRowsWithWarning groter is dan nul, dan wijst die waarde op het aantal waarschuwingen die voorkwamen. De vraag [ krijgt de Waarschuwingen van het Voorwerp van de Douane van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) eindpunt om een dossier met waarschuwingsdetail te verkrijgen. Ook hier moet u de API-naam voor het aangepaste object en `batchId` in het pad doorgeven. Als er geen waarschuwingsbestand bestaat, wordt een HTTP 404-statuscode geretourneerd.
 
 ```
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

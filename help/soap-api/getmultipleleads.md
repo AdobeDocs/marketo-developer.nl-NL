@@ -1,11 +1,11 @@
 ---
 title: getMultipleLeads
 feature: SOAP
-description: getMultipleLeads SOAP-aanroepen
+description: Leer hoe u Marketo SOAP getMultipleLeads gebruikt om maximaal 1000 leads op te halen aan de hand van sleutel, statische lijst of updatedatum, pagineren met de streampositie en filtervelden.
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '383'
+source-wordcount: '407'
 ht-degree: 0%
 
 ---

@@ -1,11 +1,11 @@
 ---
 title: Regelafstand bijhouden
-description: API voor bijhouden van leads
+description: Leer hoe u Marketo Munchkin JavaScript kunt insluiten, bezoeken en klikken kunt volgen, bekende of anonieme leads kunt beheren, interdomeincookies en de optie om te weigeren voor slimme campagnes.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '764'
+source-wordcount: '784'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Het wordt ten zeerste aanbevolen de asynchrone trackingcode te gebruiken voor he
 
 Bepaalde systemen voor inhoudsbeheer hebben mogelijk specifieke methoden of beperkingen bij het insluiten van willekeurige scripts.
 
-Ter referentie moet de laatste pagina code bevatten die vergelijkbaar is met deze code in `<head>` van het HTML-document:
+Ter referentie moet de laatste pagina code bevatten die vergelijkbaar is met deze code in `<head>` van uw HTML-document:
 
 ```html
 <head>
@@ -100,7 +100,7 @@ Munchkin cookies zijn specifiek voor elk domein op het tweede niveau, dat wil ze
 
 ## Beta
 
-Om binnen aan het bèta kanaal van Munchkin voor uw landende pagina&#39;s te kiezen, ga naar uw [ Admin -> het menu van de Borst van de Schat ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en laat &quot;Munchkin Beta op het Aanvoeren van Pagina&#39;s&quot;toe plaatsen. Dit biedt nieuwe codefragmenten in de map **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** gebruiken om de bètaversie op externe sites te gebruiken.
+Om binnen aan het bèta kanaal van Munchkin voor uw landende pagina&#39;s te kiezen, ga naar uw [ Admin -> het menu van de Borst van de Schat ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en laat &quot;Munchkin Beta op het Aanvoeren van Pagina&#39;s&quot;toe plaatsen. Dit biedt nieuwe codefragmenten in de map **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** gebruiken om de bètaversie op externe sites te gebruiken.
 
 ## Uitschakelen
 

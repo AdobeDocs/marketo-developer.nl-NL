@@ -1,11 +1,11 @@
 ---
 title: Activiteiten
 feature: REST API
-description: Een API voor het beheer van Marketo Engage-activiteiten.
+description: Gebruik de Marketo Engage Activity REST API om activiteitstypen weer te geven, leadactiviteiten met paginerende tokens op te halen en aangepaste wijzigingen en gegevenswaarden af te handelen.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '2029'
+source-wordcount: '2046'
 ht-degree: 0%
 
 ---

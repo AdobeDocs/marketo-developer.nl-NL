@@ -1,11 +1,11 @@
 ---
 title: PhoneGap
 feature: Mobile Marketing
-description: PhoneGap gebruiken met Marketo op mobiele apparaten
+description: Stel de Marketo PhoneGap-insteekmodule met Cordova in, configureer Firebase Cloud Messaging, schakel iOS en Android push in, traceer meldingen en initialiseer de SDK.
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '797'
+source-wordcount: '813'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Integratie van Marketo PhoneGap-insteekmodule
 
 ## Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 1. Push van de opstelling Meldingen ([ iOS ](push-notifications.md) | [ Android ](push-notifications.md)).
 1. [ installeer PhoneGap/Cordova CLI ](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -66,7 +66,7 @@ Lijst met toegevoegde platforms controleren `$cordova platform ls`
 1. Ondersteuning voor Firebase Cloud Messaging
 
 1. Firebase-app configureren op Firebase-console.
-   1. Creeer/voeg een Project op [&#128279;](https://console.firebase.google.com/) de Console van de Vuurbasis toe.
+   1. Creeer/voeg een Project op [ ](https://console.firebase.google.com/) de Console van de Vuurbasis toe.
       1. In de [ console van de Vuurbasis ](https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
       1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
       1. Selecteer Firebase toevoegen aan uw Android-toepassing in het welkomstscherm van Firebase.

@@ -1,18 +1,18 @@
 ---
-title: '"Activiteiten'
+title: Activiteiten
 feature: SOAP
-description: "SOAP vraagt om activiteiten"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Leer hoe u communiceert met Activiteiten die gebruikmaken van SOAP, leadactiviteiten ophaalt en wijzigingen in leads bijhoudt met getLeadActiviteiten en getLeadChanges
+exl-id: fd695ab6-e7be-4ced-89c9-c4cd2d4c2ab0
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '19'
-ht-degree: 0%
+source-wordcount: '34'
+ht-degree: 5%
 
 ---
 
-
 # Activiteiten
 
-De volgende vraag van de ZEEP kan worden gebruikt om met Activiteiten in wisselwerking te staan.
+De volgende SOAP-aanroepen kunnen worden gebruikt voor interactie met Activiteiten.
 
 - [getLeadActivity](getleadactivity.md)
 - [getLeadChanges](getleadchanges.md)

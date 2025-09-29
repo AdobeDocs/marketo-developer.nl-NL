@@ -1,18 +1,18 @@
 ---
 title: SOAP API
 feature: SOAP
-description: Marketo SOAP - overzicht
+description: Marketo SOAP API is afgekeurd na 31 oktober 2025. Leer om aan REST te migreren, uw WSDL terug te winnen, quota's, tariefgrenzen, en auth opstelling te zien.
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '228'
+source-wordcount: '249'
 ht-degree: 0%
 
 ---
 
 # SOAP API
 
-De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](../rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, gelieve de Gids van de Migratie van SOAP API [&#128279;](./migration.md) voor informatie over te raadplegen hoe te migreren.
+De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](../rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, gelieve de Gids van de Migratie van SOAP API [ ](./migration.md) voor informatie over te raadplegen hoe te migreren.
 
 ## SOAP WSDL
 

@@ -1,11 +1,11 @@
 ---
 title: Landingspagina's
 feature: REST API, Landing Pages
-description: Zoek zoekpagina's op in Marketo.
+description: Met de Marketo REST API kunt u zoeken naar metagegevens en inhoud, landingspagina's maken, bijwerken, goedkeuren, verwijderen en klonen, inclusief typen met instructies en vrije formulieren.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '1018'
 ht-degree: 0%
 
 ---
@@ -173,7 +173,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Sectie Inhoud beheren
 
-Inhoudssecties worden gerangschikt op basis van hun indexeigenschap en worden uiteindelijk ingedeeld volgens de CSS-regels die worden toegepast wanneer ze door de client worden weergegeven. De secties van de inhoud zijn inbegrepen en beheerd met het corresponderende [&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST) toevoegen, [ Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) en [ schrap ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) het Landing de inhoudseindpoints van de Pagina, en kunnen worden gevraagd gebruikend [ krijgen het Bestaan Inhoud van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Elke sectie heeft een type- en een waardeparameter. Het type bepaalt wat in de waarde moet worden gezet.  Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded en niet als JSON.
+Inhoudssecties worden gerangschikt op basis van hun indexeigenschap en worden uiteindelijk ingedeeld volgens de CSS-regels die worden toegepast wanneer ze door de client worden weergegeven. De secties van de inhoud zijn inbegrepen en beheerd met het corresponderende [ ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST) toevoegen, [ Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) en [ schrap ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) het Landing de inhoudseindpoints van de Pagina, en kunnen worden gevraagd gebruikend [ krijgen het Bestaan Inhoud van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Elke sectie heeft een type- en een waardeparameter. Het type bepaalt wat in de waarde moet worden gezet.  Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded en niet als JSON.
 
 **Types van Sectie**
 
@@ -193,7 +193,7 @@ Voor vrije-formulierpagina&#39;s moeten alle gewenste inhoudssecties worden toeg
 
 ### Dynamische inhoud
 
-Als u een sectie Dynamische inhoud wilt maken, moet deze al voorkomen in de inhoudslijst van de bestemmingspagina. Het [ eindpunt van de Sectie van de Inhoud van de Pagina van 0&rbrace; Update Landing &lbrace;moet dan worden gebruikt om het type aan &quot;DynamicContent&quot;te plaatsen. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) Wanneer een sectie op dynamische inhoud wordt geplaatst, leidt het tot onderliggende dynamische secties binnen de inhoudssectie die allen het basistype van het omgezette element erven. Elke dynamische sectie neemt ook de inhoud van de omgezette sectie over.
+Als u een sectie Dynamische inhoud wilt maken, moet deze al voorkomen in de inhoudslijst van de bestemmingspagina. Het [ eindpunt van de Sectie van de Inhoud van de Pagina van 0} Update Landing {moet dan worden gebruikt om het type aan &quot;DynamicContent&quot;te plaatsen. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) Wanneer een sectie op dynamische inhoud wordt geplaatst, leidt het tot onderliggende dynamische secties binnen de inhoudssectie die allen het basistype van het omgezette element erven. Elke dynamische sectie neemt ook de inhoud van de omgezette sectie over.
 
 ```
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
@@ -274,7 +274,7 @@ Variabelen worden gedefinieerd als metatags binnen het `<head>` -element van een
 </head>
 ```
 
-Voor meer informatie zie &quot;Bewerkbare Veranderlijke&quot;sectie in [ creeer een Geleide Landing de documentatie van het Malplaatje van de Pagina ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Voor meer informatie zie &quot;Bewerkbare Veranderlijke&quot;sectie in [ creeer een Geleide Landing de documentatie van het Malplaatje van de Pagina ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Query
 

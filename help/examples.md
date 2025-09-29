@@ -1,10 +1,11 @@
 ---
 title: Voorbeelden van e-mailscripts
 feature: Email Programs
-description: Voorbeelden van Marketo e-mailscripting
-source-git-commit: 3ccb27a0d184e0c1314979d404022bc4e0794f7b
+description: Marketo e-mailscriptvoorbeelden waarbij gebruik wordt gemaakt van Snelheid, zoals het doorlopen van aangepaste objecten, het parseren/opmaken van datums, HTML escape en URL-id.
+exl-id: 7c801f1c-0ab3-49f0-8577-0c4dccc80d0b
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '52'
+source-wordcount: '67'
 ht-degree: 1%
 
 ---

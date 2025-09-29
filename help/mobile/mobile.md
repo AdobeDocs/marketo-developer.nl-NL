@@ -1,14 +1,14 @@
 ---
-title: "Mobiel"
-feature: "Mobile Marketing"
-description: "Marketo Mobile gebruiken"
-source-git-commit: 2454f126dc4275697ef6773420453ad8853eae73
+title: Mobiel
+feature: Mobile Marketing
+description: Leer hoe Marketo Mobile Engagement een Mobile SDK en Mobile Marketing gebruikt om push- en in-app berichten, doelgroepen en analytische gegevens te verzenden.
+exl-id: d5fa5640-01f5-49a1-944a-9f81a1f83617
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '129'
-ht-degree: 0%
+source-wordcount: '149'
+ht-degree: 1%
 
 ---
-
 
 # Mobiel
 
@@ -24,4 +24,4 @@ Marketo Mobile Engagement bestaat uit twee onderdelen:
 
    Marketers gebruiken Marketo om het publiek te definiëren, meldingen te maken, gerichte berichtencampagnes te starten en gedetailleerde klantanalyses weer te geven.
 
-Nadat u de SDK van Marketo hebt geïntegreerd in uw mobiele toepassing, kunt u zowel mobiele pushberichten als In-App-berichten naar uw klanten verzenden vanuit Marketo. Als u wilt weten hoe u mobiele berichten kunt instellen en implementeren in Marketo, raadpleegt u de [Mobiele marketing](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) in de productdocumentatie.
+Nadat u de Marketo SDK in uw mobiele toepassing hebt geïntegreerd, kunt u zowel mobiele pushberichten als In-App-berichten naar uw klanten vanuit Marketo verzenden. Om te weten te komen hoe te opstelling en mobiel overseinen binnen Marketo op te stellen, zie de [ Mobiele Marketing ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) sectie in onze productdocumentatie.

@@ -1,18 +1,18 @@
 ---
-title: "Fields"
+title: Velden
 feature: REST API, Field Management
-description: "Een lijst met ondersteunde veldnamen."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Leer REST en SOAP lood gebiedsnaming, lijstgebieden via REST beschrijf Lood, eigenschapsafbeelding, waarom sfdcId ongeldig is, en gebruik sfdcLeadId of sfdcContactId.
+exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '194'
+source-wordcount: '212'
 ht-degree: 0%
 
 ---
 
-
 # Velden
 
-De REST API en SOAP API gebruiken verschillende naamconventies voor hoofdvelden.
+De REST API en de SOAP API gebruiken verschillende naamconventies voor hoofdvelden.
 
 ## De lijst met veldnamen ophalen
 
@@ -20,7 +20,7 @@ Haal de lijst van alle gesteunde gebiedsnamen terug beschikbaar op uw loodversla
 
 ## Waar moet u het type veldnaam gebruiken?
 
-Soms is het moeilijk om te weten welk type veldnaam u moet gebruiken wanneer het leveraging van een bepaalde op integratie betrekking hebbende eigenschap. Hieronder volgt een snelle referentie waarvoor functies REST- of SOAP-veldnaamtypen gebruiken.
+Soms is het moeilijk om te weten welk type veldnaam u moet gebruiken wanneer het leveraging van een bepaalde op integratie betrekking hebbende eigenschap. Hieronder volgt een snelle referentie waarvoor functies gebruikmaken van de veldnaamtypen REST of SOAP.
 
 | Functie | Te gebruiken veldnaamtype |
 |--- |--- |
@@ -35,4 +35,4 @@ Soms is het moeilijk om te weten welk type veldnaam u moet gebruiken wanneer het
 
 ### Waarom retourneert het veld sfdcId van REST API altijd de waarde null?
 
-Het veld `sfdcId` is een formuleveld dat ten onrechte is opgenomen in de oorspronkelijke veldkaart voor de REST API. Records die via de REST API zijn opgehaald, berekenen de waarde van formulevelden niet, zodat de waarde altijd null is. Om de echte identiteitskaart van SFDC te vangen, zou u de geroepen gebieden moeten gebruiken `sfdcLeadId` en `sfdcContactId`.
+Het veld `sfdcId` is een formules-veld dat ten onrechte is opgenomen in de oorspronkelijke veldkaart voor de REST API. Records die via de REST API zijn opgehaald, berekenen de waarde van formulevelden niet, zodat de waarde altijd null is. Als u de echte SFDC-id wilt vastleggen, gebruikt u de velden `sfdcLeadId` en `sfdcContactId` .

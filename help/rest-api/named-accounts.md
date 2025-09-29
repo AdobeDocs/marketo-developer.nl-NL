@@ -1,11 +1,11 @@
 ---
 title: Benoemde accounts
 feature: REST API
-description: Benoemde accounts manipuleren via de API.
+description: Marketo REST-handleiding naar CRUD op benoemde accounts voor ABM, met beschrijf, query's, maak updatevoorbeelden, doorzoekbare velden, deduplicatieregels en geen lead linking.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '679'
+source-wordcount: '697'
 ht-degree: 0%
 
 ---

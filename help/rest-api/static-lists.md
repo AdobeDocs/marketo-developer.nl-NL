@@ -1,30 +1,30 @@
 ---
 title: Statische lijsten
 feature: REST API, Static Lists
-description: "Voer CRUD verrichtingen op statische lijsten uit."
-source-git-commit: e8bb45a7b3bee71c3d0ab6117296a75c8959d72e
+description: Gebruik Marketo REST API's om statische lijsten te zoeken, te maken, bij te werken en te verwijderen, met eindpunten voor ID, naam en bladeren, mapbereikregels, paginering en datumfilters.
+exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '741'
+source-wordcount: '760'
 ht-degree: 0%
 
 ---
 
-
 # Statische lijsten
 
-[Verwijzing naar eindpunt statische lijsten](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
+[ Statische Verwijzing van Lijsten Eindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
 
-[Referentie eindpunt van lidmaatschap weergeven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[ Verwijzing van het Eindpunt van het Lidmaatschap van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van CRUD-bewerkingen op statische lijsten. Deze API&#39;s volgen het standaard interfacepatroon voor de bron-API&#39;s die de opties Query, Maken, Bijwerken en Verwijderen bieden.
 
 ## Query
 
-Het vragen van statische lijsten volgt de standaardvraagtypes voor activa van [door id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET), [op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET), en [doorbladeren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET).
+Het vragen van statische lijsten volgt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET), en [ doorbladert ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET).
 
 ### Op id
 
-[Query uitvoeren op id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) neemt één enkele statische lijst `id` als padparameter en retourneert één statische lijstrecord.
+[ Vraag door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) neemt één enkele statische lijst `id` als wegparameter en keert één enkel statisch lijstverslag terug.
 
 ```
 GET /rest/asset/v1/staticList/{id}.json
@@ -53,7 +53,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### Op naam
 
-[Query uitvoeren op naam](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) neemt een statische lijst `name` als een parameter en retourneert één statische List-record. Een nauwkeurige koordgelijke wordt uitgevoerd tegen alle statische lijstnamen in de instantie, en keert een resultaat voor de statische lijst terug die die naam aanpassen.
+[ Vraag door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) neemt een statische lijst `name` als parameter en keert één enkel statisch lijstverslag terug. Een nauwkeurige koordgelijke wordt uitgevoerd tegen alle statische lijstnamen in de instantie, en keert een resultaat voor de statische lijst terug die die naam aanpassen.
 
 ```
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -82,7 +82,7 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### Bladeren
 
-Statische lijsten kunnen ook [opgehaald in batches](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET). De `folder` parameter kan worden gebruikt om de bovenliggende map op te geven waaronder de query wordt uitgevoerd en wordt opgemaakt als een JSON-object met id en type. Als andere eindpunten van de bulkmiddelherwinning, `offset` en `maxReturn` Dit zijn optionele parameters die kunnen worden gebruikt voor pagineren. De `earliestUpdatedAt` en `latestUpdatedAt` Met parameters kunt u lage en hoge datumtijdwatermerken instellen voor het retourneren van statische lijsten die zijn gemaakt of bijgewerkt binnen het opgegeven bereik. Datumtijdwaarden moeten geldige ISO-8601-tekenreeksen zijn en mogen geen milliseconden bevatten
+De statische lijsten kunnen ook [ worden teruggewonnen in partijen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET). De parameter `folder` kan worden gebruikt om de bovenliggende map op te geven waaronder de query wordt uitgevoerd en wordt opgemaakt als een JSON-object met id en type. Net als andere eindpunten voor het ophalen van bulkmiddelen zijn `offset` en `maxReturn` optionele parameters die kunnen worden gebruikt voor paginering. Met de parameters `earliestUpdatedAt` en `latestUpdatedAt` kunt u lage en hoge datetime watermerken instellen voor het retourneren van statische lijsten die binnen het opgegeven bereik zijn gemaakt of bijgewerkt. Datumtijdwaarden moeten geldige ISO-8601-tekenreeksen zijn en mogen geen milliseconden bevatten
 
 ```
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
@@ -133,7 +133,7 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Maken en bijwerken
 
-[Een statische lijst maken](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) wordt uitgevoerd met een application/x-www-form-urlencoded POST met twee vereiste parameters. De `folder` parameter wordt gebruikt om de bovenliggende map op te geven waaronder de statische lijst wordt gemaakt en wordt opgemaakt als een JSON-object met id en type. De `name` parameter wordt gebruikt om de statische lijst te noemen en moet uniek zijn. Naar keuze de `description` parameter kan worden gebruikt om de statische lijst te beschrijven.
+[ Creërend een statische lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST met twee vereiste parameters. De parameter `folder` wordt gebruikt om de bovenliggende map op te geven waaronder de statische lijst wordt gemaakt en wordt opgemaakt als een JSON-object met id en type. De parameter `name` wordt gebruikt om de statische lijst een naam te geven en moet uniek zijn. De parameter `description` kan optioneel worden gebruikt om de statische lijst te beschrijven.
 
 ```
 POST /rest/asset/v1/staticLists.json
@@ -168,7 +168,7 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 }
 ```
 
-[Updates van een statische lijst](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST) worden gemaakt door een afzonderlijk eindpunt met twee optionele parameters. De `description` kan worden gebruikt om de beschrijving van de statische lijst bij te werken. De `name` parameter kan worden gebruikt om de statische lijstnaam bij te werken en moet uniek zijn.
+[ Updates aan een statische lijst ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST) worden gemaakt door een afzonderlijk eindpunt met twee facultatieve parameters. De parameter `description` kan worden gebruikt om de beschrijving van de statische lijst bij te werken. De parameter `name` kan worden gebruikt om de statische lijstnaam bij te werken en moet uniek zijn.
 
 ```
 POST /rest/asset/v1/staticList/{id}.json
@@ -206,7 +206,7 @@ description=This is a static list used for testing
 
 ### Verwijderen
 
-[Een statische lijst verwijderen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) neemt één enkele statische lijst `id` als padparameter. U kunt geen verwijderingen maken voor statische lijsten die worden gebruikt door een import- of exportbewerking of die worden gebruikt door andere elementen.
+[ het schrappen van een statische lijst ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) neemt één enkele statische lijst `id` als wegparameter. U kunt geen verwijderingen maken voor statische lijsten die worden gebruikt door een import- of exportbewerking of die worden gebruikt door andere elementen.
 
 ```
 POST /rest/asset/v1/staticList/{id}/delete.json
@@ -231,9 +231,9 @@ De eindpunten van het lijstlidmaatschap verstrekken capaciteit om, statische lij
 
 ### Toevoegen aan lijst
 
-De [Toevoegen aan lijst](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) het eindpunt wordt gebruikt voegt één of meerdere leden aan een lijst toe. Het eindpunt neemt vereist `listId` padparameter en een of meer id-query-parameters die lead id&#39;s bevatten (maximaal toegestaan is 300).
+[ voegt aan het eindpunt van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) toe wordt gebruikt voegt één of meerdere leden aan een lijst toe. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere id vraagparameters die loodids bevatten (maximaal toegestaan is 300).
 
-De reactie bevat een `result` array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
+De reactie bevat een `result` -array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
 
 ```
 POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
@@ -264,9 +264,9 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ### Verwijderen uit lijst
 
-De [Verwijderen uit lijst](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) het eindpunt wordt gebruikt verwijdert één of meerdere leden uit een lijst. Het eindpunt neemt vereist `listId` padparameter en een of meer `id` query-parameters die lead ids bevatten (maximaal toegestaan is 300).
+[ verwijder uit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) eindpunt van de Lijst {wordt gebruikt verwijdert één of meerdere leden uit een lijst. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
 
-De reactie bevat een `result` array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
+De reactie bevat een `result` -array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
 
 ```
 DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
@@ -301,15 +301,15 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ### Zoeklijst
 
-De [Leden ophalen op lijst-id](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) eindpunt wordt gebruikt om leden van een lijst terug te winnen. Het eindpunt neemt vereist `listId` padparameter en staat verschillende optionele queryparameters toe om filtercriteria op te geven.
+[ krijgt Leads door Identiteitskaart van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) eindpunt wordt gebruikt om leden van een lijst terug te winnen. Het eindpunt neemt een vereiste `listId` wegparameter, en staat verscheidene facultatieve vraagparameters toe om het filtreren criteria te specificeren.
 
-De `batchSize` parameter wordt gebruikt om het aantal loodverslagen te specificeren die in één enkele vraag (gebrek en maximum is 300) moeten zijn teruggekeerd.
+De `batchSize` parameter wordt gebruikt om het aantal loodverslagen te specificeren dat in één enkele vraag (gebrek en maximum is 300) moet zijn teruggekeerd.
 
-De `nextPageToken` parameter wordt gebruikt om door grote resultaatreeksen te pagineren. Deze parameter wordt niet overgegaan in de eerste vraag, maar slechts in verdere vraag naar de paginering.
+De parameter `nextPageToken` wordt gebruikt om door grote resultaatreeksen te pagineren. Deze parameter wordt niet overgegaan in de eerste vraag, maar slechts in verdere vraag naar de paginering.
 
-De `fields` bevat een door komma&#39;s gescheiden lijst met veldnamen die in het antwoord moeten worden geretourneerd. Als de parameter fields niet is opgenomen in deze aanvraag, worden de volgende standaardvelden geretourneerd: email, updatedAt, createdAt, lastName, firstName en id.
+De parameter `fields` bevat een door komma&#39;s gescheiden lijst met veldnamen die in het antwoord moeten worden geretourneerd. Als de parameter fields niet is opgenomen in deze aanvraag, worden de volgende standaardvelden geretourneerd: email, updatedAt, createdAt, lastName, firstName en id.
 
-De reactie bevat een `result` array die bestaat uit JSON-objecten die de hoofdvelden bevatten die in de aanvraag zijn opgegeven.
+De reactie bevat een `result` -array die bestaat uit JSON-objecten die de hoofdvelden bevatten die in de aanvraag zijn opgegeven.
 
 ```
 GET /rest/v1/lists/{listId}/leads.json?batchSize=3
@@ -351,9 +351,9 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 #### Vraag lijstlidmaatschap door lead-id
 
-De [Lid van de lijst](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) eindpunt wordt gebruikt om te zien of zijn één of meerdere lood lid van een lijst. Het eindpunt neemt vereist `listId` padparameter en een of meer `id` query-parameters die lead ids bevatten (maximaal toegestaan is 300).
+Het [ Lid van het eindpunt van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) wordt gebruikt om te zien of zijn één of meerdere lood leden van een lijst. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
 
-De reactie bevat een `result` array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
+De reactie bevat een `result` -array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
 
 ```
 GET /rest/v1/lists/{listId}/leads/ismember.json?id=309901&id=318603&id=999999

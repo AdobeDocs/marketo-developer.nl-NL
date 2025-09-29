@@ -1,31 +1,31 @@
 ---
-title: "Marketo Mobile Extension for [!DNL Adobe Launch]"
+title: Marketo Mobile-extensie voor  [!DNL Adobe Launch]
 feature: Mobile Marketing
-description: "Marketo Mobile Extension for [!DNL Adobe Launch] overzicht"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Installeer en configureer de extensie Marketo Mobile SDK in Adobe Launch voor iOS en Android, inclusief installatie voor pushberichten en in-app berichten.
+exl-id: 2f8691ff-0442-45a5-aeba-c91c3af5c711
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '269'
+source-wordcount: '287'
 ht-degree: 0%
 
 ---
 
-
 # Marketo Mobile-extensie voor [!DNL Adobe Launch]
 
-Installatie-instructies voor de extensie Marketo Mobile SDK in [!DNL Adobe Launch]. De onderstaande stappen zijn vereist voor het verzenden van pushberichten en/of In-App-berichten.
+Installatie-instructies voor Marketo Mobile SDK-extensie in [!DNL Adobe Launch] . De onderstaande stappen zijn vereist voor het verzenden van pushberichten en/of In-App-berichten.
 
 ## Vereisten
 
-- [Een toepassing toevoegen in Marketo Admin](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (verkrijg uw toepassing Geheime Sleutel en identiteitskaart Munchkin)
-- Volg de instructies in het dialoogvenster [!DNL Adobe Launch] portal voor installatie
-- [Pushmeldingen instellen](push-notifications.md) (optioneel)
+- [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+- Volg de instructies op de [!DNL Adobe Launch] -portal voor installatie
+- [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)
 
 ## iOS
 
 ### Snelle overbruggingsheader instellen
 
 1. Ga naar Bestand > Nieuw > Bestand en selecteer Koptekstbestand.
-1. Geef het bestand de naam &quot;&lt;_ProjectName_>-Bridging-header&quot;.
+1. Noem het dossier &quot;&lt; _ProjectName_>-Bridging-Header&quot;.
 1. Ga naar Project > Doel > de Fasen van de Bouwstijl > de Verschuivende Compiler > de Generatie van de Code. Voeg het volgende pad toe aan Objectoverbruggingskoptekst:
 
    `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
@@ -36,21 +36,21 @@ Voor gebruikers met SWIFT: verwijder de volgende importinstructie terwijl de ove
 
 ### iOS-testapparaten
 
-Volg de instructies op [IOS-testapparaten toevoegen](installation.md#ios_test_devices)
+Volg instructies bij [ het Toevoegen van de Apparaten van de Test van iOS ](installation.md#ios_test_devices)
 
 ### Type aangepaste URL afhandelen in AppDelegate
 
-Instructies volgen [hier](installation.md#ios_test_devices)
+Volg instructies [ hier ](installation.md#ios_test_devices)
 
 ### Pushmeldingen instellen op iOS
 
-Instructies volgen [hier](push-notifications.md) en gebruik de klassenaam ALMarketo in plaats van &quot;Marketo&quot;
+Volg instructies [ hier ](push-notifications.md) en gebruik de klassennaam &quot;ALMarketo&quot;in plaats van &quot;Marketo&quot;
 
 ## Android
 
 ### Machtigingen configureren
 
-Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet om de toestemmingen &quot;INTERNET&quot;en &quot;ACCESS_NETWORK_STATE&quot;verzoeken. Als uw toepassing al om deze machtigingen vraagt, slaat u deze stap over.
+Open `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet om de toestemmingen &quot;INTERNET&quot;en &quot;ACCESS_NETWORK_STATE&quot;verzoeken. Als uw toepassing al om deze machtigingen vraagt, slaat u deze stap over.
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
@@ -59,7 +59,7 @@ Openen `AndroidManifest.xml` en voeg de volgende machtigingen toe. Uw app moet o
 
 ### ProGuard-configuratie (optioneel)
 
-Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `proguard.cfg` bestand. Het bestand bevindt zich in uw projectmap. Als u deze code toevoegt, wordt de Marketo SDK uitgesloten van het verduisteringsproces.
+Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `proguard.cfg` -bestand. Het bestand bevindt zich in uw projectmap. Als u deze code toevoegt, wordt de Marketo SDK uitgesloten van het verduisteringsproces.
 
 ```
 -dontwarn com.marketo.*
@@ -69,10 +69,10 @@ Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `progu
 
 ### Android-testapparaten
 
-Instructies volgen [hier](installation.md#android_test_devices)
+Volg instructies [ hier ](installation.md#android_test_devices)
 
 ## Pushmeldingen instellen op Android
 
-Instructies volgen [hier](installation.md#android_firebase_cloud_messaging_support) en gebruik de klassenaam ALMarketo in plaats van &quot;Marketo&quot;
+Volg instructies [ hier ](installation.md#android_firebase_cloud_messaging_support) en gebruik de klassennaam &quot;ALMarketo&quot;in plaats van &quot;Marketo&quot;
 
-Volg de instructies voor het instellen van gebruikersprofielen [hier](user-profiles.md) en voor aangepaste handelingen, volg instructies [hier](custom-actions.md#android_custom_action). Gebruik in de volgende instructies de klassenaam &quot;ALMarketo&quot; in plaats van &quot;Marketo&quot;
+Voor vestiging volgen de gebruikersprofielen hier instructies [ ](user-profiles.md) en voor douaneacties hier instructies [ volgen ](custom-actions.md#android_custom_action). Gebruik in de volgende instructies de klassenaam &quot;ALMarketo&quot; in plaats van &quot;Marketo&quot;

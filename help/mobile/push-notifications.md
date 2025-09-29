@@ -1,11 +1,11 @@
 ---
 title: Pushmeldingen
 feature: Mobile Marketing
-description: Enable Push Notifications for Marketo Mobile
+description: Handleiding voor het inschakelen van iOS-pushberichten met Marketo, van APNs-certificaten en Xcode-instellingen tot Marketo SDK-integratie, symbolische registratie, verwerking.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1329'
+source-wordcount: '1344'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 
 ### Pushmeldingen configureren op Apple Developer Account
 
-1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [&#128279;](http://developer.apple.com/membercenter).
+1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [ ](http://developer.apple.com/membercenter).
 1. Klik op Certificaten, id&#39;s en profielen.
 1. Klik op de map &quot;Certificates->All&quot; onder &quot;iOS, tvOS, watchOS&quot;.
 1. Selecteer &quot;+&quot; in het linkerbovenscherm naast certificaten ![](assets/certificates-plus.png)

@@ -1,18 +1,18 @@
 ---
-title: "Tags"
+title: Tags
 feature: REST API, Tags
-description: "Tags voor programma's in Marketo beheren."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Type query-tag, toegestane waarden ophalen op naam, programmatags bijwerken of verwijderen in Marketo via REST Asset API, met aanvraagvoorbeelden.
+exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '205'
-ht-degree: 0%
+source-wordcount: '221'
+ht-degree: 1%
 
 ---
 
-
 # Tags
 
-[Referentie eindpunt van tags](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
+[ Verwijzing van het Eindpunt van Markeringen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
 
 Tags zijn door de gebruiker gedefinieerde velden voor programma&#39;s. Elke tag kan van toepassing zijn op een of meer programmatypen en kan verplicht of optioneel zijn, afhankelijk van de manier waarop de tag is gedefinieerd. Tags kunnen ook een lijst bevatten met toegestane waarden die moeten worden geselecteerd voor gebruik.
 
@@ -77,7 +77,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Bijwerken
 
-De [Programmatag bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) Hiermee kunt u de waarde voor een bepaald tagtype bijwerken. Het eindpunt neemt `id` en `tagType` padparameters die de programma-id en het tagtype dat moet worden bijgewerkt, opgeven. A `tagValue` de vraagparameter wordt gebruikt om de nieuwe waarde voor het markeringstype te specificeren. Alle parameters zijn vereist.
+Het [ eindpunt van de Markering van het Programma van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) staat u toe om de waarde voor een bepaald markeringstype bij te werken. Het eindpunt neemt `id` en `tagType` wegparameters die programma identiteitskaart, en het markeringstype specificeren om bij te werken. Er wordt een query-parameter `tagValue` gebruikt om de nieuwe waarde voor het tagtype op te geven. Alle parameters zijn vereist.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Labels kunnen met de massa en de massa worden bijgewerkt [Programmametagegevens bijwerken](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) eindpunt. Een voorbeeld hiervan is te vinden [hier](programs.md#update).
+De markeringen kunnen en massa worden bijgewerkt gebruikend het [ Metagegevens van het Programma van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) eindpunt. Een voorbeeld van dat kan worden gevonden [ hier ](programs.md#update).
 
 ## Verwijderen
 
-De [Programmatag verwijderen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) Hiermee kunt u een niet-vereist labeltype verwijderen. Het eindpunt neemt `id` en `tagType` padparameters die de programma-id opgeven en het type code dat moet worden verwijderd.
+Het [ eindpunt van de Markering van het Programma van de Schrapping ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) staat u toe om een niet-vereist markeringstype te schrappen. Het eindpunt neemt `id` - en `tagType` padparameters aan die de programma-id en het te verwijderen tagtype opgeven.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

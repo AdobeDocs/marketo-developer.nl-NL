@@ -1,11 +1,11 @@
 ---
 title: Forms
 feature: REST API, Forms
-description: Formulieren maken en beheren met de API.
+description: Marketo Forms REST API-handleiding voor het maken en beheren van formulieren, het ophalen met id of naam, het bladeren met statusfilters en het beheren van velden, veldsets en regels.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1598'
+source-wordcount: '1616'
 ht-degree: 0%
 
 ---
@@ -871,7 +871,7 @@ Content-Type: text/html
 
 Marketo-formulieren hebben een optionele component, veldsets genaamd. Veldsets zijn groepen velden die binnen de veldlijst op het hoogste niveau worden behandeld als één veld met het oog op verplaatsing en behandeling door zichtbaarheidsregels. Bijvoorbeeld, als er een gebied voor de Vereisten van de Naleving is, en een cliënt selecteert ja het zou een gebiedsreeks kunnen openbaren die gebieden voor de Eisen van de Naleving HIPAA en PCI bevat.
 
-Velden binnen veldsets zijn uniek voor het formulier als geheel, zodat dubbele velden mogelijk niet zowel in de bovenliggende veldlijst van het formulier als in een onderliggende veldset voorkomen. De veldsets worden toegevoegd via [ voegt Gebied toe dat aan 1&rbrace; eindpunt Formulier &lbrace;wordt geplaatst en dan in het resultaat van ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) zal verschijnen krijgt Gebieden voor Vorm [. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET) De gebieden worden toegevoegd aan een gebied door hen in fieldList van de veldset via [ de Plaatsen van het Gebied van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) te bewegen. Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded en niet als JSON.
+Velden binnen veldsets zijn uniek voor het formulier als geheel, zodat dubbele velden mogelijk niet zowel in de bovenliggende veldlijst van het formulier als in een onderliggende veldset voorkomen. De veldsets worden toegevoegd via [ voegt Gebied toe dat aan 1} eindpunt Formulier {wordt geplaatst en dan in het resultaat van ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) zal verschijnen krijgt Gebieden voor Vorm [. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET) De gebieden worden toegevoegd aan een gebied door hen in fieldList van de veldset via [ de Plaatsen van het Gebied van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) te bewegen. Voor deze eindpunten worden gegevens doorgegeven als POST x-www-form-urlencoded en niet als JSON.
 
 ## zichtbaarheidsregel
 

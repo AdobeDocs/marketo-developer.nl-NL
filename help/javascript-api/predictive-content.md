@@ -1,15 +1,15 @@
 ---
-title: "Predictive Content"
-description: "Predictive Content"
+title: Voorspelende inhoud
+description: Leer hoe u met de JavaScript API voor voorspellende inhoud dynamische webpagina's kunt aanpassen aan de hand van Rich Media Recommendations om de relevantie te verbeteren.
 feature: Predictive Content, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 14c80ed6-01b3-4dfc-9073-e6b881bb0fb8
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '28'
+source-wordcount: '44'
 ht-degree: 0%
 
 ---
 
-
 # Voorspelende inhoud
 
-Met de JavaScript-API voor voorspellende inhoud wordt de voorspellende inhoud van het platform uitgebreid. Hiermee kunt u een webpagina dynamisch aanpassen via [Rijke media Recommendations](rich-media-recommendation.md).
+De JavaScript API voor voorspellende inhoud breidt de voorspellende inhoud van het platform uit. Het staat voor dynamische aanpassing van een webpagina via [ Rijke Aanbevelingen van Media ](rich-media-recommendation.md) toe.

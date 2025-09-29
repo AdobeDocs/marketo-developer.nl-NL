@@ -1,14 +1,14 @@
 ---
-title: "Advanced Security Access Mode"
-feature: "Mobile Marketing"
-description: "Details over de geavanceerde modus voor toegang tot beveiliging"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Geavanceerde toegangsmodus voor beveiliging
+feature: Mobile Marketing
+description: Leer de Geavanceerde Wijze van de Toegang van de Veiligheid voor Marketo Mobile SDK, met HMAC handtekeninggeneratie, server eindpuntopstelling, het gebruik van apparaatidentiteitskaart en de voorbeelden van iOS en Android
+exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '303'
+source-wordcount: '321'
 ht-degree: 0%
 
 ---
-
 
 # Geavanceerde toegangsmodus voor beveiliging
 
