@@ -18,7 +18,7 @@ Landing Page Templates is een bovenliggende bron en afhankelijkheid voor afzonde
 
 ## Sjabloontypen
 
-Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Voor meer informatie over de verschillen, zie [ dit document ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Voor meer informatie over de verschillen, zie [ dit document ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Query
 
@@ -167,9 +167,9 @@ De Malplaatjes van de Pagina van de landing volgen het standaard ontwerp-goedgek
 
 Een sjabloon kan alleen worden goedgekeurd als het voldoet aan de regels voor het type ervan, ofwel in de vorm van een vrije vorm. Zie de respectievelijke ontwerpdocumenten voor meer informatie over de vereisten voor het maken en goedkeuren van sjablonen van hun respectievelijke typen:
 
-- [ Vrije Vorm het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [ Geleide het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [ Geleide Voorbeelden van het Malplaatje ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [ Vrije Vorm het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [ Geleide het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [ Geleide Voorbeelden van het Malplaatje ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Verwijderen
 

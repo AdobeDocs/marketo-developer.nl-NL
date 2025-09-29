@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo biedt een set REST API&#39;s voor het uitvoeren van bewerkingen op slimme lijsten. Deze API&#39;s volgen het standaard interfacepatroon voor de bron-API&#39;s die de opties Query, Delete en Clone bieden.
 
-Opmerking: deze API&#39;s worden alleen ondersteund voor door de gebruiker gemaakte slimme lijsten. Zij kunnen niet voor [ worden gebruikt ingebouwde/Slimme Lijsten van het Systeem ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+Opmerking: deze API&#39;s worden alleen ondersteund voor door de gebruiker gemaakte slimme lijsten. Zij kunnen niet voor [ worden gebruikt ingebouwde/Slimme Lijsten van het Systeem ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
 
 ## Query
 

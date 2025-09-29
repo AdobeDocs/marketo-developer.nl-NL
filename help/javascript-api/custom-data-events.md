@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Deze methode verzendt douanegebeurtenissen voor het volgen en verpersoonlijking in real time. Deze kan worden gebruikt om gegevens van derden te verzenden of om uw eigen aangepaste gebeurtenis te activeren op basis van het gedrag van de bezoeker. Aangepaste gegevensgebeurtenissen worden één keer geteld in de sessie van een bezoeker.
 
-U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
+U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 
 | Parameter | Optioneel/vereist | Type | Beschrijving |
 |---|---|---|---|

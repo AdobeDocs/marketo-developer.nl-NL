@@ -14,7 +14,7 @@ ht-degree: 0%
 
 U kunt gebruikersinteractie bijhouden door aangepaste handelingen te verzenden. Wanneer uw mobiele app de Marketo SDK aanroept om een aangepaste handeling te verzenden, wordt de aangepaste handeling eerst opgeslagen op het apparaat. De Marketo SDK controleert vervolgens of er voldoende internetverbinding is voordat de aangepaste actie wordt verzonden. Het gevolg is dat er mogelijk een vertraging optreedt tussen het moment dat de aangepaste handeling wordt verzonden en het moment dat de aangepaste handeling door Marketo wordt ontvangen.
 
-Aangepaste acties kunnen worden gebruikt als triggers en filters in slimme campagnes. Voor meer informatie, zie [ Mobiele Activiteit van de Toepassing ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Aangepaste acties kunnen worden gebruikt als triggers en filters in slimme campagnes. Voor meer informatie, zie [ Mobiele Activiteit van de Toepassing ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Aangepaste acties verzenden op iOS
 

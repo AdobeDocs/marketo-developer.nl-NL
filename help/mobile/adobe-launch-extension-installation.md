@@ -16,7 +16,7 @@ Installatie-instructies voor [!DNL Adobe Launch] Marketo-extensie. De onderstaan
 
 ## Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
 1. [ vorm het bezit in  [!DNL Adobe Launch]  portaal ](https://experience.adobe.com/#/@amc/data-collection/home)
 1. De geheime sleutel van de toepassing en de Munchkin-id voor de eigenschap in de portal [!DNL Adobe Launch] configureren
 1. [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)

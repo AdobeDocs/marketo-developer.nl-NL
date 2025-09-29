@@ -21,7 +21,7 @@ De volgende tags en API-aanroepen moeten zijn ingesteld op de pagina die u wilt 
 1. In de pagina
    1. Plaats de sjabloontag (klasse div) op de locatie waar u de sjabloon wilt weergeven
 
-Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Sjabloonlabel
 
