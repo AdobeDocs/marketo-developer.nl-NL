@@ -54,7 +54,7 @@ Het [ creeert de Eigen eindpunt van de Objecten van de Uitvoer ](https://develop
 
 De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [ creeer het eindpunt van de Baan van de Objecten van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST).
 
-De vereiste `apiName` wegparameter is de naam van het douanevoorwerp zoals teruggekeerd door [ beschrijf het 2} eindpunt van de Objecten van de Douane {. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1) Hiermee geeft u aan welk aangepast Marketo-object u wilt exporteren. Aangepaste CRM-objecten zijn niet toegestaan. De vereiste parameter `filter` bevat de lijst met leads die zijn gekoppeld aan het aangepaste object. Dit kan verwijzen naar een statische lijst, of een slimme lijst. De vereiste parameter `fields` bevat de API-namen van de aangepaste objectkenmerken die in het exportbestand moeten worden opgenomen. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
+De vereiste `apiName` wegparameter is de naam van het douanevoorwerp zoals teruggekeerd door [ beschrijf het 2&rbrace; eindpunt van de Objecten van de Douane &lbrace;. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1) Hiermee geeft u aan welk aangepast Marketo-object u wilt exporteren. Aangepaste CRM-objecten zijn niet toegestaan. De vereiste parameter `filter` bevat de lijst met leads die zijn gekoppeld aan het aangepaste object. Dit kan verwijzen naar een statische lijst, of een slimme lijst. De vereiste parameter `fields` bevat de API-namen van de aangepaste objectkenmerken die in het exportbestand moeten worden opgenomen. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
 
 Als voorbeeld, veronderstellen wij dat wij een douanevoorwerp genoemd &quot;Auto&quot;met de volgende gebieden hebben gecreeerd: Kleur, Merk, Model, VIN. Het koppelingsveld is de hoofd-id en het veld voor deduplicatie is VIN.
 
@@ -310,7 +310,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-Dit retourneert een status in de reactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Baan van de Objecten van de Uitvoer van 0} Enqueue het gebruiken van ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) worden geroepen, en `apiName` van de reactie van de aanmaakstatus.`exportId`
+Dit retourneert een status in de reactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [ eindpunt van de Baan van de Objecten van de Uitvoer van 0&rbrace; Enqueue het gebruiken van ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) worden geroepen, en `apiName` van de reactie van de aanmaakstatus.`exportId`
 
 ```
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -386,7 +386,7 @@ Het statuseindpunt antwoordt erop wijzend dat de baan nog verwerkt, zodat is het
 
 ## Uw gegevens ophalen
 
-Om het dossier van een voltooide uitvoer van douaneobjecten terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van de Objecten van de Uitvoer {met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET) en `apiName`.`exportId`
+Om het dossier van een voltooide uitvoer van douaneobjecten terug te winnen, roep eenvoudig het [ krijgen het 1&rbrace; eindpunt van het Dossier van de Objecten van de Uitvoer &lbrace;met uw ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET) en `apiName`.`exportId`
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een aangevraagd aangepast objectkenmerk leeg is (geen gegevens bevat), wordt `null` in het corresponderende veld in het exportbestand geplaatst.
 

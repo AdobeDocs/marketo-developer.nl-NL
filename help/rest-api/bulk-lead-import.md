@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Invoer van bulklood
 
-{de Verwijzing van het Eindpunt van de Invoer van het BulkLood [](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+&lbrace;de Verwijzing van het Eindpunt van de Invoer van het BulkLood [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
 Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [ bulk API ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 

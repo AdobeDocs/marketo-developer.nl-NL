@@ -24,7 +24,7 @@ Dynamische inhoud wordt geïmplementeerd op sectieniveau door specifieke variati
 
 ## Voorbeeld
 
-Om te demonstreren, kijk naar een e-mailvoorbeeld, waar wij een Gebied (VS) segmentatie hebben, en een gebeurtenisbevordering slechts voor lood willen tonen die in het zuidoostsegment vallen, dat Californië, Nevada, Utah, Colorado, Arizona, en Nieuw Mexico leidt. Hiervoor maken we een bewerkbare sectie in onze e-mail met de id &quot;Q1-promotie-banner&quot; in een DynamicContent-sectie. Om dit te doen, moeten wij het [ eindpunt van de Sectie van de Inhoud E-mail van de 0} Update voor onze e-mail gebruiken. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) De parameter `value` wordt gebruikt om de id van de segmentatie op te geven.
+Om te demonstreren, kijk naar een e-mailvoorbeeld, waar wij een Gebied (VS) segmentatie hebben, en een gebeurtenisbevordering slechts voor lood willen tonen die in het zuidoostsegment vallen, dat Californië, Nevada, Utah, Colorado, Arizona, en Nieuw Mexico leidt. Hiervoor maken we een bewerkbare sectie in onze e-mail met de id &quot;Q1-promotie-banner&quot; in een DynamicContent-sectie. Om dit te doen, moeten wij het [ eindpunt van de Sectie van de Inhoud E-mail van de 0&rbrace; Update voor onze e-mail gebruiken. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) De parameter `value` wordt gebruikt om de id van de segmentatie op te geven.
 
 Opmerking: zowel e-mails als bestemmingspagina&#39;s volgen dit patroon. Fragmenten hebben een ander patroon, dat wordt beschreven in de API-documentatie voor fragmenten.
 

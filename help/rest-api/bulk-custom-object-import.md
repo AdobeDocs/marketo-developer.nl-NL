@@ -32,7 +32,7 @@ Hier volgen de aangepaste objectvelden die worden weergegeven in de interface vo
 
 ### API-namen
 
-U kunt API namen programmatically terugwinnen door de naam van douanevoorwerp API tot [ over te gaan beschrijf het ](#describe) eindpunt van de Objecten van de Douane {.
+U kunt API namen programmatically terugwinnen door de naam van douanevoorwerp API tot [ over te gaan beschrijf het ](#describe) eindpunt van de Objecten van de Douane &lbrace;.
 
 ```
 /rest/v1/customobjects/{apiName}/describe.json

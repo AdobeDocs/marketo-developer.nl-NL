@@ -66,7 +66,7 @@ Bij dit eindpunt zal er altijd één record zijn in de eerste positie van de arr
 
 ### Op naam
 
-[ krijgt Slimme Campagne door het 1} eindpunt van de Naam {neemt één enkele slimme campagne ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) als parameter en keert één enkel slim campagneverslag terug.`name`
+[ krijgt Slimme Campagne door het 1&rbrace; eindpunt van de Naam &lbrace;neemt één enkele slimme campagne ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) als parameter en keert één enkel slim campagneverslag terug.`name`
 
 ```
 GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
@@ -185,7 +185,7 @@ Bij dit eindpunt zijn er een of meer records in de array `result` .
 
 ## Maken
 
-Het [ creeert Slimme 1} eindpunt van de Campagne {wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST met twee vereiste parameters. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST) De parameter `name` geeft de naam op van de slimme campagne die u wilt maken. De parameter `folder` geeft de bovenliggende map aan waar de slimme campagne is gemaakt. De indeling is JSON-blok met `id` - en `type` -kenmerken.
+Het [ creeert Slimme 1&rbrace; eindpunt van de Campagne &lbrace;wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST met twee vereiste parameters. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST) De parameter `name` geeft de naam op van de slimme campagne die u wilt maken. De parameter `folder` geeft de bovenliggende map aan waar de slimme campagne is gemaakt. De indeling is JSON-blok met `id` - en `type` -kenmerken.
 
 Desgewenst kunt u de slimme campagne beschrijven met de parameter `description` (maximaal 2000 tekens).
 
@@ -239,7 +239,7 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 
 ## Bijwerken
 
-Het [ eindpunt van de Campagne van 0} Update Slimme wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST. ](https://developer.adobe.com/marketo-apis/api/asset/) Er is één slimme campagne `id` voor nodig als padparameter. Met de parameter `name` kunt u de naam van de slimme campagne bijwerken. Met de parameter `description` kunt u de beschrijving van de slimme campagne bijwerken.
+Het [ eindpunt van de Campagne van 0&rbrace; Update Slimme wordt uitgevoerd met een toepassing/x-www-vorm-urlencoded POST. ](https://developer.adobe.com/marketo-apis/api/asset/) Er is één slimme campagne `id` voor nodig als padparameter. Met de parameter `name` kunt u de naam van de slimme campagne bijwerken. Met de parameter `description` kunt u de beschrijving van de slimme campagne bijwerken.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}.json
@@ -474,7 +474,7 @@ POST /rest/v1/campaigns/{id}/trigger.json
 
 ### Activeren
 
-Het [ activeert Slimme 1} eindpunt van de Campagne {is ongecompliceerd. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST) Een padparameter `id` is vereist. Activering is alleen succesvol als de volgende waarden gelden voor de campagne:
+Het [ activeert Slimme 1&rbrace; eindpunt van de Campagne &lbrace;is ongecompliceerd. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST) Een padparameter `id` is vereist. Activering is alleen succesvol als de volgende waarden gelden voor de campagne:
 
 - Moet worden gedeactiveerd
 - Moet ten minste één trigger en één flowstap hebben

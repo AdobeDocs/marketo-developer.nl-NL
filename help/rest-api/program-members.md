@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [ Verwijzing van het Eindpunt van de Leden van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Dit gegeven is viewable in het 0} LEDEN van het programma [ Landen in Marketo Engage UI.](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)
+Marketo stelt API&#39;s beschikbaar voor het lezen, maken, bijwerken en verwijderen van de records voor de leden van het programma. De dossiers van het programmalid zijn verwant met loodverslagen via het lood - identiteitskaart gebied. De records bestaan uit een set standaardvelden en eventueel uit maximaal 20 extra aangepaste velden. De velden bevatten programmaspecifieke gegevens voor elk lid en kunnen worden gebruikt in formulieren, filters, triggers en flowhandelingen. Dit gegeven is viewable in het 0&rbrace; LEDEN van het programma [ Landen in Marketo Engage UI.](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)
 
 ## Beschrijven
 
@@ -209,7 +209,7 @@ GET /rest/v1/programs/members/describe.json
 
 ## Query
 
-Het [ krijgt 1} eindpunt van de Leden van het Programma {staat u toe om leden van een programma terug te winnen. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) Hiervoor zijn een parameter `programId` path en queryparameters `filterType` en `filterValues` vereist.
+Het [ krijgt 1&rbrace; eindpunt van de Leden van het Programma &lbrace;staat u toe om leden van een programma terug te winnen. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) Hiervoor zijn een parameter `programId` path en queryparameters `filterType` en `filterValues` vereist.
 
 `programId` wordt gebruikt om op te geven welk programma moet worden doorzocht.
 
@@ -224,7 +224,7 @@ Om een programma te vragen de waarvan lidmaatschapstelling de grens overschrijdt
 
 U kunt ook filteren op datumbereik door `updatedAt` op te geven als filterType met de datetime-parameters `startAt` en `endAt` . Het bereik moet zeven dagen of minder zijn. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden.
 
-De facultatieve `fields` vraagparameter keurt een komma-gescheiden lijst van gebied API namen goed die door [ zijn teruggekeerd beschrijf 2} eindpunt van het Lid van het Programma. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) Wanneer deze worden opgenomen, bevat elke record in het antwoord de opgegeven velden. Als u deze waarde weglaat, wordt de standaardset met velden `acquiredBy` , `leadId` , `membershipDate` , `programId` en `reachedSuccess` geretourneerd.
+De facultatieve `fields` vraagparameter keurt een komma-gescheiden lijst van gebied API namen goed die door [ zijn teruggekeerd beschrijf 2&rbrace; eindpunt van het Lid van het Programma. ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) Wanneer deze worden opgenomen, bevat elke record in het antwoord de opgegeven velden. Als u deze waarde weglaat, wordt de standaardset met velden `acquiredBy` , `leadId` , `membershipDate` , `programId` en `reachedSuccess` geretourneerd.
 
 Standaard worden maximaal 300 records geretourneerd. U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen. Als het **moreResult** attribuut waar is, betekent dit meer resultaten beschikbaar zijn. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
 

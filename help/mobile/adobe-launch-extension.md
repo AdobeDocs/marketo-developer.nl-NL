@@ -75,4 +75,4 @@ Volg instructies [ hier ](installation.md#android_test_devices)
 
 Volg instructies [ hier ](installation.md#android_firebase_cloud_messaging_support) en gebruik de klassennaam &quot;ALMarketo&quot;in plaats van &quot;Marketo&quot;
 
-Voor vestiging volgen de gebruikersprofielen hier instructies [ ](user-profiles.md) en voor douaneacties hier instructies [ volgen ](custom-actions.md#android_custom_action). Gebruik in de volgende instructies de klassenaam &quot;ALMarketo&quot; in plaats van &quot;Marketo&quot;
+Voor vestiging volgen de gebruikersprofielen hier instructies [&#128279;](user-profiles.md) en voor douaneacties hier instructies [ volgen ](custom-actions.md#android_custom_action). Gebruik in de volgende instructies de klassenaam &quot;ALMarketo&quot; in plaats van &quot;Marketo&quot;

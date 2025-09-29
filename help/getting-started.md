@@ -14,7 +14,7 @@ ht-degree: 0%
 Marketo Engage is een platform voor marketingautomatisering dat marketers in staat stelt gepersonaliseerde meerkanaalprogramma&#39;s en -campagnes te beheren voor vooruitzichten en klanten. Het Marketo Engage-platform kan worden uitgebreid met behulp van integratiepunten. Hieronder vind je de kernentiteiten en hun relaties.
 
 >[!NOTE]
->De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](./rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, gelieve de Gids van de Migratie van SOAP API [ ](./soap-api/migration.md) voor informatie over te raadplegen hoe te migreren.
+>De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](./rest-api/rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, gelieve de Gids van de Migratie van SOAP API [&#128279;](./soap-api/migration.md) voor informatie over te raadplegen hoe te migreren.
 >
 
 Als de interne verbinding van SFDC of MS Dynamics CRM is ingeschakeld voor een Marketo Engage-instantie, zijn de volgende objecten Alleen-lezen: Bedrijf, Opportunity, Opportunity Role, Sales Person

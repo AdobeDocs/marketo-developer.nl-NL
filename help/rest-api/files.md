@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Bestanden
 
-[ Verwijzing van het Eindpunt van dossiers 0}](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[ Verwijzing van het Eindpunt van dossiers 0&rbrace;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
 
 Met Marketo-abonnementen kunt u willekeurige bestanden opslaan, zoals afbeeldingen, scripts, documenten en stijlpagina&#39;s. U kunt deze allemaal op afstand bewerken via de REST API. De opslag die beschikbaar is in Marketo-abonnementen is niet geoptimaliseerd voor toepassingen met veel bandbreedte. Er moeten dus alternatieven worden gebruikt voor correcte audio- en videostreaming toepassingen.
 

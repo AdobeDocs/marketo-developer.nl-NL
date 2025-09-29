@@ -189,7 +189,7 @@ Om de gegevensstroom van de Activiteit van de Lood uit te voeren, zijn hier de s
    1. De URL van het eindpunt in stap 1
    1. De typen activiteiten die zij willen ontvangen (volledige lijst hierboven)
    1. Een middel van authentificatie, zodat de klant kan verifiëren dat de verzoeken wettig zijn. Ofwel:
-      1. Een identiteitsleverancier URL, identiteitskaart van de Cliënt, en Geheim voor de Authentificatie van de Credentials van de Cliënt OAuth [ ](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+      1. Een identiteitsleverancier URL, identiteitskaart van de Cliënt, en Geheim voor de Authentificatie van de Credentials van de Cliënt OAuth [&#128279;](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
       1. Een API-token, dat kan worden opgenomen in aanvragen die door de Lead Activity DataStream worden verzonden in een Authorization http-header
 
 Adobe schakelt vervolgens de gegevensstroom in, waarna klanten gegevens beginnen te ontvangen.

@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Basis-URL
 
-De [ documentatie van de Verwijzing van 0} Eindpunt voor elke API vraag toont de REST methode, de weg, het middel, en de parameters die aan basis URL moeten worden toegevoegd om een verzoek te vormen.](endpoint-reference.md)
+De [ documentatie van de Verwijzing van 0&rbrace; Eindpunt voor elke API vraag toont de REST methode, de weg, het middel, en de parameters die aan basis URL moeten worden toegevoegd om een verzoek te vormen.](endpoint-reference.md)
 
 Hieronder ziet u een voorbeeld van een goed gevormde REST-URL:
 

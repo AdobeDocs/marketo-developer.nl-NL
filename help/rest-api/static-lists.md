@@ -264,7 +264,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ### Verwijderen uit lijst
 
-[ verwijder uit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) eindpunt van de Lijst {wordt gebruikt verwijdert één of meerdere leden uit een lijst. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
+[ verwijder uit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) eindpunt van de Lijst &lbrace;wordt gebruikt verwijdert één of meerdere leden uit een lijst. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
 
 De reactie bevat een `result` -array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
 

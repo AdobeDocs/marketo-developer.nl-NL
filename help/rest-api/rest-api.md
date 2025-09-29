@@ -17,7 +17,7 @@ Marketo maakt een REST API beschikbaar waarmee een groot aantal mogelijkheden va
 Deze APIs valt over het algemeen in twee brede categorieën: [ Lood Gegevensbestand ](https://developer.adobe.com/marketo-apis/api/mapi/), en [ Activa ](https://developer.adobe.com/marketo-apis/api/asset/). Looddatabase-API&#39;s maken het mogelijk om persoonlijke records en bijbehorende objecttypen van Marketo op te halen en met elkaar te communiceren, zoals Opportunity en Companies. API&#39;s voor bedrijfsmiddelen maken interactie met marketingmateriaal en workflowgerelateerde gegevens mogelijk.
 
 >[!NOTE]
->De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](./rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, gelieve de Gids van de Migratie van SOAP API [ ](../soap-api/migration.md) voor informatie over te raadplegen hoe te migreren.
+>De SOAP API wordt afgekeurd en zal na 31 oktober 2025 niet meer beschikbaar zijn. Al nieuwe ontwikkeling zou met Marketo [ REST API ](./rest-api.md) moeten worden gedaan, en de bestaande diensten zouden tegen die datum moeten worden gemigreerd om onderbrekingen in de dienst te vermijden. Als u de dienst hebt die SOAP API gebruikt, gelieve de Gids van de Migratie van SOAP API [&#128279;](../soap-api/migration.md) voor informatie over te raadplegen hoe te migreren.
 >
 
 - **Dagelijkse Quota:** De Abonnementen worden toegewezen 50.000 API vraag per dag (die dagelijks bij 12 :00AM CST terugstelt). Je kunt je dagelijkse quota verhogen via je accountmanager.
@@ -78,7 +78,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 
 >[!IMPORTANT]
 >
->De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1&rbrace; kopbal van de Vergunning &lbrace;zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 Open een nieuw browser lusje en ga het volgende in, gebruikend de aangewezen informatie om [ te roepen krijgt Leads door het Type van Filter ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)
 
