@@ -3,9 +3,9 @@ title: Leads
 feature: REST API
 description: Ontdek de Marketo Leads REST API-functies, zoals Beschrijving, query op id of filter, standaardvelden, limieten en het ophalen van ECID's.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: cc4bd7c18124bb039386a1cec06b9f1da0d047cb
 workflow-type: tm+mt
-source-wordcount: '3351'
+source-wordcount: '3411'
 ht-degree: 0%
 
 ---
@@ -768,7 +768,12 @@ Hier ziet u de bijbehorende activiteitengegevens voor Formulier invullen in de g
 
 ## Samenvoegen
 
-Soms is het nodig dubbele records samen te voegen en Marketo vereenvoudigt dit via de Merge Leads-API. Bij het samenvoegen van leads worden hun activiteitenlogbestanden, programma&#39;s, campagnes en lijstlidmaatschappen en CRM-informatie gecombineerd, en worden alle veldwaarden samengevoegd tot één record. De Leads van de fusie neemt loodidentiteitskaart als wegparameter, en of één enkele `leadId` als vraagparameter, of een lijst van komma-gescheiden ids in de `leadIds` parameter.
+>[!NOTE]
+>Vanaf 31 maart 2026 zullen aanroepen met meer dan 25 id&#39;s in de parameter `leadIds` van een Merge Leads API-aanroep resulteren in een foutcode van 1080 en wordt de aanroep overgeslagen. Banen waarvoor meer dan 25 records in één record moeten worden samengevoegd, moeten in meerdere banen worden opgesplitst om het welslagen van deze oproepen te waarborgen.
+>
+
+Soms is het nodig dubbele records samen te voegen en Marketo vereenvoudigt dit via de Merge Leads-API. Bij het samenvoegen van leads worden hun activiteitenlogbestanden, programma&#39;s, campagnes en lijstlidmaatschappen en CRM-informatie gecombineerd, en worden alle veldwaarden samengevoegd tot één record. De Leads van de fusie neemt loodidentiteitskaart als wegparameter, en of één enkele `leadId` als vraagparameter, of een lijst van 25 of minder komma-gescheiden ids in de `leadIds` parameter
+
 
 ### Verzoek
 
@@ -814,7 +819,7 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads door Filtertype, hoewel filterType en filterValues niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ### Verzoek
 
