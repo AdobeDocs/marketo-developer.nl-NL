@@ -21,7 +21,7 @@ De volgende tags en API-aanroepen moeten zijn ingesteld op de pagina die u wilt 
 1. In de pagina
    1. Plaats de sjabloontag (klasse div) op de locatie waar u de sjabloon wilt weergeven
 
-Meer informatie is beschikbaar [ hier ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Meer informatie is beschikbaar [&#x200B; hier &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Sjabloonlabel
 
@@ -50,7 +50,7 @@ Als u uw aanbevelingen verticaal wilt uitlijnen met alleen titel en beschrijving
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Zie screenshots van malplaatjeuitlijningen [ hier ](#example_of_rich_media_recommendation_template_1).
+Zie screenshots van malplaatjeuitlijningen [&#x200B; hier &#x200B;](#example_of_rich_media_recommendation_template_1).
 
 ## Aanbeveling vullen
 
@@ -231,14 +231,14 @@ rtp('get','rcmd', 'richmedia');
 
 **Naam**: template1 **Beschrijving**: Horizontale inhoud met inbegrip van beeld, titel, en beschrijving en de knoop van call to action.
 
-![ Rich Media malplaatje ](assets/rich-media-template1.png)
+![&#x200B; Rich Media malplaatje &#x200B;](assets/rich-media-template1.png)
 
 #### Voorbeeld van sjabloon #2 voor rich Media Recommendation
 
 **Naam**: template2 **Beschrijving**: Verticale inhoud met inbegrip van beeld, titel, en beschrijving en de knoop van call to action.
 
-![ Rich Media malplaatje ](assets/rich-media-template2.png)
+![&#x200B; Rich Media malplaatje &#x200B;](assets/rich-media-template2.png)
 
 #### Voorbeeld van sjabloon 3 voor rich Media Recommendation
 
-**Naam**: template3 **Beschrijving**: Verticale inhoud met inbegrip van slechts titel en beschrijving. Bij de muisaanwijzer verandert de koptekst van kleur en is deze gekoppeld aan de URL van de inhoud. Beschrijving is ook gekoppeld aan inhoud zonder kleurwijziging. ![ Rich Media malplaatje ](assets/rich-media-template3.png)
+**Naam**: template3 **Beschrijving**: Verticale inhoud met inbegrip van slechts titel en beschrijving. Bij de muisaanwijzer verandert de koptekst van kleur en is deze gekoppeld aan de URL van de inhoud. Beschrijving is ook gekoppeld aan inhoud zonder kleurwijziging. ![&#x200B; Rich Media malplaatje &#x200B;](assets/rich-media-template3.png)

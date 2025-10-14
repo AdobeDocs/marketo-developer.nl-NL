@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # getMObjects
 
-Wint één of meerdere [ MObjects ](marketo-objects.md) terug gebruikend een combinatie van criteria die uit bestaan:
+Wint één of meerdere [&#x200B; MObjects &#x200B;](marketo-objects.md) terug gebruikend een combinatie van criteria die uit bestaan:
 
 - Nul of één unieke id, de Marketo-id of de externe id
 - Nul of meer kenmerkfilters als naam/waarde/vergelijkingstrips
 - Nul of meer gekoppelde objectfilters als objectnaam/id-paren
 
-Keert een lijst van passende MObjects, elk van één enkel type, tot 100 in een partij terug, en het teken van de a [ stroompositie ](stream-position.md) voor het terugwinnen van opeenvolgende partijen.
+Keert een lijst van passende MObjects, elk van één enkel type, tot 100 in een partij terug, en het teken van de a [&#x200B; stroompositie &#x200B;](stream-position.md) voor het terugwinnen van opeenvolgende partijen.
 
 ## Verzoek
 

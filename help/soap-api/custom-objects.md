@@ -36,6 +36,6 @@ Aangepaste objecten bestaan uit:
 
 De volgende oproepen kunnen worden gebruikt om met CO&#39;s in wisselwerking te staan.
 
-- [ getCustomObjects ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
-- [ syncCustomObjects ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
-- [ deleteCustomObjects ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)
+- [&#x200B; getCustomObjects &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
+- [&#x200B; syncCustomObjects &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
+- [&#x200B; deleteCustomObjects &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)

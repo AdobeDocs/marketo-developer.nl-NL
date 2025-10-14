@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Benoemde accounts
 
-[ Benoemde Verwijzing van het Eindpunt van Rekeningen ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
+[&#x200B; Benoemde Verwijzing van het Eindpunt van Rekeningen &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
 
 Marketo biedt een set API&#39;s voor het uitvoeren van CRUD-bewerkingen op benoemde accounts voor gebruik met Marketo ABM. Deze API&#39;s volgen het standaard interfacepatroon voor API&#39;s voor hoofddatabases en bieden de opties Beschrijven, Maken/Bijwerken, Verwijderen en Query.
 
@@ -224,7 +224,7 @@ Het opvragen van benoemde accountvelden is eenvoudig. U kunt één benoemd accou
 
 #### Op naam
 
-Het [ krijgt Benoemd Gebied van de Rekening door het eindpunt van de Naam ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) wint meta-gegevens voor één enkel gebied op het genoemde rekeningsvoorwerp terug. De vereiste padparameter fieldApiName geeft de API-naam van het veld op. De reactie is als het beschrijf Benoemde eindpunt van de Rekening maar bevat extra meta-gegevens zoals het isCustom attribuut dat erop wijst of het gebied een douanegebied is.
+Het [&#x200B; krijgt Benoemd Gebied van de Rekening door het eindpunt van de Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) wint meta-gegevens voor één enkel gebied op het genoemde rekeningsvoorwerp terug. De vereiste padparameter fieldApiName geeft de API-naam van het veld op. De reactie is als het beschrijf Benoemde eindpunt van de Rekening maar bevat extra meta-gegevens zoals het isCustom attribuut dat erop wijst of het gebied een douanegebied is.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Bladeren
 
-Het [ krijgt Benoemde eindpunt van de Rekening Gebieden ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) wint meta-gegevens voor alle gebieden op het genoemde rekeningsvoorwerp terug. Standaard worden maximaal 300 records geretourneerd. U kunt de batchSize vraagparameter gebruiken om dit aantal te verminderen. Als het kenmerk moreResult waar is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. nextPageToken die van deze API is teruggekeerd zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
+Het [&#x200B; krijgt Benoemde eindpunt van de Rekening Gebieden &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) wint meta-gegevens voor alle gebieden op het genoemde rekeningsvoorwerp terug. Standaard worden maximaal 300 records geretourneerd. U kunt de batchSize vraagparameter gebruiken om dit aantal te verminderen. Als het kenmerk moreResult waar is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. nextPageToken die van deze API is teruggekeerd zou altijd voor de volgende herhaling van deze vraag moeten worden opnieuw gebruikt.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

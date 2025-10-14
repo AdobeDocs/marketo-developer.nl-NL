@@ -51,7 +51,7 @@ Het maximumaantal taken in de wachtrij is 10. Als u een baan probeert te vragen 
 
 De bulkextractie-API&#39;s worden gemeten op basis van de grootte op schijf van de gegevens die door een bulkextractietaak worden opgehaald. De expliciete grootte in bytes voor een taak kan worden bepaald door het kenmerk `fileSize` te lezen op basis van de voltooide statusreactie van een exporttaak.
 
-Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer het quotum wordt overschreden, kunt u niet een andere baan tot stand brengen of in rij brengen tot de dagelijkse quota bij middernacht [ Centrale Tijd ](https://en.wikipedia.org/wiki/Central_Time_Zone) terugstelt. Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
+Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer het quotum wordt overschreden, kunt u niet een andere baan tot stand brengen of in rij brengen tot de dagelijkse quota bij middernacht [&#x200B; Centrale Tijd &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone) terugstelt. Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
 
 Als een taak in de wachtrij is geplaatst of wordt verwerkt, wordt deze uitgevoerd tot voltooiing (zonder een fout of annulering van een taak). Als een taak om een of andere reden mislukt, moet u deze opnieuw maken. Bestanden worden alleen volledig geschreven wanneer een taak de voltooide status bereikt (gedeeltelijke bestanden worden nooit weggeschreven). U kunt verifiëren dat een dossier volledig werd geschreven door het te berekenen hash SHA-256 en het vergelijken van dat met checksum die door de eindpunten van de baanstatus wordt teruggekeerd.
 
@@ -208,7 +208,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een baan niet heeft voltooid, of een slechte baan ID wordt overgegaan, antwoorden de dossiereindpunten met een status van 404 niet Gevonden, en een plaintext foutenmelding als lading, in tegenstelling tot de meeste andere eindpunten van Marketo REST.
 
-Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [ RFC 7233 ](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van GET tot het eindpunt overgaan, die van byte 0 begint:
+Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [&#x200B; RFC 7233 &#x200B;](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van GET tot het eindpunt overgaan, die van byte 0 begint:
 
 ```
 Range: bytes=0-9999

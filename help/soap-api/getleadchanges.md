@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Deze API is vergelijkbaar met `getLeadActivity` , maar werkt op meerdere leads tegelijk. De bewerking controleert op nieuwe leads die zijn gemaakt, updates voor leidende velden en andere activiteiten.
 
-Het resultaat bevat activiteiten die de verandering samen met a [ stroompositie ](stream-position.md) om door grote resultaatreeksen te pagineren veroorzaakten.
+Het resultaat bevat activiteiten die de verandering samen met a [&#x200B; stroompositie &#x200B;](stream-position.md) om door grote resultaatreeksen te pagineren veroorzaakten.
 
 U moet een invoerparameter opnemen die aangeeft welke activiteitsfilters u in het resultaat wilt retourneren. Als u alle activiteiten wilt, kan een lege waarde worden overgegaan. Geef voor meer dan één activiteitsfilter een lijst met activiteitsfilters door.
 

@@ -14,10 +14,10 @@ ht-degree: 1%
 
 Hieronder vindt u koppelingen naar de Marketo REST API-referenties.
 
-- [ Activa ](https://developer.adobe.com/marketo-apis/api/asset/)
-- [ Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/)
-- [ Lood Gegevensbestand ](https://developer.adobe.com/marketo-apis/api/mapi/)
-- [ Gebruikersbeheer ](https://developer.adobe.com/marketo-apis/api/user/)
+- [&#x200B; Activa &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/)
+- [&#x200B; Identiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/identity/)
+- [&#x200B; Lood Gegevensbestand &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [&#x200B; Gebruikersbeheer &#x200B;](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Eindpuntlijst {#endpoint_list}
 

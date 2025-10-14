@@ -16,9 +16,9 @@ Installatie-instructies voor Marketo Mobile SDK-extensie in [!DNL Adobe Launch] 
 
 ## Vereisten
 
-- [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+- [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
 - Volg de instructies op de [!DNL Adobe Launch] -portal voor installatie
-- [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)
+- [&#x200B; Push Berichten van de Opstelling &#x200B;](push-notifications.md) (facultatief)
 
 ## iOS
 
@@ -36,15 +36,15 @@ Voor gebruikers met SWIFT: verwijder de volgende importinstructie terwijl de ove
 
 ### iOS-testapparaten
 
-Volg instructies bij [ het Toevoegen van de Apparaten van de Test van iOS ](installation.md#ios_test_devices)
+Volg instructies bij [&#x200B; het Toevoegen van de Apparaten van de Test van iOS &#x200B;](installation.md#ios_test_devices)
 
 ### Type aangepaste URL afhandelen in AppDelegate
 
-Volg instructies [ hier ](installation.md#ios_test_devices)
+Volg instructies [&#x200B; hier &#x200B;](installation.md#ios_test_devices)
 
 ### Pushmeldingen instellen op iOS
 
-Volg instructies [ hier ](push-notifications.md) en gebruik de klassennaam &quot;ALMarketo&quot;in plaats van &quot;Marketo&quot;
+Volg instructies [&#x200B; hier &#x200B;](push-notifications.md) en gebruik de klassennaam &quot;ALMarketo&quot;in plaats van &quot;Marketo&quot;
 
 ## Android
 
@@ -69,10 +69,10 @@ Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `progu
 
 ### Android-testapparaten
 
-Volg instructies [ hier ](installation.md#android_test_devices)
+Volg instructies [&#x200B; hier &#x200B;](installation.md#android_test_devices)
 
 ## Pushmeldingen instellen op Android
 
-Volg instructies [ hier ](installation.md#android_firebase_cloud_messaging_support) en gebruik de klassennaam &quot;ALMarketo&quot;in plaats van &quot;Marketo&quot;
+Volg instructies [&#x200B; hier &#x200B;](installation.md#android_firebase_cloud_messaging_support) en gebruik de klassennaam &quot;ALMarketo&quot;in plaats van &quot;Marketo&quot;
 
-Voor vestiging volgen de gebruikersprofielen hier instructies [&#128279;](user-profiles.md) en voor douaneacties hier instructies [ volgen ](custom-actions.md#android_custom_action). Gebruik in de volgende instructies de klassenaam &quot;ALMarketo&quot; in plaats van &quot;Marketo&quot;
+Voor vestiging volgen de gebruikersprofielen hier instructies [&#128279;](user-profiles.md) en voor douaneacties hier instructies [&#x200B; volgen &#x200B;](custom-actions.md#android_custom_action). Gebruik in de volgende instructies de klassenaam &quot;ALMarketo&quot; in plaats van &quot;Marketo&quot;

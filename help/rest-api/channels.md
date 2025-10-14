@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Kanalen
 
-[ Verwijzing van het Eindpunt van Kanalen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[&#x200B; Verwijzing van het Eindpunt van Kanalen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
 
 Kanalen zijn een standaard en vereist veld voor alle programmatypen. Elk type kanaal kan alleen worden gebruikt met de opgegeven `applicableProgramType` en bevat de lijst met beschikbare programmastatussen die geldig zijn voor de programmaleden in elk programma. Als de programmastatus van een kanaal na het creëren van een programma wordt veranderd, dan zal de lijst van programmastatussen die een lood kan worden veranderd aan de lijst die door het kanaal op dat ogenblik wordt gegeven, maar het zal niet de programmasstatus voor om het even welke bestaande verslagen van het programmalidmaatschap met terugwerkende kracht veranderen.
 

@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Hiermee worden een of meer aangepaste objecten opgehaald met een combinatie van criteria die uit nul of één aangepaste objectsleutel bestaan.
 
-Keert een lijst van passende douanevoorwerpen, elk van één enkel type, tot 100 in een partij terug, en het teken van de a [ stroompositie ](stream-position.md) voor het terugwinnen van opeenvolgende partijen.
+Keert een lijst van passende douanevoorwerpen, elk van één enkel type, tot 100 in een partij terug, en het teken van de a [&#x200B; stroompositie &#x200B;](stream-position.md) voor het terugwinnen van opeenvolgende partijen.
 
 ## Verzoek
 

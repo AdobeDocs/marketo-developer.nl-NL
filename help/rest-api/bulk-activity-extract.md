@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Uitpakken van bulkactiviteiten
 
-[ Uittreksel van het EindpuntVerwijzing van de Activiteit van de Bulk ](https://developer.adobe.com/marketo-apis/api/mapi/)
+[&#x200B; Uittreksel van het EindpuntVerwijzing van de Activiteit van de Bulk &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/)
 
 De reeks van het Uittreksel van de Activiteit van het Bulk van REST APIs verstrekt een programmatic interface voor het terugwinnen van grote hoeveelheden activiteitengegevens uit Marketo.  Voor gevallen die geen lage latentie vereisen, en significante volumes van activiteitsgegevens uit Marketo, zoals CRM-integratie, ETL, gegevensopslag, en gegevensarchivering moeten overbrengen.
 
@@ -25,20 +25,20 @@ De Bulk Activity Extraheren-API&#39;s vereisen dat de API-gebruiker beschikt ove
 | Filtertype | Gegevenstype | Vereist | Notities |
 | --- | --- | --- | --- |
 | createdAt | Datumbereik | Ja | Accepteert een JSON-object met de leden `startAt` en `endAt` . `startAt` accepteert een datetime die het lage watermerk vertegenwoordigt en `endAt` accepteert een datetime die het hoge watermerk vertegenwoordigt. Het bereik moet 31 dagen of minder zijn. Taken met dit filtertype retourneren alle toegankelijke records die binnen het datumbereik zijn gemaakt. Datumtijden moeten een ISO-8601-indeling hebben, zonder milliseconden. |
-| activityTypeIds | Array\[geheel getal\] | Nee | Accepteert een JSON-object met één lid, `activityTypeIds` . De waarde moet een array van gehele getallen zijn die overeenkomen met de gewenste activiteitstypen. De &quot;Lood van de Schrapping&quot;activiteit wordt niet gesteund (gebruik [ krijgen schrapte Leads ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) eindpunt in plaats daarvan). Haal activiteitentype ids gebruikend terug [ krijgt het eindpunt van de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
-| [ primaryAttributeValueIds ](#primaryattributevalueids-options) | Array\[geheel getal\] | Nee | Accepteert een JSON-object met één lid, `primaryAttributeValueIds` . De waarde is een array van id&#39;s die de primaire kenmerken opgeven waarop moet worden gefilterd. Er kunnen maximaal 50 id&#39;s worden opgegeven. De id&#39;s zijn de unieke id voor een lead-veld of een element en kunnen worden opgehaald door het juiste REST API-eindpunt aan te roepen. Bijvoorbeeld, om op een specifieke Vorm voor de &quot;Vul uit de activiteit van de Vorm&quot;te filtreren, ga de naam van de Vorm tot [ over krijgt Vorm door het 1&rbrace; eindpunt van de Naam om Vorm identiteitskaart terug te winnen. ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) Hieronder volgt een lijst met activiteitstypen waarvoor het filteren van primaire kenmerken wordt ondersteund. |
-| [ primaryAttributeValues ](#primaryattributevalues-options) | Array\[String\] | Nee | Accepteert een JSON-object met één lid, `primaryAttributeValues` . De waarde is een array van namen die de primaire kenmerken opgeven waarop moet worden gefilterd. Er kunnen maximaal 50 namen worden opgegeven. De namen zijn het unieke herkenningsteken voor of een lood gebied of activa, en kunnen worden teruggewonnen door het aangewezen REST API eindpunt te roepen. Bijvoorbeeld, om op een specifieke Vorm voor de &quot;Vul uit de activiteit van de Vorm&quot;te filtreren, ga Vorm ID tot [ over krijgen Vorm door Identiteitseindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) om de naam van de Vorm terug te winnen. Hieronder volgt een lijst met activiteitstypen waarvoor het filteren van primaire kenmerken wordt ondersteund. |
+| activityTypeIds | Array\[geheel getal\] | Nee | Accepteert een JSON-object met één lid, `activityTypeIds` . De waarde moet een array van gehele getallen zijn die overeenkomen met de gewenste activiteitstypen. De &quot;Lood van de Schrapping&quot;activiteit wordt niet gesteund (gebruik [&#x200B; krijgen schrapte Leads &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) eindpunt in plaats daarvan). Haal activiteitentype ids gebruikend terug [&#x200B; krijgt het eindpunt van de Types van Activiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
+| [&#x200B; primaryAttributeValueIds &#x200B;](#primaryattributevalueids-options) | Array\[geheel getal\] | Nee | Accepteert een JSON-object met één lid, `primaryAttributeValueIds` . De waarde is een array van id&#39;s die de primaire kenmerken opgeven waarop moet worden gefilterd. Er kunnen maximaal 50 id&#39;s worden opgegeven. De id&#39;s zijn de unieke id voor een lead-veld of een element en kunnen worden opgehaald door het juiste REST API-eindpunt aan te roepen. Bijvoorbeeld, om op een specifieke Vorm voor de &quot;Vul uit de activiteit van de Vorm&quot;te filtreren, ga de naam van de Vorm tot [&#x200B; over krijgt Vorm door het 1&rbrace; eindpunt van de Naam om Vorm identiteitskaart terug te winnen. &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) Hieronder volgt een lijst met activiteitstypen waarvoor het filteren van primaire kenmerken wordt ondersteund. |
+| [&#x200B; primaryAttributeValues &#x200B;](#primaryattributevalues-options) | Array\[String\] | Nee | Accepteert een JSON-object met één lid, `primaryAttributeValues` . De waarde is een array van namen die de primaire kenmerken opgeven waarop moet worden gefilterd. Er kunnen maximaal 50 namen worden opgegeven. De namen zijn het unieke herkenningsteken voor of een lood gebied of activa, en kunnen worden teruggewonnen door het aangewezen REST API eindpunt te roepen. Bijvoorbeeld, om op een specifieke Vorm voor de &quot;Vul uit de activiteit van de Vorm&quot;te filtreren, ga Vorm ID tot [&#x200B; over krijgen Vorm door Identiteitseindpunt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) om de naam van de Vorm terug te winnen. Hieronder volgt een lijst met activiteitstypen waarvoor het filteren van primaire kenmerken wordt ondersteund. |
 
 ### Opties voor primaryAttributeValueIds {#primaryattributevalueids-options}
 
 | Type activiteit | Primaire kenmerkwaarde-id | Retrieval Endpoint | Middelengroep |
 | --- | --- | --- | --- |
-| Gegevenswaarde wijzigen | Id van regelveld | [ beschrijf lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
-| Score wijzigen | Id van regelveld | [ beschrijf lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
-| Status wijzigen in Progressie | Programma-id | [ krijgt Programma door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | Marketingprogramma |
-| Toevoegen aan lijst | Statische lijst-id | [ krijgt Statische Lijst door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische lijst |
-| Verwijderen uit lijst | Statische lijst-id | [ krijgt Statische Lijst door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische lijst |
-| Formulier invullen | Formulier-id | [ krijg Vorm door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Webformulier |
+| Gegevenswaarde wijzigen | Id van regelveld | [&#x200B; beschrijf lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
+| Score wijzigen | Id van regelveld | [&#x200B; beschrijf lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
+| Status wijzigen in Progressie | Programma-id | [&#x200B; krijgt Programma door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | Marketingprogramma |
+| Toevoegen aan lijst | Statische lijst-id | [&#x200B; krijgt Statische Lijst door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische lijst |
+| Verwijderen uit lijst | Statische lijst-id | [&#x200B; krijgt Statische Lijst door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische lijst |
+| Formulier invullen | Formulier-id | [&#x200B; krijg Vorm door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Webformulier |
 
 Wanneer u `primaryAttributeValueIds` gebruikt, moet het filter `activityTypeIds` aanwezig zijn en mag het alleen activiteiten-id&#39;s bevatten die overeenkomen met de overeenkomstige elementgroep. Als u bijvoorbeeld filtert op webformulierelementen, is alleen de activiteitstype-id Formulier invullen toegestaan in `activityTypeIds` .
 
@@ -67,12 +67,12 @@ Hoofdtekst voorbeeldaanvraag:
 
 | Type activiteit | Primaire kenmerkwaarde | Retrieval Endpoint | Middelengroep |
 | --- | --- | --- | --- |
-| Gegevenswaarde wijzigen | Weergavenaam hoofdveld | [ beschrijf lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
-| Score wijzigen | Weergavenaam hoofdveld | [ beschrijf lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
-| Status wijzigen in Progressie | Programmanaam | [ krijgt Programma door Id ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | Marketingprogramma |
-| Toevoegen aan lijst | Statische lijstnaam | [ krijgt Statische Lijst door Id ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische lijst |
-| Verwijderen uit lijst | Statische lijstnaam | [ krijgt Statische Lijst door Id ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische lijst |
-| Formulier invullen | Formuliernaam | [ krijg Vorm door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Webformulier |
+| Gegevenswaarde wijzigen | Weergavenaam hoofdveld | [&#x200B; beschrijf lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
+| Score wijzigen | Weergavenaam hoofdveld | [&#x200B; beschrijf lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Kenmerknaam |
+| Status wijzigen in Progressie | Programmanaam | [&#x200B; krijgt Programma door Id &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | Marketingprogramma |
+| Toevoegen aan lijst | Statische lijstnaam | [&#x200B; krijgt Statische Lijst door Id &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische lijst |
+| Verwijderen uit lijst | Statische lijstnaam | [&#x200B; krijgt Statische Lijst door Id &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische lijst |
+| Formulier invullen | Formuliernaam | [&#x200B; krijg Vorm door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Webformulier |
 
 Merk op dat u &quot;&lt; <em> programma </em>> moet gebruiken.&lt;<em> activa </em>>&quot;aantekening om de naam voor de volgende activagroepen te specificeren: Het Programma van de marketing, Statische Lijst, de Vorm van het Web. Een formulier met de naam &quot;MPS Outbound&quot; dat zich bijvoorbeeld onder een programma met de naam &quot;GL_OP_ALL_2021&quot; bevindt, wordt opgegeven als &quot;GL_OP_ALL_2021.MPS Outbound&quot;.
 
@@ -108,7 +108,7 @@ Wanneer u `primaryAttributeValues` gebruikt, moet het filter `activityTypeIds` a
 
 ## Een taak maken
 
-Als u records wilt exporteren, moet u eerst de taak en de set records definiëren die u wilt ophalen.  Creeer de baan gebruikend [ creeer de Eis van de Activiteit van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST) eindpunt.  Bij het exporteren van activiteiten kunnen twee primaire filters worden toegepast: `createdAt` (altijd verplicht) en `activityTypeIds` (optioneel).  Het filter `createdAt` wordt gebruikt om een datumbereik te definiëren waarin activiteiten zijn gemaakt. Hierbij wordt gebruikgemaakt van de parameters `startAt` en `endAt` , die beide datetime-velden zijn en die respectievelijk de vroegste toegestane aanmaakdatum en de laatst toegestane aanmaakdatum vertegenwoordigen.  U kunt desgewenst ook filteren op alleen bepaalde typen activiteiten met het filter `activityTypeIds` .  Dit is handig als u resultaten wilt verwijderen die niet relevant zijn voor uw gebruiksscenario.
+Als u records wilt exporteren, moet u eerst de taak en de set records definiëren die u wilt ophalen.  Creeer de baan gebruikend [&#x200B; creeer de Eis van de Activiteit van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST) eindpunt.  Bij het exporteren van activiteiten kunnen twee primaire filters worden toegepast: `createdAt` (altijd verplicht) en `activityTypeIds` (optioneel).  Het filter `createdAt` wordt gebruikt om een datumbereik te definiëren waarin activiteiten zijn gemaakt. Hierbij wordt gebruikgemaakt van de parameters `startAt` en `endAt` , die beide datetime-velden zijn en die respectievelijk de vroegste toegestane aanmaakdatum en de laatst toegestane aanmaakdatum vertegenwoordigen.  U kunt desgewenst ook filteren op alleen bepaalde typen activiteiten met het filter `activityTypeIds` .  Dit is handig als u resultaten wilt verwijderen die niet relevant zijn voor uw gebruiksscenario.
 
 ```
 POST /bulk/v1/activities/export/create.json
@@ -147,7 +147,7 @@ POST /bulk/v1/activities/export/create.json
 }
 ```
 
-De taak heeft nu de status &#39;Gemaakt&#39;, maar bevindt zich nog niet in de verwerkingswachtrij.  Om het in de rij te zetten zodat kan het beginnen verwerkend, het [ in de rij stellende eindpunt van de Baan van de Activiteit van de Uitvoer van de Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) gebruikend exportId van de reactie van de aanmaakstatus.
+De taak heeft nu de status &#39;Gemaakt&#39;, maar bevindt zich nog niet in de verwerkingswachtrij.  Om het in de rij te zetten zodat kan het beginnen verwerkend, het [&#x200B; in de rij stellende eindpunt van de Baan van de Activiteit van de Uitvoer van de Activiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) gebruikend exportId van de reactie van de aanmaakstatus.
 
 ```
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -175,7 +175,7 @@ De status rapporteert dat de taak in de wachtrij is geplaatst.  Wanneer een wor
 
 De taakstatus kan alleen worden opgehaald voor taken die door dezelfde API-gebruiker zijn gemaakt.
 
-Het Extraheren van de Activiteit van de Bulk van Marketo is een asynchroon eindpunt, zodat moet de baanstatus worden gepolled om te bepalen wanneer de baan volledig is.  Opiniepeiling die het [ gebruiken krijgt de Status van de Taak van de Activiteit van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) als volgt:
+Het Extraheren van de Activiteit van de Bulk van Marketo is een asynchroon eindpunt, zodat moet de baanstatus worden gepolled om te bepalen wanneer de baan volledig is.  Opiniepeiling die het [&#x200B; gebruiken krijgt de Status van de Taak van de Activiteit van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) als volgt:
 
 ```
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -213,7 +213,7 @@ Het statusveld kan reageren met een van de volgende waarden:
 
 ## Uw gegevens ophalen
 
-Zodra de baan volledig is, wint uw gegevens terug gebruikend [ krijgt het 1&rbrace; eindpunt van het Dossier van de Activiteit van de Uitvoer.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET)
+Zodra de baan volledig is, wint uw gegevens terug gebruikend [&#x200B; krijgt het 1&rbrace; eindpunt van het Dossier van de Activiteit van de Uitvoer.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET)
 
 ```
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -231,11 +231,11 @@ marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueI
 783961924,5316669,2022-02-13T14:27:21Z,104,11614,2333,Nurture Automation,"{""Program Member ID"":3240306,""Acquired By"":false,""Old Status"":""Not in Program"",""New Status ID"":27,""Success"":false,""New Status"":""Member"",""Old Status ID"":26}"
 ```
 
-Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes`.  Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd.  U kunt meer lezen over het gebruiken van de kopbal van de Waaier met Marketo [ Bulk Extraheert ](bulk-extract.md).
+Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes`.  Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd.  U kunt meer lezen over het gebruiken van de kopbal van de Waaier met Marketo [&#x200B; Bulk Extraheert &#x200B;](bulk-extract.md).
 
 ## Een taak annuleren
 
-Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [ annuleert het eindpunt van de Taak van de Activiteit van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST):
+Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [&#x200B; annuleert het eindpunt van de Taak van de Activiteit van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST):
 
 ```
 POST /bulk/v1/activities/export/{exportId}/cancel.json

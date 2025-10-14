@@ -16,7 +16,7 @@ In dit artikel vindt u informatie over het installeren en instellen van Marketo 
 
 ## Vereisten
 
-[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+[&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 
 ## SDK-integratie
 
@@ -32,7 +32,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 **voeg mavencentcentrale bewaarplaats** toe
 
-Marketo SDK is beschikbaar op de [ beven centrale bewaarplaats ](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
+Marketo SDK is beschikbaar op de [&#x200B; beven centrale bewaarplaats &#x200B;](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
 
 ```
 build script {
@@ -53,7 +53,7 @@ Voordat u een bridge voor uw React Native-project maakt, is het belangrijk dat u
 
 Het is eenvoudig om iOS SDK in uw app te gebruiken. Voer de volgende stappen uit om dit in het Xcode-project van uw app in te stellen met CocoaPods, zodat u ons platform kunt integreren met uw app.
 
-De download [ CocoaPods ](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
+De download [&#x200B; CocoaPods &#x200B;](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
 
 Als u het wilt downloaden en installeren, start u een opdrachtregelterminal op uw Mac en voert u de volgende opdracht uit:
 
@@ -462,7 +462,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 De toestemmingen moeten in uw project van Xcode worden toegelaten om pushberichten naar het apparaat van de gebruiker te verzenden.
 
-Om pushberichten te verzenden, [ voeg Push Meldingen ](push-notifications.md) toe.
+Om pushberichten te verzenden, [&#x200B; voeg Push Meldingen &#x200B;](push-notifications.md) toe.
 
 Stel iOS Push-berichten in.
 Maak het bestand PushNotifications.tsx en voeg het volgende toe:

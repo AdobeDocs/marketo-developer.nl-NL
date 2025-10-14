@@ -18,8 +18,8 @@ Installatie-instructies voor Marketo Mobile SDK. De onderstaande stappen zijn ve
 
 ### Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
-1. [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)
+1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [&#x200B; Push Berichten van de Opstelling &#x200B;](push-notifications.md) (facultatief)
 
 ### Framework installeren via CocoaPods
 
@@ -35,11 +35,11 @@ Installatie-instructies voor Marketo Mobile SDK. De onderstaande stappen zijn ve
 
 1. Selecteer uw project van de Navigator van het Project en onder &quot;voeg de Afhankelijkheid van het Pakket&quot;toe, klik &#39;+&#39; zoals hieronder getoond:
 
-   ![ voeg Afhankelijkheid ](assets/dependency-manager-add.png) toe
+   ![&#x200B; voeg Afhankelijkheid &#x200B;](assets/dependency-manager-add.png) toe
 
 1. Voeg Marketo-pakket van deze repo toe. Voeg deze URL voor deze gegevensopslagruimte toe: <https://github.com/Marketo/ios-sdk>.
 
-   ![ Repo URL ](assets/dependency-manager-url.png)
+   ![&#x200B; Repo URL &#x200B;](assets/dependency-manager-url.png)
 
 1. Voeg nu de bundel van het Middel toe zoals getoond: plaats `MarketoFramework.XCframework` in projectnavigator en open het in Vinder. Sleep `MKTResources.bundle` naar Bundelbronnen kopiëren.
 
@@ -47,7 +47,7 @@ Installatie-instructies voor Marketo Mobile SDK. De onderstaande stappen zijn ve
 
 1. Ga naar Bestand > Nieuw > Bestand en selecteer Koptekstbestand.
 
-   ![ Uitgezochte &quot;Dossier van de Kopbal&quot;](assets/choose-header-file.png)
+   ![&#x200B; Uitgezochte &quot;Dossier van de Kopbal&quot;](assets/choose-header-file.png)
 
 1. Noem het dossier &quot;&lt; _ProjectName_>-Bridging-Header&quot;.
 
@@ -55,7 +55,7 @@ Installatie-instructies voor Marketo Mobile SDK. De onderstaande stappen zijn ve
 
    `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
-   ![ bouwt Fasen ](assets/build-phases.png)
+   ![&#x200B; bouwt Fasen &#x200B;](assets/build-phases.png)
 
 ## SDK initialiseren
 
@@ -132,9 +132,9 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
-1. [ Push Berichten van de Opstelling ](push-notifications.md#android_setup_push) (facultatief)
-1. [ Download Marketo SDK voor Android ](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
+1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [&#x200B; Push Berichten van de Opstelling &#x200B;](push-notifications.md#android_setup_push) (facultatief)
+1. [&#x200B; Download Marketo SDK voor Android &#x200B;](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
 ### Android SDK Setup () met Gradle
 
@@ -202,14 +202,14 @@ Voeg &quot;MarketoActivity&quot; toe aan het `AndroidManifest.xml` -bestand in d
 
 De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabieler en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw Android-app-ontwikkelaar bevat.
 
-Android app-ontwikkelaars kunnen nu direct Google [ Firebase Cloud Messaging ](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK gebruiken.
+Android app-ontwikkelaars kunnen nu direct Google [&#x200B; Firebase Cloud Messaging &#x200B;](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK gebruiken.
 
 ### FCM toevoegen aan uw toepassing
 
-1. Integreer de nieuwste Marketo Android SDK in Android App.  De stappen zijn beschikbaar bij [ GitHub ](https://github.com/Marketo/android-sdk).
+1. Integreer de nieuwste Marketo Android SDK in Android App.  De stappen zijn beschikbaar bij [&#x200B; GitHub &#x200B;](https://github.com/Marketo/android-sdk).
 1. Firebase-app configureren op Firebase-console.
    1. Creeer/voeg een Project op [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/) de Console van de Vuurbasis toe.
-      1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte `Add Project`.
+      1. In de [&#x200B; console van de Vuurbasis &#x200B;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte `Add Project`.
       1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer `Add Firebase` .
       1. Selecteer `Add Firebase to your Android App` in het welkomstscherm van Firebase.
       1. Geef de pakketnaam en SHA-1 op en selecteer `Add App` . Er wordt een nieuw `google-services.json` -bestand voor de Firebase-app gedownload.

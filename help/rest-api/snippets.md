@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # Fragmenten
 
-[ Verwijzing van het Eindpunt van het Fragment ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[&#x200B; Verwijzing van het Eindpunt van het Fragment &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
 
 Fragmenten zijn herbruikbare HTML-componenten die kunnen worden ingesloten in e-mails en bestemmingspagina&#39;s en die kunnen worden gesegmenteerd voor dynamische inhoud. Fragmenten hebben geen bijbehorende sjablonen en kunnen binnen andere elementen in Marketo worden gemaakt en geïmplementeerd.
 
 ## Query
 
-Querying-fragmenten volgen het standaardpatroon voor elementen, maar hebben geen Op naam-methode. Zowel staan 0&rbrace; door Identiteitskaart [ en ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) doorbladert [ methodes het gebruik van het statusgebied toe om of goedgekeurde of ontwerp versies van het fragment terug te winnen.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET)
+Querying-fragmenten volgen het standaardpatroon voor elementen, maar hebben geen Op naam-methode. Zowel staan 0&rbrace; door Identiteitskaart [&#x200B; en &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) doorbladert [&#x200B; methodes het gebruik van het statusgebied toe om of goedgekeurde of ontwerp versies van het fragment terug te winnen.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET)
 
 ### Op id
 
@@ -143,7 +143,7 @@ De vraag keert een lijst van inhoudssecties terug,  die bestaan uit secties van
 
 ## Maken en bijwerken
 
-De fragmenten volgen het complexe patroon van de activaverwezenlijking, waar de vraag [ fragment ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) creeert, en zijn inhoud afzonderlijk wordt gemaakt, zodat moet de eerste vraag aan creëren eindpunt, met een facultatieve beschrijving zijn.   Gegevens worden doorgegeven als x-www-form-urlencoded, niet als JSON.
+De fragmenten volgen het complexe patroon van de activaverwezenlijking, waar de vraag [&#x200B; fragment &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) creeert, en zijn inhoud afzonderlijk wordt gemaakt, zodat moet de eerste vraag aan creëren eindpunt, met een facultatieve beschrijving zijn.   Gegevens worden doorgegeven als x-www-form-urlencoded, niet als JSON.
 
 ```
 POST /rest/asset/v1/snippets.json
@@ -211,7 +211,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-[ het Bijwerken van meta-gegevens ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) wordt ook gedaan door identiteitskaart. Alleen naam en beschrijving kunnen worden bijgewerkt:
+[&#x200B; het Bijwerken van meta-gegevens &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) wordt ook gedaan door identiteitskaart. Alleen naam en beschrijving kunnen worden bijgewerkt:
 
 ```
 POST /rest/asset/v1/snippet/{id}.json
@@ -400,7 +400,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Klonen
 
-[ het Klonen van een fragment ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) met API is eenvoudig en volgt het standaardpatroon, met een vereiste naam, identiteitskaart van het originele fragment en de omslag, evenals een facultatieve beschrijving.  Als er geen goedgekeurde versie bestaat, wordt de conceptversie gekloond.
+[&#x200B; het Klonen van een fragment &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) met API is eenvoudig en volgt het standaardpatroon, met een vereiste naam, identiteitskaart van het originele fragment en de omslag, evenals een facultatieve beschrijving.  Als er geen goedgekeurde versie bestaat, wordt de conceptversie gekloond.
 
 ```
 POST /rest/asset/v1/snippet/{id}/clone.json

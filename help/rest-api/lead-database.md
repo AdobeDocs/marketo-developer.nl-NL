@@ -32,7 +32,7 @@ De meeste van deze objecten bevatten ten minste de methoden Maken, Lezen, Bijwer
 
 ## API
 
-Voor een volledige lijst van het gegevensbestand API eindpunten van het Lood, met inbegrip van parameters, en modelleringsinformatie, zie de [ Verwijzing van het Eindpunt van het Gegevensbestand Lood API ](https://developer.adobe.com/marketo-apis/api/mapi/).
+Voor een volledige lijst van het gegevensbestand API eindpunten van het Lood, met inbegrip van parameters, en modelleringsinformatie, zie de [&#x200B; Verwijzing van het Eindpunt van het Gegevensbestand Lood API &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/).
 
 Voor instanties met een native CRM-integratie ingeschakeld (Microsoft Dynamics of Salesforce.com), zijn de bedrijf-, opportunity-, Opportunity Role- en Sales Person-API&#39;s uitgeschakeld. De records worden beheerd via de CRM wanneer deze is ingeschakeld en kunnen niet worden geopend of bijgewerkt via Marketo API&#39;s.
 
@@ -143,7 +143,7 @@ GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separat
 Voor alle voorwerpen behalve lood, kunt u {field to query} van doorzoekbareFields van de overeenkomstige beschrijf vraag selecteren, en een komma-gescheiden lijst van maximaal 300 waarden samenstellen. Er zijn ook deze optionele queryparameters:
 
 - `batchSize` - Een geheel getal van het aantal resultaten dat moet worden geretourneerd. Standaard en Maximaal zijn 300.
-- `nextPageToken` - Token dat door een vorige vraag voor het pagineren is teruggekeerd. Zie [ Paging Tokens ](paging-tokens.md) voor meer detail.
+- `nextPageToken` - Token dat door een vorige vraag voor het pagineren is teruggekeerd. Zie [&#x200B; Paging Tokens &#x200B;](paging-tokens.md) voor meer detail.
 - `fields` - Een door komma&#39;s gescheiden lijst met veldnamen die voor elke record moeten worden geretourneerd. Zie de bijbehorende beschrijving voor een lijst met geldige velden. Als een bepaald veld wordt opgevraagd, maar niet wordt geretourneerd, wordt de waarde impliciet ingesteld op null.
 - `_method` - Wordt gebruikt voor het verzenden van query&#39;s met de HTTP-methode POST. Zie de sectie _method=GET hieronder voor gebruik.
 
@@ -182,7 +182,7 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 
 `filterType` die in deze vraag wordt gespecificeerd is &quot;idField&quot;en niet &quot;marketoGUID&quot;. Dit en &quot;dedupeFields&quot;zijn beide speciale gevallen, waar het gebied dat aan idField beantwoordt, of dedupeFields op deze manier kan worden aliased. &quot;marketoGUID&quot;is nog het resulterende raadplegingsgebied in de vraag, maar het is niet uitdrukkelijk plaats in de vraag. De velden en/of sets velden die worden aangegeven door de `idField` en `dedupeFields` van een objectbeschrijving, zijn altijd geldig `filterTypes` voor een query. Deze vraag zoekt naar verslagen die GUIDs aanpassen inbegrepen in filterValues, en keert om het even welke passende verslagen terug. Als er geen verslagen worden gevonden gebruikend deze methode, zal de reactie nog op succes wijzen, nochtans zal de resultaatserie leeg zijn, aangezien het onderzoek met succes werd uitgevoerd, maar er waren geen verslagen om terug te keren.
 
-Als de reeks verslagen in de vraag 300 overschrijdt of `batchSize` die werd gespecificeerd, welke kleiner is, dan heeft de reactie een lid `moreResult` met een waarde van waar, en a `nextPageToken`, die in een verdere vraag kan worden omvat om meer van de reeks terug te winnen. Zie [ het Pagelen Tokens ](paging-tokens.md) voor meer details.
+Als de reeks verslagen in de vraag 300 overschrijdt of `batchSize` die werd gespecificeerd, welke kleiner is, dan heeft de reactie een lid `moreResult` met een waarde van waar, en a `nextPageToken`, die in een verdere vraag kan worden omvat om meer van de reeks terug te winnen. Zie [&#x200B; het Pagelen Tokens &#x200B;](paging-tokens.md) voor meer details.
 
 ### Lange URI&#39;s
 
@@ -295,7 +295,7 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-Met uitzondering van de API voor leads, retourneren aanroepen om databaseobjecten lead te maken of bij te werken een `seq` -veld in elk object in de `result` -array. Het vermelde nummer komt overeen met de volgorde van de bijgewerkte record in het ingediende verzoek. Elk item retourneert de waarde van `idField` voor het objecttype en een `status` . Het statusveld geeft een van de volgende waarden aan: &quot;gemaakt&quot;, &quot;bijgewerkt&quot; of &quot;overgeslagen&quot;.  Als de status wordt overgeslagen, dan zal er ook een overeenkomstige &quot;redenen&quot;serie met één of meerdere redenvoorwerpen zijn die een code en een bericht omvatten, die erop wijzen waarom een verslag werd overgeslagen. Zie [ foutencodes ](error-codes.md) voor extra details.
+Met uitzondering van de API voor leads, retourneren aanroepen om databaseobjecten lead te maken of bij te werken een `seq` -veld in elk object in de `result` -array. Het vermelde nummer komt overeen met de volgorde van de bijgewerkte record in het ingediende verzoek. Elk item retourneert de waarde van `idField` voor het objecttype en een `status` . Het statusveld geeft een van de volgende waarden aan: &quot;gemaakt&quot;, &quot;bijgewerkt&quot; of &quot;overgeslagen&quot;.  Als de status wordt overgeslagen, dan zal er ook een overeenkomstige &quot;redenen&quot;serie met één of meerdere redenvoorwerpen zijn die een code en een bericht omvatten, die erop wijzen waarom een verslag werd overgeslagen. Zie [&#x200B; foutencodes &#x200B;](error-codes.md) voor extra details.
 
 ### Verwijderen
 

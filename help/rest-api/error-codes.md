@@ -35,7 +35,7 @@ Onder normale bedrijfsomstandigheden mag Marketo slechts twee fouten in de HTTP-
 Marketo retourneert 413 als de Request Payload groter is dan 1 MB, of 10 MB in het geval van Import Lead. In de meeste gevallen is het onwaarschijnlijk dat deze limieten worden overschreden, maar door een controle toe te voegen aan de grootte van het verzoek en records te verplaatsen die ertoe leiden dat de limiet wordt overschreden naar een nieuw verzoek, moeten omstandigheden worden voorkomen die ertoe leiden dat deze fout door eindpunten wordt geretourneerd.
 
 414 wordt geretourneerd wanneer de URI van een GET-aanvraag groter is dan 8 kB. Om het te vermijden, controleer tegen de lengte van uw vraagkoord om te zien of overschrijdt het deze grens. Als het uw verzoek in een methode van de POST verandert, dan voer uw vraagkoord als verzoeklichaam met de extra parameter `_method=GET` in. Hiermee wordt de beperking op URI&#39;s genegeerd. Het is zeldzaam om deze grens in de meeste gevallen te raken, maar het is enigszins gemeenschappelijk wanneer het terugwinnen van grote partijen verslagen met lange individuele filterwaarden zoals een GUID.
-Het [ eindpunt van de Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/) kan een 401 Onbevoegde fout terugkeren. Dit is doorgaans het gevolg van een ongeldige client-id of een ongeldig clientgeheim. Foutcodes op HTTP-niveau
+Het [&#x200B; eindpunt van de Identiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/identity/) kan een 401 Onbevoegde fout terugkeren. Dit is doorgaans het gevolg van een ongeldige client-id of een ongeldig clientgeheim. Foutcodes op HTTP-niveau
 
 <table>
   <thead>

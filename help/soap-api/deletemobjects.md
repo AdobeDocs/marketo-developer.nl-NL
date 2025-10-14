@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # deleteMObjects
 
-Schrapt één of meerdere [ MObjects ](marketo-objects.md) en keert het resultaat van de (VERWIJDERDE, ONGEWIJZIGDE, MISLUKT) verrichting terug.
+Schrapt één of meerdere [&#x200B; MObjects &#x200B;](marketo-objects.md) en keert het resultaat van de (VERWIJDERDE, ONGEWIJZIGDE, MISLUKT) verrichting terug.
 
 ## Verzoek
 

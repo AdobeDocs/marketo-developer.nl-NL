@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Responstoewijzingen
 
-Marketo kan gegevens die door een Webhaak worden ontvangen, omzetten van twee inhoudssoorten en deze waarden terugkeren naar een hoofdveld: JSON en XML. De parameter van het Gebied van Marketo zal altijd de [ SOAP API naam ](../rest-api/fields.md) van het gebied gebruiken. Elke Webhaak kan een onbeperkt aantal reactietoewijzingen hebben, die worden toegevoegd en door de [!UICONTROL Edit] knoop in de ruit van de Toewijzingen van de Reactie van uw Webhaak te klikken worden uitgegeven:
+Marketo kan gegevens die door een Webhaak worden ontvangen, omzetten van twee inhoudssoorten en deze waarden terugkeren naar een hoofdveld: JSON en XML. De parameter van het Gebied van Marketo zal altijd de [&#x200B; SOAP API naam &#x200B;](../rest-api/fields.md) van het gebied gebruiken. Elke Webhaak kan een onbeperkt aantal reactietoewijzingen hebben, die worden toegevoegd en door de [!UICONTROL Edit] knoop in de ruit van de Toewijzingen van de Reactie van uw Webhaak te klikken worden uitgegeven:
 
-![ reactie-Toewijzing ](assets/response-mapping.png)
+![&#x200B; reactie-Toewijzing &#x200B;](assets/response-mapping.png)
 
 De Toewijzingen van de reactie worden gecreeerd via een verbinding van een &quot;Attribuut van de Reactie&quot;, de weg aan het gewenste bezit in het document van XML of JSON, en het &quot;Gebied van Marketo&quot;, dat het Loodgebied specificeert dat de waarde heeft die aan het van het Attribuut van de Reactie wordt geschreven.
 
@@ -30,7 +30,7 @@ JSON-eigenschappen zijn toegankelijk met puntnotatie en arraynotatie. Arraynota
 
 Als u toegang wilt krijgen tot de eigenschap `foo` in een reactietoewijzing, gebruikt u de eigenschap `name` van de eigenschap omdat deze zich op het eerste niveau van het JSON-object bevindt, `foo` . Zo ziet dat eruit in Marketo:
 
-![ Toewijzing van de Reactie ](assets/json-resp.png)
+![&#x200B; Toewijzing van de Reactie &#x200B;](assets/json-resp.png)
 
 Hier is een gecompliceerder voorbeeld met een array:
 
@@ -90,4 +90,4 @@ Het document bestaat uit de bovenliggende array `elementList` , met onderliggend
 
 ## Typen
 
-Wanneer u kenmerken toewijst aan velden, moet u ervoor zorgen dat het type in de reactie op de webhaak compatibel is met het doelveld. Als de waarde in het antwoord bijvoorbeeld een tekenreeks is en het geselecteerde veld een geheel getal is, wordt de waarde niet geschreven. Lees over [ Types van Gebied ](../rest-api/field-types.md).
+Wanneer u kenmerken toewijst aan velden, moet u ervoor zorgen dat het type in de reactie op de webhaak compatibel is met het doelveld. Als de waarde in het antwoord bijvoorbeeld een tekenreeks is en het geselecteerde veld een geheel getal is, wordt de waarde niet geschreven. Lees over [&#x200B; Types van Gebied &#x200B;](../rest-api/field-types.md).

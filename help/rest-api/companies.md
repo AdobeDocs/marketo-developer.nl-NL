@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # Bedrijven
 
-[ Verwijzing van het Eindpunt van Bedrijven ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
+[&#x200B; Verwijzing van het Eindpunt van Bedrijven &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
 
-Bedrijven vertegenwoordigen de organisatie waartoe hoofdrecords behoren. De lood worden toegevoegd aan een Bedrijf door hun overeenkomstige `externalCompanyId` gebied te bevolken gebruikend [ Leads van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) of [ BulkLood de 4&rbrace; eindpunten van de Invoer. ](bulk-lead-import.md) Nadat een lead aan een bedrijf is toegevoegd, kunt u de lead van dat bedrijf niet verwijderen (tenzij u de lead aan een ander bedrijf toevoegt). Leads die aan een bedrijfsrecord zijn gekoppeld, nemen de waarden van een bedrijfsrecord rechtstreeks over alsof de waarden in het eigen record van de lead staan.
+Bedrijven vertegenwoordigen de organisatie waartoe hoofdrecords behoren. De lood worden toegevoegd aan een Bedrijf door hun overeenkomstige `externalCompanyId` gebied te bevolken gebruikend [&#x200B; Leads van de Synchronisatie &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) of [&#x200B; BulkLood de 4&rbrace; eindpunten van de Invoer. &#x200B;](bulk-lead-import.md) Nadat een lead aan een bedrijf is toegevoegd, kunt u de lead van dat bedrijf niet verwijderen (tenzij u de lead aan een ander bedrijf toevoegt). Leads die aan een bedrijfsrecord zijn gekoppeld, nemen de waarden van een bedrijfsrecord rechtstreeks over alsof de waarden in het eigen record van de lead staan.
 
-Het bedrijf APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
+Het bedrijf APIs is read-only toegang voor abonnementen die [&#x200B; de Synchronisatie van SFDC &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [&#x200B; Synchronisatie van Microsoft Dynamics &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
 
 ## Beschrijven
 
@@ -98,7 +98,7 @@ GET /rest/v1/companies/describe.json
 
 ## Query
 
-Het patroon voor [ het vragen van bedrijven ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompaniesUsingGET) volgt dicht dat van lood API met de toegevoegde beperking die de `filterType` parameter de gebieden goedkeurt die in de searchFields serie van de beschrijf vraag van Bedrijven worden vermeld, of dedupeFields.
+Het patroon voor [&#x200B; het vragen van bedrijven &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompaniesUsingGET) volgt dicht dat van lood API met de toegevoegde beperking die de `filterType` parameter de gebieden goedkeurt die in de searchFields serie van de beschrijf vraag van Bedrijven worden vermeld, of dedupeFields.
 
 `filterType` en `filterValues` zijn vereiste queryparameters.  `fields` , `nextPageToken` en `batchSize` zijn optionele parameters.  De parameters werken net als de overeenkomstige parameters in de API&#39;s Leads en Opportunity. Wanneer u een lijst van `fields` aanvraagt, wordt de waarde impliciet null weergegeven als een bepaald veld wordt opgevraagd, maar niet wordt geretourneerd.
 
@@ -136,7 +136,7 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## Maken en bijwerken
 
-Het [ eindpunt van de Bedrijven van de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) &lbrace;keurt de vereiste `input` parameter goed die een serie van bedrijfvoorwerpen bevat. Net als de mogelijkheden zijn er drie modi voor het maken en bijwerken van bedrijven: createOnly, updateOnly en createOrUpdate.  Modi worden opgegeven in de parameter `action` van de aanvraag. Zowel de parameters `dedupeBy` als `action` zijn optioneel en worden standaard ingesteld op respectievelijk de modi dedupeFields en createOrUpdate.
+Het [&#x200B; eindpunt van de Bedrijven van de Synchronisatie &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) &lbrace;keurt de vereiste `input` parameter goed die een serie van bedrijfvoorwerpen bevat. Net als de mogelijkheden zijn er drie modi voor het maken en bijwerken van bedrijven: createOnly, updateOnly en createOrUpdate.  Modi worden opgegeven in de parameter `action` van de aanvraag. Zowel de parameters `dedupeBy` als `action` zijn optioneel en worden standaard ingesteld op respectievelijk de modi dedupeFields en createOrUpdate.
 
 ```
 POST /rest/v1/companies.json
@@ -194,7 +194,7 @@ Het vragen van bedrijfgebieden is ongecompliceerd. U kunt één enkel bedrijfgeb
 
 #### Op naam
 
-Het [ krijgt Veld van het Bedrijf door het eindpunt van de Naam ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldByNameUsingGET) wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug. De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op. De reactie is als beschrijf het eindpunt van het Bedrijf maar bevat extra meta-gegevens zoals `isCustom` attributen die erop wijzen of het gebied een douanegebied is.
+Het [&#x200B; krijgt Veld van het Bedrijf door het eindpunt van de Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldByNameUsingGET) wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug. De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op. De reactie is als beschrijf het eindpunt van het Bedrijf maar bevat extra meta-gegevens zoals `isCustom` attributen die erop wijzen of het gebied een douanegebied is.
 
 ```
 GET /rest/v1/companies/schema/fields/industry.json
@@ -223,7 +223,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### Bladeren
 
-Het [ krijgt het eindpunt van de Velden van het Bedrijf ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldsUsingGET) wint meta-gegevens voor alle gebieden op het bedrijfvoorwerp terug. Standaard worden maximaal 300 records geretourneerd. U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen. Als het kenmerk `moreResult` true is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
+Het [&#x200B; krijgt het eindpunt van de Velden van het Bedrijf &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldsUsingGET) wint meta-gegevens voor alle gebieden op het bedrijfvoorwerp terug. Standaard worden maximaal 300 records geretourneerd. U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen. Als het kenmerk `moreResult` true is, zijn er meer resultaten beschikbaar. Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn. De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
 
 ```
 GET /rest/v1/companies/schema/fields.json?batchSize=5

@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Deze functie wint de activiteitengeschiedenis voor één enkele lood terug die door de verstrekte sleutel wordt geïdentificeerd. U kunt opgeven welke typen activiteiten u in het resultaat wilt retourneren. Als u alle activiteitstypen wilt opgeven, moet u een lege waarde opgeven. Geef voor meer dan één type activiteit een lijst met activiteitstypen door. Bij het aanvragen van meerdere activiteiten is het resterende aantal geen nauwkeurig getal, maar moet het worden behandeld als een vlag die aangeeft dat er meer activiteiten zijn wanneer het resterende aantal > 0 is.
 
-A [ stroompositie ](stream-position.md) kan worden gebruikt om door grote resultaatreeksen te pagineren.
+A [&#x200B; stroompositie &#x200B;](stream-position.md) kan worden gebruikt om door grote resultaatreeksen te pagineren.
 
 ## Verzoek
 

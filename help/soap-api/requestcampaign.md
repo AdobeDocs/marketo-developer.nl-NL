@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Deze functie voert een bestaande Marketo lead uit in een Marketo Smart Campaign. De slimme Campagne moet een &quot;Campagne wordt gevraagd&quot;trekker met de bron van de Dienst API van het Web hebben (zie hieronder).
 
-![ de Dienst API van het Web ](assets/webserviceapi.png)
+![&#x200B; de Dienst API van het Web &#x200B;](assets/webserviceapi.png)
 
 Er zijn twee parametersets die kunnen worden gebruikt. Het eerste geval gebruikt `campaignName` + `programName` + `programTokenList` . In dit geval kan `programTokenList` leeg zijn. Het tweede geval gebruikt `campaignId` alleen. Elke andere combinatie genereert een ongeldige parameteruitzondering.
 

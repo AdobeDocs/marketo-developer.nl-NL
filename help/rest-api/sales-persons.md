@@ -12,15 +12,15 @@ ht-degree: 0%
 
 # Verkopers
 
-[ Verwijzing van het Eindpunt van de Verkoper ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
+[&#x200B; Verwijzing van het Eindpunt van de Verkoper &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-De Persoon van de verkoop APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) hebben wordt toegelaten. Verkooppersonen zijn een soort persoonrecord die de eigenaars van loodrecords zijn. Zij zijn verwant met verslagen van het Lood door het externalSalesPersonId gebied op elk Loodverslag. Wanneer een lead aan een verkooppersoon is gerelateerd door een ingevuld veld externalSalesPersonId, worden de desbetreffende opzoekvelden van de eigenaar van de lead in Marketo ingevuld, zodat de bijbehorende filters en tokens kunnen worden gebruikt.
+De Persoon van de verkoop APIs is read-only toegang voor abonnementen die [&#x200B; de Synchronisatie van SFDC &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [&#x200B; Synchronisatie van Microsoft Dynamics &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) hebben wordt toegelaten. Verkooppersonen zijn een soort persoonrecord die de eigenaars van loodrecords zijn. Zij zijn verwant met verslagen van het Lood door het externalSalesPersonId gebied op elk Loodverslag. Wanneer een lead aan een verkooppersoon is gerelateerd door een ingevuld veld externalSalesPersonId, worden de desbetreffende opzoekvelden van de eigenaar van de lead in Marketo ingevuld, zodat de bijbehorende filters en tokens kunnen worden gebruikt.
 
-De Personen van de verkoop zijn verwant met de verslagen van het Lood door de [ Synchronisatie te gebruiken leidt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt en het overgaan van het externalSalesPersonId attribuut.
+De Personen van de verkoop zijn verwant met de verslagen van het Lood door de [&#x200B; Synchronisatie te gebruiken leidt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt en het overgaan van het externalSalesPersonId attribuut.
 
-De Personen van de verkoop zijn verwant met de verslagen van de Kans van de Kans van de Kans van de Kans van de Kans van de Kans door het [ eindpunt van de Synchronisatie te gebruiken en het externalSalesPersonId attribuut over te gaan.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST)
+De Personen van de verkoop zijn verwant met de verslagen van de Kans van de Kans van de Kans van de Kans van de Kans van de Kans door het [&#x200B; eindpunt van de Synchronisatie te gebruiken en het externalSalesPersonId attribuut over te gaan.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST)
 
-De Personen van de verkoop zijn verwant met de verslagen van het Bedrijf door het [ eindpunt van de Bedrijven van de Synchronisatie te gebruiken ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) en het overgaan van het externalSalesPersonId attribuut.
+De Personen van de verkoop zijn verwant met de verslagen van het Bedrijf door het [&#x200B; eindpunt van de Bedrijven van de Synchronisatie te gebruiken &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) en het overgaan van het externalSalesPersonId attribuut.
 
 De verslagen van de Persoon van de verkoop zijn slechts editable via API.
 

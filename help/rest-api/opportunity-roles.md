@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Opportuniteitsrollen
 
-[ Verwijzing van het Eindpunt van de Rollen van de Kans ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[&#x200B; Verwijzing van het Eindpunt van de Rollen van de Kans &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
 Leads worden gekoppeld aan mogelijkheden via het tussenliggende `opportunityRole` -object.
 

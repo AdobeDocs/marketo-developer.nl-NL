@@ -31,7 +31,7 @@ Tot de Marketo-elementen behoren:
 
 ## API
 
-Voor een volledige lijst van activa API eindpunten, met inbegrip van parameters en modelleringsinformatie, zie de [ Verwijzing van het Eindpunt van Activa API ](endpoint-reference.md).
+Voor een volledige lijst van activa API eindpunten, met inbegrip van parameters en modelleringsinformatie, zie de [&#x200B; Verwijzing van het Eindpunt van Activa API &#x200B;](endpoint-reference.md).
 
 ## Query
 

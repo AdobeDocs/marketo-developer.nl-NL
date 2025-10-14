@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # syncMObjects
 
-Accepteert een serie van [ MObjects ](marketo-objects.md) om, tot een maximum aan 100 per vraag worden gecreeerd of worden bijgewerkt, en keert het resultaat (status) van de verrichting (CREATED, UPDATED, FAILED, UNCHANGED, SKIPPED) en Marketo IDs van MObject(s) terug. De API kan in één van drie verrichtingswijzen worden geroepen:
+Accepteert een serie van [&#x200B; MObjects &#x200B;](marketo-objects.md) om, tot een maximum aan 100 per vraag worden gecreeerd of worden bijgewerkt, en keert het resultaat (status) van de verrichting (CREATED, UPDATED, FAILED, UNCHANGED, SKIPPED) en Marketo IDs van MObject(s) terug. De API kan in één van drie verrichtingswijzen worden geroepen:
 
 1. INSERT - Alleen nieuwe objecten invoegen, bestaande objecten overslaan
 1. UPDATE - Alleen bestaande objecten bijwerken, nieuwe objecten overslaan.
@@ -28,7 +28,7 @@ De UPDATE- en UPSERT-bewerkingen gebruiken de id als sleutel. In één enkele AP
 | mObjectList->mObject->type | Vereist | Kan één van zijn:`Program`, `Opportunity`, `OpportunityPersonRole` |
 | mObjectList->mObject->id | Vereist | Id van het MObject. U kunt tot 100 MObjects per vraag specificeren. |
 | mObjectList->mObject->typeAttribList->typeAttrib->attrType | Vereist | Kosten (alleen gebruikt tijdens het bijwerken van het Program MObject) kunnen een van de volgende zijn: `Cost`, `Tag` |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Vereist | Voor Program MObject kunnen de volgende kenmerken worden doorgegeven als naam-waardeparen. Voor kosten: `Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. Voor tag/kanaal: `Type (Required)`, `Value (Required)` . Voor Opportunity MObject, kunnen alle gebieden van de output van [ describeMObject ](describemobject.md) als naam-waarde paren worden overgegaan. De onderstaande lijst bevat alle optionele velden en de standaardset kenmerken. U hebt mogelijk aanvullende velden op het Opportunity MObject die zijn gemaakt via een supportverzoek. |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Vereist | Voor Program MObject kunnen de volgende kenmerken worden doorgegeven als naam-waardeparen. Voor kosten: `Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. Voor tag/kanaal: `Type (Required)`, `Value (Required)` . Voor Opportunity MObject, kunnen alle gebieden van de output van [&#x200B; describeMObject &#x200B;](describemobject.md) als naam-waarde paren worden overgegaan. De onderstaande lijst bevat alle optionele velden en de standaardset kenmerken. U hebt mogelijk aanvullende velden op het Opportunity MObject die zijn gemaakt via een supportverzoek. |
 
 1. Hoeveelheid
 1. CloseDate
@@ -50,7 +50,7 @@ De UPDATE- en UPSERT-bewerkingen gebruiken de id als sleutel. In één enkele AP
 1. Werkgebied
 1. Type
 
-Voor OpportunityPersonRole MObject, kunt u alle gebieden van de output van [ leveren describeMObject ](./describemobject.md) als naam-waarde paren. De standaardset kenmerken van OpportunityPersonRole MObject wordt hier weergegeven:
+Voor OpportunityPersonRole MObject, kunt u alle gebieden van de output van [&#x200B; leveren describeMObject &#x200B;](./describemobject.md) als naam-waarde paren. De standaardset kenmerken van OpportunityPersonRole MObject wordt hier weergegeven:
 
 1. OpportunityId (vereist)
 1. PersonId (vereist)

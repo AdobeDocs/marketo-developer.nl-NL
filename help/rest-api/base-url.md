@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Basis-URL
 
-De [ documentatie van de Verwijzing van 0&rbrace; Eindpunt voor elke API vraag toont de REST methode, de weg, het middel, en de parameters die aan basis URL moeten worden toegevoegd om een verzoek te vormen.](endpoint-reference.md)
+De [&#x200B; documentatie van de Verwijzing van 0&rbrace; Eindpunt voor elke API vraag toont de REST methode, de weg, het middel, en de parameters die aan basis URL moeten worden toegevoegd om een verzoek te vormen.](endpoint-reference.md)
 
 Hieronder ziet u een voorbeeld van een goed gevormde REST-URL:
 
@@ -27,6 +27,6 @@ bestaande uit de volgende delen:
 
 De basis-URL bevat de account-id (ook wel Munchkin-id genoemd) en is daarom uniek voor elk Marketo-abonnement. De basis-URL wordt gevonden door u aan te melden bij Marketo en naar het menu **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** te navigeren. Het wordt geëtiketteerd als &quot;Eindpunt:&quot;onder de &quot;REST API&quot;sectie zoals aangetoond in de volgende screenshots.
 
-![ Eindpunt van URL van de Basis van de Diensten van het Web ](assets/rest-api-base-url-web-services.png)
+![&#x200B; Eindpunt van URL van de Basis van de Diensten van het Web &#x200B;](assets/rest-api-base-url-web-services.png)
 
 Wanneer u de basis-URL hebt gevonden, kopieert u deze en neemt u deze op in URL&#39;s die u gebruikt wanneer u een van de REST-API&#39;s aanroept.

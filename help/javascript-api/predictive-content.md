@@ -12,4 +12,4 @@ ht-degree: 0%
 
 # Voorspelende inhoud
 
-De JavaScript API voor voorspellende inhoud breidt de voorspellende inhoud van het platform uit. Het staat voor dynamische aanpassing van een webpagina via [ Rijke Aanbevelingen van Media ](rich-media-recommendation.md) toe.
+De JavaScript API voor voorspellende inhoud breidt de voorspellende inhoud van het platform uit. Het staat voor dynamische aanpassing van een webpagina via [&#x200B; Rijke Aanbevelingen van Media &#x200B;](rich-media-recommendation.md) toe.

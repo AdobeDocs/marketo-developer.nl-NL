@@ -16,9 +16,9 @@ Integratie van Marketo PhoneGap-insteekmodule
 
 ## Vereisten
 
-1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
-1. Push van de opstelling Meldingen ([ iOS ](push-notifications.md) | [ Android ](push-notifications.md)).
-1. [ installeer PhoneGap/Cordova CLI ](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. Push van de opstelling Meldingen ([&#x200B; iOS &#x200B;](push-notifications.md) | [&#x200B; Android &#x200B;](push-notifications.md)).
+1. [&#x200B; installeer PhoneGap/Cordova CLI &#x200B;](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installatie-instructies
 
@@ -67,7 +67,7 @@ Lijst met toegevoegde platforms controleren `$cordova platform ls`
 
 1. Firebase-app configureren op Firebase-console.
    1. Creeer/voeg een Project op [&#128279;](https://console.firebase.google.com/) de Console van de Vuurbasis toe.
-      1. In de [ console van de Vuurbasis ](https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
+      1. In de [&#x200B; console van de Vuurbasis &#x200B;](https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
       1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
       1. Selecteer Firebase toevoegen aan uw Android-toepassing in het welkomstscherm van Firebase.
       1. Geef de pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]** . Er wordt een nieuw `google-services.json` -bestand voor de Firebase-app gedownload.
@@ -196,7 +196,7 @@ marketo.initializeMarketoPush(
 
 - Callback met succes: functie die moet worden uitgevoerd als de Marketo-pushmelding correct is geïnitialiseerd.
 - Callback van mislukking: functie uit te voeren als de pushmelding van Marketo niet kan worden geïnitialiseerd.
-- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [ wordt gevonden de Console van Ontwikkelaars van Google ](https://console.developers.google.com/) na het creëren van app.
+- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [&#x200B; wordt gevonden de Console van Ontwikkelaars van Google &#x200B;](https://console.developers.google.com/) na het creëren van app.
 
 Het token kan ook bij afmelden niet worden geregistreerd.
 

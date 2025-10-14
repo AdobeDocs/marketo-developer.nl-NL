@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # Bestanden
 
-[ Verwijzing van het Eindpunt van dossiers 0&rbrace;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[&#x200B; Verwijzing van het Eindpunt van dossiers 0&rbrace;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
 
 Met Marketo-abonnementen kunt u willekeurige bestanden opslaan, zoals afbeeldingen, scripts, documenten en stijlpagina&#39;s. U kunt deze allemaal op afstand bewerken via de REST API. De opslag die beschikbaar is in Marketo-abonnementen is niet geoptimaliseerd voor toepassingen met veel bandbreedte. Er moeten dus alternatieven worden gebruikt voor correcte audio- en videostreaming toepassingen.
 
 ## Query
 
-Het vragen van dossiers is eenvoudig en volgt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET), en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+Het vragen van dossiers is eenvoudig en volgt de standaardvraagtypes voor activa van [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET), en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
 
 ### Op id
 
@@ -155,7 +155,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Maken en bijwerken
 
-[ Creërend een dossier ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) wordt gedaan met een multipart/form-gegeven type van verzoek. Minimaal, worden de naam, de omslag, en het dossier vereist in het verzoek, met een facultatieve beschrijving, en een insertOnly vlag, die een creeer vraag verhindert een bestaand dossier met de zelfde naam bij te werken. Voor de bestandsparameter is naast de parameter name een bestandsnaam vereist in de header Content-Disposition. U moet ook een Content-Type-header voor het bestand doorgeven. Dit is het MIME-type dat Marketo gebruikt om het bestand mee te dienen.
+[&#x200B; Creërend een dossier &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) wordt gedaan met een multipart/form-gegeven type van verzoek. Minimaal, worden de naam, de omslag, en het dossier vereist in het verzoek, met een facultatieve beschrijving, en een insertOnly vlag, die een creeer vraag verhindert een bestaand dossier met de zelfde naam bij te werken. Voor de bestandsparameter is naast de parameter name een bestandsnaam vereist in de header Content-Disposition. U moet ook een Content-Type-header voor het bestand doorgeven. Dit is het MIME-type dat Marketo gebruikt om het bestand mee te dienen.
 
 ```
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[ die een dossier ](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) bijwerken kan op zijn identiteitskaart worden gedaan gebaseerd. De enige parameter is een bestandsparameter die dezelfde vereisten heeft als het maken.
+[&#x200B; die een dossier &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) bijwerken kan op zijn identiteitskaart worden gedaan gebaseerd. De enige parameter is een bestandsparameter die dezelfde vereisten heeft als het maken.
 
 ```
 POST /rest/asset/v1/file/{id}/content.json

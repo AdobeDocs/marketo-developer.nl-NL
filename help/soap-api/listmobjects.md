@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # listMObjects
 
-Deze functie keert de namen van de voorwerpen van Marketo terug die als input in [ describeMObjects ](./describemobject.md) functie voor de verrichtingen van de schemaontdekking kunnen worden gebruikt.
+Deze functie keert de namen van de voorwerpen van Marketo terug die als input in [&#x200B; describeMObjects &#x200B;](./describemobject.md) functie voor de verrichtingen van de schemaontdekking kunnen worden gebruikt.
 
 ## Verzoek
 

@@ -49,7 +49,7 @@ Als Marketo-werkruimten NIET zijn ingeschakeld, MOET de werkruimte Standaard de 
 | leadRecord->leadAttributeList->attribute->attrName | Vereist | The name of the lead attribute you want to update the value of. |
 | leadRecord->leadAttributeList->attribute->attrValue | Vereist | De waarde die u wilt instellen op het kenmerk lead dat in attrName is opgegeven. |
 | returnLead | Vereist | Indien waar (true), wordt de volledige bijgewerkte lead record geretourneerd bij update. |
-| marketoCookie | Optioneel | Het [ javascript van Munchkin ](../javascript-api/lead-tracking.md) koekje |
+| marketoCookie | Optioneel | Het [&#x200B; javascript van Munchkin &#x200B;](../javascript-api/lead-tracking.md) koekje |
 
 ## XML aanvragen
 

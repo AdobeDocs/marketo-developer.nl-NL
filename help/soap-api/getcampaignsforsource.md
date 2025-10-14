@@ -16,7 +16,7 @@ Deze functie retourneert een lijst met in aanmerking komende Marketo-campagnes d
 
 Belangrijk: de trigger &#39;Campagne is aangevraagd&#39; moet zijn ingesteld op de slimme campagne om in aanmerking te komen. Zijn bron moet de Dienst API van het Web omvatten.
 
-![ campagne_is_requested_trigger ](assets/campaign-is-requested-trigger.png)
+![&#x200B; campagne_is_requested_trigger &#x200B;](assets/campaign-is-requested-trigger.png)
 
 ## Verzoek
 

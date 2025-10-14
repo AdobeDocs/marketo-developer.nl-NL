@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Aangepaste services
 
-A Custom Service biedt referenties voor verificatie met Marketo. De geloofsbrieven zijn nodig om een toegangstoken van de dienst van de Identiteit van Marketo [ te verkrijgen ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Elke Dienst van de Douane is scoped aan één enkele API-Enige gebruiker waarvan het zijn toestemmingen afleidt.
+A Custom Service biedt referenties voor verificatie met Marketo. De geloofsbrieven zijn nodig om een toegangstoken van de dienst van de Identiteit van Marketo [&#x200B; te verkrijgen &#x200B;](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Elke Dienst van de Douane is scoped aan één enkele API-Enige gebruiker waarvan het zijn toestemmingen afleidt.
 
 ## Rollen
 
@@ -20,17 +20,17 @@ De eerste stap bij het maken van een aangepaste service is het maken van een rol
 
 Rollen zijn containers voor individuele machtigingen die toegang tot bepaalde functies toestaan of beperken. Bij abonnementen waarvoor werkruimten en partities zijn ingeschakeld, worden machtigingen per werkruimte toegewezen. Als een gebruiker een machtiging heeft in de ene werkruimte, maar niet in de andere, kunnen hij of zij alleen toegestane acties uitvoeren in die werkruimte. Als u een rol wilt maken, klikt u op de knop Nieuwe rol.
 
-![ Gebruikers en Rollen ](assets/admin-users-and-roles-roles.png)
+![&#x200B; Gebruikers en Rollen &#x200B;](assets/admin-users-and-roles-roles.png)
 
 Geef uw rol een beschrijvende naam. Gebruikers met alleen een API hebben een specifieke set machtigingen die apart staan en verschillen van normale gebruikersmachtigingen. API-machtigingen bevinden zich in hun eigen hiërarchie onder de structuur van de API voor toegang.
 
-![ Nieuwe Rechten van de Rol ](assets/new-role-access-api-permissions.png)
+![&#x200B; Nieuwe Rechten van de Rol &#x200B;](assets/new-role-access-api-permissions.png)
 
 ### Rolmachtigingen
 
 Alleen machtigingen in de groep &quot;API voor toegang&quot; worden toegepast op API-gebruikers, dat wil zeggen dat het toewijzen van alle beheermachtigingen geen API-machtigingen aan een gebruiker verleent.
 
-Wanneer u een rol samenstelt, moet u zorgvuldig overwegen welke handelingen u de toepassing moet toestaan om deze te gebruiken. Alleen de minimale set machtigingen toekennen die vereist is om die handelingen uit te voeren. Als u een onnodig permissieve set machtigingen toestaat, kunnen integraties ongewenste handelingen uitvoeren in uw abonnement. U kunt het [ toestemmingenhulpmiddel ](endpoint-reference.md) gebruiken om uw minimale reeks toestemmingen te bepalen. Zie de volledige lijst van [ toestemmingen ](#permission_list).
+Wanneer u een rol samenstelt, moet u zorgvuldig overwegen welke handelingen u de toepassing moet toestaan om deze te gebruiken. Alleen de minimale set machtigingen toekennen die vereist is om die handelingen uit te voeren. Als u een onnodig permissieve set machtigingen toestaat, kunnen integraties ongewenste handelingen uitvoeren in uw abonnement. U kunt het [&#x200B; toestemmingenhulpmiddel &#x200B;](endpoint-reference.md) gebruiken om uw minimale reeks toestemmingen te bepalen. Zie de volledige lijst van [&#x200B; toestemmingen &#x200B;](#permission_list).
 
 ## Gebruikers
 
@@ -44,11 +44,11 @@ Nadat u een rol hebt gemaakt, moet u een gebruiker met de eigenschap Alleen API 
 >
 >Als u een gebruiker met alleen een API wilt maken, gaat u naar het menu **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** en klikt u op [!UICONTROL Invite New User] .
 
-![ Nieuwe Informatie van de Gebruiker ](assets/new-user-info.png)
+![&#x200B; Nieuwe Informatie van de Gebruiker &#x200B;](assets/new-user-info.png)
 
 Geef uw gebruiker een beschrijvende naam en een e-mailadres (het moet ongeldig zijn), gebaseerd op de dienst en de toepassing waarvoor het zal worden gebruikt. Vul de vereiste velden in het dialoogvenster in, klik op het selectievakje Alleen API en wijs een van uw API-rollen toe aan de gebruiker. Hiermee worden de machtigingen van die rol toegewezen aan de gebruiker.
 
-![ Nieuwe Toestemmingen van de Gebruiker ](assets/new-user-permissions.png)
+![&#x200B; Nieuwe Toestemmingen van de Gebruiker &#x200B;](assets/new-user-permissions.png)
 
 Klik tot slot op &quot;Verzenden&quot; om de gebruiker met alleen de API te maken.
 
@@ -60,11 +60,11 @@ De Diensten van de douane verstrekken de daadwerkelijke geloofsbrieven, identite
 
 Geef uw dienst een beschrijvende naam en van de lijst van de &quot;Dienst&quot;selecteer &quot;Douane&quot;. Geef uw service een uitgebreide beschrijving en selecteer een geschikte gebruiker in de lijst Alleen API-gebruiker en klik op [!UICONTROL Create] .
 
-![ Nieuwe Dienst van de Douane ](assets/admin-launchpoint-new-service.png)
+![&#x200B; Nieuwe Dienst van de Douane &#x200B;](assets/admin-launchpoint-new-service.png)
 
-Dit voegt een nieuwe dienst aan uw lijst van de diensten van LaunchPoint, en de optie aan &quot;Details van de Mening&quot;toe. Klik op &quot;Details weergeven&quot; en u krijgt de client-id en het clientgeheim die vereist zijn voor verificatie, de gebruiker die eigenaar is en een optie om token op te halen voor testdoeleinden op korte termijn. Het teken u van deze dialoog krijgt heeft het zelfde leven zoals tokens die normaal van de [ dienst van de Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) worden verkregen en is geldig voor 3.600 seconden van verwezenlijking.
+Dit voegt een nieuwe dienst aan uw lijst van de diensten van LaunchPoint, en de optie aan &quot;Details van de Mening&quot;toe. Klik op &quot;Details weergeven&quot; en u krijgt de client-id en het clientgeheim die vereist zijn voor verificatie, de gebruiker die eigenaar is en een optie om token op te halen voor testdoeleinden op korte termijn. Het teken u van deze dialoog krijgt heeft het zelfde leven zoals tokens die normaal van de [&#x200B; dienst van de Identiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) worden verkregen en is geldig voor 3.600 seconden van verwezenlijking.
 
-![ krijg Symbolisch ](assets/get-token.png)
+![&#x200B; krijg Symbolisch &#x200B;](assets/get-token.png)
 
 ## Werkruimten en partities
 

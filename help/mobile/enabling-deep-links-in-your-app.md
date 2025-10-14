@@ -22,15 +22,15 @@ Het proces werkt als volgt:
 
 Hiervoor moet u een aangepaste URI-structuur voor uw app definiëren, het schema in het manifest van uw app registreren en vervolgens code toevoegen om deep link-gebeurtenissen te verwerken en naar de juiste locatie in uw app te gaan.
 
-Voor iOS, verwijs naar de documentatie van Apple op [ die een Regeling van Douane URL voor Uw App ](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app) bepaalt.
+Voor iOS, verwijs naar de documentatie van Apple op [&#x200B; die een Regeling van Douane URL voor Uw App &#x200B;](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app) bepaalt.
 
-Voor Android, verwijs naar de documentatie van Google op [ toelatend Diepe Verbindingen voor de Inhoud van de Toepassing ](https://developer.android.com/training/app-links/deep-linking).
+Voor Android, verwijs naar de documentatie van Google op [&#x200B; toelatend Diepe Verbindingen voor de Inhoud van de Toepassing &#x200B;](https://developer.android.com/training/app-links/deep-linking).
 
-Voor PhoneGap-apps is deep linking niet zo direct voorwaarts als bij native iOS- of Android-apps, maar er zijn plug-ins waarmee uw hybride app kan reageren op deep link-aangepaste URL-schema&#39;s en Universal/App-koppelingen op zowel iOS als Android. Overweeg [ deze plug-ins ](https://cordova.apache.org/plugins/?q=deeplink).
+Voor PhoneGap-apps is deep linking niet zo direct voorwaarts als bij native iOS- of Android-apps, maar er zijn plug-ins waarmee uw hybride app kan reageren op deep link-aangepaste URL-schema&#39;s en Universal/App-koppelingen op zowel iOS als Android. Overweeg [&#x200B; deze plug-ins &#x200B;](https://cordova.apache.org/plugins/?q=deeplink).
 
 Wanneer u deep linking hebt ingeschakeld in uw app, deelt u uw aangepaste URI&#39;s met uw Marketo-gebruikers zodat deze ze kunnen invoegen in de Tap-actie voor pushberichten.
 
-Marketo gebruikt een vooraf gedefinieerde URI-structuur bij het instellen van testapparaten. Verwijs naar de &quot;sectie van de Apparaten van de Test&quot;van de [ Gids van de Installatie ](installation.md) voor meer informatie.
+Marketo gebruikt een vooraf gedefinieerde URI-structuur bij het instellen van testapparaten. Verwijs naar de &quot;sectie van de Apparaten van de Test&quot;van de [&#x200B; Gids van de Installatie &#x200B;](installation.md) voor meer informatie.
 
 ## Aanbevolen procedures voor het definiëren van een URI-structuur
 

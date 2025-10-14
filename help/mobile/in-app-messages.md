@@ -14,13 +14,13 @@ ht-degree: 0%
 
 Als u de communicatiemogelijkheden in de app van Marketo wilt gebruiken, moet u de volgende stappen uitvoeren:
 
-1. Installeer Marketo Mobile SDK zoals die in de [ Mobiele Installatie ](installation.md) wordt beschreven.
-1. Voeg uw mobiele app aan Marketo toe zoals die in [ wordt beschreven een Mobiele App ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toevoegt.
-1. Naar keuze, voeg code aan uw mobiele app toe om [ Acties van de Douane ](custom-actions.md) te vangen.
+1. Installeer Marketo Mobile SDK zoals die in de [&#x200B; Mobiele Installatie &#x200B;](installation.md) wordt beschreven.
+1. Voeg uw mobiele app aan Marketo toe zoals die in [&#x200B; wordt beschreven een Mobiele App &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toevoegt.
+1. Naar keuze, voeg code aan uw mobiele app toe om [&#x200B; Acties van de Douane &#x200B;](custom-actions.md) te vangen.
 
 Nadat u de Marketo Mobile SDK hebt geïnstalleerd en uw app in Marketo hebt toegevoegd, kunt u in de app berichten verzenden die worden weergegeven wanneer een gebruiker uw app opent.
 
-Standaard worden in-app berichten geactiveerd wanneer uw app wordt geopend. Als u in-app berichten voor andere gebeurtenissen wilt teweegbrengen, zoals wanneer een specifieke pagina wordt bekeken, of wanneer een specifieke knoop wordt geduwd, moet u douaneacties aan uw code toevoegen. Zie [ sectie van de Acties van de Douane ](custom-actions.md) voor codesteekproeven van dit.
+Standaard worden in-app berichten geactiveerd wanneer uw app wordt geopend. Als u in-app berichten voor andere gebeurtenissen wilt teweegbrengen, zoals wanneer een specifieke pagina wordt bekeken, of wanneer een specifieke knoop wordt geduwd, moet u douaneacties aan uw code toevoegen. Zie [&#x200B; sectie van de Acties van de Douane &#x200B;](custom-actions.md) voor codesteekproeven van dit.
 
 ## Problemen oplossen
 
@@ -34,4 +34,4 @@ Aangepaste gebeurtenissen worden geactiveerd door gebruikersinteractie nadat de 
 
 Zorg ervoor dat u een actie naast &quot;sluiten&quot; toewijst aan een van de primaire of secundaire knoppen om de tikactiviteiten te volgen en basisweergavefrequenties te gebruiken op basis van het aantal tikken.
 
-Voor extra informatie, zie de [ in-App sectie van Berichten ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message) in onze productdocumentatie.
+Voor extra informatie, zie de [&#x200B; in-App sectie van Berichten &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message) in onze productdocumentatie.

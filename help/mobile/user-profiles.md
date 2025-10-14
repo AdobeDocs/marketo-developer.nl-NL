@@ -65,7 +65,7 @@ profile.setLinkedInId("linkedinid")
 profile.setTwitterId("twitterid")
 ```
 
-Voeg meer [ standaardgebieden ](../rest-api/list-of-standard-fields.md) toe.
+Voeg meer [&#x200B; standaardgebieden &#x200B;](../rest-api/list-of-standard-fields.md) toe.
 
 >[!BEGINTABS]
 
@@ -135,7 +135,7 @@ marketo.associateLead(profile)
    }
    ```
 
-1. Voeg meer [ standaardgebieden ](../rest-api/list-of-standard-fields.md) toe.
+1. Voeg meer [&#x200B; standaardgebieden &#x200B;](../rest-api/list-of-standard-fields.md) toe.
 
    ```java
    // Add other custom fields

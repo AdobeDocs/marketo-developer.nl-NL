@@ -13,11 +13,11 @@ ht-degree: 4%
 
 De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken.
 
-Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ Stream van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) in te tekenen. &#x200B;
+Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [&#x200B; Stream van de Gegevens van de Waarneming van Marketo &#x200B;](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) in te tekenen. &#x200B;
 
 Interfaces worden aangeboden voor twee objecttypen: Personen, Aangepaste objecten. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
-De API voor gegevensinsluiting bevindt zich in een persoonlijke bètaversie. Invitees worden vereist om een recht voor [ Pakket van de Rij van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) te hebben.
+De API voor gegevensinsluiting bevindt zich in een persoonlijke bètaversie. Invitees worden vereist om een recht voor [&#x200B; Pakket van de Rij van de Prestaties van Marketo Engage &#x200B;](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) te hebben.
 
 ## Verificatie
 

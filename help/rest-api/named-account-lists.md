@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Lijsten met benoemde accounts
 
-[ Genoemde Verwijzing van het Eindpunt van de Rekening maakt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[&#x200B; Genoemde Verwijzing van het Eindpunt van de Rekening maakt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
+[&#x200B; Genoemde Lijsten van de Rekening &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
 `Content`
 
 ## Machtigingen

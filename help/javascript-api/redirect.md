@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Met de RTP Redirect-API kunt u gesegmenteerde doelgroepen omleiden naar een doel-URL.
 
-- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
+- U moet een klant van Personalization van het Web worden en de [&#x200B; markering hebben RTP die &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
 - RTP ondersteunt geen accountgebaseerde marketing met benoemde accountlijsten. ABM-lijsten en -code hebben alleen betrekking op de geüploade accountlijsten (CSV-bestanden) die in RTP worden beheerd.
 
 ## Gebruik
@@ -90,7 +90,7 @@ rtp('get','campaign');
 1. Creeer een segment genoemd - &quot;opnieuw geleid door RTP&quot;
 1. Gebruik de parameter &#39;Specifieke pagina&#39;s&#39; als doel voor bezoekers die pagina&#39;s weergeven met de onderstaande parameter.
 
-![ het volgen-redirected-vistors ](assets/tracking-redirected-vistors.png)
+![&#x200B; het volgen-redirected-vistors &#x200B;](assets/tracking-redirected-vistors.png)
 
 ## Meer dan één voorwaarde definiëren met verschillende doel-URL&#39;s
 

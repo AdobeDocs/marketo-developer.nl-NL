@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Tokens
 
-[ Symbolische Verwijzing van het Eindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
+[&#x200B; Symbolische Verwijzing van het Eindpunt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 
 Tokens in Marketo zijn speciale tekenreeksen, vergelijkbaar met snelcodes, die tijdens de uitvoering worden vervangen door een afzonderlijk stukje gegevens. Er zijn verschillende typen tokens beschikbaar in Marketo, maar alleen Mijn tokens kunnen worden bewerkt via de API. Mijn tokens zijn onderliggende tokens die lokaal zijn voor een bepaalde map of programma. Tokens kunnen worden gelezen, gemaakt en verwijderd via de API.
 
@@ -33,7 +33,7 @@ Dit zijn de enige gegevenstypen die kunnen worden gebruikt bij het maken van een
 
 ## Query
 
-[ krijgt Tokens door Identiteitskaart van de Omslag ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) neemt `id` als wegparameter van of een programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` .
+[&#x200B; krijgt Tokens door Identiteitskaart van de Omslag &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) neemt `id` als wegparameter van of een programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` .
 
 ```curl
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
@@ -66,7 +66,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Maken en bijwerken
 
-[ creeer Symbolische ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) eindpunt leidt tot tekenen, of als zij bestaan werk hen met voorgelegde waarden bij. Tokens worden gemaakt in de context van een map of programma. De vereiste `id` padparameter is de id van de map waaraan het token wordt gekoppeld. De parameters `name`, `type`, `value` en `folderType` zijn alle vereiste parameters van het token. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON. Het veld `name` van het token mag niet langer zijn dan 50 tekens.
+[&#x200B; creeer Symbolische &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) eindpunt leidt tot tekenen, of als zij bestaan werk hen met voorgelegde waarden bij. Tokens worden gemaakt in de context van een map of programma. De vereiste `id` padparameter is de id van de map waaraan het token wordt gekoppeld. De parameters `name`, `type`, `value` en `folderType` zijn alle vereiste parameters van het token. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON. Het veld `name` van het token mag niet langer zijn dan 50 tekens.
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -107,7 +107,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Verwijderen
 
-[ Symbolisch van de Schrapping door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) neemt identiteitskaart als wegparameter van of een Programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` . Tokens worden verwijderd op basis van hun bovenliggende map, de map `name` en de token `type` , die allemaal verplicht zijn. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.
+[&#x200B; Symbolisch van de Schrapping door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) neemt identiteitskaart als wegparameter van of een Programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` . Tokens worden verwijderd op basis van hun bovenliggende map, de map `name` en de token `type` , die allemaal verplicht zijn. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens/delete.json

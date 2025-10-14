@@ -46,7 +46,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 | `mktowsUserId` | Vereist | De Marketo-client access-id vindt u in het SOAP API-deelvenster voor Marketo-beheer onder Integratie. |
 | `requestSignature` | Vereist | HMAC-SHA1-handtekening gebaseerd op gedeelde geheime sleutel, `requestTimestamp`, en Marketo-gebruikersnaam |
 | `requestTimestamp` | Vereist | Tijdstempel aanvragen (W3C WSDL-datumnotatie Ex. &quot;2013-06-09T14 :04: 54-08:00&quot;) |
-| `partnerId` | Optioneel | De Partner van de Technologie van LaunchPoint van de Technologie [ API Sleutel ](../launchpoint-api.pdf). |
+| `partnerId` | Optioneel | De Partner van de Technologie van LaunchPoint van de Technologie [&#x200B; API Sleutel &#x200B;](../launchpoint-api.pdf). |
 
 ## Request XML - getLeadActivity
 

@@ -27,7 +27,7 @@ Marketo kan alleen waarden weer in een veld toewijzen als de responscode van de 
 
 Fouten van Webhooks kunnen door de trigger [!UICONTROL Webhook is Called] worden afgevangen en afgehandeld:
 
-![ Webhaak wordt geroepen ](assets/webhook-called.png)
+![&#x200B; Webhaak wordt geroepen &#x200B;](assets/webhook-called.png)
 
 * Response - Response is de letterlijke antwoordlading die door het verzoek is ontvangen.
 * Fouttype - Dit komt overeen met de reden-zin van het HTTP-statusbericht.

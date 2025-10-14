@@ -12,17 +12,17 @@ ht-degree: 0%
 
 # Landingspagina-sjablonen
 
-[ Landing de Verwijzing van het Eindpunt van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
+[&#x200B; Landing de Verwijzing van het Eindpunt van het Malplaatje van de Pagina &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
 
 Landing Page Templates is een bovenliggende bron en afhankelijkheid voor afzonderlijke Marketo-bestemmingspagina&#39;s. De het landen pagina&#39;s leiden het skelet van hun inhoud van het oudermalplaatje af.
 
 ## Sjabloontypen
 
-Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Voor meer informatie over de verschillen, zie [ dit document ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Voor meer informatie over de verschillen, zie [&#x200B; dit document &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Query
 
-Het landen van de Malplaatjes van de Pagina steunt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Deze eindpunten retourneren metagegevens voor de sjablonen. Het ophalen van de HTML-inhoud van sjablonen moet per template gebeuren via de bijbehorende id.
+Het landen van de Malplaatjes van de Pagina steunt de standaardvraagtypes voor activa van [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Deze eindpunten retourneren metagegevens voor de sjablonen. Het ophalen van de HTML-inhoud van sjablonen moet per template gebeuren via de bijbehorende id.
 
 ## Maken en bijwerken
 
@@ -66,11 +66,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-De inhoud voor het malplaatje moet afzonderlijk via het [ Update Landing de Inhoud van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) eindpunt worden bevolkt.
+De inhoud voor het malplaatje moet afzonderlijk via het [&#x200B; Update Landing de Inhoud van het Malplaatje van de Pagina &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) eindpunt worden bevolkt.
 
 ### Metagegevens bijwerken
 
-Metagegevens voor het landen van paginasjablonen kunnen via het [ Update Landing Metadata van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) eindpunt worden bijgewerkt. De naam, beschrijving en de instelling enableMunchkin kunnen op deze manier worden bijgewerkt.
+Metagegevens voor het landen van paginasjablonen kunnen via het [&#x200B; Update Landing Metadata van het Malplaatje van de Pagina &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) eindpunt worden bijgewerkt. De naam, beschrijving en de instelling enableMunchkin kunnen op deze manier worden bijgewerkt.
 
 ### Inhoud bijwerken
 
@@ -167,9 +167,9 @@ De Malplaatjes van de Pagina van de landing volgen het standaard ontwerp-goedgek
 
 Een sjabloon kan alleen worden goedgekeurd als het voldoet aan de regels voor het type ervan, ofwel in de vorm van een vrije vorm. Zie de respectievelijke ontwerpdocumenten voor meer informatie over de vereisten voor het maken en goedkeuren van sjablonen van hun respectievelijke typen:
 
-- [ Vrije Vorm het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [ Geleide het Landen de Malplaatjes van de Pagina ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [ Geleide Voorbeelden van het Malplaatje ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [&#x200B; Vrije Vorm het Landen de Malplaatjes van de Pagina &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [&#x200B; Geleide het Landen de Malplaatjes van de Pagina &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [&#x200B; Geleide Voorbeelden van het Malplaatje &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Verwijderen
 

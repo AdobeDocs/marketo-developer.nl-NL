@@ -18,9 +18,9 @@ Marketo REST API&#39;s worden geverifieerd met OAuth 2.0 met twee poten. Client 
 
 De knoppen `Client ID` en `Client Secret` vindt u in het menu **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]** door de aangepaste service te selecteren en op **[!UICONTROL View Details]** te klikken.
 
-![ krijgt de Details van de Dienst van het HERSTEL ](assets/authentication-service-view-details.png)
+![&#x200B; krijgt de Details van de Dienst van het HERSTEL &#x200B;](assets/authentication-service-view-details.png)
 
-![ Geloofsbrieven van het Lanceerpunt ](assets/admin-launchpoint-credentials.png)
+![&#x200B; Geloofsbrieven van het Lanceerpunt &#x200B;](assets/admin-launchpoint-credentials.png)
 
 De `Identity URL` vindt u in het menu **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** in de sectie REST API.
 
@@ -55,7 +55,7 @@ Het toegangstoken moet als kopbal van HTTP worden verzonden.
 
 >[!IMPORTANT]
 >
->Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 januari 2026. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [ kopbal van de Vergunning ](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. Bij nieuwe ontwikkeling wordt alleen de header `Authorization` gebruikt.
+>Ondersteuning voor verificatie met behulp van de query-parameter `access_token` wordt verwijderd op 31 januari 2026. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de [&#x200B; kopbal van de Vergunning &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) zo spoedig mogelijk te gebruiken. Bij nieuwe ontwikkeling wordt alleen de header `Authorization` gebruikt.
 
 ### Schakelen naar de header Autorisatie
 
@@ -77,7 +77,7 @@ curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/
 
 Het beheren van de vervaldatum van toegangstoken is belangrijk om ervoor te zorgen dat uw integratie regelmatig werkt en onverwachte authentificatiefouten tijdens normale verrichting voorkomt. Wanneer het ontwerpen van authentificatie voor uw integratie, ben zeker om het teken en de vervalperiode op te slaan in de reactie van de Identiteit.
 
-Voordat u een REST-aanroep maakt, moet u de geldigheid van de token controleren op basis van de resterende levensduur. Als het teken is verlopen, dan vernieuwt het door [ eindpunt van de Identiteit ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) te roepen. Dit helpt ervoor zorgen dat uw vraag REST nooit wegens een verlopen teken ontbreekt. Dit helpt u de latentie van uw vraag van REST op een voorspelbare manier beheren, die voor eindgebruiker-onder ogen ziet toepassingen van cruciaal belang is.
+Voordat u een REST-aanroep maakt, moet u de geldigheid van de token controleren op basis van de resterende levensduur. Als het teken is verlopen, dan vernieuwt het door [&#x200B; eindpunt van de Identiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) te roepen. Dit helpt ervoor zorgen dat uw vraag REST nooit wegens een verlopen teken ontbreekt. Dit helpt u de latentie van uw vraag van REST op een voorspelbare manier beheren, die voor eindgebruiker-onder ogen ziet toepassingen van cruciaal belang is.
 
 Als een verlopen teken wordt gebruikt om een vraag van het SPEL voor authentiek te verklaren, zal de vraag REST ontbreken en een 602 foutencode terugkeren. Als een ongeldig token wordt gebruikt om een REST-aanroep te verifiëren, wordt een 601-foutcode geretourneerd. Als één van beide codes worden ontvangen, zou de cliënt het teken door het aanroepen van het eindpunt van de Identiteit moeten vernieuwen.
 

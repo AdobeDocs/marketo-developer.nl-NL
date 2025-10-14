@@ -46,7 +46,7 @@ Bulkimport is een recordbewerking &quot;invoegen of bijwerken&quot;. Als een ove
 
 ## Een taak maken
 
-Marketo-API&#39;s voor bulkimport gebruiken het concept van een taak voor het uitvoeren van gegevensimporten. Kijk bij het creëren van een eenvoudige lood invoerbaan gebruikend de [ Invoer leidt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) eindpunt.  Merk op dat dit eindpunt [ multipart/form-data als inhoud-type ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) gebruikt. Dit kan lastig zijn om de juiste taal te kiezen, dus de beste praktijk is om een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze.  Als u enkel uw voeten nat krijgt, stellen wij voor dat u [ krullen ](https://curl.se/) gebruikt.
+Marketo-API&#39;s voor bulkimport gebruiken het concept van een taak voor het uitvoeren van gegevensimporten. Kijk bij het creëren van een eenvoudige lood invoerbaan gebruikend de [&#x200B; Invoer leidt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) eindpunt.  Merk op dat dit eindpunt [&#x200B; multipart/form-data als inhoud-type &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) gebruikt. Dit kan lastig zijn om de juiste taal te kiezen, dus de beste praktijk is om een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze.  Als u enkel uw voeten nat krijgt, stellen wij voor dat u [&#x200B; krullen &#x200B;](https://curl.se/) gebruikt.
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -99,7 +99,7 @@ Elk eindpunt van de baanverwezenlijking deelt sommige gemeenschappelijke paramet
 
 ## Status opiniepeilingtaak
 
-Het bepalen van het statuut van de baan is eenvoudig gebruikend [ krijgt het Punt van de Status van het Lood van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
+Het bepalen van het statuut van de baan is eenvoudig gebruikend [&#x200B; krijgt het Punt van de Status van het Lood van de Invoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
 
 ```
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -129,7 +129,7 @@ Het binnenste `status` lid geeft de voortgang van de taak aan en kan een van de 
 
 Fouten worden aangegeven door het kenmerk `numOfRowsFailed` in het antwoord &#39;Status van lead importeren&#39;. Als `numOfRowsFailed` groter is dan nul, geeft die waarde het aantal mislukkingen aan dat is opgetreden.
 
-Om de verslagen en de oorzaken van ontbroken rijen terug te winnen, zult u het mislukkingsdossier moeten terugwinnen gebruikend [ krijg de Lood van de Invoer ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) eindpunt.
+Om de verslagen en de oorzaken van ontbroken rijen terug te winnen, zult u het mislukkingsdossier moeten terugwinnen gebruikend [&#x200B; krijg de Lood van de Invoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) eindpunt.
 
 ```
 GET /bulk/v1/leads/batch/{batchId}/failures.json

@@ -34,7 +34,7 @@ De Marketo REST API comprimeert de reactiehoofdtekst en neemt deze header op:
 Content-Encoding: gzip
 ```
 
-Hier is een voorbeeld gebruikend Kromme om [ te roepen krijg Leidingen door het eindpunt van het Type van Filter ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) om 5 lood terug te winnen:
+Hier is een voorbeeld gebruikend Kromme om [&#x200B; te roepen krijg Leidingen door het eindpunt van het Type van Filter &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) om 5 lood terug te winnen:
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

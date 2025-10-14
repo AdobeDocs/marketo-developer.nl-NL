@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # listOperation
 
-Deze methode wordt gebruikt om bewerkingen uit te voeren op een statische lijst die is gedefinieerd in de Marketo lead-database. Om, leden van een statische die lijst toe te voegen of te verwijderen binnen een programma wordt bepaald, gebruik [ importToList ](importtolist.md). Elke vraag aan dit eindpunt heeft een grens van 1000 lood per vraag.
+Deze methode wordt gebruikt om bewerkingen uit te voeren op een statische lijst die is gedefinieerd in de Marketo lead-database. Om, leden van een statische die lijst toe te voegen of te verwijderen binnen een programma wordt bepaald, gebruik [&#x200B; importToList &#x200B;](importtolist.md). Elke vraag aan dit eindpunt heeft een grens van 1000 lood per vraag.
 
 Bewerkingstypen zijn:
 

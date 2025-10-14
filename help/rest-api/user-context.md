@@ -12,9 +12,9 @@ ht-degree: 1%
 
 # Gebruikerscontext
 
-De context JavaScript API van de gebruiker stelt gebruiker en bezoekersniveau gegevens over veelvoudige zittingen bloot om geavanceerde verpersoonlijkingsvermogen toe te laten gebruikend historisch gebruikersgedrag en gegevens. De API gaat voorbij gegevens lezen en stelt douanevariabelen bloot die u toestaan om zinvolle gegevens en gebeurtenissen aan de achtergrond RTP voor geavanceerde segmentatie en verpersoonlijkingsdoeleinden te duwen. Extra mogelijkheden: [ Trekkers ](../javascript-api/triggers.md), [ de Gelijke van het Patroon ](../javascript-api/pattern-match.md).
+De context JavaScript API van de gebruiker stelt gebruiker en bezoekersniveau gegevens over veelvoudige zittingen bloot om geavanceerde verpersoonlijkingsvermogen toe te laten gebruikend historisch gebruikersgedrag en gegevens. De API gaat voorbij gegevens lezen en stelt douanevariabelen bloot die u toestaan om zinvolle gegevens en gebeurtenissen aan de achtergrond RTP voor geavanceerde segmentatie en verpersoonlijkingsdoeleinden te duwen. Extra mogelijkheden: [&#x200B; Trekkers &#x200B;](../javascript-api/triggers.md), [&#x200B; de Gelijke van het Patroon &#x200B;](../javascript-api/pattern-match.md).
 
-- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
+- U moet een klant van Personalization van het Web worden en de [&#x200B; markering hebben RTP die &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 - De gebruikerscontext-API is een functie die op verzoek door Marketo Support moet worden ingeschakeld. Wanneer API wordt toegelaten, zal een userContext voorwerp onder het globale voorwerp RTP worden blootgesteld.
 
 ## Contextkenmerken gebruiker

@@ -18,17 +18,17 @@ De insluitcode is uniek voor uw Marketo-exemplaar omdat deze een account-id beva
 
 ## Regelafstand bijhouden (Munchkin)
 
-Marketo [ Munchkin JavaScript die code ](lead-tracking.md) volgen is zeer belangrijk aan de mogelijkheden van Marketo. Hiermee kunt u leads genereren op basis van bezoeken aan uw website. Het houdt zelfs bezoekers bij die u nog niet hun persoonlijke informatie hebben gegeven, creërend anonieme lood die het IP van de gebruiker adres en andere informatie omvatten. U stelt Munchkin in op de Munchkin-pagina in het beheergebied van Marketo.
+Marketo [&#x200B; Munchkin JavaScript die code &#x200B;](lead-tracking.md) volgen is zeer belangrijk aan de mogelijkheden van Marketo. Hiermee kunt u leads genereren op basis van bezoeken aan uw website. Het houdt zelfs bezoekers bij die u nog niet hun persoonlijke informatie hebben gegeven, creërend anonieme lood die het IP van de gebruiker adres en andere informatie omvatten. U stelt Munchkin in op de Munchkin-pagina in het beheergebied van Marketo.
 
 ## Forms 2.0
 
-[ Forms 2.0 ](forms-api-reference.md) machtigt Marketers om mooie, stabiele, en flexibele Webvormen zonder programmeringskennis tot stand te brengen. Forms kan op bestemmingspagina&#39;s van Marketo verblijven en op om het even welke pagina van uw website worden ingebed. De kernfunctionaliteit van een Marketo-webformulier kan worden uitgebreid met de Forms 2.0 JavaScript API.
+[&#x200B; Forms 2.0 &#x200B;](forms-api-reference.md) machtigt Marketers om mooie, stabiele, en flexibele Webvormen zonder programmeringskennis tot stand te brengen. Forms kan op bestemmingspagina&#39;s van Marketo verblijven en op om het even welke pagina van uw website worden ingebed. De kernfunctionaliteit van een Marketo-webformulier kan worden uitgebreid met de Forms 2.0 JavaScript API.
 
 ## Web Personalization
 
-[ Personalization van het Web van Marketo ](web-personalization.md) is een Targeting &amp; platform van Personalization dat u helpt duizenden vooruitzichten op uw website in real time in dienst nemen die op wie zij zijn en wat zij doen.
+[&#x200B; Personalization van het Web van Marketo &#x200B;](web-personalization.md) is een Targeting &amp; platform van Personalization dat u helpt duizenden vooruitzichten op uw website in real time in dienst nemen die op wie zij zijn en wat zij doen.
 
 ## Voorspelende inhoud
 
-[ Voorspelende Inhoud van Marketo ](predictive-content.md) staat u toe om uw Webbezoekers met de meest relevante inhoud in dienst te nemen, aangedreven door machine het leren en voorspellende analyse. Verbeter uw inhoud met tekstbeschrijvingen en afbeeldingen en sluit meerdere aanbevelingen voor inhoud in op uw website.
+[&#x200B; Voorspelende Inhoud van Marketo &#x200B;](predictive-content.md) staat u toe om uw Webbezoekers met de meest relevante inhoud in dienst te nemen, aangedreven door machine het leren en voorspellende analyse. Verbeter uw inhoud met tekstbeschrijvingen en afbeeldingen en sluit meerdere aanbevelingen voor inhoud in op uw website.
 

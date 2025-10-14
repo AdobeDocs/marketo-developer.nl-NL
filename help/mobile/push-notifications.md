@@ -32,7 +32,7 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 1. Selecteer de toepassings-id die u gebruikt om de app te maken.![](assets/push-appid.png)
 1. CSR maken en uploaden om het pushcertificaat te genereren. ![](assets/push-ssl.png)
 1. Certificaat downloaden naar lokale computer en dubbelklikken om te installeren. ![](assets/certificate-download.png)
-1. Open &quot;Keychain Access&quot;, klik met de rechtermuisknop op het certificaat en exporteer 2 items naar het `.p12` -bestand.![ key_chain ](assets/key-chain.png)
+1. Open &quot;Keychain Access&quot;, klik met de rechtermuisknop op het certificaat en exporteer 2 items naar het `.p12` -bestand.![&#x200B; key_chain &#x200B;](assets/key-chain.png)
 1. Upload dit bestand via Marketo Admin Console om meldingen te configureren.
 1. App-inrichtingsprofielen bijwerken.
 
@@ -257,13 +257,13 @@ Pushmeldingen bijhouden
 
 Als uw app op de achtergrond wordt uitgevoerd (of niet actief is), ontvangt het apparaat een pushmelding zoals hieronder wordt weergegeven. Marketo houdt bij wanneer de gebruiker op het bericht tikt.
 
-![ mobile8 ](assets/mobile8.png)
+![&#x200B; mobile8 &#x200B;](assets/mobile8.png)
 
 Als het apparaat een pushmelding ontvangt, wordt deze doorgegeven aan `application:didReceiveRemoteNotification:` callback op uw App-gedelegeerde.
 
 Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenissen voor apps en pushmeldingen worden weergegeven.
 
-![ mobile9 ](assets/mobile9.png)
+![&#x200B; mobile9 &#x200B;](assets/mobile9.png)
 
 ## Pushmelding instellen op Android
 
@@ -285,7 +285,7 @@ Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenisse
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. De vestiging FCM met HTTPv1 (Google heeft [ verouderd protocol XMPP ](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) op 12 Juni, 2023 en zal in Juni 2024 worden verwijderd)
+1. De vestiging FCM met HTTPv1 (Google heeft [&#x200B; verouderd protocol XMPP &#x200B;](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) op 12 Juni, 2023 en zal in Juni 2024 worden verwijderd)
 
 - MME FCM HTTPv1 inschakelen in Marketo-functiebeheer ![](assets/feature-manager.png)
    - Upload Service Account Json-bestand voor de toepassing in MLM.
@@ -405,7 +405,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    ALMarketo.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Als u geen SENDER_ID hebt, dan laat de Dienst van het Overseinen van de Wolk van Google toe door de stappen te voltooien die in [ worden gedetailleerd dit leerprogramma ](https://developers.google.com/cloud-messaging/).
+   Als u geen SENDER_ID hebt, dan laat de Dienst van het Overseinen van de Wolk van Google toe door de stappen te voltooien die in [&#x200B; worden gedetailleerd dit leerprogramma &#x200B;](https://developers.google.com/cloud-messaging/).
 
    Het token kan ook niet worden geregistreerd wanneer de gebruiker zich afmeldt.
 

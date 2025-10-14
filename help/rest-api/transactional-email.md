@@ -12,41 +12,41 @@ ht-degree: 0%
 
 # Transactionele e-mail
 
-Een gemeenschappelijk gebruiksgeval voor Marketo API moet het verzenden van transactie e-mails naar specifieke verslagen via de [ vraag van de Campagne van het Verzoek ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) API teweegbrengen. Er zijn een paar configuratievereisten binnen Marketo om de vereiste vraag met de Marketo REST API uit te voeren.
+Een gemeenschappelijk gebruiksgeval voor Marketo API moet het verzenden van transactie e-mails naar specifieke verslagen via de [&#x200B; vraag van de Campagne van het Verzoek &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) API teweegbrengen. Er zijn een paar configuratievereisten binnen Marketo om de vereiste vraag met de Marketo REST API uit te voeren.
 
 - De ontvanger moet een record in Marketo hebben
 - Er moet een Transactiee-mail zijn gemaakt en goedgekeurd in uw Marketo-exemplaar.
 - Er moet een actieve triggercampagne zijn met de &quot;Campagne is Requested, 1. Source: Web Service API&quot;, die is ingesteld om de e-mail te verzenden
 
-Eerst [ creeer en keur uw e-mail ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) goed. Als de e-mail echt transactie is, zult u het waarschijnlijk aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen:
+Eerst [&#x200B; creeer en keur uw e-mail &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) goed. Als de e-mail echt transactie is, zult u het waarschijnlijk aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen:
 
-![ verzoek-campagne-e-mail-Montages ](assets/request-campaign-email-settings.png)
+![&#x200B; verzoek-campagne-e-mail-Montages &#x200B;](assets/request-campaign-email-settings.png)
 
-![ verzoek-campagne-Operationeel ](assets/request-campaign-operational.png)
+![&#x200B; verzoek-campagne-Operationeel &#x200B;](assets/request-campaign-operational.png)
 
 Goedkeuren en we zijn klaar om onze campagne te maken:
 
-![ RequestCampaign-Goedkeuren-Ontwerp ](assets/request-campaign-approve-draft.png)
+![&#x200B; RequestCampaign-Goedkeuren-Ontwerp &#x200B;](assets/request-campaign-approve-draft.png)
 
-Als u aan het creëren van campagnes nieuw bent, controle uit [ creeer een Nieuw Slimme Campagne ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=nl-NL) artikel. Als je je campagne hebt gemaakt, moeten we deze stappen doorlopen. Vorm uw Slimme Lijst met de Campagne wordt Gevraagde trekker:
+Als u aan het creëren van campagnes nieuw bent, controle uit [&#x200B; creeer een Nieuw Slimme Campagne &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=nl-NL) artikel. Als je je campagne hebt gemaakt, moeten we deze stappen doorlopen. Vorm uw Slimme Lijst met de Campagne wordt Gevraagde trekker:
 
-![ verzoek-Campagne-slim-Lijst ](assets/request-campaign-smart-list.png)
+![&#x200B; verzoek-Campagne-slim-Lijst &#x200B;](assets/request-campaign-smart-list.png)
 
 Nu moeten we de stroom zo configureren dat deze een stap E-mail verzenden naar onze e-mail stuurt:
 
-![ verzoek-campagne-stroom ](assets/request-campaign-flow.png)
+![&#x200B; verzoek-campagne-stroom &#x200B;](assets/request-campaign-flow.png)
 
 Voordat u de activering uitvoert, moet u een aantal instellingen opgeven op het tabblad Planning. Als deze specifieke e-mail maar één keer naar een bepaalde record moet worden verzonden, laat u de kwalificatie-instellingen ongewijzigd. Als het vereist is dat zij de e-mail veelvoudige tijden ontvangen, niettemin, wilt u dit aan of elke keer aanpassen of aan één van de beschikbare wegen:
 
 Nu zijn we klaar om te activeren:
 
-![ verzoek-campagne-Programma ](assets/request-campaign-schedule.png)
+![&#x200B; verzoek-campagne-Programma &#x200B;](assets/request-campaign-schedule.png)
 
 ## Het verzenden van de API Vraag
 
-**Nota:** In de voorbeelden hieronder van Java, gebruiken wij het [ minimum-json pakket ](https://github.com/ralfstx/minimal-json) om vertegenwoordiging JSON in onze code te behandelen.
+**Nota:** In de voorbeelden hieronder van Java, gebruiken wij het [&#x200B; minimum-json pakket &#x200B;](https://github.com/ralfstx/minimal-json) om vertegenwoordiging JSON in onze code te behandelen.
 
-Het eerste onderdeel van het verzenden van een transactie-e-mail via de API is ervoor zorgen dat er een record met het bijbehorende e-mailadres bestaat in uw Marketo-exemplaar en dat we toegang hebben tot de bijbehorende lead-id. In het kader van dit bericht gaan we ervan uit dat de e-mailadressen al in Marketo staan en dat we alleen de id van de record moeten ophalen. Voor dit, gebruiken wij [ krijgen Leads door de vraag van het Type van Filter ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET). Laten we kijken naar onze hoofdmethode om de campagne aan te vragen:
+Het eerste onderdeel van het verzenden van een transactie-e-mail via de API is ervoor zorgen dat er een record met het bijbehorende e-mailadres bestaat in uw Marketo-exemplaar en dat we toegang hebben tot de bijbehorende lead-id. In het kader van dit bericht gaan we ervan uit dat de e-mailadressen al in Marketo staan en dat we alleen de id van de record moeten ophalen. Voor dit, gebruiken wij [&#x200B; krijgen Leads door de vraag van het Type van Filter &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET). Laten we kijken naar onze hoofdmethode om de campagne aan te vragen:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -182,13 +182,13 @@ Deze klasse heeft één aannemer die een Auth, en Id van de campagne neemt. Lead
 
 ### Uw e-mail maken
 
-Om onze inhoud aan te passen, moeten wij eerst a [ programma ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=nl-NL) en een [ e-mail ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of enig ander stuk inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren.
+Om onze inhoud aan te passen, moeten wij eerst a [&#x200B; programma &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=nl-NL) en een [&#x200B; e-mail &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of enig ander stuk inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren.
 
-![ nieuw-Symbolisch ](assets/New-Token.png)
+![&#x200B; nieuw-Symbolisch &#x200B;](assets/New-Token.png)
 
 Tokens kunnen niet worden opgeslagen als ze leeg zijn. Plaats hier een tijdelijke aanduiding voor tekst. Nu moeten we ons token invoegen in de e-mail:
 
-![ toe:voegen-Token ](assets/Add-Token.png)
+![&#x200B; toe:voegen-Token &#x200B;](assets/Add-Token.png)
 
 Dit teken zal nu voor vervanging door een vraag van de Campagne van het Verzoek toegankelijk zijn. Deze token kan zo eenvoudig zijn als een enkele tekstregel die per e-mail moet worden vervangen, of kan bijna de volledige opmaak van de e-mail bevatten.
 
@@ -264,4 +264,4 @@ Result:
 
 ## Omloop omhoog
 
-Deze methode kan op allerlei manieren worden uitgebreid, waarbij de inhoud in e-mails binnen afzonderlijke lay-outsecties of buiten e-mails wordt gewijzigd, zodat aangepaste waarden kunnen worden doorgegeven aan taken of interessante momenten. Overal waar een teken van binnen een programma kan worden gebruikt kan worden aangepast gebruikend deze methode. De gelijkaardige functionaliteit is ook beschikbaar met de [ vraag van de Campagne van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) die u zal toestaan om tokens over een volledige partijcampagne te verwerken. Deze kunnen niet per lood worden aangepast, maar zijn nuttig om inhoud over een brede reeks lood aan te passen.
+Deze methode kan op allerlei manieren worden uitgebreid, waarbij de inhoud in e-mails binnen afzonderlijke lay-outsecties of buiten e-mails wordt gewijzigd, zodat aangepaste waarden kunnen worden doorgegeven aan taken of interessante momenten. Overal waar een teken van binnen een programma kan worden gebruikt kan worden aangepast gebruikend deze methode. De gelijkaardige functionaliteit is ook beschikbaar met de [&#x200B; vraag van de Campagne van het Programma &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) die u zal toestaan om tokens over een volledige partijcampagne te verwerken. Deze kunnen niet per lood worden aangepast, maar zijn nuttig om inhoud over een brede reeks lood aan te passen.
