@@ -3,28 +3,28 @@ title: Invoer van bulklood
 feature: REST API
 description: Asynchrone invoer van lood in bulk maken en controleren in Marketo met CSV TSV of SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '795'
 ht-degree: 0%
 
 ---
 
 # Invoer van bulklood
 
-&lbrace;de Verwijzing van het Eindpunt van de Invoer van het BulkLood [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+{de Verwijzing van het Eindpunt van de Invoer van het BulkLood [](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
-Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [&#x200B; bulk API &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
+Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [ bulk API ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
 ## Verwerkingslimieten
 
-U mag meer dan één aanvraag voor bulkimport indienen, met beperkingen. Elke aanvraag wordt als een taak toegevoegd aan een FIFO-wachtrij die moet worden verwerkt. Er worden maximaal twee banen tegelijk verwerkt. De wachtrij kan maximaal tien taken tegelijk uitvoeren (inclusief de twee momenteel verwerkte taken). Als u het maximum van tien taken overschrijdt, wordt de fout &quot;1016, Te veel import&quot; geretourneerd.
+U mag meer dan één aanvraag voor bulkimport indienen, met beperkingen. Elke aanvraag wordt als een taak toegevoegd aan een FIFO-wachtrij die moet worden verwerkt. Er worden maximaal twee banen tegelijk verwerkt. De wachtrij kan maximaal tien taken tegelijk uitvoeren (inclusief de twee momenteel verwerkte taken). Als u het maximum van tien taken overschrijdt, wordt een fout `1016, Too many imports` geretourneerd.
 
 ## Bestand importeren
 
 De eerste rij van het bestand moet een koptekst zijn met de corresponderende REST API-velden waarin de waarden van elke rij moeten worden toegewezen. Een typisch bestand volgt dit standaardpatroon:
 
-```
+```csv
 email,firstName,lastName
 test@example.com,John,Doe
 ```
@@ -37,7 +37,7 @@ Dit type verzoek kan moeilijk zijn uit te voeren, zodat wordt het hoogst geadvis
 
 ## Een taak maken
 
-Als u een aanvraag voor bulkimport wilt uitvoeren, moet u de koptekst van het inhoudstype instellen op &quot;multipart/form-data&quot; en ten minste een bestandsparameter opnemen met de bestandsinhoud en een indelingsparameter met de waarde &quot;csv&quot;, &quot;tsv&quot; of &quot;ssv&quot; voor de bestandsindeling.
+Als u een aanvraag voor bulkimport wilt uitvoeren, moet u de header van het inhoudstype instellen op `multipart/form-data` en ten minste een parameter `file` met de bestandsinhoud opnemen, en een parameter `format` met de waarde `csv` , `tsv` of `ssv` , waarmee de bestandsindeling wordt aangegeven.
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -54,7 +54,7 @@ Host: <munchkinId>.mktorest.com
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
 
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -75,16 +75,16 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Dit eindpunt gebruikt [&#x200B; multipart/form-data als inhoud-type &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dit kan lastig zijn om de juiste taal te kiezen, dus de beste praktijk is om een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze. Een eenvoudige manier om dit met cURL van de bevellijn te doen kijkt als dit:
+Dit eindpunt gebruikt [ multipart/form-data als inhoud-type ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Het is aan te raden een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze om het juiste gebruik te garanderen. Het volgende voorbeeld is een eenvoudige manier om dit met cURL vanaf de opdrachtregel te doen:
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
-Waar het importbestand &quot;lead_data.csv&quot; het volgende bevat:
+Waar het importbestand `lead_data.csv` het volgende bevat:
 
 ```
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -130,19 +130,19 @@ Als de taak is voltooid, ziet u een overzicht van het aantal verwerkte rijen, da
 
 ## Mislukt
 
-De mislukkingen worden vermeld door het &quot;numOfRowsFailed&quot;attribuut in krijgen de Reactie van de Status van de Lood van de Invoer. Als &quot;numOfRowsFailed&quot; groter is dan nul, dan wijst die waarde op het aantal mislukkingen die voorkwamen.
+Fouten worden aangegeven door het kenmerk `numOfRowsFailed` in het antwoord &#39;Status van lead importeren&#39;. Als `numOfRowsFailed` groter is dan nul, geeft die waarde het aantal mislukkingen aan dat is opgetreden.
 
-Als u de records en oorzaken van mislukte rijen wilt ophalen, moet u het foutbestand ophalen:
+Als u de records en de oorzaken van mislukte rijen wilt ophalen, moet u het foutbestand ophalen:
 
 ```
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
-De API reageert met een bestand dat aangeeft welke rijen zijn mislukt, samen met een bericht dat aangeeft waarom de record is mislukt. De indeling van het bestand is gelijk aan de indeling die tijdens het maken van de taak is opgegeven in de parameter &quot;format&quot;. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de fout.
+De API reageert met een bestand dat aangeeft welke rijen zijn mislukt, samen met een bericht dat aangeeft waarom de record is mislukt. De bestandsindeling is dezelfde als die is opgegeven in de parameter `format` tijdens het maken van taken. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de fout.
 
 ## Waarschuwingen
 
-Waarschuwingen worden aangegeven door het kenmerk &quot;numOfRowsWithWarning&quot; in het antwoord &#39;Status van lead importeren&#39;. Als &quot;numOfRowsWithWarning&quot; groter is dan nul, geeft die waarde het aantal waarschuwingen aan dat is opgetreden.
+Waarschuwingen worden aangegeven door het kenmerk `numOfRowsWithWarning` in het antwoord &#39;Status van lead importeren&#39;. Als `numOfRowsWithWarning` groter is dan nul, geeft die waarde het aantal waarschuwingen aan dat is opgetreden.
 
 Als u de records en oorzaken van waarschuwingsrijen wilt ophalen, haalt u het waarschuwingsbestand op:
 
@@ -150,4 +150,4 @@ Als u de records en oorzaken van waarschuwingsrijen wilt ophalen, haalt u het wa
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 
-De API reageert met een bestand dat aangeeft welke rijen waarschuwingen hebben opgeleverd, samen met een bericht dat aangeeft waarom de record is mislukt. De indeling van het bestand is gelijk aan de indeling die tijdens het maken van de taak is opgegeven in de parameter &quot;format&quot;. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de waarschuwing.
+De API reageert met een bestand dat aangeeft welke rijen waarschuwingen hebben opgeleverd, samen met een bericht dat aangeeft waarom de record is mislukt. De bestandsindeling is dezelfde als die is opgegeven in de parameter `format` tijdens het maken van taken. Aan elke record wordt een extra veld toegevoegd met een beschrijving van de waarschuwing.
