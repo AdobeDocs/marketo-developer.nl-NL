@@ -16,7 +16,7 @@ Met Marketo Munchkin JavaScript kunt u bezoeken aan eindgebruikerspagina&#39;s b
 
 ## De code insluiten
 
-Uw Marketo-instantie beschikt automatisch over vooraf geconfigureerde codefragmenten voor het bijhouden van code om code in te sluiten op uw externe pagina&#39;s die de activiteit naar uw Marketo-exemplaar traceren. Het gebruik van de ingebedde code wordt geregeerd door deze [ vergunningsovereenkomst ](../munchkin-license.pdf).
+Uw Marketo-instantie beschikt automatisch over vooraf geconfigureerde codefragmenten voor het bijhouden van code om code in te sluiten op uw externe pagina&#39;s die de activiteit naar uw Marketo-exemplaar traceren. Het gebruik van de ingebedde code wordt geregeerd door deze [&#x200B; vergunningsovereenkomst &#x200B;](../munchkin-license.pdf).
 
 Er zijn drie typen trackingcode beschikbaar:
 
@@ -66,7 +66,7 @@ Marketo Munchkin werkt standaard als volgt bij het laden van pagina&#39;s:
 1. Verzend een &quot;Bezoek Web-pagina&quot;gebeurtenis aan de aangewezen instantie van Marketo gebruikend de informatie van de huidige pagina en browser. Hiermee wordt een activiteit vastgelegd in de corresponderende record in Marketo.
 1. Verzend de gebeurtenis &quot;Geplikte Verbinding op Web-pagina&quot;voor om het even welke gebruiker klikt die op verbindingen voorkomen.
 
-Het gedrag van Munchkin kan door het gebruik van de montages van de Configuratie van Munchkin [ worden gewijzigd ](configuration.md), zoals of een koekje voor alle lood op het bezoeken van de pagina met het `cookieAnon` plaatsen wordt gecreeerd, of het wijzigen van de klikvertraging met `clickTime` het plaatsen. Het verzenden van de activiteit van het Bezoek kan worden onbruikbaar gemaakt door apiOnly te plaatsen die aan waar plaatst. Vanaf versie 162 (augustus 2022) klikt u op `tel` en worden `mailto` -koppelingen naast `http/s` -koppelingen bijgehouden.
+Het gedrag van Munchkin kan door het gebruik van de montages van de Configuratie van Munchkin [&#x200B; worden gewijzigd &#x200B;](configuration.md), zoals of een koekje voor alle lood op het bezoeken van de pagina met het `cookieAnon` plaatsen wordt gecreeerd, of het wijzigen van de klikvertraging met `clickTime` het plaatsen. Het verzenden van de activiteit van het Bezoek kan worden onbruikbaar gemaakt door apiOnly te plaatsen die aan waar plaatst. Vanaf versie 162 (augustus 2022) klikt u op `tel` en worden `mailto` -koppelingen naast `http/s` -koppelingen bijgehouden.
 
 ## Bekende en anonieme leads
 
@@ -74,7 +74,7 @@ Bij het eerste bezoek van een lead aan een pagina op uw domein wordt een nieuwe 
 
 - De lead moet een door Munchkin bijgehouden pagina met een parameter `mkt_tok` in de queryreeks bezoeken via een bijgehouden Marketo-e-mailkoppeling.
 - De lead moet een Marketo-formulier invullen.
-- Een REST [ associeerde Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) vraag moet worden verzonden.
+- Een REST [&#x200B; associeerde Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) vraag moet worden verzonden.
 
 Wanneer aan een van deze voorwaarden is voldaan, worden het cookie en alle bijbehorende webactiviteit gekoppeld aan de bekende lead.
 
@@ -84,7 +84,7 @@ Voor elke afzonderlijke browser wordt een nieuwe anonieme webactiviteitenrecord 
 
 Munchkin maakt en volgt afzonderlijke cookies per domein. Voor bekende &#39;lead tracking&#39; in verschillende domeinen moet dus voor elk domein een &#39;lead association&#39;-gebeurtenis plaatsvinden. Als ik bijvoorbeeld twee domeinen bestel, `marketo.com` en `example.com` , en een lead een formulier invult op `marketo.com` , navigeert u naar `example.com` later, waarna hun activiteit op `marketo.com` wordt bijgehouden in een bekende lead-record, maar hun activiteit op `example.com` is anoniem. Bekende leads blijven echter bestaan in verschillende subdomeinen, dus een bekende lead op `www.example.com` is ook een bekende lead op `info.example.com` .
 
-Als uw top-level domein twee delen, zoals `.co.uk` is, dan voeg een domainLevel parameter aan uw fragment van Munchkin voor de code toe correct te volgen. Zie [ hier ](configuration.md#domainlevel) voor meer details.
+Als uw top-level domein twee delen, zoals `.co.uk` is, dan voeg een domainLevel parameter aan uw fragment van Munchkin voor de code toe correct te volgen. Zie [&#x200B; hier &#x200B;](configuration.md#domainlevel) voor meer details.
 
 ## Cookie
 
@@ -100,7 +100,7 @@ Munchkin cookies zijn specifiek voor elk domein op het tweede niveau, dat wil ze
 
 ## Beta
 
-Om binnen aan het bèta kanaal van Munchkin voor uw landende pagina&#39;s te kiezen, ga naar uw [ Admin -> het menu van de Borst van de Schat ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en laat &quot;Munchkin Beta op het Aanvoeren van Pagina&#39;s&quot;toe plaatsen. Dit biedt nieuwe codefragmenten in de map **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** gebruiken om de bètaversie op externe sites te gebruiken.
+Om binnen aan het bèta kanaal van Munchkin voor uw landende pagina&#39;s te kiezen, ga naar uw [&#x200B; Admin -> het menu van de Borst van de Schat &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) en laat &quot;Munchkin Beta op het Aanvoeren van Pagina&#39;s&quot;toe plaatsen. Dit biedt nieuwe codefragmenten in de map **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** gebruiken om de bètaversie op externe sites te gebruiken.
 
 ## Uitschakelen
 
