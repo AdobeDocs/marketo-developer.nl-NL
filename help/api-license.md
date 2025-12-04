@@ -2,7 +2,9 @@
 title: API-licentie
 description: Marketo API-licentieovereenkomst voor interne ontwikkeling en tests, waarin de API-limieten, de interoperabiliteit met Marketo Solution en het niet-commerciële gebruik worden beschreven.
 exl-id: f0720ba7-b15d-40c8-9145-d3fa3e064a0b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+hide: true
+hidefromtoc: true
+source-git-commit: 367d10df0fce229d7e0cf21d170acde3935350d3
 workflow-type: tm+mt
 source-wordcount: '3092'
 ht-degree: 0%
@@ -103,4 +105,4 @@ Deze Marketo API-licentieovereenkomst (&quot;overeenkomst&quot;) regelt de imple
 
 [!DNL K]. Toepasselijk recht; aankondigingen. Deze overeenkomst wordt beheerst door de wetten van de staat Californië, ongeacht keuzevrijheid of wetsconflicten. De exclusieve jurisdictie en de plaats voor om het even welke juridische kwestie met betrekking tot deze Overeenkomst zal of de Hogere Rechtbank voor San Mateo County, Californië, of de Rechtbank van het District van de Verenigde Staten voor het Noordelijke District van Californië zijn. Kennisgevingen in het kader van deze overeenkomst moeten schriftelijk worden gedaan en worden geacht te zijn gedaan bij i) persoonlijke levering, ii) de derde werkdag na verzending, ii) de eerste werkdag na verzending per e-mail. Kennisgevingen aan Marketo moeten worden gericht aan: &quot;Application Programming Interface License Agreement&quot; en Marketo, Inc., 901 Mariner&#39;s Island Boulevard, Suite 500, San Mateo, CA 94404, met een kopie naar onze General Counsel op hetzelfde adres.
 
-De gearchiveerde versies van de API Vergunning Overeenkomst kunnen in worden gevonden: [&#x200B; https://developers.marketo.com/api-license-archived &#x200B;](https://developers.marketo.com/api-license-archived)
+De gearchiveerde versies van de API Vergunning Overeenkomst kunnen in worden gevonden: [ https://developers.marketo.com/api-license-archived ](https://developers.marketo.com/api-license-archived)
