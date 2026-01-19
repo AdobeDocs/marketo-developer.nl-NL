@@ -3,16 +3,16 @@ title: Leads
 feature: REST API
 description: Ontdek de Marketo Leads REST API-functies, zoals Beschrijving, query op id of filter, standaardvelden, limieten en het ophalen van ECID's.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: cc4bd7c18124bb039386a1cec06b9f1da0d047cb
+source-git-commit: 37973f51f1f0a08da967bdd07aaa47188b208adb
 workflow-type: tm+mt
-source-wordcount: '3411'
+source-wordcount: '3409'
 ht-degree: 0%
 
 ---
 
 # Leads
 
-[&#x200B; Verwijzing van het Eindpunt van lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[ Verwijzing van het Eindpunt van lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
 
 De API van Marketo Lead biedt een groot aantal mogelijkheden voor eenvoudige CRUD-toepassingen tegen leadrecords, maar ook de mogelijkheid om het lidmaatschap van een lead in statische lijsten en programma&#39;s te wijzigen en de verwerking van Smart Campagne voor leads te starten.
 
@@ -160,7 +160,7 @@ Naast het ophalen van gegevens voor leads kunt u ook een lead record maken, bijw
 
 >[!NOTE]
 >
-> Het bijwerken van de gebieden van het Bedrijf die [&#x200B; gebruiken leidt de Synchronisatie &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik [&#x200B; in plaats daarvan.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)
+> Het bijwerken van de gebieden van het Bedrijf die [ gebruiken leidt de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik [ in plaats daarvan.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)
 
 >[!NOTE]
 >
@@ -764,7 +764,7 @@ Content-Type: application/json
 
 Hier ziet u de bijbehorende activiteitengegevens voor Formulier invullen in de gebruikersinterface van Marketo Engage:
 
-![&#x200B; Vul Vorm UI &#x200B;](assets/fill_out_form_activity_details.png) uit
+![ Vul Vorm UI ](assets/fill_out_form_activity_details.png) uit
 
 ## Samenvoegen
 
@@ -819,7 +819,7 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads door Filtertype, hoewel filterType en filterValues niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ### Verzoek
 
