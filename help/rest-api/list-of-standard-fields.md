@@ -14,7 +14,7 @@ ht-degree: 12%
 
 Hier volgt een lijst met standaardvelden die beschikbaar zijn in Marketo en die toegankelijk zijn via de API.
 
-U kunt de lijst van alle gesteunde gebiedsnamen terugwinnen beschikbaar op uw loodverslagen door REST [ te gebruiken beschrijf lood ](https://developer.adobe.com/marketo-apis/api/mapi/) eindpunt.
+U kunt de lijst van alle gesteunde gebiedsnamen terugwinnen beschikbaar op uw loodverslagen door REST [&#x200B; te gebruiken beschrijf lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/) eindpunt.
 
 | REST API-naam | SOAP API-naam | Friendly Label | Beschrijving |
 | --- | --- | --- | --- |
