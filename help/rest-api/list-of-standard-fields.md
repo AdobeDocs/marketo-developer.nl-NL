@@ -3,10 +3,10 @@ title: Standaardvelden
 feature: REST API, Field Management
 description: Blader door de volledige lijst met Marketo-standaardloodvelden met REST- en SOAP-namen, -labels en -beschrijvingen, en hoe u deze ophaalt via de Describe Lead-API.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
 workflow-type: tm+mt
-source-wordcount: '1161'
-ht-degree: 7%
+source-wordcount: '727'
+ht-degree: 12%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 7%
 
 Hier volgt een lijst met standaardvelden die beschikbaar zijn in Marketo en die toegankelijk zijn via de API.
 
-U kunt de lijst van alle gesteunde gebiedsnamen terugwinnen beschikbaar op uw loodverslagen door REST [&#x200B; te gebruiken beschrijf lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/) eindpunt.
+U kunt de lijst van alle gesteunde gebiedsnamen terugwinnen beschikbaar op uw loodverslagen door REST [ te gebruiken beschrijf lood ](https://developer.adobe.com/marketo-apis/api/mapi/) eindpunt.
 
 | REST API-naam | SOAP API-naam | Friendly Label | Beschrijving |
 | --- | --- | --- | --- |
@@ -47,33 +47,6 @@ U kunt de lijst van alle gesteunde gebiedsnamen terugwinnen beschikbaar op uw lo
 | mainPhone | MainPhone | Telefoon | Primair telefoonnummer van het bedrijf van de lead |
 | jigsawContactId | Marketo Jigzaag-contactpersoon | MARKETO Data.com ID | De Data.com-id van de lead, indien beschikbaar |
 | jigsawContactStatus | Marketo Jigzaag-contactstatus | Marketo Data.com Status | Status Data.com van lead, indien beschikbaar |
-| facebookDisplayName | MarketoSocialFacebookDisplayName | Marketo Social Facebook Display Name | De Facebook-weergavenaam van de leider. Systeem gevuld tijdens aanmelden via sociale media |
-| facebookId | MarketoSocialFacebookId | Marketo Social Facebook-id | Facebook-id van lead. Systeem gevuld tijdens aanmelden via sociale media |
-| FacebookPhotoURL | MarketoSocialFacebookPhotoURL | Marketo Social Facebook Foto-URL | URL van Facebook-profielfoto van lead. Systeem gevuld tijdens aanmelden via sociale media |
-| facebookProfileURL | MarketoSocialFacebookProfileURL | Marketo Social Facebook Profile URL | URL van Facebook-profiel van lead. Systeem gevuld tijdens aanmelden via sociale media |
-| facebookReach | MarketoSocialFacebookReach | Marketo Social Facebook Reach | Het Facebook-bereik van de leider. Systeem gevuld tijdens aanmelden via sociale media |
-| facebookReferredEnrollments | MarketoSocialFacebookReferredEnrollments | Inschrijvingen verwezen naar Marketo Social Facebook | Het aantal inschrijvingen waarnaar wordt verwezen in de lead via Facebook. Systeembeheer |
-| facebookReferredVisits | MarketoSocialFacebookReferredVisits | Bezoeken op Marketo Social Facebook | Het aantal doorverwezen bezoeken dat via Facebook aan de lead wordt toegeschreven. Systeembeheer |
-| sekse | MarketoSocialGender | Marketo Social Gender | Geslacht van de leider. Systeem gevuld tijdens aanmelden via sociale media |
-| lastReferredEnrollment | MarketoSocialLastReferredEnrollment | Inschrijving als laatste verwijzing voor Marketo Social | Datum van laatste voltooide verwijzing. Systeembeheer |
-| lastReferredVisit | MarketoSocialLastReferredVisit | Bezoek van laatst vermelde Marketo Social | Datum van het laatst doorverwezen bezoek. Systeembeheer |
-| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Naam Marketo Social LinkedIn-weergave | Weergavenaam LinkedIn van de lead. Systeem gevuld tijdens aanmelden via sociale media |
-| linkedInId | MarketoSocialLinkedInId | Marketo Social LinkedIn-id | LinkedIn-id van lead. Systeem gevuld tijdens aanmelden via sociale media |
-| linkedInPhotoURL | MarketoSocialLinkedInPhotoURL | Marketo Social LinkedIn-foto-URL | URL van LinkedIn-foto van lead. Systeem gevuld tijdens aanmelden via sociale media |
-| linkedInProfileURL | MarketoSocialLinkedInProfileURL | Marketo URL sociaal gekoppeld profiel | LinkedIn-profiel van lead. Systeem gevuld tijdens aanmelden via sociale media |
-| linkedInReach | MarketoSocialLinkedInReach | Marketo Social LinkedIn Reach | LinkedIn bereik van de lead. Systeem gevuld tijdens aanmelden via sociale media |
-| linkedInReferredEnrollments | MarketoSocialLinkedInReferredEnrollments | Marketo Social LinkedIn-inschrijvingen waarnaar wordt verwezen | Het aantal referenties dat via LinkedIn aan de lead wordt toegewezen. Systeembeheer |
-| linkedInReferredVisits | MarketoSocialLinkedInReferredVisits | Marketo Social LinkedIn bezoeken waarnaar wordt verwezen | Het aantal met LinkedIn verband gebrachte bezoeken dat aan de lead is toegewezen. Systeembeheer |
-| syndicationId |  - | Marketo Social Syndication ID | Interne Marketo Sociale ID van lead. Systeembeheer |
-| totalReferredEnrollments | MarketoSocialTotalReferredEnrollments | Marketo Social Total Vermeld inschrijvingen | Totaal aantal voltooide verwijzingsinschrijvingen toegeschreven aan de lead |
-| totalReferredVisits | MarketoSocialTotalReferredVisits | Marketo Sociale Totaal Aangewezen bezoeken | Totaal aantal aan de lead toegewezen referentiebezoeken |
-| twitterDisplayName | MarketoSocialTwitterDisplayName | Marketo Sociale Twitter-weergavenaam | Weergavenaam Twitter van leider. Systeem gevuld tijdens aanmelden via sociale media |
-| twitterId | MarketoSocialTwitterId | Marketo Sociale Twitter-id | Twitter-id van leider. Systeem gevuld tijdens aanmelden via sociale media |
-| twitterPhotoURL | MarketoSocialTwitterPhotoURL | Marketo Social Twitter-foto-URL | URL Twitter-foto van leider. Systeem gevuld tijdens aanmelden via sociale media |
-| twitterProfileURL | MarketoSocialTwitterProfileURL | URL van sociaal Twitter-profiel voor Marketo | URL Twitter-profiel van leider. Systeem gevuld tijdens aanmelden via sociale media |
-| twitterReach | MarketoSocialTwitterReach | Marketo Social Twitter Reach | Twitter-bereik van leider. Systeem gevuld tijdens aanmelden via sociale media |
-| twitterReferredEnrollments | MarketoSocialTwitterReferredEnrollments | Inschrijvingen op sociale Twitter in Marketo | Aantal referenties dat via Twitter aan de lead is toegewezen. Systeembeheer |
-| twitterReferredVisits | MarketoSocialTwitterReferredVisits | Bezoeken op sociale Twitter in Marketo | Het aantal doorverwezen bezoeken dat via Twitter aan de lead is toegeschreven. Systeembeheer |
 | middleName | MiddleName | Tussenvoegsel | Middennaam van lead |
 | mobilePhone | Mobiele telefoon | Mobiel | Mobiel telefoonnummer van lead |
 | numberOfEmployees | NumberOfEmployees | Aantal werknemers | Aantal werknemers van hoofdbedrijf |
