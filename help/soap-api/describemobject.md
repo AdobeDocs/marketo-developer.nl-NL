@@ -3,10 +3,10 @@ title: describeMObject
 feature: SOAP
 description: Leer om describeMObject in Marketo SOAP te gebruiken om meta-gegevens en gebiedsattributen voor ActivityRecord, LeadRecord, Opportunity, en OpportunityPersonRole terug te winnen.
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '87'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
 
@@ -18,7 +18,7 @@ Deze functie retourneert de metagegevens voor Standard en Virtual MObjects. Het 
 
 | Veldnaam | Vereist/optioneel | Beschrijving |
 | --- | --- | --- |
-| objectName | Vereist | De naam van het MObject waarvoor u metagegevens wilt ophalen. `objectName` kan een van de volgende zijn: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
+| objectName | Vereist | De naam van het MObject waarvoor u metagegevens wilt ophalen. `objectName` kan één van zijn: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
 
 ## XML aanvragen
 

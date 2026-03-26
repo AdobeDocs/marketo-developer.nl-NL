@@ -3,10 +3,10 @@ title: getLeadChanges
 feature: SOAP
 description: Leer hoe u de Marketo SOAP getLeadChanges-API gebruikt om wijzigingsactiviteiten voor leads op te halen met filters, leadSelector, paginering en XML-voorbeelden.
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '419'
-ht-degree: 0%
+source-wordcount: '418'
+ht-degree: 2%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Deze API is vergelijkbaar met `getLeadActivity` , maar werkt op meerdere leads tegelijk. De bewerking controleert op nieuwe leads die zijn gemaakt, updates voor leidende velden en andere activiteiten.
 
-Het resultaat bevat activiteiten die de verandering samen met a [&#x200B; stroompositie &#x200B;](stream-position.md) om door grote resultaatreeksen te pagineren veroorzaakten.
+Het resultaat bevat activiteiten die de verandering samen met a [ stroompositie ](stream-position.md) om door grote resultaatreeksen te pagineren veroorzaakten.
 
 U moet een invoerparameter opnemen die aangeeft welke activiteitsfilters u in het resultaat wilt retourneren. Als u alle activiteiten wilt, kan een lege waarde worden overgegaan. Geef voor meer dan één activiteitsfilter een lijst met activiteitsfilters door.
 

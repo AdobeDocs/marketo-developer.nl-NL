@@ -3,9 +3,9 @@ title: Fouten
 feature: Webhooks
 description: Leer Marketo-webhaakfoutcodes, waarom 2xx-reacties vereist zijn om hoofdvelden bij te werken en hoe u fouten met Webhaak kunt afvangen en afhandelen, wordt aangeroepen.
 exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '253'
+source-wordcount: '254'
 ht-degree: 1%
 
 ---
@@ -27,7 +27,7 @@ Marketo kan alleen waarden weer in een veld toewijzen als de responscode van de 
 
 Fouten van Webhooks kunnen door de trigger [!UICONTROL Webhook is Called] worden afgevangen en afgehandeld:
 
-![&#x200B; Webhaak wordt geroepen &#x200B;](assets/webhook-called.png)
+![ Webhaak wordt geroepen ](assets/webhook-called.png)
 
 * Response - Response is de letterlijke antwoordlading die door het verzoek is ontvangen.
 * Fouttype - Dit komt overeen met de reden-zin van het HTTP-statusbericht.

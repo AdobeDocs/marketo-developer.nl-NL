@@ -3,10 +3,10 @@ title: Foutcodes
 feature: SOAP
 description: Referentiegids voor Marketo SOAP API-foutcodes met berichten en notities, die betrekking heeft op verificatiefouten, frequentie- en gelijktijdige limieten en aanvraagproblemen.
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '407'
-ht-degree: 6%
+source-wordcount: '408'
+ht-degree: 7%
 
 ---
 
@@ -17,7 +17,7 @@ Wanneer het ontwikkelen voor Marketo, is het zeer belangrijk dat de verzoeken en
 Hieronder vindt u een lijst met SOAP API-foutcodes.
 
 | Code | Bericht | Notities |
-|--- |--- |--- |
+| --- | --- | --- |
 | 10001 | Interne fout | Ernstig systeemfalen |
 | 20011 | Interne fout | API-servicefout |
 | 20012 | Verzoek niet begrepen | Onverwacht SOAP-bericht |

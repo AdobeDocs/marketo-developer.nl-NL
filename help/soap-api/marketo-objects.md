@@ -3,9 +3,9 @@ title: Marketo-objecten
 feature: SOAP
 description: Overzicht van Marketo MObjects, inclusief typen, kenmerken, gedrag van externe sleutels en ondersteunde SOAP API's voor Opportunity, Program en verwante records.
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '265'
+source-wordcount: '274'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Externe sleutels zijn aangepaste velden die zijn gedefinieerd voor Marketo-objec
 ### Beschikbare API&#39;s
 
 | API | Kan werken aan |
-|---|---|
+| --- | --- |
 | describeMObject | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |
 | getMObjects | Opportunity, OpportunityPersonRole, Program |
 | syncMObjects | Opportunity, OpportunityPersonRole, Program |

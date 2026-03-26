@@ -3,10 +3,10 @@ title: getMultipleLeads
 feature: SOAP
 description: Leer hoe u Marketo SOAP getMultipleLeads gebruikt om maximaal 1000 leads op te halen aan de hand van sleutel, statische lijst of updatedatum, pagineren met de streampositie en filtervelden.
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '407'
-ht-degree: 0%
+source-wordcount: '409'
+ht-degree: 2%
 
 ---
 
@@ -18,7 +18,7 @@ Opmerking: als u een array van leadsleutels gebruikt, kunt u maximaal 100 toetse
 
 Als alleen een subset van de hoofdvelden is vereist, moet u de parameter `includeAttributes` gebruiken om de gewenste velden op te geven.
 
-Elke functieaanroep van `getMultipleLeads` retourneert maximaal 1000 leads. Als u meer dan 1000 lood moet terugwinnen, zal het resultaat a [&#x200B; stroompositie &#x200B;](stream-position.md) terugkeren, die in verdere vraag kan worden gebruikt om de volgende partij van 1000 lood terug te winnen. De resterende telling in het resultaat vertelt u precies hoeveel lood overblijft. Wanneer het halen van van een statische lijst, is de beëindigende voorwaarde resterendeCount == 0.
+Elke functieaanroep van `getMultipleLeads` retourneert maximaal 1000 leads. Als u meer dan 1000 lood moet terugwinnen, zal het resultaat a [ stroompositie ](stream-position.md) terugkeren, die in verdere vraag kan worden gebruikt om de volgende partij van 1000 lood terug te winnen. De resterende telling in het resultaat vertelt u precies hoeveel lood overblijft. Wanneer het halen van van een statische lijst, is de beëindigende voorwaarde resterendeCount == 0.
 
 Een veel voorkomend geval voor dit eindpunt is het zoeken naar leads die op specifieke data zijn bijgewerkt. Met `LastUpdateAtSelector` kunt u dit doen.
 

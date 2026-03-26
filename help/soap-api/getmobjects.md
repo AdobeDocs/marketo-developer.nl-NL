@@ -3,22 +3,22 @@ title: getMObjects
 feature: SOAP
 description: Gebruik getMObjects om Marketo MObjects op ID, attributen, of verenigingen, tot 100 per partij te halen, pagineren met streamPosition, met de voorbeelden van XML.
 exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '245'
-ht-degree: 0%
+source-wordcount: '246'
+ht-degree: 4%
 
 ---
 
 # getMObjects
 
-Wint één of meerdere [&#x200B; MObjects &#x200B;](marketo-objects.md) terug gebruikend een combinatie van criteria die uit bestaan:
+Wint één of meerdere [ MObjects ](marketo-objects.md) terug gebruikend een combinatie van criteria die uit bestaan:
 
 - Nul of één unieke id, de Marketo-id of de externe id
 - Nul of meer kenmerkfilters als naam/waarde/vergelijkingstrips
 - Nul of meer gekoppelde objectfilters als objectnaam/id-paren
 
-Keert een lijst van passende MObjects, elk van één enkel type, tot 100 in een partij terug, en het teken van de a [&#x200B; stroompositie &#x200B;](stream-position.md) voor het terugwinnen van opeenvolgende partijen.
+Keert een lijst van passende MObjects, elk van één enkel type, tot 100 in een partij terug, en het teken van de a [ stroompositie ](stream-position.md) voor het terugwinnen van opeenvolgende partijen.
 
 ## Verzoek
 

@@ -3,10 +3,10 @@ title: Verificatiehandtekening
 feature: SOAP
 description: Hulplijn naar Marketo SOAP API-verificatie met behulp van HMAC-SHA1 via HTTPS, vereiste headervelden, tijdstempelindeling en voorbeeldaanvraag en foutreacties
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '225'
-ht-degree: 0%
+source-wordcount: '232'
+ht-degree: 2%
 
 ---
 
@@ -46,7 +46,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 | `mktowsUserId` | Vereist | De Marketo-client access-id vindt u in het SOAP API-deelvenster voor Marketo-beheer onder Integratie. |
 | `requestSignature` | Vereist | HMAC-SHA1-handtekening gebaseerd op gedeelde geheime sleutel, `requestTimestamp`, en Marketo-gebruikersnaam |
 | `requestTimestamp` | Vereist | Tijdstempel aanvragen (W3C WSDL-datumnotatie Ex. &quot;2013-06-09T14 :04: 54-08:00&quot;) |
-| `partnerId` | Optioneel | De Partner van de Technologie van LaunchPoint van de Technologie [&#x200B; API Sleutel &#x200B;](../launchpoint-api.pdf). |
+| `partnerId` | Optioneel | De Partner van de Technologie van LaunchPoint van de Technologie [ API Sleutel ](../launchpoint-api.pdf). |
 
 ## Request XML - getLeadActivity
 

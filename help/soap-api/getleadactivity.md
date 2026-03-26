@@ -3,10 +3,10 @@ title: getLeadActivity
 feature: SOAP
 description: Gebruik getLeadActivity SOAP om de geschiedenis van de loodactiviteit op sleutel, types van filteractiviteit te halen, partijgrootte te plaatsen, via stroompositie met de voorbeelden van XML te pagineren.
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '366'
-ht-degree: 0%
+ht-degree: 2%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Deze functie wint de activiteitengeschiedenis voor één enkele lood terug die door de verstrekte sleutel wordt geïdentificeerd. U kunt opgeven welke typen activiteiten u in het resultaat wilt retourneren. Als u alle activiteitstypen wilt opgeven, moet u een lege waarde opgeven. Geef voor meer dan één type activiteit een lijst met activiteitstypen door. Bij het aanvragen van meerdere activiteiten is het resterende aantal geen nauwkeurig getal, maar moet het worden behandeld als een vlag die aangeeft dat er meer activiteiten zijn wanneer het resterende aantal > 0 is.
 
-A [&#x200B; stroompositie &#x200B;](stream-position.md) kan worden gebruikt om door grote resultaatreeksen te pagineren.
+A [ stroompositie ](stream-position.md) kan worden gebruikt om door grote resultaatreeksen te pagineren.
 
 ## Verzoek
 

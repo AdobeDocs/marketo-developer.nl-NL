@@ -5,17 +5,17 @@ breadcrumb-title: '[!DNL Marketo] Handleiding voor ontwikkelaars'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '251'
-ht-degree: 7%
+source-wordcount: '277'
+ht-degree: 4%
 
 ---
 
 
 # [!DNL Marketo] Ontwikkelaar {#marketo}
 
-- [Startpagina](home.md)
+- [Home](home.md)
 - [Aan de slag](getting-started.md)
 - Javascript-API {#javascriptapi}
    - [Aangepaste gegevensgebeurtenissen](javascript-api/custom-data-events.md)
@@ -34,7 +34,7 @@ ht-degree: 7%
    - [Triggers](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobiel {#mobile}
-   - [&#x200B; [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
+   - [ [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension.md)
    - [Geavanceerde beveiligingsmodus](mobile/advanced-security-access-mode.md)
    - [Aangepaste handelingen](mobile/custom-actions.md)
@@ -49,7 +49,7 @@ ht-degree: 7%
    - [Gebruikersprofielen](mobile/user-profiles.md)
 - REST{#rest}
    - [REST API-overzicht](rest-api/rest-api.md)
-   - [&#x200B; REST API verwijzing &#x200B;](https://developer.adobe.com/marketo-apis/)
+   - [REST API-referentie](https://developer.adobe.com/marketo-apis/)
    - Assets {#assets}
       - [Assets](rest-api/assets.md)
       - [Dynamische inhoud](rest-api/dynamic-content.md)
@@ -102,10 +102,12 @@ ht-degree: 7%
       - [Opportuniteitsrollen](rest-api/opportunity-roles.md)
       - [Programmaleden](rest-api/program-members.md)
       - [Verkopers](rest-api/sales-persons.md)
+      - [Statische lijst](rest-api/list-membership.md)
+      - [Gebruik](rest-api/usage.md)
    - [Pagingtokens](rest-api/paging-tokens.md)
    - [Prestaties](rest-api/performance.md)
    - [Referentiearchitecturen](rest-api/reference-architectures.md)
-   - [&#x200B; Code van de Steekproef &#x200B;](https://github.com/Marketo/REST-Sample-Code)
+   - [Voorbeeldcode](https://github.com/Marketo/REST-Sample-Code)
    - [Tags](rest-api/tags.md)
    - [Gebruikerscontext](rest-api/user-context.md)
    - [Gebruikersbeheer](rest-api/user-management.md)
@@ -155,11 +157,11 @@ ht-degree: 7%
    - [Fouten](webhooks/errors.md)
    - [Responstoewijzingen](webhooks/response-mappings.md)
    - [Webhaken](webhooks/webhooks.md)
-- [&#x200B; Bibliotheken van de Cliënt &#x200B;](https://github.com/Marketo/Community-Supported-Client-Libraries)
-- [&#x200B; Streams van Gegevens &#x200B;](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams)
+- [Clientbibliotheken](https://github.com/Marketo/Community-Supported-Client-Libraries)
+- [Gegevensstromen](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams)
 - [E-mailscripting](email-scripting.md)
 - [Voorbeelden van e-mailscripts](examples.md)
-- [&#x200B; de Voorwerpen van Marketo &#x200B;](marketo-objects.md)
+- [ de Voorwerpen van Marketo ](marketo-objects.md)
 - [Licentie](api-license.md)
 - [Partnersandbox](partner-sandbox.md)
 - [Zelfbedieningsstroomstappen](self-service-flow-steps.md)

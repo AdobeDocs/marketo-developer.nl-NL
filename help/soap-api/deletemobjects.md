@@ -3,16 +3,16 @@ title: deleteMObjects
 feature: SOAP
 description: Marketo SOAP deleteMObjects to delete Opportunity and OpportunityPersonRole, with request and response XML, code examples, return DELETED UNCHANGED FAILED.
 exl-id: 31511584-5366-4af1-975b-94417680c4d9
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '74'
-ht-degree: 1%
+ht-degree: 4%
 
 ---
 
 # deleteMObjects
 
-Schrapt één of meerdere [&#x200B; MObjects &#x200B;](marketo-objects.md) en keert het resultaat van de (VERWIJDERDE, ONGEWIJZIGDE, MISLUKT) verrichting terug.
+Schrapt één of meerdere [ MObjects ](marketo-objects.md) en keert het resultaat van de (VERWIJDERDE, ONGEWIJZIGDE, MISLUKT) verrichting terug.
 
 ## Verzoek
 

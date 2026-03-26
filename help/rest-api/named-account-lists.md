@@ -3,18 +3,18 @@ title: Lijsten met benoemde accounts
 feature: REST API
 description: Leer hoe u lijsten met benoemde accounts van Marketo beheert met de REST API, inclusief machtigingen, velden, filters en eindpunten voor het zoeken, maken, bijwerken en verwijderen van accounts.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '716'
+source-wordcount: '746'
 ht-degree: 0%
 
 ---
 
 # Lijsten met benoemde accounts
 
-[&#x200B; Genoemde Verwijzing van het Eindpunt van de Rekening maakt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[Verwijzing naar eindpunt voor benoemde accountlijsten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[&#x200B; Genoemde Lijsten van de Rekening &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
+[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
 `Content`
 
 ## Machtigingen
@@ -27,7 +27,7 @@ Lijsten met benoemde accounts hebben een beperkt aantal standaardvelden en kunne
 `Named Account List Field`
 
 | Naam | Gegevenstype | Bijwerkbaar | Notities |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | marketoGUID | String | Onwaar | Unieke tekenreeks-id van de benoemde accountlijst. Dit veld wordt beheerd door het systeem en is niet toegestaan als veld bij het maken van een record. Veld dat wordt gebruikt door &quot;dedupeBy&quot;:&quot;idField&quot; bij het maken of bijwerken van een bestand. |
 | name | String | Waar | Naam van de lijst. Veld dat wordt gebruikt door &quot;dedupeBy&quot;:&quot;dedupeFields&quot; bij het maken of bijwerken van een bestand. |
 | createdAt | Datumtijd | Onwaar | De datum waarop de lijst wordt gemaakt. Dit veld wordt beheerd door het systeem en is niet toegestaan als veld bij het maken of bijwerken van een record. |

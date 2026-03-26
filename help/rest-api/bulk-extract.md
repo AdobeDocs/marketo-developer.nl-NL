@@ -3,9 +3,9 @@ title: Bulk extraheren
 feature: REST API
 description: Leer hoe u de Marketo Bulk Extraheren REST API kunt gebruiken voor het exporteren van leads, activiteiten, programmaleden en aangepaste objecten, met OAuth, taakwachtrijen en dagelijkse limieten van 500 MB.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1702'
+source-wordcount: '1723'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ De bulk extract APIs gebruikt de zelfde OAuth 2.0 authentificatiemethode zoals a
 
 >[!IMPORTANT]
 >
->De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1&rbrace; kopbal van de Vergunning &lbrace;zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Limieten
 
@@ -51,7 +51,7 @@ Het maximumaantal taken in de wachtrij is 10. Als u een baan probeert te vragen 
 
 De bulkextractie-API&#39;s worden gemeten op basis van de grootte op schijf van de gegevens die door een bulkextractietaak worden opgehaald. De expliciete grootte in bytes voor een taak kan worden bepaald door het kenmerk `fileSize` te lezen op basis van de voltooide statusreactie van een exporttaak.
 
-Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer het quotum wordt overschreden, kunt u niet een andere baan tot stand brengen of in rij brengen tot de dagelijkse quota bij middernacht [&#x200B; Centrale Tijd &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone) terugstelt. Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
+Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer het quotum wordt overschreden, kunt u niet een andere baan tot stand brengen of in rij brengen tot de dagelijkse quota bij middernacht [ Centrale Tijd ](https://en.wikipedia.org/wiki/Central_Time_Zone) terugstelt. Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
 
 Als een taak in de wachtrij is geplaatst of wordt verwerkt, wordt deze uitgevoerd tot voltooiing (zonder een fout of annulering van een taak). Als een taak om een of andere reden mislukt, moet u deze opnieuw maken. Bestanden worden alleen volledig geschreven wanneer een taak de voltooide status bereikt (gedeeltelijke bestanden worden nooit weggeschreven). U kunt verifiëren dat een dossier volledig werd geschreven door het te berekenen hash SHA-256 en het vergelijken van dat met checksum die door de eindpunten van de baanstatus wordt teruggekeerd.
 
@@ -118,7 +118,7 @@ Wanneer we de taak maken, wordt een taak-id in het kenmerk `exportId` geretourne
 Elk eindpunt van de baanverwezenlijking deelt sommige gemeenschappelijke parameters voor het vormen van het dossierformaat, gebiedsnamen, en filter van een bulkextractietaak. Elk subtype van extractietaak kan extra parameters hebben:
 
 | Parameter | Gegevenstype | Notities |
-|---|---|---|
+| --- | --- | --- |
 | format | String | Hiermee bepaalt u de bestandsindeling van de geëxtraheerde gegevens met opties voor door komma&#39;s gescheiden waarden, door tabs gescheiden waarden en door puntkomma&#39;s gescheiden waarden. Accepteert één van: CSV, SSV, TSV. De notatie wordt standaard ingesteld op CSV. |
 | columnHeaderNames | Object | Hiermee kunt u de namen van kolomkoppen in het geretourneerde bestand instellen. Elke lidsleutel is de naam van de kolomkop waarvan de naam moet worden gewijzigd en de waarde is de nieuwe naam van de kolomkop. Bijvoorbeeld &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
 | filter | Object | Filter toegepast op de extractietaak. De typen en opties variëren per taaktype. |
@@ -208,7 +208,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een baan niet heeft voltooid, of een slechte baan ID wordt overgegaan, antwoorden de dossiereindpunten met een status van 404 niet Gevonden, en een plaintext foutenmelding als lading, in tegenstelling tot de meeste andere eindpunten van Marketo REST.
 
-Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [&#x200B; RFC 7233 &#x200B;](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van GET tot het eindpunt overgaan, die van byte 0 begint:
+Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [ RFC 7233 ](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van GET tot het eindpunt overgaan, die van byte 0 begint:
 
 ```
 Range: bytes=0-9999

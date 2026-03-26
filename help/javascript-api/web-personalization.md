@@ -3,18 +3,18 @@ title: Web Personalization
 description: Gids aan het Web Personalization JavaScript API en de markering RTP, die de gebeurtenissen van de paginamening, rekeningsopstelling, zowel uitsluitingen, en kern en op bestelling manuscripten behandelen
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '422'
-ht-degree: 1%
+source-wordcount: '452'
+ht-degree: 3%
 
 ---
 
 # Web Personalization
 
-De Web Personalization JavaScript API breidt het geautomatiseerde verpersoonlijkingsvermogen van het platform uit. Zo kunt u gebeurtenissen bijhouden en een webpagina dynamisch aanpassen. De extra mogelijkheden: [&#x200B; Gebeurtenissen van de Gegevens van de Douane &#x200B;](custom-data-events.md), [&#x200B; Dynamische Inhoud &#x200B;](web-personalization.md), [&#x200B; krijgen de Gegevens van de Bezoeker &#x200B;](get-visitor-data.md), [&#x200B; uitsluiten markering voor Specifieke Bots &#x200B;](#exclude_tag_for_specific_bots).
+De Web Personalization JavaScript API breidt het geautomatiseerde verpersoonlijkingsvermogen van het platform uit. Zo kunt u gebeurtenissen bijhouden en een webpagina dynamisch aanpassen. De extra mogelijkheden: [ Gebeurtenissen van de Gegevens van de Douane ](custom-data-events.md), [ Dynamische Inhoud ](web-personalization.md), [ krijgen de Gegevens van de Bezoeker ](get-visitor-data.md), [ uitsluiten markering voor Specifieke Bots ](#exclude_tag_for_specific_bots).
 
-- U moet een klant van Personalization van het Web worden en de [&#x200B; markering hebben RTP die &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
+- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 - RTP ondersteunt geen accountgebaseerde marketing met benoemde accountlijsten. ABM-lijsten en -code hebben alleen betrekking op de geüploade accountlijsten (CSV-bestanden) die in RTP worden beheerd.
 
 ## Taginstelling
@@ -37,7 +37,7 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 Deze methode wordt automatisch aangeroepen op tagniveau om de relevante account-id in te stellen. U kunt de account-id instellen wanneer u wilt splitsen tussen verschillende domeinen.
 
 | Parameter | Optioneel/vereist | Type | Beschrijving |
-|--------------|-------------------|--------|--------------|
+| --- | --- | --- | --- |
 | &#39;setAccount&#39; | Vereist | String | Naam van methode. |
 | accountId | Vereist | String | Account-ID. |
 
@@ -53,7 +53,7 @@ Deze methode verzendt een weergavegebeurtenis die wordt gebruikt voor het bijhou
 Door de optionele parameter &quot;page&quot; in deze methode door te geven, kan de huidige pagina worden overschreven.
 
 | Parameter | Optioneel/vereist | Type | Beschrijving |
-|-----------|-------------------|--------|---------------------------------|
+| --- | --- | --- | --- |
 | &#39;send&#39; | Vereist | String | Methode, actie. |
 | &#39;view&#39; | Vereist | String | Naam van methode. |
 | page | Optioneel | String | Relatief pad of URL van volledige pagina. |
@@ -96,7 +96,7 @@ Beschrijving van JavaScript die aan een website wordt toegevoegd wanneer Web Per
 ### Core/Afhankelijke JavaScript
 
 | Naam | Beschrijving | Besturing |
-|---------------------------|-------------|--------------------------------------------------------|
+| --- | --- | --- |
 | rtp.js | - | Onder zeggenschap van Marketo |
 | jquery.min.js | v1.8.3 | Kan worden uitgeschakeld door contact op te nemen met de klantenondersteuning van Marketo |
 | jquery-custom-ui-min.js | v1.9.2 | Kan worden uitgeschakeld door contact op te nemen met de klantenondersteuning van Marketo |
@@ -107,7 +107,7 @@ Beschrijving van JavaScript die aan een website wordt toegevoegd wanneer Web Per
 ### JavaScript op aanvraag
 
 | Naam | Beschrijving | Besturing |
-|-------------------------|-----------------------------------------------------------------------|-----------------------|
+| --- | --- | --- |
 | ga-integration-2.0.1.js | Wordt gebruikt als de integratie Google Analytics/Facebook/SiteCatalyst is ingeschakeld | Onder zeggenschap van Marketo |
 | insightera-bar-2.1.js | Wordt gebruikt als de aanbevolen balk voor voorspellende inhoud is ingeschakeld | Onder zeggenschap van Marketo |
 | froogaloop2.min.js | Wordt gebruikt als het bijhouden van inhoud is ingeschakeld en de Vimeo-speler op de pagina aanwezig is | - |

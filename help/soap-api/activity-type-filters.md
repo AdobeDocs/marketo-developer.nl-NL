@@ -3,7 +3,7 @@ title: Filters voor activiteitstypen
 feature: SOAP
 description: Blader door alle ondersteunde activiteitstypefilters voor SOAP-oproepen, van het klikken op e-mail en het invullen van formulieren tot de wijzigingen in de SFDC-campagne en het bijwerken van de opportuniteit.
 exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 0%
@@ -13,7 +13,7 @@ ht-degree: 0%
 # Filters voor activiteitstypen
 
 | Toevoegen aan lijst |
-|-------------------------------------|
+| --- |
 | Toevoegen aan cursus |
 | Toevoegen aan opportunity |
 | Toevoegen aan segment |

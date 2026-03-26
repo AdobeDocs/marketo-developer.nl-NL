@@ -3,10 +3,10 @@ title: Munchkin API-naslag
 description: Gebruik de Munchkin Javascript API om paginabezoeken, verbindingskliks, en douanegebeurtenissen met init te volgen, createTrackingCookie, en munchkinFunction methodes.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '424'
-ht-degree: 2%
+source-wordcount: '426'
+ht-degree: 6%
 
 ---
 
@@ -27,7 +27,7 @@ De Munchkin API bestaat uit de volgende functies: `init`, `createTrackingCookie`
 | Parameternaam | Optioneel/vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
 | Munchkin-id | Vereist | String | Munchkin-account-id gevonden onder Beheer > Integratie > Munchkin-menu. Hiermee stelt u de doelinstantie in waarnaar activiteiten moeten worden verzonden. |
-| [&#x200B; Montages van de Configuratie &#x200B;](configuration.md) | Optioneel | Object | Hiermee schakelt u alternatieve gedragsinstellingen voor Munchkin in. |
+| [ Montages van de Configuratie ](configuration.md) | Optioneel | Object | Hiermee schakelt u alternatieve gedragsinstellingen voor Munchkin in. |
 
 ```javascript
 Munchkin.init('299-BYM-827');
@@ -52,7 +52,7 @@ Wordt gebruikt voor het genereren van aangepaste gedragingen, zoals het afspelen
 | Parameternaam | Optioneel/vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
 | Type functie | Vereist | String | Bepaalt de activiteit die moet worden opgenomen. Toegestane waarden: `visitWebPage`, `clickLink`, `associateLead` |
-| Data | Vereist | Object | Bevat gegevens voor de activiteit die moet worden geregistreerd. |
+| Gegevens | Vereist | Object | Bevat gegevens voor de activiteit die moet worden geregistreerd. |
 
 #### visitWebPage
 
