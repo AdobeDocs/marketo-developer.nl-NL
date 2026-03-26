@@ -27,7 +27,7 @@ De Munchkin API bestaat uit de volgende functies: `init`, `createTrackingCookie`
 | Parameternaam | Optioneel/vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
 | Munchkin-id | Vereist | String | Munchkin-account-id gevonden onder Beheer > Integratie > Munchkin-menu. Hiermee stelt u de doelinstantie in waarnaar activiteiten moeten worden verzonden. |
-| [ Montages van de Configuratie ](configuration.md) | Optioneel | Object | Hiermee schakelt u alternatieve gedragsinstellingen voor Munchkin in. |
+| [&#x200B; Montages van de Configuratie &#x200B;](configuration.md) | Optioneel | Object | Hiermee schakelt u alternatieve gedragsinstellingen voor Munchkin in. |
 
 ```javascript
 Munchkin.init('299-BYM-827');

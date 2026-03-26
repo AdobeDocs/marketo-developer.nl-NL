@@ -18,7 +18,7 @@ Opmerking: als u een array van leadsleutels gebruikt, kunt u maximaal 100 toetse
 
 Als alleen een subset van de hoofdvelden is vereist, moet u de parameter `includeAttributes` gebruiken om de gewenste velden op te geven.
 
-Elke functieaanroep van `getMultipleLeads` retourneert maximaal 1000 leads. Als u meer dan 1000 lood moet terugwinnen, zal het resultaat a [ stroompositie ](stream-position.md) terugkeren, die in verdere vraag kan worden gebruikt om de volgende partij van 1000 lood terug te winnen. De resterende telling in het resultaat vertelt u precies hoeveel lood overblijft. Wanneer het halen van van een statische lijst, is de beëindigende voorwaarde resterendeCount == 0.
+Elke functieaanroep van `getMultipleLeads` retourneert maximaal 1000 leads. Als u meer dan 1000 lood moet terugwinnen, zal het resultaat a [&#x200B; stroompositie &#x200B;](stream-position.md) terugkeren, die in verdere vraag kan worden gebruikt om de volgende partij van 1000 lood terug te winnen. De resterende telling in het resultaat vertelt u precies hoeveel lood overblijft. Wanneer het halen van van een statische lijst, is de beëindigende voorwaarde resterendeCount == 0.
 
 Een veel voorkomend geval voor dit eindpunt is het zoeken naar leads die op specifieke data zijn bijgewerkt. Met `LastUpdateAtSelector` kunt u dit doen.
 

@@ -34,7 +34,7 @@ ht-degree: 4%
    - [Triggers](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobiel {#mobile}
-   - [ [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
+   - [&#x200B; [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension.md)
    - [Geavanceerde beveiligingsmodus](mobile/advanced-security-access-mode.md)
    - [Aangepaste handelingen](mobile/custom-actions.md)
@@ -161,7 +161,7 @@ ht-degree: 4%
 - [Gegevensstromen](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams)
 - [E-mailscripting](email-scripting.md)
 - [Voorbeelden van e-mailscripts](examples.md)
-- [ de Voorwerpen van Marketo ](marketo-objects.md)
+- [&#x200B; de Voorwerpen van Marketo &#x200B;](marketo-objects.md)
 - [Licentie](api-license.md)
 - [Partnersandbox](partner-sandbox.md)
 - [Zelfbedieningsstroomstappen](self-service-flow-steps.md)
