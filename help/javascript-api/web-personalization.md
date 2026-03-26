@@ -14,7 +14,7 @@ ht-degree: 3%
 
 De Web Personalization JavaScript API breidt het geautomatiseerde verpersoonlijkingsvermogen van het platform uit. Zo kunt u gebeurtenissen bijhouden en een webpagina dynamisch aanpassen. De extra mogelijkheden: [&#x200B; Gebeurtenissen van de Gegevens van de Douane &#x200B;](custom-data-events.md), [&#x200B; Dynamische Inhoud &#x200B;](web-personalization.md), [&#x200B; krijgen de Gegevens van de Bezoeker &#x200B;](get-visitor-data.md), [&#x200B; uitsluiten markering voor Specifieke Bots &#x200B;](#exclude_tag_for_specific_bots).
 
-- U moet een klant van Personalization van het Web worden en de [&#x200B; markering hebben RTP die &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
+- U moet een klant van Personalization van het Web worden en de [&#x200B; markering hebben RTP die &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld alvorens de Context API van de Gebruiker te gebruiken.
 - RTP ondersteunt geen accountgebaseerde marketing met benoemde accountlijsten. ABM-lijsten en -code hebben alleen betrekking op de geüploade accountlijsten (CSV-bestanden) die in RTP worden beheerd.
 
 ## Taginstelling
