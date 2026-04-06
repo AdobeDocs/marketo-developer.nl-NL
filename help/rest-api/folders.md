@@ -3,22 +3,22 @@ title: Mappen
 feature: REST API
 description: Marketo REST API-handleiding voor mappen die het maken, bijwerken, verwijderen, zoeken op id en naam, bladeren in grote hoeveelheden met hoofdmap, werkruimte, maxDepth en paginering bedekken.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
 workflow-type: tm+mt
-source-wordcount: '1025'
+source-wordcount: '1099'
 ht-degree: 0%
 
 ---
 
 # Mappen
 
-[&#x200B; Verwijzing van het Eindpunt van Omslagen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[Mappen eindpuntverwijzing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
 
 Mappen vormen het kernelement van de organisatie in Marketo en elk ander type element heeft minstens één map als bovenliggend element. Deze bovenliggende map kan een map zijn die louter organisatorisch is, of een programma dat een functionele relatie heeft met andere elementtypen en ook de bovenliggende map van andere elementen kan zijn. Mappen kunnen worden gemaakt, opgehaald, bijgewerkt en verwijderd via de API en er kan ook een lijst met de inhoud van mappen worden opgehaald. Hoewel programma&#39;s kunnen worden geretourneerd via een query op de API voor mappen, moeten het maken, bijwerken en verwijderen van programma&#39;s worden uitgevoerd via de API voor programma&#39;s.
 
 ## Query
 
-Het vragen van omslagen volgt de standaardvraagtypes voor activa van [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET), en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET).
+Het vragen van omslagen volgt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET), en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET).
 
 ### Op id
 
@@ -59,7 +59,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 }
 ```
 
-De parameter type is vereist en moet een map of programma zijn.  Het type dicteert of de raadpleging aan de omslag tegen een identiteitskaart van de Omslag of een identiteitskaart van het Programma wordt gedaan. Voor dit eindpunt, slechts is één enkel verslag teruggekeerd in de resultaatSerie. Noteer de parameter folderType in het antwoord. Dit kan op vele verschillende soorten omslagen wijzen. De omslagen van de Activiteiten van Marketo hebben of een type van de Omslag van de Marketing of Programma, dat vele verschillende types van activa kan bevatten, terwijl de omslagen van Design Studio een type hebben dat aan het activatype beantwoordt dat zij kunnen houden. Een map met het maptype &quot;E-mail&quot; kan bijvoorbeeld alleen e-mails of andere submappen bevatten, die een mapType e-mail- of e-mailsjabloon kunnen hebben. Typen kunnen zijn:
+De parameter type is vereist en moet een map of programma zijn.  Het type dicteert of de raadpleging aan de omslag tegen een identiteitskaart van de Omslag of een identiteitskaart van het Programma wordt gedaan. Voor dit eindpunt, slechts is één enkel verslag teruggekeerd in de resultaatSerie. Noteer de parameter `folderType` in het antwoord. Dit kan op vele verschillende soorten omslagen wijzen. De omslagen van de Activiteiten van Marketo hebben of een type van de Omslag van de Marketing of Programma, dat vele verschillende types van activa kan bevatten, terwijl de omslagen van Design Studio een type hebben dat aan het activatype beantwoordt dat zij kunnen houden. Een map met `folderType` &#39;E-mail&#39; kan bijvoorbeeld alleen e-mails of andere submappen bevatten, die een `folderType` van de E-mail- of e-mailsjabloon kunnen hebben. Typen kunnen zijn:
 
 - E-mail
 - E-mailsjabloon
@@ -70,7 +70,7 @@ De parameter type is vereist en moet een map of programma zijn.  Het type dicte
 
 ### Op naam
 
-[&#x200B; het Vragen door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) wordt ook toegestaan. De vraag door naameindpunt heeft naam als enige vereiste parameter. De naam voert een nauwkeurige koordgelijke tegen het naamgebied van omslagen in de instantie uit, en keert resultaten voor elke omslag terug die die naam aanpassen. Het heeft ook de facultatieve vraagparameters van &quot;type&quot;die Omslag of Programma kunnen zijn, &quot;wortel&quot;identiteitskaart van de omslag om te zoeken door, of &quot;werkruimte&quot;de naam van de werkruimte om binnen te zoeken. Als de hoofdparameter is ingesteld, moet de parameter type ook worden ingesteld.
+[ het Vragen door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) wordt ook toegestaan. De vraag door naameindpunt heeft naam als enige vereiste parameter. De naam voert een nauwkeurige koordgelijke tegen het naamgebied van omslagen in de instantie uit, en keert resultaten voor elke omslag terug die die naam aanpassen. Het heeft ook de facultatieve vraagparameters van &quot;type&quot;die Omslag of Programma kunnen zijn, &quot;wortel&quot;identiteitskaart van de omslag om te zoeken door, of &quot;werkruimte&quot;de naam van de werkruimte om binnen te zoeken. Als de hoofdparameter is ingesteld, moet de parameter type ook worden ingesteld.
 
 ```
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -113,12 +113,12 @@ Wanneer het zoeken door naam, is het belangrijk om op te merken dat zowel de Act
 
 ### Bladeren
 
-De omslagen kunnen ook [&#x200B; worden teruggewonnen in bulk &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). De &quot;wortel&quot;parameter kan worden gebruikt om de ouderomslag te specificeren waaronder de vraag zal worden uitgevoerd en geformatteerd als voorwerp JSON ingebed als waarde voor de vraagparameter. Hoofdmap heeft twee leden:
+De omslagen kunnen ook [ worden teruggewonnen in bulk ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). De &quot;wortel&quot;parameter kan worden gebruikt om de ouderomslag te specificeren waaronder de vraag zal worden uitgevoerd en geformatteerd als voorwerp JSON ingebed als waarde voor de vraagparameter. Hoofdmap heeft twee leden:
 
 1. id - De id van de map of het programma.
 1. type - Map of Programma, afhankelijk van het type hoofdmap voor de browser.
 
-Als de wortelomslag niet gekend is, of de bedoeling is alle omslagen in een bepaald gebied terug te winnen, kan de wortel als &quot;de Activiteiten van de Marketing&quot;, &quot;de Studio van het Ontwerp&quot;, of de gebieden van het Gegevensbestand van de Lood worden gespecificeerd. ids voor elk van deze kan door [&#x200B; worden teruggewonnen krijgt Omslag door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) API, en het specificeren van de naam van het gewenste gebied.
+Als de wortelomslag niet gekend is, of de bedoeling is alle omslagen in een bepaald gebied terug te winnen, kan de wortel als &quot;de Activiteiten van de Marketing&quot;, &quot;de Studio van het Ontwerp&quot;, of de gebieden van het Gegevensbestand van de Lood worden gespecificeerd. ids voor elk van deze kan door [ worden teruggewonnen krijgt Omslag door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) API, en het specificeren van de naam van het gewenste gebied.
 
 Net als andere eindpunten voor het ophalen van bulkmiddelen, zijn offset en maxReturn optionele parameters voor pagineren.   Andere optionele parameters zijn:
 
@@ -211,7 +211,7 @@ Het pad van een map toont de hiërarchie in de mapstructuur, net als bij een Uni
 
 ## Maken en bijwerken
 
-[&#x200B; Creërend omslagen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) is eenvoudig en met een toepassing/x-www-vorm-urlencoded POST uitgevoerd die twee vereiste parameters, &quot;naam,&quot;een koord, en &quot;ouder,&quot;de ouder heeft om de omslag in tot stand te brengen, die een ingebed voorwerp JSON met twee leden, identiteitskaart, en type, of Omslag of Programma, afhankelijk van het type van de doelomslag is. Optioneel kan &quot;description&quot; (een tekenreeks) ook worden opgenomen en maximaal 2000 tekens bevatten.
+[ Creërend omslagen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) is eenvoudig en met een toepassing/x-www-vorm-urlencoded POST uitgevoerd die twee vereiste parameters, &quot;naam,&quot;een koord, en &quot;ouder,&quot;de ouder heeft om de omslag in tot stand te brengen, die een ingebed voorwerp JSON met twee leden, identiteitskaart, en type, of Omslag of Programma, afhankelijk van het type van de doelomslag is. Optioneel kan &quot;description&quot; (een tekenreeks) ook worden opgenomen en maximaal 2000 tekens bevatten.
 
 ```
 POST /rest/asset/v1/folders.json

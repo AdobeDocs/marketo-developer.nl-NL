@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] Handleiding voor ontwikkelaars'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '277'
+source-wordcount: '284'
 ht-degree: 4%
 
 ---
@@ -34,7 +34,7 @@ ht-degree: 4%
    - [Triggers](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobiel {#mobile}
-   - [&#x200B; [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
+   - [ [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension.md)
    - [Geavanceerde beveiligingsmodus](mobile/advanced-security-access-mode.md)
    - [Aangepaste handelingen](mobile/custom-actions.md)
@@ -54,10 +54,13 @@ ht-degree: 4%
       - [Assets](rest-api/assets.md)
       - [Dynamische inhoud](rest-api/dynamic-content.md)
       - [E-mails](rest-api/emails.md)
+      - [E-mails (nieuw)](rest-api/emails-new.md)
       - [E-mailsjablonen](rest-api/email-templates.md)
+      - [E-mailsjablonen (nieuw)](rest-api/email-templates-new.md)
       - [Bestanden](rest-api/files.md)
       - [Mappen](rest-api/folders.md)
       - [Forms](rest-api/forms.md)
+      - [Fragmenten (nieuw)](rest-api/fragments.md)
       - [Landingspagina&#39;s](rest-api/landing-pages.md)
       - [Regels voor omleiding van bestemmingspagina](rest-api/landing-page-redirect-rules.md)
       - [Landingspagina-sjablonen](rest-api/landing-page-templates.md)
@@ -161,7 +164,7 @@ ht-degree: 4%
 - [Gegevensstromen](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams)
 - [E-mailscripting](email-scripting.md)
 - [Voorbeelden van e-mailscripts](examples.md)
-- [&#x200B; de Voorwerpen van Marketo &#x200B;](marketo-objects.md)
+- [Marketo-objecten](marketo-objects.md)
 - [Licentie](api-license.md)
 - [Partnersandbox](partner-sandbox.md)
 - [Zelfbedieningsstroomstappen](self-service-flow-steps.md)

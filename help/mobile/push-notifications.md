@@ -3,9 +3,9 @@ title: Pushmeldingen
 feature: Mobile Marketing
 description: Handleiding voor het inschakelen van iOS-pushberichten met Marketo, van APNs-certificaten en Xcode-instellingen tot Marketo SDK-integratie, symbolische registratie, verwerking.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9002bcd494ba125fdc7d3ef5f02385465b6eb5a6
 workflow-type: tm+mt
-source-wordcount: '1344'
+source-wordcount: '1338'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 
 ### Pushmeldingen configureren op Apple Developer Account
 
-1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [&#128279;](http://developer.apple.com/membercenter).
+1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [ ](http://developer.apple.com/membercenter).
 1. Klik op Certificaten, id&#39;s en profielen.
 1. Klik op de map &quot;Certificates->All&quot; onder &quot;iOS, tvOS, watchOS&quot;.
 1. Selecteer &quot;+&quot; in het linkerbovenscherm naast certificaten ![](assets/certificates-plus.png)
@@ -32,7 +32,7 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 1. Selecteer de toepassings-id die u gebruikt om de app te maken.![](assets/push-appid.png)
 1. CSR maken en uploaden om het pushcertificaat te genereren. ![](assets/push-ssl.png)
 1. Certificaat downloaden naar lokale computer en dubbelklikken om te installeren. ![](assets/certificate-download.png)
-1. Open &quot;Keychain Access&quot;, klik met de rechtermuisknop op het certificaat en exporteer 2 items naar het `.p12` -bestand.![&#x200B; key_chain &#x200B;](assets/key-chain.png)
+1. Open &quot;Sleutelhangertoegang&quot;, klik op het certificaat met de rechtermuisknop aan, en voer 2 punten in het `.p12` dossier uit.![ key_chain ](assets/key-chain.png)
 1. Upload dit bestand via Marketo Admin Console om meldingen te configureren.
 1. App-inrichtingsprofielen bijwerken.
 
@@ -257,13 +257,13 @@ Pushmeldingen bijhouden
 
 Als uw app op de achtergrond wordt uitgevoerd (of niet actief is), ontvangt het apparaat een pushmelding zoals hieronder wordt weergegeven. Marketo houdt bij wanneer de gebruiker op het bericht tikt.
 
-![&#x200B; mobile8 &#x200B;](assets/mobile8.png)
+![ mobile8 ](assets/mobile8.png)
 
 Als het apparaat een pushmelding ontvangt, wordt deze doorgegeven aan `application:didReceiveRemoteNotification:` callback op uw App-gedelegeerde.
 
 Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenissen voor apps en pushmeldingen worden weergegeven.
 
-![&#x200B; mobile9 &#x200B;](assets/mobile9.png)
+![ mobile9 ](assets/mobile9.png)
 
 ## Pushmelding instellen op Android
 
@@ -285,7 +285,7 @@ Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenisse
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. De vestiging FCM met HTTPv1 (Google heeft [&#x200B; verouderd protocol XMPP &#x200B;](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) op 12 Juni, 2023 en zal in Juni 2024 worden verwijderd)
+1. FCM instellen met HTTPv1
 
 - MME FCM HTTPv1 inschakelen in Marketo-functiebeheer ![](assets/feature-manager.png)
    - Upload Service Account Json-bestand voor de toepassing in MLM.
@@ -405,7 +405,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    ALMarketo.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Als u geen SENDER_ID hebt, dan laat de Dienst van het Overseinen van de Wolk van Google toe door de stappen te voltooien die in [&#x200B; worden gedetailleerd dit leerprogramma &#x200B;](https://developers.google.com/cloud-messaging/).
+   Als u geen SENDER_ID hebt, dan laat de Dienst van het Overseinen van de Wolk van Google toe door de stappen te voltooien die in [ worden gedetailleerd dit leerprogramma ](https://developers.google.com/cloud-messaging/).
 
    Het token kan ook niet worden geregistreerd wanneer de gebruiker zich afmeldt.
 

@@ -3,9 +3,9 @@ title: Gegevensinname
 feature: REST API, Dynamic Content
 description: Gebruik de API voor gegevensinsluiting van Marketo voor grote hoeveelheden, lage latentie bij het opnemen van personen, aangepaste objecten, bedrijven en programmaleden.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '1786'
+source-wordcount: '1789'
 ht-degree: 5%
 
 ---
@@ -14,13 +14,13 @@ ht-degree: 5%
 
 De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om de inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken.
 
-Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [&#x200B; stroom van de Gegevens van de Waarneming van Marketo &#x200B;](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) in te tekenen.
+Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ stroom van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) in te tekenen.
 
 Interfaces worden aangeboden voor vier objecttypen: Personen, Aangepaste objecten, Ondernemingen en Programmaleden. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;, behalve voor programmaleden die ook verwijderen ondersteunen.
 
 >[!NOTE]
 >
->De toegang tot de Ingestie API van Gegevens vereist beding aan het [&#x200B; Reeks van de Prestaties van Marketo Engage &#x200B;](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket.
+>De toegang tot de Ingestie API van Gegevens vereist beding aan het [ Reeks van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket.
 
 ## Verificatie
 
@@ -116,7 +116,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Fout
 
-Wanneer een vraag een fout veroorzaakt, is een status niet-202 teruggekeerd samen met een reactiekarakter met extra foutendetails.  De hoofdtekst van de reactie is application/json en bevat één enkel voorwerp met leden error_code en bericht.
+Wanneer een vraag een fout veroorzaakt, is een status niet-202 teruggekeerd samen met een reactiekarakter met extra foutendetails. De hoofdtekst van de reactie is `application/json` en bevat één object met leden `error_code` en `message` .
 
 Hieronder vindt u hergebruikte foutcodes van Adobe Developer Gateway.
 
@@ -139,7 +139,16 @@ Hieronder vindt u foutcodes die uniek zijn voor de API voor gegevensinsluiting e
 
 ## Opnieuw
 
-Wanneer een overgangsfout wordt ontdekt, probeert de dienst de verrichting drie keer opnieuw.  De eerste keer wordt opnieuw geprobeerd na een wachttijd van 5 minuten, de tweede na 30 minuten en ten slotte de derde na 30 minuten.  De pogingen gebeuren om diverse redenen, hoofdzakelijk wanneer een afhankelijke de diensttijd uit of tijdelijk niet beschikbaar is.
+Wanneer een overgangsfout wordt ontdekt, probeert de dienst de verrichting opnieuw. De pogingen gebeuren om diverse redenen, hoofdzakelijk wanneer een afhankelijke de diensttijd uit of tijdelijk niet beschikbaar is.
+
+Intervallen opnieuw proberen:
+
+* Eerste bewerking en eerste poging: 5 min
+* 1ste en 2de : 15 min
+* 2de en 3de : 20 minuten
+* 3de en 4de : 20 minuten
+* 4e en 5e : 2 uur
+* na 5e herpoging -> 3 uur
 
 ## Eindpunten
 
@@ -166,7 +175,7 @@ Eindpunt dat wordt gebruikt om persoonrecords bij te voegen.
 | --- | --- | --- | --- | --- |
 | `priority` | String | Nee | Prioriteit van het verzoek: normaal of hoog | normaal |
 | `partitionName` | String | Nee | Naam van partitie van persoon | Standaard |
-| `dedupeFields` | Object | Nee | Te dedupliceren kenmerken op. Een of twee kenmerknamen zijn toegestaan. <br/> Twee attributen worden gebruikt in een verrichting AND. Als bijvoorbeeld zowel `email` als `firstName` zijn opgegeven, worden beide gebruikt om een persoon op te zoeken met de bewerking AND. <br/>Ondersteunde kenmerken zijn: `id` , `email` , `sfdcAccountId` , `sfdcContactId` , `sfdcLeadId` `sfdcLeadOwnerId` , Aangepaste kenmerken (alleen type &quot;tekenreeks&quot; en &quot;geheel getal&quot;), `email` |  |
+| `dedupeFields` | Object | Nee | Te dedupliceren kenmerken op. Een of twee kenmerknamen zijn toegestaan. <br/> Twee attributen worden gebruikt in een verrichting AND. Als bijvoorbeeld zowel `email` als `firstName` zijn opgegeven, worden beide gebruikt om een persoon op te zoeken met de bewerking AND. <br/> Ondersteunde kenmerken zijn: `id` , `email` , `sfdcAccountId` , `sfdcContactId` , `sfdcLeadId` `sfdcLeadOwnerId` , Aangepaste kenmerken (&quot;alleen tekenreeks&quot; en &quot;geheel getal&quot;), `email` |  |
 | `persons` | Array van object | Ja | Lijst met kenmerknaam-waardeparen voor de persoon | - |
 
 Vereiste machtigingen zijn `Read-Write Lead` .
@@ -239,7 +248,7 @@ Eindpunt dat wordt gebruikt om aangepaste objectreeks bij te voegen.
 
 De vereiste machtigingen zijn `Read-Write Custom Object` .
 
-Als een koppelingsgebied aan een Persoon in het verzoek wordt gespecificeerd en die Persoon niet bestaat, komen verscheidene opnieuw voor. Als die persoon tijdens het venster Opnieuw proberen is toegevoegd (65 minuten), is de update gelukt. Als het koppelingsveld bijvoorbeeld een e-mail op persoon is en Person niet bestaat, worden opnieuw pogingen uitgevoerd.
+Als een koppelingsgebied aan een Persoon in het verzoek wordt gespecificeerd en die Persoon niet bestaat, komen verscheidene opnieuw voor. Als die persoon tijdens het venster Opnieuw proberen is toegevoegd (65 minuten), is de update gelukt. Als het koppelingsveld bijvoorbeeld `email` on Person is en Person niet bestaat, worden opnieuw pogingen uitgevoerd.
 
 ### Voorbeeld van aangepaste objecten
 
@@ -314,7 +323,7 @@ Elk bedrijfsobject in de array `input` ondersteunt de volgende velden:
 | `externalCompanyId` | String | Voorwaardelijk | Id van externe onderneming. Vereist als `dedupeBy` `dedupeFields` is. Niet toegestaan wanneer `dedupeBy` `idField` is. |
 | `id` | Lang | Voorwaardelijk | Interne Marketo-bedrijfsnaam. Vereist als `dedupeBy` `idField` is en `action` `updateOnly` is. Niet toegestaan wanneer `dedupeBy` `dedupeFields` is. |
 | `company` | String | Nee | Bedrijfsnaam. |
-| (elk veld) | Alle | Nee | De extra standaard of gebieden van het douanebedrijf zoals die door [&#x200B; worden bepaald beschrijven Bedrijven &#x200B;](companies.md). Veldnamen zijn niet hoofdlettergevoelig. |
+| (elk veld) | Alle | Nee | De extra standaard of gebieden van het douanebedrijf zoals die door [ worden bepaald beschrijven Bedrijven ](companies.md). Veldnamen zijn niet hoofdlettergevoelig. |
 
 De vereiste machtigingen zijn `Read-Write Company` .
 

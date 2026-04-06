@@ -3,16 +3,16 @@ title: Leads
 feature: REST API
 description: Ontdek de Marketo Leads REST API-functies, zoals Beschrijving, query op id of filter, standaardvelden, limieten en het ophalen van ECID's.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: 66154fa4aa37190a49dcc62f57debef5e1e829a1
 workflow-type: tm+mt
-source-wordcount: '3409'
+source-wordcount: '3457'
 ht-degree: 0%
 
 ---
 
 # Leads
 
-[&#x200B; Verwijzing van het Eindpunt van lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Referentie van eindpunt voor lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
 
 De API van Marketo Lead biedt een groot aantal mogelijkheden voor eenvoudige CRUD-toepassingen tegen leadrecords, maar ook de mogelijkheid om het lidmaatschap van een lead in statische lijsten en programma&#39;s te wijzigen en de verwerking van Smart Campagne voor leads te starten.
 
@@ -95,7 +95,7 @@ Voor deze methode is er altijd één record in de eerste positie van de resultaa
 
 Met de optie Leads ophalen op filtertype wordt hetzelfde type record geretourneerd, maar kan tot 300 per pagina worden geretourneerd. Hiervoor zijn de parameters `filterType` en `filterValues` query vereist.
 
-`filterType` accepteert elk aangepast veld of de meeste veelgebruikte velden. Roep het eindpunt `Describe2` aan voor een uitgebreide lijst met doorzoekbare velden die zijn toegestaan voor gebruik in `filterType` . Bij het zoeken op aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer` . U kunt velddetails (beschrijving, type, enz.) verkrijgen met behulp van de hierboven beschreven methode.
+`filterType` accepteert elk aangepast veld of de meeste veelgebruikte velden. Roep het eindpunt `Describe2` aan voor een uitgebreide lijst met doorzoekbare velden die zijn toegestaan voor gebruik in `filterType` . Bij het zoeken op aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer` . U kunt velddetails verkrijgen (beschrijving, type, enz.) met behulp van de bovengenoemde methode Describe.
 
 `filterValues` accepteert maximaal 300 waarden in een komma-gescheiden indeling. De vraag zoekt naar verslagen waar het gebied van de lood één van inbegrepen `filterValues` aanpast. Als het aantal leads dat overeenkomt met het hoofdfilter groter is dan 1.000, wordt een fout geretourneerd: &quot;1003, Te veel resultaten komen overeen met het filter&quot;.
 
@@ -160,7 +160,7 @@ Naast het ophalen van gegevens voor leads kunt u ook een lead record maken, bijw
 
 >[!NOTE]
 >
-> Het bijwerken van de gebieden van het Bedrijf die [&#x200B; gebruiken leidt de Synchronisatie &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik [&#x200B; in plaats daarvan.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)
+> Het bijwerken van de gebieden van het Bedrijf die [ gebruiken leidt de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) in plaats daarvan.[
 
 >[!NOTE]
 >
@@ -221,7 +221,7 @@ POST /rest/v1/leads.json
 }
 ```
 
-In deze aanvraag ziet u twee belangrijke velden, `action` en `lookupField` .  `action` geeft het type bewerking van de aanvraag op en kan `createOrUpdate` , `createOnly` , `updateOnly` of `createDuplicate` zijn. Als deze waarde wordt weggelaten, wordt de actie standaard ingesteld op `createOrUpdate` .  De parameter `lookupField` geeft de toets op die moet worden gebruikt wanneer een handeling `createOrUpdate` of `updateOnly` is. Als `lookupField` wordt weggelaten, is de standaardsleutel `email`.
+In deze aanvraag worden twee belangrijke velden weergegeven: `action` en `lookupField`. `action` geven het bewerkingstype van de aanvraag aan en dit kan `createOrUpdate` , `createOnly` , `updateOnly` of `createDuplicate` zijn. Als deze waarde wordt weggelaten, wordt de actie standaard ingesteld op `createOrUpdate` .  De parameter `lookupField` geeft de toets op die moet worden gebruikt wanneer een handeling `createOrUpdate` of `updateOnly` is. Als `lookupField` wordt weggelaten, is de standaardsleutel `email`.
 
 Standaard wordt de standaardpartitie gebruikt. U kunt ook de parameter `partitionName` opgeven, die alleen werkt wanneer de handeling `createOnly` of `createOrUpdate` is. `partitionName` werkt alleen als aanvullende criteria voor deduplicatie als het onderdeel is van het type bron in aangepaste deduplicatieregels. Als tijdens een updatebewerking geen lead bestaat in de opgegeven partitie, wordt een fout geretourneerd. Als de gebruiker met alleen de API geen toestemming heeft om de opgegeven partitie te openen, wordt een fout geretourneerd.
 
@@ -762,7 +762,7 @@ Content-Type: application/json
 
 Hier ziet u de bijbehorende activiteitengegevens voor Formulier invullen in de gebruikersinterface van Marketo Engage:
 
-![&#x200B; Vul Vorm UI &#x200B;](assets/fill_out_form_activity_details.png) uit
+![ Vul Vorm UI ](assets/fill_out_form_activity_details.png) uit
 
 ## Samenvoegen
 
@@ -816,8 +816,10 @@ Lidmaatschap
 
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
-De responsstructuur en optionele parameters zijn identiek aan die van Get Leads door Filtertype, hoewel filterType en filterValues niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+De responsstructuur en optionele parameters zijn identiek aan die van Get Leads by Filter Type, hoewel `filterType` en `filterValues` niet kunnen worden gebruikt met deze API.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+
+## Programma&#39;s ophalen op regel-id
 
 ### Verzoek
 
@@ -855,6 +857,8 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
     ]
 }
 ```
+
+## Lijsten ophalen op regel-id
 
 Het Get Lijsten door het eindpunt van identiteitskaart van de Lood neemt een weg van het loodverslag `id` parameter en keert alle statische lijstverslagen terug die de lood een lid van is.
 
