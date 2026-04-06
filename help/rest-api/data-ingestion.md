@@ -14,13 +14,13 @@ ht-degree: 5%
 
 De API voor gegevensinsluiting is een service met een hoog volume, lage latentie en hoge beschikbaarheid die is ontworpen om de inname van grote hoeveelheden gegevens van personen en personen efficiënt en met minimale vertragingen te verwerken.
 
-Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [ stroom van de Gegevens van de Waarneming van Marketo ](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) in te tekenen.
+Gegevens worden opgenomen door aanvragen in te dienen die asynchroon worden uitgevoerd. De status van het verzoek kan worden teruggewonnen door aan gebeurtenissen van de [&#x200B; stroom van de Gegevens van de Waarneming van Marketo &#x200B;](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) in te tekenen.
 
 Interfaces worden aangeboden voor vier objecttypen: Personen, Aangepaste objecten, Ondernemingen en Programmaleden. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;, behalve voor programmaleden die ook verwijderen ondersteunen.
 
 >[!NOTE]
 >
->De toegang tot de Ingestie API van Gegevens vereist beding aan het [ Reeks van de Prestaties van Marketo Engage ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket.
+>De toegang tot de Ingestie API van Gegevens vereist beding aan het [&#x200B; Reeks van de Prestaties van Marketo Engage &#x200B;](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Pakket.
 
 ## Verificatie
 
@@ -323,7 +323,7 @@ Elk bedrijfsobject in de array `input` ondersteunt de volgende velden:
 | `externalCompanyId` | String | Voorwaardelijk | Id van externe onderneming. Vereist als `dedupeBy` `dedupeFields` is. Niet toegestaan wanneer `dedupeBy` `idField` is. |
 | `id` | Lang | Voorwaardelijk | Interne Marketo-bedrijfsnaam. Vereist als `dedupeBy` `idField` is en `action` `updateOnly` is. Niet toegestaan wanneer `dedupeBy` `dedupeFields` is. |
 | `company` | String | Nee | Bedrijfsnaam. |
-| (elk veld) | Alle | Nee | De extra standaard of gebieden van het douanebedrijf zoals die door [ worden bepaald beschrijven Bedrijven ](companies.md). Veldnamen zijn niet hoofdlettergevoelig. |
+| (elk veld) | Alle | Nee | De extra standaard of gebieden van het douanebedrijf zoals die door [&#x200B; worden bepaald beschrijven Bedrijven &#x200B;](companies.md). Veldnamen zijn niet hoofdlettergevoelig. |
 
 De vereiste machtigingen zijn `Read-Write Company` .
 
