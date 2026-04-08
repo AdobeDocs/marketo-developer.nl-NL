@@ -2,9 +2,9 @@
 title: Partnersandbox
 description: Overzicht van Marketo Engage-partnersandboxen, met inrichtingsgegevens en limieten voor API-aanroepen, records, e-mail verzenden, aangepaste objecten en gebruikers.
 exl-id: a8f36cb5-d288-4b8b-b4bf-037faa3fe73f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 14ca3ca1f1aa07bb3e54802003190a4a2b4fbcb9
 workflow-type: tm+mt
-source-wordcount: '202'
+source-wordcount: '206'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 Een partnerzandbak is de instantie van Marketo Engage die door partners tijdens de levenscyclus van de softwareontwikkeling wordt gebruikt. Partners gebruiken hun zandbak om ins te leren  en buiten de gebruikersinterface van Marketo Engage, en om toegang te krijgen tot Marketo Engage API-services.
 
-Een sandbox wordt ingericht nadat een partner is geaccepteerd in  het [&#x200B; Programma van de Partner van Adobe Exchange, Digitale Ervaring &#x200B;](http://partners.adobe.com/technologyprogram/experiencecloud.html). In de meeste opzichten zijn partnersandboxen functioneel equivalent aan een productie-instantie. De zandbakken van de partner hebben geïnstalleerde add-on modules niet en hebben vastgestelde capaciteitsgrenzen op zijn plaats. Hieronder vindt u een veelgestelde vragen, gevolgd door een overzicht van de mogelijkheden van de partnersandbox.
+Een sandbox wordt ingericht nadat een partner is geaccepteerd in  het [ Programma van de Partner van Adobe Exchange, Digitale Ervaring ](https://partners.adobe.com/technologyprogram/experiencecloud.html). In de meeste opzichten zijn partnersandboxen functioneel equivalent aan een productie-instantie. De zandbakken van de partner hebben geïnstalleerde add-on modules niet en hebben vastgestelde capaciteitsgrenzen op zijn plaats. Hieronder vindt u een veelgestelde vragen, gevolgd door een overzicht van de mogelijkheden van de partnersandbox.
 
 ## Overzicht van mogelijkheden
 

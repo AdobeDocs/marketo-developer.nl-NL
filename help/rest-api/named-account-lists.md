@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Verwijzing naar eindpunt voor benoemde accountlijsten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[&#x200B; Genoemde Lijsten van de Rekening &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
+[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
 `Content`
 
 ## Machtigingen
@@ -179,7 +179,7 @@ Het vragen van het lidmaatschap van een genoemde rekeningslijst is eenvoudig, di
 
 -`field` - een door komma&#39;s gescheiden lijst met velden die moeten worden opgenomen in de reactierecords
 - `nextPageToke` - voor het pagineren door de resultaatreeks
-- `batchSiz` - voor het specificeren van het aantal records dat moet worden geretourneerd
+-`batchSiz` - voor het opgeven van het aantal records dat moet worden geretourneerd
 
 Als `field` unset is, dan `marketoGUI`, `nam`, `createdA`, en `updatedA` zal zijn teruggekeerd. `batchSiz` heeft een maximum- en standaardwaarde van 300.
 
