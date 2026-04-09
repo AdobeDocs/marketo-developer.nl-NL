@@ -18,7 +18,7 @@ Deze functie plaatst het programma van een partij Slimme Campagne om of onmiddel
 
 Net als bij de requestCampaign-functie kunt u een array van My Tokens doorgeven in deze API-aanroep die bestaande tokens overschrijft. Nadat de campagne is gestart, worden de tokens genegeerd.
 
-Als u deze facultatieve parameter met [ importToList ](importtolist.md) gebruikt, worden de tokens aangewezen in deze orde:
+Als u deze facultatieve parameter met [&#x200B; importToList &#x200B;](importtolist.md) gebruikt, worden de tokens aangewezen in deze orde:
 
 1. importToList per lead tokens
 1. plannenCampagne per campagnetokens
