@@ -3,10 +3,10 @@ title: importToList
 feature: SOAP
 description: Leer hoe u met importToList in Marketo SOAP leidt tot een statische lijst met CSV-kopteksten, overschrijvingen van tokens, XML-voorbeelden en statuscontroles.
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
-source-wordcount: '409'
-ht-degree: 0%
+source-wordcount: '410'
+ht-degree: 2%
 
 ---
 
@@ -28,7 +28,7 @@ Met deze functie kunt u een lijst met leads importeren naar een bestaande statis
 
 **Dynamische E-mailinhoud:** naar keuze, kunt u waarden op een per loodbasis overgaan die als vervangingen voor Mijn Tokens in e-mail dienst doen.
 
-| E-mail | Eerste | Laatste | {{my.specialToken}} | {{my.otherToken}} |
+| E-mail | Eerste | Laatste | `{{my.specialToken}}` | `{{my.otherToken}}` |
 | --- | --- | --- | --- | --- |
 | <joe@company.com> | Joe | Smith | Vis | Blauw |
 | <mary@company.com> | Mary | Rodgers | Kip | Bruin |

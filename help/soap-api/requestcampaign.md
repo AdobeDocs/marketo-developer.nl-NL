@@ -3,10 +3,10 @@ title: requestCampaign
 feature: SOAP, Smart Campaigns
 description: Run-leads in a Marketo Smart Campaign via SOAP requestCampaign, inclusief parametersets, token handling, limiet van 100 leads, XML-aanvragen en PHP Java-voorbeelden.
 exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '298'
-ht-degree: 0%
+ht-degree: 2%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Deze functie voert een bestaande Marketo lead uit in een Marketo Smart Campaign. De slimme Campagne moet een &quot;Campagne wordt gevraagd&quot;trekker met de bron van de Dienst API van het Web hebben (zie hieronder).
 
-![&#x200B; de Dienst API van het Web &#x200B;](assets/webserviceapi.png)
+![ de Dienst API van het Web ](assets/webserviceapi.png)
 
 Er zijn twee parametersets die kunnen worden gebruikt. Het eerste geval gebruikt `campaignName` + `programName` + `programTokenList` . In dit geval kan `programTokenList` leeg zijn. Het tweede geval gebruikt `campaignId` alleen. Elke andere combinatie genereert een ongeldige parameteruitzondering.
 
@@ -29,7 +29,7 @@ Nota: Grens van 100 leadKey waarden per vraag. Extra toetsen worden genegeerd.
 | campagneName | Optioneel wanneer campagne-id aanwezig is; anders vereist in een set als `campaignName` , programName en programTokenList | De naam van de campagne |
 | programName | Optioneel wanneer campagne-id aanwezig is; anders vereist in een set als `campaignName` , programName en programTokenList | De naam van het programma |
 | programTokenList | Optioneel wanneer campagneId aanwezig is; anders vereist in een set als `campaignName` , `programName` en `programTokenList` | Array met tokens die in de campagne moeten worden gebruikt. Bij het opgeven van tokens zijn programName en `campaignName` vereist. |
-| programTokenList->attrib->name | Optioneel | De naam van het programmatietoken waarvan u de waarde wilt doorgeven. Voorbeeld:{{my.message}} |
+| programTokenList->attrib->name | Optioneel | De naam van het programmatietoken waarvan u de waarde wilt doorgeven. Voorbeeld: `{{my.message}}` |
 | programTokenList->attrib->value | Optioneel | De waarde voor de opgegeven tokennaam. |
 
 ## XML aanvragen

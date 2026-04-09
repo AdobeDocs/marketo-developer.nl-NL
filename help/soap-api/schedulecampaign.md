@@ -3,10 +3,10 @@ title: planningCampaign
 feature: SOAP, Smart Campaigns
 description: Gebruik planningCampaign om Marketo batch Smart Campagnes nu of later uit te voeren, tokens te negeren, programma's te klonen en te implementeren via SOAP XML met PHP- en Java-voorbeelden.
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '274'
-ht-degree: 0%
+ht-degree: 2%
 
 ---
 
@@ -18,7 +18,7 @@ Deze functie plaatst het programma van een partij Slimme Campagne om of onmiddel
 
 Net als bij de requestCampaign-functie kunt u een array van My Tokens doorgeven in deze API-aanroep die bestaande tokens overschrijft. Nadat de campagne is gestart, worden de tokens genegeerd.
 
-Als u deze facultatieve parameter met [&#x200B; importToList &#x200B;](importtolist.md) gebruikt, worden de tokens aangewezen in deze orde:
+Als u deze facultatieve parameter met [ importToList ](importtolist.md) gebruikt, worden de tokens aangewezen in deze orde:
 
 1. importToList per lead tokens
 1. plannenCampagne per campagnetokens
@@ -32,7 +32,7 @@ Als u deze facultatieve parameter met [&#x200B; importToList &#x200B;](importtol
 | campagneName | Vereist | De naam van de slimme campagne |
 | campagneRunAt | Optioneel | De tijd om de geplande campagne (W3C WSDL datumnotatie) uit te voeren. |
 | cloneToProgramName | Optioneel | Wanneer dit kenmerk aanwezig is, wordt het bovenliggende programma van de campagne gekloond en wordt de nieuwe campagne gepland. Het attribuut specificeert de gewenste naam voor het resulterende programma. Opmerking: slechts 10 aanroepen per dag zijn toegestaan wanneer dit veld wordt gebruikt. |
-| programTokenList->attrib->name | Optioneel | De naam van het token waarvoor u een nieuwe waarde wilt verzenden. Gebruik de volledige token-indeling zoals u dat zou doen in de gebruikersinterface van Marketo. Namelijk &quot;{{my.message}}&quot; |
+| programTokenList->attrib->name | Optioneel | De naam van het token waarvoor u een nieuwe waarde wilt verzenden. Gebruik de volledige token-indeling zoals u dat zou doen in de gebruikersinterface van Marketo. Namelijk &quot;`{{my.message}}`&quot; |
 | programTokenList->attrib->value | Optioneel | De waarde van de bijbehorende tokennaam. |
 
 ## XML aanvragen
