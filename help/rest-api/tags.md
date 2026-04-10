@@ -77,7 +77,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Bijwerken
 
-Het [ eindpunt van de Markering van het Programma van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) staat u toe om de waarde voor een bepaald markeringstype bij te werken. Het eindpunt neemt `id` en `tagType` wegparameters die programma identiteitskaart, en het markeringstype specificeren om bij te werken. Er wordt een query-parameter `tagValue` gebruikt om de nieuwe waarde voor het tagtype op te geven. Alle parameters zijn vereist.
+Het [&#x200B; eindpunt van de Markering van het Programma van de Update &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) staat u toe om de waarde voor een bepaald markeringstype bij te werken. Het eindpunt neemt `id` en `tagType` wegparameters die programma identiteitskaart, en het markeringstype specificeren om bij te werken. Er wordt een query-parameter `tagValue` gebruikt om de nieuwe waarde voor het tagtype op te geven. Alle parameters zijn vereist.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-De markeringen kunnen en masse worden bijgewerkt gebruikend het [ Metagegevens van het Programma van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) eindpunt. Een voorbeeld is beschikbaar in de [ updatesectie van Programma&#39;s ](programs.md#update).
+De markeringen kunnen en masse worden bijgewerkt gebruikend het [&#x200B; Metagegevens van het Programma van de Update &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) eindpunt. Een voorbeeld is beschikbaar in de [&#x200B; updatesectie van Programma&#39;s &#x200B;](programs.md#update).
 
 ## Verwijderen
 
-Het [ eindpunt van de Markering van het Programma van de Schrapping ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) staat u toe om een niet-vereist markeringstype te schrappen. Het eindpunt neemt `id` - en `tagType` padparameters aan die de programma-id en het te verwijderen tagtype opgeven.
+Het [&#x200B; eindpunt van de Markering van het Programma van de Schrapping &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) staat u toe om een niet-vereist markeringstype te schrappen. Het eindpunt neemt `id` - en `tagType` padparameters aan die de programma-id en het te verwijderen tagtype opgeven.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json
