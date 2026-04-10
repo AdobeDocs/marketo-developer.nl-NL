@@ -16,7 +16,7 @@ In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integre
 
 ## Vereisten
 
-1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 1. De Push van de opstelling Meldingen ([&#x200B; iOS &#x200B;](push-notifications.md) | [&#x200B; Android &#x200B;](push-notifications.md)).
 1. Installeer [[!DNL Ionic] &#x200B;](https://ionicframework.com/getting-started/) &amp; [&#x200B; Cordova CLI &#x200B;](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
