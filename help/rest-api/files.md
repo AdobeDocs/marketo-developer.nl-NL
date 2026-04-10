@@ -3,26 +3,26 @@ title: Bestanden
 feature: REST API
 description: Gids aan Marketo REST API dossiervraag door identiteitskaart of naam, doorblader met omslag en compensatie, creeer of update via multipart uploaden, insertOnly, MIME types, geen stromen
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '289'
+source-wordcount: '347'
 ht-degree: 0%
 
 ---
 
 # Bestanden
 
-[&#x200B; Verwijzing van het Eindpunt van dossiers 0&rbrace;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[Referentie eindpunt bestanden](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
 
 Met Marketo-abonnementen kunt u willekeurige bestanden opslaan, zoals afbeeldingen, scripts, documenten en stijlpagina&#39;s. U kunt deze allemaal op afstand bewerken via de REST API. De opslag die beschikbaar is in Marketo-abonnementen is niet geoptimaliseerd voor toepassingen met veel bandbreedte. Er moeten dus alternatieven worden gebruikt voor correcte audio- en videostreaming toepassingen.
 
 ## Query
 
-Het vragen van dossiers is eenvoudig en volgt de standaardvraagtypes voor activa van [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET), en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+Het vragen van dossiers is eenvoudig en volgt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET), en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
 
 ### Op id
 
-```
+```http
 GET /rest/asset/v1/file/{id}.json
 ```
 
@@ -55,7 +55,7 @@ GET /rest/asset/v1/file/{id}.json
 
 Geef de naam van het bestand op met behulp van de parameter `name` .
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=foo.png
 ```
 
@@ -93,7 +93,7 @@ Er zijn drie optionele parameters:
 - offset - geheel getal dat opgeeft waar moet worden begonnen met ophalen van items (standaardwaarde is 0); kan worden gebruikt met parameter maxReturn
 - maxReturn - geheel getal dat het maximale aantal te retourneren items aangeeft (standaardwaarde is 20, maximum 200)
 
-```
+```http
 GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 ```
 
@@ -155,13 +155,13 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Maken en bijwerken
 
-[&#x200B; Creërend een dossier &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) wordt gedaan met een multipart/form-gegeven type van verzoek. Minimaal, worden de naam, de omslag, en het dossier vereist in het verzoek, met een facultatieve beschrijving, en een insertOnly vlag, die een creeer vraag verhindert een bestaand dossier met de zelfde naam bij te werken. Voor de bestandsparameter is naast de parameter name een bestandsnaam vereist in de header Content-Disposition. U moet ook een Content-Type-header voor het bestand doorgeven. Dit is het MIME-type dat Marketo gebruikt om het bestand mee te dienen.
+[ Creërend een dossier ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) wordt gedaan met een multipart/form-gegeven type van verzoek. Minimaal, worden de naam, de omslag, en het dossier vereist in het verzoek, met een facultatieve beschrijving, en een insertOnly vlag, die een creeer vraag verhindert een bestaand dossier met de zelfde naam bij te werken. Voor de bestandsparameter is naast de parameter name een bestandsnaam vereist in de header Content-Disposition. U moet ook een Content-Type-header voor het bestand doorgeven. Dit is het MIME-type dat Marketo gebruikt om het bestand mee te dienen.
 
-```
+```http
 POST /rest/asset/v1/files.json
 ```
 
-```
+```html
 ------WebKitFormBoundary2VyWOacQSupl4gUL
 Content-Disposition: form-data; name="file"; filename="marketo.html"
 Content-Type: text/html
@@ -208,13 +208,13 @@ This is a test file
 }
 ```
 
-[&#x200B; die een dossier &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) bijwerken kan op zijn identiteitskaart worden gedaan gebaseerd. De enige parameter is een bestandsparameter die dezelfde vereisten heeft als het maken.
+[ die een dossier ](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) bijwerken kan op zijn identiteitskaart worden gedaan gebaseerd. De enige parameter is een bestandsparameter die dezelfde vereisten heeft als het maken.
 
-```
+```http
 POST /rest/asset/v1/file/{id}/content.json
 ```
 
-```
+```html
 ------WebKitFormBoundary2VyWOacQSupl4gUL
 Content-Disposition: form-data; name="file"; filename="marketo.html"
 Content-Type: text/html

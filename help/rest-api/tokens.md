@@ -3,7 +3,7 @@ title: Tokens
 feature: REST API, Tokens
 description: Marketo My Tokens beheren met Asset REST API. Zie ondersteunde gegevenstypen, get by folder or program, create or update via form-encoded POST, and delete by name.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '364'
 ht-degree: 0%
@@ -33,9 +33,9 @@ Dit zijn de enige gegevenstypen die kunnen worden gebruikt bij het maken van een
 
 ## Query
 
-[&#x200B; krijgt Tokens door Identiteitskaart van de Omslag &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) neemt `id` als wegparameter van of een programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` .
+[ krijgt Tokens door Identiteitskaart van de Omslag ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) neemt `id` als wegparameter van of een programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` .
 
-```curl
+```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 ```
 
@@ -66,17 +66,17 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Maken en bijwerken
 
-[&#x200B; creeer Symbolische &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) eindpunt leidt tot tekenen, of als zij bestaan werk hen met voorgelegde waarden bij. Tokens worden gemaakt in de context van een map of programma. De vereiste `id` padparameter is de id van de map waaraan het token wordt gekoppeld. De parameters `name`, `type`, `value` en `folderType` zijn alle vereiste parameters van het token. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON. Het veld `name` van het token mag niet langer zijn dan 50 tekens.
+[ creeer Symbolische ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) eindpunt leidt tot tekenen, of als zij bestaan werk hen met voorgelegde waarden bij. Tokens worden gemaakt in de context van een map of programma. De vereiste `id` padparameter is de id van de map waaraan het token wordt gekoppeld. De parameters `name`, `type`, `value` en `folderType` zijn alle vereiste parameters van het token. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON. Het veld `name` van het token mag niet langer zijn dan 50 tekens.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&type=date&value=2015-04-01&folderType=Folder
 ```
 
@@ -107,17 +107,17 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Verwijderen
 
-[&#x200B; Symbolisch van de Schrapping door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) neemt identiteitskaart als wegparameter van of een Programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` . Tokens worden verwijderd op basis van hun bovenliggende map, de map `name` en de token `type` , die allemaal verplicht zijn. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.
+[ Symbolisch van de Schrapping door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) neemt identiteitskaart als wegparameter van of een Programma of het type van Omslag. Dit type wordt opgegeven door de parameter `folderType` . Tokens worden verwijderd op basis van hun bovenliggende map, de map `name` en de token `type` , die allemaal verplicht zijn. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens/delete.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=AprilFool - deverly&type=date&folderType=Program
 ```
 

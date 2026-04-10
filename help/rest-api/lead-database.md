@@ -3,9 +3,9 @@ title: Database lead
 feature: REST API, Database
 description: Handleiding voor Marketo Lead Database-API's met betrekking tot objecten, CRUD- en Beschrijvingsmethoden, querypatronen, batch-limieten en CRM-integratiebeperkingen.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '1357'
+source-wordcount: '1373'
 ht-degree: 0%
 
 ---
@@ -32,7 +32,7 @@ De meeste van deze objecten bevatten ten minste de methoden Maken, Lezen, Bijwer
 
 ## API
 
-Voor een volledige lijst van het gegevensbestand API eindpunten van het Lood, met inbegrip van parameters, en modelleringsinformatie, zie de [&#x200B; Verwijzing van het Eindpunt van het Gegevensbestand Lood API &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/).
+Voor een volledige lijst van het gegevensbestand API eindpunten van het Lood, met inbegrip van parameters, en modelleringsinformatie, zie de [ Verwijzing van het Eindpunt van het Gegevensbestand Lood API ](https://developer.adobe.com/marketo-apis/api/mapi/).
 
 Voor instanties met een native CRM-integratie ingeschakeld (Microsoft Dynamics of Salesforce.com), zijn de bedrijf-, opportunity-, Opportunity Role- en Sales Person-API&#39;s uitgeschakeld. De records worden beheerd via de CRM wanneer deze is ingeschakeld en kunnen niet worden geopend of bijgewerkt via Marketo API&#39;s.
 
@@ -46,7 +46,7 @@ Voor instanties met een native CRM-integratie ingeschakeld (Microsoft Dynamics o
 
 Voor Leads, Companies, Opportunity, Roles, SalesPersons en Custom Objects wordt een beschrijvende API verschaft. Door dit aan te roepen, worden metagegevens voor het object opgehaald, alsmede een lijst met velden die beschikbaar zijn voor bijwerken en opvragen. Beschrijven is een cruciaal onderdeel van het ontwerpen van een goede integratie met Marketo. Deze biedt rijke metagegevens over hoe objecten kunnen en kunnen worden gebruikt en over hoe ze kunnen worden gemaakt, bijgewerkt en opgevraagd. Naast het beschrijf lood, keert elk van deze een lijst van sleutels beschikbaar voor `deduplication` in de `dedupeFields` reactieparameter terug. Een lijst met velden is beschikbaar als sleutels voor het opvragen in de parameter `searchableFields` response.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -136,20 +136,20 @@ Er is ook een parameter voor veldreacties, die de naam van elk veld, de `display
 
 Databaseobjecten voor leads hebben allemaal hetzelfde basispatroon voor zoekopdrachten op basis van eenvoudige sleutels, waarbij slechts één veld wordt gebruikt.
 
-```
+```http
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
 Voor alle voorwerpen behalve lood, kunt u {field to query} van doorzoekbareFields van de overeenkomstige beschrijf vraag selecteren, en een komma-gescheiden lijst van maximaal 300 waarden samenstellen. Er zijn ook deze optionele queryparameters:
 
 - `batchSize` - Een geheel getal van het aantal resultaten dat moet worden geretourneerd. Standaard en Maximaal zijn 300.
-- `nextPageToken` - Token dat door een vorige vraag voor het pagineren is teruggekeerd. Zie [&#x200B; Paging Tokens &#x200B;](paging-tokens.md) voor meer detail.
+- `nextPageToken` - Token dat door een vorige vraag voor het pagineren is teruggekeerd. Zie [ Paging Tokens ](paging-tokens.md) voor meer detail.
 - `fields` - Een door komma&#39;s gescheiden lijst met veldnamen die voor elke record moeten worden geretourneerd. Zie de bijbehorende beschrijving voor een lijst met geldige velden. Als een bepaald veld wordt opgevraagd, maar niet wordt geretourneerd, wordt de waarde impliciet ingesteld op null.
 - `_method` - Wordt gebruikt voor het verzenden van query&#39;s met de HTTP-methode POST. Zie de sectie _method=GET hieronder voor gebruik.
 
 Bij een kort voorbeeld, laten wij het vragen van kansen bekijken:
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -182,21 +182,21 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 
 `filterType` die in deze vraag wordt gespecificeerd is &quot;idField&quot;en niet &quot;marketoGUID&quot;. Dit en &quot;dedupeFields&quot;zijn beide speciale gevallen, waar het gebied dat aan idField beantwoordt, of dedupeFields op deze manier kan worden aliased. &quot;marketoGUID&quot;is nog het resulterende raadplegingsgebied in de vraag, maar het is niet uitdrukkelijk plaats in de vraag. De velden en/of sets velden die worden aangegeven door de `idField` en `dedupeFields` van een objectbeschrijving, zijn altijd geldig `filterTypes` voor een query. Deze vraag zoekt naar verslagen die GUIDs aanpassen inbegrepen in filterValues, en keert om het even welke passende verslagen terug. Als er geen verslagen worden gevonden gebruikend deze methode, zal de reactie nog op succes wijzen, nochtans zal de resultaatserie leeg zijn, aangezien het onderzoek met succes werd uitgevoerd, maar er waren geen verslagen om terug te keren.
 
-Als de reeks verslagen in de vraag 300 overschrijdt of `batchSize` die werd gespecificeerd, welke kleiner is, dan heeft de reactie een lid `moreResult` met een waarde van waar, en a `nextPageToken`, die in een verdere vraag kan worden omvat om meer van de reeks terug te winnen. Zie [&#x200B; het Pagelen Tokens &#x200B;](paging-tokens.md) voor meer details.
+Als de reeks verslagen in de vraag 300 overschrijdt of `batchSize` die werd gespecificeerd, welke kleiner is, dan heeft de reactie een lid `moreResult` met een waarde van waar, en a `nextPageToken`, die in een verdere vraag kan worden omvat om meer van de reeks terug te winnen. Zie [ het Pagelen Tokens ](paging-tokens.md) voor meer details.
 
 ### Lange URI&#39;s
 
 Soms, zoals wanneer het vragen door GUIDs, kan uw URI lang zijn en 8KB overschrijden die door de dienst REST wordt toegelaten. In dit geval moet u de HTTP POST-methode gebruiken in plaats van GET en een queryparameter `_method=GET` toevoegen. Bovendien moeten de rest vraagparameters in het POST lichaam als &quot;application/x-www-form-urlencoded&quot;koord worden overgegaan, en de bijbehorende Content-type kopbal overgaan.
 
-```
+```http
 POST /rest/v1/opportunities.json?_method=GET
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb,544fb7f5-2ddf-4fca-ae32-7e6ef1415e9f,f1ba41a2-69d1-4a35-9807-0e159d66f2c9,f7521272-3331-4a89-a768-222baff2f894
 ```
 
@@ -206,7 +206,7 @@ Naast lange URI&#39;s is deze parameter ook vereist voor het opvragen van sameng
 
 Het patroon voor het opvragen van samengestelde sleutels is anders dan eenvoudige sleutels, omdat hiervoor een POST met een JSON-hoofdtekst moet worden ingediend. Dit is niet altijd nodig, alleen in die gevallen waarin een `dedupeFields` -optie met meerdere velden wordt gebruikt als de `filterType` . Momenteel worden samengestelde sleutels alleen gebruikt door Opportunity Roles en sommige aangepaste objecten. Bekijk een voorbeeld van een vraag voor de Rollen van de Opportunity met de samengestelde sleutel van `dedupeFields`:
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -249,7 +249,7 @@ De enige vereiste parameter is een array met de naam `input` die maximaal 300 ob
 
 Wanneer een lijst met veldwaarden wordt doorgegeven, wordt de waarde `null` of een lege tekenreeks als `null` naar de database geschreven.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -295,13 +295,13 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-Met uitzondering van de API voor leads, retourneren aanroepen om databaseobjecten lead te maken of bij te werken een `seq` -veld in elk object in de `result` -array. Het vermelde nummer komt overeen met de volgorde van de bijgewerkte record in het ingediende verzoek. Elk item retourneert de waarde van `idField` voor het objecttype en een `status` . Het statusveld geeft een van de volgende waarden aan: &quot;gemaakt&quot;, &quot;bijgewerkt&quot; of &quot;overgeslagen&quot;.  Als de status wordt overgeslagen, dan zal er ook een overeenkomstige &quot;redenen&quot;serie met één of meerdere redenvoorwerpen zijn die een code en een bericht omvatten, die erop wijzen waarom een verslag werd overgeslagen. Zie [&#x200B; foutencodes &#x200B;](error-codes.md) voor extra details.
+Met uitzondering van de API voor leads, retourneren aanroepen om databaseobjecten lead te maken of bij te werken een `seq` -veld in elk object in de `result` -array. Het vermelde nummer komt overeen met de volgorde van de bijgewerkte record in het ingediende verzoek. Elk item retourneert de waarde van `idField` voor het objecttype en een `status` . Het statusveld geeft een van de volgende waarden aan: &quot;gemaakt&quot;, &quot;bijgewerkt&quot; of &quot;overgeslagen&quot;.  Als de status wordt overgeslagen, dan zal er ook een overeenkomstige &quot;redenen&quot;serie met één of meerdere redenvoorwerpen zijn die een code en een bericht omvatten, die erop wijzen waarom een verslag werd overgeslagen. Zie [ foutencodes ](error-codes.md) voor extra details.
 
 ### Verwijderen
 
 De interface voor schrappingen is standaard voor de voorwerpen van het Gegevensbestand van de Lood naast lood. Naast invoer is er slechts één vereiste parameter `deleteBy,` die de waarde idField of dedupeFields kan hebben. Laten we eens kijken naar het verwijderen van aangepaste objecten.
 
-```
+```http
 POST /rest/v1/customobjects/{name}/delete.json
 ```
 

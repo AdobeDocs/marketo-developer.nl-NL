@@ -3,9 +3,9 @@ title: '[!DNL Adobe Launch] Installatie van extensies'
 feature: Mobile Marketing
 description: Installeer de Adobe Launch Marketo-extensie voor mobiele apparaten. Volg de installatie van iOS en Android, test apparaten, machtigingen en FCM-stappen voor push en in-app.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '684'
+source-wordcount: '753'
 ht-degree: 0%
 
 ---
@@ -16,10 +16,10 @@ Installatie-instructies voor [!DNL Adobe Launch] Marketo-extensie. De onderstaan
 
 ## Vereisten
 
-1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
-1. [&#x200B; vorm het bezit in  [!DNL Adobe Launch]  portaal &#x200B;](https://experience.adobe.com/#/@amc/data-collection/home)
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin)
+1. [ vorm het bezit in  [!DNL Adobe Launch]  portaal ](https://experience.adobe.com/#/@amc/data-collection/home)
 1. De geheime sleutel van de toepassing en de Munchkin-id voor de eigenschap in de portal [!DNL Adobe Launch] configureren
-1. [&#x200B; Push Berichten van de Opstelling &#x200B;](push-notifications.md) (facultatief)
+1. [ Push Berichten van de Opstelling ](push-notifications.md) (facultatief)
 
 ## Marketo Extension installeren op iOS
 
@@ -27,7 +27,7 @@ Installatie-instructies voor [!DNL Adobe Launch] Marketo-extensie. De onderstaan
 
 1. Ga naar [!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File] en selecteer **[!UICONTROL Header File]** .
 
-1. Noem het dossier &quot;&lt; _ProjectName_>-Bridging-Header&quot;.
+1. Geef het bestand de naam &quot;&lt;_Projectnaam_>-Bridging-Header&quot;.
 
 1. Ga naar [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Build Settings] > [!UICONTROL Swift Compiler] > [!UICONTROL Code Generation] . Voeg het volgende pad toe aan de koptekst voor Objectief overbruggen:
 
@@ -41,7 +41,7 @@ Installatie-instructies voor [!DNL Adobe Launch] Marketo-extensie. De onderstaan
 
 Werk de methode `applicationDidBecomeActive` hieronder bij
 
-```
+```objectivec
 (void)applicationDidBecomeActive:(UIApplication*) application
 {
  [[ALMarketo sharedInstance] initializeMarketo:nil];
@@ -52,7 +52,7 @@ Werk de methode `applicationDidBecomeActive` hieronder bij
 
 Werk de methode `applicationDidBecomeActive` hieronder bij
 
-```
+```objectivec
 func applicationDidBecomeActive(_ application: UIApplication)
 {
  ALMarketo.sharedInstance().initializeMarketo(nil)
@@ -74,7 +74,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 >[!TAB  Doelstelling C ]
 
-```
+```objectivec
 #ifdef __IPHONE_10_0
 -(BOOL)application:(UIApplication *)application
            openURL:(NSURL *)url
@@ -99,7 +99,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 >[!TAB  Swift ]
 
-```
+```objectivec
 func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     return ALMarketo.sharedInstance().application(application, open: url, sourceApplication: nil, annotation: nil)
 }
@@ -128,7 +128,7 @@ ProGuard-configuratie (optioneel)
 
 Als u ProGuard gebruikt voor uw app, voegt u de volgende regels toe in uw `proguard.cfg` -bestand. Het bestand bevindt zich in de map `project` . Als u deze code toevoegt, wordt de Marketo SDK uitgesloten van het verduisteringsproces.
 
-```
+```text
 -dontwarn com.marketo.*
 -dontnote com.marketo.*
 -keep class com.marketo.**{ *; }
@@ -153,14 +153,14 @@ Voeg &quot;MarketoActivity&quot; toe aan `AndroidManifest.xml` in de toepassings
 
 De MME Software Development Kit (SDK) voor Android is bijgewerkt naar een modern, stabieler en schaalbaar framework dat meer flexibiliteit en nieuwe technische functies voor uw Android-app-ontwikkelaar bevat.
 
-Android app-ontwikkelaars kunnen nu direct Google [&#x200B; Firebase Cloud Messaging &#x200B;](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK gebruiken.
+Android app-ontwikkelaars kunnen nu direct Google [ Firebase Cloud Messaging ](https://firebase.google.com/docs/cloud-messaging/) (FCM) met deze SDK gebruiken.
 
 ### FCM toevoegen aan uw toepassing
 
-1. Integreer de nieuwste Marketo Android SDK in Android App.  De stappen zijn beschikbaar bij [&#x200B; GitHub &#x200B;](https://github.com/Marketo/android-sdk).
+1. Integreer de nieuwste Marketo Android SDK in Android App.  De stappen zijn beschikbaar bij [ GitHub ](https://github.com/Marketo/android-sdk).
 1. Firebase-app configureren op Firebase-console.
-   1. Creeer/voeg een Project op [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/) de Console van de Vuurbasis toe.
-      1. In de [&#x200B; console van de Vuurbasis &#x200B;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
+   1. Creeer/voeg een Project op [ ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/) de Console van de Vuurbasis toe.
+      1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
       1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
       1. Selecteer **[!UICONTROL Add Firebase to your Android App]** in het welkomstscherm van Firebase.
       1. Geef de pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]** . Er wordt een nieuw `google-services.json` -bestand voor de Firebase-app gedownload.
@@ -217,17 +217,17 @@ Android app-ontwikkelaars kunnen nu direct Google [&#x200B; Firebase Cloud Messa
 
 Veelgestelde vragen over ondersteuning voor Firebase Cloud Messaging.
 
-**Q: Waar kan ik instructies vinden om aan de recentste versie van MME SDK bij te werken?** de Instructies kunnen op de Plaats van de Ontwikkelaar van Marketo [&#128279;](installation.md) worden gevonden.
+**Q: Waar kan ik instructies vinden om aan de recentste versie van MME SDK bij te werken?** De instructies kunnen op de Plaats van de Ontwikkelaar van Marketo [ ](installation.md) worden gevonden.
 
 **Q: Zal het bijwerken aan de recentste versie van SDK me vereisen om een bijgewerkte versie van mijn Toepassing van Android aan mijn bestaande gebruikers te publiceren?** Nee.
 
 **Q: Hoe beïnvloedt het de bestaande klanten MME die Android Apps hebben gepubliceerd die met Marketo Android SDK worden geïntegreerd?** Ze kunnen een bestaande GCM-client-app op Android als volgt migreren naar Firebase Cloud Messaging (FCM):
 
-1. In de [&#x200B; console van de Vuurbasis &#x200B;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
+1. In de [ console van de Vuurbasis ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
 1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
 1. Selecteer **[!UICONTROL Add Firebase to your Android App]** in het welkomstscherm van Firebase.
 1. Geef de pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]** . Een nieuw Google-services.json-bestand voor uw
 1. Firebase-app wordt gedownload.
 1. Selecteer **[!UICONTROL Continue]** en volg de gedetailleerde instructies voor het toevoegen van de Google Services-plug-in in Android Studio.
 
-**Q: Kunnen wij de lood richten die gebruikend de oude SDK van Marketo worden gecreeerd die app GCM gebruikte?** Ja. Alle leads die met Marketo SDK zijn gemaakt, kunnen worden gebruikt voor het verzenden van de pushberichten.
+**Q: Kunnen wij de gecreeerde lood richten gebruikend de oude SDK van Marketo die app GCM gebruikte?** Ja. Alle leads die met Marketo SDK zijn gemaakt, kunnen worden gebruikt voor het verzenden van de pushberichten.

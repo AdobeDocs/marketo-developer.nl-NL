@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Installeer en stel de Marketo SDK in React Native-toepassingen in met de stappen Android Gradle en iOS CocoaPods, de native module bridging, push en lead association.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '830'
+source-wordcount: '854'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ In dit artikel vindt u informatie over het installeren en instellen van Marketo 
 
 ## Vereisten
 
-[&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 
 ## SDK-integratie
 
@@ -26,15 +26,15 @@ In dit artikel vindt u informatie over het installeren en instellen van Marketo 
 
 Voeg de Marketo SDK-afhankelijkheid toe met de meest recente versie: voeg onder de sectie Afhankelijkheden in het bestand op toepassingsniveau `build.gradle` toe (inclusief de juiste versie van Marketo SDK)
 
-```
+```groovy
 implementation 'com.marketo:MarketoSDK:0.x.x'
 ```
 
 **voeg mavencentcentrale bewaarplaats** toe
 
-Marketo SDK is beschikbaar op de [&#x200B; beven centrale bewaarplaats &#x200B;](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
+Marketo SDK is beschikbaar op de [ beven centrale bewaarplaats ](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
 
-```
+```groovy
 build script {
   repositories {
     google()
@@ -53,7 +53,7 @@ Voordat u een bridge voor uw React Native-project maakt, is het belangrijk dat u
 
 Het is eenvoudig om iOS SDK in uw app te gebruiken. Voer de volgende stappen uit om dit in het Xcode-project van uw app in te stellen met CocoaPods, zodat u ons platform kunt integreren met uw app.
 
-De download [&#x200B; CocoaPods &#x200B;](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
+De download [ CocoaPods ](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
 
 Als u het wilt downloaden en installeren, start u een opdrachtregelterminal op uw Mac en voert u de volgende opdracht uit:
 
@@ -91,7 +91,7 @@ React Native-bridge wordt gebruikt voor communicatie tussen de JSX- en native to
 
 Dit bestand bevat de omvattende methoden die de Marketo SDK-methoden intern kunnen aanroepen met parameters die u opgeeft.
 
-```
+```java
 public class RNMarketoModule extends ReactContextBaseJavaModule {
 
    final Marketo marketoSdk;
@@ -179,7 +179,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
 
 Laat het Marketo-pakket reageren.
 
-```
+```java
 public class MarketoPluginPackage implements ReactPackage {
 
    @NonNull
@@ -202,7 +202,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
 Als u de pakketregistratie wilt voltooien, voegt u het MarketoPluginPackage toe aan de pakketlijst React in de toepassingsklasse:
 
-```
+```java
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -231,7 +231,7 @@ Open om aan de slag te gaan het iOS-project in uw React Native-toepassing in Xco
 
 Maak onze hoofd- en implementatiebestanden van de aangepaste native module. Maak een nieuw bestand met de naam `MktoBridge.h` en voeg er het volgende aan toe:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //
@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_END
 
 Maak het corresponderende implementatiebestand `MktoBridge.m` in dezelfde map en voeg de volgende inhoud toe:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //  Created by Marketo, An Adobe company.
@@ -364,7 +364,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications) {
 
 Zoek een plaats in uw toepassing waar u een vraag aan de methode createCalendarEvent () van de inheemse module zou willen toevoegen. Hieronder ziet u een voorbeeld van een component, NewModuleButton die u in uw app kunt toevoegen. U kunt de native module aanroepen in de onPress()-functie van NewModuleButton.
 
-```
+```javascript
 import React from 'react';
 import { NativeModules, Button } from 'react-native';
 
@@ -395,7 +395,7 @@ Als de bovenstaande bestanden correct zijn geplaatst, kunnen we de JS-module imp
 
 Merk op dat wij &quot;responseNative&quot;als kadertype voor React inheemse apps moeten overgaan.
 
-```
+```javascript
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
 RNMarketoModule.initializeSDK("MunchkinID","SecreteKEY","FrameworkType")
 
@@ -419,7 +419,7 @@ RNMarketoModule.uninitializeMarketoPush()
 
 Initialiseer Duwen met project-id en kanaalnaam
 
-```
+```javascript
 RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
@@ -462,12 +462,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 De toestemmingen moeten in uw project van Xcode worden toegelaten om pushberichten naar het apparaat van de gebruiker te verzenden.
 
-Om pushberichten te verzenden, [&#x200B; voeg Push Meldingen &#x200B;](push-notifications.md) toe.
+Om pushberichten te verzenden, [ voeg Push Meldingen ](push-notifications.md) toe.
 
 Stel iOS Push-berichten in.
 Maak het bestand PushNotifications.tsx en voeg het volgende toe:
 
-```
+```javascript
 import { NativeModules } from 'react-native';
 const { RNMarketoModule } = NativeModules;
 
@@ -492,7 +492,7 @@ export { requestPermission, registerForRemoteNotifications };
 
 `App.tsx` toevoegen om pushberichten toe te staan
 
-```
+```javascript
 import React, { useEffect } from 'react';
 
 useEffect(() => {
@@ -506,7 +506,7 @@ registerForRemoteNotifications();
 
 `AppDelegate.mm` bijwerken met APNS-gedelegeerde methoden:
 
-```
+```objectivec
 #import "AppDelegate.h"
 #import "MktoBridge.h"
 #import <MarketoFramework/Marketo.h>
@@ -596,7 +596,7 @@ Voeg &quot;MarketoActivity&quot; toe aan het `AndroidManifest.xml` -bestand in d
 
 **iOS - het Type/Deplinks van de Douane van de Handle in AppDelegate**
 
-```
+```objectivec
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
@@ -609,7 +609,7 @@ Voeg &quot;MarketoActivity&quot; toe aan het `AndroidManifest.xml` -bestand in d
 
 Deze constanten worden gebruikt wanneer API wordt aangeroepen vanuit javascript. U moet constante bestanden maken en het volgende toevoegen.
 
-```
+```objectivec
 // Lead attributes.
 static NSString *const KEY_FIRST_NAME = @"firstName";
 static NSString *const KEY_LAST_NAME = @"lastName";
@@ -641,7 +641,7 @@ static NSString *const KEY_TIMESTAMP = @"timeStamp";
 
 Voorbeeldengebruik
 
-```
+```javascript
 //You can create a Marketo Lead by calling the associateLead function.
 RNMarketoModule.associateLead({ email: "", firstName: "", lastName:"", city:""})
 ```

@@ -3,16 +3,16 @@ title: Programma's
 feature: REST API, Programs
 description: De handleiding Marketo-programma's voor de REST-API voor middelen, waarin de typen, kanalen, tags, lidstatussen en eindpunten worden beschreven die op id of naam worden opgehaald, worden doorzocht en op status worden gefilterd.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '870'
+source-wordcount: '979'
 ht-degree: 0%
 
 ---
 
 # Programma&#39;s
 
-[&#x200B; Referentie van het Eindpunt van Programma&#39;s &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
+[Referentie voor eindpunt van programma&#39;s](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
 
 Programma&#39;s vormen een centrale organisatorische component van Marketo Marketing Activiteiten. Zij kunnen een ouder aan de meeste soorten activa zijn, en voor het volgen van lidmaatschap en succes van lood in de context van individuele marketing initiatieven. De programma&#39;s kunnen ouders aan elk type van verslagen behalve LP, E-mailMalplaatjes, en Dossiers zijn.
 
@@ -32,15 +32,15 @@ Programma&#39;s hebben altijd een kanaal, ze halen de mogelijke oprichtingsprogr
 
 ## Query
 
-De programma&#39;s volgen het standaardpatroon voor activa vragen met een extra optie om door markeringstype en waarden te vragen. De beschikbare markeringen en de waarden kunnen met [&#x200B; worden teruggewonnen krijgen de Types van Markering &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET).
+De programma&#39;s volgen het standaardpatroon voor activa vragen met een extra optie om door markeringstype en waarden te vragen. De beschikbare markeringen en de waarden kunnen met [ worden teruggewonnen krijgen de Types van Markering ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET).
 
 ### Op id
 
-Het [&#x200B; krijgt Programma door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) eindpunt vereist een `id` wegparameter.
+Het [ krijgt Programma door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) eindpunt vereist een `id` wegparameter.
 
 De programma-id kan worden verkregen via de URL van het programma in de gebruikersinterface, waar de URL op `https://app-\*\*\*.marketo.com/#PG1001A1` lijkt. In deze URL is `id` 1001. Deze zal altijd tussen de eerste set letters in de URL en de tweede set letters liggen.
 
-```
+```http
 GET /rest/asset/v1/program/{id}.json
 ```
 
@@ -82,9 +82,9 @@ GET /rest/asset/v1/program/{id}.json
 
 ### Op naam
 
-Het [&#x200B; krijgt Programma door het 1&rbrace; eindpunt van de Naam &lbrace;vereist een &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/) vraagparameter. `name` Optionele Booleaanse queryparameters zijn `includeTags` en `includeCosts` die worden gebruikt om programmalabels en programmakosten te retourneren.
+Het [ krijgt Programma door het 1} eindpunt van de Naam {vereist een `name` vraagparameter. ](https://developer.adobe.com/marketo-apis/api/asset/)Optionele Booleaanse queryparameters zijn `includeTags` en `includeCosts` die worden gebruikt om programmalabels en programmakosten te retourneren.
 
-```
+```http
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 ```
 
@@ -126,15 +126,15 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Bladeren
 
-Het [&#x200B; krijgt het 1&rbrace; eindpunt van Programma&#39;s &lbrace;staat u toe om voor programma&#39;s te doorbladeren.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
+Het [ krijgt het 1} eindpunt van Programma&#39;s {staat u toe om voor programma&#39;s te doorbladeren.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
 
 Met de optionele parameter `status` kunt u filteren op de status van het programma. Deze parameter is alleen van toepassing op betrokkenheid- en e-mailprogramma&#39;s. De mogelijke waarden zijn &quot;aan&quot; en &quot;uit&quot; voor betrokkenheidsprogramma&#39;s en &quot;ontgrendeld&quot; voor e-mailprogramma&#39;s.
 
 De optionele parameter `maxReturn` bepaalt het aantal programma&#39;s dat moet worden geretourneerd (het maximum is 200, de standaardwaarde is 20). De optionele parameter `offset` die wordt gebruikt voor het pagineren van resultaten (standaardwaarde is 0).
 
-Merk op dat de markeringen verbonden aan een programma niet door dit eindpunt worden teruggekeerd. De markeringen van het programma kunnen worden teruggewonnen door of [&#x200B; te gebruiken krijgen Programma&#39;s door Identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) of [&#x200B; krijgt Programma&#39;s door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
+Merk op dat de markeringen verbonden aan een programma niet door dit eindpunt worden teruggekeerd. De markeringen van het programma kunnen worden teruggewonnen door of [ te gebruiken krijgen Programma&#39;s door Identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) of [ krijgt Programma&#39;s door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
 
-```
+```http
 GET /rest/asset/v1/programs.json
 ```
 
@@ -187,9 +187,9 @@ GET /rest/asset/v1/programs.json
 
 ### Op datumbereik
 
-De `earliestUpdatedAt` en `latestUpdatedAt` parameters aan ons [&#x200B; krijgen het eindpunt van Programma&#39;s &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) staat u toe om lage en hoge datetime watermerken voor het terugkeren van programma&#39;s te plaatsen die of werden bijgewerkt of aanvankelijk binnen de bepaalde waaier gecreeerd.
+De `earliestUpdatedAt` en `latestUpdatedAt` parameters aan ons [ krijgen het eindpunt van Programma&#39;s ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) staat u toe om lage en hoge datetime watermerken voor het terugkeren van programma&#39;s te plaatsen die of werden bijgewerkt of aanvankelijk binnen de bepaalde waaier gecreeerd.
 
-```
+```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
 ```
 
@@ -278,11 +278,11 @@ GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&lat
 
 ### Op tagtype
 
-[&#x200B; krijgt Programma&#39;s door Eind van de Markering &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramListByTagUsingGET) eindpunt wint een lijst van programma&#39;s terug die het markeringstype en de markeringswaarden aanpassen verstrekt.
+[ krijgt Programma&#39;s door Eind van de Markering ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramListByTagUsingGET) eindpunt wint een lijst van programma&#39;s terug die het markeringstype en de markeringswaarden aanpassen verstrekt.
 
 Er zijn twee vereiste parameters, `tagType` (het type tag waarop moet worden gefilterd) en `tagValue` (de tagwaarde waarop moet worden gefilterd).  Er is een optionele parameter integer `maxReturn` die het aantal programma&#39;s bepaalt dat moet worden geretourneerd (maximum is 200, standaardwaarde is 20) en een optionele parameter integer `offset` die wordt gebruikt voor het pagineren van resultaten (standaardwaarde is 0).  Resultaten worden in willekeurige volgorde geretourneerd.
 
-```
+```http
 GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 ```
 
@@ -320,7 +320,7 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Maken en bijwerken
 
-[&#x200B; Creërend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) en [&#x200B; het bijwerken &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) programma&#39;s volgt het standaardmiddelpatroon en heeft `folder`, `name`, `type` en `channel` als vereiste parameters, met `description`, `costs` en `tags` facultatief zijn. Kanaal en type mogen alleen worden ingesteld bij het maken van programma&#39;s. Alleen beschrijving, naam, `tags` en `costs` kunnen na het maken worden bijgewerkt, met een extra parameter `costsDestructiveUpdate` toegestaan. Als u `costsDestructiveUpdate` als true doorgeeft, worden alle bestaande kosten gewist en vervangen door alle kosten die in de oproep zijn opgenomen. Merk op dat de markeringen voor sommige programmatypes in sommige abonnementen kunnen worden vereist, maar dit is configuratie-afhankelijk en zou eerst met Get Markeringen moeten worden gecontroleerd om te zien of zijn er instantie-specifieke vereisten.
+[ Creërend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) en [ het bijwerken ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) programma&#39;s volgt het standaardmiddelpatroon en heeft `folder`, `name`, `type` en `channel` als vereiste parameters, met `description`, `costs` en `tags` facultatief zijn. Kanaal en type mogen alleen worden ingesteld bij het maken van programma&#39;s. Alleen beschrijving, naam, `tags` en `costs` kunnen na het maken worden bijgewerkt, met een extra parameter `costsDestructiveUpdate` toegestaan. Als u `costsDestructiveUpdate` als true doorgeeft, worden alle bestaande kosten gewist en vervangen door alle kosten die in de oproep zijn opgenomen. Merk op dat de markeringen voor sommige programmatypes in sommige abonnementen kunnen worden vereist, maar dit is configuratie-afhankelijk en zou eerst met Get Markeringen moeten worden gecontroleerd om te zien of zijn er instantie-specifieke vereisten.
 
 Wanneer u een e-mailprogramma maakt of bijwerkt, kunnen een `startDate` en `endDate` ook als UTC-datum/tijd worden doorgegeven:
 
@@ -329,15 +329,15 @@ Wanneer u een e-mailprogramma maakt of bijwerkt, kunnen een `startDate` en `endD
 
 ### Maken
 
-```
+```http
 POST /rest/asset/v1/programs.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API Program&type=Default&channel=Email Blast&costs=[{"startDate":"2015-01-01","cost":2000}]
 ```
 
@@ -381,15 +381,15 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 
 Wanneer u programmalasten bijwerkt en nieuwe kosten toevoegt, voegt u deze toe aan uw array `costs` . Als u een destructieve update wilt uitvoeren, geeft u de nieuwe kosten door, samen met de parameter `costsDestructiveUpdate` die is ingesteld op `true` . Als u alle kosten van een programma wilt wissen, geeft u geen parameter `costs` door en geeft u `costsDestructiveUpdate` gewoon door aan `true` .
 
-```
+```http
 POST /rest/asset/v1/program/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an updated description&name=Updated Program Name&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
 ```
 
@@ -445,7 +445,7 @@ E-mailprogramma&#39;s kunnen op afstand worden goedgekeurd of niet-goedgekeurd, 
 
 ### Goedkeuren
 
-```
+```http
 POST /rest/asset/v1/program/{id}/approve.json
 ```
 
@@ -465,7 +465,7 @@ POST /rest/asset/v1/program/{id}/approve.json
 
 ### Niet goedkeuren
 
-```
+```http
 POST /rest/asset/v1/program/{id}/unapprove.json
 ```
 
@@ -485,19 +485,19 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 ## Klonen
 
-[&#x200B; het Klonen programma&#39;s &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST) volgt het standaardelementpatroon de nieuwe naam en de omslag zoals vereiste parameters en een facultatieve beschrijving.  De parameter `name` moet globaal uniek zijn en mag niet langer zijn dan 255 tekens.  De parameter `folder` is de bovenliggende map.  Het parametertype `folder` moet worden ingesteld op &quot;Map&quot; en de doelmap moet zich in dezelfde werkruimte bevinden als het programma dat wordt gekloond.
+[ het Klonen programma&#39;s ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST) volgt het standaardelementpatroon de nieuwe naam en de omslag zoals vereiste parameters en een facultatieve beschrijving.  De parameter `name` moet globaal uniek zijn en mag niet langer zijn dan 255 tekens.  De parameter `folder` is de bovenliggende map.  Het parametertype `folder` moet worden ingesteld op &quot;Map&quot; en de doelmap moet zich in dezelfde werkruimte bevinden als het programma dat wordt gekloond.
 
 Programma&#39;s die bepaalde typen elementen bevatten, worden mogelijk niet via deze API gekloond, zoals pushberichten, In-App-berichten, rapporten en sociale Assets. Programma&#39;s in de app worden mogelijk niet gekloond via deze API.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Description
 ```
 
@@ -536,7 +536,7 @@ name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Descrip
 
 Als u programma&#39;s verwijdert, volgt u het standaardpatroon voor het verwijderen van elementen.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

@@ -3,18 +3,18 @@ title: Invoer van bulklood
 feature: REST API
 description: Asynchrone invoer van lood in bulk maken en controleren in Marketo met CSV TSV of SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '795'
+source-wordcount: '825'
 ht-degree: 0%
 
 ---
 
 # Invoer van bulklood
 
-&lbrace;de Verwijzing van het Eindpunt van de Invoer van het BulkLood [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Naslaggids voor invoer van bulklood](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
-Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [&#x200B; bulk API &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
+Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [ bulk API ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
 ## Verwerkingslimieten
 
@@ -39,17 +39,17 @@ Dit type verzoek kan moeilijk zijn uit te voeren, zodat wordt het hoogst geadvis
 
 Als u een aanvraag voor bulkimport wilt uitvoeren, moet u de header van het inhoudstype instellen op `multipart/form-data` en ten minste een parameter `file` met de bestandsinhoud opnemen, en een parameter `format` met de waarde `csv` , `tsv` of `ssv` , waarmee de bestandsindeling wordt aangegeven.
 
-```
+```http
 POST /bulk/v1/leads.json?format=csv
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Length: 311
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
@@ -75,15 +75,15 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Dit eindpunt gebruikt [&#x200B; multipart/form-data als inhoud-type &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Het is aan te raden een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze om het juiste gebruik te garanderen. Het volgende voorbeeld is een eenvoudige manier om dit met cURL vanaf de opdrachtregel te doen:
+Dit eindpunt gebruikt [ multipart/form-data als inhoud-type ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Het is aan te raden een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze om het juiste gebruik te garanderen. Het volgende voorbeeld is een eenvoudige manier om dit met cURL vanaf de opdrachtregel te doen:
 
-```
+```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
 Waar het importbestand `lead_data.csv` het volgende bevat:
 
-```
+```text
 firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
@@ -98,7 +98,7 @@ Bericht in het antwoord op onze vraag, dat er geen lijst van successen of misluk
 
 Het wordt aanbevolen om de taak elke 5-30 seconden te opiniepeilen, afhankelijk van de vereiste latentie en beperkingen van de API-aanroep, om de status van de importtaak te zien. U kunt dit doen met de Get Import Lead Status API.
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}.json
 ```
 
@@ -134,7 +134,7 @@ Fouten worden aangegeven door het kenmerk `numOfRowsFailed` in het antwoord &#39
 
 Als u de records en de oorzaken van mislukte rijen wilt ophalen, moet u het foutbestand ophalen:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
@@ -146,7 +146,7 @@ Waarschuwingen worden aangegeven door het kenmerk `numOfRowsWithWarning` in het 
 
 Als u de records en oorzaken van waarschuwingsrijen wilt ophalen, haalt u het waarschuwingsbestand op:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 

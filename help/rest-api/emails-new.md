@@ -3,7 +3,7 @@ title: E-mails
 feature: REST API
 description: Met de Marketo Asset REST API kunt u afhankelijkheden voor e-mailmiddelen zoeken, maken, bijwerken, klonen, verwijderen, goedkeuren en inspecteren.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '497'
 ht-degree: 1%
@@ -38,7 +38,7 @@ U kunt e-mailmetagegevens ophalen via element `id` of met het filtereindpunt.
 
 #### Verzoek
 
-```text
+```http
 GET /rest/asset/v2/email/{id}
 ```
 
@@ -95,7 +95,7 @@ Ondersteunde queryparameters:
 
 #### Verzoek
 
-```text
+```http
 GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=draft&status=approved&pageIndex=0&pageSize=20
 ```
 
@@ -125,7 +125,7 @@ Maak een e-mail door een JSON-payload te verzenden. `name` , `appData` en `heade
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/email
 Content-Type: application/json
 ```
@@ -192,7 +192,7 @@ Werk een e-mail bij op basis van de id van het element. De aanvraaghoofdtekst ge
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/update
 Content-Type: application/json
 ```
@@ -240,7 +240,7 @@ Geldige `action` waarden zijn:
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/email/state/transition
 Content-Type: application/json
 ```
@@ -260,7 +260,7 @@ Gebruik het klooneindpunt om een kopie van een bestaande e-mail te maken.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/email/clone
 Content-Type: application/json
 ```
@@ -283,7 +283,7 @@ Een e-mailbericht verwijderen op basis van de id van het element.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
@@ -296,7 +296,7 @@ Gebruik het eindpunt `usedby` om elementen op te halen die naar een bepaalde e-m
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/email/usedby
 Content-Type: application/json
 ```

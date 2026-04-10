@@ -3,7 +3,7 @@ title: Assets
 feature: REST API
 description: Overzicht van Marketo Asset REST-API's voor het opvragen van gegevens op id of naam, bladeren met paginering en het maken of bijwerken van mappen, e-mails, formulieren, sjablonen, bestanden, tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '898'
 ht-degree: 0%
@@ -32,7 +32,7 @@ Tot de Marketo-elementen behoren:
 
 ## API
 
-Voor een volledige lijst van activa API eindpunten, met inbegrip van parameters en modelleringsinformatie, zie de [&#x200B; Verwijzing van het Eindpunt van Activa API &#x200B;](endpoint-reference.md).
+Voor een volledige lijst van activa API eindpunten, met inbegrip van parameters en modelleringsinformatie, zie de [ Verwijzing van het Eindpunt van Activa API ](endpoint-reference.md).
 
 ## Query
 
@@ -42,7 +42,7 @@ In bepaalde gevallen bladert het doorbladereindpunt voor sommige activa types zu
 
 ### Op id
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -83,7 +83,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 Om technische redenen kunnen de API&#39;s voor bedrijfsmiddelen niet zoeken naar namen met komma&#39;s (,).  U wordt aangeraden om in uw naamgevingsconventie komma&#39;s uit te sluiten voor alle typen elementen.
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=My File
 ```
 
@@ -119,7 +119,7 @@ Door elementen te bladeren, zijn altijd twee queryparameters toegestaan:
 - offset - Een geheel getal-verschuiving die het resultaat is van de bewerking.
 - maxReturn - Beperkt het aantal geretourneerde records.  De standaardwaarde is 20 als de waarde niet is ingesteld en heeft een maximum van 200.
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 ```
 
@@ -179,15 +179,15 @@ Voor eenvoudige activa types zoals Omslagen, Tokens en Dossiers is er typisch sl
 
 Hier ziet u bijvoorbeeld hoe u een token kunt maken:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&value=2015-04-01&type=date&folderType=Folder
 ```
 
@@ -218,15 +218,15 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 
 Als u een map wilt bijwerken, doet u het volgende:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -271,15 +271,15 @@ Bijvoorbeeld, om een het Bestaan Pagina tot stand te brengen, zult u zijn creeer
 
 Voor het starten van pagina&#39;s moet eerst een element voor de bestemmingspagina worden gemaakt met behulp van een bovenliggende sjabloon.  Hiermee maakt u een nieuwe bestemmingspagina met de standaardinhoud van de sjabloon voor elke inhoudsectie.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -320,7 +320,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 Als u de inhoud voor een bestemmingspagina wilt vullen, moet u de lijst met inhoudssecties ophalen en vervolgens afzonderlijke updates uitvoeren voor elke sectie die afwijkt van de sjabloon.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -352,7 +352,7 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 #### Sectie bijwerken
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 ```
 
@@ -374,7 +374,7 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 Veel elementtypen hebben een gekoppeld concept- en goedkeuringssysteem, zoals e-mails, bestemmingspagina&#39;s, fragmenten, Forms en de bijbehorende sjablonen.  Wanneer u een element probeert goed te keuren, wordt dit beoordeeld aan de hand van een specifieke set validatieregels. Vervolgens stelt u het element in op een goedgekeurde status of retourneert u een mislukkingsreden.  Voor deze typen elementen worden, telkens wanneer de inhoud van een bepaald element wordt bijgewerkt, wijzigingen aangebracht in een concept van het element, dat geen invloed heeft op de goedgekeurde versie.  Hierdoor kunnen wijzigingen in de inhoud veilig worden aangebracht zonder dat dit van invloed is op live versies van het element.  De veranderingen kunnen dan op de levende versie worden toegepast door het goedkeuringseindpunt te gebruiken.  Hierdoor wordt ook de conceptstatus van het element gewist totdat aanvullende updates worden toegepast.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -406,7 +406,7 @@ De geslaagde goedkeuring vervangt de vorige live versie door de bijgewerkte vers
 
 Concepten negeren is ook beschikbaar via een eindpunt voor elk geldig type element.  Als u deze optie gebruikt voor een element dat zich in een goedgekeurde conceptstatus bevindt, verwijdert u het huidige concept en eventuele wijzigingen die in behandeling zijn.  Als u deze optie gebruikt op een element dat momenteel geen goedgekeurde versie heeft, gebeurt er niets en wordt een fout geretourneerd.  Elementen met alleen een concept kunnen worden verwijderd, maar ze mogen niet worden verwijderd.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -436,7 +436,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 Assets kan ook niet worden goedgekeurd als de status alleen is goedgekeurd.  Hierdoor worden eventuele live versies van het element verwijderd en wordt het element geretourneerd naar een status met alleen concept, terwijl alle gekoppelde concepten worden verwijderd.  Deze handeling kan alleen worden uitgevoerd op de meeste middelen als deze nergens in Marketo wordt gebruikt, zoals een e-mail waarnaar wordt verwezen in een stap E-mail verzenden of een fragment dat wordt ingesloten in een e-mail.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -458,7 +458,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 Assets met goedkeuring en ontwerpstaten, met uitzondering van formulieren, mag niet worden verwijderd tijdens de goedkeuring en moet vóór verwijdering niet worden goedgekeurd.  Verwijderingen kunnen doorgaans alleen worden uitgevoerd wanneer een element niet is goedgekeurd en buiten gebruik is en in het geval van mappen leeg is van elementen.  Een opmerkelijke uitzondering vormen programma&#39;s, die samen met alle onderliggende inhoud kunnen worden verwijderd, zolang het programma en de inhoud ervan nergens buiten de grenzen van het programma worden gebruikt.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

@@ -3,7 +3,7 @@ title: Bulk extraheren
 feature: REST API
 description: Leer hoe u de Marketo Bulk Extraheren REST API kunt gebruiken voor het exporteren van leads, activiteiten, programmaleden en aangepaste objecten, met OAuth, taakwachtrijen en dagelijkse limieten van 500 MB.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1723'
 ht-degree: 0%
@@ -29,7 +29,7 @@ De bulk extract APIs gebruikt de zelfde OAuth 2.0 authentificatiemethode zoals a
 
 >[!IMPORTANT]
 >
->De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1&rbrace; kopbal van de Vergunning &lbrace;zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
+>De steun voor authentificatie die **gebruikt access_token** vraagparameter wordt verwijderd op 30 Juni, 2025. Als uw project een vraagparameter gebruikt om het toegangstoken over te gaan, zou het moeten worden bijgewerkt om de **1} kopbal van de Vergunning {zo spoedig mogelijk te gebruiken.** De nieuwe ontwikkeling zou de **kopbal van de Vergunning** exclusief moeten gebruiken.
 
 ## Limieten
 
@@ -51,7 +51,7 @@ Het maximumaantal taken in de wachtrij is 10. Als u een baan probeert te vragen 
 
 De bulkextractie-API&#39;s worden gemeten op basis van de grootte op schijf van de gegevens die door een bulkextractietaak worden opgehaald. De expliciete grootte in bytes voor een taak kan worden bepaald door het kenmerk `fileSize` te lezen op basis van de voltooide statusreactie van een exporttaak.
 
-Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer het quotum wordt overschreden, kunt u niet een andere baan tot stand brengen of in rij brengen tot de dagelijkse quota bij middernacht [&#x200B; Centrale Tijd &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone) terugstelt. Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
+Het dagelijkse quotum is maximaal 500 MB per dag, dat wordt gedeeld tussen leads, activiteiten, programmaleden en aangepaste objecten. Wanneer het quotum wordt overschreden, kunt u niet een andere baan tot stand brengen of in rij brengen tot de dagelijkse quota bij middernacht [ Centrale Tijd ](https://en.wikipedia.org/wiki/Central_Time_Zone) terugstelt. Tot die tijd wordt een fout &quot;1029, het dagelijkse quotum van de Uitvoer overschreden&quot; geretourneerd. Naast de dagelijkse quota is er geen maximale bestandsgrootte.
 
 Als een taak in de wachtrij is geplaatst of wordt verwerkt, wordt deze uitgevoerd tot voltooiing (zonder een fout of annulering van een taak). Als een taak om een of andere reden mislukt, moet u deze opnieuw maken. Bestanden worden alleen volledig geschreven wanneer een taak de voltooide status bereikt (gedeeltelijke bestanden worden nooit weggeschreven). U kunt verifiëren dat een dossier volledig werd geschreven door het te berekenen hash SHA-256 en het vergelijken van dat met checksum die door de eindpunten van de baanstatus wordt teruggekeerd.
 
@@ -69,7 +69,7 @@ De bulkuittrekseleindpunten zijn zich niet van de werkruimten van Marketo bewust
 
 Marketo-API&#39;s voor bulkextractie gebruiken het concept van een taak voor het starten en uitvoeren van gegevensextractie. Laten we eens kijken naar het maken van een eenvoudige uitvoertaak voor leads.
 
-```
+```http
 POST /bulk/v1/leads/export/create.json
 ```
 
@@ -127,7 +127,7 @@ Elk eindpunt van de baanverwezenlijking deelt sommige gemeenschappelijke paramet
 
 Soms moet u uw recente taken opvragen. Dit wordt gemakkelijk gedaan met Get de Banen van de Uitvoer voor het overeenkomstige objecten type. Elk eindpunt voor Exporttaken ophalen ondersteunt een filterveld van het type `status` ,  `batchSize` om het aantal geretourneerde taken te beperken en `nextPageToken` om door grote resultaatsets te bladeren. Het statusfilter ondersteunt elke geldige status voor een exporttaak: Gemaakt, In wachtrij geplaatst, Verwerking, Geannuleerd, Voltooid en Mislukt. De batchSize heeft een maximum en gebrek van 300. Laten we de lijst met lead-exporttaken ophalen:
 
-```
+```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed
 ```
 
@@ -159,7 +159,7 @@ Het eindpunt reageert met `status` reactie van elke baan die in de afgelopen zev
 
 Met onze baan-id in hand, laten we de baan beginnen:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
@@ -171,7 +171,7 @@ Het is eenvoudig de status van de taak te bepalen.
 
 De status kan alleen worden opgevraagd voor taken die zijn gemaakt door dezelfde API-gebruiker die deze heeft gemaakt.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/status.json
 ```
 
@@ -202,21 +202,21 @@ Het binnenste `status` lid geeft de voortgang van de taak aan en kan een van de 
 
 Wanneer uw taak is voltooid, kunt u het bestand gemakkelijk ophalen.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een baan niet heeft voltooid, of een slechte baan ID wordt overgegaan, antwoorden de dossiereindpunten met een status van 404 niet Gevonden, en een plaintext foutenmelding als lading, in tegenstelling tot de meeste andere eindpunten van Marketo REST.
 
-Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [&#x200B; RFC 7233 &#x200B;](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van GET tot het eindpunt overgaan, die van byte 0 begint:
+Om gedeeltelijke en hervatting-vriendschappelijke terugwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de kopbal van HTTP `Range` van het type `bytes` (per [ RFC 7233 ](https://datatracker.ietf.org/doc/html/rfc7233)). Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Om de eerste 10.000 bytes van een dossier terug te winnen, zou u de volgende kopbal als deel van uw verzoek van GET tot het eindpunt overgaan, die van byte 0 begint:
 
-```
+```text
 Range: bytes=0-9999
 ```
 
 Wanneer het terugwinnen van het gedeeltelijke dossier, antwoordt het eindpunt met statuscode 206, en het terugkeren van de Accept-waaiers, Content-Length, en Content-Range kopballen:
 
-```
+```text
 Accept-Ranges: bytes
 Content-Length: 1000
 Content-Range: bytes 0-9999/123424
@@ -226,7 +226,7 @@ Content-Range: bytes 0-9999/123424
 
 Bestanden kunnen gedeeltelijk worden opgehaald of later worden hervat met de header `Range` . Het bereik voor een bestand begint bij byte 0 en eindigt bij de waarde `fileSize` minus 1. De lengte van het bestand wordt ook gerapporteerd als de noemer in de waarde van de antwoordheader van `Content-Range` wanneer een aanroep van het eindpunt Exportbestand ophalen wordt gedaan. Als een herwinning gedeeltelijk ontbreekt, kan het later worden hervat. Bijvoorbeeld, als u probeert om een dossier terug te winnen 1000 lange bytes, maar slechts de eerste 725 bytes werden ontvangen, kan de herwinning van het punt van mislukking opnieuw worden geprobeerd door het eindpunt opnieuw te roepen en een nieuwe waaier over te gaan:
 
-```
+```text
 Range: bytes 724-999
 ```
 
@@ -255,7 +255,7 @@ Hier volgt een voorbeeld van een reactie met de controlesom:
 
 Hier is een voorbeeld van het creëren van de hash SHA-256 van een teruggewonnen dossier genoemd &quot;bulk_lead_export.csv&quot;gebruikend sha256sum bevel-lijn nut:
 
-```
+```bash
 $ sha256sum bulk_lead_export.csv
 83aca1351c9398d2770330e21a9e278880fd2f1eeaf8c8238bf7676d5c21d1c6 *bulk_lead_export.csv
 ```
@@ -264,7 +264,7 @@ $ sha256sum bulk_lead_export.csv
 
 Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
 ```
 

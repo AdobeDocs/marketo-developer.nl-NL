@@ -3,7 +3,7 @@ title: Lijsten met benoemde accounts
 feature: REST API
 description: Leer hoe u lijsten met benoemde accounts van Marketo beheert met de REST API, inclusief machtigingen, velden, filters en eindpunten voor het zoeken, maken, bijwerken en verwijderen van accounts.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Verwijzing naar eindpunt voor benoemde accountlijsten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[&#x200B; Genoemde Lijsten van de Rekening &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
+[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
 `Content`
 
 ## Machtigingen
@@ -38,7 +38,7 @@ Lijsten met benoemde accounts hebben een beperkt aantal standaardvelden en kunne
 
 Het opvragen van accountlijsten is eenvoudig en eenvoudig. Er zijn momenteel slechts twee geldige filterTypes voor het opvragen van benoemde accountlijsten: &quot;dedupeFields&quot; en &quot;idField&quot;. Het veld waarop moet worden gefilterd, wordt ingesteld in de parameter `filterType` van de query en de waarden worden ingesteld in `filterValues as` een lijst met komma&#39;s als scheidingsteken. De filters `nextPageToken` en `batchSize` zijn ook optionele parameters.
 
-```
+```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
 ```
 
@@ -77,7 +77,7 @@ Het eindpunt laat de twee standaardactietypen toe: &quot;createOnly,&quot;en &qu
 
 De optionele `dedupeBy parameter` kan worden opgegeven als de handeling `updateOnly` is.  Toegestane waarden zijn &quot;dedupeFields&quot; (overeenkomend met &quot;name&quot;) of &quot;idField&quot; (overeenkomend met &quot;marketoGUID&quot;).  In de modi `createOnly` is alleen &quot;name&quot; toegestaan als het veld `dedupeBy` . U kunt maximaal 300 records tegelijk verzenden.
 
-```
+```http
 POST /rest/v1/namedAccountLists.json
 ```
 
@@ -119,7 +119,7 @@ POST /rest/v1/namedAccountLists.json
 
 Verwijderen van lijsten met benoemde accounts is eenvoudig en kan worden uitgevoerd op basis van de `name` of de `marketoGUID` in de lijst. Om de sleutel te selecteren u wenst om te gebruiken, ga of &quot;dedupeFields&quot;voor naam, of &quot;idField&quot;voor marketoGUID in het `deleteB` lid van uw verzoek over. Als deze waarde niet is ingesteld, wordt dedupeFields standaard ingesteld. U kunt maximaal 300 records tegelijk verwijderen.
 
-```
+```http
 POST /rest/v1/namedAccountLists/delete.json
 ```
 
@@ -183,7 +183,7 @@ Het vragen van het lidmaatschap van een genoemde rekeningslijst is eenvoudig, di
 
 Als `field` unset is, dan `marketoGUI`, `nam`, `createdA`, en `updatedA` zal zijn teruggekeerd. `batchSiz` heeft een maximum- en standaardwaarde van 300.
 
-```
+```http
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -214,7 +214,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Benoemde accounts kunnen eenvoudig worden toegevoegd aan een lijst met benoemde accounts. De rekeningen kunnen slechts worden toegevoegd gebruikend hun marketoGUID. U kunt maximaal 300 records tegelijk toevoegen.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -254,7 +254,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Het verwijderen van verslagen uit een rekeningslijst heeft een verschillend weg, maar de zelfde interface, die a `marketoGUI` voor elk verslag vereist dat u wilt schrappen. U kunt maximaal 300 records tegelijk verwijderen.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ```
 

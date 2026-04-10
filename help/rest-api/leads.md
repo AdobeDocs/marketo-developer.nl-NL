@@ -3,7 +3,7 @@ title: Leads
 feature: REST API
 description: Ontdek de Marketo Leads REST API-functies, zoals Beschrijving, query op id of filter, standaardvelden, limieten en het ophalen van ECID's.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 66154fa4aa37190a49dcc62f57debef5e1e829a1
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '3457'
 ht-degree: 0%
@@ -30,7 +30,7 @@ Beschrijf is de primaire bron van waarheid voor of de gebieden voor gebruik, en 
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads/describe.json
 ```
 
@@ -68,7 +68,7 @@ U kunt desgewenst een veldparameter doorgeven die een door komma&#39;s gescheide
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/lead/{id}.json
 ```
 
@@ -103,7 +103,7 @@ Als de totale lengte van uw GET-aanvraag groter is dan 8KB, wordt een HTTP-fout 
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 ```
 
@@ -160,7 +160,7 @@ Naast het ophalen van gegevens voor leads kunt u ook een lead record maken, bijw
 
 >[!NOTE]
 >
-> Het bijwerken van de gebieden van het Bedrijf die [&#x200B; gebruiken leidt de Synchronisatie &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) in plaats daarvan.
+> Het bijwerken van de gebieden van het Bedrijf die [ gebruiken leidt de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) in plaats daarvan.[
 
 >[!NOTE]
 >
@@ -168,7 +168,7 @@ Naast het ophalen van gegevens voor leads kunt u ook een lead record maken, bijw
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads.json
 ```
 
@@ -247,7 +247,7 @@ Met het eindpunt Lead ophalen op naam haalt u metagegevens op voor één veld op
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -279,7 +279,7 @@ Met het eindpunt Ophalen worden metagegevens opgehaald voor alle velden in het h
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads/schema/fields.json
 ```
 
@@ -426,7 +426,7 @@ Er zijn een paar regels verbonden aan naam en `displayName` noemend. Het kenmerk
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads/schema/fields.json
 ```
 
@@ -557,7 +557,7 @@ De vereiste `fieldApiName` padparameter geeft de API-naam op van het veld dat mo
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -600,7 +600,7 @@ Opmerking over anonieme activiteiten. Als u eerdere anonieme activiteiten wilt k
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads/push.json
 ```
 
@@ -710,13 +710,13 @@ Nieuwe leads worden gemaakt in de primaire partitie voor de werkruimte waarin he
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads/submitForm.json
 ```
 
 ### Koptekst
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -762,7 +762,7 @@ Content-Type: application/json
 
 Hier ziet u de bijbehorende activiteitengegevens voor Formulier invullen in de gebruikersinterface van Marketo Engage:
 
-![&#x200B; Vul Vorm UI &#x200B;](assets/fill_out_form_activity_details.png) uit
+![ Vul Vorm UI ](assets/fill_out_form_activity_details.png) uit
 
 ## Samenvoegen
 
@@ -775,7 +775,7 @@ Soms is het nodig dubbele records samen te voegen en Marketo vereenvoudigt dit v
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ```
 
@@ -798,7 +798,7 @@ Met behulp van Lead Tracking (Munchkin) registreert Marketo de webactiviteit voo
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marketo.com-1396310362214-46169
 ```
 
@@ -817,13 +817,13 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads by Filter Type, hoewel `filterType` en `filterValues` niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ## Programma&#39;s ophalen op regel-id
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ```
 
@@ -864,7 +864,7 @@ Het Get Lijsten door het eindpunt van identiteitskaart van de Lood neemt een weg
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 ```
 
@@ -906,7 +906,7 @@ De responsstructuur lijkt sterk op elkaar, aangezien elk item in de resultaatarr
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 ```
 
@@ -980,7 +980,7 @@ Het Get Programma&#39;s door het eindpunt van identiteitskaart van het Loodversl
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads/{id}/programMembership.json
 ```
 
@@ -1011,7 +1011,7 @@ De Get Slimme Campagnes door het eindpunt van identiteitskaart van het Lood neem
 
 ### Verzoek
 
-```
+```http
 GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 ```
 
@@ -1049,7 +1049,7 @@ Het verwijderen van leads is eenvoudig met het eindpunt Leads verwijderen.  Geef
 
 ### Verzoek
 
-```
+```http
 POST /rest/v1/leads/delete.json
 ```
 

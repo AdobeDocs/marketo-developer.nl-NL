@@ -3,7 +3,7 @@ title: Fragmenten
 feature: REST API
 description: Met de Marketo Asset REST API kunt u afhankelijkheden voor fragmenten zoeken, maken, bijwerken, klonen, verwijderen, goedkeuren en inspecteren.
 exl-id: 9dd532d1-1dd7-4581-86dd-1943fab66cbb
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '272'
 ht-degree: 1%
@@ -36,7 +36,7 @@ U kunt fragmentmetagegevens ophalen met de id van het element of met het filtere
 
 #### Verzoek
 
-```text
+```http
 GET /rest/asset/v2/fragment/{id}
 ```
 
@@ -68,7 +68,7 @@ Tot de ondersteunde filters behoren `folderId`, repeat `folderIds`, repeat `stat
 
 #### Verzoek
 
-```text
+```http
 GET /rest/asset/v2/fragment/filter?workspaceId=1001&fragmentType=email&pageIndex=0&pageSize=20
 ```
 
@@ -98,7 +98,7 @@ Maak een fragment door een JSON-payload te verzenden. `name` , `appData` en `set
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/fragment
 Content-Type: application/json
 ```
@@ -155,7 +155,7 @@ Een fragment bijwerken op basis van element-id.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/update
 Content-Type: application/json
 ```
@@ -202,7 +202,7 @@ Geldige `action` waarden zijn:
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/fragment/state/transition
 Content-Type: application/json
 ```
@@ -222,7 +222,7 @@ Gebruik het klooneindpunt om een kopie van een bestaand fragment te maken.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/fragment/clone
 Content-Type: application/json
 ```
@@ -245,7 +245,7 @@ Verwijder een fragment op middel van element-id.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/delete
 Content-Type: application/json
 ```
@@ -258,7 +258,7 @@ Gebruik het eindpunt `usedby` om elementen op te halen die naar een bepaald frag
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/fragment/usedby
 Content-Type: application/json
 ```

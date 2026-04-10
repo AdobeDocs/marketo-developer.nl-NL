@@ -3,7 +3,7 @@ title: E-mails
 feature: REST API
 description: Leer hoe u met de Marketo Asset REST API e-mailmiddelen kunt zoeken en beheren op basis van ID, naam of mapbladeren, met notities over voorspellende inhoud en A/B-testlimieten.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '2301'
 ht-degree: 0%
@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # E-mails
 
-[&#x200B; Verwijzing van het Eindpunt E-mail &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails) Een volledige reeks REST eindpunten wordt verstrekt voor het manipuleren van e-mailactiva.
+[ Verwijzing van het Eindpunt E-mail ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails) Een volledige reeks REST eindpunten wordt verstrekt voor het manipuleren van e-mailactiva.
 
-Nota: Als u [&#x200B; Voorspelende Inhoud van Marketo &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) gebruikt, zullen de volgende eindpunten ontbreken als zij een e-mail van verwijzingen voorzien die vooruitlopende inhoud bevat: [&#x200B; krijgt E-mailinhoud &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [&#x200B; E-mailsectie van de Inhoud van de Update &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [&#x200B; goedkeuren E-mailontwerp &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). De vraag keert een 709 foutencode, en het overeenkomstige foutenbericht terug.
+Nota: Als u [ Voorspelende Inhoud van Marketo ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) gebruikt, zullen de volgende eindpunten ontbreken als zij een e-mail van verwijzingen voorzien die vooruitlopende inhoud bevat: [ krijgt E-mailinhoud ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [ E-mailsectie van de Inhoud van de Update ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [ goedkeuren E-mailontwerp ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). De vraag keert een 709 foutencode, en het overeenkomstige foutenbericht terug.
 
 ## Query
 
-Het vraagpatroon voor e-mail is identiek aan dat van malplaatjes, die vragen [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) toestaan, en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET), en voor het filtreren gebaseerd op omslag met doorbladeren en door naam APIs.
+Het vraagpatroon voor e-mail is identiek aan dat van malplaatjes, die vragen [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) toestaan, en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET), en voor het filtreren gebaseerd op omslag met doorbladeren en door naam APIs.
 
-Nota: Als een e-mail deel van een e-mailprogramma uitmaakt dat [&#x200B; het Testen A/B &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) gebruikt, dan is dat e-mail niet beschikbaar voor vraag gebruikend de volgende eindpunten: [&#x200B; krijg E-mail door Identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [&#x200B; krijgt E-mail door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [&#x200B; krijgt E-mail &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). De aanroep geeft aan dat de zoekopdracht is geslaagd, maar bevat de volgende waarschuwing: &quot;Geen elementen gevonden voor de opgegeven zoekcriteria.&quot;
+Nota: Als een e-mail deel van een e-mailprogramma uitmaakt dat [ het Testen A/B ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) gebruikt, dan is dat e-mail niet beschikbaar voor vraag gebruikend de volgende eindpunten: [ krijg E-mail door Identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [ krijgt E-mail door Naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [ krijgt E-mail ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). De aanroep geeft aan dat de zoekopdracht is geslaagd, maar bevat de volgende waarschuwing: &quot;Geen elementen gevonden voor de opgegeven zoekcriteria.&quot;
 
 ### Op ID
 
-```
+```http
 GET /rest/asset/v1/email/1351.json
 ```
 
@@ -86,7 +86,7 @@ GET /rest/asset/v1/email/1351.json
 
 Voor door naam, kunt u naar keuze een omslag tot onderzoek slechts in die omslag overgaan.
 
-```
+```http
 GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Folder"}
 ```
 
@@ -151,9 +151,9 @@ GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Fol
 
 ### Bladeren
 
-Het bladeren van mappen werkt net als het doorbladeren van andere bron-API-eindpunten en maakt het mogelijk om optioneel te filteren op `status` , `folder` , `earliestUpdatedAt`/`latestUpdatedAt` , `maxReturn` en `offset` . `status` is goedgekeurd of is een concept. `folder` is een JSON-object met `id` en `type` . `maxReturn` is een geheel getal dat het aantal resultaten beperkt (de standaardwaarde is 20, de maximale waarde is 200) en `offset` is een geheel getal dat met `maxReturn` kan worden gebruikt om door grote resultaatsets te lezen (de standaardwaarde is 0).
+Het bladeren door mappen werkt net als andere Asset API-browsereindpunten en maakt het mogelijk om op `status` , `folder` , `earliestUpdatedAt`/`latestUpdatedAt` , `maxReturn` en `offset` optioneel te filteren. `status` is goedgekeurd of Concept. `folder` is een JSON-object dat `id` en `type` bevat. `maxReturn` is een geheel getal dat het aantal resultaten beperkt (de standaardwaarde is 20, de maximale waarde is 200) en `offset` is een geheel getal dat met `maxReturn` kan worden gebruikt om door grote resultaatsets te lezen (de standaardwaarde is 0).
 
-```
+```http
 GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 ```
 
@@ -218,9 +218,9 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 ## Query-inhoud
 
-U kunt [&#x200B; de beschikbare editable secties &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) voor e-mail terugwinnen door zijn inhoud te vragen, en naar keuze filter op status om de secties voor of Goedgekeurde of Conceptversies te krijgen.
+U kunt [ de beschikbare editable secties ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) voor e-mail terugwinnen door zijn inhoud te vragen, en naar keuze filter op status om de secties voor of Goedgekeurde of Conceptversies te krijgen.
 
-```
+```http
 GET /rest/asset/v1/email/1356/content.json
 ```
 
@@ -249,13 +249,13 @@ GET /rest/asset/v1/email/1356/content.json
 }
 ```
 
-Secties kunnen worden geretourneerd als secties met een type dynamicContent. Zie de [&#x200B; Dynamische sectie van de Inhoud &#x200B;](dynamic-content.md) voor meer info.
+Secties kunnen worden geretourneerd als secties met een type dynamicContent. Zie de [ Dynamische sectie van de Inhoud ](dynamic-content.md) voor meer info.
 
 ## Query CC-velden
 
-U kunt de reeks gebieden terugwinnen die voor E-mail CC in de doelinstantie wordt toegelaten door [&#x200B; te roepen krijgt E-mailCC- Gebieden &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailCCFieldsUsingGET) eindpunt.
+U kunt de reeks gebieden terugwinnen die voor E-mail CC in de doelinstantie wordt toegelaten door [ te roepen krijgt E-mailCC- Gebieden ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailCCFieldsUsingGET) eindpunt.
 
-```
+```http
 GET /rest/asset/v1/email/ccFields.json
 ```
 
@@ -284,19 +284,19 @@ GET /rest/asset/v1/email/ccFields.json
 
 ## Maken en bijwerken
 
-[&#x200B; E-mails worden gecreeerd &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) gebaseerd van een bronmalplaatje, en hebben een lijst van editable die secties van elk afzonderlijk element van HTML in dat malplaatje met een klasse van &quot;mktEditable&quot;en een uniek bezit worden afgeleid. Als u een e-mailbericht maakt met de API, wordt er een record gemaakt op basis van de sjabloon en worden er aanvullende metagegevens doorgegeven. De volgende parameters zijn vereist voor een geslaagde e-mailaanroep maken: naam, sjabloon, map.
+[ E-mails worden gecreeerd ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) gebaseerd van een bronmalplaatje, en hebben een lijst van editable die secties van elk afzonderlijk element van HTML in dat malplaatje met een klasse van &quot;mktEditable&quot;en een uniek bezit worden afgeleid. Als u een e-mailbericht maakt met de API, wordt er een record gemaakt op basis van de sjabloon en worden er aanvullende metagegevens doorgegeven. De volgende parameters zijn vereist voor een geslaagde e-mailaanroep maken: naam, sjabloon, map.
 
-De volgende parameters zijn optioneel voor het maken: `subject` , `fromName` , `fromEmail` , `replyEmail` , `operational` , `isOpenTrackingDisabled` . Als de waarde unset is, is `subject` leeg, worden `fromName` , `fromEmail` en `replyEmail` ingesteld op standaardinstellingen van de instantie. `operational` en `isOpenTrackingDisabled` zijn false. `isOpenTrackingDisabled` Hiermee bepaalt u of de pixel voor het openen van een e-mail wordt opgenomen wanneer deze wordt verzonden.
+De volgende parameters zijn optioneel voor het maken: `subject` , `fromName` , `fromEmail` , `replyEmail` , `operational` , `isOpenTrackingDisabled` . Als de waarde unset is, is `subject` leeg, worden `fromName` , `fromEmail` en `replyEmail` ingesteld op standaardinstellingen van de instantie. `operational` en `isOpenTrackingDisabled` zijn false. `isOpenTrackingDisabled` bepaalt of de pixel voor het openen van een e-mail wordt opgenomen wanneer deze wordt verzonden.
 
-```
+```http
 POST /rest/asset/v1/emails.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&description=This is a test email&subject=Hey There&fromName=SomeBody&fromEmail=somebody@marketo.com&replyEmail=somebody@marketo.com
 ```
 
@@ -352,17 +352,17 @@ name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&d
 }
 ```
 
-[&#x200B; Bijwerkend een e-mail &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) verslag kan door identiteitskaart worden gedaan. Zo kunt u de beschrijving of naam van het e-mailbericht bijwerken.
+[ Bijwerkend een e-mail ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) verslag kan door identiteitskaart worden gedaan. Zo kunt u de beschrijving of naam van het e-mailbericht bijwerken.
 
-```
+```http
 POST /rest/asset/v1/email/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an Email&name=Updated Email
 ```
 
@@ -420,17 +420,17 @@ description=This is an Email&name=Updated Email
 
 ### Sectie, type en update van inhoud
 
-De inhoud voor elke sectie van een e-mail moet individueel, behalve het onderwerp, fromName, fromEmail, en responseEmail worden bijgewerkt, die gebruikend het [&#x200B; Emaileindpunt van de Update E-mail van de Inhoud &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) worden bijgewerkt. Wanneer u dit eindpunt gebruikt, kunnen deze waarden ook worden ingesteld op het gebruik van dynamische inhoud in plaats van statische inhoud. Elke parameter is een JSON-object type/waarde, waarbij het type &#39;Text&#39; of &#39;DynamicContent&#39; is en de waarde ofwel de juiste tekstwaarde is, ofwel de id van de segmentatie die moet worden gebruikt voor de dynamische inhoud. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.  isOpenTrackingDisabled kan worden ingesteld met E-mailinhoud bijwerken
+De inhoud voor elke sectie van een e-mail moet individueel, behalve het onderwerp, fromName, fromEmail, en responseEmail worden bijgewerkt, die gebruikend het [ Emaileindpunt van de Update E-mail van de Inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) worden bijgewerkt. Wanneer u dit eindpunt gebruikt, kunnen deze waarden ook worden ingesteld op het gebruik van dynamische inhoud in plaats van statische inhoud. Elke parameter is een JSON-object type/waarde, waarbij het type &#39;Text&#39; of &#39;DynamicContent&#39; is en de waarde ofwel de juiste tekstwaarde is, ofwel de id van de segmentatie die moet worden gebruikt voor de dynamische inhoud. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.  isOpenTrackingDisabled kan worden ingesteld met E-mailinhoud bijwerken
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 subject={"type":"Text","value":"Gettysburg Address"}&fromEmail={"type":"Text","value":"abe@testmail.com"}&fromName={"type":"Text","value":"Abe Lincoln"}&replyTO={"type":"Text","value":"replies@testmail.com"}
 ```
 
@@ -454,15 +454,15 @@ Als u een sectie instelt voor het gebruik van dynamische inhoud, moet de sectie-
 
 Bewerkbare secties worden bijgewerkt door hun individuele htmlIds. Alleen de id van de e-mail en htmlId van de sectie zijn vereist als padparameters, terwijl type, waarde en textValue optioneel zijn. Het type kan een van de volgende waarden hebben: &quot;Tekst,&quot; &quot;Dynamische inhoud&quot; of &quot;Fragment&quot;. Dit heeft invloed op de doorgegeven waarde. Als het type Tekst is, is de waarde een tekenreeks die de HTML-inhoud van de sectie bevat. Als het DynamicContent is, dan is het een JSON-blok, met drie leden, type, dat ‘DynamicContent’ zal zijn, segmentatie die de id is van de segmentatie die voor de inhoud moet worden gebruikt, en default, een tekenreeks die de standaard HTML-inhoud van de sectie bevat. De optionele textValue parameter is een tekenreeks die de tekstversie van de sectie bevat. Gegevens worden doorgegeven als POST x-www-form-urlencoded, niet als JSON.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{htmlId}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 type=Text&value=<h1>Hello World!</h1>&textValue=Hello World!
 ```
 
@@ -484,19 +484,19 @@ Opmerking: als automatische kopie naar tekst is uitgeschakeld voor een fragment 
 
 ## Modules
 
-In E-maileditor 1.0 is een module een sectie van uw e-mailbericht die in de sjabloon is gedefinieerd. De modules kunnen om het even welke combinatie elementen, variabelen, en andere inhoud van HTML bevatten zoals die [&#x200B; hier &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) wordt beschreven. Marketo biedt een set API&#39;s voor het beheer van modules in een e-mailbericht. Voor aan modules gerelateerde eindpunten waarvoor de HTTP POST-methode vereist is, wordt de hoofdtekst opgemaakt als &quot;application/x-www-form-urlencoded&quot; (niet als JSON).
+In E-maileditor 1.0 is een module een sectie van uw e-mailbericht die in de sjabloon is gedefinieerd. De modules kunnen om het even welke combinatie elementen, variabelen, en andere inhoud van HTML bevatten zoals die [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) wordt beschreven. Marketo biedt een set API&#39;s voor het beheer van modules in een e-mailbericht. Voor aan modules gerelateerde eindpunten waarvoor de HTTP POST-methode vereist is, wordt de hoofdtekst opgemaakt als &quot;application/x-www-form-urlencoded&quot; (niet als JSON).
 
-De meeste op module betrekking hebbende eindpunten vereisen &quot;moduleId&quot;als wegparameter. Dit is een tekenreeks die de module beschrijft. moduleIds zijn teruggekeerd door [&#x200B; krijgt E-mailInhoud &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) eindpunt als &quot;htmlId&quot;attribuut (zie [&#x200B; sectie van de Vraag &#x200B;](#modules_query) hieronder).
+De meeste op module betrekking hebbende eindpunten vereisen &quot;moduleId&quot;als wegparameter. Dit is een tekenreeks die de module beschrijft. moduleIds zijn teruggekeerd door [ krijgt E-mailInhoud ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) eindpunt als &quot;htmlId&quot;attribuut (zie [ sectie van de Vraag ](#modules_query) hieronder).
 
 ### Query
 
 Om met modules te werken, moet u een moduleId parameter specificeren, die uniek de module identificeert. U kunt ook de parameter van de moduleindex specificeren, die een geheel is dat de orde van de module in e-mail beschrijft.
 
-[&#x200B; wint moduleIds en hun indexen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) terug door e-mailidentiteitskaart als wegparameter te specificeren.
+[ wint moduleIds en hun indexen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) terug door e-mailidentiteitskaart als wegparameter te specificeren.
 
 In het volgende voorbeeld wordt een 1.0-e-mailbericht opgevraagd dat is gebaseerd op de sjabloon &quot;Skelet&quot; die is gevonden in de sectie &quot;Starter Templates&quot; van de Sjabloonkiezer-gebruikersinterface.
 
-```
+```http
 GET /rest/asset/v1/email/{moduleId}/content.json
 ```
 
@@ -722,21 +722,21 @@ In vervolg op het bovenstaande voorbeeld &quot;Skelet&quot; bevat de volgende ta
 
 #### Toevoegen
 
-[&#x200B; voeg een module &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/addModuleUsingPOST) aan e-mail toe door uit één van de bestaande modules in het e-mailmalplaatje te selecteren dat in gebruik is. Doe dit door e-mailidentiteitskaart, en moduleId als wegparameters te specificeren. De parameter van de indexvraag wordt vereist en bepaalt de orde van de module in e-mail. Als de indexwaarde de grootste bestaande indexwaarde overschrijdt, dan wordt de module toegevoegd aan e-mail.
+[ voeg een module ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/addModuleUsingPOST) aan e-mail toe door uit één van de bestaande modules in het e-mailmalplaatje te selecteren dat in gebruik is. Doe dit door e-mailidentiteitskaart, en moduleId als wegparameters te specificeren. De parameter van de indexvraag wordt vereist en bepaalt de orde van de module in e-mail. Als de indexwaarde de grootste bestaande indexwaarde overschrijdt, dan wordt de module toegevoegd aan e-mail.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/add.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 index=10
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -752,13 +752,13 @@ index=10
 
 #### Verwijderen
 
-[&#x200B; Schrap een module &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/deleteModuleUsingPOST) door e-mailidentiteitskaart, en moduleId te specificeren als wegparameters.
+[ Schrap een module ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/deleteModuleUsingPOST) door e-mailidentiteitskaart, en moduleId te specificeren als wegparameters.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -774,13 +774,13 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 
 #### Dupliceren
 
-[&#x200B; dupliceer een module &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST) door e-mailidentiteitskaart, en moduleId als wegparameters te specificeren. Deze vraag dupliceert de module, die het onder de originele module plaatst en de andere modules neer duwt.
+[ dupliceer een module ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST) door e-mailidentiteitskaart, en moduleId als wegparameters te specificeren. Deze vraag dupliceert de module, die het onder de originele module plaatst en de andere modules neer duwt.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -796,21 +796,21 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### Opnieuw rangschikken
 
-[&#x200B; herschikt modules &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST) serie die alle modules en de gewenste positie binnen e-mail voor elk bevat. Elk arrayelement bevat een JSON-object van de volgende vorm:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, waarbij &lt;_index_> het op nul gebaseerde modulevolgordenummer is, en &lt;_module Id_> is moduleId.
+[ herschikt modules ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST) serie die alle modules en de gewenste positie binnen e-mail voor elk bevat. Elk arrayelement bevat een JSON-object van de volgende vorm:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, waarbij &lt;_index_> het op nul gebaseerde modulevolgordenummer is, en &lt;_module Id_> is moduleId.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "title"}, {"index": 2, "moduleId": "mkvideo"}, {"index": 3, moduleId": "free-text"}, {"index": 4, "moduleId": "blankSpace"}, {"index": 5, "moduleId": "Separator"}, {"index": 6, "moduleId": "callToAction"}, {"index": 7, "moduleId": "blankSpace2"}, {"index": 8, "moduleId": "blankSpace3"} ]
 ```
 
-```
+```json
 {
     "success": true,
     "warnings":[ ],
@@ -826,21 +826,21 @@ positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "ti
 
 #### Naam wijzigen
 
-[&#x200B; noem een module &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) op e-mail anders door de nieuwe naam via de naamparameter over te gaan. Geef de e-mailid en moduleId (bestaande naam) op als padparameters.
+[ noem een module ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) op e-mail anders door de nieuwe naam via de naamparameter over te gaan. Geef de e-mailid en moduleId (bestaande naam) op als padparameters.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/rename.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=MarketoVideo
 ```
 
-```
+```json
 {
     "success": true,
     "warnings":[ ],
@@ -856,19 +856,19 @@ name=MarketoVideo
 
 ## Variabelen
 
-In E-maileditor 1.0 worden variabelen gebruikt om waarden voor elementen in uw e-mail op te slaan. Elke variabele wordt bepaald door Marketo-specifieke syntaxis aan uw HTML toe te voegen zoals die [&#x200B; hier &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables) wordt beschreven. Marketo biedt een set API&#39;s voor het beheer van variabelen in een e-mailbericht.
+In E-maileditor 1.0 worden variabelen gebruikt om waarden voor elementen in uw e-mail op te slaan. Elke variabele wordt bepaald door Marketo-specifieke syntaxis aan uw HTML toe te voegen zoals die [ hier ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables) wordt beschreven. Marketo biedt een set API&#39;s voor het beheer van variabelen in een e-mailbericht.
 
 ### Query
 
-[&#x200B; wint variabelen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailVariablesUsingGET) voor een e-mail terug door e-mailidentiteitskaart als wegparameter te specificeren.
+[ wint variabelen ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailVariablesUsingGET) voor een e-mail terug door e-mailidentiteitskaart als wegparameter te specificeren.
 
 In het volgende voorbeeld wordt een 1.0-e-mailbericht opgevraagd dat is gebaseerd op de sjabloon &quot;Skelet&quot; die is gevonden in de sectie &quot;Starter Templates&quot; van de Sjabloonkiezer-gebruikersinterface.
 
-```
+```http
 GET /rest/asset/v1/email/{id}/variables.json
 ```
 
-```
+```json
 {
   "success": true,
   "warnings": [ ],
@@ -1080,23 +1080,23 @@ Variabelen kunnen globaal worden toegepast op de volledige e-mail, of lokaal op 
 
 #### Bijwerken
 
-[&#x200B; werk een variabele &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateVariableUsingPOST) in e-mail bij door de nieuwe gewenste waarde via de waardeparameter over te gaan. Geef de e-mailid en de variabelenaam op als padparameters. Als u een modulevariabele bijwerkt, dan moet u de parameter moduleId ook overgaan om de module te specificeren waaraan de variabele wordt geassocieerd.
+[ werk een variabele ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateVariableUsingPOST) in e-mail bij door de nieuwe gewenste waarde via de waardeparameter over te gaan. Geef de e-mailid en de variabelenaam op als padparameters. Als u een modulevariabele bijwerkt, dan moet u de parameter moduleId ook overgaan om de module te specificeren waaraan de variabele wordt geassocieerd.
 
 In het volgende voorbeeld werken we een algemene variabele met de naam &quot;hrBorderSize&quot; bij naar de waarde 1.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/variable/{name}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 ```
 
-```
+```text
 value=2
 ```
 
-```
+```json
 {
     "success":true,
     "warnings":[ ],
@@ -1114,15 +1114,15 @@ value=2
 
 In het volgende voorbeeld werken we een lokale variabele met de naam &quot;ctaLinkText&quot; bij naar de waarde &quot;Click this button!&quot; in moduleId &quot;CTA&quot;.
 
-```
+```http
 POST /rest/asset/v1/email/1032/variable/ctaLinkText.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 value=Click this button!&moduleId=CTA
 ```
 
@@ -1151,7 +1151,7 @@ E-mails volgen het standaardpatroon voor goedkeuring van elementrecords. U kunt 
 
 Wanneer het roepen van het goedkeuringseindpunt, zal e-mail tegen de regels voor e-mails van Marketo worden bevestigd. De waarden `from name`, `from email`, `reply to email` en `subject` moeten worden ingevuld voordat het e-mailbericht kan worden goedgekeurd.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/approveDraft.json
 ```
 
@@ -1173,7 +1173,7 @@ POST /rest/asset/v1/email/{id}/approveDraft.json
 
 De bewerking `unapprove` kan alleen worden uitgevoerd op goedgekeurde e-mails.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -1195,7 +1195,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 Het e-mailbericht moet de status concept hebben om te worden verwijderd. Een goedgekeurd e-mailbericht kan niet worden verwijderd.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/discardDraft.json
 ```
 
@@ -1215,7 +1215,7 @@ POST /rest/asset/v1/email/{id}/discardDraft.json
 
 #### Verwijderen
 
-```
+```http
 POST /rest/asset/v1/email/{id}/delete.json
 ```
 
@@ -1237,15 +1237,15 @@ POST /rest/asset/v1/email/{id}/delete.json
 
 Marketo biedt een eenvoudige methode voor het klonen van een e-mail. Dit type verzoek wordt ingediend met een POST application/x-www-url-urlencoded en neemt twee vereiste parameters, naam, en omslag, een ingebed voorwerp JSON met identiteitskaart en type. beschrijving is ook een optionele parameter . Als er geen goedgekeurde versie bestaat, wordt de conceptversie gekloond.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Clone of Social Sharing in Email&folder={"id":239,"type":"Folder"}&description=This is a test of clone email
 ```
 
@@ -1301,15 +1301,15 @@ name=Clone of Social Sharing in Email&folder={"id":239,"type":"Folder"}&descript
 
 U kunt een voorbeeld-e-mailbericht activeren via de api, zodat deze naar de queryparameter emailAddress wordt verzonden. U kunt ook optioneel een parameter leadId toevoegen om een bepaalde lead uit uw database na te bootsen en een parameter textOnly om alleen de tekstversie van de e-mail te verzenden.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/sendSample.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 emailAddress=abe@testmail.com&textOnly=true
 ```
 
@@ -1329,13 +1329,13 @@ emailAddress=abe@testmail.com&textOnly=true
 
 ## E-mail voorvertonen
 
-Marketo verstrekt het [&#x200B; krijgen Volledige eindpunt van de Inhoud van de E-mail &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailFullContentUsingGET) om een levende voorproef van e-mail terug te winnen aangezien het naar een ontvanger zou worden verzonden. Dit eindpunt kan slechts op Versie 1.0 Emails worden gebruikt. Er is één vereiste parameter, de parameter van de identiteitskaart van de wegparameter die identiteitskaart van de e-mailactiva is u aan voorproef wenst. Er zijn drie extra optionele queryparameters:
+Marketo verstrekt het [ krijgen Volledige eindpunt van de Inhoud van de E-mail ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailFullContentUsingGET) om een levende voorproef van e-mail terug te winnen aangezien het naar een ontvanger zou worden verzonden. Dit eindpunt kan slechts op Versie 1.0 Emails worden gebruikt. Er is één vereiste parameter, de parameter van de identiteitskaart van de wegparameter die identiteitskaart van de e-mailactiva is u aan voorproef wenst. Er zijn drie extra optionele queryparameters:
 
 - status: accepteert de waarden &quot;concept&quot; of &quot;goedgekeurd&quot; die standaard worden ingesteld op de goedgekeurde versie, indien goedgekeurd, concept indien niet goedgekeurd
 - type: accepteert &quot;Text&quot; of &quot;HTML&quot; en heeft standaard HTML
 - leadId:. Accepteert de integer-id van een lead. Wanneer ingesteld, wordt het e-mailbericht voorvertoond alsof het door de opgegeven lead is ontvangen
 
-```
+```http
 GET /rest/asset/v1/email/{id}/fullContent.json
 ```
 
@@ -1357,15 +1357,15 @@ GET /rest/asset/v1/email/{id}/fullContent.json
 
 ## HTML vervangen
 
-Marketo verstrekt het [&#x200B; Ee-maileindpunt van de Update Volledige Inhoud &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailFullContentUsingPOST) om de volledige inhoud van een e-mailmiddel te vervangen. Dit eindpunt kan slechts op Versie 1.0 Emails worden gebruikt die de functie UI &quot;uitgeeft Code&quot;hebben gehad die op hen wordt gebruikt, en de verhouding aan hun gebroken oudermalplaatje hebben gehad. Deze API is voornamelijk bedoeld voor gebruik op elementen die zijn gekloond als onderdeel van een programma en kan niet worden gewijzigd met de eindpunten voor de standaardinhoud. E-mails met dynamische inhoud worden niet ondersteund. Als u HTML probeert te vervangen in een e-mailbericht waarin de relatie intact is, wordt een fout geretourneerd.
+Marketo verstrekt het [ Ee-maileindpunt van de Update Volledige Inhoud ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailFullContentUsingPOST) om de volledige inhoud van een e-mailmiddel te vervangen. Dit eindpunt kan slechts op Versie 1.0 Emails worden gebruikt die de functie UI &quot;uitgeeft Code&quot;hebben gehad die op hen wordt gebruikt, en de verhouding aan hun gebroken oudermalplaatje hebben gehad. Deze API is voornamelijk bedoeld voor gebruik op elementen die zijn gekloond als onderdeel van een programma en kan niet worden gewijzigd met de eindpunten voor de standaardinhoud. E-mails met dynamische inhoud worden niet ondersteund. Als u HTML probeert te vervangen in een e-mailbericht waarin de relatie intact is, wordt een fout geretourneerd.
 
 Dit eindpunt verwacht een Content-Type: multipart/form-data met de id parameter in de weg, identiteitskaart van e-mail, en één parameter in het lichaam, inhoud als volledig HTML e-maildocument met het Content-Type &quot;text/html.&quot;. Een misvormd document van HTML geeft een waarschuwing uit, maar kan goedkeuring niet toelaten, terwijl de opneming van JavaScript en/of `<script>` markeringen in het document de vraag veroorzaakt om te ontbreken en een fout uit te zenden.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/fullContent.json
 ```
 
-```
+```text
 content-type: multipart/form-data; boundary=--------------------------116301888604800085728247
 content-length: 599
 ```

@@ -3,7 +3,7 @@ title: Gebruikersprofielen
 feature: Mobile Marketing, Users and Roles
 description: Leer gebruikersprofielen te maken en bij te werken in Marketo Mobile SDK op iOS en Android met Objectieve C Swift en Java, standaard- en aangepaste velden, associatedLead
 exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '103'
 ht-degree: 0%
@@ -21,7 +21,7 @@ Gebruikersprofielen maken
 
 U kunt rijke profielen tot stand brengen door de gebruikersgebieden te verzenden zoals hieronder getoond.
 
-```
+```objectivec
 MarketoLead *profile = [[MarketoLead alloc] init];
 
 // Get user profile from network and populate
@@ -43,7 +43,7 @@ MarketoLead *profile = [[MarketoLead alloc] init];
 [profile setTwitterId:@"twitterid"];
 ```
 
-```
+```swift
 let profile =  MarketoLead()
 
 // Get user profile from network and populate
@@ -65,13 +65,13 @@ profile.setLinkedInId("linkedinid")
 profile.setTwitterId("twitterid")
 ```
 
-Voeg meer [&#x200B; standaardgebieden &#x200B;](../rest-api/list-of-standard-fields.md) toe.
+Voeg meer [ standaardgebieden ](../rest-api/list-of-standard-fields.md) toe.
 
 >[!BEGINTABS]
 
 >[!TAB  Doelstelling C ]
 
-```
+```objectivec
 // Add other custom fields
 [profile setFieldName:@"mobilePhone"withValue:@"123.456.7890"];
 [profile setFieldName:@"numberOfEmployees"withValue:@"10"];
@@ -80,7 +80,7 @@ Voeg meer [&#x200B; standaardgebieden &#x200B;](../rest-api/list-of-standard-fie
 
 >[!TAB  Swift ]
 
-```
+```swift
 // Add other custom fields
 profile.setFieldName("mobilePhone" , withValue :"123.456.7890");
 profile.setFieldName("numberOfEmployees", withValue: "10");
@@ -95,7 +95,7 @@ Gebruikersprofiel rapporteren.
 
 >[!TAB  Doelstelling C ]
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 // This method will update user profile
@@ -104,7 +104,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 >[!TAB  Swift ]
 
-```
+```swift
 let marketo = Marketo.sharedInstance()
 
 // This method will update user profile
@@ -135,7 +135,7 @@ marketo.associateLead(profile)
    }
    ```
 
-1. Voeg meer [&#x200B; standaardgebieden &#x200B;](../rest-api/list-of-standard-fields.md) toe.
+1. Voeg meer [ standaardgebieden ](../rest-api/list-of-standard-fields.md) toe.
 
    ```java
    // Add other custom fields

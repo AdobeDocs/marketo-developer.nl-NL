@@ -3,7 +3,7 @@ title: Gebruikersbeheer
 feature: REST API
 description: Handleiding voor Marketo-gebruikersbeheer-API's voor CRUD voor gebruikers, op header gebaseerde auth, rollen en werkruimten, statuscode-afhandeling, gegevenstijdindeling en queryeindpunten.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1581'
 ht-degree: 2%
@@ -18,10 +18,10 @@ Marketo biedt een reeks eindpunten voor gebruikersbeheer waarmee u CRUD-bewerkin
 
 In tegenstelling tot andere Marketo REST API&#39;s geldt het volgende voor het gebruik van de gebruikersbeheer-API&#39;s:
 
-- U moet de HTTP-headermethode gebruiken om het toegangstoken te verzenden voor verificatie. U kunt het toegangstoken niet als parameter van het vraagkoord overgaan. Meer informatie is beschikbaar in de [&#x200B; gids van de Authentificatie &#x200B;](authentication.md).
-- U moet een roltoestemming van twee verschillende groepen selecteren wanneer het creëren van de gebruikersrol voor [&#x200B; de Dienst van de Douane &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) voor REST API:
-   1. De toestemming van de &quot;Gebruikers van de Toegang&quot;van de [&#x200B; Admin van de Toegang &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) groep
-   1. De &quot;API van het Beheer van de Gebruiker van de Toegang&quot;van de [&#x200B; Toegang API &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) groep
+- U moet de HTTP-headermethode gebruiken om het toegangstoken te verzenden voor verificatie. U kunt het toegangstoken niet als parameter van het vraagkoord overgaan. Meer informatie is beschikbaar in de [ gids van de Authentificatie ](authentication.md).
+- U moet een roltoestemming van twee verschillende groepen selecteren wanneer het creëren van de gebruikersrol voor [ de Dienst van de Douane ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) voor REST API:
+   1. De toestemming van de &quot;Gebruikers van de Toegang&quot;van de [ Admin van de Toegang ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) groep
+   1. De &quot;API van het Beheer van de Gebruiker van de Toegang&quot;van de [ Toegang API ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) groep
 - De instanties van de reactie bevatten niet de &quot;succes&quot;booleaanse attributen die op succes of mislukking van een vraag wijzen. In plaats daarvan moet u de statuscode van de HTTP-reactie evalueren. Als een vraag slaagt, is een 200 statuscode teruggekeerd. Wanneer een aanroep mislukt, wordt een statuscode van een ander niveau dan 200 geretourneerd en bevat de responsstructuur de standaardarray &#39;errors&#39; met foutcode en een beschrijvend foutbericht.
 - De indeling van datetime-tekenreeksen is `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm` . Dit is van toepassing op de volgende kenmerken: `createdAt`, `updatedAt`, `expiresAt` .
 - De eindpunten van de API voor gebruikersbeheer worden, net als andere eindpunten, niet voorafgegaan door &quot;/rest&quot;.
@@ -32,9 +32,9 @@ De steun van de vraag voor gebruikersbeheer omvat capaciteit om alle gebruikers,
 
 ### Gebruiker op id
 
-Het [&#x200B; krijgt Gebruiker door Identiteitseur &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserUsingGET) eindpunt neemt één enkele `userid` wegparameter en keert één enkel gebruikersverslag voor een gebruiker terug die hun uitnodiging heeft goedgekeurd.
+Het [ krijgt Gebruiker door Identiteitseur ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserUsingGET) eindpunt neemt één enkele `userid` wegparameter en keert één enkel gebruikersverslag voor een gebruiker terug die hun uitnodiging heeft goedgekeurd.
 
-```
+```http
 GET /userservice/management/v1/users/{userid}/user.json
 ```
 
@@ -73,9 +73,9 @@ GET /userservice/management/v1/users/{userid}/user.json
 
 ### Uitgenodigde gebruiker op gebruikersnaam
 
-[&#x200B; krijgt Uitgenodigde Gebruiker door Identiteitseindpunt &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getInvitedUserUsingGET) neemt één enkele `userid` wegparameter en keert één enkel gebruikersverslag voor een &quot;hangende&quot;gebruiker terug (heeft nog niet hun uitnodiging goedgekeurd).
+[ krijgt Uitgenodigde Gebruiker door Identiteitseindpunt ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getInvitedUserUsingGET) neemt één enkele `userid` wegparameter en keert één enkel gebruikersverslag voor een &quot;hangende&quot;gebruiker terug (heeft nog niet hun uitnodiging goedgekeurd).
 
-```
+```http
 GET /userservice/management/v1/users/{userid}/invite.json
 ```
 
@@ -96,9 +96,9 @@ GET /userservice/management/v1/users/{userid}/invite.json
 
 ### Rollen en werkruimten per id
 
-Het [&#x200B; krijgt Rollen en Werkruimten door Identiteitseindpunt &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserRolesAndWorkspacesUsingGET) neemt één enkele `userid` wegparameter en keert een lijst van gebruikersrol en werkruimtekendecords terug. De reactie bevat een array met één object dat rol- en werkruimte-id en naam voor de opgegeven gebruiker bevat.
+Het [ krijgt Rollen en Werkruimten door Identiteitseindpunt ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserRolesAndWorkspacesUsingGET) neemt één enkele `userid` wegparameter en keert een lijst van gebruikersrol en werkruimtekendecords terug. De reactie bevat een array met één object dat rol- en werkruimte-id en naam voor de opgegeven gebruiker bevat.
 
-```
+```http
 GET /userservice/management/v1/users/{userid}/roles.json
 ```
 
@@ -121,9 +121,9 @@ GET /userservice/management/v1/users/{userid}/roles.json
 
 ### Gebruikers doorbladeren
 
-Het [&#x200B; krijgt Gebruikers &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUsersUsingGET) eindpunt keert een lijst van alle gebruikersverslagen terug. De optionele parameter `pageSize` is een geheel getal dat het maximale aantal items opgeeft dat moet worden geretourneerd. De standaardwaarde is 20. Maximaal is 200. De optionele parameter `pageOffset` is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan worden gebruikt met `pageSize` . De standaardwaarde is 0.
+Het [ krijgt Gebruikers ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUsersUsingGET) eindpunt keert een lijst van alle gebruikersverslagen terug. De optionele parameter `pageSize` is een geheel getal dat het maximale aantal items opgeeft dat moet worden geretourneerd. De standaardwaarde is 20. Maximaal is 200. De optionele parameter `pageOffset` is een geheel getal dat opgeeft waar moet worden begonnen met het ophalen van vermeldingen. Kan worden gebruikt met `pageSize` . De standaardwaarde is 0.
 
-```
+```http
 GET /userservice/management/v1/users/allusers.json
 ```
 
@@ -162,9 +162,9 @@ GET /userservice/management/v1/users/allusers.json
 
 ### Bladeren door rollen
 
-Het [&#x200B; krijgt het eindpunt van Rollen &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getRolesUsingGET) keert een lijst van alle rolverslagen terug.
+Het [ krijgt het eindpunt van Rollen ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getRolesUsingGET) keert een lijst van alle rolverslagen terug.
 
-```
+```http
 GET /userservice/management/v1/users/roles.json
 ```
 
@@ -245,9 +245,9 @@ GET /userservice/management/v1/users/roles.json
 
 ### Bladeren door werkruimten
 
-Het [&#x200B; krijgt het 1&rbrace; eindpunt van de Werkruimten &lbrace;keert een lijst van alle werkruimteverslagen terug.](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET)
+Het [ krijgt het 1} eindpunt van de Werkruimten {keert een lijst van alle werkruimteverslagen terug.](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET)
 
-```
+```http
 GET /userservice/management/v1/users/workspaces.json
 ```
 
@@ -298,9 +298,9 @@ GET /userservice/management/v1/users/workspaces.json
 
 ## Gebruiker uitnodigen
 
-Op [&#x200B; Adobe IMS-Geïntegreerde abonnementen &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), steunt dit eindpunt uitnodiging van [&#x200B; API-Enige Gebruikers &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) slechts. Om [&#x200B; standaardGebruikers &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) uit te nodigen, gebruik in plaats daarvan [&#x200B; Adobe gebruikersbeheer API &#x200B;](https://developer.adobe.com/umapi/).
+Op [ Adobe IMS-Geïntegreerde abonnementen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), steunt dit eindpunt uitnodiging van [ API-Enige Gebruikers ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) slechts. Om [ standaardGebruikers ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) uit te nodigen, gebruik in plaats daarvan [ Adobe gebruikersbeheer API ](https://developer.adobe.com/umapi/).
 
-Het [&#128279;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) eindpunt van de Gebruiker van de Uitnodiging  verzendt een &quot;Onthaal naar Marketo&quot;e-mailuitnodiging aan een nieuwe gebruiker. De e-mailtekst bevat een koppeling &quot;Aanmelden bij Marketo&quot; waarmee de gebruiker voor het eerst toegang krijgt tot Marketo. Om de uitnodiging te accepteren, klikt de ontvanger van de e-mail op de koppeling &quot;Aanmelden bij Marketo&quot;, maakt hij een wachtwoord en krijgt hij toegang tot Marketo. Totdat het acceptatieproces is voltooid, is de uitnodiging in behandeling en kan het gebruikersrecord niet worden bewerkt. Een uitnodiging in behandeling verloopt zeven dagen na verzending. Meer informatie is beschikbaar in de [&#x200B; documentatie van het gebruikersbeheer van Marketo &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
+Het ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) eindpunt van de Gebruiker van de Uitnodiging [ verzendt een &quot;Onthaal naar Marketo&quot;e-mailuitnodiging aan een nieuwe gebruiker. De e-mailtekst bevat een koppeling &quot;Aanmelden bij Marketo&quot; waarmee de gebruiker voor het eerst toegang krijgt tot Marketo. Om de uitnodiging te accepteren, klikt de ontvanger van de e-mail op de koppeling &quot;Aanmelden bij Marketo&quot;, maakt hij een wachtwoord en krijgt hij toegang tot Marketo. Totdat het acceptatieproces is voltooid, is de uitnodiging in behandeling en kan het gebruikersrecord niet worden bewerkt. Een uitnodiging in behandeling verloopt zeven dagen na verzending. Meer informatie is beschikbaar in de [ documentatie van het gebruikersbeheer van Marketo ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
 
 Parameters worden in de aanvraaghoofdtekst doorgegeven in de `application/json` -indeling.
 
@@ -308,15 +308,15 @@ De volgende parameters zijn vereist: `emailAddress` , `firstName` , `lastName` e
 
 De parameter `userid` is een unieke tekenreeks van de gebruikersidentificatie die wordt gebruikt voor gebruikersaanmelding en moet worden opgemaakt als een e-mailadres. Als deze waarde niet in de aanvraag wordt opgegeven, krijgt `userid` standaard de waarde die in de parameter `emailAddress` wordt opgegeven.
 
-De booleaanse `apiOnly` parameter specificeert of de gebruiker een [&#x200B; API-Enige gebruiker &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) is. De parameter `expiresAt` geeft aan wanneer de gebruikersaanmelding verloopt en is opgemaakt in de indeling W3C ISO-8601 (zonder milliseconden). Als deze niet in de aanvraag wordt opgegeven, verloopt de gebruiker nooit. De parameter `reason` is een tekenreeks die de reden voor de gebruikersuitnodiging beschrijft.
+De booleaanse `apiOnly` parameter specificeert of de gebruiker een [ API-Enige gebruiker ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) is. De parameter `expiresAt` geeft aan wanneer de gebruikersaanmelding verloopt en is opgemaakt in de indeling W3C ISO-8601 (zonder milliseconden). Als deze niet in de aanvraag wordt opgegeven, verloopt de gebruiker nooit. De parameter `reason` is een tekenreeks die de reden voor de gebruikersuitnodiging beschrijft.
 
 Het eindpunt keert een waarde van &quot;waar&quot;terug als succesvol, anders een foutenmelding is teruggekeerd.
 
-```
+```http
 POST /userservice/management/v1/users/invite.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -336,13 +336,13 @@ Content-Type: application/json
 }
 ```
 
-```
+```text
 true
 ```
 
-Hieronder ziet u een voorbeeld van de e-mailuitnodiging &quot;Welkom bij Marketo&quot; die naar de nieuwe gebruiker wordt verzonden. De e-mailonderwerpregel is &quot;de Informatie van de Login van Marketo&quot;, is de afzender het e-mailadres van de API-Enige Gebruiker verbonden aan de [&#x200B; REST API de Dienst van de Douane &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api), en de ontvanger is zoals gespecificeerd via de parameters firstName, lastName, en emailAddress.
+Hieronder ziet u een voorbeeld van de e-mailuitnodiging &quot;Welkom bij Marketo&quot; die naar de nieuwe gebruiker wordt verzonden. De e-mailonderwerpregel is &quot;de Informatie van de Login van Marketo&quot;, is de afzender het e-mailadres van de API-Enige Gebruiker verbonden aan de [ REST API de Dienst van de Douane ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api), en de ontvanger is zoals gespecificeerd via de parameters firstName, lastName, en emailAddress.
 
-![&#x200B; nodigde E-mail van de Gebruiker uit &#x200B;](assets/invite-user-email.png)
+![ nodigde E-mail van de Gebruiker uit ](assets/invite-user-email.png)
 
 De gebruiker accepteert de e-mailuitnodiging door haar wachtwoord tweemaal in te voeren en op de knop &quot;WACHTWOORD MAKEN&quot; te klikken. Daarna krijgt zij voor het eerst toegang tot Marketo.
 
@@ -352,15 +352,15 @@ De updateondersteuning voor gebruikers biedt de mogelijkheid om gebruikerskenmer
 
 ### Gebruikerskenmerken bijwerken
 
-Op [&#x200B; Adobe IMS-Geïntegreerde abonnementen &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), steunt dit eindpunt het bijwerken van attributen van [&#x200B; API-Enige Gebruikers &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) slechts. Om attributen voor [&#x200B; standaardGebruikers &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) bij te werken, gebruik in plaats daarvan [&#x200B; het Beheer API van de Gebruiker van Adobe &#x200B;](https://developer.adobe.com/umapi/).
+Op [ Adobe IMS-Geïntegreerde abonnementen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), steunt dit eindpunt het bijwerken van attributen van [ API-Enige Gebruikers ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) slechts. Om attributen voor [ standaardGebruikers ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) bij te werken, gebruik in plaats daarvan [ het Beheer API van de Gebruiker van Adobe ](https://developer.adobe.com/umapi/).
 
-Het [&#x200B; eindpunt van de Attributen van de Gebruiker van de Update &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/updateUserAttributeUsingPOST) neemt één enkele `userid` wegparameter en keert één enkel gebruikersverslag terug. De hoofdtekst van de aanvraag bevat een of meer gebruikerskenmerken die moeten worden bijgewerkt: `emailAddress`, `firstName`, `lastName`, `expiresAt` .
+Het [ eindpunt van de Attributen van de Gebruiker van de Update ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/updateUserAttributeUsingPOST) neemt één enkele `userid` wegparameter en keert één enkel gebruikersverslag terug. De hoofdtekst van de aanvraag bevat een of meer gebruikerskenmerken die moeten worden bijgewerkt: `emailAddress`, `firstName`, `lastName`, `expiresAt` .
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/update.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -407,19 +407,19 @@ Content-Type: application/json
 
 #### Gebruiker verwijderen
 
-Op [&#x200B; Adobe IMS-Geïntegreerde abonnementen &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), steunt dit eindpunt schrapping van [&#x200B; API-Enige Gebruikers &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) slechts. Om [&#x200B; standaardGebruikers &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) te schrappen, gebruik in plaats daarvan [&#x200B; het Beheer API van de Gebruiker van Adobe &#x200B;](https://developer.adobe.com/umapi/).
+Op [ Adobe IMS-Geïntegreerde abonnementen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), steunt dit eindpunt schrapping van [ API-Enige Gebruikers ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) slechts. Om [ standaardGebruikers ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) te schrappen, gebruik in plaats daarvan [ het Beheer API van de Gebruiker van Adobe ](https://developer.adobe.com/umapi/).
 
-Het [&#x200B; eindpunt van de Gebruiker van de Schrapping &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteUserUsingPOST) neemt één enkele `userid` wegparameter en schrapt de overeenkomstige gebruiker van de instantie. Dit is een destructieve verwijdering en kan niet worden teruggedraaid. Als dit gelukt is, wordt een 200-statuscode geretourneerd, anders wordt een foutbericht geretourneerd.
+Het [ eindpunt van de Gebruiker van de Schrapping ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteUserUsingPOST) neemt één enkele `userid` wegparameter en schrapt de overeenkomstige gebruiker van de instantie. Dit is een destructieve verwijdering en kan niet worden teruggedraaid. Als dit gelukt is, wordt een 200-statuscode geretourneerd, anders wordt een foutbericht geretourneerd.
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/delete.json
 ```
 
 #### Uitgenodigde gebruiker verwijderen
 
-Het [&#x200B; Schrapping Uitgenodigde Gebruiker &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteInvitedUserUsingPOST) eindpunt neemt één enkele `userid` wegparameter en schrapt de overeenkomstige &quot;hangende&quot;gebruiker van de instantie (de gebruiker had nog niet hun uitnodiging goedgekeurd). Dit is een destructieve verwijdering en kan niet worden teruggedraaid. Als dit gelukt is, wordt een 200-statuscode geretourneerd, anders wordt een foutbericht geretourneerd.
+Het [ Schrapping Uitgenodigde Gebruiker ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteInvitedUserUsingPOST) eindpunt neemt één enkele `userid` wegparameter en schrapt de overeenkomstige &quot;hangende&quot;gebruiker van de instantie (de gebruiker had nog niet hun uitnodiging goedgekeurd). Dit is een destructieve verwijdering en kan niet worden teruggedraaid. Als dit gelukt is, wordt een 200-statuscode geretourneerd, anders wordt een foutbericht geretourneerd.
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/invite/delete.json
 ```
 
@@ -429,13 +429,13 @@ De steun van de update voor rollen omvat capaciteit om rollen toe te voegen en t
 
 ## Rollen toevoegen
 
-Het [&#x200B; voegt 1&rbrace; eindpunt van Rollen &lbrace;neemt één enkele `userid` wegparameter toe en voegt één of meerdere gebruikersrollen aan de overeenkomstige gebruiker toe. &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST)De aanvraaginstantie bevat een lijst met een of meer objecten die elk een  `accessRoleId` en een `workspaceId` -kenmerk. Als dit lukt, wordt de volledige lijst met `accessRoleId/workspaceId` paren voor de opgegeven gebruiker geretourneerd.
+Het [ voegt 1} eindpunt van Rollen {neemt één enkele `userid` wegparameter toe en voegt één of meerdere gebruikersrollen aan de overeenkomstige gebruiker toe. ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST)De aanvraaginstantie bevat een lijst met een of meer objecten die elk een  `accessRoleId` en een `workspaceId` -kenmerk. Als dit lukt, wordt de volledige lijst met `accessRoleId/workspaceId` paren voor de opgegeven gebruiker geretourneerd.
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/roles/create.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -467,13 +467,13 @@ Content-Type: application/json
 
 ## Rollen verwijderen
 
-Het [&#x200B; punt van de Rollen van de Schrapping &#x200B;](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST) neemt één enkele `userid` wegparameter en schrapt één of meerdere gebruikersrollen van de overeenkomstige gebruiker. De aanvraaginstantie bevat een lijst met een of meer objecten die elk een  `accessRoleId` en een `workspaceId` -kenmerk. Indien succesvol, is de resterende lijst van accessRoleId/workspaceId paren voor de gespecificeerde gebruiker teruggekeerd.
+Het [ punt van de Rollen van de Schrapping ](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST) neemt één enkele `userid` wegparameter en schrapt één of meerdere gebruikersrollen van de overeenkomstige gebruiker. De aanvraaginstantie bevat een lijst met een of meer objecten die elk een  `accessRoleId` en een `workspaceId` -kenmerk. Indien succesvol, is de resterende lijst van accessRoleId/workspaceId paren voor de gespecificeerde gebruiker teruggekeerd.
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/roles/delete.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 

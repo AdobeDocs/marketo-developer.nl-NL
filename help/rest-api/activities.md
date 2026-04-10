@@ -3,9 +3,9 @@ title: Activiteiten
 feature: REST API
 description: Gebruik de Marketo Engage Activity REST API om activiteitstypen weer te geven, leadactiviteiten met paginerende tokens op te halen en aangepaste wijzigingen en gegevenswaarden af te handelen.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '2046'
+source-wordcount: '2139'
 ht-degree: 0%
 
 ---
@@ -22,9 +22,9 @@ De meeste activiteiten zullen na enige tijd worden afgezuiverd.
 
 ## Beschrijven
 
-Om een lijst van beschikbare types en hun definities voor een instantie terug te winnen, kunt u [&#x200B; gebruiken krijgt de Types van Activiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) eindpunt.
+Om een lijst van beschikbare types en hun definities voor een instantie terug te winnen, kunt u [ gebruiken krijgt de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) eindpunt.
 
-```
+```http
 GET /rest/v1/activities/types.json
 ```
 
@@ -75,11 +75,11 @@ Reële reacties omvatten veel meer definities. In dit voorbeeld is het weergegev
 
 ## Query
 
-Om activiteiten van Marketo terug te winnen, roep [&#x200B; krijgen de Activiteiten van het Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET) eindpunt. U moet eerst een het pagineren teken voor datetime terugwinnen die u wilt beginnen activiteiten van terug te winnen. Vervolgens geeft u het paginatietoken door in de queryparameter `nextPageToken` . Bovendien geeft u maximaal tien ID&#39;s van het type activiteit in de `activityTypeIds` -queryparameter door als een lijst met komma&#39;s als scheidingsteken.
+Om activiteiten van Marketo terug te winnen, roep [ krijgen de Activiteiten van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET) eindpunt. U moet eerst een het pagineren teken voor datetime terugwinnen die u wilt beginnen activiteiten van terug te winnen. Vervolgens geeft u het paginatietoken door in de queryparameter `nextPageToken` . Bovendien geeft u maximaal tien ID&#39;s van het type activiteit in de `activityTypeIds` -queryparameter door als een lijst met komma&#39;s als scheidingsteken.
 
 U kunt of een listId vraagparameter naar keuze omvatten om uw onderzoek tot slechts die verslagen te beperken inbegrepen in een specifieke statische lijst, of een leadIds vraagparameter en onderzoek naar activiteiten van slechts een gespecificeerde reeks lood. U kunt maximaal 30 leadIds doorgeven als een door komma&#39;s gescheiden lijst.
 
-```
+```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -135,12 +135,12 @@ Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` verva
 
 ### Wijzigingen in gegevenswaarde
 
-Voor de activiteiten van de Verandering van de Waarde van Gegevens, wordt een gespecialiseerde versie van de activiteiten API verstrekt. Het [&#x200B; krijgt de Veranderingen van het Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) eindpunt keert slechts activiteiten van de verslagen van de Verandering van de Waarde van Gegevens aan loodgebieden terug. De interface is hetzelfde als de API voor lead-activiteiten ophalen, met twee verschillen:
+Voor de activiteiten van de Verandering van de Waarde van Gegevens, wordt een gespecialiseerde versie van de activiteiten API verstrekt. Het [ krijgt de Veranderingen van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) eindpunt keert slechts activiteiten van de verslagen van de Verandering van de Waarde van Gegevens aan loodgebieden terug. De interface is hetzelfde als de API voor lead-activiteiten ophalen, met twee verschillen:
 
 * Er is geen `activityTypeIds` parameter, aangezien het eindpunt slechts de Verandering van de Waarde van Gegevens en Nieuwe Loodactiviteiten terugkeert.
 * De query-parameter `fields` is vereist, waarbij u een lijst met velden met komma&#39;s kunt doorgeven om aan te geven voor welke velden u wijzigingen wilt ophalen.
 
-```
+```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
 ```
 
@@ -190,9 +190,9 @@ Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` verva
 
 ### Verwijderde leads
 
-Er is ook een speciaal eindpunt [&#x200B; krijgen Geschrapte Leads &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) voor het terugwinnen van geschrapte activiteiten van Marketo.
+Er is ook een speciaal eindpunt [ krijgen Geschrapte Leads ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) voor het terugwinnen van geschrapte activiteiten van Marketo.
 
-```
+```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
 ```
 
@@ -242,15 +242,15 @@ De Activiteiten van de douane functioneren enkel zoals standaardactiviteiten, be
 * Maximumaantal aangepaste activiteiten: 10
 * Maximum aantal kenmerken per aangepaste activiteit: 20
 
-Het terugwinnen van de gegevens van de douaneactiviteit wordt gedaan op de zelfde manier als standaardactiviteiten, door [&#x200B; krijgen de Activiteiten van de Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET) API.
+Het terugwinnen van de gegevens van de douaneactiviteit wordt gedaan op de zelfde manier als standaardactiviteiten, door [ krijgen de Activiteiten van de Lood ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET) API.
 
 ## Zoektypen
 
-Naast standaard krijgt het Types van Activiteit eindpunt, [&#x200B; krijgt de Types van Activiteit van de Douane &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getCustomActivityTypeUsingGET) en [&#x200B; beschrijft de eindpunten van het Type van Activiteit van de Douane &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/describeCustomActivityTypeUsingGET) details over de activiteitstypes die in de instantie van Marketo worden voorzien, en meta-gegevens betreffende de attributen voor een bepaald type. De normale [&#x200B; krijgt de Types van Activiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) keert nog meta-gegevens betreffende douaneactiviteiten terug, maar wijst niet erop of een bepaald type douane is.
+Naast standaard krijgt het Types van Activiteit eindpunt, [ krijgt de Types van Activiteit van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getCustomActivityTypeUsingGET) en [ beschrijft de eindpunten van het Type van Activiteit van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/describeCustomActivityTypeUsingGET) details over de activiteitstypes die in de instantie van Marketo worden voorzien, en meta-gegevens betreffende de attributen voor een bepaald type. De normale [ krijgt de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) keert nog meta-gegevens betreffende douaneactiviteiten terug, maar wijst niet erop of een bepaald type douane is.
 
 ### Typen ophalen
 
-```
+```http
 GET /rest/v1/activities/external/types.json
 ```
 
@@ -278,7 +278,7 @@ GET /rest/v1/activities/external/types.json
 
 Voor tekstbeschrijvingen moet u `apiName` doorgeven als padparameter. Standaard krijgt u de goedgekeurde versie van de activiteit. U kunt optioneel de parameter `draft=true` doorgeven om de conceptversie van de activiteit op te halen.
 
-```
+```http
 GET /rest/v1/activities/external/type/{apiName}/describe.json
 ```
 
@@ -344,7 +344,7 @@ Wanneer een douaneactiviteit wordt gecreeerd, wordt het gecreeerd als ontwerp, e
 
 Wanneer u een type maakt, is de parameter description optioneel, terwijl alle volgende parameters vereist zijn: `apiName`, `name`, `triggerName`, `filterName`, `primaryAttribute` .
 
-```
+```http
 POST /rest/v1/activities/external/type.json
 ```
 
@@ -390,7 +390,7 @@ POST /rest/v1/activities/external/type.json
 
 Het bijwerken van een type lijkt erg op het bijwerken, behalve dat apiName de enige vereiste parameter is als padparameter.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}.json
 ```
 
@@ -449,9 +449,9 @@ Wanneer u het primaire kenmerk van een type activiteit wijzigt, moet een bestaan
 
 ### Kenmerken maken
 
-Voor het maken van een kenmerk wordt een vereiste padparameter `apiName` gebruikt. Ook de parameters `name` en `dataType` zijn vereist.`The description and` `isPrimary` -parameters zijn optioneel.
+Voor het maken van een kenmerk wordt een vereiste padparameter `apiName` gebruikt. De parameters `name` en `dataType` zijn ook vereist. `The description and` `isPrimary` -parameters zijn optioneel.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 ```
 
@@ -518,7 +518,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 
 Wanneer updates van kenmerken worden uitgevoerd, is de `apiName` van het kenmerk de primaire sleutel. De update werkt alleen als de parameter `apiName` bestaat (u kunt de parameter `apiName` dus niet wijzigen met update).
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 ```
 
@@ -585,7 +585,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 
 Als u een kenmerk verwijdert, wordt een vereiste padparameter `apiName` gebruikt. Dit is de API-naam voor aangepaste activiteit.  Ook vereist is een kenmerkparameter die een array van kenmerkobjecten is.  Elk object moet een parameter `apiName` bevatten die de API-naam van het type aangepaste activiteit is.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 ```
 
@@ -621,7 +621,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 
 ## Aangepaste activiteiten toevoegen
 
-Aangepaste activiteiten zijn een schriftelijke registratie van historische activiteiten met betrekking tot individuele persoonrecords in Marketo. Deze activiteiten hebben een schema dat door Marketo Admins of ver via een API integratie wordt beheerd. De activiteiten van de douane worden toegevoegd aan loodverslagen via [&#x200B; voeg het eindpunt van de Activiteiten van de Douane &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/addCustomActivityUsingPOST) toe en verwant met elk loodverslag via zijn `leadId` gebied. De activiteiten van de douane kunnen in het gebruikersinterface via het de activiteitenlogboek van het lood worden bekeken, of via krijgen van het Punt van Activiteiten van de Leiding door het type identiteitskaart van de douaneactiviteit te specificeren.
+Aangepaste activiteiten zijn een schriftelijke registratie van historische activiteiten met betrekking tot individuele persoonrecords in Marketo. Deze activiteiten hebben een schema dat door Marketo Admins of ver via een API integratie wordt beheerd. De activiteiten van de douane worden toegevoegd aan loodverslagen via [ voeg het eindpunt van de Activiteiten van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/addCustomActivityUsingPOST) toe en verwant met elk loodverslag via zijn `leadId` gebied. De activiteiten van de douane kunnen in het gebruikersinterface via het de activiteitenlogboek van het lood worden bekeken, of via krijgen van het Punt van Activiteiten van de Leiding door het type identiteitskaart van de douaneactiviteit te specificeren.
 
 Aangepaste activiteiten zijn geschikt voor het vastleggen van gegevens die betrekking hebben op één record en die niet hoeven te worden bijgewerkt of overschreven. Een voorbeeld zou een persoon die een gebeurtenis bijwoont als &quot;Bijgewoonde gebeurtenis&quot;activiteit registreren. Voor verslagen met betrekking tot een persoon die, zoals studenteninschrijving kan veranderen, zouden de douanevoorwerpen in plaats daarvan moeten worden gebruikt, aangezien zij kunnen worden bijgewerkt, waar de douaneactiviteiten niet kunnen.
 
@@ -629,7 +629,7 @@ Het invoerlid is een array van activiteitsobjecten. Er kunnen maximaal 300 acti
 
 De leden `leadId`, `activityDate`, `activityTypeId`, `primaryAttributeValue` en attributes zijn vereist. De array attributes moet het niet-primaire kenmerk bevatten. Dit kan worden opgegeven met de naam (veldnaam) of apiName (API-naam) en de waarde die overeenkomt met de waarde die u instelt.
 
-```
+```http
 POST /rest/v1/activities/external.json
 ```
 

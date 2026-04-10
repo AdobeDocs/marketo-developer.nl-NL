@@ -2,7 +2,8 @@
 title: Gebruik
 feature: REST API
 description: Het gebruik van de Marketo REST API en fouten met de eindpunten van de dagelijkse en laatste 7 dagen stats, inclusief tellingen per gebruiker en getallen van foutcode controleren.
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+exl-id: 935a00a4-1e1e-4b48-ae9c-72c5e578312a
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '393'
 ht-degree: 5%
@@ -32,7 +33,7 @@ De Gebruiks-API&#39;s gebruiken dezelfde verificatiemethode als andere Marketo R
 
 Hiermee wordt het API-gebruik voor de huidige dag opgehaald.
 
-```
+```http
 GET /rest/v1/stats/usage.json
 ```
 
@@ -69,7 +70,7 @@ Elk object in de array `result` bevat een gebruiksduur van één dag en een uits
 
 Hiermee wordt het API-gebruik voor de laatste 7 dagen opgehaald. Elk element in de array `result` vertegenwoordigt één dag.
 
-```
+```http
 GET /rest/v1/stats/usage/last7days.json
 ```
 
@@ -77,7 +78,7 @@ GET /rest/v1/stats/usage/last7days.json
 
 Hiermee worden API-fouten voor de huidige dag opgehaald.
 
-```
+```http
 GET /rest/v1/stats/errors.json
 ```
 
@@ -114,7 +115,7 @@ Elk object in de array `result` bevat een dag met fouttotalen en een verdeling o
 
 Hiermee worden API-fouten van de laatste 7 dagen opgehaald. Elk element in de array `result` vertegenwoordigt één dag.
 
-```
+```http
 GET /rest/v1/stats/errors/last7days.json
 ```
 

@@ -3,9 +3,9 @@ title: Aangepaste handelingen
 feature: Mobile Marketing
 description: Leer aangepaste acties te verzenden en te melden met de Marketo Mobile SDK for iOS en Android, offline in de wachtrij te plaatsen, Slimme campagnes te activeren en aan de 20-lettertekens te voldoen...
 exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '313'
+source-wordcount: '336'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 U kunt gebruikersinteractie bijhouden door aangepaste handelingen te verzenden. Wanneer uw mobiele app de Marketo SDK aanroept om een aangepaste handeling te verzenden, wordt de aangepaste handeling eerst opgeslagen op het apparaat. De Marketo SDK controleert vervolgens of er voldoende internetverbinding is voordat de aangepaste actie wordt verzonden. Het gevolg is dat er mogelijk een vertraging optreedt tussen het moment dat de aangepaste handeling wordt verzonden en het moment dat de aangepaste handeling door Marketo wordt ontvangen.
 
-Aangepaste acties kunnen worden gebruikt als triggers en filters in slimme campagnes. Voor meer informatie, zie [&#x200B; Mobiele Activiteit van de Toepassing &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Aangepaste acties kunnen worden gebruikt als triggers en filters in slimme campagnes. Voor meer informatie, zie [ Mobiele Activiteit van de Toepassing ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Aangepaste acties verzenden op iOS
 
@@ -24,14 +24,14 @@ Aangepaste actie verzenden.
 
 >[!TAB  Doelstelling C ]
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 [sharedInstance reportAction:@"Login" withMetaData:nil];
 ```
 
 >[!TAB  Swift ]
 
-```
+```swift
 sharedInstance.reportAction("Login", withMetaData:nil);
 ```
 
@@ -43,7 +43,7 @@ Aangepaste actie verzenden met metagegevens.
 
 >[!TAB  Doelstelling C ]
 
-```
+```objectivec
 MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
 [meta setType:@"Shopping"];
 [meta setDetails:@"RedShirt"];
@@ -55,7 +55,7 @@ MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
 
 >[!TAB  Swift ]
 
-```
+```swift
 let meta = MarketoActionMetaData()
 meta.setType("Shopping");
 meta.setDetails("RedShirt");
@@ -73,13 +73,13 @@ Alle handelingen direct rapporteren (alle opgeslagen handelingen verzenden).
 
 >[!TAB  Doelstelling C ]
 
-```
+```objectivec
 [sharedInstance reportAll];
 ```
 
 >[!TAB  Swift ]
 
-```
+```swift
 sharedInstance.reportAll();
 ```
 

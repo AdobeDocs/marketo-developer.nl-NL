@@ -3,9 +3,9 @@ title: Geavanceerde toegangsmodus voor beveiliging
 feature: Mobile Marketing
 description: Leer de Geavanceerde Wijze van de Toegang van de Veiligheid voor Marketo Mobile SDK, met HMAC handtekeninggeneratie, server eindpuntopstelling, het gebruik van apparaatidentiteitskaart en de voorbeelden van iOS en Android
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '321'
+source-wordcount: '322'
 ht-degree: 0%
 
 ---
@@ -65,7 +65,7 @@ De Marketo SDK stelt nieuwe methoden beschikbaar om de beveiligingshandtekening 
 
 ### iOS
 
-```
+```objectivec
 Marketo * sharedInstance =[Marketo sharedInstance];
 
 // set secure signature
@@ -80,7 +80,7 @@ MKTSecuritySignature *signature =
 [sharedInstance getDeviceId];
 ```
 
-```
+```swift
 let sharedInstance = Marketo.sharedInstance()
 
  // set secure signature
@@ -96,7 +96,7 @@ sharedInstance.getDeviceId()
 
 ### Android
 
-```
+```java
 Marketo sdk = Marketo.getInstance(getApplicationContext());
 
 // set signature

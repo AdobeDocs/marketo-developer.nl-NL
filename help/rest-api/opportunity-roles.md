@@ -3,16 +3,16 @@ title: Opportuniteitsrollen
 feature: REST API
 description: U kunt Marketo-opportuniteitsrollen beheren via REST API, zoals beschrijvingen, query's met samengestelde gededupliceerde velden, update verwijderen, time-outs en geen CRM-synchronisatie maken.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '270'
+source-wordcount: '279'
 ht-degree: 0%
 
 ---
 
 # Opportuniteitsrollen
 
-[&#x200B; Verwijzing van het Eindpunt van de Rollen van de Kans &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Opportunity Roles Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
 Leads worden gekoppeld aan mogelijkheden via het tussenliggende `opportunityRole` -object.
 
@@ -22,7 +22,7 @@ Opportunity Role API&#39;s worden alleen weergegeven voor abonnementen waarvoor 
 
 Als kansen, beschrijven vraag en de verrichtingen CRUD worden blootgesteld aan opportuniteitsrollen.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -108,7 +108,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 `dedupeFields` en `searchableFields` verschillen iets van kansen. `dedupeFields` biedt in feite een samengestelde sleutel, waarbij alle drie `externalOpportunityId` , `leadId` en `role` vereist zijn. Zowel moeten de opportuniteit als de leidende verbinding door de identiteitskaart- gebieden in de bestemmingsinstantie bestaan, voor verslagverwezenlijking om te slagen. `searchableFields` , `marketoGUID` , `leadId` en `externalOpportunityId` zijn allemaal geldig voor query&#39;s op zichzelf en gebruiken een patroon dat identiek is aan Opportunity, maar er is een extra optie om de samengestelde sleutel te gebruiken voor query. Hiervoor moet een JSON-object via POST worden verzonden, met de extra queryparameter `_method=GET` .
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -147,7 +147,7 @@ Dit veroorzaakt het zelfde type van reactie zoals een standaardvraag van GET, he
 
 De rollen van de kans hebben de zelfde interface voor het creëren van en het bijwerken van verslagen zoals kansen.
 
-```
+```http
 POST /rest/v1/opportunities/roles.json
 ```
 
@@ -195,7 +195,7 @@ POST /rest/v1/opportunities/roles.json
 
 U kunt opportuniteitsrollen verwijderen door velden te dedupliceren of het veld Id. Geef aan met behulp van de parameter deleteBy de waarde dedupeFields of idField. Als deze optie niet is opgegeven, wordt standaard dedupeFields gebruikt. De aanvraaginstantie bevat een invoerarray met opportuniteitsrollen die moeten worden verwijderd. Een maximum van 300 opportuniteitsrollen per vraag wordt toegestaan.
 
-```
+```http
 POST /rest/v1/opportunities/roles/delete.json
 ```
 

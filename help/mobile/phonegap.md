@@ -3,10 +3,10 @@ title: PhoneGap
 feature: Mobile Marketing
 description: Stel de Marketo PhoneGap-insteekmodule met Cordova in, configureer Firebase Cloud Messaging, schakel iOS en Android push in, traceer meldingen en initialiseer de SDK.
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '813'
-ht-degree: 0%
+source-wordcount: '841'
+ht-degree: 1%
 
 ---
 
@@ -16,9 +16,9 @@ Integratie van Marketo PhoneGap-insteekmodule
 
 ## Vereisten
 
-1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
-1. Push van de opstelling Meldingen ([&#x200B; iOS &#x200B;](push-notifications.md) | [&#x200B; Android &#x200B;](push-notifications.md)).
-1. [&#x200B; installeer PhoneGap/Cordova CLI &#x200B;](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. De Push van de opstelling Meldingen ([ iOS ](push-notifications.md) | [ Android ](push-notifications.md)).
+1. [ installeer PhoneGap/Cordova CLI ](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installatie-instructies
 
@@ -50,7 +50,7 @@ Voer de volgende opdracht uit om de plug-in opnieuw toe te voegen:
 
 Nadat het Cordova Android-platform is gemaakt, opent u de app met Android Studio en werkt u de `dirs` -waarde bij van het `Marketo.gradle` -bestand in de map `com.marketo.plugin` .
 
-```
+```groovy
 repositories{
   jcenter()
   flatDir{
@@ -66,8 +66,8 @@ Lijst met toegevoegde platforms controleren `$cordova platform ls`
 1. Ondersteuning voor Firebase Cloud Messaging
 
 1. Firebase-app configureren op Firebase-console.
-   1. Creeer/voeg een Project op [&#128279;](https://console.firebase.google.com/) de Console van de Vuurbasis toe.
-      1. In de [&#x200B; console van de Vuurbasis &#x200B;](https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
+   1. Creeer/voeg een Project op [ ](https://console.firebase.google.com/) de Console van de Vuurbasis toe.
+      1. In de [ console van de Vuurbasis ](https://console.firebase.google.com/), uitgezochte **[!UICONTROL Add Project]**.
       1. Selecteer uw GCM-project in de lijst met bestaande Google Cloud-projecten en selecteer **[!UICONTROL Add Firebase]** .
       1. Selecteer Firebase toevoegen aan uw Android-toepassing in het welkomstscherm van Firebase.
       1. Geef de pakketnaam en SHA-1 op en selecteer **[!UICONTROL Add App]** . Er wordt een nieuw `google-services.json` -bestand voor de Firebase-app gedownload.
@@ -127,7 +127,7 @@ Plak de volgende code in de functie `application:didFinishLaunchingWithOptions:`
 
 Werk de methode `applicationDidBecomeActive` hieronder bij
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 [sharedInstance trackPushNotification:launchOptions];
@@ -137,7 +137,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 Werk de methode `applicationDidBecomeActive` hieronder bij
 
-```
+```swift
 let sharedInstance: Marketo = Marketo.sharedInstance()
 
 sharedInstance.trackPushNotification(launchOptions)
@@ -153,7 +153,7 @@ We moeten `phonegap` doorgeven als het frameworktype voor PhoneGap-apps.
 
 ### Syntaxis
 
-```
+```javascript
 // This method will Initialize the Marketo Framework using Your MunchkinId and Secret Key
 marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
@@ -177,13 +177,13 @@ marketo.onStart(
 - MUNCHKIN-id: Munchkin-id ontvangen van Marketo op het moment van registratie.
 - SECRET KEY : Geheime sleutel die bij de registratie van Marketo is ontvangen.
 
-### &#x200B;6. Initialiseer Marketo-pushmelding
+### &#x200B;6. Marketo-pushmelding initialiseren
 
 Om ervoor te zorgen dat de Marketo-pushmelding wordt gestart, voegt u de volgende code toe na de initialisatiefunctie in het JavaScript-hoofdbestand.
 
 ### Syntaxis
 
-```
+```javascript
 // This function will Enable user notifications (prompts the user to accept push notifications in iOS)
 marketo.initializeMarketoPush(
     function() { console.log("Marketo push successfully initialized."); },
@@ -196,11 +196,11 @@ marketo.initializeMarketoPush(
 
 - Callback met succes: functie die moet worden uitgevoerd als de Marketo-pushmelding correct is geïnitialiseerd.
 - Callback van mislukking: functie uit te voeren als de pushmelding van Marketo niet kan worden geïnitialiseerd.
-- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [&#x200B; wordt gevonden de Console van Ontwikkelaars van Google &#x200B;](https://console.developers.google.com/) na het creëren van app.
+- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [ wordt gevonden de Console van Ontwikkelaars van Google ](https://console.developers.google.com/) na het creëren van app.
 
 Het token kan ook bij afmelden niet worden geregistreerd.
 
-```
+```javascript
 marketo. uninitializeMarketoPush(
   function() { console.log("Marketo push successfully uninitialized."); } ,
   function(error) { console.log("an error occurred:" + error); }
@@ -213,7 +213,7 @@ U kunt een Marketo Lead maken door de associatedLead-functie aan te roepen.
 
 ### Syntaxis
 
-```
+```javascript
 marketo.associateLead(
   function(){ console.log("MarketoSDK : Lead Added"); },
   function(error){ console.log("an error occurred:" + error); },
@@ -229,7 +229,7 @@ marketo.associateLead(
 
 ### Voorbeeld
 
-```
+```javascript
 // First create a lead as shown below
 var lead = {};
 lead[marketo.KEY_FIRST_NAME] = "Phone";
@@ -258,7 +258,7 @@ U kunt elke door de gebruiker uitgevoerde actie rapporteren door de functie `rep
 
 ### Syntaxis
 
-```
+```javascript
 marketo.reportaction(
   function(){ console.log("MarketoSDK : New event sent "); },
   function(error){ console.log("an error occurred:" + error); },
@@ -276,7 +276,7 @@ marketo.reportaction(
 
 ### Voorbeeld
 
-```
+```javascript
 // First create an event as below
 var event = {
     "Action Type":"Add To Cart",
@@ -297,7 +297,7 @@ marketo.reportaction(
 
 Bind de gebeurtenistypen &quot;pause&quot; en &quot;resume&quot;, zoals hieronder wordt weergegeven, om gebeurtenissen Start en Stop te melden.  Dit wordt gebruikt om de tijd te volgen die in uw mobiele toepassing wordt doorgebracht. Opmerking: dit is verplicht in Android.
 
-```
+```javascript
 //Add the following code in your www/js/index.js
 
 bindEvents: function() {

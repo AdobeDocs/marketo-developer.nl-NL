@@ -3,7 +3,7 @@ title: E-mailsjablonen
 feature: REST API
 description: Met de Marketo Asset REST API kunt u afhankelijkheden voor e-mailsjablonen zoeken, maken, bijwerken, klonen, verwijderen, goedkeuren en inspecteren.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 0%
@@ -38,7 +38,7 @@ U kunt de metagegevens van een e-mailsjabloon ophalen met behulp van de id van h
 
 #### Verzoek
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/{id}
 ```
 
@@ -69,7 +69,7 @@ Tot de ondersteunde filters behoren `folderId`, repeat `folderIds` , repeat `sta
 
 #### Verzoek
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/filter?workspaceId=1001&name=Newsletter&pageIndex=0&pageSize=20
 ```
 
@@ -99,7 +99,7 @@ Maak een e-mailsjabloon door een JSON-payload te verzenden. `name` en `appData` 
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate
 Content-Type: application/json
 ```
@@ -149,7 +149,7 @@ Een sjabloon bijwerken op basis van de id van het element.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/update
 Content-Type: application/json
 ```
@@ -193,7 +193,7 @@ Geldige `action` waarden zijn:
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/state/transition
 Content-Type: application/json
 ```
@@ -213,7 +213,7 @@ Gebruik het klooneindpunt om een kopie van een bestaande sjabloon te maken.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/clone
 Content-Type: application/json
 ```
@@ -236,7 +236,7 @@ Een sjabloon verwijderen op basis van de id van het element.
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/delete
 Content-Type: application/json
 ```
@@ -249,7 +249,7 @@ Gebruik het eindpunt `usedby` om elementen op te halen die naar een bepaalde sja
 
 ### Verzoek
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/usedby
 Content-Type: application/json
 ```

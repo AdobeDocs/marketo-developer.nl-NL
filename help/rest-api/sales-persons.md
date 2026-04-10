@@ -3,24 +3,24 @@ title: Verkopers
 feature: REST API
 description: Marketo REST API-handleiding voor de registratie van Verkooppersonen met SFDC- of Dynamics-synchronisatie, waarbij externalSalesPersonId wordt gebruikt voor de relatie met leads en voor het uitvoeren van query, upsert, delete.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '322'
+source-wordcount: '396'
 ht-degree: 0%
 
 ---
 
 # Verkopers
 
-[&#x200B; Verwijzing van het Eindpunt van de Verkoper &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
+[Referentie eindpunt verkooppersoon](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-De Persoon van de verkoop APIs is read-only toegang voor abonnementen die [&#x200B; de Synchronisatie van SFDC &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [&#x200B; Synchronisatie van Microsoft Dynamics &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) hebben wordt toegelaten. Verkooppersonen zijn een soort persoonrecord die de eigenaars van loodrecords zijn. Zij zijn verwant met verslagen van het Lood door het externalSalesPersonId gebied op elk Loodverslag. Wanneer een lead aan een verkooppersoon is gerelateerd door een ingevuld veld externalSalesPersonId, worden de desbetreffende opzoekvelden van de eigenaar van de lead in Marketo ingevuld, zodat de bijbehorende filters en tokens kunnen worden gebruikt.
+De Persoon van de verkoop APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) hebben wordt toegelaten. Verkooppersonen zijn een soort persoonrecord die de eigenaars van loodrecords zijn. Zij zijn verwant met verslagen van het Lood door het externalSalesPersonId gebied op elk Loodverslag. Wanneer een lead aan een verkooppersoon is gerelateerd door een ingevuld veld externalSalesPersonId, worden de desbetreffende opzoekvelden van de eigenaar van de lead in Marketo ingevuld, zodat de bijbehorende filters en tokens kunnen worden gebruikt.
 
-De Personen van de verkoop zijn verwant met de verslagen van het Lood door de [&#x200B; Synchronisatie te gebruiken leidt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt en het overgaan van het externalSalesPersonId attribuut.
+De Personen van de verkoop zijn verwant met de verslagen van het Lood door de [ Synchronisatie te gebruiken leidt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt en het overgaan van het externalSalesPersonId attribuut.
 
-De Personen van de verkoop zijn verwant met de verslagen van de Kans van de Kans van de Kans van de Kans van de Kans van de Kans door het [&#x200B; eindpunt van de Synchronisatie te gebruiken en het externalSalesPersonId attribuut over te gaan.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST)
+De Personen van de verkoop zijn verwant met de verslagen van de Kans van de Kans van de Kans van de Kans van de Kans van de Kans door het ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) eindpunt van de Synchronisatie te gebruiken en het externalSalesPersonId attribuut over te gaan.[
 
-De Personen van de verkoop zijn verwant met de verslagen van het Bedrijf door het [&#x200B; eindpunt van de Bedrijven van de Synchronisatie te gebruiken &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) en het overgaan van het externalSalesPersonId attribuut.
+De Personen van de verkoop zijn verwant met de verslagen van het Bedrijf door het ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) eindpunt van de Bedrijven van de Synchronisatie te gebruiken [ en het overgaan van het externalSalesPersonId attribuut.
 
 De verslagen van de Persoon van de verkoop zijn slechts editable via API.
 
@@ -28,7 +28,7 @@ De verslagen van de Persoon van de verkoop zijn slechts editable via API.
 
 Bij de beschrijving van de records van Verkooppersoon wordt het standaardpatroon voor hoofddatabaseobjecten gevolgd.
 
-```
+```http
 GET /rest/v1/salespersons/describe.json
 ```
 
@@ -101,7 +101,7 @@ Standaard is `idField` van Verkooppersonen &quot;id&quot; en is `dedupeFields` a
 
 De Personen van de verkoop die het standaardvraagpatroon voor eenvoudige sleutels gebruiken. In dit voorbeeld wordt de e-mail van de gebruiker weergegeven die als externalSalesPersonId wordt gebruikt. Standaard retourneert de query alle velden die zijn ingevuld voor de geretourneerde records.
 
-```
+```http
 GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.com,sam@test.com
 ```
 
@@ -132,7 +132,7 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 
 Het patroon voor updates is standaard.
 
-```
+```http
 POST /rest/v1/salespersons.json
 ```
 
@@ -185,7 +185,7 @@ Verwijderen van Verkooppersonen is niet toegestaan wanneer zij &quot;in gebruik&
 - Wanneer de Verkoper met actieve Leads wordt geassocieerd
 - Wanneer de Persoon van de Verkoop met een Bedrijf wordt geassocieerd dat is geschrapt
 
-```
+```http
 POST /rest/v1/salespersons/delete.json
 ```
 

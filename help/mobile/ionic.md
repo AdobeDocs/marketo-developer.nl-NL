@@ -3,10 +3,10 @@ title: '[!DNL Ionic]'
 feature: Mobile Marketing
 description: Stapsgewijze handleiding om de Marketo Cordova-insteekmodule te integreren met Ionic, pushmeldingen in te schakelen, SDK te initialiseren, sessies bij te houden en leads te koppelen.
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '620'
-ht-degree: 0%
+source-wordcount: '663'
+ht-degree: 1%
 
 ---
 
@@ -16,9 +16,9 @@ In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integre
 
 ## Vereisten
 
-1. [&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
-1. Push van de opstelling Meldingen ([&#x200B; iOS &#x200B;](push-notifications.md) | [&#x200B; Android &#x200B;](push-notifications.md)).
-1. Installeer [[!DNL Ionic] &#x200B;](https://ionicframework.com/getting-started/) &amp; [&#x200B; Cordova CLI &#x200B;](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+1. De Push van de opstelling Meldingen ([ iOS ](push-notifications.md) | [ Android ](push-notifications.md)).
+1. Installeer [[!DNL Ionic] ](https://ionicframework.com/getting-started/) &amp; [ Cordova CLI ](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installatie-instructies
 
@@ -44,7 +44,7 @@ In dit onderwerp wordt beschreven hoe u de insteekmodule Marketo Cordova integre
 
 ### Enable Push Notifications in xCode
 
-1. Schakel de functie voor pushmeldingen in in het xCode-project.![&#x200B; Capability van het Bericht &#x200B;](assets/notification-capability.png)
+1. Schakel de functie voor pushmeldingen in in het xCode-project.![ Capability van het Bericht ](assets/notification-capability.png)
 
 ### Pushmeldingen bijhouden
 
@@ -54,7 +54,7 @@ Plak de volgende code in de functie `application:didFinishLaunchingWithOptions:`
 
 >[!TAB  Doelstelling C ]
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 [sharedInstance trackPushNotification:launchOptions];
@@ -62,7 +62,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 >[!TAB  Swift ]
 
-```
+```swift
 let sharedInstance: Marketo = Marketo.sharedInstance()
 
 sharedInstance.trackPushNotfication(launchOptions)
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Callback met succes: functie die moet worden uitgevoerd als de Marketo-pushmelding correct is geïnitialiseerd.
 - Callback van mislukking: functie uit te voeren als de pushmelding van Marketo niet kan worden geïnitialiseerd.
-- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [&#x200B; wordt gevonden de Console van Ontwikkelaars van Google &#x200B;](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) na het creëren van app.
+- GCM_PROJECT_ID: identiteitskaart van het Project GCM die in [ wordt gevonden de Console van Ontwikkelaars van Google ](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) na het creëren van app.
 
 Het token kan ook bij afmelden niet worden geregistreerd.
 

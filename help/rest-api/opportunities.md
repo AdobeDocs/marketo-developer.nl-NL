@@ -3,26 +3,26 @@ title: Kansen
 feature: REST API
 description: Marketo REST API voor het beschrijven, vragen, creëren en bijwerken van mogelijkheden, dedupliceren en doorzoekbare velden, limieten en alleen-lezen gedrag met SFDC of Dynamics sync.
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '803'
+source-wordcount: '879'
 ht-degree: 0%
 
 ---
 
 # Kansen
 
-[&#x200B; Verwijzing van het Eindpunt van de Opportunity &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities)
+[Opportunity Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities)
 
 Marketo stelt API&#39;s beschikbaar voor het lezen, schrijven, maken en bijwerken van opportuniteitsrecords. In Marketo zijn opportuniteitsrecords gekoppeld aan hoofd- en contactrecords via het tussentijdse object Opportunity Role. Een opportuniteit kan dus aan vele individuele leads worden gekoppeld.  Beide objecttypen worden via de API beschikbaar gemaakt en hebben, net als de meeste objecttypen voor databases met leads, beide een bijbehorende beschrijvingsaanroep, die metagegevens over de objecttypen retourneert.
 
-De kans APIs is read-only toegang voor abonnementen die [&#x200B; de Synchronisatie van SFDC &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=nl-NL) of [&#x200B; Synchronisatie van Microsoft Dynamics &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=nl-NL) hebben wordt toegelaten.
+De kans APIs is read-only toegang voor abonnementen die [ de Synchronisatie van SFDC ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) of [ Synchronisatie van Microsoft Dynamics ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) hebben wordt toegelaten.
 
 ## Beschrijven
 
 Bij het beschrijven van opportunityrecords wordt het standaardpatroon voor databaseobjecten voor leads gevolgd.
 
-```
+```http
 GET /rest/v1/opportunities/describe.json
 ```
 
@@ -85,9 +85,9 @@ De belangrijkste velden voor dit type reactie zijn `idField` , `dedupeFields` en
 
 ## Query
 
-Het patroon voor [&#x200B; het vragen van kansen &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) volgt dicht dat van lood API met de toegevoegde beperking die de `filterType` parameter de gebieden goedkeurt die in de `searchableFields` serie of van het overeenkomstige worden vermeld beschrijft vraag, of dedupeFields.  Als u aangepaste opportuniteitsvelden gebruikt, worden alleen aangepaste opportuniteitsvelden van het type String of Integer vermeld in een doorzoekbareFields-array.
+Het patroon voor [ het vragen van kansen ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) volgt dicht dat van lood API met de toegevoegde beperking die de `filterType` parameter de gebieden goedkeurt die in de `searchableFields` serie of van het overeenkomstige worden vermeld beschrijft vraag, of dedupeFields.  Als u aangepaste opportuniteitsvelden gebruikt, worden alleen aangepaste opportuniteitsvelden van het type String of Integer vermeld in een doorzoekbareFields-array.
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -128,7 +128,7 @@ De parameter `lookupField` van de API voor leads is niet beschikbaar en wordt ve
 
 U kunt maximaal 300 records tegelijk verzenden.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -188,9 +188,9 @@ Velden met zoekmogelijkheden zijn eenvoudig.  U kunt één enkel bedrijfgebied 
 
 #### Op naam
 
-Het [&#x200B; krijgt Gebied van de Opportunity door het 1&rbrace; eindpunt van de Naam &lbrace;wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
+Het [ krijgt Gebied van de Opportunity door het 1} eindpunt van de Naam {wint meta-gegevens voor één enkel gebied op het bedrijfvoorwerp terug.](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)  De vereiste `fieldApiName` padparameter geeft de API-naam van het veld op.  De reactie is als het beschrijf eindpunt van de Kans maar bevat extra meta-gegevens zoals het `isCustom` attribuut dat erop wijst of het gebied een douanegebied is.
 
-```
+```http
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 ```
 
@@ -217,9 +217,9 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Bladeren
 
-Het [&#x200B; krijgt de Gebieden van de Opportunity &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) eindpunt wint meta-gegevens voor alle gebieden op het bedrijfvoorwerp terug.  Standaard worden maximaal 300 records geretourneerd.  U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen.  Als het kenmerk `moreResult` true is, zijn er meer resultaten beschikbaar.  Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn.  De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
+Het [ krijgt de Gebieden van de Opportunity ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) eindpunt wint meta-gegevens voor alle gebieden op het bedrijfvoorwerp terug.  Standaard worden maximaal 300 records geretourneerd.  U kunt de query-parameter `batchSize` gebruiken om dit aantal te verlagen.  Als het kenmerk `moreResult` true is, zijn er meer resultaten beschikbaar.  Ga door met het aanroepen van dit eindpunt tot de eigenschap moreResult false retourneert, wat betekent dat er geen resultaten beschikbaar zijn.  De `nextPageToken` die door deze API wordt geretourneerd, moet altijd opnieuw worden gebruikt voor de volgende herhaling van deze aanroep.
 
-```
+```http
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 ```
 
@@ -298,7 +298,7 @@ GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 
 U kunt mogelijkheden verwijderen door velden of id-velden te dedupliceren. Geef aan met behulp van de parameter `deleteBy` de waarde dedupeFields of idField. Als deze optie niet is opgegeven, wordt standaard dedupeFields gebruikt. De aanvraaginstantie bevat een `input` -array met mogelijkheden om te verwijderen. Een maximum van 300 kansen per vraag wordt toegestaan.
 
-```
+```http
 POST /rest/v1/opportunities/delete.json
 ```
 

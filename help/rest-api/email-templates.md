@@ -3,26 +3,26 @@ title: E-mailsjablonen
 feature: REST API
 description: Leer hoe u Marketo REST API-e-mailsjablonen maakt en beheert, waaronder HTML-vereisten, zoeken op id of naam en bladeren door mappen
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '585'
+source-wordcount: '725'
 ht-degree: 0%
 
 ---
 
 # E-mailsjablonen
 
-[&#x200B; Verwijzing van het Eindpunt van het Malplaatje E-mail &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[Referentie voor eindpunt e-mailsjabloon](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-E-mailsjablonen vormen de basis voor elke nieuwe e-mail in Marketo.  E-mailberichten kunnen van sjablonen worden losgekoppeld via HTML-vervanging, maar e-mails moeten eerst met een sjabloon worden gemaakt als basis.  Sjablonen worden in Marketo gemaakt als pure HTML-documenten met metagegevens, zoals namen en beschrijvingen.  Er zijn weinig beperkingen op inhoud, maar HTML van het malplaatje moet geldig zijn, en moet minstens één editable sectie bevatten, die de hier geschetste vereisten [&#x200B; volgt &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-mailsjablonen vormen de basis voor elke nieuwe e-mail in Marketo.  E-mailberichten kunnen van sjablonen worden losgekoppeld via HTML-vervanging, maar e-mails moeten eerst met een sjabloon worden gemaakt als basis.  Sjablonen worden in Marketo gemaakt als pure HTML-documenten met metagegevens, zoals namen en beschrijvingen.  Er zijn weinig beperkingen op inhoud, maar HTML van het malplaatje moet geldig zijn, en moet minstens één editable sectie bevatten, die de hier geschetste vereisten [ volgt ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Query
 
-Het vragen van e-mailmalplaatjes volgt het standaardpatroon voor activa, die voor vragen [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET) toestaan, [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET) en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET) een bepaalde omslag.
+Het vragen van e-mailmalplaatjes volgt het standaardpatroon voor activa, die voor vragen [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET) toestaan, [ door naam ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET) en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET) een bepaalde omslag.
 
 ### Op id
 
-```
+```http
 GET /rest/asset/v1/emailTemplate/{id}.json
 ```
 
@@ -52,7 +52,7 @@ GET /rest/asset/v1/emailTemplate/{id}.json
 
 #### Op naam
 
-```
+```http
 GET /rest/asset/v1/emailTemplate/byName.json?name=Test Template
 ```
 
@@ -82,7 +82,7 @@ GET /rest/asset/v1/emailTemplate/byName.json?name=Test Template
 
 #### Bladeren
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json
 ```
 
@@ -192,15 +192,15 @@ Als u de record zelf opvraagt, worden alleen metagegevens over de record geretou
 
 ## Maken en bijwerken
 
-[&#x200B; Creërend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) of [&#x200B; het bijwerken &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) een malplaatje is vrij ongecompliceerd. De inhoud van elke sjabloon wordt opgeslagen als een HTML-document en moet worden doorgegeven naar Marketo met behulp van een POST-gegevenstype voor meerdere delen/formulieren. U moet de aangewezen inhoud-Type kopbal overgaan die een grens zoals die in RFCs voor [&#x200B; wordt beschreven multipart &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) en [&#x200B; multipart/form-data &#x200B;](https://www.ietf.org/rfc/rfc2388.txt) omvat.
+[ Creërend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) of [ het bijwerken ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) een malplaatje is vrij ongecompliceerd. De inhoud van elke sjabloon wordt opgeslagen als een HTML-document en moet worden doorgegeven naar Marketo met behulp van een POST-gegevenstype voor meerdere delen/formulieren. U moet de aangewezen inhoud-Type kopbal overgaan die een grens zoals die in RFCs voor [ wordt beschreven multipart ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) en [ multipart/form-data ](https://www.ietf.org/rfc/rfc2388.txt) omvat.
 
 Voor het maken van een sjabloon moeten er drie parameters worden opgenomen: naam, map, inhoud. Een optionele beschrijvingsparameter kan worden opgenomen.  Het HTML-document wordt doorgegeven in de inhoudsparameter, die ook de conventionele bestandsnaamparameter moet opnemen als onderdeel van de header Content-Disposition.
 
-```
+```http
 POST /rest/asset/v1/emailTemplates.json
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=mktoBoundary1480963323998
 ```
 
@@ -257,13 +257,13 @@ Create email template using API
 }
 ```
 
-Het bijwerken van inhoud wordt gedaan gebruikend a [&#x200B; afzonderlijk eindpunt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) dat identiteitskaart van het E-mailmalplaatje vereist. Dit eindpunt staat slechts de voorlegging van de inhoudsparameter in het lichaam toe. Wanneer een update wordt uitgevoerd, vervangt wat in de inhoudsparameter wordt doorgegeven de bestaande inhoud van de e-mail in een nieuw concept volledig als een goedgekeurde versie wordt bijgewerkt, of vervangt het huidige concept als het element zich in een concept-enige staat bevindt.
+Het bijwerken van inhoud wordt gedaan gebruikend a [ afzonderlijk eindpunt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) dat identiteitskaart van het E-mailmalplaatje vereist. Dit eindpunt staat slechts de voorlegging van de inhoudsparameter in het lichaam toe. Wanneer een update wordt uitgevoerd, vervangt wat in de inhoudsparameter wordt doorgegeven de bestaande inhoud van de e-mail in een nieuw concept volledig als een goedgekeurde versie wordt bijgewerkt, of vervangt het huidige concept als het element zich in een concept-enige staat bevindt.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/content.json
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=mktoBoundaryEiJFFFPFKK2WovsT
 ```
 
@@ -299,17 +299,17 @@ Content-Type: text/html
 
 ## Metagegevens bijwerken
 
-Om [&#x200B; de meta-gegevens van een malplaatje &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), naam en beschrijving bij te werken, kunt u het zelfde eindpunt gebruiken zoals om inhoud bij te werken, maar een toepassing/x-www-url-formencoded POST in plaats daarvan, met de naam en beschrijvingsparameters over te gaan.
+Om [ de meta-gegevens van een malplaatje ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), naam en beschrijving bij te werken, kunt u het zelfde eindpunt gebruiken zoals om inhoud bij te werken, maar een toepassing/x-www-url-formencoded POST in plaats daarvan, met de naam en beschrijvingsparameters over te gaan.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=Updated description&name=New Name
 ```
 
@@ -345,7 +345,7 @@ E-mailsjablonen volgen het standaardpatroon voor de goedkeuring van elementrecor
 
 Wanneer het roepen van het goedkeuringseindpunt, zal e-mail tegen de regels voor e-mails van Marketo worden bevestigd. De naam van het formulier, van het e-mailbericht, het antwoord op de e-mail en het onderwerp moeten worden ingevuld voordat het e-mailbericht kan worden goedgekeurd.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -377,7 +377,7 @@ POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 
 Het goedkeurende eindpunt kan slechts op goedgekeurde malplaatjes worden gebruikt.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/unapprove.json
 ```
 
@@ -409,7 +409,7 @@ POST /rest/asset/v1/emailTemplate/{id}/unapprove.json
 
 De conceptversie van de sjabloon wordt gemaakt nadat een goedgekeurde e-mail is bijgewerkt.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -439,7 +439,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 ### Verwijderen
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/delete.json
 ```
 
@@ -459,17 +459,17 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 ## Klonen
 
-Marketo verstrekt een eenvoudige methode voor [&#x200B; het klonen van een E-mailMalplaatje &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). In tegenstelling tot het maken, wordt dit type aanvraag gedaan met een POST met toepassingscode/x-www-url-formencodering en heeft deze twee vereiste parameters, naam en map, een ingesloten JSON-object met id en type.  Beschrijving is ook een optionele parameter.
+Marketo verstrekt een eenvoudige methode voor [ het klonen van een E-mailMalplaatje ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). In tegenstelling tot het maken, wordt dit type aanvraag gedaan met een POST met toepassingscode/x-www-url-formencodering en heeft deze twee vereiste parameters, naam en map, een ingesloten JSON-object met id en type.  Beschrijving is ook een optionele parameter.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=This is a sample template
 ```
 
@@ -501,11 +501,11 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Query-e-mailafhankelijkheden
 
-Gebruik [&#x200B; krijgt E-mailMalplaatje dat door &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) wordt gebruikt eindpunt om een lijst van e-mails terug te winnen die van een bepaald e-mailmalplaatje afhangen.  De padparameter `id` geeft de bovenliggende e-mailsjabloon op.
+Gebruik [ krijgt E-mailMalplaatje dat door ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) wordt gebruikt eindpunt om een lijst van e-mails terug te winnen die van een bepaald e-mailmalplaatje afhangen.  De padparameter `id` geeft de bovenliggende e-mailsjabloon op.
 
 Er zijn twee optionele parameters. `maxReturn`  is een geheel getal dat het aantal resultaten beperkt (de standaardwaarde is 20, de maximale waarde is 200) en `offset` is een geheel getal dat met `maxReturn` kan worden gebruikt om door grote resultaatsets te lezen (de standaardwaarde is 0).
 
-```
+```http
 GET /rest/asset/v1/emailTemplates/{id}/usedBy.json
 ```
 
