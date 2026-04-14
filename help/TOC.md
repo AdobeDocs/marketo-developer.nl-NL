@@ -34,7 +34,7 @@ ht-degree: 4%
    - [Triggers](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobiel {#mobile}
-   - [ [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
+   - [&#x200B; [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension.md)
    - [Geavanceerde beveiligingsmodus](mobile/advanced-security-access-mode.md)
    - [Aangepaste handelingen](mobile/custom-actions.md)

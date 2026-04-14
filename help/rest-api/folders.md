@@ -18,7 +18,7 @@ Mappen vormen het kernelement van de organisatie in Marketo en elk ander type el
 
 ## Query
 
-Het vragen van omslagen volgt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET), en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
+Het vragen van omslagen volgt de standaardvraagtypes voor activa van [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET), en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
 
 ### Op id
 
@@ -70,7 +70,7 @@ De parameter type is vereist en moet een map of programma zijn.  Het type dicte
 
 ### Op naam
 
-[ het Vragen door naam ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) wordt ook toegestaan. De vraag door naameindpunt heeft naam als enige vereiste parameter. De naam voert een nauwkeurige koordgelijke tegen het naamgebied van omslagen in de instantie uit, en keert resultaten voor elke omslag terug die die naam aanpassen. Het heeft ook de facultatieve vraagparameters van &quot;type&quot;die Omslag of Programma kunnen zijn, &quot;wortel&quot;identiteitskaart van de omslag om te zoeken door, of &quot;werkruimte&quot;de naam van de werkruimte om binnen te zoeken. Als de hoofdparameter is ingesteld, moet de parameter type ook worden ingesteld.
+[&#x200B; het Vragen door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) wordt ook toegestaan. De vraag door naameindpunt heeft naam als enige vereiste parameter. De naam voert een nauwkeurige koordgelijke tegen het naamgebied van omslagen in de instantie uit, en keert resultaten voor elke omslag terug die die naam aanpassen. Het heeft ook de facultatieve vraagparameters van &quot;type&quot;die Omslag of Programma kunnen zijn, &quot;wortel&quot;identiteitskaart van de omslag om te zoeken door, of &quot;werkruimte&quot;de naam van de werkruimte om binnen te zoeken. Als de hoofdparameter is ingesteld, moet de parameter type ook worden ingesteld.
 
 ```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -113,12 +113,12 @@ Wanneer het zoeken door naam, is het belangrijk om op te merken dat zowel de Act
 
 ### Bladeren
 
-De omslagen kunnen ook [ worden teruggewonnen in bulk ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). De &quot;wortel&quot;parameter kan worden gebruikt om de ouderomslag te specificeren waaronder de vraag zal worden uitgevoerd en geformatteerd als voorwerp JSON ingebed als waarde voor de vraagparameter. Hoofdmap heeft twee leden:
+De omslagen kunnen ook [&#x200B; worden teruggewonnen in bulk &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). De &quot;wortel&quot;parameter kan worden gebruikt om de ouderomslag te specificeren waaronder de vraag zal worden uitgevoerd en geformatteerd als voorwerp JSON ingebed als waarde voor de vraagparameter. Hoofdmap heeft twee leden:
 
 1. id - De id van de map of het programma.
 1. type - Map of Programma, afhankelijk van het type hoofdmap voor de browser.
 
-Als de wortelomslag niet gekend is, of de bedoeling is alle omslagen in een bepaald gebied terug te winnen, kan de wortel als &quot;de Activiteiten van de Marketing&quot;, &quot;de Studio van het Ontwerp&quot;, of de gebieden van het Gegevensbestand van de Lood worden gespecificeerd. ids voor elk van deze kan door [ worden teruggewonnen krijgt Omslag door Naam ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) API, en het specificeren van de naam van het gewenste gebied.
+Als de wortelomslag niet gekend is, of de bedoeling is alle omslagen in een bepaald gebied terug te winnen, kan de wortel als &quot;de Activiteiten van de Marketing&quot;, &quot;de Studio van het Ontwerp&quot;, of de gebieden van het Gegevensbestand van de Lood worden gespecificeerd. ids voor elk van deze kan door [&#x200B; worden teruggewonnen krijgt Omslag door Naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) API, en het specificeren van de naam van het gewenste gebied.
 
 Net als andere eindpunten voor het ophalen van bulkmiddelen, zijn offset en maxReturn optionele parameters voor pagineren.   Andere optionele parameters zijn:
 
@@ -211,7 +211,7 @@ Het pad van een map toont de hiërarchie in de mapstructuur, net als bij een Uni
 
 ## Maken en bijwerken
 
-[ Creërend omslagen ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) is eenvoudig en met een toepassing/x-www-vorm-urlencoded POST uitgevoerd die twee vereiste parameters, &quot;naam,&quot;een koord, en &quot;ouder,&quot;de ouder heeft om de omslag in tot stand te brengen, die een ingebed voorwerp JSON met twee leden, identiteitskaart, en type, of Omslag of Programma, afhankelijk van het type van de doelomslag is. Optioneel kan &quot;description&quot; (een tekenreeks) ook worden opgenomen en maximaal 2000 tekens bevatten.
+[&#x200B; Creërend omslagen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) is eenvoudig en met een toepassing/x-www-vorm-urlencoded POST uitgevoerd die twee vereiste parameters, &quot;naam,&quot;een koord, en &quot;ouder,&quot;de ouder heeft om de omslag in tot stand te brengen, die een ingebed voorwerp JSON met twee leden, identiteitskaart, en type, of Omslag of Programma, afhankelijk van het type van de doelomslag is. Optioneel kan &quot;description&quot; (een tekenreeks) ook worden opgenomen en maximaal 2000 tekens bevatten.
 
 ```http
 POST /rest/asset/v1/folders.json

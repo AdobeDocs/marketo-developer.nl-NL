@@ -18,11 +18,11 @@ Landing Page Templates is een bovenliggende bron en afhankelijkheid voor afzonde
 
 ## Sjabloontypen
 
-Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Voor meer informatie over de verschillen, zie [ dit document ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo heeft twee typen Landing Page Templates, gratis en met instructies. Sjablonen voor openstaande landingspagina&#39;s bieden een los gestructureerde bewerkingservaring voor pagina&#39;s die van deze sjablonen zijn afgeleid. Geleide sjablonen bieden een ervaring met een hoge structuur, waarbij elementtypen en -locaties op sjabloonniveau kunnen worden beperkt. Voor meer informatie over de verschillen, zie [&#x200B; dit document &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Query
 
-Het landen van de Malplaatjes van de Pagina steunt de standaardvraagtypes voor activa van [ door identiteitskaart ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [ door naam ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), en [ doorbladerend ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Deze eindpunten retourneren metagegevens voor de sjablonen. Het ophalen van de HTML-inhoud van sjablonen moet per template gebeuren via de bijbehorende id.
+Het landen van de Malplaatjes van de Pagina steunt de standaardvraagtypes voor activa van [&#x200B; door identiteitskaart &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [&#x200B; door naam &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), en [&#x200B; doorbladerend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Deze eindpunten retourneren metagegevens voor de sjablonen. Het ophalen van de HTML-inhoud van sjablonen moet per template gebeuren via de bijbehorende id.
 
 ## Maken en bijwerken
 
@@ -66,11 +66,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-De inhoud voor het malplaatje moet afzonderlijk via het [ Update Landing de Inhoud van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) eindpunt worden bevolkt.
+De inhoud voor het malplaatje moet afzonderlijk via het [&#x200B; Update Landing de Inhoud van het Malplaatje van de Pagina &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) eindpunt worden bevolkt.
 
 ### Metagegevens bijwerken
 
-Metagegevens voor het landen van paginasjablonen kunnen via het [ Update Landing Metadata van het Malplaatje van de Pagina ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) eindpunt worden bijgewerkt. De naam, beschrijving en de instelling enableMunchkin kunnen op deze manier worden bijgewerkt.
+Metagegevens voor het landen van paginasjablonen kunnen via het [&#x200B; Update Landing Metadata van het Malplaatje van de Pagina &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) eindpunt worden bijgewerkt. De naam, beschrijving en de instelling enableMunchkin kunnen op deze manier worden bijgewerkt.
 
 ### Inhoud bijwerken
 

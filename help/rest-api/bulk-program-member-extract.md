@@ -22,7 +22,7 @@ De Bulk APIs van het Lid van het Programma Extraheren vereist dat de het bezitte
 
 ## Beschrijven
 
-[ beschrijf het Lid van het Programma ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) is de primaire bron van waarheid voor of de gebieden voor gebruik, en meta-gegevens over die gebieden beschikbaar zijn. Het attribuut `name` bevat de REST API-naam.
+[&#x200B; beschrijf het Lid van het Programma &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) is de primaire bron van waarheid voor of de gebieden voor gebruik, en meta-gegevens over die gebieden beschikbaar zijn. Het attribuut `name` bevat de REST API-naam.
 
 ```http
 GET /rest/v1/programs/members/describe.json
@@ -249,7 +249,7 @@ Programmaleden ondersteunen verschillende filteropties. Er kunnen meerdere filte
     <tr>
       <td>statusNames</td>
       <td>Array[String]</td>
-      <td>Accepteert een array van statusnamen van programmaleden. Meerdere statusnamen zijn ORed samen.Taken met dit filtertype retourneren alle toegankelijke records waarvan de status van het programmalid overeenkomt met een van de opgegeven statusnamen. U kunt zowel standaardnamen als door de gebruiker gedefinieerde statusnamen gebruiken.Als het filter statusNames met ` programIds' filter wordt gebruikt, dan wordt elk programma gecontroleerd lidmaatschapsverslagen waarvan status om het even welke statusnamen aanpast. Als een statusnaam niet wordt gevonden in een van de programma's, wordt de fout "1003, Ongeldige gegevens" geretourneerd.
+      <td>Accepteert een array van statusnamen van programmaleden. Meerdere statusnamen zijn ORed samen.Taken met dit filtertype retourneren alle toegankelijke records waarvan de status van het programmalid overeenkomt met een van de opgegeven statusnamen. U kunt zowel standaardnamen als door de gebruiker gedefinieerde statusnamen gebruiken.Als het filter statusNames met &grave; programIds' filter wordt gebruikt, dan wordt elk programma gecontroleerd lidmaatschapsverslagen waarvan status om het even welke statusnamen aanpast. Als een statusnaam niet wordt gevonden in een van de programma's, wordt de fout "1003, Ongeldige gegevens" geretourneerd.
         <table>
           <tbody>
             <tr>
@@ -326,7 +326,7 @@ Het eindpunt van de Taak van het Lid van het Programma van de Uitvoer leidt vers
 
 ## Een taak maken
 
-De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [ creeer het eindpunt van de Taak van het Lid van het Programma van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST). We moeten definiëren welke `filter` de programma-id bevat en welke `fields` nodig is voor het exporteren. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
+De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [&#x200B; creeer het eindpunt van de Taak van het Lid van het Programma van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST). We moeten definiëren welke `filter` de programma-id bevat en welke `fields` nodig is voor het exporteren. Desgewenst kunnen de `format` van het bestand en de `columnHeaderNames` worden gedefinieerd.
 
 ```http
 POST /bulk/v1/program/members/export/create.json
@@ -370,7 +370,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) eindpunt van de Taak van het Lid van het Programma van de Enqueue [ {worden geroepen gebruikend `exportId` van de reactie van de aanmaakstatus:
+Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) eindpunt van de Taak van het Lid van het Programma van de Enqueue  &lbrace;worden geroepen gebruikend `exportId` van de reactie van de aanmaakstatus:
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -398,7 +398,7 @@ Dit zal met een aanvankelijke `status` van &quot;In de rij&quot;antwoorden waarn
 
 Opmerking: de status kan alleen worden opgehaald voor taken die door dezelfde API-gebruiker zijn gemaakt.
 
-Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling die het [ gebruiken krijgt de Status van de Taak van het Lid van het Programma van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Het statusveld kan reageren met elk van de volgende opties: Gemaakt, In wachtrij geplaatst, Verwerken, Geannuleerd, Voltooid, Mislukt.
+Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling die het [&#x200B; gebruiken krijgt de Status van de Taak van het Lid van het Programma van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Het statusveld kan reageren met elk van de volgende opties: Gemaakt, In wachtrij geplaatst, Verwerken, Geannuleerd, Voltooid, Mislukt.
 
 ```http
 GET /bulk/v1/program/members/export/{exportId}/status.json
@@ -446,7 +446,7 @@ Het statuseindpunt antwoordt erop wijzend dat de baan nog verwerkt, zodat is het
 
 ## Uw gegevens ophalen
 
-Om het dossier van een voltooide uitvoer van het programmalid terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van het Lid van het Programma van de Uitvoer met uw `exportId`.](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)
+Om het dossier van een voltooide uitvoer van het programmalid terug te winnen, roep eenvoudig het [&#x200B; krijgen het 1&rbrace; eindpunt van het Dossier van het Lid van het Programma van de Uitvoer met uw `exportId`.](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)
 
 De reactie bevat een bestand dat is opgemaakt op de manier waarop de taak is geconfigureerd. Het eindpunt antwoordt met de inhoud van het dossier. Als een gevraagd veld voor een programmalid leeg is (geen gegevens bevat), wordt `null` in het corresponderende veld in het exportbestand geplaatst.
 
@@ -470,11 +470,11 @@ Jory,Cassel,jcas@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1799,f
 Septa,Mordane,smor@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1800,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
 ```
 
-Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. U kunt meer lezen over het gebruiken van de kopbal van de Waaier met Marketo [ Bulk Extraheert ](bulk-extract.md).
+Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. U kunt meer lezen over het gebruiken van de kopbal van de Waaier met Marketo [&#x200B; Bulk Extraheert &#x200B;](bulk-extract.md).
 
 ## Een taak annuleren
 
-Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [ annuleert het eindpunt van de Taak van het Lid van het Programma van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST):
+Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [&#x200B; annuleert het eindpunt van de Taak van het Lid van het Programma van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST):
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/cancel.json

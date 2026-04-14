@@ -27,7 +27,7 @@ Elke afzonderlijke webhaak heeft de volgende eigenschappen:
 - [!UICONTROL Response Type] - selecteer het formaat van de reactie die u van de dienst (JSON of XML) ontvangt. Het juiste reactietype moet zijn geselecteerd om de eigenschappen van het antwoord weer toe te wijzen aan loodvelden in Marketo
 - [!UICONTROL Custom Headers] - Via [!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header] kan met dit menu een willekeurig aantal aangepaste sleutel-waardeparen worden toegevoegd als HTTP-headers.
 
-De gegevens kunnen terug naar lood van Web-dienst reacties worden geschreven door [ Toewijzingen van de Reactie te gebruiken ](response-mappings.md)
+De gegevens kunnen terug naar lood van Web-dienst reacties worden geschreven door [&#x200B; Toewijzingen van de Reactie te gebruiken &#x200B;](response-mappings.md)
 
 ## Tokens
 
@@ -43,7 +43,7 @@ Een algemeen geval voor dit is wanneer een Programma of een Campagne uitdrukkeli
 
 Met webhooks kan het gebruik van een willekeurig aantal aangepaste koptekstvelden samen met de uitgaande aanvraag worden verzonden. Deze kunnen worden toegevoegd via **[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]** . Elke kopbal wordt geregistreerd als eenvoudig zeer belangrijk-waardepaar. Tokens kunnen in dit gebied worden gebruikt.
 
-![ Kopballen van de Douane ](assets/custom-headers.png)
+![&#x200B; Kopballen van de Douane &#x200B;](assets/custom-headers.png)
 
 ## Tips
 

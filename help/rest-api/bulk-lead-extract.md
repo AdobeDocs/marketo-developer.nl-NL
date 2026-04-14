@@ -47,7 +47,7 @@ Het eindpunt van de Taak van de Lood van de Uitvoer van de Create verstrekt vers
 
 ## Een taak maken
 
-De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [ creeer het eindpunt van de Baan van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST). We moeten definiëren welke `fields` nodig is voor het exporteren, het type parameters van `filter` , de `format` van het bestand en de namen van kolomkoppen, indien van toepassing.
+De parameters voor de baan worden bepaald alvorens de uitvoer te schoppen gebruikend [&#x200B; creeer het eindpunt van de Baan van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST). We moeten definiëren welke `fields` nodig is voor het exporteren, het type parameters van `filter` , de `format` van het bestand en de namen van kolomkoppen, indien van toepassing.
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -95,7 +95,7 @@ Met dit verzoek wordt een reeks leads geëxporteerd die zijn gemaakt tussen 1 ja
 }
 ```
 
-Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) eindpunt van de Baan van de Uitvoer van 0} Enqueue het Lood van de Lijn worden geroepen gebruikend exportId van de reactie van de aanmaakstatus:[
+Dit retourneert een statusreactie die aangeeft dat de taak is gemaakt. De taak is gedefinieerd en gemaakt, maar is nog niet uitgeschakeld. Om dit te doen, moet het [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) eindpunt van de Baan van de Uitvoer van 0&rbrace; Enqueue het Lood van de Lijn worden geroepen gebruikend exportId van de reactie van de aanmaakstatus:
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -123,7 +123,7 @@ Dit reageert met een `status` van &quot;In wachtrij&quot; waarna deze wordt inge
 
 `Note:` De status kan alleen worden opgehaald voor taken die door dezelfde API-gebruiker zijn gemaakt.
 
-Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling die [ gebruikt krijgt de Status van de Taak van de Lood van de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Laten we even kijken naar de opiniepeiling.
+Aangezien dit een asynchroon eindpunt is, moeten wij na het creëren van de baan zijn status onderzoeken om zijn vooruitgang te bepalen. Opiniepeiling die [&#x200B; gebruikt krijgt de Status van de Taak van de Lood van de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) eindpunt. De status wordt slechts eenmaal om de 60 seconden bijgewerkt, dus een lagere stemfrequentie dan dit wordt aanbevolen, en in bijna alle gevallen is dit nog steeds buitensporig. Laten we even kijken naar de opiniepeiling.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -158,7 +158,7 @@ Het statusveld kan reageren op:
 
 ## Uw gegevens ophalen
 
-Om het dossier van een voltooide looduitvoer terug te winnen, roep eenvoudig het [ krijgen het 1} eindpunt van het Dossier van de Lood van de Uitvoer {met uw `exportId`.](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET)
+Om het dossier van een voltooide looduitvoer terug te winnen, roep eenvoudig het [&#x200B; krijgen het 1&rbrace; eindpunt van het Dossier van de Lood van de Uitvoer &lbrace;met uw `exportId`.](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET)
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -173,11 +173,11 @@ firstName,lastName,email,cookies
 Russell,Wilson,null,_mch-localhost-1536605780000-12105
 ```
 
-Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Lees meer over het gebruiken van de kopbal van de Waaier met Marketo [ Bulk Extraheren ](bulk-extract.md).
+Om gedeeltelijke en hervattingsvriendelijke herwinning van gehaalde gegevens te steunen, steunt het dossiereindpunt naar keuze de de kopbalWaaier van HTTP van de typebytes. Als de header niet is ingesteld, wordt de gehele inhoud geretourneerd. Lees meer over het gebruiken van de kopbal van de Waaier met Marketo [&#x200B; Bulk Extraheren &#x200B;](bulk-extract.md).
 
 ## Een taak annuleren
 
-Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [ annuleert de Uitvoer ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) eindpunt van de Lood van de Uitvoer:
+Als een baan verkeerd werd gevormd, of onnodig wordt, kan het gemakkelijk worden geannuleerd gebruikend het [&#x200B; annuleert de Uitvoer &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) eindpunt van de Lood van de Uitvoer:
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
