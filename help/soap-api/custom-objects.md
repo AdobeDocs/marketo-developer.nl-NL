@@ -3,9 +3,9 @@ title: Aangepaste objecten
 feature: SOAP
 description: Leer hoe Marketo Custom Objects één koppeling leidt tot vele records, met structuur, beperkingen en SOAP API-aanroepen voor get, sync, delete, en Smart List- en e-mailgebruik.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '256'
+source-wordcount: '286'
 ht-degree: 0%
 
 ---
@@ -36,6 +36,6 @@ Aangepaste objecten bestaan uit:
 
 De volgende oproepen kunnen worden gebruikt om met CO&#39;s in wisselwerking te staan.
 
-- [&#x200B; getCustomObjects &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
-- [&#x200B; syncCustomObjects &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
-- [&#x200B; deleteCustomObjects &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)
+- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
+- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
+- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)

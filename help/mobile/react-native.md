@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Installeer en stel de Marketo SDK in React Native-toepassingen in met de stappen Android Gradle en iOS CocoaPods, de native module bridging, push en lead association.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '854'
+source-wordcount: '857'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ In dit artikel vindt u informatie over het installeren en instellen van Marketo 
 
 ## Vereisten
 
-[&#x200B; voeg een toepassing in Marketo Admin &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
+[ voeg een toepassing in Marketo Admin ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) toe (verkrijg uw toepassing Geheime Sleutel en identiteitskaart van Munchkin).
 
 ## SDK-integratie
 
@@ -32,7 +32,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 **voeg mavencentcentrale bewaarplaats** toe
 
-Marketo SDK is beschikbaar op de [&#x200B; beven centrale bewaarplaats &#x200B;](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
+Marketo SDK is beschikbaar op de [ beven centrale bewaarplaats ](https://mvnrepository.com/). Als u deze bestanden wilt synchroniseren, voegt u `mavencentral` repository toe aan root `build.gradle`
 
 ```groovy
 build script {
@@ -53,7 +53,7 @@ Voordat u een bridge voor uw React Native-project maakt, is het belangrijk dat u
 
 Het is eenvoudig om iOS SDK in uw app te gebruiken. Voer de volgende stappen uit om dit in het Xcode-project van uw app in te stellen met CocoaPods, zodat u ons platform kunt integreren met uw app.
 
-De download [&#x200B; CocoaPods &#x200B;](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
+De download [ CocoaPods ](https://cocoapods.org/) - als Ruby gem wordt gedistribueerd, is het een gebiedsbeheer voor doelstelling-C en Swift die het proces om derdebibliotheken in uw code, zoals iOS SDK te gebruiken vereenvoudigt.
 
 Als u het wilt downloaden en installeren, start u een opdrachtregelterminal op uw Mac en voert u de volgende opdracht uit:
 
@@ -83,7 +83,7 @@ Als u het wilt downloaden en installeren, start u een opdrachtregelterminal op u
 
 Soms moet een React Native-app toegang krijgen tot een native platform-API die niet standaard beschikbaar is in JavaScript, bijvoorbeeld de native API&#39;s voor toegang tot Apple of Google Pay. Misschien wilt u sommige bestaande objectc-, SWIFT-, Java- of C++-bibliotheken opnieuw gebruiken zonder dat u deze opnieuw moet implementeren in JavaScript, of u wilt krachtige, multi-threaded code schrijven voor bijvoorbeeld beeldverwerking.
 
-Het NativeModule-systeem stelt instanties van Java/Objectieve C/C++ (native) klassen als JS-objecten beschikbaar voor JavaScript (JS), zodat u willekeurige native code vanuit JS kunt uitvoeren. Hoewel we niet verwachten dat deze functie deel uitmaakt van het gebruikelijke ontwikkelingsproces, is het van essentieel belang dat deze bestaat. Als React Native geen native API exporteert die uw JS-app nodig heeft, kunt u deze zelf exporteren!
+Het NativeModule-systeem stelt instanties van Java/Objectieve C/C++ (native) klassen als JS-objecten beschikbaar voor JavaScript (JS), zodat u willekeurige native code vanuit JS kunt uitvoeren. Hoewel we niet verwachten dat dit onderdeel deel uitmaakt van het normale ontwikkelingsproces, is het van essentieel belang dat het bestaat. Als React Native geen native API exporteert die uw JS-app nodig heeft, kunt u deze zelf exporteren!
 
 React Native-bridge wordt gebruikt voor communicatie tussen de JSX- en native toepassingslagen. In ons geval kan de host-app de JSX-code schrijven die de Marketo SDK-methoden kan aanroepen.
 
@@ -462,7 +462,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 De toestemmingen moeten in uw project van Xcode worden toegelaten om pushberichten naar het apparaat van de gebruiker te verzenden.
 
-Om pushberichten te verzenden, [&#x200B; voeg Push Meldingen &#x200B;](push-notifications.md) toe.
+Om pushberichten te verzenden, [ voeg Push Meldingen ](push-notifications.md) toe.
 
 Stel iOS Push-berichten in.
 Maak het bestand PushNotifications.tsx en voeg het volgende toe:

@@ -3,7 +3,7 @@ title: Pushmeldingen
 feature: Mobile Marketing
 description: Handleiding voor het inschakelen van iOS-pushberichten met Marketo, van APNs-certificaten en Xcode-instellingen tot Marketo SDK-integratie, symbolische registratie, verwerking.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1338'
 ht-degree: 0%
@@ -24,15 +24,15 @@ Er zijn drie stappen om pushmeldingen in te schakelen:
 
 ### Pushmeldingen configureren op Apple Developer Account
 
-1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [&#x200B; &#x200B;](https://developer.apple.com/membercenter).
+1. Logboek in het Centrum van het Lid van de Ontwikkelaar van Apple [ ](https://developer.apple.com/membercenter).
 1. Klik op Certificaten, id&#39;s en profielen.
 1. Klik op de map &quot;Certificates->All&quot; onder &quot;iOS, tvOS, watchOS&quot;.
 1. Selecteer &quot;+&quot; in het linkerbovenscherm naast certificaten ![](assets/certificates-plus.png)
-1. Schakel het selectievakje &quot;Apple Push Notification service SSL (Sandbox &amp; Production)&quot; in en klik op &quot;Doorgaan&quot;.
+1. Schakel het selectievakje &quot;Apple Push Notification service SSL (Sandbox &amp; Production)&quot; in en selecteer Doorgaan.
 1. Selecteer de toepassings-id die u gebruikt om de app te maken.![](assets/push-appid.png)
 1. CSR maken en uploaden om het pushcertificaat te genereren. ![](assets/push-ssl.png)
 1. Certificaat downloaden naar lokale computer en dubbelklikken om te installeren. ![](assets/certificate-download.png)
-1. Open &quot;Sleutelhangertoegang&quot;, klik op het certificaat met de rechtermuisknop aan, en voer 2 punten in het `.p12` dossier uit.![&#x200B; key_chain &#x200B;](assets/key-chain.png)
+1. Open &quot;Sleutelhangertoegang&quot;, klik op het certificaat met de rechtermuisknop aan, en voer 2 punten in het `.p12` dossier uit.![ key_chain ](assets/key-chain.png)
 1. Upload dit bestand via Marketo Admin Console om meldingen te configureren.
 1. App-inrichtingsprofielen bijwerken.
 
@@ -257,13 +257,13 @@ Pushmeldingen bijhouden
 
 Als uw app op de achtergrond wordt uitgevoerd (of niet actief is), ontvangt het apparaat een pushmelding zoals hieronder wordt weergegeven. Marketo houdt bij wanneer de gebruiker op het bericht tikt.
 
-![&#x200B; mobile8 &#x200B;](assets/mobile8.png)
+![ mobile8 ](assets/mobile8.png)
 
 Als het apparaat een pushmelding ontvangt, wordt deze doorgegeven aan `application:didReceiveRemoteNotification:` callback op uw App-gedelegeerde.
 
 Hieronder volgt een Marketo-activiteitenlogboek van Marketo waarin gebeurtenissen voor apps en pushmeldingen worden weergegeven.
 
-![&#x200B; mobile9 &#x200B;](assets/mobile9.png)
+![ mobile9 ](assets/mobile9.png)
 
 ## Pushmelding instellen op Android
 
@@ -405,7 +405,7 @@ Voeg Marketo Activity toe in manifestbestand in toepassingstag.
    ALMarketo.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Als u geen SENDER_ID hebt, dan laat de Dienst van het Overseinen van de Wolk van Google toe door de stappen te voltooien die in [&#x200B; worden gedetailleerd dit leerprogramma &#x200B;](https://developers.google.com/cloud-messaging/).
+   Als u geen SENDER_ID hebt, dan laat de Dienst van het Overseinen van de Wolk van Google toe door de stappen te voltooien die in [ worden gedetailleerd dit leerprogramma ](https://developers.google.com/cloud-messaging/).
 
    Het token kan ook niet worden geregistreerd wanneer de gebruiker zich afmeldt.
 

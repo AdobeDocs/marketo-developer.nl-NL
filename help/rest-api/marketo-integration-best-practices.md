@@ -3,9 +3,9 @@ title: Aanbevolen werkwijzen voor Marketo-integratie
 feature: REST API
 description: Aanbevolen procedures voor Marketo API-integratie met betrekking tot quota, snelheid en gelijktijdige limiet, batchverwerking, bulkimport en -export, caching en latentieplanning.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1013'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ ht-degree: 0%
 
 - Veronderstel dat uw toepassing voor quota, tarief, en gelijktijdig middelen met andere toepassingen zal concurreren, en conservatieve gebruiksgrenzen plaatst.
 - Gebruik, indien beschikbaar en van toepassing, de Marketo-methode voor bulkgoederen en batches. Gebruik alleen enkele record- of enkele resultaataanroepen wanneer dat nodig is.
-- Het gebruik [&#x200B; exponentiële backoff &#x200B;](https://en.wikipedia.org/wiki/Exponential_backoff) om API vraag opnieuw te proberen die wegens tarief of gelijktijdige grenzen ontbreekt.
+- Het gebruik [ exponentiële backoff ](https://en.wikipedia.org/wiki/Exponential_backoff) om API vraag opnieuw te proberen die wegens tarief of gelijktijdige grenzen ontbreekt.
 - Vermijd het maken van gelijktijdige API-aanroepen als uw gebruiksscenario er geen baat bij heeft.
 
 ## Batch
@@ -36,7 +36,7 @@ Om de beste prestaties voor uw integratie te verzekeren, wanneer het uitvoeren v
 
 ## Acceptabele vertraging
 
-Door uw latentietoleranties of de maximale hoeveelheid tijd te bepalen die kan worden doorgegeven voordat een API-aanroep wordt verzonden, worden veel, zo niet de meeste, op de hoogte gebracht van de beslissingen die u neemt bij het ontwerpen van uw integratie naar Marketo. Marketo biedt vele verschillende methoden en configuratieopties die geschikt zijn voor verschillende gebruiksgevallen en verschillende latentieklassen. Bijvoorbeeld, zou een integratie in real time om een verkoper op de hoogte te brengen van een gebruiker die zich voor een proef aantekent slechts partijen van één kunnen voorleggen als de directe follow-up wordt vereist. Nochtans, vereisen de meeste gevallen dit niet en kunnen extra latentie tolereren en kunnen efficiënter door het een rij vormen en het oppakken vraag worden beheerd.
+Door uw latentietoleranties of de maximale hoeveelheid tijd te bepalen die kan worden doorgegeven voordat een API-aanroep wordt verzonden, worden veel, zo niet de meeste, op de hoogte gebracht van de beslissingen die u neemt bij het ontwerpen van uw integratie naar Marketo. Marketo biedt vele verschillende methoden en configuratieopties die geschikt zijn voor verschillende gebruiksgevallen en verschillende latentieklassen. Bijvoorbeeld, zou een integratie in real time om een verkoper op de hoogte te brengen van een gebruiker die zich voor een proef aantekent slechts partijen van één kunnen voorleggen als de directe follow-up wordt vereist. Nochtans, vereisen de meeste gevallen dit niet en kunnen extra latentie tolereren en kunnen efficiënter door het een rij vormen en het in batches vraag worden beheerd.
 
 | Acceptabele vertraging | Voorkeursmethoden | Notities |
 | --- | --- | --- |
@@ -48,15 +48,15 @@ Door uw latentietoleranties of de maximale hoeveelheid tijd te bepalen die kan w
 
 Elke API-Toegelaten instantie van Marketo heeft een dagelijkse toewijzing van minstens 10.000 REST API vraag per dag, maar meer algemeen 50.000 of meer, en 500MB of meer van de capaciteit van het Extraheren van het Bulk. Hoewel extra dagelijkse capaciteit kan worden aangeschaft als onderdeel van een Marketo-abonnement, moet uw toepassingsontwerp rekening houden met de algemene limieten van Marketo-abonnementen.
 
-Aangezien de capaciteit onder alle API diensten en gebruikers in een geval wordt gedeeld, moeten de beste praktijken overtollige vraag elimineren, en aan partijverslagen in zo weinig vraag zo weinig mogelijk. De meest efficiënte manier van de vraag om verslagen in te voeren gebruikt de bulkinvoer APIs van Marketo, die voor [&#x200B; Leads/Personen &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) en [&#x200B; de Voorwerpen van de Douane &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST) beschikbaar zijn. Marketo verstrekt ook BulkExtraheren voor [&#x200B; Leads &#x200B;](bulk-lead-extract.md) en [&#x200B; Activiteiten &#x200B;](bulk-activity-extract.md).
+Aangezien de capaciteit onder alle API diensten en gebruikers in een geval wordt gedeeld, moeten de beste praktijken overtollige vraag elimineren, en aan partijverslagen in zo weinig vraag zo weinig mogelijk. De meest efficiënte manier van de vraag om verslagen in te voeren gebruikt de bulkinvoer APIs van Marketo, die voor [ Leads/Personen ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) en [ de Voorwerpen van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST) beschikbaar zijn. Marketo verstrekt ook BulkExtraheren voor [ Leads ](bulk-lead-extract.md) en [ Activiteiten ](bulk-activity-extract.md).
 
 ### Caching
 
 De resultaten van de volgende bewerkingen kunnen doorgaans een dag of langer in cache op de client worden geplaatst, omdat ze niet vaak worden gewijzigd:
 
 - Resultaten van beschrijvingsbewerkingen
-- [Activiteitstypen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Partities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Activiteitstypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [Partities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 Het in cache plaatsen van bepaalde typen middelen, zoals programma&#39;s, e-mails en mappen, is ook geschikt voor bepaalde gebruiksgevallen, zoals gegevensverrijking voor lood of activiteitenrecords.
 
@@ -72,4 +72,4 @@ De meeste gevallen van integratiegebruik hebben geen baat bij het maken van geli
 
 ## Fouten
 
-Met uitzondering van enkele zeldzame gevallen, retourneren API-aanvragen een HTTP-statuscode van 200. De bedrijfslogische fouten keren ook 200 terug, maar bevatten gedetailleerde informatie in het lichaam van de reactie. Zie [&#x200B; Codes van de Fout &#x200B;](error-codes.md) voor een gedetailleerde verklaring. De redenuitdrukking van HTTP zou niet moeten worden geëvalueerd aangezien het facultatief en onderworpen aan verandering is.
+Met uitzondering van enkele zeldzame gevallen, retourneren API-aanvragen een HTTP-statuscode van 200. De bedrijfslogische fouten keren ook 200 terug, maar bevatten gedetailleerde informatie in het lichaam van de reactie. Zie [ Codes van de Fout ](error-codes.md) voor een gedetailleerde verklaring. De redenuitdrukking van HTTP zou niet moeten worden geëvalueerd aangezien het facultatief en onderworpen aan verandering is.

@@ -3,7 +3,7 @@ title: Opportuniteitsrollen
 feature: REST API
 description: U kunt Marketo-opportuniteitsrollen beheren via REST API, zoals beschrijvingen, query's met samengestelde gededupliceerde velden, update verwijderen, time-outs en geen CRM-synchronisatie maken.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '279'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Opportuniteitsrollen
 
-[Opportunity Roles Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Opportunity Roles Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
 Leads worden gekoppeld aan mogelijkheden via het tussenliggende `opportunityRole` -object.
 

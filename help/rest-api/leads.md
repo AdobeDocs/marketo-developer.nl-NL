@@ -3,16 +3,16 @@ title: Leads
 feature: REST API
 description: Ontdek de Marketo Leads REST API-functies, zoals Beschrijving, query op id of filter, standaardvelden, limieten en het ophalen van ECID's.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '3457'
+source-wordcount: '3460'
 ht-degree: 0%
 
 ---
 
 # Leads
 
-[Referentie van eindpunt voor lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Referentie van eindpunt voor lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
 De API van Marketo Lead biedt een groot aantal mogelijkheden voor eenvoudige CRUD-toepassingen tegen leadrecords, maar ook de mogelijkheid om het lidmaatschap van een lead in statische lijsten en programma&#39;s te wijzigen en de verwerking van Smart Campagne voor leads te starten.
 
@@ -58,7 +58,7 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Normaal, omvatten de reacties een veel grotere reeks gebieden in de resultaatserie, maar wij weglaten hen voor demonstratiedoeleinden. Elk item in de resultaatarray komt overeen met een veld dat beschikbaar is in de lead record en heeft minimaal een id, een displayName en een datatype. De rest en de zeep onderliggende voorwerpen kunnen voor een bepaald gebied al dan niet aanwezig zijn, en zijn aanwezigheid zal erop wijzen of het gebied voor gebruik in of REST of SOAP APIs geldig is. De eigenschap `readOnly` geeft aan of het veld alleen-lezen is via de corresponderende API (REST of SOAP). De eigenschap length geeft de maximale lengte van het veld aan, indien aanwezig. De eigenschap dataType geeft het gegevenstype van het veld aan.
+Normaal gesproken bevatten reacties een veel grotere set velden in de resultaatarray, maar we laten ze voor demonstratiedoeleinden weg. Elk item in de resultaatarray komt overeen met een veld dat beschikbaar is in de lead record en heeft minimaal een id, een displayName en een datatype. De rest en de zeep onderliggende voorwerpen kunnen voor een bepaald gebied al dan niet aanwezig zijn, en zijn aanwezigheid zal erop wijzen of het gebied voor gebruik in of REST of SOAP APIs geldig is. De eigenschap `readOnly` geeft aan of het veld alleen-lezen is via de corresponderende API (REST of SOAP). De eigenschap length geeft de maximale lengte van het veld aan, indien aanwezig. De eigenschap dataType geeft het gegevenstype van het veld aan.
 
 ## Query
 
@@ -95,7 +95,7 @@ Voor deze methode is er altijd één record in de eerste positie van de resultaa
 
 Met de optie Leads ophalen op filtertype wordt hetzelfde type record geretourneerd, maar kan tot 300 per pagina worden geretourneerd. Hiervoor zijn de parameters `filterType` en `filterValues` query vereist.
 
-`filterType` accepteert elk aangepast veld of de meeste veelgebruikte velden. Roep het eindpunt `Describe2` aan voor een uitgebreide lijst met doorzoekbare velden die zijn toegestaan voor gebruik in `filterType` . Bij het zoeken op aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer` . U kunt velddetails verkrijgen (beschrijving, type, enz.) met behulp van de bovengenoemde methode Describe.
+`filterType` accepteert elk aangepast veld of de meeste veelgebruikte velden. Roep het eindpunt `Describe2` aan voor een uitgebreide lijst met doorzoekbare velden die zijn toegestaan voor gebruik in `filterType` . Bij het zoeken op aangepast veld worden alleen de volgende gegevenstypen ondersteund: `string`, `email`, `integer` . U kunt velddetails (beschrijving, type, enzovoort) verkrijgen met behulp van de hierboven beschreven methode Describe.
 
 `filterValues` accepteert maximaal 300 waarden in een komma-gescheiden indeling. De vraag zoekt naar verslagen waar het gebied van de lood één van inbegrepen `filterValues` aanpast. Als het aantal leads dat overeenkomt met het hoofdfilter groter is dan 1.000, wordt een fout geretourneerd: &quot;1003, Te veel resultaten komen overeen met het filter&quot;.
 
@@ -160,7 +160,7 @@ Naast het ophalen van gegevens voor leads kunt u ook een lead record maken, bijw
 
 >[!NOTE]
 >
-> Het bijwerken van de gebieden van het Bedrijf die [&#x200B; gebruiken leidt de Synchronisatie &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik [&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) in plaats daarvan.
+> Het bijwerken van de gebieden van het Bedrijf die [ gebruiken leidt de Synchronisatie ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) eindpunt niet wordt gesteund. Het eindpunt van de Bedrijven van de Synchronisatie van het gebruik ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) in plaats daarvan.[
 
 >[!NOTE]
 >
@@ -762,11 +762,12 @@ Content-Type: application/json
 
 Hier ziet u de bijbehorende activiteitengegevens voor Formulier invullen in de gebruikersinterface van Marketo Engage:
 
-![&#x200B; Vul Vorm UI &#x200B;](assets/fill_out_form_activity_details.png) uit
+![ Vul Vorm UI ](assets/fill_out_form_activity_details.png) uit
 
 ## Samenvoegen
 
 >[!NOTE]
+>
 >Vanaf 31 maart 2026 zullen aanroepen met meer dan 25 id&#39;s in de parameter `leadIds` van een Merge Leads API-aanroep resulteren in een foutcode van 1080 en wordt de aanroep overgeslagen. Banen waarvoor meer dan 25 records in één record moeten worden samengevoegd, moeten in meerdere banen worden opgesplitst om het welslagen van deze oproepen te waarborgen.
 >
 
@@ -817,7 +818,7 @@ Lidmaatschap
 De dossiers van de lood kunnen ook worden teruggewonnen gebaseerd op lidmaatschap in een statische lijst, of een programma. Daarnaast kunt u alle statische lijsten, programma&#39;s of slimme campagnes ophalen waarvan een lead lid is.
 
 De responsstructuur en optionele parameters zijn identiek aan die van Get Leads by Filter Type, hoewel `filterType` en `filterValues` niet kunnen worden gebruikt met deze API.
-Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-**&#x200B;**.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
+Navigeer naar de lijst als u de lijst-id wilt openen via de gebruikersinterface van Marketo. De lijst `id` staat in de URL van de statische lijst, `https://app-****.marketo.com/#ST1001A1` . In dit voorbeeld is 1001 de `id` voor de lijst.
 
 ## Programma&#39;s ophalen op regel-id
 

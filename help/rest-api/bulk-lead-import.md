@@ -3,7 +3,7 @@ title: Invoer van bulklood
 feature: REST API
 description: Asynchrone invoer van lood in bulk maken en controleren in Marketo met CSV TSV of SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '825'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Invoer van bulklood
 
-[Naslaggids voor invoer van bulklood](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Naslaggids voor invoer van bulklood](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [&#x200B; bulk API &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
+Voor grote hoeveelheden loodverslagen, kunnen de lood asynchroon met [ bulk API ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) worden ingevoerd. Op deze manier kunt u een lijst met records importeren naar Marketo met een plat bestand met de scheidingstekens (komma&#39;s, tabs of puntkomma&#39;s). Het bestand kan een willekeurig aantal records bevatten, mits het bestand in totaal minder dan 10 MB groot is. De recordbewerking is alleen &quot;invoegen of bijwerken&quot;.
 
 ## Verwerkingslimieten
 
@@ -75,7 +75,7 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Dit eindpunt gebruikt [&#x200B; multipart/form-data als inhoud-type &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Het is aan te raden een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze om het juiste gebruik te garanderen. Het volgende voorbeeld is een eenvoudige manier om dit met cURL vanaf de opdrachtregel te doen:
+Dit eindpunt gebruikt [ multipart/form-data als inhoud-type ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Het is aan te raden een HTTP-ondersteuningsbibliotheek te gebruiken voor uw taal van keuze om het juiste gebruik te garanderen. Het volgende voorbeeld is een eenvoudige manier om dit met cURL vanaf de opdrachtregel te doen:
 
 ```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json

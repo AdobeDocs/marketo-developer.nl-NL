@@ -3,7 +3,7 @@ title: E-mailsjablonen
 feature: REST API
 description: Met de Marketo Asset REST API kunt u afhankelijkheden voor e-mailsjablonen zoeken, maken, bijwerken, klonen, verwijderen, goedkeuren en inspecteren.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # E-mailsjablonen
 
-[Referentie voor eindpunt e-mailsjabloon](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[Referentie voor eindpunt e-mailsjabloon](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
 Met e-mailsjablonen definieert u de structuur en de herbruikbare indeling die worden gebruikt bij het maken van e-mails.
 

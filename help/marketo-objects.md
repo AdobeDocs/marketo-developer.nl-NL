@@ -3,9 +3,9 @@ title: Marketo-objecten
 feature: Email Programs
 description: Hulplijn voor het gebruik van Marketo-snelheid met leads, Opportunity en aangepaste objecten, laadvelden, toegang tot de bovenste lijst met tien lijsten, SFDC-relaties en $TriggerObject.
 exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '530'
+source-wordcount: '532'
 ht-degree: 0%
 
 ---
@@ -55,7 +55,7 @@ Hier volgt een voorbeeldscript voor een e-mail met follow-upinstructies voor bes
 </div>
 ```
 
-Het voordeel van de variabele `$TriggerObject` is dat u geen code hoeft te wijden om te bepalen uit welke van de beschikbare objecten u uw lokale gegevens wilt ophalen.  Het object wordt bepaald door de activerende handeling. Dit is de meest expliciete manier om een object te kiezen waarnaar moet worden verwezen en moet worden gebruikt wanneer dit beschikbaar en passend is.
+Het voordeel van de variabele `$TriggerObject` is dat u geen code hoeft toe te wijzen om te bepalen uit welke van de beschikbare objecten u uw lokale gegevens wilt ophalen.  Het object wordt bepaald door de activerende handeling. Dit is de meest expliciete manier om een object te kiezen waarnaar moet worden verwezen en moet worden gebruikt wanneer dit beschikbaar en passend is.
 
 Opmerking: als u `$TriggerObject` gebruikt, moeten velden in het bewerkingsvenster worden gecontroleerd voordat het object beschikbaar wordt gemaakt voor het script.
 

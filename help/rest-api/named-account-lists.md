@@ -3,7 +3,7 @@ title: Lijsten met benoemde accounts
 feature: REST API
 description: Leer hoe u lijsten met benoemde accounts van Marketo beheert met de REST API, inclusief machtigingen, velden, filters en eindpunten voor het zoeken, maken, bijwerken en verwijderen van accounts.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Lijsten met benoemde accounts
 
-[Verwijzing naar eindpunt voor benoemde accountlijsten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[Verwijzing naar eindpunt voor benoemde accountlijsten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[&#x200B; Genoemde Lijsten van de Rekening &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
+[ Genoemde Lijsten van de Rekening ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo vertegenwoordigen inzamelingen van genoemde rekeningen. Ze kunnen worden gebruikt voor een groot aantal verschillende gevallen, zoals categorisering, gegevensverrijking en filters voor slimme campagnes. Met de API&#39;s van de lijst met benoemde accounts kunt u deze lijstitems op afstand beheren en het lidmaatschap van deze systemen.
 `Content`
 
 ## Machtigingen

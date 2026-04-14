@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] Handleiding voor ontwikkelaars'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '284'
+source-wordcount: '286'
 ht-degree: 4%
 
 ---
@@ -34,7 +34,7 @@ ht-degree: 4%
    - [Triggers](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobiel {#mobile}
-   - [&#x200B; [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
+   - [ [!DNL Adobe Launch]  extensie installeren](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Extensie](mobile/adobe-launch-extension.md)
    - [Geavanceerde beveiligingsmodus](mobile/advanced-security-access-mode.md)
    - [Aangepaste handelingen](mobile/custom-actions.md)
@@ -165,6 +165,7 @@ ht-degree: 4%
 - [E-mailscripting](email-scripting.md)
 - [Voorbeelden van e-mailscripts](examples.md)
 - [Marketo-objecten](marketo-objects.md)
+- [MCP-server](mcp-server.md)
 - [Licentie](api-license.md)
 - [Partnersandbox](partner-sandbox.md)
 - [Zelfbedieningsstroomstappen](self-service-flow-steps.md)

@@ -3,7 +3,7 @@ title: Lidmaatschap weergeven (statische lijsten)
 feature: REST API, Static Lists
 description: Gebruik de REST-API's van Marketo Lead Database om leads toe te voegen aan statische lijsten, leads te verwijderen, leden van lijsten op te halen en het lidmaatschap van lijsten te controleren.
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '482'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Lidmaatschap weergeven (statische lijsten)
 
-[Referentie eindpunt van lidmaatschap weergeven](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[Referentie eindpunt van lidmaatschap weergeven](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists)
 
 De APIs van het Lidmaatschap van de Lijst verstrekken de eindpunten van het Gegevensbestand van de Leiding voor het werken met statische lijstleden. Met deze eindpunten kunt u leads toevoegen aan een lijst, leads verwijderen uit een lijst, leden van een lijst ophalen en bepalen of een of meer leads lid van een lijst zijn.
 
@@ -27,7 +27,7 @@ De APIs van het Lidmaatschap van de Lijst verstrekken de eindpunten van het Gege
 
 ## Toevoegen aan lijst
 
-[&#x200B; voegt aan het eindpunt van de Lijst &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) toe wordt gebruikt om één of meerdere leden aan een lijst toe te voegen. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
+[ voegt aan het eindpunt van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST) toe wordt gebruikt om één of meerdere leden aan een lijst toe te voegen. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
 
 De reactie bevat een `result` -array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
 
@@ -60,7 +60,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## Verwijderen uit lijst
 
-[&#x200B; verwijder uit &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) eindpunt van de Lijst &lbrace;wordt gebruikt om één of meerdere leden uit een lijst te verwijderen. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
+[ verwijder uit ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) eindpunt van de Lijst {wordt gebruikt om één of meerdere leden uit een lijst te verwijderen. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
 
 De reactie bevat een `result` -array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
 
@@ -97,7 +97,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## Leden ophalen op lijst-id
 
-[&#x200B; krijgt Leads door Identiteitskaart van de Lijst &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) eindpunt wordt gebruikt om leden van een lijst terug te winnen. Het eindpunt neemt een vereiste `listId` wegparameter, en staat verscheidene facultatieve vraagparameters toe om het filtreren criteria te specificeren.
+[ krijgt Leads door Identiteitskaart van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET) eindpunt wordt gebruikt om leden van een lijst terug te winnen. Het eindpunt neemt een vereiste `listId` wegparameter, en staat verscheidene facultatieve vraagparameters toe om het filtreren criteria te specificeren.
 
 De parameter `batchSize` wordt gebruikt om het aantal lead records op te geven dat in één aanroep moet worden geretourneerd. De standaardwaarde en het maximum is 300.
 
@@ -147,7 +147,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## Lid van de lijst
 
-Het [&#x200B; Lid van het eindpunt van de Lijst &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) wordt gebruikt om te zien of zijn één of meerdere lood leden van een lijst. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
+Het [ Lid van het eindpunt van de Lijst ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) wordt gebruikt om te zien of zijn één of meerdere lood leden van een lijst. Het eindpunt neemt een vereiste `listId` wegparameter, en één of meerdere `id` vraagparameters die loodids bevatten (maximaal toegestaan is 300).
 
 De reactie bevat een `result` -array die bestaat uit JSON-objecten met de status voor elke lead-id die in de aanvraag is opgegeven.
 

@@ -3,7 +3,7 @@ title: Pagingtokens
 feature: REST API
 description: Gebruik Marketo REST API-pagineringstokens om activiteiten en leads op te halen, inclusief op datum gebaseerde en op positie gebaseerde tokens, ISO 8601 sinceDatetime en 414 fouten.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '424'
 ht-degree: 0%
@@ -14,9 +14,9 @@ ht-degree: 0%
 
 Marketo biedt paginatokens om de resultaten te doorbladeren of gegevens op te halen die zijn bijgewerkt ten opzichte van een bepaalde gegevens.
 
-In bepaalde gevallen kunnen lange paginering tokentekenreeksen worden geretourneerd. Hierdoor kan een HTTP 414-foutcode optreden. U kunt meer informatie vinden over hoe te om deze [&#x200B; fouten &#x200B;](error-codes.md) te behandelen.
+In bepaalde gevallen kunnen lange paginering tokentekenreeksen worden geretourneerd. Hierdoor kan een HTTP 414-foutcode optreden. U kunt meer informatie vinden over hoe te om deze [ fouten ](error-codes.md) te behandelen.
 
-Zie [&#x200B; het Pagelen Token API &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) documentatie.
+Zie [ het Pagelen Token API ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) documentatie.
 
 ## Typen token
 
@@ -27,7 +27,7 @@ Er zijn twee verwante, maar verschillende typen paginatokens die Marketo biedt:
 
 ## Op datum gebaseerd
 
-Het eerste is een paginatoken die een datum vertegenwoordigt. Deze worden gebruikt om activiteiten, veranderingen van de gegevenswaarde, en geschrapte lood terug te winnen die na de datum voorkwamen die door het pagineren teken wordt vertegenwoordigd. Dit type van het pagineren van teken wordt geproduceerd door [&#x200B; te roepen krijgt het Pagelen Token &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) eindpunt en met inbegrip van datetime.
+Het eerste is een paginatoken die een datum vertegenwoordigt. Deze worden gebruikt om activiteiten, veranderingen van de gegevenswaarde, en geschrapte lood terug te winnen die na de datum voorkwamen die door het pagineren teken wordt vertegenwoordigd. Dit type van het pagineren van teken wordt geproduceerd door [ te roepen krijgt het Pagelen Token ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) eindpunt en met inbegrip van datetime.
 
 ```http
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -41,7 +41,7 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 }
 ```
 
-Het formaat van de `sinceDateTime` parameter moet [&#x200B; ISO 8601 &#x200B;](https://en.wikipedia.org/wiki/ISO_8601) standaarddatumaantekening in overeenstemming zijn. Voor beste resultaten, gebruik een volledige datetime die de tijdstreek omvat. De tijdzone kan als of een compensatie van GMT worden vertegenwoordigd gebruikend het volgende formaat:
+Het formaat van de `sinceDateTime` parameter moet [ ISO 8601 ](https://en.wikipedia.org/wiki/ISO_8601) standaarddatumaantekening in overeenstemming zijn. Voor beste resultaten, gebruik een volledige datetime die de tijdstreek omvat. De tijdzone kan als of een compensatie van GMT worden vertegenwoordigd gebruikend het volgende formaat:
 
 `yyyy-mm-ddThh:mm:ss+|-hh:mm`
 
@@ -57,7 +57,7 @@ Voorbeelden
 
 Omdat `sinceDateTime` een queryparameter is, moet deze URL-gecodeerd zijn.
 
-Het `nextPageToken` koord wordt dan verstrekt aan a [&#x200B; krijgt de Activiteiten van het Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET), [&#x200B; krijgt de Veranderingen van het Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET), of [&#x200B; krijgen Geschrapte vraag van Leads &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET), en de activiteiten worden teruggewonnen van na datetime die aan Get het Pageren Symbolische API wordt verstrekt.
+Het `nextPageToken` koord wordt dan verstrekt aan a [ krijgt de Activiteiten van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET), [ krijgt de Veranderingen van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET), of [ krijgen Geschrapte vraag van Leads ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET), en de activiteiten worden teruggewonnen van na datetime die aan Get het Pageren Symbolische API wordt verstrekt.
 
 ```http
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12

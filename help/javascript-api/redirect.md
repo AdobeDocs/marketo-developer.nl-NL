@@ -3,9 +3,9 @@ title: Omleiden
 description: Voer Redirect API RTP uit om gesegmenteerde bezoekers naar gerichte URLs te verzenden gebruikend gebieden zoals ABM, organisatie, plaats, en segmenten, met voorbeelden en uiteinden.
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 18d828b5d98c00f04739d417d043a33fcbb9c37a
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '500'
+source-wordcount: '502'
 ht-degree: 5%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 Met de RTP Redirect-API kunt u gesegmenteerde doelgroepen omleiden naar een doel-URL.
 
-- U moet een klant van Personalization van het Web worden en de [&#x200B; markering hebben RTP die &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
+- U moet een klant van Personalization van het Web worden en de [ markering hebben RTP die ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) op uw plaats wordt opgesteld voorafgaand aan het gebruiken van de Context API van de Gebruiker.
 - RTP ondersteunt geen accountgebaseerde marketing met benoemde accountlijsten. ABM-lijsten en -code hebben alleen betrekking op de geüploade accountlijsten (CSV-bestanden) die in RTP worden beheerd.
 
 ## Gebruik
@@ -86,11 +86,11 @@ rtp('get','campaign');
 
 ## Hoe te om Getraceerde Bezoekers om te leiden
 
-1. Een parameter toevoegen aan het einde van de doel-URL: &lt;www.marketo.com?rtp=redirect>
+1. Een parameter toevoegen aan het einde van de doel-URL: dat is &lt;www.marketo.com?rtp=redirect>
 1. Creeer een segment genoemd - &quot;opnieuw geleid door RTP&quot;
 1. Gebruik de parameter &#39;Specifieke pagina&#39;s&#39; als doel voor bezoekers die pagina&#39;s weergeven met de onderstaande parameter.
 
-![&#x200B; het volgen-redirected-vistors &#x200B;](assets/tracking-redirected-vistors.png)
+![ het volgen-redirected-vistors ](assets/tracking-redirected-vistors.png)
 
 ## Meer dan één voorwaarde definiëren met verschillende doel-URL&#39;s
 
@@ -105,7 +105,7 @@ De omleidingsvraag steunt veelvoudige vraag. Hierdoor kunt u omleiden met meerde
 | &#39;send&#39; | Vereist | String | Methode, actie. |
 | &#39;redirect&#39; | Vereist | String | Naam van methode. |
 | field_name | Vereist | String | Veldnaam die moet worden vergeleken met. Voorbeeld: &#39;abm.name&#39; (zie hierboven). |
-| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:&lbrace;&#39;<https://www.example.com>&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
+| url_values_map | Vereist | Object | Kaart tussen omleiding URL en lijst van waarden. Voorbeeld:{&#39;<https://www.example.com>&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
 
 #### Voorbeeld
 

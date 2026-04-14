@@ -3,9 +3,9 @@ title: Webhaken
 feature: Webhooks
 description: Leer hoe u Marketo-websites configureert om services van derden aan te roepen, payload-sjablonen in te stellen, codering, responstoewijzingen, tokens, aangepaste kopteksten en tips.
 exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '580'
+source-wordcount: '697'
 ht-degree: 0%
 
 ---
@@ -14,28 +14,28 @@ ht-degree: 0%
 
 Marketo staat het gebruik van Webhooks toe om met derdeWebservices te communiceren. Webhooks ondersteunen het gebruik van de werkwoorden GET of POST HTTP om gegevens van een specifieke URL te verzenden of op te halen. Raadpleeg de volgende artikelen voor gedetailleerde instructies over het maken van Webhooks in toepassingen en hoe u deze aan Slimme campagnes kunt toevoegen:
 
-- [&#x200B; creeer een Webhaak &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [&#x200B; Webhaak van de Vraag &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [&#x200B; Gebruik een Webhaak in een Slimme Campagne &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [Webhaak maken](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [Bellen Webhaak](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [Een webhaak gebruiken in een slimme campagne](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 Elke afzonderlijke webhaak heeft de volgende eigenschappen:
 
 - [!UICONTROL URL] - Voer de URL in die u gebruikt om uw verzoek bij de webservice in te dienen.
 - [!UICONTROL Request Type] - De HTTP-methode.
-- [!UICONTROL Payload Template] - Als u informatie in de tekst van de POST wilt verzenden, voert u de sjabloon in. Gebruik elke gegevensindeling die HTTP POST ondersteunt, inclusief XML, JSON of SOAP. De rangschikkingsindeling moet dubbele aanhalingstekens om tekenreeksen toestaan. Klik op **[!UICONTROL Insert Token]** om een token in de sjabloon in te voegen.  Tekenreekstype-tokens worden automatisch tussen dubbele aanhalingstekens geplaatst.
+- [!UICONTROL Payload Template] - Als u informatie in de tekst van de POST wilt verzenden, voert u de sjabloon in. Gebruik elke gegevensindeling die HTTP POST ondersteunt, inclusief XML, JSON of SOAP. De rangschikkingsindeling moet dubbele aanhalingstekens om tekenreeksen toestaan. Selecteer **[!UICONTROL Insert Token]** als u een token in de sjabloon wilt invoegen.  Tekenreekstype-tokens worden automatisch tussen dubbele aanhalingstekens geplaatst.
 - [!UICONTROL Request Token Encoding] - Als de tokenwaarden speciale tekens bevatten (zoals een en-teken &#39;&amp;&#39;), geeft u de indeling van uw aanvraag op (JSON of Form/Url). De juiste codering moet voor de hoofdtekst worden geselecteerd om ervoor te zorgen dat de Webhaak correct communiceert met de webservice.
 - [!UICONTROL Response Type] - selecteer het formaat van de reactie die u van de dienst (JSON of XML) ontvangt. Het juiste reactietype moet zijn geselecteerd om de eigenschappen van het antwoord weer toe te wijzen aan loodvelden in Marketo
 - [!UICONTROL Custom Headers] - Via [!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header] kan met dit menu een willekeurig aantal aangepaste sleutel-waardeparen worden toegevoegd als HTTP-headers.
 
-De gegevens kunnen terug naar lood van Web-dienst reacties worden geschreven door [&#x200B; Toewijzingen van de Reactie te gebruiken &#x200B;](response-mappings.md)
+De gegevens kunnen terug naar lood van Web-dienst reacties worden geschreven door [ Toewijzingen van de Reactie te gebruiken ](response-mappings.md)
 
 ## Tokens
 
 Alle uitgaande gebieden in een Webhaak (URL, Malplaatje, en Kopbal van de Douane) bevolken de inhoud van tekenen in de zelfde context van de stroomstap. Dit betekent dat de Tokens van het Lood en van het Systeem altijd beschikbaar zijn, terwijl de Tkens van de Trekker, van de Campagne, en van het Programma in hun respectieve werkingsgebied beschikbaar zijn. Zie tokenartikelen:
 
-- [&#x200B; Tokens Overzicht &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
-- [&#x200B; Verklarende woordenlijst van de Tokens van het Systeem &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [&#x200B; Tokens voor het Interesten Momenten &#x200B;](https://experienceleague.adobe.com/nl/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [Overzicht van tokens](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
+- [Verklarende woordenlijst systeemtokens](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
+- [Tokens voor interessante momenten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
 Een algemeen geval voor dit is wanneer een Programma of een Campagne uitdrukkelijk aan een derdemiddel in kaart wordt gebracht. Een id kan op programmaniveau als a `My Token` worden geplaatst, en dan in het verzoek worden overgegaan Webhaak als teken.
 
@@ -43,7 +43,7 @@ Een algemeen geval voor dit is wanneer een Programma of een Campagne uitdrukkeli
 
 Met webhooks kan het gebruik van een willekeurig aantal aangepaste koptekstvelden samen met de uitgaande aanvraag worden verzonden. Deze kunnen worden toegevoegd via **[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]** . Elke kopbal wordt geregistreerd als eenvoudig zeer belangrijk-waardepaar. Tokens kunnen in dit gebied worden gebruikt.
 
-![&#x200B; Kopballen van de Douane &#x200B;](assets/custom-headers.png)
+![ Kopballen van de Douane ](assets/custom-headers.png)
 
 ## Tips
 

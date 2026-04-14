@@ -3,7 +3,7 @@ title: Eindpuntverwijzing
 feature: REST API
 description: Uitgebreide eindpuntlijst van Marketo REST API met methodes, URIs, en vereiste toestemmingen over activiteiten, bulkuitvoer, identiteit, lood, activa, gebruikers.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
 source-wordcount: '4793'
 ht-degree: 1%
@@ -14,9 +14,9 @@ ht-degree: 1%
 
 Hieronder vindt u koppelingen naar de Marketo REST API-referenties.
 
-- [Element](https://developer.adobe.com/marketo-apis/api/asset/)
+- [Element](https://developer.adobe.com/marketo-apis/api/asset)
 - [Identiteit](https://developer.adobe.com/marketo-apis/api/identity/)
-- [Database lead](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [Database lead](https://developer.adobe.com/marketo-apis/api/mapi)
 - [Gebruikersbeheer](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Eindpuntlijst {#endpoint_list}
@@ -251,7 +251,7 @@ Hier volgt een uitgebreide lijst met REST API-eindpunten.
 | Benoemde accounts beschrijven | Benoemde accounts | GET | /rest/v1/namedaccounts/describe.json | Benoemd account (alleen-lezen) |
 | Benoemde accounts ophalen | Benoemde accounts | GET | /rest/v1/namedaccounts.json | Benoemd account (alleen-lezen) |
 | Benoemde accounts synchroniseren | Benoemde accounts | POST | /rest/v1/namedaccounts.json | Benoemd account voor lezen/schrijven |
-| Veld voor benoemde account ophalen op naam | Benoemde accounts | GET | /rest/v1/namedaccounts/schema/fields/&lbrace;0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
+| Veld voor benoemde account ophalen op naam | Benoemde accounts | GET | /rest/v1/namedaccounts/schema/fields/{0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
 | Benoemde accountvelden ophalen | Benoemde accounts | GET | /rest/v1/namedaccounts/schema/fields.json | Aangepast veld schema voor lezen/schrijven |
 | Kansen verwijderen | Kansen | POST | /rest/v1/opportunities/delete.json | Opportunity voor lezen/schrijven |
 | Opportuniteitsrollen verwijderen | Kansen | POST | /rest/v1/opportunities/roles/delete.json | Opportunity voor lezen/schrijven |
@@ -268,10 +268,10 @@ Hier volgt een uitgebreide lijst met REST API-eindpunten.
 | Programmaleden ophalen | Programmaleden | GET | /rest/v1/programs/{programId} /members.json | Lead, alleen-lezen |
 | Gegevens programmalid synchroniseren | Programmaleden | POST | /rest/v1/programs/{programId} /members.json | Lead lezen |
 | Status van programmalid synchroniseren | Programmaleden | POST | /rest/v1/programs/{programId} /members/status.json | Lead lezen |
-| Veld voor programmalid ophalen op naam | Programmaleden | GET | /rest/v1/program/members/schema/fields/&lbrace;0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
+| Veld voor programmalid ophalen op naam | Programmaleden | GET | /rest/v1/program/members/schema/fields/{0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
 | Veld voor programmalid ophalen | Programmaleden | GET | /rest/v1/programs/members/schema/fields.json | Aangepast veld schema voor lezen/schrijven |
 | Veld voor programmaleden maken | Programmaleden | POST | /rest/v1/programs/members/schema/fields.json | Aangepast veld schema voor lezen/schrijven |
-| Veld van programmalid bijwerken | Programmaleden | POST | /rest/v1/program/members/schema/fields/&lbrace;0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
+| Veld van programmalid bijwerken | Programmaleden | POST | /rest/v1/program/members/schema/fields/{0.json{fieldApiName} | Aangepast veld schema voor lezen/schrijven |
 | Programma goedkeuren | Programma&#39;s | POST | /rest/asset/v1/program/{id} /approve.json | Read-Write-element |
 | Kloonprogramma | Programma&#39;s | POST | /rest/asset/v1/program/{id} /clone.json | Read-Write-element |
 | Programma&#39;s maken | Programma&#39;s | POST | /rest/asset/v1/programs.json | Read-Write-element |

@@ -3,7 +3,7 @@ title: Dynamische inhoud
 feature: REST API, Dynamic Content
 description: Configureer Marketo dynamische inhoud op sectieniveau via REST API's met behulp van segmentaties om e-mails, landingspagina's en fragmenten met eindpunten en voorbeelden aan te passen
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '463'
 ht-degree: 1%
@@ -24,7 +24,7 @@ Dynamische inhoud wordt geïmplementeerd op sectieniveau door specifieke variati
 
 ## Voorbeeld
 
-Om te demonstreren, kijk naar een e-mailvoorbeeld, waar wij een Gebied (VS) segmentatie hebben, en een gebeurtenisbevordering slechts voor lood willen tonen die in het zuidoostsegment vallen, dat Californië, Nevada, Utah, Colorado, Arizona, en Nieuw Mexico leidt. Hiervoor maken we een bewerkbare sectie in onze e-mail met de id &quot;Q1-promotie-banner&quot; in een DynamicContent-sectie. Om dit te doen, moeten wij het [&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) eindpunt van de Sectie van de Inhoud E-mail van de 0&rbrace; Update voor onze e-mail gebruiken. De parameter `value` wordt gebruikt om de id van de segmentatie op te geven.
+Om te demonstreren, kijk naar een e-mailvoorbeeld, waar wij een Gebied (VS) segmentatie hebben, en een gebeurtenisbevordering slechts voor lood willen tonen die in het zuidoostsegment vallen, dat Californië, Nevada, Utah, Colorado, Arizona, en Nieuw Mexico leidt. Hiervoor maken we een bewerkbare sectie in onze e-mail met de id &quot;Q1-promotie-banner&quot; in een DynamicContent-sectie. Om dit te doen, moeten wij het ](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST) eindpunt van de Sectie van de Inhoud E-mail van de 0} Update voor onze e-mail gebruiken. [De parameter `value` wordt gebruikt om de id van de segmentatie op te geven.
 
 Opmerking: zowel e-mails als bestemmingspagina&#39;s volgen dit patroon. Fragmenten hebben een ander patroon, dat wordt beschreven in de API-documentatie voor fragmenten.
 
@@ -52,7 +52,7 @@ type=DynamicContent&value=1001
 }
 ```
 
-Om inhoud voor individuele segmenten toe te voegen, moeten wij het [&#x200B; E-mailE-mail dynamische eindpunt van de Sectie van de Inhoud &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) voor de specifieke sectie roepen.
+Om inhoud voor individuele segmenten toe te voegen, moeten wij het [ E-mailE-mail dynamische eindpunt van de Sectie van de Inhoud ](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST) voor de specifieke sectie roepen.
 
 In het volgende voorbeeld wordt de sectie zo ingesteld dat deze onze speciale bannerafbeelding voor leads in het segment Zuidwest weergeeft in plaats van de standaardinstelling. Als wij meer variaties voor meer segmenten wilden tot stand brengen, dan zouden wij dit eindpunt opnieuw voor elk segment en sectie roepen.
 

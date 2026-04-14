@@ -3,9 +3,9 @@ title: Assets
 feature: REST API
 description: Overzicht van Marketo Asset REST-API's voor het opvragen van gegevens op id of naam, bladeren met paginering en het maken of bijwerken van mappen, e-mails, formulieren, sjablonen, bestanden, tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '898'
+source-wordcount: '899'
 ht-degree: 0%
 
 ---
@@ -32,7 +32,7 @@ Tot de Marketo-elementen behoren:
 
 ## API
 
-Voor een volledige lijst van activa API eindpunten, met inbegrip van parameters en modelleringsinformatie, zie de [&#x200B; Verwijzing van het Eindpunt van Activa API &#x200B;](endpoint-reference.md).
+Voor een volledige lijst van activa API eindpunten, met inbegrip van parameters en modelleringsinformatie, zie de [ Verwijzing van het Eindpunt van Activa API ](endpoint-reference.md).
 
 ## Query
 
