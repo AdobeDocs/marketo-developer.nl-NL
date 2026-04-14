@@ -2,13 +2,13 @@
 title: MCP-server
 description: Leer hoe u een AI-assistent met Marketo verbindt via de MCP-server. Configureer Claude Desktop, Cursor, Claude Code of VS Code met uw Marketo-referenties.
 hidefromtoc: true
-source-git-commit: a9946d79bfc4cabd27fe33d95f25ee99d777fb1b
+exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
+source-git-commit: 85285b49ce2540542d6169cd1466ced02955b586
 workflow-type: tm+mt
 source-wordcount: '1278'
 ht-degree: 0%
 
 ---
-
 
 # [!DNL Marketo] MCP-server
 
@@ -32,7 +32,7 @@ U hebt de volgende waarden van uw [!DNL Marketo] -instantie nodig:
 - **identiteitskaart van de Rekening van Munchkin**
 - **REST API Eindpunt**
 
-Als u reeds hen hebt, overslaan aan [&#x200B; vorm uw AI hulpmiddel &#x200B;](#configure-your-ai-tool).
+Als u reeds hen hebt, overslaan aan [ vorm uw AI hulpmiddel ](#configure-your-ai-tool).
 
 ### Client-id en clientgeheim
 
@@ -234,37 +234,37 @@ Voorbeeld vraagt:
 
 ## Veelgestelde vragen
 
-### Zijn mijn gegevens veilig?
-
++++Zijn mijn gegevens veilig?
 De geloofsbrieven worden overgebracht in de kopballen van HTTP met elke individuele aanvraag. De server slaat referenties tussen sessies niet op of plaatst deze in de cache en elk verzoek is volledig geïsoleerd.
++++
 
-### Kunnen meerdere mensen dit tegelijkertijd gebruiken?
-
++++Kunnen meerdere mensen dit tegelijkertijd gebruiken?
 Ja. De server is meerdere gebruikers. Elke gebruiker verbindt met zijn eigen geloofsbrieven, en de verzoeken worden geïsoleerd van elkaar.
++++
 
-### Wat gebeurt als mijn toegangstoken verloopt?
-
++++Wat gebeurt als mijn toegangstoken verloopt?
 Wanneer u gebruikend identiteitskaart van de Cliënt en Geheim van de Cliënt voor authentiek verklaart, verfrist de serverhandvatten automatisch het teken zich. U hoeft geen actie te ondernemen.
++++
 
-### Moet ik iets installeren of uitvoeren?
-
++++Moet ik iets installeren of uitvoeren?
 Nee. De MCP-server wordt gehost door Adobe. U hoeft uw AI-hulpprogramma alleen te configureren om er verbinding mee te maken.
++++
 
-### Welke [!DNL Marketo] machtigingen heeft mijn API-gebruiker nodig?
-
++++Welke [!DNL Marketo] machtigingen heeft mijn API-gebruiker nodig?
 De API-gebruiker heeft toegang nodig tot de elementtypen die u wilt beheren. Wijs minimaal een rol Alleen-lezen toe voor het bladeren door bewerkingen en een rol Lezen-Schrijven voor het maken of wijzigen van elementen. Werk met uw [!DNL Marketo] -beheerder om de juiste machtigingen toe te wijzen.
++++
 
-### Wat zijn de tarieflimieten?
-
++++Wat zijn de tarieflimieten?
 De MCP-server overerft de API-tarieflimieten van de Marketo-instantie. Gebruik een specifieke API-gebruiker om quotaverbruik te volgen en te beheren.
++++
 
-### Welke AI-gereedschappen worden ondersteund?
-
++++Welke AI-gereedschappen worden ondersteund?
 Claude Desktop, Cursor, Claude Code (CLI), en de Code van VS met GitHub Copilot. Elk AI-gereedschap dat het Model Context Protocol via HTTP ondersteunt, moet werken.
++++
 
-### Kan ik verbinding maken met meerdere [!DNL Marketo] -instanties?
-
++++Kan ik verbinding maken met meerdere [!DNL Marketo] -instanties?
 Ja. Voeg veelvoudige ingangen in de configuratie MCP van uw AI hulpmiddel, elk met een unieke naam en geloofsbrieven voor de overeenkomstige instantie toe. U kunt `marketo-prod` en `marketo-staging` bijvoorbeeld configureren als aparte servers.
++++
 
 ## Beveiligingsoverwegingen
 
