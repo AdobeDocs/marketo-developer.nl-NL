@@ -18,7 +18,7 @@ Een gemeenschappelijk gebruiksgeval voor Marketo API moet het verzenden van tran
 - Er moet een Transactiee-mail zijn gemaakt en goedgekeurd in uw Marketo-exemplaar.
 - Er moet een actieve triggercampagne zijn met de &quot;Campagne is Requested, 1. Source: Web Service API&quot;, die is ingesteld om de e-mail te verzenden
 
-Eerst [&#x200B; creeer en keur uw e-mail &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html) goed. Als de e-mail echt transactie is, zult u het waarschijnlijk aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen:
+Eerst [&#x200B; creeer en keur uw e-mail &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) goed. Als de e-mail echt transactie is, zult u het waarschijnlijk aan operationeel moeten plaatsen, maar zeker zijn dat het wettelijk als operationeel kwalificeert. Dit is geconfigureerd met Scherm bewerken onder E-mailhandelingen > E-mailinstellingen:
 
 ![&#x200B; verzoek-campagne-e-mail-Montages &#x200B;](assets/request-campaign-email-settings.png)
 
@@ -28,7 +28,7 @@ Goedkeuren en we zijn bereid onze campagne te voeren:
 
 ![&#x200B; RequestCampaign-Goedkeuren-Ontwerp &#x200B;](assets/request-campaign-approve-draft.png)
 
-Als u aan het creëren van campagnes nieuw bent, controleer [&#x200B; creeer een Nieuw Slim Campagne &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) artikel. Zodra u uw campagne hebt opgezet, moeten we deze stappen doorlopen. Vorm uw Slimme Lijst met de Campagne wordt Gevraagde trekker:
+Als u aan het creëren van campagnes nieuw bent, controleer [&#x200B; creeer een Nieuw Slim Campagne &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=nl-NL) artikel. Zodra u uw campagne hebt opgezet, moeten we deze stappen doorlopen. Vorm uw Slimme Lijst met de Campagne wordt Gevraagde trekker:
 
 ![&#x200B; verzoek-Campagne-slim-Lijst &#x200B;](assets/request-campaign-smart-list.png)
 
@@ -182,7 +182,7 @@ Deze klasse heeft één aannemer die een Auth, en Id van de campagne neemt. Lead
 
 ### Uw e-mail maken
 
-Om onze inhoud aan te passen, moeten wij eerst a [&#x200B; programma &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) en een [&#x200B; e-mail &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of enig ander stuk inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren.
+Om onze inhoud aan te passen, moeten wij eerst a [&#x200B; programma &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=nl-NL) en een [&#x200B; e-mail &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=nl-NL) in Marketo vormen. Om onze aangepaste inhoud te genereren, moeten we tokens in het programma maken en deze in de e-mail plaatsen die we gaan verzenden. Eenvoudigheidshalve gebruiken we slechts één token in dit voorbeeld, maar u kunt elk aantal tokens in een e-mail vervangen, in het vak Van e-mail, Van naam, Antwoord naar of enig ander stuk inhoud in de e-mail. Laten we dus één token Rich Text maken voor vervanging en deze &#39;bodyReplacement&#39; noemen. Met RTF kunnen we alle inhoud van de token vervangen door willekeurige HTML die we willen invoeren.
 
 ![&#x200B; nieuw-Symbolisch &#x200B;](assets/New-Token.png)
 
