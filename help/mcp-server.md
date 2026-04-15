@@ -3,9 +3,9 @@ title: MCP-server
 description: Leer hoe u een AI-assistent met Marketo verbindt via de MCP-server. Configureer Claude Desktop, Cursor, Claude Code of VS Code met uw Marketo-referenties.
 hidefromtoc: true
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 3fe1c3e9fe572ef68d20ba10f93535aac9a98602
+source-git-commit: d659eb0f604a68d03d5b00c0109d59ff321415df
 workflow-type: tm+mt
-source-wordcount: '1278'
+source-wordcount: '1263'
 ht-degree: 0%
 
 ---
@@ -30,9 +30,8 @@ U hebt de volgende waarden van uw [!DNL Marketo] -instantie nodig:
 - **identiteitskaart van de Cliënt**
 - **Geheim van de Cliënt**
 - **identiteitskaart van de Rekening van Munchkin**
-- **REST API Eindpunt**
 
-Als u reeds hen hebt, overslaan aan [&#x200B; vorm uw AI hulpmiddel &#x200B;](#configure-your-ai-tool).
+Als u reeds hen hebt, overslaan aan [ vorm uw AI hulpmiddel ](#configure-your-ai-tool).
 
 ### Client-id en clientgeheim
 
@@ -44,11 +43,6 @@ Als u reeds hen hebt, overslaan aan [&#x200B; vorm uw AI hulpmiddel &#x200B;](#c
 
 1. Ga naar **[!UICONTROL Admin]** > **[!UICONTROL Munchkin]** .
 1. Kopieer de **[!UICONTROL Munchkin Account ID]** . De indeling is `XXX-XXX-XXX` en komt overeen met het voorvoegsel van de instantie-URL.
-
-### REST API-eindpunt
-
-1. Ga naar **[!UICONTROL Admin]** > **[!UICONTROL Web Services]** .
-1. Kopieer de URL van **[!UICONTROL Endpoint]** onder **[!UICONTROL REST API]** . De notatie is `https://XXX-XXX-XXX.mktorest.com` .
 
 ## Uw AI-gereedschap configureren
 
