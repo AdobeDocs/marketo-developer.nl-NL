@@ -4,9 +4,9 @@ description: Leer hoe u een AI-assistent met Marketo verbindt via de MCP-server.
 hidefromtoc: true
 badgeBeta: label="Beta" type="informative" tooltip="Deze functie bevindt zich momenteel in een vroege bètaversie"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: ad7c64f3e2cbc25db1c2ffe61e2d42b0acbbd573
+source-git-commit: b21ecb7a4dd2730807b0ad601b95fe387498f8f0
 workflow-type: tm+mt
-source-wordcount: '1272'
+source-wordcount: '1391'
 ht-degree: 0%
 
 ---
@@ -16,6 +16,12 @@ ht-degree: 0%
 Het ModelProtocol van de Context (MCP) is een open norm die AI hulpmiddelen om met de externe diensten toelaat te communiceren. De [!DNL Marketo] MCP-server fungeert als een brug tussen uw AI-assistent en [!DNL Marketo] . Er worden meer dan 100 bewerkingen in verschillende formulieren, programma&#39;s, slimme campagnes, leads, e-mails, fragmenten, lijsten en mappen weergegeven.
 
 Wanneer uw AI hulpmiddel de server MCP roept, voert de server de overeenkomstige REST API vraag op uw naam uit, gebruikend de geloofsbrieven u in elk verzoek ingaat. U hoeft geen software op de server te installeren, implementeren of uitvoeren.
+
+>[!IMPORTANT]
+>
+>Het ModelContextprotocol (MCP) is een nieuwe open-bronnorm en kan veiligheid of betrouwbaarheidsrisico&#39;s voorstellen. Adobe MCP server integrations en verwante documentatie worden verstrekt &quot;zoals is,&quot;zonder enige garanties van welke aard ook.
+>Het verbinden van cliënten MCP of servers met de producten van Adobe is een klant-verkozen configuratie, en de klanten zijn verantwoordelijk voor het evalueren van de veiligheid en de geschiktheid van om het even welke integratie MCP. Adobe is niet verantwoordelijk voor problemen die voortvloeien uit verkeerde configuratie, misbruik van MCP, kwetsbaarheden in derdeimplementaties, of onbedoelde acties die via MCP-Toegelaten werkschema&#39;s worden uitgevoerd.
+>Om risico&#39;s te verminderen, moedigt Adobe het testen van integratie in een zandbakmilieu voorafgaand aan productief gebruik aan en zorgvuldig het herzien en het bevestigen van alle MCP-Gerichte acties en reacties alvorens hen te bevestigen of te vertrouwen.
 
 ## Vereisten
 
@@ -32,7 +38,7 @@ U hebt de volgende waarden van uw [!DNL Marketo] -instantie nodig:
 - **Geheim van de Cliënt**
 - **identiteitskaart van de Rekening van Munchkin**
 
-Als u reeds hen hebt, overslaan aan [&#x200B; vorm uw AI hulpmiddel &#x200B;](#configure-your-ai-tool).
+Als u reeds hen hebt, overslaan aan [ vorm uw AI hulpmiddel ](#configure-your-ai-tool).
 
 ### Client-id en clientgeheim
 
