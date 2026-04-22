@@ -42,7 +42,7 @@ U hebt de volgende waarden van uw [!DNL Marketo] -instantie nodig:
 - **Geheim van de Cliënt**
 - **identiteitskaart van de Rekening van Munchkin**
 
-Als u reeds hen hebt, overslaan aan [ vorm uw AI hulpmiddel ](#configure-your-ai-tool).
+Als u reeds hen hebt, overslaan aan [&#x200B; vorm uw AI hulpmiddel &#x200B;](#configure-your-ai-tool).
 
 ### Client-id en clientgeheim
 
