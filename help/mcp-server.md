@@ -2,16 +2,20 @@
 title: MCP-server
 description: Leer hoe u een AI-assistent met Marketo verbindt via de MCP-server. Configureer Claude Desktop, Cursor, Claude Code of VS Code met uw Marketo-referenties.
 hidefromtoc: true
-badgeBeta: label="Beta" type="informative" tooltip="Deze functie bevindt zich momenteel in een vroege bètaversie"
+badgeBeta: label="Beta" type="informative" tooltip="Deze functie bevindt zich momenteel in een gesloten bètaversie"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: b21ecb7a4dd2730807b0ad601b95fe387498f8f0
+source-git-commit: c21ba0db3115c453f8ec35e18d4a8fd4c1ad8745
 workflow-type: tm+mt
-source-wordcount: '1391'
+source-wordcount: '1388'
 ht-degree: 0%
 
 ---
 
 # [!DNL Marketo] MCP-server
+
+>[!NOTE]
+>
+>De server MCP is momenteel in een gesloten bètaversie. Deze is momenteel niet voor alle gebruikers beschikbaar.
 
 Het ModelProtocol van de Context (MCP) is een open norm die AI hulpmiddelen om met de externe diensten toelaat te communiceren. De [!DNL Marketo] MCP-server fungeert als een brug tussen uw AI-assistent en [!DNL Marketo] . Er worden meer dan 100 bewerkingen in verschillende formulieren, programma&#39;s, slimme campagnes, leads, e-mails, fragmenten, lijsten en mappen weergegeven.
 
@@ -38,7 +42,7 @@ U hebt de volgende waarden van uw [!DNL Marketo] -instantie nodig:
 - **Geheim van de Cliënt**
 - **identiteitskaart van de Rekening van Munchkin**
 
-Als u reeds hen hebt, overslaan aan [&#x200B; vorm uw AI hulpmiddel &#x200B;](#configure-your-ai-tool).
+Als u reeds hen hebt, overslaan aan [ vorm uw AI hulpmiddel ](#configure-your-ai-tool).
 
 ### Client-id en clientgeheim
 
@@ -222,7 +226,6 @@ Voorbeeld vraagt:
 
 | Fout | Oorzaak | Repareren |
 | ------- | ------- | ----- |
-| &quot;Marketo-eindpunt niet opgegeven&quot; | De header `X-Marketo-Endpoint` ontbreekt in uw configuratie. | Controleer uw configuratie MCP opnieuw en bevestig alle vier kopballen aanwezig zijn. |
 | &quot;Marketo credentials not provided&quot; | Een of meer van `X-Marketo-Client-Id`, `X-Marketo-Client-Secret` of `X-Marketo-Munchkin-Id` ontbreken. | Verifieer alle vier kopballen in uw configuratie aanwezig zijn. |
 | &quot;Verificatiefout&quot; | Uw referenties zijn ongeldig of verlopen. | Controleer uw client-id en clientgeheim opnieuw in **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]** . |
 | &quot;403 Verboden&quot; | Je Munchkin-id staat niet op de lijst van gewenste personen van de server. | Neem contact op met de [!DNL Marketo] MCP-beheerder om uw Munchkin-id toe te voegen. |
