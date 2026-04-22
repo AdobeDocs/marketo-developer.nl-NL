@@ -22,7 +22,7 @@ De meeste activiteiten zullen na enige tijd worden afgezuiverd.
 
 ## Beschrijven
 
-Om een lijst van beschikbare types en hun definities voor een instantie terug te winnen, kunt u [ gebruiken krijgt de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) eindpunt.
+Om een lijst van beschikbare types en hun definities voor een instantie terug te winnen, kunt u [&#x200B; gebruiken krijgt de Types van Activiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) eindpunt.
 
 ```http
 GET /rest/v1/activities/types.json
@@ -75,7 +75,7 @@ Reële reacties omvatten veel meer definities. In dit voorbeeld is het weergegev
 
 ## Query
 
-Om activiteiten van Marketo terug te winnen, roep [ krijgen de Activiteiten van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) eindpunt. U moet eerst een het pagineren teken voor datetime terugwinnen die u wilt beginnen activiteiten van terug te winnen. Vervolgens geeft u het paginatietoken door in de queryparameter `nextPageToken` . Bovendien geeft u maximaal tien ID&#39;s van het type activiteit in de `activityTypeIds` -queryparameter door als een lijst met komma&#39;s als scheidingsteken.
+Om activiteiten van Marketo terug te winnen, roep [&#x200B; krijgen de Activiteiten van het Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) eindpunt. U moet eerst een het pagineren teken voor datetime terugwinnen die u wilt beginnen activiteiten van terug te winnen. Vervolgens geeft u het paginatietoken door in de queryparameter `nextPageToken` . Bovendien geeft u maximaal tien ID&#39;s van het type activiteit in de `activityTypeIds` -queryparameter door als een lijst met komma&#39;s als scheidingsteken.
 
 U kunt optioneel een query-parameter `listId` opnemen om uw zoekopdracht te beperken tot records die zijn opgenomen in een specifieke statische lijst, of een query-parameter `leadIds` en alleen vanuit een opgegeven reeks leads naar activiteiten zoeken. U kunt maximaal 30 `leadIds` doorgeven als een door komma&#39;s gescheiden lijst.
 
@@ -139,7 +139,7 @@ Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` verva
 
 ### Wijzigingen in gegevenswaarde
 
-Voor de activiteiten van de Verandering van de Waarde van Gegevens, wordt een gespecialiseerde versie van de activiteiten API verstrekt. Het [ krijgt de Veranderingen van het Lood ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) eindpunt keert slechts activiteiten van de verslagen van de Verandering van de Waarde van Gegevens aan loodgebieden terug. De interface is hetzelfde als de API voor lead-activiteiten ophalen, met twee verschillen:
+Voor de activiteiten van de Verandering van de Waarde van Gegevens, wordt een gespecialiseerde versie van de activiteiten API verstrekt. Het [&#x200B; krijgt de Veranderingen van het Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) eindpunt keert slechts activiteiten van de verslagen van de Verandering van de Waarde van Gegevens aan loodgebieden terug. De interface is hetzelfde als de API voor lead-activiteiten ophalen, met twee verschillen:
 
 * Er is geen `activityTypeIds` parameter, aangezien het eindpunt slechts de Verandering van de Waarde van Gegevens en Nieuwe Loodactiviteiten terugkeert.
 * De query-parameter `fields` is vereist, waarbij u een lijst met velden met komma&#39;s kunt doorgeven om aan te geven voor welke velden u wijzigingen wilt ophalen.
@@ -198,7 +198,7 @@ Let op: binnen elk resultaat array-item wordt het kenmerk integer van `id` verva
 
 ### Verwijderde leads
 
-Er is ook een speciaal eindpunt [ krijgen Geschrapte Leads ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) voor het terugwinnen van geschrapte activiteiten van Marketo.
+Er is ook een speciaal eindpunt [&#x200B; krijgen Geschrapte Leads &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) voor het terugwinnen van geschrapte activiteiten van Marketo.
 
 ```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
@@ -250,11 +250,11 @@ De Activiteiten van de douane functioneren enkel zoals standaardactiviteiten, be
 * Maximumaantal aangepaste activiteiten: 10
 * Maximum aantal kenmerken per aangepaste activiteit: 20
 
-Het terugwinnen van de gegevens van de douaneactiviteit wordt gedaan op de zelfde manier als standaardactiviteiten, door [ krijgen de Activiteiten van de Lood ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) API.
+Het terugwinnen van de gegevens van de douaneactiviteit wordt gedaan op de zelfde manier als standaardactiviteiten, door [&#x200B; krijgen de Activiteiten van de Lood &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) API.
 
 ## Zoektypen
 
-Naast standaard krijgt het Types van Activiteit eindpunt, [ krijgt de Types van Activiteit van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET) en [ beschrijft de eindpunten van het Type van Activiteit van de Douane ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET) details over de activiteitstypes die in de instantie van Marketo worden voorzien, en meta-gegevens betreffende de attributen voor een bepaald type. De normale [ krijgt de Types van Activiteit ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) keert nog meta-gegevens betreffende douaneactiviteiten terug, maar wijst niet erop of een bepaald type douane is.
+Naast standaard krijgt het Types van Activiteit eindpunt, [&#x200B; krijgt de Types van Activiteit van de Douane &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET) en [&#x200B; beschrijft de eindpunten van het Type van Activiteit van de Douane &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET) details over de activiteitstypes die in de instantie van Marketo worden voorzien, en meta-gegevens betreffende de attributen voor een bepaald type. De normale [&#x200B; krijgt de Types van Activiteit &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) keert nog meta-gegevens betreffende douaneactiviteiten terug, maar wijst niet erop of een bepaald type douane is.
 
 ### Get types
 
